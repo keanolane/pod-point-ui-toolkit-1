@@ -14,51 +14,36 @@ var _dropkickjs2 = _interopRequireDefault(_dropkickjs);
 
 var _domOps = require('@pod-point/dom-ops');
 
-var _utilities = require('./../utilities');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var selectSelector = document.querySelectorAll('.select-dd-wrapper select');
-var selectDDs = [];
+var instances = [];
 
 var SelectDropDown = function () {
 
     /**
-     * Runs init functions.
+     * Create a new select dropdown element.
+     *
+     * @param select wrapper
      */
-    function SelectDropDown() {
+    function SelectDropDown(element) {
         _classCallCheck(this, SelectDropDown);
 
-        this.getAllSelects();
+        this.element = element;
+
+        isTouchDevice ? this.setUpTouchVerison() : this.setUpDesktopVersion();
     }
 
     /**
-     * Gets all selects and passes them to functions according to device type (desktop/touch).
+     * For desktop: creates a new select drop down element using DropkickJS.
      */
 
 
     _createClass(SelectDropDown, [{
-        key: 'getAllSelects',
-        value: function getAllSelects() {
-            var _this = this;
-
-            var isTouch = (0, _utilities.isTouchDevice)();
-            selectDDs = (0, _domOps.nodesToArray)(selectSelector);
-
-            selectDDs.forEach(function (selectDD) {
-                isTouch ? _this.setUpTouchVerison(selectDD) : _this.setUpDesktopVersion(selectDD);
-            });
-        }
-
-        /**
-         * For desktop: creates a new select drop down element using DropkickJS.
-         */
-
-    }, {
         key: 'setUpDesktopVersion',
-        value: function setUpDesktopVersion(selectDD) {
+        value: function setUpDesktopVersion() {
+            var selectDD = this.element.querySelector('select');
             new _dropkickjs2.default(selectDD);
         }
 
@@ -68,10 +53,11 @@ var SelectDropDown = function () {
 
     }, {
         key: 'setUpTouchVerison',
-        value: function setUpTouchVerison(selectDD) {
-            var selectDDText = selectDD.querySelector('option[selected]').innerHTML;
-            (0, _domOps.insertBefore)(selectDD, '<div class="mobile-select">' + selectDDText + '</div>');
-            this.bindTouchEvents(selectDD);
+        value: function setUpTouchVerison() {
+            var selectDDWrap = this.element.querySelector('select');
+            var selectDDText = this.element.querySelector('option[selected]').innerHTML;
+            (0, _domOps.insertBefore)(selectDDWrap, '<div class="mobile-select">' + selectDDText + '</div>');
+            this.bindTouchEvents();
         }
 
         /**
@@ -80,8 +66,8 @@ var SelectDropDown = function () {
 
     }, {
         key: 'bindTouchEvents',
-        value: function bindTouchEvents(selectDD) {
-            var selectDDWrap = selectDD.closest('.select-dd-wrapper');
+        value: function bindTouchEvents() {
+            var selectDDWrap = this.element.closest('.select-dd-wrapper');
             var listener = new _domDelegate.Delegate(selectDDWrap);
 
             listener.on('change', 'select', function (event, element) {
@@ -95,9 +81,7 @@ var SelectDropDown = function () {
 }();
 
 exports.default = {
-    init: function init() {
-        if (selectSelector.length) {
-            new SelectDropDown();
-        }
+    init: function init(element) {
+        instances.push(new SelectDropDown(element));
     }
 };

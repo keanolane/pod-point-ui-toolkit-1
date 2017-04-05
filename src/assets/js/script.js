@@ -1,4 +1,5 @@
 require('./shims/classList.js');
+window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
 
 import loadModules from '@pod-point/module-loader';
 import combineDomModules from '@pod-point/dom-module-loader';
@@ -11,17 +12,19 @@ import collapse from './modules/collapse';
 import dropdown from './modules/dropdown';
 import selectDropdown from './modules/select-dropdown';
 import toggle from './modules/toggle';
+import gallerySimple from './modules/gallery-simple';
 
 dom.whenReady(() => {
     loadModules({
         formFields,
-        selectDropdown,
         domModules: combineDomModules({
             modal,
             ajaxForm,
             collapse,
             dropdown,
             toggle,
+            selectDropdown,
+            gallerySimple,
         })
     });
 });

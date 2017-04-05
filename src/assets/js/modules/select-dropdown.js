@@ -1,53 +1,45 @@
 import { Delegate } from 'dom-delegate';
 import Dropkick from 'dropkickjs';
 import { insertBefore, addClass, select, nodesToArray } from '@pod-point/dom-ops';
-import { isTouchDevice } from './../utilities';
 
-const selectSelector = document.querySelectorAll('.select-dd-wrapper select');
-let selectDDs = [];
+let instances = [];
 
 class SelectDropDown {
 
     /**
-     * Runs init functions.
+     * Create a new select dropdown element.
+     *
+     * @param select wrapper
      */
-    constructor() {
-        this.getAllSelects();
-    }
+    constructor(element) {
+        this.element = element;
 
-    /**
-     * Gets all selects and passes them to functions according to device type (desktop/touch).
-     */
-    getAllSelects() {
-        const isTouch = isTouchDevice();
-        selectDDs = nodesToArray(selectSelector);
-
-        selectDDs.forEach(selectDD => {
-            isTouch ? this.setUpTouchVerison(selectDD) : this.setUpDesktopVersion(selectDD);
-        });
+        isTouchDevice ? this.setUpTouchVerison() : this.setUpDesktopVersion();
     }
 
     /**
      * For desktop: creates a new select drop down element using DropkickJS.
      */
-    setUpDesktopVersion(selectDD) {
+    setUpDesktopVersion() {
+        const selectDD = this.element.querySelector('select');
         new Dropkick(selectDD);
     }
 
     /**
      * For touch devices: keeps native select but adds fake select box for better styling.
      */
-    setUpTouchVerison(selectDD) {
-        const selectDDText = selectDD.querySelector('option[selected]').innerHTML;
-        insertBefore(selectDD, '<div class="mobile-select">'+selectDDText+'</div>');
-        this.bindTouchEvents(selectDD);
+    setUpTouchVerison() {
+        const selectDDWrap = this.element.querySelector('select');
+        const selectDDText = this.element.querySelector('option[selected]').innerHTML;
+        insertBefore(selectDDWrap, '<div class="mobile-select">'+selectDDText+'</div>');
+        this.bindTouchEvents();
     }
 
     /**
      * Bind events for touch devices.
      */
-    bindTouchEvents(selectDD) {
-        const selectDDWrap = selectDD.closest('.select-dd-wrapper');
+    bindTouchEvents() {
+        const selectDDWrap = this.element.closest('.select-dd-wrapper');
         var listener = new Delegate(selectDDWrap);
 
         listener.on('change', 'select', (event, element) => {
@@ -58,9 +50,7 @@ class SelectDropDown {
 }
 
 export default {
-    init: function() {
-        if (selectSelector.length) {
-            new SelectDropDown();
-        }
+    init: function(element) {
+        instances.push(new SelectDropDown(element));
     }
 };

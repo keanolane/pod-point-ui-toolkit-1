@@ -7,7 +7,6 @@ exports.show = show;
 exports.hide = hide;
 exports.isVisible = isVisible;
 exports.isHidden = isHidden;
-exports.isTouchDevice = isTouchDevice;
 /**
  * Remove hidden class from element, showing it via CSS.
  *
@@ -44,17 +43,4 @@ function isVisible(element) {
  */
 function isHidden(element) {
   return element.classList.contains('hidden');
-}
-
-/**
- * Check if is touch device.
- *
- * @returns {boolean}
- */
-function isTouchDevice() {
-  if ('ontouchstart' in document.documentElement) {
-    return true;
-  } else {
-    return false;
-  }
 }

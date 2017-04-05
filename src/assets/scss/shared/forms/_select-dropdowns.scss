@@ -27,6 +27,8 @@ $select-dd-alternative-height: 2.5rem;
 	width: 100%;
 	cursor: pointer;
 	.mobile-select + select {
+		@include position(absolute, 0 null null 0);
+		font-size: 1.6rem;
 		opacity: 0;
 		z-index: 1;
 	}
@@ -190,6 +192,10 @@ $select-dd-alternative-height: 2.5rem;
 	@include media($medium) {
 		margin-top: 0;
 	}
+	.mobile-select + select {
+		width: 100%;
+		height: $input-height;
+	}
 	.dk-select,
 	.dk-selected,
 	.mobile-select {
@@ -214,14 +220,28 @@ $select-dd-alternative-height: 2.5rem;
 			height: 12px;
 			color: $input-icon-color;
 		}
-		&.dk-select-open-down:after {
-			@include transform(rotate(-180deg));
-			-webkit-transform: rotate(-180deg);
+		&.dk-select-open-down {
+			.dk-selected {
+				border-color: $primary-color;
+				color: $primary-color;
+			}
+			.dk-select-options {
+				border-color: $primary-color;
+			}
+			&:after {
+				color: $primary-color;
+				@include transform(rotate(-180deg));
+				-webkit-transform: rotate(-180deg);
+			}
 		}
 	}
 }
 .select-dd-wrapper--alternative {
 	margin-left: 0.2rem;
+	.mobile-select + select {
+		width: 100%;
+		height: $input-height;
+	}
 	.dk-selected,
 	.mobile-select {
 		position: relative;
@@ -251,7 +271,8 @@ $select-dd-alternative-height: 2.5rem;
 			margin-left: 0.6rem;
 		}
 		.dk-selected,
-		.mobile-select {
+		.mobile-select,
+		.mobile-select + select {
 			@include font-style-h1;
 			padding-bottom: 0.5rem;
 			@include media($medium) {
@@ -273,7 +294,8 @@ $select-dd-alternative-height: 2.5rem;
 			margin-left: 0.3rem;
 		}
 		.dk-selected,
-		.mobile-select {
+		.mobile-select,
+		.mobile-select + select {
 			@include font-style-large;
 			font-family: $font-family-bold;
 			margin-top: -0.4rem;

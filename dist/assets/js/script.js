@@ -86,22 +86,28 @@
 	
 	var _toggle2 = _interopRequireDefault(_toggle);
 	
+	var _gallerySimple = __webpack_require__(24);
+	
+	var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(24);
+	__webpack_require__(25);
+	window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
 	
 	dom.whenReady(function () {
 	    (0, _moduleLoader2.default)({
 	        formFields: _formFields2.default,
-	        selectDropdown: _selectDropdown2.default,
 	        domModules: (0, _domModuleLoader2.default)({
 	            modal: _modal2.default,
 	            ajaxForm: _ajaxForm2.default,
 	            collapse: _collapse2.default,
 	            dropdown: _dropdown2.default,
-	            toggle: _toggle2.default
+	            toggle: _toggle2.default,
+	            selectDropdown: _selectDropdown2.default,
+	            gallerySimple: _gallerySimple2.default
 	        })
 	    });
 	});
@@ -520,6 +526,7 @@
 	    function Modal(element) {
 	        _classCallCheck(this, Modal);
 	
+	        console.log(element);
 	        this.openButton = element;
 	        this.modal = (0, _domOps.selectFirst)('#' + this.openButton.getAttribute('data-modal'));
 	        this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
@@ -1121,7 +1128,6 @@
 	exports.hide = hide;
 	exports.isVisible = isVisible;
 	exports.isHidden = isHidden;
-	exports.isTouchDevice = isTouchDevice;
 	/**
 	 * Remove hidden class from element, showing it via CSS.
 	 *
@@ -1158,19 +1164,6 @@
 	 */
 	function isHidden(element) {
 	  return element.classList.contains('hidden');
-	}
-	
-	/**
-	 * Check if is touch device.
-	 *
-	 * @returns {boolean}
-	 */
-	function isTouchDevice() {
-	  if ('ontouchstart' in document.documentElement) {
-	    return true;
-	  } else {
-	    return false;
-	  }
 	}
 
 /***/ },
@@ -3220,51 +3213,36 @@
 	
 	var _domOps = __webpack_require__(4);
 	
-	var _utilities = __webpack_require__(8);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var selectSelector = document.querySelectorAll('.select-dd-wrapper select');
-	var selectDDs = [];
+	var instances = [];
 	
 	var SelectDropDown = function () {
 	
 	    /**
-	     * Runs init functions.
+	     * Create a new select dropdown element.
+	     *
+	     * @param select wrapper
 	     */
-	    function SelectDropDown() {
+	    function SelectDropDown(element) {
 	        _classCallCheck(this, SelectDropDown);
 	
-	        this.getAllSelects();
+	        this.element = element;
+	
+	        isTouchDevice ? this.setUpTouchVerison() : this.setUpDesktopVersion();
 	    }
 	
 	    /**
-	     * Gets all selects and passes them to functions according to device type (desktop/touch).
+	     * For desktop: creates a new select drop down element using DropkickJS.
 	     */
 	
 	
 	    _createClass(SelectDropDown, [{
-	        key: 'getAllSelects',
-	        value: function getAllSelects() {
-	            var _this = this;
-	
-	            var isTouch = (0, _utilities.isTouchDevice)();
-	            selectDDs = (0, _domOps.nodesToArray)(selectSelector);
-	
-	            selectDDs.forEach(function (selectDD) {
-	                isTouch ? _this.setUpTouchVerison(selectDD) : _this.setUpDesktopVersion(selectDD);
-	            });
-	        }
-	
-	        /**
-	         * For desktop: creates a new select drop down element using DropkickJS.
-	         */
-	
-	    }, {
 	        key: 'setUpDesktopVersion',
-	        value: function setUpDesktopVersion(selectDD) {
+	        value: function setUpDesktopVersion() {
+	            var selectDD = this.element.querySelector('select');
 	            new _dropkickjs2.default(selectDD);
 	        }
 	
@@ -3274,10 +3252,11 @@
 	
 	    }, {
 	        key: 'setUpTouchVerison',
-	        value: function setUpTouchVerison(selectDD) {
-	            var selectDDText = selectDD.querySelector('option[selected]').innerHTML;
-	            (0, _domOps.insertBefore)(selectDD, '<div class="mobile-select">' + selectDDText + '</div>');
-	            this.bindTouchEvents(selectDD);
+	        value: function setUpTouchVerison() {
+	            var selectDDWrap = this.element.querySelector('select');
+	            var selectDDText = this.element.querySelector('option[selected]').innerHTML;
+	            (0, _domOps.insertBefore)(selectDDWrap, '<div class="mobile-select">' + selectDDText + '</div>');
+	            this.bindTouchEvents();
 	        }
 	
 	        /**
@@ -3286,8 +3265,8 @@
 	
 	    }, {
 	        key: 'bindTouchEvents',
-	        value: function bindTouchEvents(selectDD) {
-	            var selectDDWrap = selectDD.closest('.select-dd-wrapper');
+	        value: function bindTouchEvents() {
+	            var selectDDWrap = this.element.closest('.select-dd-wrapper');
 	            var listener = new _domDelegate.Delegate(selectDDWrap);
 	
 	            listener.on('change', 'select', function (event, element) {
@@ -3301,10 +3280,8 @@
 	}();
 	
 	exports.default = {
-	    init: function init() {
-	        if (selectSelector.length) {
-	            new SelectDropDown();
-	        }
+	    init: function init(element) {
+	        instances.push(new SelectDropDown(element));
 	    }
 	};
 
@@ -13713,6 +13690,83 @@
 
 /***/ },
 /* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(6);
+	
+	var _domOps = __webpack_require__(4);
+	
+	var _utilities = __webpack_require__(8);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var GallerySimple = function () {
+	
+	    /**
+	     * Creates a gallery element.
+	     *
+	     * @param element
+	     */
+	    function GallerySimple(element) {
+	        _classCallCheck(this, GallerySimple);
+	
+	        this.element = element;
+	        this.bindEvents();
+	    }
+	
+	    /**
+	     * Bind any event listeners to the elements.
+	     */
+	
+	
+	    _createClass(GallerySimple, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+	
+	            this.listener = new _domDelegate.Delegate(this.element);
+	
+	            this.listener.on('click', 'li a', function (event, thumbnail) {
+	                event.preventDefault();
+	                _this.displayThumbnailAsImage(thumbnail);
+	            });
+	        }
+	
+	        /**
+	         * Display thumbnail as main image.
+	         */
+	
+	    }, {
+	        key: 'displayThumbnailAsImage',
+	        value: function displayThumbnailAsImage(thumbnail) {
+	            var thumbnailSrc = thumbnail.querySelector('img').src;
+	            var mainImage = this.element.querySelector('.gallery-simple__image');
+	
+	            mainImage.src = thumbnailSrc;
+	        }
+	    }]);
+	
+	    return GallerySimple;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new GallerySimple(element));
+	    }
+	};
+
+/***/ },
+/* 25 */
 /***/ function(module, exports) {
 
 	"use strict";

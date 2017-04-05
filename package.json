@@ -1,8 +1,8 @@
 {
   "name": "@pod-point/pod-point-ui-toolkit",
-  "version": "0.1",
-  "description": "A POD Point prototyping framework.",
-  "author": "Matine Chabrier <matine.chabrier@pod-point.com>",
+  "version": "1.0.0",
+  "description": "A rapid prototyping framework for getting a project off the ground quickly.",
+  "author": "Mike Francis <matine.chabrier@pod-point.com>",
   "license": "Apache-2.0",
   "dependencies": {
     "@pod-point/dom-module-loader": "^1.2.0",

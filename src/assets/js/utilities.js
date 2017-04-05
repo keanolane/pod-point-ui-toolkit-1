@@ -35,16 +35,3 @@ export function isVisible(element) {
 export function isHidden(element) {
     return element.classList.contains('hidden');
 }
-
-/**
- * Check if is touch device.
- *
- * @returns {boolean}
- */
-export function isTouchDevice() {
-	if ('ontouchstart' in document.documentElement) {
-		return true;
-	} else {
-		return false;
-	}
-}

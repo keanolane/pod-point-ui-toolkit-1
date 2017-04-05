@@ -99,10 +99,7 @@
 
 @mixin font-style-forms {
 	@include font-style-base;
-	font-family: $font-family-bold;
-}
-@mixin font-style-forms-large {
-	@include font-style-large;
+	font-size: 1.6rem; // Has to be 16px min for IOS
 	font-family: $font-family-bold;
 }
 @mixin font-style-tables {

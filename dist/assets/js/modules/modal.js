@@ -26,6 +26,7 @@ var Modal = function () {
     function Modal(element) {
         _classCallCheck(this, Modal);
 
+        console.log(element);
         this.openButton = element;
         this.modal = (0, _domOps.selectFirst)('#' + this.openButton.getAttribute('data-modal'));
         this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
