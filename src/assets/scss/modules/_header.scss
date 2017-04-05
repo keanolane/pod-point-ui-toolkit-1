@@ -1,0 +1,48 @@
+// =============================================================================
+//	HEADER
+// =============================================================================
+
+.global-header {
+	@include container;
+	position: relative;
+	&--nav-open {
+		box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.4);
+		@include media($medium) {
+			box-shadow: none;
+		}
+		.navicon {
+			@include iconfont("cross");
+		}
+	}
+	&__content {
+		height: 6rem;
+		border-bottom: $border-base;
+		@include media($medium) {
+			height: auto;
+			border-bottom: none;
+		}
+	}
+}
+
+.logo-main {
+	width: 10rem;
+	@include position(absolute, 2rem null null $horizontal-spacing-mobile);
+	@include media($medium) {
+		width: 18rem;
+		left: $horizontal-spacing;
+	}
+}
+.navicon {
+	@include iconfont("navicon");
+	color: $icon-color;
+	@include position(absolute, 2rem $horizontal-spacing-mobile null null);
+	@include media($medium) {
+		right: $horizontal-spacing;
+	}
+	&:before {
+		@include iconfont-styles;
+	}
+	@include media($medium) {
+		display: none;
+	}
+}

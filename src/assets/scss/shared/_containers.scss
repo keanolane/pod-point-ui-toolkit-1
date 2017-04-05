@@ -1,0 +1,24 @@
+// =============================================================================
+//	CONTAINERS
+// =============================================================================
+
+.container {
+	@include container;
+	&--vertical-padding {
+		@include padding($vertical-spacing-mobile null);
+		@include media($medium) {
+			@include padding($vertical-spacing null);
+		}
+	}
+	&--wide {
+		max-width: $max-width-content-wide;
+	}
+	&--wide {
+		max-width: $max-width-content-narrow;
+	}
+}
+.container-text {
+	max-width: $max-width-text;
+	&.wide { max-width: $max-width-text-wide; }
+	&.narrow { max-width: $max-width-text-narrow; }
+}

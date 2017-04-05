@@ -1,0 +1,18 @@
+// =============================================================================
+//  ICONS
+// =============================================================================
+
+.circle-icon {
+	@include icon-in-circle;
+
+	&--border {
+		background-color: transparent;
+		border: white 1px solid;
+		&:before {
+			line-height: 2.4rem;
+			@include media($medium) {
+				line-height: 4rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,53 @@
+// =============================================================================
+//	NAV
+// =============================================================================
+
+.global-nav {
+	display: none;
+	min-height: 10rem;
+	@include clearfix;
+	@include margin(null auto);
+	margin-bottom: 5rem;
+	@include media($medium) {
+		border-bottom: $border-base;
+		display: block;
+	}
+	.global-header--nav-open & {
+		display: block;
+	}
+	ul {
+		position: relative;
+		@include media($medium) {
+			float: right;
+		}
+		li {
+			border-bottom: $border-base;
+			&:last-child {
+				border-bottom: none;
+			}
+			@include media($medium) {
+				border-bottom: none;
+				display: inline-block;
+			}
+			a {
+				@include padding(2rem 0);
+				color: $font-color-base;
+				font-family: $font-family-base;
+				display: block;
+				@include media($medium) {
+					@include padding(4rem null 4rem 5rem);
+				}
+			}
+		}
+	}
+	&__sub-nav {
+		display: none;
+		@include position(absolute, 7rem 50% null null);
+		width: 9999px;
+		margin-left: -4999%;
+		ul {
+			@include container;
+			background-color: white;
+		}
+	}
+}

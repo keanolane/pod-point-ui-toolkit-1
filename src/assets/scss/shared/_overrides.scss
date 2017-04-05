@@ -1,0 +1,45 @@
+// =============================================================================
+//  OVERRIDES
+// =============================================================================
+
+// You can extend spacing helper placeholders here to use as class overrides like so...
+// .m-none { @extend %m-none };
+
+// Custom overrides classes can also go here
+.is-disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+.hidden {
+	display: none;
+}
+.text-center {
+	text-align: center;
+}
+.text-left {
+	text-align: left;
+}
+.text-right {
+	text-align: right;
+}
+.pull-right {
+	float: right;
+}
+.pull-left {
+	float: left;
+}
+.full-width {
+	width: 100%;
+}
+.uppercase {
+	text-transform: uppercase;
+}
+.lowercase {
+	text-transform: lowercase;
+}
+
+.fade-in {
+	animation-duration: 0.3s;
+	animation-fill-mode: both;
+	animation-name: fadeIn;
+}

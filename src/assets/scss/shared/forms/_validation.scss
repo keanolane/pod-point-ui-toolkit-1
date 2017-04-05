@@ -1,0 +1,49 @@
+// =============================================================================
+//  VALIDATION
+// =============================================================================
+
+span.error {
+	font-family: $font-family-base;
+	@include margin(-0.5rem 0 1.2rem);
+	font-size: 1.4rem;
+	letter-spacing: 0.1rem;
+	line-height: 1.1;
+	text-transform: uppercase;
+	color: $error-red;
+	display: block !important;
+	clear: both;
+	text-align: left;
+	padding-left: 0.3rem;
+	@include media($medium) {
+		font-size: 1.6rem;
+		padding-left: 0.5rem;
+	}
+
+	&:before {
+		content: '!';
+		position: relative;
+		left: -0.3rem;
+		@include media($medium) {
+			left: -0.5rem;
+		}
+	}
+
+	select + & {
+		margin-top: 0.3rem;
+	}
+}
+span.valid {
+	display: none !important;
+}
+
+#nlePrivateSale-error {
+	@include position(absolute, null null -2rem 0);
+	margin: 0;
+}
+
+.dk-selected.select-error,
+select.error,
+textarea.error,
+input.el-error {
+	border-bottom: $error-red solid 1px !important;
+}

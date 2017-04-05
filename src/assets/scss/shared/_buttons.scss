@@ -1,0 +1,92 @@
+// =============================================================================
+//  BUTONS
+// =============================================================================
+
+// Get rid of all default stying
+button {
+	-webkit-font-smoothing: antialiased;
+	appearance: none;
+	cursor: pointer;
+	user-select: none;
+	text-decoration: none;
+	background-color: transparent;
+	border: none;
+}
+
+button:not(.circle-icon),
+.button {
+	vertical-align: middle;
+	width: 100%;
+	display: inline-block;
+	@include padding(0.7rem 3.5rem);
+	@include margin(1rem null);
+	color: white;
+	background-color: $primary-color;
+	font-family: $font-family-bold;
+	font-size: 1.2rem;
+	font-weight: normal;
+	line-height: 1.2;
+	letter-spacing: 0.1rem;
+	border-radius: 3rem;
+	border: 1px solid $primary-color;
+	transition: all 0.2s ease;
+	max-width: $button-max-width;
+	@include media($small) {
+		@include padding(0.9rem 3.5rem);
+		font-size: 1.5rem;
+		width: auto;
+	}
+
+	&:hover:not(.is-disabled),
+	&:focus:not(.is-disabled),
+	&:active:not(.is-disabled) {
+		color: $primary-color;
+		background-color: transparent;
+		border-color: $primary-color;
+		opacity: 1;
+	}
+	&.button--secondary {
+		color: white;
+		background-color: $gray;
+		border-color: $gray;
+
+		&:hover:not(.is-disabled),
+		&:focus:not(.is-disabled),
+		&:active:not(.is-disabled) {
+			color: $gray;
+			background-color: transparent;
+			border-color: $gray;
+		}
+	}
+	&.button--tertiary {
+		color: $gray-dark;
+		background-color: transparent;
+		border-color: $gray-dark;
+
+		&:hover:not(.is-disabled),
+		&:focus:not(.is-disabled),
+		&:active:not(.is-disabled) {
+			color: white;
+			background-color: $gray-dark;
+			border-color: $gray-dark;
+		}
+	}
+	&.button--auto-width {
+		width: auto;
+	}
+}
+
+.buttons-container {
+	@include margin(-1rem);
+	overflow: hidden;
+	.button {
+		@include margin(null 1rem);
+		width: calc(100% - 2rem);
+		@include media($small) {
+			width: auto;
+		}
+		&--auto-width {
+			width: auto;
+		}
+	}
+}

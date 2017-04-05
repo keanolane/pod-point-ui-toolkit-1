@@ -1,0 +1,103 @@
+// =============================================================================
+//	VARIABLES
+// =============================================================================
+
+// Typography
+$font-family-base: "Quicksand Regular", sans-serif;
+$font-family-heading: "Quicksand Medium", sans-serif;
+$font-family-bold: "Quicksand Bold", sans-serif;
+
+// Font Sizes
+$font-size-base: 1.2rem;
+
+// Line height
+$line-height-base: 1.5;
+$line-height-heading: 1.2;
+
+// Horizontal spacing
+$horizontal-spacing-mobile: 2.5rem;
+$horizontal-spacing: 3rem;
+$-horizontal-spacing-mobile: -2.5rem;
+$-horizontal-spacing: -3rem;
+
+// Vertical spacing
+$vertical-spacing-mobile: 2.5rem;
+$vertical-spacing: 4rem;
+$-vertical-spacing-mobile: -2.5rem;
+$-vertical-spacing: -4rem;
+
+// Max widths
+$max-width-content: 104rem;
+$max-width-content-wide: 120rem;
+$max-width-content-narrow: 90rem;
+$max-width-text: 60rem;
+$max-width-text-wide: 70rem;
+$max-width-text-narrow: 50rem;
+
+// Other Sizes
+$border-radius-base: 5px;
+$spacing-large: $line-height-base * 2.5rem;
+$spacing-base: $line-height-base * 2rem;
+$spacing-small: $spacing-base / 2;
+$spacing-x-small: $spacing-base / 3;
+$z-index-base: 0;
+
+// Grey palette
+$background-color-base: #fff;
+$gray-very-light: #f2f2f2;
+$gray-light: #e6e6e6;
+$gray: #b3b3b3;
+$gray-medium: #999;
+$gray-dark: #333;
+$gray-very-dark: #4d4d4d;
+
+// Custom colours
+$primary-color: #8CC63F;
+$primary-color-light: #e2eecc;
+$secondary-color-dark: green;
+
+// Keyline colors
+$gray-keyline-light: #eeeeee;
+$gray-keyline: #cccccc;
+$gray-keyline-dark: #777;
+
+// Font Colors
+$font-color-base: #333;
+$font-color-very-light: #ccc;
+$font-color-light: #656565;
+$action-color: #7b7b7b;
+$article-title-color: #cdcdcd;
+
+$icon-color: $font-color-base;
+
+// Social colors
+$facebook-color: #4b6ead;
+$twitter-color: #00b7f0;
+$pinterest-color: #bd081c;
+
+// Border
+$border-color-base: #ccc;
+$border-base: 1px solid $border-color-base;
+
+// Form colors
+$form-keyline: $gray;
+$radio-border: $gray;
+$radio-fill-color: $primary-color;
+$checkbox-border: $form-keyline;
+$checked-fill-color: $primary-color;
+$checkbox-bg-color: transparent;
+$error-red: #C1272D;
+
+$disabled-color: gray;
+
+// Forms
+$input-height: 3.5rem;
+$input-padding: 1rem;
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+$form-border-radius: 5px;
+$input-text-color: #444;
+$input-placeholder-color: #ccc;
+$input-icon-color: #9C9C9C;
+$form-field-max-width: 50rem;
+$button-max-width: 50rem;

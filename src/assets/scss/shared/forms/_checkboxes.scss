@@ -1,0 +1,63 @@
+
+// =============================================================================
+//  CHECKBOXES
+// =============================================================================
+
+.checkbox-wrap {
+	text-align: left;
+	position: relative;
+	margin-bottom: 0.5rem;
+
+	&--inline {
+		display: inline-block;
+		margin-right: 2.5rem;
+	}
+
+	input[type="checkbox"] {
+		@include position(absolute, 0 null null 0);
+		display: block;
+		opacity: 0;
+		width: 2rem;
+		height: 2rem;
+		z-index: 2;
+		cursor: pointer;
+
+		& ~ label {
+			text-transform: none;
+			display: inline-block;
+			@include padding(0.2rem null 0.5rem 3rem);
+			cursor: pointer;
+
+			&:before {
+				@include iconfont-styles;
+				@include position(absolute, 0.3rem null null 0);
+				content: "";
+				padding-top: 0.3rem;
+				font-size: 1.1rem;
+				width: 2rem;
+				height: 2rem;
+				z-index: 1;
+				border: 1px solid $checkbox-border;
+				border-radius: $form-border-radius;
+			}
+		}
+
+		&:checked ~ label {
+			@include iconfont("tick");
+			&:before {
+				background-color: $primary-color;
+				border-color: $primary-color;
+				color: white;
+				font-weight: bold;
+			}
+		}
+
+		&:disabled ~ label {
+			color: $disabled-color;
+			cursor: not-allowed;
+			&:before {
+				opacity: 0.7;
+			}
+		}
+	}
+}

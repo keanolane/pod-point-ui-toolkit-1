@@ -1,0 +1,46 @@
+// =============================================================================
+//	SPACING HELPERS
+// =============================================================================
+
+$spacings: (
+	'none': 0,
+	'xxs': 0.5rem,
+	'xs': 1rem,
+	'sm': 1.5rem,
+	'md': 2rem,
+	'lg': 3rem,
+	'xl': 4rem,
+);
+
+@each $size, $value in $spacings {
+	%m-#{$size} {
+		margin: $value;
+	}
+	%m-t-#{$size} {
+		margin-top: $value;
+	}
+	%m-r-#{$size} {
+		margin-right: $value;
+	}
+	%m-b-#{$size} {
+		margin-bottom: $value;
+	}
+	%m-l-#{$size} {
+		margin-left: $value;
+	}
+	%p-#{$size} {
+		padding: $value;
+	}
+	%p-t-#{$size} {
+		padding-top: $value;
+	}
+	%p-r-#{$size} {
+		padding-right: $value;
+	}
+	%p-b-#{$size} {
+		padding-bottom: $value;
+	}
+	%p-l-#{$size} {
+		padding-left: $value;
+	}
+}

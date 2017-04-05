@@ -1,0 +1,42 @@
+// =============================================================================
+//	DEMO STYLES
+// =============================================================================
+
+// Bourbon is depreciating a lot of mixins in the next release and shows warning messages in the command line when compiling. The following line turns those messages off.
+$output-bourbon-deprecation-warnings: false;
+
+@import 'bourbon';
+@import 'base/__base';
+@import 'includes/__includes';
+@import 'shared/__shared';
+@import 'modules/__modules';
+@import 'pages/__pages';
+@import 'shared/overrides';
+
+.demo-header {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+.demo-logo-main {
+	img {
+		width: 12rem;
+	}
+}
+.demo-section-heading {
+	background-color: $primary-color;
+	color: white;
+}
+.demo-section-sub-heading {
+	background-color: $gray-very-light;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+
+	h3 {
+		text-transform: uppercase;
+		font-size: 1.2rem;
+		font-family: $font-family-bold;
+		@include media($medium) {
+			font-size: 1.4rem;
+		}
+	}
+}

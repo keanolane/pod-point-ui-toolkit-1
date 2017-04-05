@@ -1,0 +1,74 @@
+// =============================================================================
+//  TYPOGRAPHY
+// =============================================================================
+
+html {
+	font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+	@include font-feature-settings('kern', 'liga', 'pnum');
+	-webkit-font-smoothing: antialiased;
+	color: $font-color-base;
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+	font-size: 1.2rem;
+	line-height: $line-height-base;
+
+	-webkit-text-size-adjust:100%;
+	-ms-text-size-adjust:100%;
+	-webkit-text-shadow:rgba(255,255,255,0.01) 0 0 1px;
+	text-shadow:rgba(255,255,255,0.01) 0 0 1px;
+}
+
+
+p, .p { @include font-style-base; }
+h1, .h1 { @include font-style-h1; }
+h2, .h2 { @include font-style-h2; }
+h3, .h3 { @include font-style-h3; }
+h4, .h4 { @include font-style-h4; }
+h5, .h5 { @include font-style-h5; }
+h6, .h6 { @include font-style-h6; }
+
+.font-style-base,
+.font-style-base > p {
+	@include font-style-base;
+}
+.font-style-large,
+.font-style-large > p {
+	@include font-style-large;
+}
+.font-style-small,
+.font-style-small > p {
+	@include font-style-small;
+}
+
+strong,
+.bold {
+	font-weight: normal;
+	font-family: $font-family-bold;
+}
+
+a {
+	color: $primary-color;
+	text-decoration: none;
+	transition: all 0.2s linear;
+
+	&:active,
+	&:focus,
+	&:hover {
+		opacity: 0.7;
+	}
+	&:active,
+	&:focus {
+		outline: none;
+	}
+}
+
+hr {
+	margin: $spacing-base 0;
+	border-bottom: $border-base;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+}

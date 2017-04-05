@@ -1,0 +1,58 @@
+// =============================================================================
+//  FORM STYLES SHARED
+// =============================================================================
+
+// Get rid of yellow bg color on Chrome auto complete
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0 1000px black inset;
+	-webkit-text-fill-color: white !important;
+}
+
+::-webkit-input-placeholder {
+	color: $input-placeholder-color;
+}
+:-moz-placeholder { // Firefox 18-
+	color: $input-placeholder-color;
+}
+::-moz-placeholder {  // Firefox 19+
+	color: $input-placeholder-color;
+}
+:-ms-input-placeholder {
+	color: $input-placeholder-color;
+}
+
+@mixin input-styles {
+	@include font-style-forms;
+	box-sizing: border-box;
+	width: 100%;
+	height: $input-height;
+	line-height: $input-height;
+	-webkit-appearance: none;
+	@include padding(0 $input-padding);
+	display: block;
+	max-width: $form-field-max-width;
+}
+@mixin input-border {
+	transition: border-color;
+	background-color: $background-color-base;
+	border: 1px solid $form-keyline;
+	border-radius: $form-border-radius;
+	&:hover {
+		border-color: $form-keyline;
+	}
+	&:focus {
+		border-color: $form-keyline;
+		outline: none;
+	}
+}
+
+label {
+	display: inline-block;
+	@include font-style-small;
+	padding-bottom: 0.5rem;
+
+	.checkbox-wrap &,
+	.radio-wrap & {
+		@include font-style-small;
+	}
+}
