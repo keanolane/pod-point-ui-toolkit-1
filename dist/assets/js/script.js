@@ -90,12 +90,18 @@
 	
 	var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
 	
+	var _headerNav = __webpack_require__(25);
+	
+	var _headerNav2 = _interopRequireDefault(_headerNav);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(25);
+	__webpack_require__(26);
+	
 	window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
+	isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
 	
 	dom.whenReady(function () {
 	    (0, _moduleLoader2.default)({
@@ -107,7 +113,8 @@
 	            dropdown: _dropdown2.default,
 	            toggle: _toggle2.default,
 	            selectDropdown: _selectDropdown2.default,
-	            gallerySimple: _gallerySimple2.default
+	            gallerySimple: _gallerySimple2.default,
+	            headerNav: _headerNav2.default
 	        })
 	    });
 	});
@@ -13767,6 +13774,134 @@
 
 /***/ },
 /* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(6);
+	
+	var _domOps = __webpack_require__(4);
+	
+	var _utilities = __webpack_require__(8);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var NAV_OPEN = 'nav-open';
+	var SUBNAV_OPEN = 'sub-nav-open';
+	
+	var navIsOpen = false;
+	var subNavIsOpen = false;
+	
+	var HeaderNav = function () {
+	
+	    /**
+	     * Creates a new header nav element.
+	     *
+	     * @param element
+	     */
+	    function HeaderNav(element) {
+	        _classCallCheck(this, HeaderNav);
+	
+	        this.element = element;
+	        this.bindEvents();
+	    }
+	
+	    /**
+	     * Binds the event listeners from the elements.
+	     */
+	
+	
+	    _createClass(HeaderNav, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+	
+	            this.listener = new _domDelegate.Delegate(this.element);
+	
+	            this.listener.on('click', '.navicon', function (event) {
+	                _this.toggleNav(event);
+	            });
+	            this.listener.on('click', '.plus-minus-toggle', function (event, clickedElement) {
+	                _this.toggleSubNav(event, clickedElement);
+	            });
+	        }
+	
+	        /**
+	         * Toggles the nav.
+	         *
+	         * @param {Event} event
+	         */
+	
+	    }, {
+	        key: 'toggleNav',
+	        value: function toggleNav(event) {
+	            event.preventDefault();
+	
+	            if (navIsOpen) {
+	                navIsOpen = false;
+	                (0, _domOps.removeClass)(this.element, NAV_OPEN);
+	            } else {
+	                navIsOpen = true;
+	                (0, _domOps.addClass)(this.element, NAV_OPEN);
+	            }
+	        }
+	
+	        /**
+	         * Closes all sub navs.
+	         */
+	
+	    }, {
+	        key: 'closeSubNavs',
+	        value: function closeSubNavs() {
+	            var openSubNavs = (0, _domOps.nodesToArray)((0, _domOps.select)('.has-sub-nav.sub-nav-open'));
+	            if (openSubNavs.length) {
+	                openSubNavs.forEach(function (openSubNav) {
+	                    (0, _domOps.removeClass)(openSubNav, SUBNAV_OPEN);
+	                });
+	            }
+	        }
+	
+	        /**
+	         * Toggles the sub nav.
+	         *
+	         * @param {Event} event
+	         * @param {Element} element
+	         */
+	
+	    }, {
+	        key: 'toggleSubNav',
+	        value: function toggleSubNav(event, clickedElement) {
+	            event.preventDefault();
+	            var subNavLi = clickedElement.closest('li');
+	            var subNavIsOpen = clickedElement.closest('.has-sub-nav.sub-nav-open');
+	            if (subNavIsOpen == null) {
+	                this.closeSubNavs();
+	                (0, _domOps.addClass)(subNavLi, SUBNAV_OPEN);
+	            } else {
+	                (0, _domOps.removeClass)(subNavLi, SUBNAV_OPEN);
+	            }
+	        }
+	    }]);
+	
+	    return HeaderNav;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new HeaderNav(element));
+	    }
+	};
+
+/***/ },
+/* 26 */
 /***/ function(module, exports) {
 
 	"use strict";

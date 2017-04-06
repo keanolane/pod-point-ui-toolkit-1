@@ -6,3 +6,16 @@
    0% {opacity: 0;}
    100% {opacity: 1;}
 }
+@keyframes fadeOut {
+   0% {opacity: 1;}
+   100% {opacity: 0;}
+}
+@mixin slideDownCollapsed($duration) {
+   max-height: 0;
+   transition: max-height $duration ease-out;
+   overflow: hidden;
+}
+@mixin slideDownActive($duration) {
+   max-height: 500px;
+   transition: max-height $duration ease-in;
+}

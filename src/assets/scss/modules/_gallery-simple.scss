@@ -10,11 +10,11 @@
 	}
 	&__thumbnails {
 		text-align: center;
-		@include margin(0.4rem -0.2rem);
+		@include margin(2rem -0.5rem);
 		li {
 			width: 4rem;
 			display: inline-block;
-			@include margin(null 0.2rem);
+			@include margin(null 0.5rem);
 			img {
 				width: 100%;
 				border-radius: $border-radius-base;

@@ -4,50 +4,135 @@
 
 .global-nav {
 	display: none;
-	min-height: 10rem;
 	@include clearfix;
 	@include margin(null auto);
-	margin-bottom: 5rem;
+	transition: 0.1s ease-in-out;
 	@include media($medium) {
-		border-bottom: $border-base;
+		height: 10rem;
 		display: block;
+		float: right;
 	}
-	.global-header--nav-open & {
+	.nav-open & {
 		display: block;
+		transition: 0.5s ease-in-out;
+		animation-duration: 0.8s;
+		animation-fill-mode: both;
+		animation-name: fadeIn;
 	}
 	ul {
-		position: relative;
-		@include media($medium) {
-			float: right;
-		}
 		li {
+			position: relative;
 			border-bottom: $border-base;
+			@include font-small;
 			&:last-child {
 				border-bottom: none;
 			}
 			@include media($medium) {
+				position: static;
 				border-bottom: none;
 				display: inline-block;
+				@include margin(null 2rem);
 			}
-			a {
-				@include padding(2rem 0);
+			a:not(.plus-minus-toggle) {
+				@include padding(1rem 0);
 				color: $font-color-base;
-				font-family: $font-family-base;
+				font-family: $font-family-bold;
 				display: block;
 				@include media($medium) {
-					@include padding(4rem null 4rem 5rem);
+					@include padding(3.7rem 0.5rem);
 				}
 			}
 		}
 	}
+	> ul {
+		@include media($medium) {
+			float: right;
+			margin-right: -2rem;
+		}
+		> li {
+			min-height: 4.3rem;
+			&.has-sub-nav {
+				.global-nav__sub-nav {
+					.is-desktop & {
+						@include media($medium) {
+							display: none;
+							transition: 0.1s ease-in-out;
+						}
+					}
+				}
+				&:hover {
+					.global-nav__sub-nav {
+						.is-desktop & {
+							@include media($medium) {
+								display: block;
+								transition: 0.5s ease-in-out;
+								height: auto;
+								max-height: 400rem;
+								animation-duration: 0.8s;
+								animation-fill-mode: both;
+								animation-name: fadeIn;
+							}
+						}
+					}
+				}
+				&.sub-nav-open {
+					.global-nav__sub-nav {
+						height: auto;
+						max-height: 400rem;
+						transition: 1s ease-in-out;
+						@include slideDownActive(1s);
+						@include media($medium) {
+							opacity: 1;
+						}
+					}
+				}
+				.plus-minus-toggle {
+					@include media($medium) {
+						display: none;
+					}
+				}
+			}
+			&:hover,
+			&.is-active {
+				border-bottom: 2px solid $primary-color;
+			}
+		}
+	}
 	&__sub-nav {
-		display: none;
-		@include position(absolute, 7rem 50% null null);
-		width: 9999px;
-		margin-left: -4999%;
+		width: 100%;
+		text-align: center;
+		transition: 0.3s ease-in-out;
+		@include slideDownCollapsed(0.5s);
+		@include media($medium) {
+			opacity: 0;
+			@include position(absolute, 10rem 0 null null);
+			box-shadow: $bottom-shadow;
+		}
 		ul {
 			@include container;
-			background-color: white;
+			background-color: rgba(255,255,255,0.3);
+			margin-bottom: 2rem;
+			@include media($medium) {
+				margin-bottom: 0;
+			}
+			li {
+				border-bottom: none;
+				@include media($small) {
+					display: inline-block;
+				}
+				@include padding(null 2rem);
+					a  {
+					text-align: center;
+					img {
+						@include margin(0.5rem auto 2rem auto);
+						display: block;
+						width: 8rem;
+						@include media($medium) {
+							width: 10rem;
+						}
+					}
+				}
+			}
 		}
 	}
 }

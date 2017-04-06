@@ -230,6 +230,12 @@ html {
   100% {
     opacity: 1; } }
 
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 html {
   font-size: 62.5%; }
 
@@ -1596,6 +1602,87 @@ button:not(.circle-icon),
         .circle-icon--border:before {
           line-height: 4rem; } }
 
+.navicon {
+  width: 2.5rem;
+  height: 1.8rem;
+  position: relative;
+  -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+  transition: .5s ease-in-out; }
+  .navicon span {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #333;
+    position: absolute;
+    left: 0;
+    border-radius: 0.5rem;
+    -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    transition: .25s ease-in-out;
+    opacity: 1; }
+    .navicon span:nth-child(1) {
+      top: 0; }
+      .nav-open .navicon span:nth-child(1) {
+        top: 50%;
+        -ms-transform: rotate(135deg);
+            transform: rotate(135deg); }
+    .navicon span:nth-child(2) {
+      top: 50%; }
+      .nav-open .navicon span:nth-child(2) {
+        left: -2.5rem;
+        opacity: 0; }
+    .navicon span:nth-child(3) {
+      top: 100%; }
+      .nav-open .navicon span:nth-child(3) {
+        top: 50%;
+        -ms-transform: rotate(-135deg);
+            transform: rotate(-135deg); }
+
+.plus-minus-toggle {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4rem;
+  height: 4rem; }
+  .plus-minus-toggle span {
+    display: block;
+    position: relative;
+    top: 2rem;
+    right: 0.5rem;
+    float: right;
+    width: 1.7rem;
+    height: 1.7rem;
+    transition: .5s ease-in-out;
+    -ms-transform: rotate(0deg);
+        transform: rotate(0deg); }
+    .plus-minus-toggle span:before, .plus-minus-toggle span:after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: #333;
+      position: absolute;
+      top: 0;
+      border-radius: 0.5rem;
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+      transition: .25s ease-in-out;
+      opacity: 1; }
+    .plus-minus-toggle span:before {
+      top: -0.1rem; }
+      .sub-nav-open .plus-minus-toggle span:before {
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg); }
+    .plus-minus-toggle span:after {
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg); }
+      .sub-nav-open .plus-minus-toggle span:after {
+        opacity: 0;
+        -ms-transform: rotate(360deg);
+            transform: rotate(360deg); }
+
 .img--resp {
   max-width: 100%; }
 
@@ -1631,27 +1718,40 @@ button:not(.circle-icon),
   .container-text.narrow {
     max-width: 50rem; }
 
+.global-header-wrap {
+  position: relative; }
+
 .global-header {
   margin-right: auto;
   margin-left: auto;
   max-width: 104rem;
   padding-right: 2.5rem;
-  padding-left: 2.5rem;
-  position: relative; }
+  padding-left: 2.5rem; }
   @media screen and (min-width: 50em) {
     .global-header {
       padding-right: 3rem;
       padding-left: 3rem; } }
-  .global-header--nav-open {
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); }
+  .global-header:after {
+    content: "";
+    display: table;
+    clear: both; }
+  @media screen and (min-width: 50em) {
+    .global-header {
+      height: 10rem; } }
+  .global-header:after {
+    width: 100%; }
     @media screen and (min-width: 50em) {
-      .global-header--nav-open {
+      .global-header:after {
+        border-bottom: 1px solid #ccc; } }
+  .global-header.nav-open {
+    box-shadow: 0px 11px 16px -10px rgba(0, 0, 0, 0.1); }
+    @media screen and (min-width: 50em) {
+      .global-header.nav-open {
         box-shadow: none; } }
-    .global-header--nav-open .navicon:before {
-      content: ""; }
   .global-header__content {
-    height: 6rem;
-    border-bottom: 1px solid #ccc; }
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    height: 6rem; }
     @media screen and (min-width: 50em) {
       .global-header__content {
         height: auto;
@@ -1661,100 +1761,141 @@ button:not(.circle-icon),
   width: 10rem;
   position: absolute;
   top: 2rem;
-  left: 2.5rem; }
+  left: 0; }
   @media screen and (min-width: 50em) {
     .logo-main {
-      width: 18rem;
-      left: 3rem; } }
+      top: 3rem;
+      width: 18rem; } }
 
 .navicon {
-  color: #333;
-  position: absolute;
-  top: 2rem;
-  right: 2.5rem; }
-  .navicon:before {
-    content: ""; }
-  @media screen and (min-width: 50em) {
-    .navicon {
-      right: 3rem; } }
-  .navicon:before {
-    display: inline-block;
-    height: inherit;
-    margin-right: 0.2rem;
-    margin-left: 0.2rem;
-    font-size: 2rem;
-    font-family: "icons";
-    font-variant: normal;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    text-decoration: inherit;
-    text-align: center;
-    text-transform: none;
-    speak: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; }
+  margin-top: 2rem;
+  float: right; }
   @media screen and (min-width: 50em) {
     .navicon {
       display: none; } }
 
 .global-nav {
   display: none;
-  min-height: 10rem;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 5rem; }
+  transition: 0.1s ease-in-out; }
   .global-nav:after {
     content: "";
     display: table;
     clear: both; }
   @media screen and (min-width: 50em) {
     .global-nav {
-      border-bottom: 1px solid #ccc;
-      display: block; } }
-  .global-header--nav-open .global-nav {
-    display: block; }
-  .global-nav ul {
-    position: relative; }
+      height: 10rem;
+      display: block;
+      float: right; } }
+  .nav-open .global-nav {
+    display: block;
+    transition: 0.5s ease-in-out;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-name: fadeIn; }
+  .global-nav ul li {
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.2rem; }
     @media screen and (min-width: 50em) {
-      .global-nav ul {
-        float: right; } }
-    .global-nav ul li {
-      border-bottom: 1px solid #ccc; }
-      .global-nav ul li:last-child {
-        border-bottom: none; }
+      .global-nav ul li {
+        font-size: 1.4rem; } }
+    .global-nav ul li:last-child {
+      border-bottom: none; }
+    @media screen and (min-width: 50em) {
+      .global-nav ul li {
+        position: static;
+        border-bottom: none;
+        display: inline-block;
+        margin-right: 2rem;
+        margin-left: 2rem; } }
+    .global-nav ul li a:not(.plus-minus-toggle) {
+      padding: 1rem 0;
+      color: #333;
+      font-family: "Quicksand Bold", sans-serif;
+      display: block; }
       @media screen and (min-width: 50em) {
-        .global-nav ul li {
-          border-bottom: none;
-          display: inline-block; } }
-      .global-nav ul li a {
-        padding: 2rem 0;
-        color: #333;
-        font-family: "Quicksand Regular", sans-serif;
-        display: block; }
-        @media screen and (min-width: 50em) {
-          .global-nav ul li a {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-            padding-left: 5rem; } }
+        .global-nav ul li a:not(.plus-minus-toggle) {
+          padding: 3.7rem 0.5rem; } }
+  @media screen and (min-width: 50em) {
+    .global-nav > ul {
+      float: right;
+      margin-right: -2rem; } }
+  .global-nav > ul > li {
+    min-height: 4.3rem; }
+    @media screen and (min-width: 50em) {
+      .is-desktop .global-nav > ul > li.has-sub-nav .global-nav__sub-nav {
+        display: none;
+        transition: 0.1s ease-in-out; } }
+    @media screen and (min-width: 50em) {
+      .is-desktop .global-nav > ul > li.has-sub-nav:hover .global-nav__sub-nav {
+        display: block;
+        transition: 0.5s ease-in-out;
+        height: auto;
+        max-height: 400rem;
+        animation-duration: 0.8s;
+        animation-fill-mode: both;
+        animation-name: fadeIn; } }
+    .global-nav > ul > li.has-sub-nav.sub-nav-open .global-nav__sub-nav {
+      height: auto;
+      max-height: 400rem;
+      transition: 1s ease-in-out;
+      max-height: 500px;
+      transition: max-height 1s ease-in; }
+      @media screen and (min-width: 50em) {
+        .global-nav > ul > li.has-sub-nav.sub-nav-open .global-nav__sub-nav {
+          opacity: 1; } }
+    @media screen and (min-width: 50em) {
+      .global-nav > ul > li.has-sub-nav .plus-minus-toggle {
+        display: none; } }
+    .global-nav > ul > li:hover, .global-nav > ul > li.is-active {
+      border-bottom: 2px solid #8CC63F; }
   .global-nav__sub-nav {
-    display: none;
-    position: absolute;
-    top: 7rem;
-    right: 50%;
-    width: 9999px;
-    margin-left: -4999%; }
+    width: 100%;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    overflow: hidden; }
+    @media screen and (min-width: 50em) {
+      .global-nav__sub-nav {
+        opacity: 0;
+        position: absolute;
+        top: 10rem;
+        right: 0;
+        box-shadow: 0px 11px 16px -10px rgba(0, 0, 0, 0.1); } }
     .global-nav__sub-nav ul {
       margin-right: auto;
       margin-left: auto;
       max-width: 104rem;
       padding-right: 2.5rem;
       padding-left: 2.5rem;
-      background-color: white; }
+      background-color: rgba(255, 255, 255, 0.3);
+      margin-bottom: 2rem; }
       @media screen and (min-width: 50em) {
         .global-nav__sub-nav ul {
           padding-right: 3rem;
           padding-left: 3rem; } }
+      @media screen and (min-width: 50em) {
+        .global-nav__sub-nav ul {
+          margin-bottom: 0; } }
+      .global-nav__sub-nav ul li {
+        border-bottom: none;
+        padding-right: 2rem;
+        padding-left: 2rem; }
+        @media screen and (min-width: 40em) {
+          .global-nav__sub-nav ul li {
+            display: inline-block; } }
+        .global-nav__sub-nav ul li a {
+          text-align: center; }
+          .global-nav__sub-nav ul li a img {
+            margin: 0.5rem auto 2rem;
+            display: block;
+            width: 8rem; }
+            @media screen and (min-width: 50em) {
+              .global-nav__sub-nav ul li a img {
+                width: 10rem; } }
 
 .modal {
   background-color: rgba(0, 0, 0, 0.8);
@@ -1802,12 +1943,12 @@ button:not(.circle-icon),
     border-radius: 5px; }
   .gallery-simple__thumbnails {
     text-align: center;
-    margin: 0.4rem -0.2rem; }
+    margin: 2rem -0.5rem; }
     .gallery-simple__thumbnails li {
       width: 4rem;
       display: inline-block;
-      margin-right: 0.2rem;
-      margin-left: 0.2rem; }
+      margin-right: 0.5rem;
+      margin-left: 0.5rem; }
       .gallery-simple__thumbnails li img {
         width: 100%;
         border-radius: 5px; }

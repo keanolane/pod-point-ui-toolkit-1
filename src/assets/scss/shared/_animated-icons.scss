@@ -1,0 +1,86 @@
+// =============================================================================
+//  ANIMATED ICONS
+// =============================================================================
+
+.navicon {
+	width: 2.5rem;
+	height: 1.8rem;
+	position: relative;
+	transform: rotate(0deg);
+	transition: .5s ease-in-out;
+	span {
+		display: block;
+		height: 1px;
+		width: 100%;
+		background-color: $icon-color;
+		@include position(absolute, null null null 0);
+		border-radius: 0.5rem;
+		transform: rotate(0deg);
+		transition: .25s ease-in-out;
+		opacity: 1;
+		&:nth-child(1) {
+			top: 0;
+			.nav-open & {
+				top: 50%;
+				transform: rotate(135deg);
+			}
+		}
+		&:nth-child(2) {
+			top: 50%;
+			.nav-open & {
+				left: -2.5rem;
+				opacity: 0;
+			}
+		}
+		&:nth-child(3) {
+			top: 100%;
+			.nav-open & {
+				top: 50%;
+				transform: rotate(-135deg);
+			}
+		}
+	}
+}
+
+
+.plus-minus-toggle {
+	cursor: pointer;
+	@include position(absolute, 0 0 null null);
+	width: 4rem;
+	height: 4rem;
+	span {
+		display: block;
+		@include position(relative, 2rem 0.5rem null null);
+		float: right;
+		width: 1.7rem;
+		height: 1.7rem;
+		transition: .5s ease-in-out;
+		transform: rotate(0deg);
+		&:before,
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: $icon-color;
+			@include position(absolute, 0 null null null);
+			border-radius: 0.5rem;
+			transform: rotate(0deg);
+			transition: .25s ease-in-out;
+			opacity: 1;
+		}
+		&:before {
+			top: -0.1rem;
+			.sub-nav-open & {
+				transform: rotate(180deg);
+			}
+		}
+		&:after {
+			transform: rotate(90deg);
+			.sub-nav-open & {
+				opacity: 0;
+				transform: rotate(360deg);
+			}
+		}
+	}
+}

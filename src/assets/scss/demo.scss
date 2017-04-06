@@ -9,9 +9,6 @@ $output-bourbon-deprecation-warnings: false;
 @import 'base/__base';
 @import 'includes/__includes';
 @import 'shared/__shared';
-@import 'modules/__modules';
-@import 'pages/__pages';
-@import 'shared/overrides';
 
 .demo-header {
 	padding-top: 1rem;

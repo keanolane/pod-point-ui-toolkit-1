@@ -1,9 +1,9 @@
 require('./shims/classList.js');
-window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
 
 import loadModules from '@pod-point/module-loader';
 import combineDomModules from '@pod-point/dom-module-loader';
 import * as dom from '@pod-point/dom-ops';
+import {addClass} from '@pod-point/dom-ops';
 
 import modal from './modules/modal';
 import ajaxForm from './modules/ajax-form';
@@ -13,6 +13,10 @@ import dropdown from './modules/dropdown';
 import selectDropdown from './modules/select-dropdown';
 import toggle from './modules/toggle';
 import gallerySimple from './modules/gallery-simple';
+import headerNav from './modules/header-nav';
+
+window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
+isTouchDevice ? addClass(document.body, 'is-touch') : addClass(document.body, 'is-desktop')
 
 dom.whenReady(() => {
     loadModules({
@@ -25,6 +29,7 @@ dom.whenReady(() => {
             toggle,
             selectDropdown,
             gallerySimple,
+            headerNav,
         })
     });
 });
