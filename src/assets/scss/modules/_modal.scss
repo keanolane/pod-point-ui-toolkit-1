@@ -27,5 +27,10 @@
 	color: white;
 	&__title {
 		color: white;
+		@include font-style-h1;
+	}
+	&__text-content {
+		max-width: $max-width-text;
+		@include margin(null auto);
 	}
 }

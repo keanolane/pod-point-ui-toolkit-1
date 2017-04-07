@@ -37,3 +37,11 @@ $output-bourbon-deprecation-warnings: false;
 		}
 	}
 }
+
+.demo-grid {
+	.grid-row > div {
+		background-color: $gray;
+		color: white;
+		padding: 2rem;
+	}
+}

@@ -1,0 +1,53 @@
+// =============================================================================
+//	CARDS
+// =============================================================================
+
+.card {
+	overflow: hidden;
+	background-color: white;
+	border-radius: $border-radius-base;
+	border: 1px solid $gray-keyline;
+	color: $font-color-base;
+	@include padding(2rem);
+
+	&--centered {
+		text-align: center;
+	}
+	&--highlight {
+		border: solid $primary-color 2px;
+	}
+	&--standout {
+		background-color: $gray-very-light;
+	}
+	&--sash {
+		position: relative;
+		&:before {
+			z-index: 1;
+			content: '*';
+			font-size: 3rem;
+			text-align: center;
+			line-height: 1;
+			width: 1.5rem;
+			@include position(absolute, 0 0 null null);
+			color: white;
+		}
+		&:after {
+			content: '';
+			@include position(absolute, 0 0 null null);
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 30px 30px 0;
+			border-color: transparent $primary-color transparent transparent;
+		}
+	}
+
+	hr {
+		@include margin(1rem null);
+	}
+	p, h1, h2, h3, h4, h5, h6 {
+		& + hr {
+			margin-top: 0.5rem;
+		}
+	}
+}

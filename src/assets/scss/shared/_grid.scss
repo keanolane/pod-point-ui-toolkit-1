@@ -12,11 +12,7 @@ $default-gutter: 1rem;
 	.grid-col-6,
 	.grid-col-4,
 	.grid-col-3 {
-		@include grid-col($col: 12);
-		background-color: gray;
-		color: white;
-		text-align: center;
-		@include padding(1rem);
+		@include grid-col($col: 12, $gutter: $default-gutter);
 	}
 	@include media($medium) {
 		.grid-col-6 {

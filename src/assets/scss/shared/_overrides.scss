@@ -38,6 +38,10 @@
 	text-transform: lowercase;
 }
 
+.max-width-text-narrow {
+	max-width: $max-width-text-narrow;
+}
+
 .fade-in {
 	animation-duration: 0.3s;
 	animation-fill-mode: both;

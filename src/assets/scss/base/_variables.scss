@@ -58,7 +58,7 @@ $secondary-color-dark: green;
 
 // Keyline colors
 $gray-keyline-light: #eeeeee;
-$gray-keyline: #cccccc;
+$gray-keyline: #ccc;
 $gray-keyline-dark: #777;
 
 // Font Colors
@@ -76,11 +76,12 @@ $twitter-color: #00b7f0;
 $pinterest-color: #bd081c;
 
 // Border
-$border-color-base: #ccc;
+$border-color-base: $gray-keyline;
 $border-base: 1px solid $border-color-base;
 
 // Shadow
 $bottom-shadow: 0px 11px 16px -10px rgba(0,0,0,0.1);
+$box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
 
 // Form colors
 $form-keyline: $gray;

@@ -48,6 +48,9 @@ strong,
 	font-weight: normal;
 	font-family: $font-family-bold;
 }
+.green {
+	color: $primary-color;
+}
 
 a {
 	color: $primary-color;
@@ -71,4 +74,10 @@ hr {
 	border-left: none;
 	border-right: none;
 	border-top: none;
+	background-color: $gray-keyline;
+}
+p, h1, h2, h3, h4, h5, h6 {
+	& + hr {
+		margin-top: 2rem;
+	}
 }

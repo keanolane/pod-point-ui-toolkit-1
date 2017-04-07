@@ -87,6 +87,7 @@
 					}
 				}
 				.plus-minus-toggle {
+					z-index: -1;
 					@include media($medium) {
 						display: none;
 					}

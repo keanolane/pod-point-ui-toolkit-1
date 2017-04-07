@@ -32,7 +32,7 @@ class HeaderNav {
         this.listener.on('click', '.navicon', (event) => {
             this.toggleNav(event);
         });
-        this.listener.on('click', '.plus-minus-toggle', (event, clickedElement) => {
+        this.listener.on('click', '.has-sub-nav a', (event, clickedElement) => {
             this.toggleSubNav(event, clickedElement);
         });
     }

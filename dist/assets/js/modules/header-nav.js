@@ -51,7 +51,7 @@ var HeaderNav = function () {
             this.listener.on('click', '.navicon', function (event) {
                 _this.toggleNav(event);
             });
-            this.listener.on('click', '.plus-minus-toggle', function (event, clickedElement) {
+            this.listener.on('click', '.has-sub-nav a', function (event, clickedElement) {
                 _this.toggleSubNav(event, clickedElement);
             });
         }

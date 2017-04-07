@@ -12,6 +12,11 @@ input[type="text"],
 input[type="url"] {
 	@include input-styles;
 	@include input-border;
+	&.input--secondary {
+		border-radius: 0;
+		border: none;
+		border-bottom: 1px solid $form-keyline;
+	}
 	&:focus {
 		color: $primary-color;
 		border-color: $primary-color;

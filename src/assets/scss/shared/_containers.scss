@@ -22,3 +22,17 @@
 	&.wide { max-width: $max-width-text-wide; }
 	&.narrow { max-width: $max-width-text-narrow; }
 }
+
+.content-block {
+	@include margin(4rem null);
+	&--no-padding {
+		@include margin(0 null);
+	}
+	&--centered {
+		@include margin(null auto);
+		text-align: center;
+	}
+	& + .content-block {
+		margin-top: 0;
+	}
+}
