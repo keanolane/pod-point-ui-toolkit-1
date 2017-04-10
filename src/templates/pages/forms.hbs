@@ -1,3 +1,150 @@
 <div data-page="forms">
-	{{> sample-forms }}
+	<header class="demo-section-heading">
+		<div class="container container--vertical-padding">
+			<h2>Forms</h2>
+		</div>
+	</header>
+
+
+	<!-- PRIMARY FORM FIELDS -->
+	<section>
+		<header class="demo-section-sub-heading">
+			<div class="container">
+				<h3>Primary form fields</h3>
+			</div>
+		</header>
+
+		<div class="container container--vertical-padding">
+			<div class="field-row">
+				<label>Input field</label>
+				<input type="text" placeholder="Sample placeholder text" />
+			</div>
+
+			<div class="field-row">
+				<label>Text area</label>
+				<textarea type="text"></textarea>
+			</div>
+
+			<div class="field-row">
+				<label>Select dropdown</label>
+				<div data-js-module="selectDropdown" class="select-dd-wrapper">
+					<select>
+						<option value="00">00</option>
+						<option selected value="01">01</option>
+						<option value="02">02</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="field-row">
+				<div class="checkboxes-wrap">
+					<div class="checkbox-wrap">
+						<input type="checkbox" name="checkboxExample1" id="checkboxExample1" checked="checked">
+						<label for="checkboxExample1">This is an example of a checkbox</label>
+					</div>
+					<div class="checkbox-wrap">
+						<input type="checkbox" name="checkboxExample2" id="checkboxExample2">
+						<label for="checkboxExample2">This is an example of a checkbox with lots of text and a <a href="#">link</a>. Aenean sapien est, convallis sit amet euismod sit amet, porttitor at quam. Suspendisse consectetur nulla odio, et fringilla magna feugiat et.</label>
+					</div>
+					<div class="checkbox-wrap">
+						<input disabled type="checkbox" name="checkboxExample3" id="checkboxExample3">
+						<label for="checkboxExample3">This is an example of a disabled checkbox</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="field-row">
+				<div class="radios-wrap">
+					<div class="radio-wrap">
+						<input type="radio" name="radioExample" id="radioExample1" value="radioExample1" checked="checked"/>
+						<label for="radioExample1" class="radio">Radio example one</label>
+					</div>
+					<div class="radio-wrap">
+						<input type="radio" name="radioExample" id="radioExample2" value="radioExample2"/>
+						<label for="radioExample2" class="radio">Radio example with lots of text sed porttitor, arcu sit amet blandit cursus, magna lectus varius lectus, tristique molestie lacus est maximus ipsum. Donec ultricies consequat ornare.</label>
+					</div>
+					<div class="radio-wrap">
+						<input type="radio" name="radioExample" id="radioExampleDisabled" value="radioExampleDisabled" disabled/>
+						<label for="radioExampleDisabled" class="radio">Radio example disabled</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="field-row">
+				<div class="radios-wrap">
+					<div class="radio-wrap radio-wrap--inline">
+						<input type="radio" name="radioExampleInline" id="radioExampleInline1" value="radioExampleInline1" checked="checked"/>
+						<label for="radioExampleInline1" class="radio">Inline radio example one</label>
+					</div>
+					<div class="radio-wrap radio-wrap--inline">
+						<input type="radio" name="radioExampleInline" id="radioExampleInline2" value="radioExampleInline2"/>
+						<label for="radioExampleInline2" class="radio">Inline radio example two</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-action-buttons">
+				<button type="Submit" class="button">Submit</button>
+			</div>
+		</div>
+	<section>
+
+
+	<!-- DROPDOWNS -->
+	<section>
+		<header class="demo-section-sub-heading">
+			<div class="container">
+				<h3>Alternative select dropdowns</h3>
+			</div>
+		</header>
+
+		<div class="container container--vertical-padding">
+			<div class="field-row">
+				<label>Dropdown - inline with h1 heading</label>
+				<div class="select-dd-inline-wrap select-dd-inline-wrap--heading">
+					<h3 class="h1 select-dd-inline-wrap__text">I am interested in </h3>
+					<div data-js-module="selectDropdown" class="select-dd-wrapper select-dd-wrapper--alternative select-dd-wrapper--alternative--h1">
+						<select>
+							<option value="home-charging">Home Charging</option>
+							<option selected value="workplace-charging">Workplace Charging</option>
+							<option value="smart-city-charging">Smart City Charging</option>
+							<option value="business-charging">Business Charging</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="field-row">
+				<label>Dropdown - inline with large text</label>
+				<div class="select-dd-inline-wrap select-dd-inline-wrap--body-text">
+					<p class="select-dd-inline-wrap__text">Make </p>
+					<div data-js-module="selectDropdown" class="select-dd-wrapper select-dd-wrapper--alternative select-dd-wrapper--alternative--font-large">
+						<select>
+							<option value="nissan">Nissan</option>
+							<option value="workplace-charging">Workplace Charging</option>
+							<option selected value="smart-city-charging">Smart City Charging</option>
+							<option value="business-charging">Business Charging</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	<section>
+
+	<!-- DROPDOWNS -->
+	<section>
+		<header class="demo-section-sub-heading">
+			<div class="container">
+				<h3>Alternative select input field</h3>
+			</div>
+		</header>
+
+		<div class="container container--vertical-padding">
+			<div class="content-block content-block--no-padding content-block--centered max-width-text-narrow">
+				<label class="font-style-large bold">Subscribe to our newsletter</label>
+				<input class="input--secondary text-center" type="text" placeholder="Sample placeholder text" />
+			</div>
+		</div>
+	</section>
 </div>

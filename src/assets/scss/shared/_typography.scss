@@ -21,7 +21,6 @@ body {
 	text-shadow:rgba(255,255,255,0.01) 0 0 1px;
 }
 
-
 p, .p { @include font-style-base; }
 h1, .h1 { @include font-style-h1; }
 h2, .h2 { @include font-style-h2; }
@@ -34,6 +33,9 @@ h6, .h6 { @include font-style-h6; }
 .font-style-base > p {
 	@include font-style-base;
 }
+.font-base {
+	@include font-base;
+}
 .font-style-large,
 .font-style-large > p {
 	@include font-style-large;
@@ -41,6 +43,9 @@ h6, .h6 { @include font-style-h6; }
 .font-style-small,
 .font-style-small > p {
 	@include font-style-small;
+}
+.font-small {
+	@include font-small;
 }
 
 strong,

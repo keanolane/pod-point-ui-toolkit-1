@@ -364,6 +364,15 @@ h6, .h6 {
   .font-style-base > p:last-child {
     padding-bottom: 0; }
 
+.font-base {
+  margin: 0;
+  font-family: "Quicksand Regular", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.5em; }
+  @media screen and (min-width: 50em) {
+    .font-base {
+      font-size: 1.6rem; } }
+
 .font-style-large,
 .font-style-large > p {
   margin: 0;
@@ -399,6 +408,12 @@ h6, .h6 {
   @media screen and (min-width: 50em) {
     .font-style-small,
     .font-style-small > p {
+      font-size: 1.4rem; } }
+
+.font-small {
+  font-size: 1.2rem; }
+  @media screen and (min-width: 50em) {
+    .font-small {
       font-size: 1.4rem; } }
 
 strong,
@@ -1281,22 +1296,29 @@ textarea {
 ul,
 ol {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
-  font-size: 1.4rem;
-  line-height: 1.5em;
-  padding-bottom: 0.5em;
-  margin: 0;
   padding: 0; }
-  @media screen and (min-width: 50em) {
-    ul,
-    ol {
-      font-size: 1.6rem; } }
-  ul:last-child,
-  ol:last-child {
-    padding-bottom: 0; }
   ul li,
   ol li {
     list-style: none; }
+  ul.list--small,
+  ol.list--small {
+    font-size: 1.2rem; }
+    @media screen and (min-width: 50em) {
+      ul.list--small,
+      ol.list--small {
+        font-size: 1.4rem; } }
+  ul.list--links li a,
+  ol.list--links li a {
+    color: inherit; }
+  ul.list--inline,
+  ol.list--inline {
+    margin-right: -1.5rem;
+    margin-left: -1.5rem; }
+    ul.list--inline li,
+    ol.list--inline li {
+      display: inline-block;
+      margin-right: 1.5rem;
+      margin-left: 1.5rem; }
 
 .dl {
   margin-bottom: 1.5rem; }
@@ -1306,19 +1328,16 @@ ol {
   .dl dd {
     margin: 0; }
 
-.icons-list--inline:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-.icons-list--inline li {
-  float: left;
-  margin-right: 0.5rem; }
-  .icons-list--inline li:last-child {
-    margin-right: 0; }
-  .icons-list--inline li a:not(.circle-icon):before {
-    color: black;
-    font-size: 2.5rem; }
+.icons-list--inline {
+  margin-right: -0.15rem;
+  margin-left: -0.15rem; }
+  .icons-list--inline li {
+    display: inline-block;
+    margin-right: 0.15rem;
+    margin-left: 0.15rem; }
+    .icons-list--inline li a:not(.circle-icon):before {
+      color: black;
+      font-size: 2.5rem; }
 
 .rich-text ul, .rich-text ol {
   margin: 0;
@@ -1598,15 +1617,15 @@ button:not(.circle-icon),
     height: 100%;
     margin: 0;
     padding: 0;
-    font-size: 1em;
+    font-size: 1.1rem;
     color: #fff;
     line-height: 2.6rem; }
   @media screen and (min-width: 50em) {
-    .circle-icon {
+    .circle-icon--resp {
       width: 4rem;
       height: 4rem; }
-      .circle-icon:before {
-        font-size: 1.4em;
+      .circle-icon--resp:before {
+        font-size: 1.7em;
         line-height: 4rem; } }
   .circle-icon--border {
     background-color: transparent;
@@ -1615,7 +1634,8 @@ button:not(.circle-icon),
       line-height: 2.4rem; }
       @media screen and (min-width: 50em) {
         .circle-icon--border:before {
-          line-height: 4rem; } }
+          line-height: 4rem;
+          font-size: 1.6rem; } }
 
 .navicon {
   width: 2.5rem;
@@ -1693,7 +1713,8 @@ button:not(.circle-icon),
     .plus-minus-toggle span:after {
       -ms-transform: rotate(90deg);
           transform: rotate(90deg); }
-      .sub-nav-open .plus-minus-toggle span:after {
+      .sub-nav-open .plus-minus-toggle span:after,
+      .accordion .is-open .plus-minus-toggle span:after {
         opacity: 0;
         -ms-transform: rotate(360deg);
             transform: rotate(360deg); }

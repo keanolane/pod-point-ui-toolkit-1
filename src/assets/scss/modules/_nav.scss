@@ -39,7 +39,19 @@
 				font-family: $font-family-bold;
 				display: block;
 				@include media($medium) {
-					@include padding(3.7rem 0.5rem);
+					@include padding(3.9rem 0.5rem);
+				}
+			}
+			a.find-chargepoint {
+				color: $primary-color;
+				@include iconfont('charge-location');
+				position: relative;
+				padding-left: 2.2rem;
+				&:before {
+					@include iconfont-styles;
+					font-size: 22px;
+					@include position(absolute, 50% null null -0.5rem);
+					margin-top: -11px;
 				}
 			}
 		}

@@ -21,20 +21,13 @@
 	<![endif]-->
 
 	<div class="global-wrapper">
+		{{> demo-header }}
 
-		{{!-- Global header --}}
-		{{> header }}
-
-
-		{{!-- Page content --}}
 		<main role="main" class="global-content">
 			{% body %}
 		</main>
 
-
-		{{!-- global footer --}}
-		{{> footer }}
-
+		{{> demo-footer }}
 	</div>
 
 	<script src="assets/js/script.js"></script>

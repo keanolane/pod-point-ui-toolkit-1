@@ -21,7 +21,6 @@
 	<![endif]-->
 
 	<div class="global-wrapper">
-
 		<header role="header" class="demo-header">
 			<div class="container">
 				<a class="demo-logo-main" href="/">
@@ -29,27 +28,26 @@
 				</a>
 			</div>
 		</header>
-
 		<main role="main" class="global-content">
 			<div data-page="modals">
-	<div>
-		<header class="demo-section-heading">
-			<div class="container container--vertical-padding">
-				<h2>Modals</h2>
-			</div>
-		</header>
-	
+
+	<header class="demo-section-heading">
 		<div class="container container--vertical-padding">
-			<div class="buttons-container">
-				<button class="button" data-js-module="modal" data-modal="testModal">Open a modal</button>
-				<button class="button button--secondary" data-js-module="modal" data-modal="anotherTestModal">Open another modal</button>
-			</div>
+			<h2>Modals</h2>
+		</div>
+	</header>
+
+	<div class="container container--vertical-padding">
+		<div class="buttons-container">
+			<button class="button" data-js-module="modal" data-modal="testModal">Open a modal</button>
+			<button class="button button--secondary" data-js-module="modal" data-modal="anotherTestModal">Open another modal</button>
 		</div>
 	</div>
-	
-	
+
+
+	<!-- HIDDEN MODALS -->
 	<div class="modal hidden fade-in" id="testModal">
-		<button type="button" class="circle-icon circle-icon--border iconfont-cross modal-close">Close</button>
+		<button type="button" class="circle-icon circle-icon--border circle-icon--resp iconfont-cross modal-close">Close</button>
 		<div class="modal__content">
 			<div class="panel">
 				<img class="img--resp img--rounded-corners" src="http://placehold.it/700x400">
@@ -88,9 +86,9 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="modal hidden fade-in" id="anotherTestModal">
-		<button type="button" class="circle-icon circle-icon--border iconfont-cross modal-close">Close</button>
+		<button type="button" class="circle-icon circle-icon--border circle-icon--resp iconfont-cross modal-close">Close</button>
 		<div class="modal__content">
 			<div class="panel">
 				<img class="img--resp" src="http://placehold.it/1000x400">
@@ -98,13 +96,12 @@
 			</div>
 		</div>
 	</div>
+
 </div>
 		</main>
 
-
 		<footer role="footer" class="demo-footer">
-		</footer>
-	</div>
+		</footer>	</div>
 
 	<script src="assets/js/script.js"></script>
 

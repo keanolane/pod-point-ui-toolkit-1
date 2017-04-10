@@ -90,7 +90,11 @@
 	
 	var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
 	
-	var _headerNav = __webpack_require__(25);
+	var _accordion = __webpack_require__(25);
+	
+	var _accordion2 = _interopRequireDefault(_accordion);
+	
+	var _headerNav = __webpack_require__(26);
 	
 	var _headerNav2 = _interopRequireDefault(_headerNav);
 	
@@ -98,10 +102,14 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(26);
+	__webpack_require__(27);
 	
 	window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
 	isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
+	
+	var winWidthMedium = 800;
+	var winWidth = window.innerWidth;
+	window.isMobileSize = winWidth < winWidthMedium ? true : false;
 	
 	dom.whenReady(function () {
 	    (0, _moduleLoader2.default)({
@@ -114,7 +122,8 @@
 	            toggle: _toggle2.default,
 	            selectDropdown: _selectDropdown2.default,
 	            gallerySimple: _gallerySimple2.default,
-	            headerNav: _headerNav2.default
+	            headerNav: _headerNav2.default,
+	            accordion: _accordion2.default
 	        })
 	    });
 	});
@@ -13788,6 +13797,99 @@
 	
 	var _domOps = __webpack_require__(4);
 	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var IS_OPEN = 'is-open';
+	var MOBILE_ONLY = 'accordion--only-mobile';
+	
+	var Accordion = function () {
+	
+	    /**
+	     * Creates a new accordion element.
+	     *
+	     * @param element
+	     */
+	    function Accordion(element) {
+	        _classCallCheck(this, Accordion);
+	
+	        this.element = element;
+	        this.mobileOrDesktop();
+	    }
+	
+	    /**
+	     * Checks if mobile or desktop.
+	     *
+	     */
+	
+	
+	    _createClass(Accordion, [{
+	        key: 'mobileOrDesktop',
+	        value: function mobileOrDesktop() {
+	            if ((0, _domOps.hasClass)(this.element, MOBILE_ONLY) && isMobileSize) this.bindEvents();
+	        }
+	
+	        /**
+	         * Binds the event listeners from the elements.
+	         */
+	
+	    }, {
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+	
+	            this.listener = new _domDelegate.Delegate(this.element);
+	
+	            this.listener.on('click', 'dt', function (event, element) {
+	                _this.toggleAccordion(event, element);
+	            });
+	        }
+	
+	        /**
+	         * Toggles the accordion.
+	         *
+	         * @param {Event} event
+	         * @param {Element} element
+	         */
+	
+	    }, {
+	        key: 'toggleAccordion',
+	        value: function toggleAccordion(event, element) {
+	            var allDtEls = (0, _domOps.nodesToArray)(this.element.querySelectorAll('dt'));
+	            allDtEls.forEach(function (dt) {
+	                return (0, _domOps.removeClass)(dt, IS_OPEN);
+	            });
+	
+	            (0, _domOps.addClass)(element.closest('dt'), IS_OPEN);
+	        }
+	    }]);
+	
+	    return Accordion;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new Accordion(element));
+	    }
+	};
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(6);
+	
+	var _domOps = __webpack_require__(4);
+	
 	var _utilities = __webpack_require__(8);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13901,7 +14003,7 @@
 	};
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports) {
 
 	"use strict";

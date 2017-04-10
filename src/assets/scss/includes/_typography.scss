@@ -11,6 +11,13 @@
 		font-size: 1.6rem;
 	}
 }
+@mixin font-small {
+	@include font-base;
+	font-size: 1.2rem;
+	@include media($medium) {
+		font-size: 1.4rem;
+	}
+}
 
 @mixin font-style-base {
 	@include font-base;

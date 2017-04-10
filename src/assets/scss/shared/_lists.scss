@@ -4,11 +4,25 @@
 
 ul,
 ol {
-	@include font-style-base;
 	margin: 0;
 	padding: 0;
 	li {
 		list-style: none;
+	}
+	&.list--small {
+		@include font-small;
+	}
+	&.list--links {
+		li a {
+			color: inherit;
+		}
+	}
+	&.list--inline {
+		@include margin(null -1.5rem);
+		li {
+			display: inline-block;
+			@include margin(null 1.5rem);
+		}
 	}
 }
 
@@ -26,13 +40,10 @@ ol {
 
 .icons-list {
 	&--inline {
-		@include clearfix;
+		@include margin(null -0.15rem);
 		li {
-			float: left;
-			margin-right: 0.5rem;
-			&:last-child {
-				margin-right: 0;
-			}
+			display: inline-block;
+			@include margin(null 0.15rem);
 			a:not(.circle-icon) {
 				&:before {
 					color: black;

@@ -40,17 +40,17 @@
 		height: 100%;
 		margin: 0;
 		padding: 0;
-		font-size: 1em;
+		font-size: 1.1rem;
 		color: #{$color};
 		line-height: 2.6rem;
 	}
-	@include media($medium) {
-		width: 4rem;
-		height: 4rem;
-		&:before {
-			font-size: 1.4em;
-			line-height: 4rem;
-		}
+}
+@mixin icon-in-circle--large() {
+	width: 4rem;
+	height: 4rem;
+	&:before {
+		font-size: 1.7em;
+		line-height: 4rem;
 	}
 }
 

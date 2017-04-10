@@ -5,6 +5,11 @@
 .circle-icon {
 	@include icon-in-circle;
 
+	&--resp {
+		@include media($medium) {
+			@include icon-in-circle--large;
+		}
+	}
 	&--border {
 		background-color: transparent;
 		border: white 1px solid;
@@ -12,6 +17,7 @@
 			line-height: 2.4rem;
 			@include media($medium) {
 				line-height: 4rem;
+				font-size: 1.6rem;
 			}
 		}
 	}

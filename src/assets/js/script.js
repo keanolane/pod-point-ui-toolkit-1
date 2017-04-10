@@ -13,10 +13,15 @@ import dropdown from './modules/dropdown';
 import selectDropdown from './modules/select-dropdown';
 import toggle from './modules/toggle';
 import gallerySimple from './modules/gallery-simple';
+import accordion from './modules/accordion';
 import headerNav from './modules/header-nav';
 
 window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
 isTouchDevice ? addClass(document.body, 'is-touch') : addClass(document.body, 'is-desktop')
+
+const winWidthMedium = 800;
+let winWidth = window.innerWidth;
+window.isMobileSize = (winWidth < winWidthMedium) ? true : false;
 
 dom.whenReady(() => {
     loadModules({
@@ -30,6 +35,7 @@ dom.whenReady(() => {
             selectDropdown,
             gallerySimple,
             headerNav,
+            accordion,
         })
     });
 });

@@ -77,7 +77,8 @@
 		}
 		&:after {
 			transform: rotate(90deg);
-			.sub-nav-open & {
+			.sub-nav-open &,
+			.accordion .is-open & {
 				opacity: 0;
 				transform: rotate(360deg);
 			}
