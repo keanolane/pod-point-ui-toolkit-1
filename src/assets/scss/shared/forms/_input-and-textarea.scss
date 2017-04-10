@@ -23,14 +23,13 @@ input[type="url"] {
 	}
 }
 
-textarea {
+textarea[type="text"] {
 	@include input-styles;
 	@include input-border;
 	@include font-style-forms;
 	height: auto;
 	min-height: 13rem;
 	resize: vertical;
-	margin-bottom: -0.5rem;
 	@include padding($input-padding);
 	&:focus {
 		color: $primary-color;

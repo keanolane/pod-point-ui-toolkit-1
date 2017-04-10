@@ -56,3 +56,67 @@ label {
 		@include font-style-small;
 	}
 }
+
+.label--block {
+	width: 100%;
+}
+
+.form-field-wrapper {
+	display: inline-block;
+	width: 50rem;
+	max-width: 100%;
+	padding-right: 3rem;
+	@include media($medium) {
+		padding-right: 0;
+	}
+	&.is-valid,
+	&.is-invalid {
+		@include iconfont('tick');
+		position: relative;
+		&:before {
+			@include iconfont-styles;
+			font-weight: bold;
+			font-size: 1.6rem;
+			@include position(absolute, 0.9rem 0 null null);
+			color: $primary-color;
+			@include media($medium) {
+				right: -3rem;
+			}
+		}
+	}
+	&.is-invalid {
+		@include iconfont('cross');
+		&:before {
+			color: $error-red;
+		}
+		input,
+		textarea,
+		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-selected,
+		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select {
+			border-color: $error-red;
+		}
+	}
+}
+
+.error-message {
+	display: block;
+	@include font-style-small;
+	font-family: $font-family-bold;
+	color: $error-red;
+	margin-top: 0.3rem;
+	.checkbox-wrap & {
+		margin-top: 0;
+	}
+}
+.checkbox-wrap:not(.is-invalid),
+.form-field-wrapper:not(.is-invalid) {
+	.error-message {
+		display: none;
+	}
+}
+
+.checkbox-wrap.is-invalid {
+	input[type="checkbox"] ~ label:before {
+		border-color: $error-red;
+	}
+}

@@ -3,7 +3,7 @@
 // =============================================================================
 // Below is a very basic grid based on a 12 col grid and provides half, third and quarter width columns that expand to full width on a smaller screen. See here to fully configure grids: http://thingsym.github.io/flexbox-grid-mixins
 
-$default-gutter: 1rem;
+$default-gutter: 2rem;
 
 // SAMPLE GRID (change or delete as required)
 .grid-wrap { overflow: hidden; }

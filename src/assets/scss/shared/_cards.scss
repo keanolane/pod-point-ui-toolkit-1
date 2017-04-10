@@ -21,12 +21,13 @@
 	}
 	&--sash {
 		position: relative;
+		@include iconfont('star');
 		&:before {
+			@include iconfont-styles;
+			font-size: 1.1rem;
 			z-index: 1;
-			content: '*';
-			font-size: 3rem;
 			text-align: center;
-			line-height: 1;
+			line-height: 1.7;
 			width: 1.5rem;
 			@include position(absolute, 0 0 null null);
 			color: white;
@@ -48,6 +49,17 @@
 	p, h1, h2, h3, h4, h5, h6 {
 		& + hr {
 			margin-top: 0.5rem;
+		}
+	}
+}
+
+.card-set-standout {
+	@include media($medium) {
+		.grid-row {
+			@include margin(0.7rem null);
+		}
+		.card--standout {
+			transform: scale(1.07, 1.07);
 		}
 	}
 }

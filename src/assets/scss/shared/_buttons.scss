@@ -71,6 +71,14 @@ button:not(.circle-icon),
 			border-color: $gray-dark;
 		}
 	}
+	&.button--selected {
+		@include iconfont('tick');
+		@include hide-text-not-pseudo;
+		&:before {
+			@include iconfont-styles;
+			font-weight: bold;
+		}
+	}
 	&.button--auto-width {
 		width: auto;
 	}

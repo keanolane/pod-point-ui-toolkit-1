@@ -31,6 +31,9 @@
 				position: static;
 				border-bottom: none;
 				display: inline-block;
+				@include margin(null 1rem);
+			}
+			@include media($large) {
 				@include margin(null 2rem);
 			}
 			a:not(.plus-minus-toggle) {
