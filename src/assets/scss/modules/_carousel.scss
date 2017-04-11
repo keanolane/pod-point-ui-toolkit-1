@@ -1,0 +1,101 @@
+// =============================================================================
+//	CAROUSEL
+// =============================================================================
+
+.carousel-section {
+	@include padding(4rem null);
+
+	.reviews-from-text {
+		display: none;
+		@include media($small) {
+			display: inline-block;
+			padding-right: 0.5rem;
+		}
+	}
+	.reviews-logo img {
+		width: 13rem;
+		position: relative;
+		top: 6px;
+	}
+}
+.carousel-wrap {
+	@include margin(3rem auto);
+	max-width: $max-width-text-wide;
+	width: 90%;
+	position: relative;
+
+	.iconfont-user {
+		@include position(absolute, 0 null null 50%);
+		z-index: 1;
+	}
+}
+
+.slick-slider {
+	.slick-list {
+		border-radius: $border-radius-base;
+		.slick-slide {
+			@include horizontal-spacing;
+			.slick-slide--content {
+				position: relative;
+				background-color: white;
+				border-radius: $border-radius-base;
+				@include padding(2rem);
+				min-height: 20rem;
+			}
+		}
+	}
+}
+
+.slick-arrow {
+	@include hide-text-not-pseudo;
+	@include iconfont('cheveron');
+	display: block;
+	width: 3rem;
+	@include position(absolute, 50% null null null);
+	margin-top: -1.5rem;
+	z-index: 2;
+	&:before {
+		@include iconfont-styles;
+		color: white;
+	}
+	&.slick-prev {
+		right: -1rem;
+		@include media($medium) {
+			right: -4rem;
+		}
+		&:before {
+			transform: rotate(-90deg);
+		}
+	}
+	&.slick-next {
+		left: -1rem;
+		@include media($medium) {
+			left: -4rem;
+		}
+		&:before {
+			transform: rotate(90deg);
+		}
+	}
+}
+
+.slick-dots {
+	width: 100%;
+	height: 2rem;
+	@include position(absolute, null null -4rem 0);
+	li {
+		display: inline-block;
+		@include padding(null 0.5rem);
+		button {
+			width: 1.2rem;
+			height: 1.2rem;
+			border-radius: 50%;
+			background-color: white;
+			text-indent: -9999px;
+		}
+		&.slick-active {
+			button {
+				background-color: $primary-color;
+			}
+		}
+	}
+}

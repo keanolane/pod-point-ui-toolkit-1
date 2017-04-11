@@ -21,4 +21,7 @@
 			}
 		}
 	}
+	&--on-white {
+		@include icon-in-circle($bgColor: white, $color: black);
+	}
 }

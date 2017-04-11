@@ -10,6 +10,8 @@
     "@pod-point/module-loader": "^2.2.0",
     "@pod-point/utils": "^1.5.0",
     "dom-delegate": "^2.0.3",
+    "exports-loader": "^0.6.4",
+    "slick-carousel": "^1.6.0",
     "superagent": "^1.8.3"
   },
   "devDependencies": {
@@ -47,6 +49,7 @@
     "node-neat": "^1.7.2",
     "require-dir": "^0.3.0",
     "rimraf": "^2.4.4",
+    "tiny-slider": "^1.4.1",
     "webpack-stream": "^3.1.0"
   }
 }

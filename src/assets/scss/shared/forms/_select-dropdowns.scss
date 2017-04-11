@@ -239,8 +239,7 @@ $select-dd-alternative-height: 2.5rem;
 			}
 			&:after {
 				color: $font-color-base!important;
-				@include transform(rotate(-180deg));
-				-webkit-transform: rotate(-180deg);
+				transform: rotate(-180deg);
 			}
 		}
 	}

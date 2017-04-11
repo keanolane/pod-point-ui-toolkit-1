@@ -15,6 +15,7 @@ import toggle from './modules/toggle';
 import gallerySimple from './modules/gallery-simple';
 import accordion from './modules/accordion';
 import headerNav from './modules/header-nav';
+import carousel from './modules/Carousel';
 
 window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
 isTouchDevice ? addClass(document.body, 'is-touch') : addClass(document.body, 'is-desktop')
@@ -36,6 +37,7 @@ dom.whenReady(() => {
             gallerySimple,
             headerNav,
             accordion,
+            carousel,
         })
     });
 });
