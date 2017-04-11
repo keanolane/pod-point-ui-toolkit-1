@@ -26,7 +26,7 @@ $select-dd-alternative-height: 2.5rem;
 	vertical-align: middle;
 	width: 100%;
 	cursor: pointer;
-	.mobile-select + select {
+	&.select-dd-wrapper--mobile select {
 		@include position(absolute, 0 null null 0);
 		font-size: 1.6rem;
 		opacity: 0;
@@ -92,7 +92,7 @@ $select-dd-alternative-height: 2.5rem;
 			right: 0;
 			list-style: none;
 			margin: 0;
-			max-height: 10.5em;
+			max-height: 20.5em;
 			overflow-x: hidden;
 			overflow-y: auto;
 			padding: 0;
@@ -192,9 +192,17 @@ $select-dd-alternative-height: 2.5rem;
 	@include media($medium) {
 		margin-top: 0;
 	}
-	.mobile-select + select {
+	&.select-dd-wrapper--mobile select {
 		width: 100%;
 		height: $input-height;
+
+		&:focus + .mobile-select {
+			border-color: $font-color-base;
+			color: $font-color-base;
+			&:after {
+				color: $font-color-base;
+			}
+		}
 	}
 	.dk-select,
 	.dk-selected,
@@ -222,14 +230,15 @@ $select-dd-alternative-height: 2.5rem;
 		}
 		&.dk-select-open-down {
 			.dk-selected {
-				border-color: $primary-color;
-				color: $primary-color;
+				border-color: $font-color-base;
+				color: $font-color-base;
 			}
 			.dk-select-options {
-				border-color: $primary-color;
+				border-color: $font-color-base;
+				border-top: none;
 			}
 			&:after {
-				color: $primary-color;
+				color: $font-color-base!important;
 				@include transform(rotate(-180deg));
 				-webkit-transform: rotate(-180deg);
 			}
@@ -238,7 +247,7 @@ $select-dd-alternative-height: 2.5rem;
 }
 .select-dd-wrapper--alternative {
 	margin-left: 0.2rem;
-	.mobile-select + select {
+	&.select-dd-wrapper--mobile select {
 		width: 100%;
 		height: $input-height;
 	}
@@ -272,7 +281,7 @@ $select-dd-alternative-height: 2.5rem;
 		}
 		.dk-selected,
 		.mobile-select,
-		.mobile-select + select {
+		&.select-dd-wrapper--mobile select {
 			@include font-style-h1;
 			padding-bottom: 0.5rem;
 			@include media($medium) {
@@ -295,7 +304,7 @@ $select-dd-alternative-height: 2.5rem;
 		}
 		.dk-selected,
 		.mobile-select,
-		.mobile-select + select {
+		&.select-dd-wrapper--mobile select {
 			@include font-style-large;
 			font-family: $font-family-bold;
 			margin-top: -0.4rem;

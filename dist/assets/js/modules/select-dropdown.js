@@ -20,6 +20,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var instances = [];
 
+var SELECT_WRAP_MOBILE = 'select-dd-wrapper--mobile';
+
 var SelectDropDown = function () {
 
     /**
@@ -31,7 +33,6 @@ var SelectDropDown = function () {
         _classCallCheck(this, SelectDropDown);
 
         this.element = element;
-
         isTouchDevice ? this.setUpTouchVerison() : this.setUpDesktopVersion();
     }
 
@@ -54,9 +55,10 @@ var SelectDropDown = function () {
     }, {
         key: 'setUpTouchVerison',
         value: function setUpTouchVerison() {
-            var selectDDWrap = this.element.querySelector('select');
+            var select = this.element.querySelector('select');
             var selectDDText = this.element.querySelector('option[selected]').innerHTML;
-            (0, _domOps.insertBefore)(selectDDWrap, '<div class="mobile-select">' + selectDDText + '</div>');
+            (0, _domOps.addClass)(this.element, SELECT_WRAP_MOBILE);
+            (0, _domOps.insertAfter)(select, '<div class="mobile-select">' + selectDDText + '</div>');
             this.bindTouchEvents();
         }
 

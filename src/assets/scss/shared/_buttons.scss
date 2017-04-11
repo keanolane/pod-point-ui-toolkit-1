@@ -18,12 +18,13 @@ button:not(.circle-icon),
 	vertical-align: middle;
 	width: 100%;
 	display: inline-block;
-	@include padding(0.7rem 3.5rem);
+	@include padding(0.8rem 3.5rem);
 	@include margin(1rem null);
+	min-height: 4rem;
 	color: white;
 	background-color: $primary-color;
 	font-family: $font-family-bold;
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	font-weight: normal;
 	line-height: 1.2;
 	letter-spacing: 0.1rem;
@@ -32,8 +33,6 @@ button:not(.circle-icon),
 	transition: all 0.2s ease;
 	max-width: $button-max-width;
 	@include media($small) {
-		@include padding(0.9rem 3.5rem);
-		font-size: 1.5rem;
 		width: auto;
 	}
 

@@ -83,6 +83,20 @@ $border-base: 1px solid $border-color-base;
 $bottom-shadow: 0px 11px 16px -10px rgba(0,0,0,0.1);
 $box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
 
+// List of used inputs
+$inputs-list:
+	'input[type="date"]',
+	'input[type="email"]',
+	'input[type="number"]',
+	'input[type="password"]',
+	'input[type="search"]',
+	'input[type="tel"]',
+	'input[type="text"]',
+	'input[type="url"]';
+
+// Let's assign so we can use the list
+$inputs: assign-inputs($inputs-list);
+
 // Form colors
 $form-keyline: $gray;
 $radio-border: $gray;
@@ -95,7 +109,7 @@ $error-red: #C1272D;
 $disabled-color: gray;
 
 // Forms
-$input-height: 3.5rem;
+$input-height: 4rem;
 $input-padding: 1rem;
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);

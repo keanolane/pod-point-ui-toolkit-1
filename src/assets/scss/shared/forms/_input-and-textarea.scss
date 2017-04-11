@@ -2,37 +2,28 @@
 //  INPUTS AND TEXTAREAS
 // =============================================================================
 
-input[type="date"],
-input[type="email"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="url"] {
+#{$inputs},
+textarea[type="text"] {
 	@include input-styles;
 	@include input-border;
+	&:focus {
+		color: $font-color-base!important;
+		border-color: $font-color-base;
+	}
+}
+
+#{$inputs} {
 	&.input--secondary {
 		border-radius: 0;
 		border: none;
 		border-bottom: 1px solid $form-keyline;
 	}
-	&:focus {
-		color: $primary-color;
-		border-color: $primary-color;
-	}
 }
 
 textarea[type="text"] {
-	@include input-styles;
-	@include input-border;
 	@include font-style-forms;
 	height: auto;
 	min-height: 13rem;
 	resize: vertical;
 	@include padding($input-padding);
-	&:focus {
-		color: $primary-color;
-		border-color: $primary-color;
-	}
 }

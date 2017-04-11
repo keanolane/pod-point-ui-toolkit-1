@@ -2,48 +2,82 @@
 //  VALIDATION
 // =============================================================================
 
-span.error {
-	font-family: $font-family-base;
-	@include margin(-0.5rem 0 1.2rem);
-	font-size: 1.4rem;
-	letter-spacing: 0.1rem;
-	line-height: 1.1;
-	text-transform: uppercase;
-	color: $error-red;
-	display: block !important;
-	clear: both;
-	text-align: left;
-	padding-left: 0.3rem;
-	@include media($medium) {
-		font-size: 1.6rem;
-		padding-left: 0.5rem;
+.form-field-wrapper {
+	@include media($small) {
+		padding-right: 3rem;
 	}
-
-	&:before {
-		content: '!';
+	@include media($medium) {
+		padding-right: 0;
+	}
+	&.is-valid,
+	&.is-invalid {
 		position: relative;
-		left: -0.3rem;
-		@include media($medium) {
-			left: -0.5rem;
+		&:before {
+			@include media($small) {
+				@include iconfont-styles;
+				font-weight: bold;
+				font-size: 1.6rem;
+				@include position(absolute, 0.9rem 0 null null);
+			}
+			@include media($medium) {
+				right: -3rem;
+			}
 		}
 	}
-
-	select + & {
-		margin-top: 0.3rem;
+	&.is-valid {
+		@include media($small) {
+			@include iconfont('tick');
+		}
+		&:before {
+			color: $primary-color;
+		}
+		#{$inputs},
+		textarea[type="text"],
+		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-selected,
+		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select {
+			border-color: $primary-color;
+			color: $primary-color;
+		}
+		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
+		.select-dd-wrapper--mobile .mobile-select:after {
+			color: $primary-color;
+		}
+	}
+	&.is-invalid {
+		@include media($small) {
+			@include iconfont('cross');
+		}
+		&:before {
+			color: $error-red;
+		}
+		#{$inputs},
+		textarea[type="text"],
+		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-selected,
+		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select {
+			border-color: $error-red;
+		}
 	}
 }
-span.valid {
-	display: none !important;
+
+.error-message {
+	display: block;
+	@include font-style-small;
+	font-family: $font-family-bold;
+	color: $error-red;
+	margin-top: 0.3rem;
+	.checkbox-wrap & {
+		margin-top: 0;
+	}
+}
+.checkbox-wrap:not(.is-invalid),
+.form-field-wrapper:not(.is-invalid) {
+	.error-message {
+		display: none;
+	}
 }
 
-#nlePrivateSale-error {
-	@include position(absolute, null null -2rem 0);
-	margin: 0;
-}
-
-.dk-selected.select-error,
-select.error,
-textarea.error,
-input.el-error {
-	border-bottom: $error-red solid 1px !important;
+.checkbox-wrap.is-invalid {
+	input[type="checkbox"] ~ label:before {
+		border-color: $error-red;
+	}
 }

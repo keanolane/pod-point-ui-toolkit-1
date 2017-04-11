@@ -1,8 +1,10 @@
 import { Delegate } from 'dom-delegate';
 import Dropkick from 'dropkickjs';
-import { insertBefore, addClass, select, nodesToArray } from '@pod-point/dom-ops';
+import { insertAfter, addClass, select, nodesToArray } from '@pod-point/dom-ops';
 
 let instances = [];
+
+const SELECT_WRAP_MOBILE = 'select-dd-wrapper--mobile';
 
 class SelectDropDown {
 
@@ -13,7 +15,6 @@ class SelectDropDown {
      */
     constructor(element) {
         this.element = element;
-
         isTouchDevice ? this.setUpTouchVerison() : this.setUpDesktopVersion();
     }
 
@@ -29,9 +30,10 @@ class SelectDropDown {
      * For touch devices: keeps native select but adds fake select box for better styling.
      */
     setUpTouchVerison() {
-        const selectDDWrap = this.element.querySelector('select');
+        const select = this.element.querySelector('select');
         const selectDDText = this.element.querySelector('option[selected]').innerHTML;
-        insertBefore(selectDDWrap, '<div class="mobile-select">'+selectDDText+'</div>');
+        addClass(this.element, SELECT_WRAP_MOBILE);
+        insertAfter(select, '<div class="mobile-select">'+selectDDText+'</div>');
         this.bindTouchEvents();
     }
 
