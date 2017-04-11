@@ -40,7 +40,10 @@
 .section--centered {
 	text-align: center;
 }
-.bg--dark-gray {
+.bg--very-dark-gray {
 	background-color: $gray-very-dark;
 	color: white;
+}
+.bg--very-light-gray {
+	background-color: $gray-very-light;
 }

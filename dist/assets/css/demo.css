@@ -1682,10 +1682,11 @@ button {
   display: block;
   margin: 0;
   padding: 0;
-  width: 2.5rem;
-  height: 2.5rem;
   background-color: #333;
-  border-radius: 50%; }
+  border-radius: 50%;
+  border: none;
+  width: 4rem;
+  height: 4rem; }
   .circle-icon:before, .circle-icon:after {
     text-indent: 0;
     float: left;
@@ -1696,48 +1697,122 @@ button {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-size: 1.1rem;
-    color: #fff;
-    line-height: 2.6rem; }
-  @media screen and (min-width: 50em) {
-    .circle-icon--resp {
-      width: 4rem;
-      height: 4rem; }
-      .circle-icon--resp:before {
-        font-size: 1.7em;
-        line-height: 4rem; } }
-  .circle-icon--border {
-    background-color: transparent;
-    border: white 1px solid; }
-    .circle-icon--border:before {
-      line-height: 2.4rem; }
-      @media screen and (min-width: 50em) {
-        .circle-icon--border:before {
-          line-height: 4rem;
-          font-size: 1.6rem; } }
-  .circle-icon--on-white {
+    color: #fff; }
+  .circle-icon:before {
+    font-size: 1.7rem;
+    line-height: 4rem; }
+  .circle-icon--small {
+    width: 2.5rem;
+    height: 2.5rem; }
+    .circle-icon--small:before {
+      font-size: 1.2rem;
+      line-height: 2.5rem; }
+  .circle-icon--small-resp {
+    width: 2.5rem;
+    height: 2.5rem; }
+    .circle-icon--small-resp:before {
+      font-size: 1.2rem;
+      line-height: 2.5rem; }
+    @media screen and (min-width: 50em) {
+      .circle-icon--small-resp {
+        width: 4rem;
+        height: 4rem; }
+        .circle-icon--small-resp:before {
+          font-size: 1.7rem;
+          line-height: 4rem; } }
+  .circle-icon--large-resp {
+    width: 4rem;
+    height: 4rem; }
+    .circle-icon--large-resp:before {
+      font-size: 1.7rem;
+      line-height: 4rem; }
+    @media screen and (min-width: 50em) {
+      .circle-icon--large-resp {
+        width: 6rem;
+        height: 6rem; }
+        .circle-icon--large-resp:before {
+          font-size: 2.5rem;
+          line-height: 6rem; } }
+  .circle-icon--green {
     text-indent: -9999px;
     text-align: center;
     display: block;
     margin: 0;
     padding: 0;
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: white;
-    border-radius: 50%; }
-    .circle-icon--on-white:before, .circle-icon--on-white:after {
+    background-color: #8CC63F;
+    border-radius: 50%;
+    border: none; }
+    .circle-icon--green:before, .circle-icon--green:after {
       text-indent: 0;
       float: left;
       width: 100%;
       margin: 0; }
-    .circle-icon--on-white:before {
+    .circle-icon--green:before {
       width: 100%;
       height: 100%;
       margin: 0;
       padding: 0;
-      font-size: 1.1rem;
-      color: black;
-      line-height: 2.6rem; }
+      color: white; }
+  .circle-icon--outlined {
+    text-indent: -9999px;
+    text-align: center;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid #333; }
+    .circle-icon--outlined:before, .circle-icon--outlined:after {
+      text-indent: 0;
+      float: left;
+      width: 100%;
+      margin: 0; }
+    .circle-icon--outlined:before {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      color: #333; }
+  .circle-icon--outlined-dark {
+    text-indent: -9999px;
+    text-align: center;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid white; }
+    .circle-icon--outlined-dark:before, .circle-icon--outlined-dark:after {
+      text-indent: 0;
+      float: left;
+      width: 100%;
+      margin: 0; }
+    .circle-icon--outlined-dark:before {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      color: white; }
+  .circle-icon--white-outline {
+    text-indent: -9999px;
+    text-align: center;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #ccc; }
+    .circle-icon--white-outline:before, .circle-icon--white-outline:after {
+      text-indent: 0;
+      float: left;
+      width: 100%;
+      margin: 0; }
+    .circle-icon--white-outline:before {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      color: #333; }
 
 .navicon {
   width: 2.5rem;
@@ -1872,9 +1947,12 @@ button {
 .section--centered {
   text-align: center; }
 
-.bg--dark-gray {
-  background-color: #4d4d4d;
+.bg--very-dark-gray {
+  background-color: #333;
   color: white; }
+
+.bg--very-light-gray {
+  background-color: #f2f2f2; }
 
 .card {
   overflow: hidden;

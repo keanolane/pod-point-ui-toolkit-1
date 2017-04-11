@@ -24,36 +24,6 @@
 	-webkit-transform: translateY(0);
 }
 
-// Iconfont icon in a circle with optional colours
-@mixin icon-in-circle($bgColor: $icon-color, $color: #fff) {
-	@include hide-text-not-pseudo;
-	text-align: center;
-	display: block;
-	margin: 0;
-	padding: 0;
-	width: 2.5rem;
-	height: 2.5rem;
-	background-color: #{$bgColor};
-	border-radius: 50%;
-	&:before {
-		width: 100%;
-		height: 100%;
-		margin: 0;
-		padding: 0;
-		font-size: 1.1rem;
-		color: #{$color};
-		line-height: 2.6rem;
-	}
-}
-@mixin icon-in-circle--large() {
-	width: 4rem;
-	height: 4rem;
-	&:before {
-		font-size: 1.7em;
-		line-height: 4rem;
-	}
-}
-
 // Hide text not the pseudo
 @mixin hide-text-not-pseudo {
 	text-indent: -9999px;
@@ -63,6 +33,33 @@
 		float: left;
 		width: 100%;
 		margin: 0;
+	}
+}
+
+// Iconfont icon in a circle with optional colours
+@mixin icon-in-circle($bgColor: $icon-color, $color: #fff, $border: none ) {
+	@include hide-text-not-pseudo;
+	text-align: center;
+	display: block;
+	margin: 0;
+	padding: 0;
+	background-color: #{$bgColor};
+	border-radius: 50%;
+	border: $border;
+	&:before {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		color: #{$color};
+	}
+}
+@mixin icon-in-circle--size($dimension: 4rem, $font-size: 1.7rem) {
+	width: $dimension;
+	height: $dimension;
+	&:before {
+		font-size: $font-size;
+		line-height: $dimension;
 	}
 }
 

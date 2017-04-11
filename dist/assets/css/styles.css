@@ -1682,10 +1682,11 @@ button {
   display: block;
   margin: 0;
   padding: 0;
-  width: 2.5rem;
-  height: 2.5rem;
   background-color: #333;
-  border-radius: 50%; }
+  border-radius: 50%;
+  border: none;
+  width: 4rem;
+  height: 4rem; }
   .circle-icon:before, .circle-icon:after {
     text-indent: 0;
     float: left;
@@ -1696,48 +1697,122 @@ button {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-size: 1.1rem;
-    color: #fff;
-    line-height: 2.6rem; }
-  @media screen and (min-width: 50em) {
-    .circle-icon--resp {
-      width: 4rem;
-      height: 4rem; }
-      .circle-icon--resp:before {
-        font-size: 1.7em;
-        line-height: 4rem; } }
-  .circle-icon--border {
-    background-color: transparent;
-    border: white 1px solid; }
-    .circle-icon--border:before {
-      line-height: 2.4rem; }
-      @media screen and (min-width: 50em) {
-        .circle-icon--border:before {
-          line-height: 4rem;
-          font-size: 1.6rem; } }
-  .circle-icon--on-white {
+    color: #fff; }
+  .circle-icon:before {
+    font-size: 1.7rem;
+    line-height: 4rem; }
+  .circle-icon--small {
+    width: 2.5rem;
+    height: 2.5rem; }
+    .circle-icon--small:before {
+      font-size: 1.2rem;
+      line-height: 2.5rem; }
+  .circle-icon--small-resp {
+    width: 2.5rem;
+    height: 2.5rem; }
+    .circle-icon--small-resp:before {
+      font-size: 1.2rem;
+      line-height: 2.5rem; }
+    @media screen and (min-width: 50em) {
+      .circle-icon--small-resp {
+        width: 4rem;
+        height: 4rem; }
+        .circle-icon--small-resp:before {
+          font-size: 1.7rem;
+          line-height: 4rem; } }
+  .circle-icon--large-resp {
+    width: 4rem;
+    height: 4rem; }
+    .circle-icon--large-resp:before {
+      font-size: 1.7rem;
+      line-height: 4rem; }
+    @media screen and (min-width: 50em) {
+      .circle-icon--large-resp {
+        width: 6rem;
+        height: 6rem; }
+        .circle-icon--large-resp:before {
+          font-size: 2.5rem;
+          line-height: 6rem; } }
+  .circle-icon--green {
     text-indent: -9999px;
     text-align: center;
     display: block;
     margin: 0;
     padding: 0;
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: white;
-    border-radius: 50%; }
-    .circle-icon--on-white:before, .circle-icon--on-white:after {
+    background-color: #8CC63F;
+    border-radius: 50%;
+    border: none; }
+    .circle-icon--green:before, .circle-icon--green:after {
       text-indent: 0;
       float: left;
       width: 100%;
       margin: 0; }
-    .circle-icon--on-white:before {
+    .circle-icon--green:before {
       width: 100%;
       height: 100%;
       margin: 0;
       padding: 0;
-      font-size: 1.1rem;
-      color: black;
-      line-height: 2.6rem; }
+      color: white; }
+  .circle-icon--outlined {
+    text-indent: -9999px;
+    text-align: center;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid #333; }
+    .circle-icon--outlined:before, .circle-icon--outlined:after {
+      text-indent: 0;
+      float: left;
+      width: 100%;
+      margin: 0; }
+    .circle-icon--outlined:before {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      color: #333; }
+  .circle-icon--outlined-dark {
+    text-indent: -9999px;
+    text-align: center;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid white; }
+    .circle-icon--outlined-dark:before, .circle-icon--outlined-dark:after {
+      text-indent: 0;
+      float: left;
+      width: 100%;
+      margin: 0; }
+    .circle-icon--outlined-dark:before {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      color: white; }
+  .circle-icon--white-outline {
+    text-indent: -9999px;
+    text-align: center;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #ccc; }
+    .circle-icon--white-outline:before, .circle-icon--white-outline:after {
+      text-indent: 0;
+      float: left;
+      width: 100%;
+      margin: 0; }
+    .circle-icon--white-outline:before {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      color: #333; }
 
 .navicon {
   width: 2.5rem;
@@ -1872,9 +1947,12 @@ button {
 .section--centered {
   text-align: center; }
 
-.bg--dark-gray {
-  background-color: #4d4d4d;
+.bg--very-dark-gray {
+  background-color: #333;
   color: white; }
+
+.bg--very-light-gray {
+  background-color: #f2f2f2; }
 
 .card {
   overflow: hidden;
@@ -2048,7 +2126,7 @@ button {
 
 .global-footer__section-bottom {
   color: white;
-  background-color: #4d4d4d;
+  background-color: #333;
   padding-top: 2rem;
   padding-bottom: 2rem; }
   @media screen and (min-width: 50em) {
@@ -2375,34 +2453,72 @@ button {
 .carousel-wrap {
   margin: 3rem auto;
   max-width: 70rem;
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
   width: 90%;
   position: relative; }
-  .carousel-wrap .iconfont-user {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    z-index: 1; }
+  @media screen and (min-width: 50em) {
+    .carousel-wrap {
+      padding-right: 3rem;
+      padding-left: 3rem; } }
+  .carousel-wrap--reviews {
+    margin-top: 6rem; }
+    .carousel-wrap--reviews .circle-icon--large-resp {
+      position: absolute;
+      top: -2rem;
+      left: 50%;
+      z-index: 1;
+      margin-left: -2rem; }
+      @media screen and (min-width: 50em) {
+        .carousel-wrap--reviews .circle-icon--large-resp {
+          top: -3rem;
+          margin-left: -3rem; } }
+      .carousel-wrap--reviews .circle-icon--large-resp:hover, .carousel-wrap--reviews .circle-icon--large-resp:active, .carousel-wrap--reviews .circle-icon--large-resp:focus {
+        opacity: 1; }
+    .carousel-wrap--reviews .slick-slide {
+      padding-top: 2rem; }
+    .carousel-wrap--reviews .stars-list {
+      margin-top: 1rem; }
 
 .slick-slider .slick-list {
-  border-radius: 5px; }
-  .slick-slider .slick-list .slick-slide {
-    padding-right: 2.5rem;
-    padding-left: 2.5rem; }
-    @media screen and (min-width: 50em) {
-      .slick-slider .slick-list .slick-slide {
-        padding-right: 3rem;
-        padding-left: 3rem; } }
-    .slick-slider .slick-list .slick-slide .slick-slide--content {
-      position: relative;
-      background-color: white;
-      border-radius: 5px;
-      padding: 2rem;
-      min-height: 20rem; }
+  border-radius: 5px;
+  background-color: white; }
+  .slick-slider .slick-list .slick-slide .slick-slide--content {
+    position: relative;
+    color: #333;
+    padding: 2rem;
+    min-height: 20rem; }
+    .slick-slider .slick-list .slick-slide .slick-slide--content h3 {
+      color: #8CC63F; }
+
+.stars-list li {
+  display: inline-block; }
+  .stars-list li:before {
+    content: ""; }
+  .stars-list li:before {
+    display: inline-block;
+    height: inherit;
+    margin-right: 0.2rem;
+    margin-left: 0.2rem;
+    font-size: 2rem;
+    font-family: "icons";
+    font-variant: normal;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    text-align: center;
+    text-transform: none;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 2.5rem;
+    color: #8CC63F; }
 
 .slick-arrow {
   text-indent: -9999px;
   display: block;
-  width: 3rem;
+  width: 5rem;
   position: absolute;
   top: 50%;
   margin-top: -1.5rem;
@@ -2431,20 +2547,22 @@ button {
     speak: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-size: 2.5rem;
     color: white; }
   .slick-arrow.slick-prev {
-    right: -1rem; }
+    right: -4.5rem; }
     @media screen and (min-width: 50em) {
       .slick-arrow.slick-prev {
-        right: -4rem; } }
+        right: -8rem; } }
     .slick-arrow.slick-prev:before {
       -ms-transform: rotate(-90deg);
           transform: rotate(-90deg); }
   .slick-arrow.slick-next {
-    left: -1rem; }
+    left: -4.5rem; }
     @media screen and (min-width: 50em) {
       .slick-arrow.slick-next {
-        left: -4rem; } }
+        left: -8rem; } }
     .slick-arrow.slick-next:before {
       -ms-transform: rotate(90deg);
           transform: rotate(90deg); }

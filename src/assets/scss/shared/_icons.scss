@@ -4,24 +4,33 @@
 
 .circle-icon {
 	@include icon-in-circle;
+	@include icon-in-circle--size;
 
-	&--resp {
+	&--small {
+		@include icon-in-circle--size($dimension: 2.5rem, $font-size: 1.2rem);
+	}
+	&--small-resp {
+		@include icon-in-circle--size($dimension: 2.5rem, $font-size: 1.2rem);
 		@include media($medium) {
-			@include icon-in-circle--large;
+			@include icon-in-circle--size($dimension: 4rem, $font-size: 1.7rem);
 		}
 	}
-	&--border {
-		background-color: transparent;
-		border: white 1px solid;
-		&:before {
-			line-height: 2.4rem;
-			@include media($medium) {
-				line-height: 4rem;
-				font-size: 1.6rem;
-			}
+	&--large-resp {
+		@include icon-in-circle--size($dimension: 4rem, $font-size: 1.7rem);
+		@include media($medium) {
+			@include icon-in-circle--size($dimension: 6rem, $font-size: 2.5rem);
 		}
 	}
-	&--on-white {
-		@include icon-in-circle($bgColor: white, $color: black);
+	&--green {
+		@include icon-in-circle($bgColor: $primary-color, $color: white);
+	}
+	&--outlined {
+		@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $border: 1px solid $font-color-base);
+	}
+	&--outlined-dark {
+		@include icon-in-circle($bgColor: transparent, $color: white, $border: 1px solid white);
+	}
+	&--white-outline {
+		@include icon-in-circle($bgColor: white, $color: $font-color-base, $border: 1px solid $gray-keyline);
 	}
 }
