@@ -40,10 +40,10 @@ input:-webkit-autofill {
 	background-color: $background-color-base;
 	border: 1px solid $form-keyline;
 	border-radius: $form-border-radius;
-	&:hover {
+	&:hover:not(:disabled) {
 		border-color: black;
 	}
-	&:focus {
+	&:focus:not(:disabled) {
 		border-color: black;
 		outline: none;
 	}
@@ -62,10 +62,4 @@ label {
 
 .label--block {
 	width: 100%;
-}
-
-.form-field-wrapper {
-	display: inline-block;
-	width: 50rem;
-	max-width: 100%;
 }

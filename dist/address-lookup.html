@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE 9]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0" />
+
+	<title> - </title>
+
+	<link href="assets/css/styles.css" rel="stylesheet">
+	<link href="assets/css/demo.css" rel="stylesheet">
+</head>
+<body>
+
+	<!--[if lt IE 9]>
+		<div class="browsehappy">
+			<p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		</div>
+	<![endif]-->
+
+	<div class="global-wrapper">
+		<header role="header" class="demo-header">
+			<div class="container">
+				<a class="demo-logo-main" href="/">
+					<img src="assets/img/pod-point-logo.svg" alt="POD Point">
+				</a>
+			</div>
+		</header>
+		<main role="main" class="global-content">
+			<div data-page="address-lookup">
+	<header class="demo-section-heading">
+		<div class="container container--vertical-padding">
+			<h2>Address lookup</h2>
+		</div>
+	</header>
+
+
+	<section>
+		<div class="container container--vertical-padding">
+
+			<div data-js-module="addressLookup">
+
+				<div class="field-row">
+					<label class="label--block">Look up your address</label>
+					<div id="locationField" class="form-field-wrapper">
+						<input id="autocomplete" placeholder="Enter your postcode" onFocus="geolocate()" type="text"></input>
+					</div>
+				</div>
+
+				<hr>
+
+				<div id="address" class="grid-wrap">
+					<div class="grid-row">
+						<div class="grid-col-6">
+							<label class="label--block">Street number</label>
+							<div class="form-field-wrapper">
+								<input id="street_number" class="field" type="text" disabled="true"></input>
+							</div>
+						</div>
+						<div class="grid-col-6">
+							<label class="label--block">Street address</label>
+							<div class="form-field-wrapper">
+								<input id="route" class="field" type="text" disabled="true"></input>
+							</div>
+						</div>
+					</div>
+					<div class="grid-row">
+						<div class="grid-col-6">
+							<label class="label--block">City</label>
+							<div class="form-field-wrapper">
+								<input id="locality" class="field" type="text" disabled="true"></input>
+							</div>
+						</div>
+						<div class="grid-col-6">
+							<label class="label--block">County</label>
+							<div class="form-field-wrapper">
+								<input id="administrative_area_level_1" class="field" type="text" disabled="true"></input>
+							</div>
+						</div>
+					</div>
+					<div class="grid-row">
+						<div class="grid-col-6">
+							<label class="label--block">Post code</label>
+							<div class="form-field-wrapper">
+								<input id="postal_code" class="field" type="text" disabled="true"></input>
+							</div>
+						</div>
+						<div class="grid-col-6">
+							<label class="label--block">Country</label>
+							<div class="form-field-wrapper">
+								<input id="country" class="field" type="text" disabled="true"></input>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Replace the value of the key parameter with your own API key. -->
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJDHzP78pQL4DbiEBhV8RyBRLJnIzhLX0&libraries=places&callback=initAutocomplete"
+			        async defer></script>
+
+			</div>
+		</div>
+	</section>
+
+</div>
+		</main>
+
+		<footer role="footer" class="demo-footer">
+		</footer>	</div>
+
+	<script src="assets/js/script.js"></script>
+
+</body>
+</html>

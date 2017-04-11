@@ -6,9 +6,13 @@
 textarea[type="text"] {
 	@include input-styles;
 	@include input-border;
-	&:focus {
+	&:focus:not(disabled) {
 		color: $font-color-base!important;
 		border-color: $font-color-base;
+	}
+	&:disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
 	}
 }
 

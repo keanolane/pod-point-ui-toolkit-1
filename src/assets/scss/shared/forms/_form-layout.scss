@@ -8,3 +8,11 @@
 .form-action-buttons {
 	padding-top: 2.5rem;
 }
+.form-field-wrapper {
+	display: inline-block;
+	width: 100%;
+	max-width: 50rem;
+	@include media($small) {
+		min-width: 32rem;
+	}
+}

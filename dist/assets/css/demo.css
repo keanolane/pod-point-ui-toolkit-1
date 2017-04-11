@@ -624,11 +624,6 @@ label {
 .label--block {
   width: 100%; }
 
-.form-field-wrapper {
-  display: inline-block;
-  width: 50rem;
-  max-width: 100%; }
-
 input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"],
 textarea[type="text"] {
   margin: 0;
@@ -646,17 +641,21 @@ textarea[type="text"] {
   background-color: #fff;
   border: 1px solid #b3b3b3;
   border-radius: 5px; }
-  input[type="date"]:hover, input[type="email"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="url"]:hover,
-  textarea[type="text"]:hover {
+  input[type="date"]:hover:not(:disabled), input[type="email"]:hover:not(:disabled), input[type="number"]:hover:not(:disabled), input[type="password"]:hover:not(:disabled), input[type="search"]:hover:not(:disabled), input[type="tel"]:hover:not(:disabled), input[type="text"]:hover:not(:disabled), input[type="url"]:hover:not(:disabled),
+  textarea[type="text"]:hover:not(:disabled) {
     border-color: black; }
-  input[type="date"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus,
-  textarea[type="text"]:focus {
+  input[type="date"]:focus:not(:disabled), input[type="email"]:focus:not(:disabled), input[type="number"]:focus:not(:disabled), input[type="password"]:focus:not(:disabled), input[type="search"]:focus:not(:disabled), input[type="tel"]:focus:not(:disabled), input[type="text"]:focus:not(:disabled), input[type="url"]:focus:not(:disabled),
+  textarea[type="text"]:focus:not(:disabled) {
     border-color: black;
     outline: none; }
-  input[type="date"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus,
-  textarea[type="text"]:focus {
+  input[type="date"]:focus:not(disabled), input[type="email"]:focus:not(disabled), input[type="number"]:focus:not(disabled), input[type="password"]:focus:not(disabled), input[type="search"]:focus:not(disabled), input[type="tel"]:focus:not(disabled), input[type="text"]:focus:not(disabled), input[type="url"]:focus:not(disabled),
+  textarea[type="text"]:focus:not(disabled) {
     color: #333 !important;
     border-color: #333; }
+  input[type="date"]:disabled, input[type="email"]:disabled, input[type="number"]:disabled, input[type="password"]:disabled, input[type="search"]:disabled, input[type="tel"]:disabled, input[type="text"]:disabled, input[type="url"]:disabled,
+  textarea[type="text"]:disabled {
+    opacity: 0.4;
+    cursor: not-allowed; }
 
 input[type="date"].input--secondary, input[type="email"].input--secondary, input[type="number"].input--secondary, input[type="password"].input--secondary, input[type="search"].input--secondary, input[type="tel"].input--secondary, input[type="text"].input--secondary, input[type="url"].input--secondary {
   border-radius: 0;
@@ -873,9 +872,9 @@ textarea[type="text"] {
     font-family: "Quicksand Bold", sans-serif;
     cursor: pointer;
     background-color: transparent; }
-    .select-wrapper select:hover {
+    .select-wrapper select:hover:not(:disabled) {
       border-color: black; }
-    .select-wrapper select:focus {
+    .select-wrapper select:focus:not(:disabled) {
       border-color: black;
       outline: none; }
     .select-wrapper select:focus {
@@ -1079,11 +1078,11 @@ textarea[type="text"] {
     background-color: #fff;
     border: 1px solid #b3b3b3;
     border-radius: 5px; }
-    .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-selected:hover,
-    .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select:hover {
+    .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-selected:hover:not(:disabled),
+    .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select:hover:not(:disabled) {
       border-color: black; }
-    .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-selected:focus,
-    .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select:focus {
+    .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-selected:focus:not(:disabled),
+    .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select:focus:not(:disabled) {
       border-color: black;
       outline: none; }
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select {
@@ -1262,6 +1261,14 @@ textarea[type="text"] {
 
 .form-action-buttons {
   padding-top: 2.5rem; }
+
+.form-field-wrapper {
+  display: inline-block;
+  width: 100%;
+  max-width: 50rem; }
+  @media screen and (min-width: 40em) {
+    .form-field-wrapper {
+      min-width: 32rem; } }
 
 @media screen and (min-width: 40em) {
   .form-field-wrapper {

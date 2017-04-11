@@ -16,6 +16,13 @@ import gallerySimple from './modules/gallery-simple';
 import accordion from './modules/accordion';
 import headerNav from './modules/header-nav';
 import carousel from './modules/Carousel';
+import addressLookup from './modules/address-lookup';
+
+import { initAutocomplete, geolocate, fillInAddress } from './modules/address-lookup';
+
+window.initAutocomplete = initAutocomplete;
+window.geolocate = geolocate;
+window.fillInAddress = fillInAddress;
 
 window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
 isTouchDevice ? addClass(document.body, 'is-touch') : addClass(document.body, 'is-desktop')
@@ -38,6 +45,7 @@ dom.whenReady(() => {
             headerNav,
             accordion,
             carousel,
+            addressLookup,
         })
     });
 });

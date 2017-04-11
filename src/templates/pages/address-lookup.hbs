@@ -1,0 +1,76 @@
+<div data-page="address-lookup">
+	<header class="demo-section-heading">
+		<div class="container container--vertical-padding">
+			<h2>Address lookup</h2>
+		</div>
+	</header>
+
+
+	<section>
+		<div class="container container--vertical-padding">
+
+			<div data-js-module="addressLookup">
+
+				<div class="field-row">
+					<label class="label--block">Look up your address</label>
+					<div id="locationField" class="form-field-wrapper">
+						<input id="autocomplete" placeholder="Enter your postcode" onFocus="geolocate()" type="text"></input>
+					</div>
+				</div>
+
+				<hr>
+
+				<div id="address" class="grid-wrap">
+					<div class="grid-row">
+						<div class="grid-col-6">
+							<label class="label--block">Street number</label>
+							<div class="form-field-wrapper">
+								<input id="street_number" class="field" type="text" disabled="true"></input>
+							</div>
+						</div>
+						<div class="grid-col-6">
+							<label class="label--block">Street address</label>
+							<div class="form-field-wrapper">
+								<input id="route" class="field" type="text" disabled="true"></input>
+							</div>
+						</div>
+					</div>
+					<div class="grid-row">
+						<div class="grid-col-6">
+							<label class="label--block">City</label>
+							<div class="form-field-wrapper">
+								<input id="locality" class="field" type="text" disabled="true"></input>
+							</div>
+						</div>
+						<div class="grid-col-6">
+							<label class="label--block">County</label>
+							<div class="form-field-wrapper">
+								<input id="administrative_area_level_1" class="field" type="text" disabled="true"></input>
+							</div>
+						</div>
+					</div>
+					<div class="grid-row">
+						<div class="grid-col-6">
+							<label class="label--block">Post code</label>
+							<div class="form-field-wrapper">
+								<input id="postal_code" class="field" type="text" disabled="true"></input>
+							</div>
+						</div>
+						<div class="grid-col-6">
+							<label class="label--block">Country</label>
+							<div class="form-field-wrapper">
+								<input id="country" class="field" type="text" disabled="true"></input>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Replace the value of the key parameter with your own API key. -->
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJDHzP78pQL4DbiEBhV8RyBRLJnIzhLX0&libraries=places&callback=initAutocomplete"
+			        async defer></script>
+
+			</div>
+		</div>
+	</section>
+
+</div>
