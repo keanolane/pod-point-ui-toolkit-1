@@ -12,7 +12,6 @@ class Modal {
      * @param element
      */
     constructor(element) {
-        console.log(element);
         this.openButton = element;
         this.modal = selectFirst('#' + this.openButton.getAttribute('data-modal'));
         this.closeButton = selectFirst('.modal-close', this.modal);

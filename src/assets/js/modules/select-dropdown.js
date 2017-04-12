@@ -23,7 +23,7 @@ class SelectDropDown {
      */
     setUpDesktopVersion() {
         const selectDD = this.element.querySelector('select');
-        new Dropkick(selectDD);
+        this.dropkick = new Dropkick(selectDD);
     }
 
     /**
@@ -42,17 +42,42 @@ class SelectDropDown {
      */
     bindTouchEvents() {
         const selectDDWrap = this.element.closest('.select-dd-wrapper');
-        var listener = new Delegate(selectDDWrap);
+        this.listener = new Delegate(selectDDWrap);
 
-        listener.on('change', 'select', (event, element) => {
+        this.listener.on('change', 'select', (event, element) => {
             const selectDDText = element.options[element.selectedIndex].text;
             element.closest('.select-dd-wrapper').querySelector('.mobile-select').innerHTML = selectDDText;
         })
+    }
+
+    /**
+     * Destroys dropkick instance and unbinds the event listeners from the elements.
+     */
+    destroy() {
+        if (this.dropkick !== undefined) { this.dropkick.dispose() }
+        if (this.listener !== undefined) { this.listener.destroy() }
+    }
+
+    /**
+     * Refreshes dropkick instance (used for if the markup changes).
+     */
+    refresh() {
+        if (this.dropkick !== undefined) { this.dropkick.refresh() }
     }
 }
 
 export default {
     init: function(element) {
         instances.push(new SelectDropDown(element));
+    },
+
+    destroy: function() {
+        instances.forEach((instance) => instance.destroy());
+        instances = [];
+    },
+
+    refresh: function() {
+        instances.forEach((instance) => instance.refresh());
+        instances = [];
     }
 };

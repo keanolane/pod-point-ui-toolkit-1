@@ -39,6 +39,13 @@ class Accordion {
     }
 
     /**
+     * Unbinds the event listeners from the elements.
+     */
+    unbindEvents() {
+        this.listener.destroy();
+    }
+
+    /**
      * Toggles the accordion.
      *
      * @param {Event} event
@@ -55,5 +62,10 @@ class Accordion {
 export default {
     init: function(element) {
         instances.push(new Accordion(element));
+    },
+
+    destroy: function() {
+        instances.forEach((instance) => instance.unbindEvents());
+        instances = [];
     }
 };

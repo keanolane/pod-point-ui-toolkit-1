@@ -56,6 +56,10 @@
 		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select {
 			border-color: $error-red;
 		}
+		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
+		.select-dd-wrapper--mobile .mobile-select:after {
+			color: $error-red;
+		}
 	}
 }
 

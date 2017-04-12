@@ -7,12 +7,13 @@ textarea[type="text"] {
 	@include input-styles;
 	@include input-border;
 	&:focus:not(disabled) {
-		color: $font-color-base!important;
-		border-color: $font-color-base;
+		@include input-border--focus;
+	}
+	&:hover:not(:disabled) {
+		@include input-border--hover;
 	}
 	&:disabled {
-		opacity: 0.4;
-		cursor: not-allowed;
+		@include input-border--disabled;
 	}
 }
 
@@ -21,6 +22,8 @@ textarea[type="text"] {
 		border-radius: 0;
 		border: none;
 		border-bottom: 1px solid $form-keyline;
+		max-width: 40rem;
+		display: inline-block;
 	}
 }
 

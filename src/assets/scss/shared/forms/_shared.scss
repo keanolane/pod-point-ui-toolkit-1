@@ -40,13 +40,21 @@ input:-webkit-autofill {
 	background-color: $background-color-base;
 	border: 1px solid $form-keyline;
 	border-radius: $form-border-radius;
-	&:hover:not(:disabled) {
-		border-color: black;
-	}
-	&:focus:not(:disabled) {
-		border-color: black;
-		outline: none;
-	}
+}
+
+@mixin input-border--focus {
+	color: $font-color-base!important;
+	border-color: $font-color-base;
+	outline: none;
+}
+@mixin input-border--hover {
+	color: $font-color-base!important;
+	border-color: $font-color-base;
+}
+@mixin input-border--disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+	background-color: $gray-very-light;
 }
 
 label {

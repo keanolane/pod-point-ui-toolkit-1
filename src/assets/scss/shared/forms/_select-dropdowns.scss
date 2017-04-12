@@ -85,6 +85,7 @@ $select-dd-alternative-height: 2.5rem;
 		.dk-select-options {
 			border: 1px solid $gray-keyline;
 			border-radius: $border-radius-base;
+			box-shadow: $box-shadow-subtle;
 			background-color: white;
 			position: absolute;
 			display: none;
@@ -173,11 +174,6 @@ $select-dd-alternative-height: 2.5rem;
 	.dk-selected:focus {
 		outline: none;
 	}
-	.dk-select-disabled {
-		opacity: 0.6;
-		color: #BBBBBB;
-		cursor: not-allowed;
-	}
 	select[data-dkcacheid] {
 		display: none;
 	}
@@ -204,6 +200,9 @@ $select-dd-alternative-height: 2.5rem;
 			}
 		}
 	}
+	&.select-dd-wrapper--mobile select:disabled + .mobile-select {
+		@include input-border--disabled;
+	}
 	.dk-select,
 	.dk-selected,
 	.mobile-select {
@@ -213,6 +212,21 @@ $select-dd-alternative-height: 2.5rem;
 	.mobile-select {
 		@include input-border;
 	}
+	.dk-select:not(.dk-select-disabled):hover:after {
+		color: $font-color-base!important;
+	}
+	.dk-select:not(.dk-select-disabled) .dk-selected {
+		&:focus {
+			@include input-border--focus;
+		}
+		&:hover {
+			@include input-border--hover;
+		}
+	}
+	.dk-select-disabled .dk-selected {
+		@include input-border--disabled;
+	}
+
 	.dk-select {
 		padding: 0;
 	}
@@ -221,7 +235,7 @@ $select-dd-alternative-height: 2.5rem;
 		@include iconfont("cheveron", $insert: after);
 		&:after {
 			@include position(absolute, 35% $input-padding null null);
-			transition: all 0.4s ease-in-out;
+			transition: transform 0.4s ease-in-out;
 			@include iconfont-styles;
 			font-size: 12px;
 			z-index: 0;
@@ -317,5 +331,24 @@ $select-dd-alternative-height: 2.5rem;
 	.dk-select .dk-select-options {
 		top: -0.7rem;
 		width: 300px;
+	}
+}
+
+// Google address lookup
+.pac-container {
+	border-radius: $border-radius-base;
+	border: 1px solid $font-color-base;
+	box-shadow: $box-shadow-subtle;
+	border-top: none;
+	overflow: auto;
+	font-family: $font-family-bold;
+}
+.pac-item {
+	color: $font-color-base;
+	height: 4rem;
+	@include padding(0.5rem null);
+	border-top: none;
+	&:hover {
+		background-color: $primary-color-light;
 	}
 }

@@ -556,7 +556,6 @@
 	    function Modal(element) {
 	        _classCallCheck(this, Modal);
 	
-	        console.log(element);
 	        this.openButton = element;
 	        this.modal = (0, _domOps.selectFirst)('#' + this.openButton.getAttribute('data-modal'));
 	        this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
@@ -3274,7 +3273,7 @@
 	        key: 'setUpDesktopVersion',
 	        value: function setUpDesktopVersion() {
 	            var selectDD = this.element.querySelector('select');
-	            new _dropkickjs2.default(selectDD);
+	            this.dropkick = new _dropkickjs2.default(selectDD);
 	        }
 	
 	        /**
@@ -3299,12 +3298,39 @@
 	        key: 'bindTouchEvents',
 	        value: function bindTouchEvents() {
 	            var selectDDWrap = this.element.closest('.select-dd-wrapper');
-	            var listener = new _domDelegate.Delegate(selectDDWrap);
+	            this.listener = new _domDelegate.Delegate(selectDDWrap);
 	
-	            listener.on('change', 'select', function (event, element) {
+	            this.listener.on('change', 'select', function (event, element) {
 	                var selectDDText = element.options[element.selectedIndex].text;
 	                element.closest('.select-dd-wrapper').querySelector('.mobile-select').innerHTML = selectDDText;
 	            });
+	        }
+	
+	        /**
+	         * Destroys dropkick instance and unbinds the event listeners from the elements.
+	         */
+	
+	    }, {
+	        key: 'destroy',
+	        value: function destroy() {
+	            if (this.dropkick !== undefined) {
+	                this.dropkick.dispose();
+	            }
+	            if (this.listener !== undefined) {
+	                this.listener.destroy();
+	            }
+	        }
+	
+	        /**
+	         * Refreshes dropkick instance (used for if the markup changes).
+	         */
+	
+	    }, {
+	        key: 'refresh',
+	        value: function refresh() {
+	            if (this.dropkick !== undefined) {
+	                this.dropkick.refresh();
+	            }
 	        }
 	    }]);
 	
@@ -3314,6 +3340,20 @@
 	exports.default = {
 	    init: function init(element) {
 	        instances.push(new SelectDropDown(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.destroy();
+	        });
+	        instances = [];
+	    },
+	
+	    refresh: function refresh() {
+	        instances.forEach(function (instance) {
+	            return instance.refresh();
+	        });
+	        instances = [];
 	    }
 	};
 
@@ -13775,6 +13815,16 @@
 	        }
 	
 	        /**
+	         * Unbinds the event listeners from the elements.
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.listener.destroy();
+	        }
+	
+	        /**
 	         * Display thumbnail as main image.
 	         */
 	
@@ -13794,6 +13844,13 @@
 	exports.default = {
 	    init: function init(element) {
 	        instances.push(new GallerySimple(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
 	    }
 	};
 
@@ -13863,6 +13920,16 @@
 	        }
 	
 	        /**
+	         * Unbinds the event listeners from the elements.
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.listener.destroy();
+	        }
+	
+	        /**
 	         * Toggles the accordion.
 	         *
 	         * @param {Event} event
@@ -13887,6 +13954,13 @@
 	exports.default = {
 	    init: function init(element) {
 	        instances.push(new Accordion(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
 	    }
 	};
 
@@ -13929,6 +14003,9 @@
 	        _classCallCheck(this, HeaderNav);
 	
 	        this.element = element;
+	        this.navicon = (0, _domOps.selectFirst)('.navicon', this.element);
+	        this.nav = (0, _domOps.selectFirst)('.global-nav', this.element);
+	
 	        this.bindEvents();
 	    }
 	
@@ -13942,14 +14019,28 @@
 	        value: function bindEvents() {
 	            var _this = this;
 	
-	            this.listener = new _domDelegate.Delegate(this.element);
+	            this.naviconListener = new _domDelegate.Delegate(this.navicon);
 	
-	            this.listener.on('click', '.navicon', function (event) {
+	            this.naviconListener.on('click', function (event) {
 	                _this.toggleNav(event);
 	            });
-	            this.listener.on('click', '.has-sub-nav a', function (event, clickedElement) {
+	
+	            this.navListener = new _domDelegate.Delegate(this.nav);
+	
+	            this.navListener.on('click', '.has-sub-nav a', function (event, clickedElement) {
 	                _this.toggleSubNav(event, clickedElement);
 	            });
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements.
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.naviconListener.destroy();
+	            this.navListener.destroy();
 	        }
 	
 	        /**
@@ -14015,6 +14106,12 @@
 	exports.default = {
 	    init: function init(element) {
 	        instances.push(new HeaderNav(element));
+	    },
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
 	    }
 	};
 
@@ -14055,13 +14152,28 @@
 	        _classCallCheck(this, Carousel);
 	
 	        this.element = element;
-	        this.slick();
+	        this.initSlick();
 	    }
 	
+	    /**
+	     * Initialise a slick slider.
+	     */
+	
+	
 	    _createClass(Carousel, [{
-	        key: "slick",
-	        value: function slick() {
+	        key: "initSlick",
+	        value: function initSlick() {
 	            (0, _jquery2.default)(this.element).slick();
+	        }
+	
+	        /**
+	         * Destroy slick slider.
+	         */
+	
+	    }, {
+	        key: "destroy",
+	        value: function destroy() {
+	            (0, _jquery2.default)(this.element).slick('unslick');
 	        }
 	    }]);
 	
@@ -14071,6 +14183,13 @@
 	exports.default = {
 	    init: function init(element) {
 	        instances.push(new Carousel(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.destroy();
+	        });
+	        instances = [];
 	    }
 	};
 

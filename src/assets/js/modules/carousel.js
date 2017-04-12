@@ -12,16 +12,31 @@ class Carousel {
      */
     constructor(element) {
         this.element = element;
-        this.slick();
+        this.initSlick();
     }
 
-    slick() {
+    /**
+     * Initialise a slick slider.
+     */
+    initSlick() {
         $(this.element).slick();
+    }
+
+    /**
+     * Destroy slick slider.
+     */
+    destroy() {
+        $(this.element).slick('unslick');
     }
 }
 
 export default {
     init: function(element) {
         instances.push(new Carousel(element));
+    },
+
+    destroy: function() {
+        instances.forEach((instance) => instance.destroy());
+        instances = [];
     }
 };

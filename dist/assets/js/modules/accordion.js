@@ -60,6 +60,16 @@ var Accordion = function () {
         }
 
         /**
+         * Unbinds the event listeners from the elements.
+         */
+
+    }, {
+        key: 'unbindEvents',
+        value: function unbindEvents() {
+            this.listener.destroy();
+        }
+
+        /**
          * Toggles the accordion.
          *
          * @param {Event} event
@@ -84,5 +94,12 @@ var Accordion = function () {
 exports.default = {
     init: function init(element) {
         instances.push(new Accordion(element));
+    },
+
+    destroy: function destroy() {
+        instances.forEach(function (instance) {
+            return instance.unbindEvents();
+        });
+        instances = [];
     }
 };

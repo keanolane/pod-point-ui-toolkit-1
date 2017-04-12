@@ -29,6 +29,13 @@ class GallerySimple {
     }
 
     /**
+     * Unbinds the event listeners from the elements.
+     */
+    unbindEvents() {
+        this.listener.destroy();
+    }
+
+    /**
      * Display thumbnail as main image.
      */
     displayThumbnailAsImage(thumbnail) {
@@ -42,5 +49,10 @@ class GallerySimple {
 export default {
     init: function(element) {
         instances.push(new GallerySimple(element));
+    },
+
+    destroy: function() {
+        instances.forEach((instance) => instance.unbindEvents());
+        instances = [];
     }
 };

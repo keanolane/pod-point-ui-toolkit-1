@@ -45,7 +45,7 @@ var SelectDropDown = function () {
         key: 'setUpDesktopVersion',
         value: function setUpDesktopVersion() {
             var selectDD = this.element.querySelector('select');
-            new _dropkickjs2.default(selectDD);
+            this.dropkick = new _dropkickjs2.default(selectDD);
         }
 
         /**
@@ -70,12 +70,39 @@ var SelectDropDown = function () {
         key: 'bindTouchEvents',
         value: function bindTouchEvents() {
             var selectDDWrap = this.element.closest('.select-dd-wrapper');
-            var listener = new _domDelegate.Delegate(selectDDWrap);
+            this.listener = new _domDelegate.Delegate(selectDDWrap);
 
-            listener.on('change', 'select', function (event, element) {
+            this.listener.on('change', 'select', function (event, element) {
                 var selectDDText = element.options[element.selectedIndex].text;
                 element.closest('.select-dd-wrapper').querySelector('.mobile-select').innerHTML = selectDDText;
             });
+        }
+
+        /**
+         * Destroys dropkick instance and unbinds the event listeners from the elements.
+         */
+
+    }, {
+        key: 'destroy',
+        value: function destroy() {
+            if (this.dropkick !== undefined) {
+                this.dropkick.dispose();
+            }
+            if (this.listener !== undefined) {
+                this.listener.destroy();
+            }
+        }
+
+        /**
+         * Refreshes dropkick instance (used for if the markup changes).
+         */
+
+    }, {
+        key: 'refresh',
+        value: function refresh() {
+            if (this.dropkick !== undefined) {
+                this.dropkick.refresh();
+            }
         }
     }]);
 
@@ -85,5 +112,19 @@ var SelectDropDown = function () {
 exports.default = {
     init: function init(element) {
         instances.push(new SelectDropDown(element));
+    },
+
+    destroy: function destroy() {
+        instances.forEach(function (instance) {
+            return instance.destroy();
+        });
+        instances = [];
+    },
+
+    refresh: function refresh() {
+        instances.forEach(function (instance) {
+            return instance.refresh();
+        });
+        instances = [];
     }
 };

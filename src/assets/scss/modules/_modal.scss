@@ -7,7 +7,7 @@
 	@include position(absolute, 0 0 null null);
 	width: 100%;
 	min-height: 100%;
-	.circle-icon {
+	.circle-icon--close {
 		@include position(absolute, $horizontal-spacing-mobile $horizontal-spacing-mobile null null);
 		@include media($medium) {
 			@include position(absolute, $horizontal-spacing $horizontal-spacing null null);

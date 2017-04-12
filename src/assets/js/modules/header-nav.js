@@ -1,5 +1,5 @@
 import { Delegate } from 'dom-delegate';
-import { select, addClass, removeClass, nextElement, nodesToArray } from '@pod-point/dom-ops';
+import { select, addClass, removeClass, nextElement, nodesToArray, selectFirst } from '@pod-point/dom-ops';
 import { isVisible, hide, show } from './../utilities';
 
 let instances = [];
@@ -20,6 +20,9 @@ class HeaderNav {
      */
     constructor(element) {
         this.element = element;
+        this.navicon = selectFirst('.navicon', this.element);
+        this.nav = selectFirst('.global-nav', this.element);
+
         this.bindEvents();
     }
 
@@ -27,14 +30,25 @@ class HeaderNav {
      * Binds the event listeners from the elements.
      */
     bindEvents() {
-        this.listener = new Delegate(this.element);
+        this.naviconListener = new Delegate(this.navicon);
 
-        this.listener.on('click', '.navicon', (event) => {
+        this.naviconListener.on('click', (event) => {
             this.toggleNav(event);
         });
-        this.listener.on('click', '.has-sub-nav a', (event, clickedElement) => {
+
+        this.navListener = new Delegate(this.nav);
+
+        this.navListener.on('click', '.has-sub-nav a', (event, clickedElement) => {
             this.toggleSubNav(event, clickedElement);
         });
+    }
+
+    /**
+     * Unbinds the event listeners from the elements.
+     */
+    unbindEvents() {
+        this.naviconListener.destroy();
+        this.navListener.destroy();
     }
 
     /**
@@ -88,5 +102,9 @@ class HeaderNav {
 export default {
     init: function(element) {
         instances.push(new HeaderNav(element));
+    },
+    destroy: function() {
+        instances.forEach((instance) => instance.unbindEvents());
+        instances = [];
     }
 };

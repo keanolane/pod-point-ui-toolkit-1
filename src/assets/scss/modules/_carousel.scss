@@ -4,6 +4,7 @@
 
 .carousel-section {
 	@include padding(4rem null);
+	overflow: hidden;
 
 	.reviews-from-text {
 		display: none;

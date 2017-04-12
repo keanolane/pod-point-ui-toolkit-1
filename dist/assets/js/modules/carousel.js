@@ -31,13 +31,28 @@ var Carousel = function () {
         _classCallCheck(this, Carousel);
 
         this.element = element;
-        this.slick();
+        this.initSlick();
     }
 
+    /**
+     * Initialise a slick slider.
+     */
+
+
     _createClass(Carousel, [{
-        key: "slick",
-        value: function slick() {
+        key: "initSlick",
+        value: function initSlick() {
             (0, _jquery2.default)(this.element).slick();
+        }
+
+        /**
+         * Destroy slick slider.
+         */
+
+    }, {
+        key: "destroy",
+        value: function destroy() {
+            (0, _jquery2.default)(this.element).slick('unslick');
         }
     }]);
 
@@ -47,5 +62,12 @@ var Carousel = function () {
 exports.default = {
     init: function init(element) {
         instances.push(new Carousel(element));
+    },
+
+    destroy: function destroy() {
+        instances.forEach(function (instance) {
+            return instance.destroy();
+        });
+        instances = [];
     }
 };

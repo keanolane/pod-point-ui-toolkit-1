@@ -49,6 +49,16 @@ var GallerySimple = function () {
         }
 
         /**
+         * Unbinds the event listeners from the elements.
+         */
+
+    }, {
+        key: 'unbindEvents',
+        value: function unbindEvents() {
+            this.listener.destroy();
+        }
+
+        /**
          * Display thumbnail as main image.
          */
 
@@ -68,5 +78,12 @@ var GallerySimple = function () {
 exports.default = {
     init: function init(element) {
         instances.push(new GallerySimple(element));
+    },
+
+    destroy: function destroy() {
+        instances.forEach(function (instance) {
+            return instance.unbindEvents();
+        });
+        instances = [];
     }
 };

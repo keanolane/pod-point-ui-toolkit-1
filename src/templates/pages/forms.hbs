@@ -6,17 +6,15 @@
 	</header>
 
 
-	<!-- PRIMARY FORM FIELDS -->
+	<!-- INPUTS -->
 	<section>
 		<header class="demo-section-sub-heading">
 			<div class="container">
-				<h3>Primary form fields</h3>
+				<h3>Inputs</h3>
 			</div>
 		</header>
 
 		<div class="container container--vertical-padding">
-
-			<!-- INPUTS -->
 			<div class="field-row">
 				<label class="label--block">Input field</label>
 				<div class="form-field-wrapper">
@@ -24,20 +22,37 @@
 				</div>
 			</div>
 			<div class="field-row">
-				<label class="label--block">Input field</label>
+				<label class="label--block">Input field - disabled</label>
+				<div class="form-field-wrapper">
+					<input type="text" disabled="true" />
+				</div>
+			</div>
+			<div class="field-row">
+				<label class="label--block">Input field - valid</label>
 				<div class="form-field-wrapper is-valid">
 					<input type="text" placeholder="Sample placeholder text" />
 				</div>
 			</div>
 			<div class="field-row">
-				<label class="label--block">Input field</label>
+				<label class="label--block">Input field - invalid</label>
 				<div class="form-field-wrapper is-invalid">
 					<input type="text" placeholder="Sample placeholder text" />
 					<span class="error-message">This is an error message.</span>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<!-- TEXT AREAS -->
+
+	<!-- TEXT AREAS -->
+	<section>
+		<header class="demo-section-sub-heading">
+			<div class="container">
+				<h3>Text areas</h3>
+			</div>
+		</header>
+
+		<div class="container container--vertical-padding">
 			<div class="field-row">
 				<label class="label--block">Text area</label>
 				<div class="form-field-wrapper">
@@ -45,20 +60,37 @@
 				</div>
 			</div>
 			<div class="field-row">
-				<label class="label--block">Text area</label>
+				<label class="label--block">Text area - disabled</label>
+				<div class="form-field-wrapper">
+					<textarea type="text" disabled="true"></textarea>
+				</div>
+			</div>
+			<div class="field-row">
+				<label class="label--block">Text area - valid</label>
 				<div class="form-field-wrapper is-valid">
 					<textarea type="text"></textarea>
 				</div>
 			</div>
 			<div class="field-row">
-				<label class="label--block">Text area</label>
+				<label class="label--block">Text area - invalid</label>
 				<div class="form-field-wrapper is-invalid">
 					<textarea type="text"></textarea>
 					<span class="error-message">This is an error message.</span>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<!-- SELECT DROPDOWNS -->
+
+	<!-- SELECT DROPDOWNS -->
+	<section>
+		<header class="demo-section-sub-heading">
+			<div class="container">
+				<h3>Select dropdowns</h3>
+			</div>
+		</header>
+
+		<div class="container container--vertical-padding">
 			<div class="field-row">
 				<label class="label--block">Select dropdown</label>
 				<div class="form-field-wrapper">
@@ -72,7 +104,19 @@
 				</div>
 			</div>
 			<div class="field-row">
-				<label class="label--block">Select dropdown</label>
+				<label class="label--block">Select dropdown - disabled</label>
+				<div class="form-field-wrapper">
+					<div data-js-module="selectDropdown" class="select-dd-wrapper">
+						<select disabled="true">
+							<option value="00">00</option>
+							<option selected value="01">01</option>
+							<option value="02">02</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="field-row">
+				<label class="label--block">Select dropdown - valid</label>
 				<div class="form-field-wrapper is-valid">
 					<div data-js-module="selectDropdown" class="select-dd-wrapper">
 						<select>
@@ -84,7 +128,7 @@
 				</div>
 			</div>
 			<div class="field-row">
-				<label class="label--block">Select dropdown</label>
+				<label class="label--block">Select dropdown - invalid</label>
 				<div class="form-field-wrapper is-invalid">
 					<div data-js-module="selectDropdown" class="select-dd-wrapper">
 						<select>
@@ -96,8 +140,19 @@
 					<span class="error-message">This is an error message.</span>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<!-- CHECKBOXES -->
+
+	<!-- CHECKBOXES -->
+	<section>
+		<header class="demo-section-sub-heading">
+			<div class="container">
+				<h3>Checkboxes</h3>
+			</div>
+		</header>
+
+		<div class="container container--vertical-padding">
 			<div class="field-row">
 				<div class="checkboxes-wrap">
 					<div class="checkbox-wrap">
@@ -116,8 +171,19 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<!-- RADIOS -->
+
+	<!-- RADIOS -->
+	<section>
+		<header class="demo-section-sub-heading">
+			<div class="container">
+				<h3>Radios</h3>
+			</div>
+		</header>
+
+		<div class="container container--vertical-padding">
 			<div class="field-row">
 				<div class="radios-wrap">
 					<div class="radio-wrap">
@@ -153,63 +219,4 @@
 			</div>
 		</div>
 	<section>
-
-
-	<!-- DROPDOWNS -->
-	<section>
-		<header class="demo-section-sub-heading">
-			<div class="container">
-				<h3>Alternative select dropdowns</h3>
-			</div>
-		</header>
-
-		<div class="container container--vertical-padding">
-			<div class="field-row">
-				<label>Dropdown - inline with h1 heading</label>
-				<div class="select-dd-inline-wrap select-dd-inline-wrap--heading">
-					<h3 class="h1 select-dd-inline-wrap__text">I am interested in </h3>
-					<div data-js-module="selectDropdown" class="select-dd-wrapper select-dd-wrapper--alternative select-dd-wrapper--alternative--h1">
-						<select>
-							<option value="home-charging">Home Charging</option>
-							<option selected value="workplace-charging">Workplace Charging</option>
-							<option value="smart-city-charging">Smart City Charging</option>
-							<option value="business-charging">Business Charging</option>
-						</select>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="field-row">
-				<label>Dropdown - inline with large text</label>
-				<div class="select-dd-inline-wrap select-dd-inline-wrap--body-text">
-					<p class="select-dd-inline-wrap__text">Make </p>
-					<div data-js-module="selectDropdown" class="select-dd-wrapper select-dd-wrapper--alternative select-dd-wrapper--alternative--font-large">
-						<select>
-							<option value="nissan">Nissan</option>
-							<option value="workplace-charging">Workplace Charging</option>
-							<option selected value="smart-city-charging">Smart City Charging</option>
-							<option value="business-charging">Business Charging</option>
-						</select>
-					</div>
-				</div>
-			</div>
-		</div>
-	<section>
-
-	<!-- DROPDOWNS -->
-	<section>
-		<header class="demo-section-sub-heading">
-			<div class="container">
-				<h3>Alternative select input field</h3>
-			</div>
-		</header>
-
-		<div class="container container--vertical-padding">
-			<div class="content-block content-block--no-padding content-block--centered max-width-text-narrow">
-				<label class="font-style-large bold">Subscribe to our newsletter</label>
-				<input class="input--secondary text-center" type="text" placeholder="Sample placeholder text" />
-			</div>
-		</div>
-	</section>
 </div>

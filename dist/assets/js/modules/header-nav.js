@@ -33,6 +33,9 @@ var HeaderNav = function () {
         _classCallCheck(this, HeaderNav);
 
         this.element = element;
+        this.navicon = (0, _domOps.selectFirst)('.navicon', this.element);
+        this.nav = (0, _domOps.selectFirst)('.global-nav', this.element);
+
         this.bindEvents();
     }
 
@@ -46,14 +49,28 @@ var HeaderNav = function () {
         value: function bindEvents() {
             var _this = this;
 
-            this.listener = new _domDelegate.Delegate(this.element);
+            this.naviconListener = new _domDelegate.Delegate(this.navicon);
 
-            this.listener.on('click', '.navicon', function (event) {
+            this.naviconListener.on('click', function (event) {
                 _this.toggleNav(event);
             });
-            this.listener.on('click', '.has-sub-nav a', function (event, clickedElement) {
+
+            this.navListener = new _domDelegate.Delegate(this.nav);
+
+            this.navListener.on('click', '.has-sub-nav a', function (event, clickedElement) {
                 _this.toggleSubNav(event, clickedElement);
             });
+        }
+
+        /**
+         * Unbinds the event listeners from the elements.
+         */
+
+    }, {
+        key: 'unbindEvents',
+        value: function unbindEvents() {
+            this.naviconListener.destroy();
+            this.navListener.destroy();
         }
 
         /**
@@ -119,5 +136,11 @@ var HeaderNav = function () {
 exports.default = {
     init: function init(element) {
         instances.push(new HeaderNav(element));
+    },
+    destroy: function destroy() {
+        instances.forEach(function (instance) {
+            return instance.unbindEvents();
+        });
+        instances = [];
     }
 };
