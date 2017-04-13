@@ -1,0 +1,169 @@
+@font-face {
+	font-family: "icons";
+	src: url('../fonts/icons.eot');
+	src: url('../fonts/icons.eot?#iefix') format('eot'),
+		url('../fonts/icons.woff') format('woff'),
+		url('../fonts/icons.ttf') format('truetype'),
+		url('../fonts/icons.svg#icons') format('svg');
+}
+
+@mixin iconfont-styles {
+	display: inline-block;
+	height: inherit;
+	@include margin(null 0.2rem);
+	font-size: 2rem;
+	font-family: "icons";
+	font-variant: normal;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	text-decoration: inherit;
+	text-align: center;
+	text-transform: none;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class^="iconfont-"],
+[class*=" iconfont-"],
+.iconfont {
+
+	&:before {
+		@include iconfont-styles;
+	}
+}
+
+@function iconfont-char($filename) {
+	$char: "";
+
+	@if $filename == "arrow" {
+		$char: "\E001";
+	}
+	@if $filename == "charge-location" {
+		$char: "\E002";
+	}
+	@if $filename == "charge" {
+		$char: "\E003";
+	}
+	@if $filename == "cheveron" {
+		$char: "\E004";
+	}
+	@if $filename == "cross" {
+		$char: "\E005";
+	}
+	@if $filename == "folder" {
+		$char: "\E006";
+	}
+	@if $filename == "location" {
+		$char: "\E007";
+	}
+	@if $filename == "money" {
+		$char: "\E008";
+	}
+	@if $filename == "navicon" {
+		$char: "\E009";
+	}
+	@if $filename == "pencil" {
+		$char: "\E00A";
+	}
+	@if $filename == "star" {
+		$char: "\E00B";
+	}
+	@if $filename == "tick" {
+		$char: "\E00C";
+	}
+	@if $filename == "user" {
+		$char: "\E00D";
+	}
+	@if $filename == "email" {
+		$char: "\E00E";
+	}
+	@if $filename == "facebook" {
+		$char: "\E00F";
+	}
+	@if $filename == "google" {
+		$char: "\E010";
+	}
+	@if $filename == "instagram" {
+		$char: "\E011";
+	}
+	@if $filename == "linkedin" {
+		$char: "\E012";
+	}
+	@if $filename == "twitter" {
+		$char: "\E013";
+	}
+	@if $filename == "youtube" {
+		$char: "\E014";
+	}
+
+	@return $char;
+}
+
+@mixin iconfont($filename, $insert: before) {
+	&:#{$insert} {
+		content: iconfont-char($filename);
+	}
+}
+
+.iconfont-arrow {
+	@include iconfont("arrow");
+}
+.iconfont-charge-location {
+	@include iconfont("charge-location");
+}
+.iconfont-charge {
+	@include iconfont("charge");
+}
+.iconfont-cheveron {
+	@include iconfont("cheveron");
+}
+.iconfont-cross {
+	@include iconfont("cross");
+}
+.iconfont-folder {
+	@include iconfont("folder");
+}
+.iconfont-location {
+	@include iconfont("location");
+}
+.iconfont-money {
+	@include iconfont("money");
+}
+.iconfont-navicon {
+	@include iconfont("navicon");
+}
+.iconfont-pencil {
+	@include iconfont("pencil");
+}
+.iconfont-star {
+	@include iconfont("star");
+}
+.iconfont-tick {
+	@include iconfont("tick");
+}
+.iconfont-user {
+	@include iconfont("user");
+}
+.iconfont-email {
+	@include iconfont("email");
+}
+.iconfont-facebook {
+	@include iconfont("facebook");
+}
+.iconfont-google {
+	@include iconfont("google");
+}
+.iconfont-instagram {
+	@include iconfont("instagram");
+}
+.iconfont-linkedin {
+	@include iconfont("linkedin");
+}
+.iconfont-twitter {
+	@include iconfont("twitter");
+}
+.iconfont-youtube {
+	@include iconfont("youtube");
+}
