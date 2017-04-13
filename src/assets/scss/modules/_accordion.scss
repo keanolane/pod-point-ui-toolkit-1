@@ -31,7 +31,7 @@
 		}
 	}
 	&--only-mobile {
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			dt {
 				border-bottom: none;
 				padding: 0;

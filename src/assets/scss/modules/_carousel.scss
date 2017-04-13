@@ -8,7 +8,7 @@
 
 	.reviews-from-text {
 		display: none;
-		@include media($small) {
+		@media only screen and (min-width: $small-screen) {
 			display: inline-block;
 			padding-right: 0.5rem;
 		}
@@ -32,7 +32,7 @@
 			@include position(absolute, -2rem null null 50%);
 			z-index: 1;
 			margin-left: -2rem;
-			@include media($medium) {
+			@media only screen and (min-width: $medium-screen) {
 				top: -3rem;
 				margin-left: -3rem;
 			}
@@ -97,7 +97,7 @@
 	}
 	&.slick-prev {
 		right: -4.5rem;
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			right: -8rem;
 		}
 		&:before {
@@ -106,7 +106,7 @@
 	}
 	&.slick-next {
 		left: -4.5rem;
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			left: -8rem;
 		}
 		&:before {

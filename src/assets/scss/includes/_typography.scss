@@ -7,14 +7,14 @@
 	font-family: $font-family-base;
 	font-size: 1.4rem;
 	line-height: 1.5em;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		font-size: 1.6rem;
 	}
 }
 @mixin font-small {
 	@include font-base;
 	font-size: 1.2rem;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		font-size: 1.4rem;
 	}
 }
@@ -30,13 +30,13 @@
 @mixin font-style-small {
 	@include font-style-base;
 	font-size: 1.2rem;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		font-size: 1.4rem;
 	}
 }
 @mixin font-small {
 	font-size: 1.2rem;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		font-size: 1.4rem;
 	}
 }
@@ -45,7 +45,7 @@
 	@include font-base;
 	font-size: 1.6rem;
 	line-height: 1.5;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		font-size: 2rem;
 	}
 }
@@ -65,7 +65,7 @@
 @mixin font-style-h1 {
 	@include font-style-headings;
 	font-size: 1.8rem;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		font-size: 2.8rem;
 	}
 }
@@ -73,7 +73,7 @@
 @mixin font-style-h2 {
 	@include font-style-headings;
 	font-size: 1.6rem;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		font-size: 2.4rem;
 	}
 }
@@ -81,7 +81,7 @@
 @mixin font-style-h3 {
 	@include font-style-headings;
 	font-size: 1.4rem;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		font-size: 2.2rem;
 	}
 }
@@ -89,7 +89,7 @@
 @mixin font-style-h4 {
 	@include font-style-headings;
 	font-size: 1.4rem;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		font-size: 2rem;
 	}
 }
@@ -97,7 +97,7 @@
 @mixin font-style-h5 {
 	@include font-style-headings;
 	font-size: 1.4rem;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		font-size: 1.8rem;
 	}
 }
@@ -105,7 +105,7 @@
 @mixin font-style-h6 {
 	@include font-style-headings;
 	font-size: 1.4rem;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		font-size: 1.6rem;
 	}
 }

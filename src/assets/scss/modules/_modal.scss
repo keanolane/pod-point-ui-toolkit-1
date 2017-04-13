@@ -9,14 +9,14 @@
 	min-height: 100%;
 	.circle-icon--close {
 		@include position(absolute, $horizontal-spacing-mobile $horizontal-spacing-mobile null null);
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			@include position(absolute, $horizontal-spacing $horizontal-spacing null null);
 		}
 	}
 	&__content {
 		@include container;
 		@include margin(8rem null);
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			@include margin(10rem null);
 		}
 	}

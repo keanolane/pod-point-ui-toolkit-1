@@ -54,7 +54,7 @@
 }
 
 .card-set-standout {
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		.grid-row {
 			@include margin(0.7rem null);
 		}

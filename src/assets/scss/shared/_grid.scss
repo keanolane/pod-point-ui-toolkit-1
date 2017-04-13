@@ -14,7 +14,7 @@ $default-gutter: 2rem;
 	.grid-col-3 {
 		@include grid-col($col: 12, $gutter: $default-gutter);
 	}
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		.grid-col-6 {
 			@include grid-col($col: 6, $gutter: $default-gutter);
 		}

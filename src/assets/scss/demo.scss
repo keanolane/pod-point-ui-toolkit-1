@@ -32,7 +32,7 @@ $output-bourbon-deprecation-warnings: false;
 		text-transform: uppercase;
 		font-size: 1.2rem;
 		font-family: $font-family-bold;
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			font-size: 1.4rem;
 		}
 	}

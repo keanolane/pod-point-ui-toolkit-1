@@ -9,18 +9,18 @@
 .global-header {
 	@include container;
 	@include clearfix;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		height: 10rem;
 	}
 	&:after {
 		width: 100%;
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			border-bottom: $border-base;
 		}
 	}
 	&.nav-open {
 		box-shadow: $bottom-shadow;
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			box-shadow: none;
 		}
 	}
@@ -28,7 +28,7 @@
 		border-bottom: $border-base;
 		position: relative;
 		height: 6rem;
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			height: auto;
 			border-bottom: none;
 		}
@@ -38,11 +38,11 @@
 .logo-main {
 	width: 10rem;
 	@include position(absolute, 2rem null null 0);
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		top: 3rem;
 		width: 14rem;
 	}
-	@include media($large) {
+	@media only screen and (min-width: $large-screen) {
 		width: 18rem;
 	}
 }
@@ -50,7 +50,7 @@
 .navicon {
 	margin-top: 2rem;
 	float: right;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		display: none;
 	}
 }

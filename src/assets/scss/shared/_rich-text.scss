@@ -23,7 +23,7 @@ $typography-vertical-spacing: 0.5em;
 		li {
 			padding-left: 0rem;
 			list-style-type: disc;
-			@include media($medium) {
+			@media only screen and (min-width: $medium-screen) {
 				padding-left: 0.5rem;
 			}
 			ul li {
@@ -36,7 +36,7 @@ $typography-vertical-spacing: 0.5em;
 		li {
 			padding-left: 0.5rem;
 			list-style-type: decimal;
-			@include media($medium) {
+			@media only screen and (min-width: $medium-screen) {
 				padding-left: 1rem;
 			}
 		}

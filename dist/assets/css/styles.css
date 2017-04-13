@@ -105,12 +105,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-html {
-  box-sizing: border-box; }
-
-*, *::after, *::before {
-  box-sizing: inherit; }
-
 @font-face {
   font-family: "Quicksand Regular";
   font-style: normal;
@@ -333,7 +327,7 @@ p, .p {
   font-size: 1.4rem;
   line-height: 1.5em;
   padding-bottom: 0.5em; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     p, .p {
       font-size: 1.6rem; } }
   p:last-child, .p:last-child {
@@ -349,7 +343,7 @@ h1, .h1 {
   font-size: 1.8rem; }
   h1:last-child, .h1:last-child {
     padding-bottom: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     h1, .h1 {
       font-size: 2.8rem; } }
 
@@ -363,7 +357,7 @@ h2, .h2 {
   font-size: 1.6rem; }
   h2:last-child, .h2:last-child {
     padding-bottom: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     h2, .h2 {
       font-size: 2.4rem; } }
 
@@ -377,7 +371,7 @@ h3, .h3 {
   font-size: 1.4rem; }
   h3:last-child, .h3:last-child {
     padding-bottom: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     h3, .h3 {
       font-size: 2.2rem; } }
 
@@ -391,7 +385,7 @@ h4, .h4 {
   font-size: 1.4rem; }
   h4:last-child, .h4:last-child {
     padding-bottom: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     h4, .h4 {
       font-size: 2rem; } }
 
@@ -405,7 +399,7 @@ h5, .h5 {
   font-size: 1.4rem; }
   h5:last-child, .h5:last-child {
     padding-bottom: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     h5, .h5 {
       font-size: 1.8rem; } }
 
@@ -419,7 +413,7 @@ h6, .h6 {
   font-size: 1.4rem; }
   h6:last-child, .h6:last-child {
     padding-bottom: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     h6, .h6 {
       font-size: 1.6rem; } }
 
@@ -430,7 +424,7 @@ h6, .h6 {
   font-size: 1.4rem;
   line-height: 1.5em;
   padding-bottom: 0.5em; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .font-style-base,
     .font-style-base > p {
       font-size: 1.6rem; } }
@@ -443,7 +437,7 @@ h6, .h6 {
   font-family: "Quicksand Regular", sans-serif;
   font-size: 1.4rem;
   line-height: 1.5em; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .font-base {
       font-size: 1.6rem; } }
 
@@ -455,11 +449,11 @@ h6, .h6 {
   line-height: 1.5em;
   font-size: 1.6rem;
   line-height: 1.5; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .font-style-large,
     .font-style-large > p {
       font-size: 1.6rem; } }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .font-style-large,
     .font-style-large > p {
       font-size: 2rem; } }
@@ -472,21 +466,21 @@ h6, .h6 {
   line-height: 1.5em;
   padding-bottom: 0.5em;
   font-size: 1.2rem; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .font-style-small,
     .font-style-small > p {
       font-size: 1.6rem; } }
   .font-style-small:last-child,
   .font-style-small > p:last-child {
     padding-bottom: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .font-style-small,
     .font-style-small > p {
       font-size: 1.4rem; } }
 
 .font-small {
   font-size: 1.2rem; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .font-small {
       font-size: 1.4rem; } }
 
@@ -535,7 +529,7 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
     -ms-flex: 0 0 calc( 100% - 2rem);
         flex: 0 0 calc( 100% - 2rem);
     margin: 0 1rem 2rem; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .grid-row .grid-col-6 {
       box-sizing: border-box;
       -ms-flex: 0 0 calc( 50% - 2rem);
@@ -593,12 +587,12 @@ label {
   padding-bottom: 0.5em;
   font-size: 1.2rem;
   padding-bottom: 0.5rem; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     label {
       font-size: 1.6rem; } }
   label:last-child {
     padding-bottom: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     label {
       font-size: 1.4rem; } }
   .checkbox-wrap label,
@@ -609,14 +603,14 @@ label {
     line-height: 1.5em;
     padding-bottom: 0.5em;
     font-size: 1.2rem; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .checkbox-wrap label,
       .radio-wrap label {
         font-size: 1.6rem; } }
     .checkbox-wrap label:last-child,
     .radio-wrap label:last-child {
       padding-bottom: 0; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .checkbox-wrap label,
       .radio-wrap label {
         font-size: 1.4rem; } }
@@ -700,7 +694,7 @@ textarea[type="text"] {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       [type="radio"] + label {
         font-size: 1.6rem; } }
     [type="radio"] + label:last-child {
@@ -716,7 +710,7 @@ textarea[type="text"] {
       height: 2rem;
       z-index: 0;
       transition: .28s ease; }
-      @media screen and (min-width: 50em) {
+      @media only screen and (min-width: 50em) {
         [type="radio"] + label:after, [type="radio"] + label:before {
           margin-top: 0.8rem;
           margin-bottom: 0.8rem; } }
@@ -887,10 +881,10 @@ textarea[type="text"] {
     font-size: 1.6rem;
     line-height: 1.5;
     font-family: "Quicksand Bold", sans-serif; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .select-dd-inline-wrap--body-text .select-dd-inline-wrap__text {
         font-size: 1.6rem; } }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .select-dd-inline-wrap--body-text .select-dd-inline-wrap__text {
         font-size: 2rem; } }
   .select-dd-inline-wrap__text,
@@ -1040,7 +1034,7 @@ textarea[type="text"] {
   height: 4rem;
   max-width: 50rem;
   margin-top: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .select-dd-wrapper:not(.select-dd-wrapper--alternative) {
       margin-top: 0; } }
   .select-dd-wrapper:not(.select-dd-wrapper--alternative).select-dd-wrapper--mobile select {
@@ -1178,12 +1172,12 @@ textarea[type="text"] {
       font-size: 1.2rem;
       height: 1.2rem;
       font-weight: bold; }
-      @media screen and (min-width: 50em) {
+      @media only screen and (min-width: 50em) {
         .select-dd-wrapper--alternative .dk-selected:after,
         .select-dd-wrapper--alternative .mobile-select:after {
           font-size: 1.4rem;
           height: 1.4rem; } }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .select-dd-wrapper--alternative--h1 {
       margin-left: 0.6rem; } }
   .select-dd-wrapper--alternative--h1 .dk-selected,
@@ -1201,12 +1195,12 @@ textarea[type="text"] {
     .select-dd-wrapper--alternative--h1 .mobile-select:last-child,
     .select-dd-wrapper--alternative--h1.select-dd-wrapper--mobile select:last-child {
       padding-bottom: 0; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .select-dd-wrapper--alternative--h1 .dk-selected,
       .select-dd-wrapper--alternative--h1 .mobile-select,
       .select-dd-wrapper--alternative--h1.select-dd-wrapper--mobile select {
         font-size: 2.8rem; } }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .select-dd-wrapper--alternative--h1 .dk-selected,
       .select-dd-wrapper--alternative--h1 .mobile-select,
       .select-dd-wrapper--alternative--h1.select-dd-wrapper--mobile select {
@@ -1217,14 +1211,14 @@ textarea[type="text"] {
     .select-dd-wrapper--alternative--h1 .mobile-select:after,
     .select-dd-wrapper--alternative--h1.select-dd-wrapper--mobile select:after {
       top: 27%; }
-      @media screen and (min-width: 50em) {
+      @media only screen and (min-width: 50em) {
         .select-dd-wrapper--alternative--h1 .dk-selected:after,
         .select-dd-wrapper--alternative--h1 .mobile-select:after,
         .select-dd-wrapper--alternative--h1.select-dd-wrapper--mobile select:after {
           top: 35%;
           font-size: 1.7rem;
           height: 1.7rem; } }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .select-dd-wrapper--alternative--font-large {
       margin-left: 0.3rem; } }
   .select-dd-wrapper--alternative--font-large .dk-selected,
@@ -1239,17 +1233,17 @@ textarea[type="text"] {
     font-family: "Quicksand Bold", sans-serif;
     margin-top: -0.4rem;
     padding-bottom: 0; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .select-dd-wrapper--alternative--font-large .dk-selected,
       .select-dd-wrapper--alternative--font-large .mobile-select,
       .select-dd-wrapper--alternative--font-large.select-dd-wrapper--mobile select {
         font-size: 1.6rem; } }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .select-dd-wrapper--alternative--font-large .dk-selected,
       .select-dd-wrapper--alternative--font-large .mobile-select,
       .select-dd-wrapper--alternative--font-large.select-dd-wrapper--mobile select {
         font-size: 2rem; } }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .select-dd-wrapper--alternative--font-large .dk-selected,
       .select-dd-wrapper--alternative--font-large .mobile-select,
       .select-dd-wrapper--alternative--font-large.select-dd-wrapper--mobile select {
@@ -1286,21 +1280,21 @@ textarea[type="text"] {
   display: inline-block;
   width: 100%;
   max-width: 50rem; }
-  @media screen and (min-width: 40em) {
+  @media only screen and (min-width: 40em) {
     .form-field-wrapper {
       min-width: 32rem; } }
 
-@media screen and (min-width: 40em) {
+@media only screen and (min-width: 40em) {
   .form-field-wrapper {
     padding-right: 3rem; } }
 
-@media screen and (min-width: 50em) {
+@media only screen and (min-width: 50em) {
   .form-field-wrapper {
     padding-right: 0; } }
 
 .form-field-wrapper.is-valid, .form-field-wrapper.is-invalid {
   position: relative; }
-  @media screen and (min-width: 40em) {
+  @media only screen and (min-width: 40em) {
     .form-field-wrapper.is-valid:before, .form-field-wrapper.is-invalid:before {
       display: inline-block;
       height: inherit;
@@ -1323,11 +1317,11 @@ textarea[type="text"] {
       position: absolute;
       top: 0.9rem;
       right: 0; } }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .form-field-wrapper.is-valid:before, .form-field-wrapper.is-invalid:before {
       right: -3rem; } }
 
-@media screen and (min-width: 40em) {
+@media only screen and (min-width: 40em) {
   .form-field-wrapper.is-valid:before {
     content: ""; } }
 
@@ -1345,7 +1339,7 @@ textarea[type="text"] {
 .form-field-wrapper.is-valid .select-dd-wrapper--mobile .mobile-select:after {
   color: #8CC63F; }
 
-@media screen and (min-width: 40em) {
+@media only screen and (min-width: 40em) {
   .form-field-wrapper.is-invalid:before {
     content: ""; } }
 
@@ -1373,12 +1367,12 @@ textarea[type="text"] {
   font-family: "Quicksand Bold", sans-serif;
   color: #C1272D;
   margin-top: 0.3rem; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .error-message {
       font-size: 1.6rem; } }
   .error-message:last-child {
     padding-bottom: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .error-message {
       font-size: 1.4rem; } }
   .checkbox-wrap .error-message {
@@ -1401,7 +1395,7 @@ ol {
   ul.list--small,
   ol.list--small {
     font-size: 1.2rem; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       ul.list--small,
       ol.list--small {
         font-size: 1.4rem; } }
@@ -1444,7 +1438,7 @@ ol {
   line-height: 1.5em;
   padding-bottom: 0.5em;
   padding-bottom: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .rich-text ul, .rich-text ol {
       font-size: 1.6rem; } }
   .rich-text ul:last-child, .rich-text ol:last-child {
@@ -1461,7 +1455,7 @@ ol {
   .rich-text ul li {
     padding-left: 0rem;
     list-style-type: disc; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .rich-text ul li {
         padding-left: 0.5rem; } }
     .rich-text ul li ul li {
@@ -1472,7 +1466,7 @@ ol {
   .rich-text ol li {
     padding-left: 0.5rem;
     list-style-type: decimal; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .rich-text ol li {
         padding-left: 1rem; } }
 
@@ -1499,7 +1493,7 @@ ol {
   font-size: 1.4rem;
   line-height: 1.5em;
   padding-bottom: 0.5em; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .table {
       font-size: 1.6rem; } }
   .table:last-child {
@@ -1569,7 +1563,7 @@ table th[class*="col-"] {
 .table--responsive {
   overflow-x: auto;
   min-height: 0.01%; }
-  @media screen and (min-width: 40em) {
+  @media only screen and (min-width: 40em) {
     .table--responsive {
       width: 100%;
       margin-bottom: 1.875rem;
@@ -1640,7 +1634,7 @@ button {
   border: 1px solid #8CC63F;
   transition: all 0.2s ease;
   max-width: 50rem; }
-  @media screen and (min-width: 40em) {
+  @media only screen and (min-width: 40em) {
     .button {
       width: auto; } }
   .button:hover:not(.is-disabled), .button:focus:not(.is-disabled), .button:active:not(.is-disabled) {
@@ -1701,7 +1695,7 @@ button {
     margin-right: 1rem;
     margin-left: 1rem;
     width: calc(100% - 2rem); }
-    @media screen and (min-width: 40em) {
+    @media only screen and (min-width: 40em) {
       .buttons-container .button {
         width: auto; } }
     .buttons-container .button--auto-width {
@@ -1852,7 +1846,7 @@ button {
     .circle-icon--small-resp:before {
       font-size: 1.2rem;
       line-height: 2.5rem; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .circle-icon--small-resp {
         width: 4rem;
         height: 4rem; }
@@ -1865,7 +1859,7 @@ button {
     .circle-icon--large-resp:before {
       font-size: 1.7rem;
       line-height: 4rem; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .circle-icon--large-resp {
         width: 6rem;
         height: 6rem; }
@@ -1965,14 +1959,14 @@ button {
   max-width: 104rem;
   padding-right: 2.5rem;
   padding-left: 2.5rem; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .container {
       padding-right: 3rem;
       padding-left: 3rem; } }
   .container--vertical-padding {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .container--vertical-padding {
         padding-top: 4rem;
         padding-bottom: 4rem; } }
@@ -2070,7 +2064,7 @@ button {
   .card p + hr, .card h1 + hr, .card h2 + hr, .card h3 + hr, .card h4 + hr, .card h5 + hr, .card h6 + hr {
     margin-top: 0.5rem; }
 
-@media screen and (min-width: 50em) {
+@media only screen and (min-width: 50em) {
   .card-set-standout .grid-row {
     margin-top: 0.7rem;
     margin-bottom: 0.7rem; }
@@ -2087,7 +2081,7 @@ button {
   max-width: 104rem;
   padding-right: 2.5rem;
   padding-left: 2.5rem; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .global-header {
       padding-right: 3rem;
       padding-left: 3rem; } }
@@ -2095,24 +2089,24 @@ button {
     content: "";
     display: table;
     clear: both; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .global-header {
       height: 10rem; } }
   .global-header:after {
     width: 100%; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .global-header:after {
         border-bottom: 1px solid #ccc; } }
   .global-header.nav-open {
     box-shadow: 0px 11px 16px -10px rgba(0, 0, 0, 0.1); }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .global-header.nav-open {
         box-shadow: none; } }
   .global-header__content {
     border-bottom: 1px solid #ccc;
     position: relative;
     height: 6rem; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .global-header__content {
         height: auto;
         border-bottom: none; } }
@@ -2122,22 +2116,22 @@ button {
   position: absolute;
   top: 2rem;
   left: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .logo-main {
       top: 3rem;
       width: 14rem; } }
-  @media screen and (min-width: 64em) {
+  @media only screen and (min-width: 64em) {
     .logo-main {
       width: 18rem; } }
 
 .navicon {
   margin-top: 2rem;
   float: right; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .navicon {
       display: none; } }
 
-@media screen and (min-width: 50em) {
+@media only screen and (min-width: 50em) {
   .global-footer .list--links:not(.list--inline) li {
     margin-bottom: 1rem; }
     .global-footer .list--links:not(.list--inline) li:last-child {
@@ -2147,7 +2141,7 @@ button {
   background-color: #f2f2f2; }
   .global-footer__section-top .list--links {
     color: #999; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .global-footer__section-top .accordion dd .accordion__item-content {
       padding-top: 2rem;
       padding-bottom: 0; } }
@@ -2158,10 +2152,10 @@ button {
       width: 100%;
       display: inline-block;
       margin-top: 2rem; }
-      @media screen and (min-width: 50em) {
+      @media only screen and (min-width: 50em) {
         .global-footer__section-top__bottom .icons-list {
           margin-bottom: 1.2rem; } }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .global-footer__section-top__bottom {
         margin-top: 0;
         text-align: right;
@@ -2186,7 +2180,7 @@ button {
   background-color: #333;
   padding-top: 2rem;
   padding-bottom: 2rem; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .global-footer__section-bottom {
       padding-top: 1.5rem;
       padding-bottom: 1.5rem; } }
@@ -2194,7 +2188,7 @@ button {
   .global-footer__section-bottom ul {
     font-size: 1.2rem;
     font-family: "Quicksand Bold", sans-serif; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .global-footer__section-bottom p,
       .global-footer__section-bottom ul {
         font-size: 1.4rem; } }
@@ -2202,7 +2196,7 @@ button {
     margin-bottom: 0; }
   .global-footer__section-bottom .list--inline {
     text-align: center; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .global-footer__section-bottom .list--inline {
         text-align: left; } }
   .global-footer__section-bottom ul {
@@ -2210,7 +2204,7 @@ button {
   .global-footer__section-bottom .copyright {
     margin-top: 1rem;
     text-align: center; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .global-footer__section-bottom .copyright {
         margin-top: 0;
         text-align: right; } }
@@ -2224,7 +2218,7 @@ button {
     content: "";
     display: table;
     clear: both; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .global-nav {
       height: 10rem;
       display: block;
@@ -2239,19 +2233,19 @@ button {
     position: relative;
     border-bottom: 1px solid #ccc;
     font-size: 1.2rem; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .global-nav ul li {
         font-size: 1.4rem; } }
     .global-nav ul li:last-child {
       border-bottom: none; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .global-nav ul li {
         position: static;
         border-bottom: none;
         display: inline-block;
         margin-right: 1rem;
         margin-left: 1rem; } }
-    @media screen and (min-width: 64em) {
+    @media only screen and (min-width: 64em) {
       .global-nav ul li {
         margin-right: 2rem;
         margin-left: 2rem; } }
@@ -2260,7 +2254,7 @@ button {
       color: #333;
       font-family: "Quicksand Bold", sans-serif;
       display: block; }
-      @media screen and (min-width: 50em) {
+      @media only screen and (min-width: 50em) {
         .global-nav ul li a:not(.plus-minus-toggle) {
           padding: 3.9rem 0.5rem; } }
     .global-nav ul li a.find-chargepoint {
@@ -2291,17 +2285,17 @@ button {
         top: 50%;
         left: -0.5rem;
         margin-top: -11px; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .global-nav > ul {
       float: right;
       margin-right: -2rem; } }
   .global-nav > ul > li {
     min-height: 4.3rem; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .is-desktop .global-nav > ul > li.has-sub-nav .global-nav__sub-nav {
         display: none;
         transition: 0.1s ease-in-out; } }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .is-desktop .global-nav > ul > li.has-sub-nav:hover .global-nav__sub-nav {
         display: block;
         transition: 0.5s ease-in-out;
@@ -2316,12 +2310,12 @@ button {
       transition: 1s ease-in-out;
       max-height: 500px;
       transition: max-height 1s ease-in; }
-      @media screen and (min-width: 50em) {
+      @media only screen and (min-width: 50em) {
         .global-nav > ul > li.has-sub-nav.sub-nav-open .global-nav__sub-nav {
           opacity: 1; } }
     .global-nav > ul > li.has-sub-nav .plus-minus-toggle {
       z-index: -1; }
-      @media screen and (min-width: 50em) {
+      @media only screen and (min-width: 50em) {
         .global-nav > ul > li.has-sub-nav .plus-minus-toggle {
           display: none; } }
     .global-nav > ul > li:hover, .global-nav > ul > li.is-active {
@@ -2333,7 +2327,7 @@ button {
     max-height: 0;
     transition: max-height 0.5s ease-out;
     overflow: hidden; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .global-nav__sub-nav {
         opacity: 0;
         position: absolute;
@@ -2348,18 +2342,18 @@ button {
       padding-left: 2.5rem;
       background-color: rgba(255, 255, 255, 0.3);
       margin-bottom: 2rem; }
-      @media screen and (min-width: 50em) {
+      @media only screen and (min-width: 50em) {
         .global-nav__sub-nav ul {
           padding-right: 3rem;
           padding-left: 3rem; } }
-      @media screen and (min-width: 50em) {
+      @media only screen and (min-width: 50em) {
         .global-nav__sub-nav ul {
           margin-bottom: 0; } }
       .global-nav__sub-nav ul li {
         border-bottom: none;
         padding-right: 2rem;
         padding-left: 2rem; }
-        @media screen and (min-width: 40em) {
+        @media only screen and (min-width: 40em) {
           .global-nav__sub-nav ul li {
             display: inline-block; } }
         .global-nav__sub-nav ul li a {
@@ -2368,7 +2362,7 @@ button {
             margin: 0.5rem auto 2rem;
             display: block;
             width: 8rem; }
-            @media screen and (min-width: 50em) {
+            @media only screen and (min-width: 50em) {
               .global-nav__sub-nav ul li a img {
                 width: 10rem; } }
 
@@ -2383,7 +2377,7 @@ button {
     position: absolute;
     top: 2.5rem;
     right: 2.5rem; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .modal .circle-icon--close {
         position: absolute;
         top: 3rem;
@@ -2396,11 +2390,11 @@ button {
     padding-left: 2.5rem;
     margin-top: 8rem;
     margin-bottom: 8rem; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .modal__content {
         padding-right: 3rem;
         padding-left: 3rem; } }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .modal__content {
         margin-top: 10rem;
         margin-bottom: 10rem; } }
@@ -2419,7 +2413,7 @@ button {
     font-size: 1.8rem; }
     .panel__title:last-child {
       padding-bottom: 0; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .panel__title {
         font-size: 2.8rem; } }
   .panel__text-content {
@@ -2454,12 +2448,12 @@ button {
   .accordion.grid-row .grid-col-4 {
     margin-top: 0;
     margin-bottom: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .accordion {
       font-size: 1.6rem; } }
   .accordion:last-child {
     padding-bottom: 0; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .accordion {
       font-size: 1.4rem; } }
   .accordion dt {
@@ -2482,7 +2476,7 @@ button {
     .accordion dd .accordion__item-content {
       padding-top: 1rem;
       padding-bottom: 1rem; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .accordion--only-mobile dt {
       border-bottom: none;
       padding: 0;
@@ -2499,7 +2493,7 @@ button {
   overflow: hidden; }
   .carousel-section .reviews-from-text {
     display: none; }
-    @media screen and (min-width: 40em) {
+    @media only screen and (min-width: 40em) {
       .carousel-section .reviews-from-text {
         display: inline-block;
         padding-right: 0.5rem; } }
@@ -2515,7 +2509,7 @@ button {
   padding-left: 2.5rem;
   width: 90%;
   position: relative; }
-  @media screen and (min-width: 50em) {
+  @media only screen and (min-width: 50em) {
     .carousel-wrap {
       padding-right: 3rem;
       padding-left: 3rem; } }
@@ -2527,7 +2521,7 @@ button {
       left: 50%;
       z-index: 1;
       margin-left: -2rem; }
-      @media screen and (min-width: 50em) {
+      @media only screen and (min-width: 50em) {
         .carousel-wrap--reviews .circle-icon--large-resp {
           top: -3rem;
           margin-left: -3rem; } }
@@ -2610,7 +2604,7 @@ button {
     color: white; }
   .slick-arrow.slick-prev {
     right: -4.5rem; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .slick-arrow.slick-prev {
         right: -8rem; } }
     .slick-arrow.slick-prev:before {
@@ -2618,7 +2612,7 @@ button {
           transform: rotate(-90deg); }
   .slick-arrow.slick-next {
     left: -4.5rem; }
-    @media screen and (min-width: 50em) {
+    @media only screen and (min-width: 50em) {
       .slick-arrow.slick-next {
         left: -8rem; } }
     .slick-arrow.slick-next:before {

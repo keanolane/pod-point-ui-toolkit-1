@@ -7,16 +7,12 @@ const combineMq = require('gulp-combine-mq');
 const browserSync = require('browser-sync');
 const gulpif = require('gulp-if');
 const minifyCss = require('gulp-minify-css');
-const bourbon = require("node-bourbon").includePaths;
-const neat = require("node-neat").includePaths;
 
 const sassOptions = {
 	quiet: true,
 	imagePath: '../img/',
 	precision: 4,
-	outputStyle: 'nested',
-	includePaths: bourbon,
-    includePaths: neat
+	outputStyle: 'nested'
 };
 
 const autoprefixerOptions = {

@@ -12,7 +12,7 @@
 	display: inline-block;
 	width: 100%;
 	max-width: 50rem;
-	@include media($small) {
+	@media only screen and (min-width: $small-screen) {
 		min-width: 32rem;
 	}
 }

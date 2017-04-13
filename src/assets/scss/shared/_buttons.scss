@@ -31,7 +31,7 @@ button {
 	border: 1px solid $primary-color;
 	transition: all 0.2s ease;
 	max-width: $button-max-width;
-	@include media($small) {
+	@media only screen and (min-width: $small-screen) {
 		width: auto;
 	}
 
@@ -88,7 +88,7 @@ button {
 	.button {
 		@include margin(null 1rem);
 		width: calc(100% - 2rem);
-		@include media($small) {
+		@media only screen and (min-width: $small-screen) {
 			width: auto;
 		}
 		&--auto-width {

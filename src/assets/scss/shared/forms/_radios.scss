@@ -36,7 +36,7 @@
 			height: 2rem;
 			z-index: 0;
 			transition: .28s ease;
-			@include media($medium) {
+			@media only screen and (min-width: $medium-screen) {
 				@include margin(0.8rem null 0.8rem null);
 			}
 		}

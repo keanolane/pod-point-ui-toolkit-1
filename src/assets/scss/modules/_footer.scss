@@ -4,7 +4,7 @@
 
 .global-footer {
 	.list--links:not(.list--inline) {
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			li {
 				margin-bottom: 1rem;
 				&:last-child {
@@ -19,7 +19,7 @@
 			color: $font-color-light;
 		}
 		.accordion dd .accordion__item-content {
-			@include media($medium) {
+			@media only screen and (min-width: $medium-screen) {
 				@include padding(2rem null 0 null);
 			}
 		}
@@ -30,11 +30,11 @@
 				width: 100%;
 				display: inline-block;;
 				margin-top: 2rem;
-				@include media($medium) {
+				@media only screen and (min-width: $medium-screen) {
 					margin-bottom: 1.2rem
 				}
 			}
-			@include media($medium) {
+			@media only screen and (min-width: $medium-screen) {
 				margin-top: 0;
 				text-align: right;
 				display: flex;
@@ -55,7 +55,7 @@
 		color: white;
 		background-color: $gray-very-dark;
 		@include padding(2rem null);
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			@include padding(1.5rem null);
 		}
 		p,
@@ -70,7 +70,7 @@
 		}
 		.list--inline {
 			text-align: center;
-			@include media($medium) {
+			@media only screen and (min-width: $medium-screen) {
 				text-align: left;
 			}
 		}
@@ -80,7 +80,7 @@
 		.copyright {
 			margin-top: 1rem;
 			text-align: center;
-			@include media($medium) {
+			@media only screen and (min-width: $medium-screen) {
 				margin-top: 0;
 				text-align: right;
 			}

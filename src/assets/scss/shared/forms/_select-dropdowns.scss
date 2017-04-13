@@ -185,7 +185,7 @@ $select-dd-alternative-height: 2.5rem;
 	height: $input-height;
 	max-width: $form-field-max-width;
 	margin-top: 0;
-	@include media($medium) {
+	@media only screen and (min-width: $medium-screen) {
 		margin-top: 0;
 	}
 	&.select-dd-wrapper--mobile select {
@@ -282,14 +282,14 @@ $select-dd-alternative-height: 2.5rem;
 			font-size: 1.2rem;
 			height: 1.2rem;
 			font-weight: bold;
-			@include media($medium) {
+			@media only screen and (min-width: $medium-screen) {
 				font-size: 1.4rem;
 				height: 1.4rem;
 			}
 		}
 	}
 	&--h1 {
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			margin-left: 0.6rem;
 		}
 		.dk-selected,
@@ -297,13 +297,13 @@ $select-dd-alternative-height: 2.5rem;
 		&.select-dd-wrapper--mobile select {
 			@include font-style-h1;
 			padding-bottom: 0.5rem;
-			@include media($medium) {
+			@media only screen and (min-width: $medium-screen) {
 				margin-top: -0.7rem;
 				@include padding(null 3rem 0.7rem null);
 			}
 			&:after {
 				top: 27%;
-				@include media($medium) {
+				@media only screen and (min-width: $medium-screen) {
 					top: 35%;
 					font-size: 1.7rem;
 					height: 1.7rem;
@@ -312,7 +312,7 @@ $select-dd-alternative-height: 2.5rem;
 		}
 	}
 	&--font-large {
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			margin-left: 0.3rem;
 		}
 		.dk-selected,
@@ -322,7 +322,7 @@ $select-dd-alternative-height: 2.5rem;
 			font-family: $font-family-bold;
 			margin-top: -0.4rem;
 			padding-bottom: 0;
-			@include media($medium) {
+			@media only screen and (min-width: $medium-screen) {
 				margin-top: -0.8rem;
 				padding-right: 2.5rem;
 			}

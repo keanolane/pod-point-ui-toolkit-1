@@ -6,7 +6,7 @@
 	@include container;
 	&--vertical-padding {
 		@include padding($vertical-spacing-mobile null);
-		@include media($medium) {
+		@media only screen and (min-width: $medium-screen) {
 			@include padding($vertical-spacing null);
 		}
 	}
