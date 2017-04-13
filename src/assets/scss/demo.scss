@@ -5,7 +5,7 @@
 // Bourbon is depreciating a lot of mixins in the next release and shows warning messages in the command line when compiling. The following line turns those messages off.
 $output-bourbon-deprecation-warnings: false;
 
-@import 'bourbon/bourbon';
+@import 'bourbon';
 @import 'base/__base';
 @import 'includes/__includes';
 @import 'shared/__shared';
