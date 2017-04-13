@@ -119,9 +119,10 @@
 		text-align: center;
 		transition: 0.3s ease-in-out;
 		@include slideDownCollapsed(0.5s);
+		background-color: white;
 		@media only screen and (min-width: $medium-screen) {
 			opacity: 0;
-			@include position(absolute, 10rem 0 null null);
+			@include position(absolute, 10.2rem 0 null null);
 			box-shadow: $bottom-shadow;
 		}
 		ul {
