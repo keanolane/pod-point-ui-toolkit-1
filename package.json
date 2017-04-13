@@ -49,6 +49,8 @@
     "gulp-sass": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
+    "node-bourbon": "^4.2.8",
+    "node-neat": "^1.7.2",
     "require-dir": "^0.3.0",
     "rimraf": "^2.4.4",
     "webpack-stream": "^3.1.0"
