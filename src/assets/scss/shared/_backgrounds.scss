@@ -1,0 +1,27 @@
+// =============================================================================
+//  BACKGROUNDS
+// =============================================================================
+
+.bg--white {
+	background-color: white;
+	& + .bg--white {
+		border-top: $border-base;
+	}
+}
+.bg--dark-gray {
+	background-color: $gray-dark;
+	color: white;
+}
+.bg--very-dark-gray {
+	background-color: $gray-very-dark;
+	color: white;
+}
+.bg--very-light-gray {
+	background-color: $gray-very-light;
+}
+.bg--wall {
+	background-color: $gray-very-light;
+	background-image: url(../img/backgrounds/wall.png);
+	background-position: center center;
+	background-size: cover;
+}

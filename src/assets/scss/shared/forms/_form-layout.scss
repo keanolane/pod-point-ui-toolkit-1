@@ -4,6 +4,9 @@
 
 .field-row {
 	margin-bottom: 2.5rem;
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 .form-action-buttons {
 	padding-top: 2.5rem;
@@ -12,7 +15,4 @@
 	display: inline-block;
 	width: 100%;
 	max-width: 50rem;
-	@media only screen and (min-width: $small-screen) {
-		min-width: 32rem;
-	}
 }

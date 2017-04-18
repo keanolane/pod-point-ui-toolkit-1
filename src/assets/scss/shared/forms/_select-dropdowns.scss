@@ -7,6 +7,13 @@ $select-dd-alternative-height: 2.5rem;
 .select-dd-inline-wrap {
 	display: block;
 
+	&--heading {
+		margin-bottom: 2rem;
+		.h1 {
+			margin-right: 0.5rem;
+		}
+	}
+
 	&--body-text {
 		.select-dd-inline-wrap__text {
 			@include font-style-large;
@@ -259,7 +266,6 @@ $select-dd-alternative-height: 2.5rem;
 	}
 }
 .select-dd-wrapper--alternative {
-	margin-left: 0.2rem;
 	&.select-dd-wrapper--mobile select {
 		width: 100%;
 		height: $input-height;
@@ -289,9 +295,6 @@ $select-dd-alternative-height: 2.5rem;
 		}
 	}
 	&--h1 {
-		@media only screen and (min-width: $medium-screen) {
-			margin-left: 0.6rem;
-		}
 		.dk-selected,
 		.mobile-select,
 		&.select-dd-wrapper--mobile select {

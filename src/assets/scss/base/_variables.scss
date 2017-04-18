@@ -26,6 +26,16 @@ $vertical-spacing: 4rem;
 $-vertical-spacing-mobile: -2.5rem;
 $-vertical-spacing: -4rem;
 
+// Max widths (imgs)
+$max-width-xxs: 10rem;
+$max-width-xs: 15rem;
+$max-width-sm: 20rem;
+$max-width-md: 30rem;
+$max-width-lg: 40rem;
+$max-width-xl: 50rem;
+$max-width-xxl: 60rem;
+$max-width-xxxl: 70rem;
+
 // Max widths
 $max-width-content: 104rem;
 $max-width-content-wide: 120rem;
@@ -42,13 +52,22 @@ $spacing-small: $spacing-base / 2;
 $spacing-x-small: $spacing-base / 3;
 $z-index-base: 0;
 
+// Spacing
+$space-xxs: 0.5rem;
+$space-xs: 1rem;
+$space-sm: 1.5rem;
+$space-md: 2rem;
+$space-lg: 3rem;
+$space-xl: 5rem;
+$space-xxl: 7rem;
+
 // Grey palette
 $background-color-base: #fff;
 $gray-very-light: #f2f2f2;
 $gray-light: #e6e6e6;
 $gray: #b3b3b3;
 $gray-medium: #999;
-$gray-dark: #333;
+$gray-dark: #4d4d4d;
 $gray-very-dark: #333;
 
 // Custom colours

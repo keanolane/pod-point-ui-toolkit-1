@@ -27,15 +27,27 @@ var GallerySimple = function () {
         _classCallCheck(this, GallerySimple);
 
         this.element = element;
+        this.getFirstThumbnail();
         this.bindEvents();
     }
 
     /**
-     * Bind any event listeners to the elements.
+     * Get first thumbnail and pass to function to display as the main image.
      */
 
 
     _createClass(GallerySimple, [{
+        key: 'getFirstThumbnail',
+        value: function getFirstThumbnail() {
+            var firstThumbnail = this.element.querySelector('.gallery-simple__thumbnails li a');
+            this.displayThumbnailAsImage(firstThumbnail);
+        }
+
+        /**
+         * Bind any event listeners to the elements.
+         */
+
+    }, {
         key: 'bindEvents',
         value: function bindEvents() {
             var _this = this;

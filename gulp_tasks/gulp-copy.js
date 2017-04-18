@@ -8,10 +8,6 @@ gulp.task('copyMain', () => {
 		])
 	.pipe(gulp.dest(config.dist.root));
 	gulp.src([
-			config.src.js + 'vendor/modernizr.js'
-		])
-	.pipe(gulp.dest(config.src.js + 'vendor/'));
-	gulp.src([
 			config.src.fonts + '{,*/}*.*',
 		])
 	.pipe(gulp.dest(config.dist.fonts));

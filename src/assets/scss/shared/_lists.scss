@@ -23,6 +23,33 @@ ol {
 			display: inline-block;
 			@include margin(null 1.5rem);
 		}
+		&--sm-gutter {
+			@include margin(null -0.5rem);
+			li {
+				@include margin(null 0.5rem);
+			}
+		}
+	}
+	&.list--featured-ticks {
+		margin-top: 2rem;
+		li {
+			@include font-style-large;
+			font-family: $font-family-bold;
+			@include iconfont('tick');
+			margin-bottom: 1.5rem;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			&:before {
+				width: 3rem;
+				@include iconfont-styles;
+				position: relative;
+				top: 0.3rem;
+				text-align: left;
+				font-weight: bold;
+				color: $primary-color;
+			}
+		}
 	}
 }
 
@@ -36,7 +63,6 @@ ol {
 		margin: 0;
 	}
 }
-
 
 .icons-list {
 	&--inline {

@@ -14,11 +14,11 @@ button {
 }
 
 .button {
+	box-sizing: border-box;
 	vertical-align: middle;
 	width: 100%;
 	display: inline-block;
 	@include padding(0.8rem 3.5rem);
-	@include margin(1rem null);
 	min-height: 4rem;
 	color: white;
 	background-color: $primary-color;
@@ -86,7 +86,7 @@ button {
 	@include margin(-1rem);
 	overflow: hidden;
 	.button {
-		@include margin(null 1rem);
+		@include margin(1rem);
 		width: calc(100% - 2rem);
 		@media only screen and (min-width: $small-screen) {
 			width: auto;

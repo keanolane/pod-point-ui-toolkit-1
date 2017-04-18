@@ -4,6 +4,7 @@
 
 .global-header-wrap {
 	position: relative;
+	z-index: 100;
 }
 
 .global-header {
@@ -12,12 +13,6 @@
 	@media only screen and (min-width: $medium-screen) {
 		height: 10rem;
 	}
-	&:after {
-		width: 100%;
-		@media only screen and (min-width: $medium-screen) {
-			border-bottom: $border-base;
-		}
-	}
 	&.nav-open {
 		box-shadow: $bottom-shadow;
 		@media only screen and (min-width: $medium-screen) {
@@ -25,7 +20,6 @@
 		}
 	}
 	&__content {
-		border-bottom: $border-base;
 		position: relative;
 		height: 6rem;
 		@media only screen and (min-width: $medium-screen) {

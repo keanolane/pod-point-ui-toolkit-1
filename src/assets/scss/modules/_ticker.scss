@@ -1,0 +1,33 @@
+// =============================================================================
+//  TICKER
+// =============================================================================
+
+.ticker-list {
+	@include padding(2rem null 1rem null);
+}
+.ticker {
+	display: inline-block;
+	span {
+		@include font-base;
+		font-family: $font-family-bold;
+		display: inline-block;
+		background-color: white;
+		color: $font-color-base;
+		text-align: center;
+		height: 2rem;
+		min-width: 1.2rem;
+		border: $border-base;
+		border-radius: 2px;
+		margin-right: 2px;
+		margin-bottom: 1rem;
+		line-height: 2rem;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+.ticker-desc {
+	display: inline-block;
+	@include font-small;
+	margin-left: 0.5rem;
+}

@@ -24,6 +24,10 @@ textarea[type="text"] {
 		border-bottom: 1px solid $form-keyline;
 		max-width: 40rem;
 		display: inline-block;
+		&.form-font-large {
+			@include font-style-forms-large;
+			@include padding(2.5rem null);
+		}
 	}
 }
 

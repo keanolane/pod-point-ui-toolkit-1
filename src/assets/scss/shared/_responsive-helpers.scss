@@ -1,0 +1,39 @@
+// =============================================================================
+//  RESPONSIVE HELPERS
+// =============================================================================
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+.float-right { float: right; }
+.float-left { float: left; }
+.marg-center { @include margin(null auto); }
+.hidden { display: none; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+.full-width { width: 100%; }
+
+@media only screen and (min-width: $medium-screen) {
+	.text-center-md { text-align: center; }
+	.text-right-md { text-align: right; }
+	.text-left-md { text-align: left; }
+	.float-right-md { float: right; }
+	.float-left-md { float: left; }
+	.marg-center-md { @include margin(null auto); }
+	.hidden-md { display: none; }
+	.block-md { display: block; }
+	.inline-block-md { display: inline-block; }
+	.full-width-md { width: 100%; }
+}
+@media only screen and (min-width: $large-screen) {
+	.text-center-lg { text-align: center; }
+	.text-right-lg { text-align: right; }
+	.text-left-lg { text-align: left; }
+	.float-right-lg { float: right; }
+	.float-left-lg { float: left; }
+	.marg-center-lg { @include margin(null auto); }
+	.hidden-lg { display: none; }
+	.block-lg { display: block; }
+	.inline-block-lg { display: inline-block; }
+	.full-width-lg { width: 100%; }
+}

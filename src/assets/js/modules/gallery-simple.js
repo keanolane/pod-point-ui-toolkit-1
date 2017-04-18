@@ -13,7 +13,16 @@ class GallerySimple {
      */
     constructor(element) {
         this.element = element;
+        this.getFirstThumbnail();
         this.bindEvents();
+    }
+
+    /**
+     * Get first thumbnail and pass to function to display as the main image.
+     */
+    getFirstThumbnail() {
+        const firstThumbnail = this.element.querySelector('.gallery-simple__thumbnails li a');
+        this.displayThumbnailAsImage(firstThumbnail);
     }
 
     /**

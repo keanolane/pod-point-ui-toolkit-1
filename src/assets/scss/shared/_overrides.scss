@@ -10,27 +10,6 @@
 	cursor: not-allowed;
 	opacity: 0.5;
 }
-.hidden {
-	display: none;
-}
-.text-center {
-	text-align: center;
-}
-.text-left {
-	text-align: left;
-}
-.text-right {
-	text-align: right;
-}
-.pull-right {
-	float: right;
-}
-.pull-left {
-	float: left;
-}
-.full-width {
-	width: 100%;
-}
 .uppercase {
 	text-transform: uppercase;
 }
@@ -46,4 +25,31 @@
 	animation-duration: 0.3s;
 	animation-fill-mode: both;
 	animation-name: fadeIn;
+}
+
+.hide-medium-down {
+	@media only screen and (max-width: $medium-screen) {
+		display: none!important;
+	}
+}
+
+.clear {
+	@include clearfix;
+}
+.rel {
+	position: relative;
+}
+.abs-bottom-right {
+	@include position(absolute, null 0 0 null);
+}
+
+.max-width {
+	&--xxs { max-width: $max-width-xxs; }
+	&--xs { max-width: $max-width-xs; }
+	&--sm { max-width: $max-width-sm; }
+	&--md { max-width: $max-width-md; }
+	&--lg { max-width: $max-width-lg; }
+	&--xl { max-width: $max-width-xl; }
+	&--xxl { max-width: $max-width-xxl; }
+	&--xxxl { max-width: $max-width-xxxl; }
 }

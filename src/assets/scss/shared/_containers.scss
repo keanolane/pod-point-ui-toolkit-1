@@ -4,12 +4,6 @@
 
 .container {
 	@include container;
-	&--vertical-padding {
-		@include padding($vertical-spacing-mobile null);
-		@media only screen and (min-width: $medium-screen) {
-			@include padding($vertical-spacing null);
-		}
-	}
 	&--wide {
 		max-width: $max-width-content-wide;
 	}
@@ -24,26 +18,21 @@
 }
 
 .content-block {
-	@include margin(4rem null);
+	@include padding(4rem null);
+	&--standout {
+		@include padding(8rem null);
+	}
+	&--strip {
+		@include padding(2rem null);
+	}
 	&--no-padding {
-		@include margin(0 null);
+		@include padding(0 null);
 	}
 	&--centered {
 		@include margin(null auto);
 		text-align: center;
 	}
 	& + .content-block {
-		margin-top: 0;
+		padding-top: 0;
 	}
-}
-
-.section--centered {
-	text-align: center;
-}
-.bg--very-dark-gray {
-	background-color: $gray-very-dark;
-	color: white;
-}
-.bg--very-light-gray {
-	background-color: $gray-very-light;
 }

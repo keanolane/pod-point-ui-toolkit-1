@@ -2,6 +2,7 @@
 //	MIXINS
 // =============================================================================
 
+// Font sizes
 @mixin font-base {
 	margin: 0;
 	font-family: $font-family-base;
@@ -18,30 +19,7 @@
 		font-size: 1.4rem;
 	}
 }
-
-@mixin font-style-base {
-	@include font-base;
-	padding-bottom: 0.5em;
-	&:last-child {
-		padding-bottom: 0;
-	}
-}
-
-@mixin font-style-small {
-	@include font-style-base;
-	font-size: 1.2rem;
-	@media only screen and (min-width: $medium-screen) {
-		font-size: 1.4rem;
-	}
-}
-@mixin font-small {
-	font-size: 1.2rem;
-	@media only screen and (min-width: $medium-screen) {
-		font-size: 1.4rem;
-	}
-}
-
-@mixin font-style-large {
+@mixin font-large {
 	@include font-base;
 	font-size: 1.6rem;
 	line-height: 1.5;
@@ -50,12 +28,36 @@
 	}
 }
 
+// Font styles
+@mixin font-style-base {
+	@include font-base;
+	padding-bottom: 0.5em;
+	&:last-child {
+		padding-bottom: 0;
+	}
+}
+@mixin font-style-small {
+	@include font-small;
+	padding-bottom: 0.5em;
+	&:last-child {
+		padding-bottom: 0;
+	}
+}
+@mixin font-style-large {
+	@include font-large;
+	padding-bottom: 0.5em;
+	&:last-child {
+		padding-bottom: 0;
+	}
+}
+
+
 @mixin font-style-headings {
 	margin: 0;
-	padding-bottom: 0.5em;
+	padding-bottom: 1em;
 	font-family: $font-family-heading;
 	font-size: $font-size-base;
-	font-weight: normal;
+	font-weight: bold;
 	line-height: $line-height-heading;
 	&:last-child {
 		padding-bottom: 0;
@@ -112,10 +114,21 @@
 
 @mixin font-style-forms {
 	margin: 0;
-	line-height: 1.6em;
+	line-height: 1.6rem;
 	font-size: 1.6rem; // Has to be 16px min for IOS
 	font-family: $font-family-bold;
 }
+@mixin font-style-forms-large {
+	margin: 0;
+	line-height: 1.6rem;
+	font-size: 1.6rem;
+	font-family: $font-family-bold;
+	@media only screen and (min-width: $medium-screen) {
+		line-height: 2rem;
+		font-size: 2rem;
+	}
+}
+
 @mixin font-style-tables {
 	@include font-style-base;
 }

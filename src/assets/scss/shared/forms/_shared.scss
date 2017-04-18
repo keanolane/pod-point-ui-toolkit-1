@@ -8,21 +8,26 @@ input:-webkit-autofill {
 	-webkit-text-fill-color: white !important;
 }
 
-::-webkit-input-placeholder {
-	@include font-style-forms;
+@mixin placeholder {
+	::-webkit-input-placeholder {@content};
+	:-moz-placeholder           {@content};
+	::-moz-placeholder          {@content};
+	:-ms-input-placeholder      {@content};
+}
+
+@include placeholder {
 	color: $input-placeholder-color;
 }
-:-moz-placeholder { // Firefox 18-
-	@include font-style-forms;
-	color: $input-placeholder-color;
+
+input {
+	@include placeholder {
+		@include font-style-forms;
+	}
 }
-::-moz-placeholder {  // Firefox 19+
-	@include font-style-forms;
-	color: $input-placeholder-color;
-}
-:-ms-input-placeholder {
-	@include font-style-forms;
-	color: $input-placeholder-color;
+input.form-font-large {
+	@include placeholder {
+		@include font-style-forms-large;
+	}
 }
 
 @mixin input-styles {
