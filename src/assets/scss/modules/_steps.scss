@@ -1,0 +1,16 @@
+// =============================================================================
+//  STEPS
+// =============================================================================
+
+.steps-wrapper {
+	max-width: 70rem;
+	@include margin(2rem auto);
+	.steps-divider {
+		margin: 0 auto;
+		width: 70%;
+		&--flipped {
+			transform: scaleX(-1);
+			filter: FlipH;
+		}
+	}
+}

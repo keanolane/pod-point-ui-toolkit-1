@@ -533,6 +533,9 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0 -1rem; }
+  .grid-row--vertical-center {
+    -ms-flex-align: center;
+        align-items: center; }
   .grid-row .grid-col {
     box-sizing: border-box;
     -ms-flex: 0 0 calc( 100% - 2rem);
@@ -548,6 +551,11 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
       box-sizing: border-box;
       -ms-flex: 0 0 calc( 100% - 2rem);
           flex: 0 0 calc( 100% - 2rem);
+      margin: 0 1rem 2rem; }
+    .grid-row .grid-col--md-8 {
+      box-sizing: border-box;
+      -ms-flex: 0 0 calc( 66.6667% - 2rem);
+          flex: 0 0 calc( 66.6667% - 2rem);
       margin: 0 1rem 2rem; }
     .grid-row .grid-col--md-6 {
       box-sizing: border-box;
@@ -577,6 +585,11 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
       box-sizing: border-box;
       -ms-flex: 0 0 calc( 100% - 2rem);
           flex: 0 0 calc( 100% - 2rem);
+      margin: 0 1rem 2rem; }
+    .grid-row .grid-col--md-8 {
+      box-sizing: border-box;
+      -ms-flex: 0 0 calc( 66.6667% - 2rem);
+          flex: 0 0 calc( 66.6667% - 2rem);
       margin: 0 1rem 2rem; }
     .grid-row .grid-col--lg-6 {
       box-sizing: border-box;

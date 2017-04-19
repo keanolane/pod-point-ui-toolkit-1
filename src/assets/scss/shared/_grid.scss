@@ -9,6 +9,9 @@ $default-gutter: 2rem;
 
 .grid-row {
 	@include grid($flex-wrap: wrap, $gutter: $default-gutter);
+	&--vertical-center {
+		align-items: center;
+	}
 	.grid-col {
 		@include grid-col($col: 12, $gutter: $default-gutter);
 		&--separator:not(:last-child) {
@@ -22,6 +25,9 @@ $default-gutter: 2rem;
 	@media only screen and (min-width: $medium-screen) {
 		.grid-col--md-12 {
 			@include grid-col($col: 12, $gutter: $default-gutter);
+		}
+		.grid-col--md-8 {
+			@include grid-col($col: 8, $gutter: $default-gutter);
 		}
 		.grid-col--md-6 {
 			@include grid-col($col: 6, $gutter: $default-gutter);
@@ -45,6 +51,9 @@ $default-gutter: 2rem;
 	@media only screen and (min-width: $large-screen) {
 		.grid-col--lg-12 {
 			@include grid-col($col: 12, $gutter: $default-gutter);
+		}
+		.grid-col--md-8 {
+			@include grid-col($col: 8, $gutter: $default-gutter);
 		}
 		.grid-col--lg-6 {
 			@include grid-col($col: 6, $gutter: $default-gutter);
