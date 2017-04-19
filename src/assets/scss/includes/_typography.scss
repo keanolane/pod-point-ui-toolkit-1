@@ -66,7 +66,7 @@
 
 @mixin font-style-h1 {
 	@include font-style-headings;
-	font-size: 1.8rem;
+	font-size: 2rem;
 	@media only screen and (min-width: $medium-screen) {
 		font-size: 2.8rem;
 	}
@@ -74,7 +74,7 @@
 
 @mixin font-style-h2 {
 	@include font-style-headings;
-	font-size: 1.6rem;
+	font-size: 1.8rem;
 	@media only screen and (min-width: $medium-screen) {
 		font-size: 2.4rem;
 	}

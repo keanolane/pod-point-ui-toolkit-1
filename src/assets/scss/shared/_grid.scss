@@ -6,8 +6,6 @@
 $default-gutter: 2rem;
 
 // SAMPLE GRID (change or delete as required)
-.grid-wrap { overflow-y: hidden;
-overflow-x: visible; }
 
 .grid-row {
 	@include grid($flex-wrap: wrap, $gutter: $default-gutter);

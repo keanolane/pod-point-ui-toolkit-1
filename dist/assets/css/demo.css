@@ -166,64 +166,64 @@ table {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.iconfont-email:before {
+.iconfont-arrow:before {
   content: ""; }
 
-.iconfont-facebook:before {
+.iconfont-charge-location:before {
   content: ""; }
 
-.iconfont-google:before {
+.iconfont-charge:before {
   content: ""; }
 
-.iconfont-instagram:before {
+.iconfont-cheveron:before {
   content: ""; }
 
-.iconfont-linkedin:before {
+.iconfont-cross:before {
   content: ""; }
 
-.iconfont-twitter:before {
+.iconfont-folder:before {
   content: ""; }
 
-.iconfont-youtube:before {
+.iconfont-location:before {
   content: ""; }
 
-.iconfont-arrow:before {
+.iconfont-money:before {
   content: ""; }
 
-.iconfont-charge-location:before {
+.iconfont-navicon:before {
   content: ""; }
 
-.iconfont-charge:before {
+.iconfont-pencil:before {
   content: ""; }
 
-.iconfont-cheveron:before {
+.iconfont-star:before {
   content: ""; }
 
-.iconfont-cross:before {
+.iconfont-tick:before {
   content: ""; }
 
-.iconfont-folder:before {
+.iconfont-user:before {
   content: ""; }
 
-.iconfont-location:before {
+.iconfont-email:before {
   content: ""; }
 
-.iconfont-money:before {
+.iconfont-facebook:before {
   content: ""; }
 
-.iconfont-navicon:before {
+.iconfont-google:before {
   content: ""; }
 
-.iconfont-pencil:before {
+.iconfont-instagram:before {
   content: ""; }
 
-.iconfont-star:before {
+.iconfont-linkedin:before {
   content: ""; }
 
-.iconfont-tick:before {
+.iconfont-twitter:before {
   content: ""; }
 
-.iconfont-user:before {
+.iconfont-youtube:before {
   content: ""; }
 
 .slick-slider {
@@ -342,7 +342,7 @@ h1, .h1 {
   font-size: 1.2rem;
   font-weight: bold;
   line-height: 1.2;
-  font-size: 1.8rem; }
+  font-size: 2rem; }
   h1:last-child, .h1:last-child {
     padding-bottom: 0; }
   @media only screen and (min-width: 50em) {
@@ -356,7 +356,7 @@ h2, .h2 {
   font-size: 1.2rem;
   font-weight: bold;
   line-height: 1.2;
-  font-size: 1.6rem; }
+  font-size: 1.8rem; }
   h2:last-child, .h2:last-child {
     padding-bottom: 0; }
   @media only screen and (min-width: 50em) {
@@ -525,10 +525,6 @@ hr {
 
 p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
   margin-top: 2rem; }
-
-.grid-wrap {
-  overflow-y: hidden;
-  overflow-x: visible; }
 
 .grid-row {
   box-sizing: border-box;
@@ -910,7 +906,7 @@ textarea[type="text"] {
         border: 1px solid #b3b3b3;
         border-radius: 5px; }
     .checkbox-wrap input[type="checkbox"]:checked ~ label:before {
-      content: ""; }
+      content: ""; }
     .checkbox-wrap input[type="checkbox"]:checked ~ label:before {
       background-color: #8CC63F;
       border-color: #8CC63F;
@@ -933,7 +929,7 @@ textarea[type="text"] {
   max-width: 50rem;
   cursor: pointer; }
   .select-wrapper:after {
-    content: ""; }
+    content: ""; }
   .select-wrapper:focus:after {
     color: #8CC63F; }
   .select-wrapper:after {
@@ -1207,7 +1203,7 @@ textarea[type="text"] {
     padding: 0; }
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select:after {
-    content: ""; }
+    content: ""; }
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select:after {
     position: absolute;
@@ -1264,7 +1260,7 @@ textarea[type="text"] {
   padding-left: 0; }
   .select-dd-wrapper--alternative .dk-selected:after,
   .select-dd-wrapper--alternative .mobile-select:after {
-    content: ""; }
+    content: ""; }
   .select-dd-wrapper--alternative .dk-selected:after,
   .select-dd-wrapper--alternative .mobile-select:after {
     position: absolute;
@@ -1307,7 +1303,7 @@ textarea[type="text"] {
   font-size: 1.2rem;
   font-weight: bold;
   line-height: 1.2;
-  font-size: 1.8rem;
+  font-size: 2rem;
   padding-bottom: 0.5rem; }
   .select-dd-wrapper--alternative--h1 .dk-selected:last-child,
   .select-dd-wrapper--alternative--h1 .mobile-select:last-child,
@@ -1448,7 +1444,7 @@ textarea[type="text"] {
 
 @media only screen and (min-width: 40em) {
   .form-field-wrapper.is-valid:before {
-    content: ""; } }
+    content: ""; } }
 
 .form-field-wrapper.is-valid:before {
   color: #8CC63F; }
@@ -1466,7 +1462,7 @@ textarea[type="text"] {
 
 @media only screen and (min-width: 40em) {
   .form-field-wrapper.is-invalid:before {
-    content: ""; } }
+    content: ""; } }
 
 .form-field-wrapper.is-invalid:before {
   color: #C1272D; }
@@ -1666,7 +1662,7 @@ ol {
       .rich-text--featured ul li:last-child {
         padding-bottom: 0; }
       .rich-text--featured ul li:before {
-        content: ""; }
+        content: ""; }
       .rich-text--featured ul li:last-child {
         padding-bottom: 0; }
       .rich-text--featured ul li:before {
@@ -1868,7 +1864,7 @@ button {
   .button.button--selected {
     text-indent: -9999px; }
     .button.button--selected:before {
-      content: ""; }
+      content: ""; }
     .button.button--selected:before, .button.button--selected:after {
       text-indent: 0;
       float: left;
@@ -1990,7 +1986,7 @@ button {
             transform: rotate(360deg); }
 
 .circle-icon--close:before {
-  content: ""; }
+  content: ""; }
 
 .circle-icon--close:before {
   display: inline-block;
@@ -2238,7 +2234,7 @@ button {
   .card--sash {
     position: relative; }
     .card--sash:before {
-      content: ""; }
+      content: ""; }
     .card--sash:before {
       display: inline-block;
       height: inherit;
