@@ -1548,6 +1548,10 @@ ol {
       ol.list--inline--sm-gutter li {
         margin-right: 0.5rem;
         margin-left: 0.5rem; }
+    ul.list--inline--tiny li img,
+    ol.list--inline--tiny li img {
+      max-height: 5rem;
+      width: auto; }
 
 .dl {
   margin-bottom: 1.5rem; }

@@ -29,6 +29,14 @@ ol {
 				@include margin(null 0.5rem);
 			}
 		}
+		&--tiny {
+			li {
+				img {
+					max-height: 5rem;
+					width: auto;
+				}
+			}
+		}
 	}
 }
 
