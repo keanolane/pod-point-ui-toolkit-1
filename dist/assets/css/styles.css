@@ -166,64 +166,64 @@ table {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.iconfont-arrow:before {
+.iconfont-email:before {
   content: ""; }
 
-.iconfont-charge-location:before {
+.iconfont-facebook:before {
   content: ""; }
 
-.iconfont-charge:before {
+.iconfont-google:before {
   content: ""; }
 
-.iconfont-cheveron:before {
+.iconfont-instagram:before {
   content: ""; }
 
-.iconfont-cross:before {
+.iconfont-linkedin:before {
   content: ""; }
 
-.iconfont-folder:before {
+.iconfont-twitter:before {
   content: ""; }
 
-.iconfont-location:before {
+.iconfont-youtube:before {
   content: ""; }
 
-.iconfont-money:before {
+.iconfont-arrow:before {
   content: ""; }
 
-.iconfont-navicon:before {
+.iconfont-charge-location:before {
   content: ""; }
 
-.iconfont-pencil:before {
+.iconfont-charge:before {
   content: ""; }
 
-.iconfont-star:before {
+.iconfont-cheveron:before {
   content: ""; }
 
-.iconfont-tick:before {
+.iconfont-cross:before {
   content: ""; }
 
-.iconfont-user:before {
+.iconfont-folder:before {
   content: ""; }
 
-.iconfont-email:before {
+.iconfont-location:before {
   content: ""; }
 
-.iconfont-facebook:before {
+.iconfont-money:before {
   content: ""; }
 
-.iconfont-google:before {
+.iconfont-navicon:before {
   content: ""; }
 
-.iconfont-instagram:before {
+.iconfont-pencil:before {
   content: ""; }
 
-.iconfont-linkedin:before {
+.iconfont-star:before {
   content: ""; }
 
-.iconfont-twitter:before {
+.iconfont-tick:before {
   content: ""; }
 
-.iconfont-youtube:before {
+.iconfont-user:before {
   content: ""; }
 
 .slick-slider {
@@ -502,7 +502,8 @@ strong,
   font-weight: normal;
   font-family: "Quicksand Bold", sans-serif; }
 
-.green {
+.green,
+.primary {
   color: #8CC63F; }
 
 a {
@@ -544,6 +545,8 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
     .grid-row .grid-col--separator:not(:last-child) {
       padding-bottom: 2rem;
       border-bottom: 1px dashed #ccc; }
+    .grid-row .grid-col--no-space {
+      margin-bottom: 0; }
   @media only screen and (min-width: 50em) {
     .grid-row .grid-col--md-12 {
       box-sizing: border-box;
@@ -907,7 +910,7 @@ textarea[type="text"] {
         border: 1px solid #b3b3b3;
         border-radius: 5px; }
     .checkbox-wrap input[type="checkbox"]:checked ~ label:before {
-      content: ""; }
+      content: ""; }
     .checkbox-wrap input[type="checkbox"]:checked ~ label:before {
       background-color: #8CC63F;
       border-color: #8CC63F;
@@ -930,7 +933,7 @@ textarea[type="text"] {
   max-width: 50rem;
   cursor: pointer; }
   .select-wrapper:after {
-    content: ""; }
+    content: ""; }
   .select-wrapper:focus:after {
     color: #8CC63F; }
   .select-wrapper:after {
@@ -1204,7 +1207,7 @@ textarea[type="text"] {
     padding: 0; }
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select:after {
-    content: ""; }
+    content: ""; }
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select:after {
     position: absolute;
@@ -1261,7 +1264,7 @@ textarea[type="text"] {
   padding-left: 0; }
   .select-dd-wrapper--alternative .dk-selected:after,
   .select-dd-wrapper--alternative .mobile-select:after {
-    content: ""; }
+    content: ""; }
   .select-dd-wrapper--alternative .dk-selected:after,
   .select-dd-wrapper--alternative .mobile-select:after {
     position: absolute;
@@ -1445,7 +1448,7 @@ textarea[type="text"] {
 
 @media only screen and (min-width: 40em) {
   .form-field-wrapper.is-valid:before {
-    content: ""; } }
+    content: ""; } }
 
 .form-field-wrapper.is-valid:before {
   color: #8CC63F; }
@@ -1463,7 +1466,7 @@ textarea[type="text"] {
 
 @media only screen and (min-width: 40em) {
   .form-field-wrapper.is-invalid:before {
-    content: ""; } }
+    content: ""; } }
 
 .form-field-wrapper.is-invalid:before {
   color: #C1272D; }
@@ -1549,61 +1552,6 @@ ol {
       ol.list--inline--sm-gutter li {
         margin-right: 0.5rem;
         margin-left: 0.5rem; }
-  ul.list--featured-ticks,
-  ol.list--featured-ticks {
-    margin-top: 2rem; }
-    ul.list--featured-ticks li,
-    ol.list--featured-ticks li {
-      margin: 0;
-      font-family: "Quicksand Regular", sans-serif;
-      font-size: 1.4rem;
-      line-height: 1.5em;
-      font-size: 1.6rem;
-      line-height: 1.5;
-      padding-bottom: 0.5em;
-      font-family: "Quicksand Bold", sans-serif;
-      margin-bottom: 1.5rem; }
-      @media only screen and (min-width: 50em) {
-        ul.list--featured-ticks li,
-        ol.list--featured-ticks li {
-          font-size: 1.6rem; } }
-      @media only screen and (min-width: 50em) {
-        ul.list--featured-ticks li,
-        ol.list--featured-ticks li {
-          font-size: 2rem; } }
-      ul.list--featured-ticks li:last-child,
-      ol.list--featured-ticks li:last-child {
-        padding-bottom: 0; }
-      ul.list--featured-ticks li:before,
-      ol.list--featured-ticks li:before {
-        content: ""; }
-      ul.list--featured-ticks li:last-child,
-      ol.list--featured-ticks li:last-child {
-        margin-bottom: 0; }
-      ul.list--featured-ticks li:before,
-      ol.list--featured-ticks li:before {
-        width: 3rem;
-        display: inline-block;
-        height: inherit;
-        margin-right: 0.2rem;
-        margin-left: 0.2rem;
-        font-size: 2rem;
-        font-family: "icons";
-        font-variant: normal;
-        font-style: normal;
-        font-weight: normal;
-        line-height: 1;
-        text-decoration: inherit;
-        text-align: center;
-        text-transform: none;
-        speak: none;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        position: relative;
-        top: 0.3rem;
-        text-align: left;
-        font-weight: bold;
-        color: #8CC63F; }
 
 .dl {
   margin-bottom: 1.5rem; }
@@ -1676,6 +1624,73 @@ ol {
 .rich-text ol + h1, .rich-text ol + h2, .rich-text ol + h3, .rich-text ol + h4, .rich-text ol + h5, .rich-text ol + h6,
 .rich-text img + h1, .rich-text img + h2, .rich-text img + h3, .rich-text img + h4, .rich-text img + h5, .rich-text img + h6 {
   padding-top: 1em; }
+
+.rich-text--featured {
+  margin: 0;
+  font-family: "Quicksand Regular", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.5em;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  padding-bottom: 0.5em; }
+  @media only screen and (min-width: 50em) {
+    .rich-text--featured {
+      font-size: 1.6rem; } }
+  @media only screen and (min-width: 50em) {
+    .rich-text--featured {
+      font-size: 2rem; } }
+  .rich-text--featured:last-child {
+    padding-bottom: 0; }
+  .rich-text--featured ul {
+    margin-top: 2rem;
+    padding-left: 0; }
+    .rich-text--featured ul li {
+      margin: 0;
+      font-family: "Quicksand Regular", sans-serif;
+      font-size: 1.4rem;
+      line-height: 1.5em;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      padding-bottom: 0.5em;
+      position: relative;
+      list-style: none;
+      font-family: "Quicksand Bold", sans-serif;
+      padding-bottom: 1.5rem;
+      padding-left: 3rem; }
+      @media only screen and (min-width: 50em) {
+        .rich-text--featured ul li {
+          font-size: 1.6rem; } }
+      @media only screen and (min-width: 50em) {
+        .rich-text--featured ul li {
+          font-size: 2rem; } }
+      .rich-text--featured ul li:last-child {
+        padding-bottom: 0; }
+      .rich-text--featured ul li:before {
+        content: ""; }
+      .rich-text--featured ul li:last-child {
+        padding-bottom: 0; }
+      .rich-text--featured ul li:before {
+        display: inline-block;
+        height: inherit;
+        margin-right: 0.2rem;
+        margin-left: 0.2rem;
+        font-size: 2rem;
+        font-family: "icons";
+        font-variant: normal;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        text-decoration: inherit;
+        text-align: center;
+        text-transform: none;
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: absolute;
+        top: 0.4rem;
+        left: 0;
+        font-weight: bold;
+        color: #8CC63F; }
 
 .table {
   width: 100%;
@@ -1853,7 +1868,7 @@ button {
   .button.button--selected {
     text-indent: -9999px; }
     .button.button--selected:before {
-      content: ""; }
+      content: ""; }
     .button.button--selected:before, .button.button--selected:after {
       text-indent: 0;
       float: left;
@@ -1975,7 +1990,7 @@ button {
             transform: rotate(360deg); }
 
 .circle-icon--close:before {
-  content: ""; }
+  content: ""; }
 
 .circle-icon--close:before {
   display: inline-block;
@@ -2223,7 +2238,7 @@ button {
   .card--sash {
     position: relative; }
     .card--sash:before {
-      content: ""; }
+      content: ""; }
     .card--sash:before {
       display: inline-block;
       height: inherit;
@@ -2761,7 +2776,7 @@ button {
       position: relative;
       padding-left: 2.2rem; }
       .global-nav ul li a.find-chargepoint:before {
-        content: ""; }
+        content: ""; }
       .global-nav ul li a.find-chargepoint:before {
         display: inline-block;
         height: inherit;
@@ -3046,7 +3061,7 @@ button {
 .stars-list li {
   display: inline-block; }
   .stars-list li:before {
-    content: ""; }
+    content: ""; }
   .stars-list li:before {
     display: inline-block;
     height: inherit;
@@ -3081,7 +3096,7 @@ button {
     width: 100%;
     margin: 0; }
   .slick-arrow:before {
-    content: ""; }
+    content: ""; }
   .slick-arrow:before {
     display: inline-block;
     height: inherit;

@@ -55,4 +55,29 @@ $typography-vertical-spacing: 0.5em;
 	img + h1, img + h2, img + h3, img + h4, img + h5, img + h6 {
 		padding-top: $typography-vertical-spacing * 2;
 	}
+	&--featured {
+		@include font-style-large;
+		ul {
+			margin-top: 2rem;
+			padding-left: 0;
+			li {
+				@include font-style-large;
+				position: relative;
+				list-style: none;
+				font-family: $font-family-bold;
+				@include iconfont('tick');
+				padding-bottom: 1.5rem;
+				padding-left: 3rem;
+				&:last-child {
+					padding-bottom: 0;
+				}
+				&:before {
+					@include iconfont-styles;
+					@include position(absolute, 0.4rem null null 0);
+					font-weight: bold;
+					color: $primary-color;
+				}
+			}
+		}
+	}
 }

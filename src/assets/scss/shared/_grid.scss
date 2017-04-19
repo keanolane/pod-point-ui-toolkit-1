@@ -17,6 +17,9 @@ overflow-x: visible; }
 			padding-bottom: 2rem;
 			border-bottom: 1px dashed $gray-keyline;
 		}
+		&--no-space {
+			margin-bottom: 0;
+		}
 	}
 	@media only screen and (min-width: $medium-screen) {
 		.grid-col--md-12 {
