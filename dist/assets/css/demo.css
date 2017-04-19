@@ -1550,7 +1550,7 @@ ol {
         margin-left: 0.5rem; }
     ul.list--inline--tiny li img,
     ol.list--inline--tiny li img {
-      max-height: 5rem;
+      max-height: 4.5rem;
       width: auto; }
 
 .dl {

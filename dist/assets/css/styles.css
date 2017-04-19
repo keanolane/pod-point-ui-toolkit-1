@@ -1550,7 +1550,7 @@ ol {
         margin-left: 0.5rem; }
     ul.list--inline--tiny li img,
     ol.list--inline--tiny li img {
-      max-height: 5rem;
+      max-height: 4.5rem;
       width: auto; }
 
 .dl {
@@ -2881,11 +2881,18 @@ button {
               .global-nav__sub-nav ul li a img {
                 width: 10rem; } }
 
+.is-modal-open body {
+  overflow: hidden; }
+
 .modal {
-  background-color: rgba(0, 0, 0, 0.8);
-  position: absolute;
+  z-index: 101;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
   width: 100%;
   min-height: 100%; }
   .modal .circle-icon--close {
@@ -3006,16 +3013,18 @@ button {
   padding-top: 4rem;
   padding-bottom: 4rem;
   overflow: hidden; }
-  .carousel-section .reviews-from-text {
-    display: none; }
-    @media only screen and (min-width: 40em) {
-      .carousel-section .reviews-from-text {
-        display: inline-block;
-        padding-right: 0.5rem; } }
-  .carousel-section .reviews-logo img {
-    width: 13rem;
-    position: relative;
-    top: 6px; }
+
+.reviews-from-text {
+  display: none; }
+  @media only screen and (min-width: 40em) {
+    .reviews-from-text {
+      display: inline-block;
+      padding-right: 0.5rem; } }
+
+.reviews-logo img {
+  width: 13rem;
+  position: relative;
+  top: 6px; }
 
 .carousel-wrap {
   margin: 3rem auto;

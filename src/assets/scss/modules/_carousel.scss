@@ -5,19 +5,18 @@
 .carousel-section {
 	@include padding(4rem null);
 	overflow: hidden;
-
-	.reviews-from-text {
-		display: none;
-		@media only screen and (min-width: $small-screen) {
-			display: inline-block;
-			padding-right: 0.5rem;
-		}
+}
+.reviews-from-text {
+	display: none;
+	@media only screen and (min-width: $small-screen) {
+		display: inline-block;
+		padding-right: 0.5rem;
 	}
-	.reviews-logo img {
-		width: 13rem;
-		position: relative;
-		top: 6px;
-	}
+}
+.reviews-logo img {
+	width: 13rem;
+	position: relative;
+	top: 6px;
 }
 .carousel-wrap {
 	@include margin(3rem auto);
