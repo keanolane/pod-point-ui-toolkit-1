@@ -27,10 +27,20 @@
 	&--outlined {
 		@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $border: 1px solid $font-color-base);
 	}
+	&--outlined-green {
+		@include icon-in-circle($bgColor: transparent, $color: $primary-color, $border: 1px solid $primary-color);
+	}
 	&--outlined-dark {
 		@include icon-in-circle($bgColor: transparent, $color: white, $border: 1px solid white);
 	}
 	&--white-outline {
 		@include icon-in-circle($bgColor: white, $color: $font-color-base, $border: 1px solid $gray-keyline);
+	}
+}
+
+.inline-circle-icon {
+	position: relative;
+	.circle-icon {
+		@include position(absolute, 0 -3.5rem null null);
 	}
 }

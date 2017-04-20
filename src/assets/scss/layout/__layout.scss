@@ -1,10 +1,8 @@
 // =============================================================================
-//	SHARED
+//	LAYOUT
 // =============================================================================
 
-@import 'buttons';
-@import 'animated-icons';
-@import 'dividers';
-@import 'icons';
-@import 'images';
-@import 'backgrounds';
+@import 'node_modules/flexbox-grid-mixins/sass/flexbox-grid-mixins';
+
+@import 'containers';
+@import 'grid';
