@@ -11,10 +11,11 @@
 		max-width: $max-width-content-narrow;
 	}
 }
-.container-text {
+
+.max-width-text {
 	max-width: $max-width-text;
-	&.wide { max-width: $max-width-text-wide; }
-	&.narrow { max-width: $max-width-text-narrow; }
+	&--wide { max-width: $max-width-text-wide; }
+	&--narrow { max-width: $max-width-text-narrow; }
 }
 
 .content-block {

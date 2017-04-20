@@ -579,7 +579,9 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
       padding-right: 2rem;
       padding-bottom: 0;
       border-right: 1px dashed #ccc;
-      border-bottom: none; } }
+      border-bottom: none; }
+    .grid-row .grid-col--no-space--md {
+      margin-bottom: 0; } }
   @media only screen and (min-width: 64em) {
     .grid-row .grid-col--lg-12 {
       box-sizing: border-box;
@@ -2028,6 +2030,24 @@ button {
   -ms-transform: rotate(360deg);
       transform: rotate(360deg); }
 
+.divider--steps {
+  background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 3 20" style="enable-background:new 0 0 3 20;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#8CC63F;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:5;}</style><line class="st0" x1="1.5" y1="0.5" x2="1.5" y2="20.2"/></svg>');
+  margin: 0 auto;
+  width: 0.6rem;
+  height: 6rem;
+  background-repeat: repeat-y; }
+  @media only screen and (min-width: 50em) {
+    .divider--steps {
+      background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 436 107" style="enable-background:new 0 0 436 107;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#8CC63F;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:12;}</style><path class="st0" d="M2,0v5c0,29.3,23.7,53,53,53h326c29.3,0,53,23.7,53,53v0"/></svg>');
+      margin: 0 auto;
+      width: 70%;
+      height: 12rem;
+      background-repeat: no-repeat; }
+      .divider--steps--flipped {
+        -ms-transform: scaleX(-1);
+            transform: scaleX(-1);
+        filter: FlipH; } }
+
 .circle-icon {
   text-indent: -9999px;
   text-align: center;
@@ -2209,11 +2229,11 @@ button {
   .container--wide {
     max-width: 90rem; }
 
-.container-text {
+.max-width-text {
   max-width: 60rem; }
-  .container-text.wide {
+  .max-width-text--wide {
     max-width: 70rem; }
-  .container-text.narrow {
+  .max-width-text--narrow {
     max-width: 50rem; }
 
 .content-block {

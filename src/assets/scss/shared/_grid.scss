@@ -47,6 +47,9 @@ $default-gutter: 2rem;
 			border-right: 1px dashed $gray-keyline;
 			border-bottom: none;
 		}
+		.grid-col--no-space--md {
+			margin-bottom: 0;
+		}
 	}
 	@media only screen and (min-width: $large-screen) {
 		.grid-col--lg-12 {

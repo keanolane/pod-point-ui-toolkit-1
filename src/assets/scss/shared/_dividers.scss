@@ -1,0 +1,22 @@
+// =============================================================================
+//  DIVIDERS
+// =============================================================================
+
+.divider--steps {
+	background-image: url($svg-divider-repeater);
+	margin: 0 auto;
+	width: 0.6rem;
+	height: 6rem;
+	background-repeat: repeat-y;
+	@media only screen and (min-width: $medium-screen) {
+		background-image: url($svg-steps-divider-desktop);
+		margin: 0 auto;
+		width: 70%;
+		height: 12rem;
+		background-repeat: no-repeat;
+		&--flipped {
+			transform: scaleX(-1);
+			filter: FlipH;
+		}
+	}
+}
