@@ -2070,13 +2070,6 @@ button {
   -ms-transform: rotate(360deg);
       transform: rotate(360deg); }
 
-.circle-icon {
-  transition: transform 0.4s ease-in-out; }
-  .circle-icon.rotate {
-    transition: transform 0.4s ease-in-out;
-    -ms-transform: rotate(-180deg);
-        transform: rotate(-180deg); }
-
 .divider--steps {
   background-image: url('data:image/svg+xml;utf8,<svg style="enable-background:new 0 0 3 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 3 20" version="1.1" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">.st0{fill:none;stroke:#8CC63F;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:5;}</style><line y1=".5" x2="1.5" x1="1.5" y2="20.2" class="st0"/></svg>');
   margin: 0 auto;
@@ -2192,6 +2185,8 @@ button {
       margin: 0;
       padding: 0;
       color: #333; }
+    .circle-icon--outlined:before {
+      width: 104%; }
   .circle-icon--outlined-green {
     text-indent: -9999px;
     text-align: center;
@@ -2212,6 +2207,8 @@ button {
       margin: 0;
       padding: 0;
       color: #8CC63F; }
+    .circle-icon--outlined-green:before {
+      width: 104%; }
   .circle-icon--outlined-dark {
     text-indent: -9999px;
     text-align: center;
@@ -2232,6 +2229,8 @@ button {
       margin: 0;
       padding: 0;
       color: white; }
+    .circle-icon--outlined-dark:before {
+      width: 104%; }
   .circle-icon--white-outline {
     text-indent: -9999px;
     text-align: center;
@@ -2252,13 +2251,117 @@ button {
       margin: 0;
       padding: 0;
       color: #333; }
+    .circle-icon--white-outline:before {
+      width: 104%; }
 
 .inline-circle-icon {
   position: relative; }
-  .inline-circle-icon .circle-icon {
+  .inline-circle-icon .circle-icon--toggle-panel,
+  .inline-circle-icon .toggle-panel {
     position: absolute;
     top: 0;
     right: -3.5rem; }
+
+.circle-icon--toggle-panel {
+  text-indent: -9999px;
+  text-align: center;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #8CC63F;
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: transform 0.8s ease-in-out; }
+  .circle-icon--toggle-panel:before {
+    content: ""; }
+  .circle-icon--toggle-panel:before {
+    display: inline-block;
+    height: inherit;
+    margin-right: 0.2rem;
+    margin-left: 0.2rem;
+    font-size: 2rem;
+    font-family: "icons";
+    font-variant: normal;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    text-align: center;
+    text-transform: none;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+  .circle-icon--toggle-panel:before, .circle-icon--toggle-panel:after {
+    text-indent: 0;
+    float: left;
+    width: 100%;
+    margin: 0; }
+  .circle-icon--toggle-panel:before {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: #8CC63F; }
+  .circle-icon--toggle-panel:before {
+    font-size: 1.2rem;
+    line-height: 2.5rem; }
+  .circle-icon--toggle-panel:before {
+    width: 105%; }
+  .circle-icon--toggle-panel.rotate {
+    transition: transform 0.7s ease-in-out;
+    -ms-transform: rotate(-180deg);
+        transform: rotate(-180deg); }
+
+.circle-icon--close-panel {
+  text-indent: -9999px;
+  text-align: center;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #8CC63F;
+  width: 4rem;
+  height: 4rem;
+  -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+  .circle-icon--close-panel:before {
+    content: ""; }
+  .circle-icon--close-panel:before {
+    display: inline-block;
+    height: inherit;
+    margin-right: 0.2rem;
+    margin-left: 0.2rem;
+    font-size: 2rem;
+    font-family: "icons";
+    font-variant: normal;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    text-align: center;
+    text-transform: none;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+  .circle-icon--close-panel:before, .circle-icon--close-panel:after {
+    text-indent: 0;
+    float: left;
+    width: 100%;
+    margin: 0; }
+  .circle-icon--close-panel:before {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: #8CC63F; }
+  .circle-icon--close-panel:before {
+    font-size: 1.7rem;
+    line-height: 4rem; }
+  .circle-icon--close-panel:before {
+    width: 105%; }
 
 .img--resp {
   max-width: 100%; }
@@ -2535,7 +2638,8 @@ button {
       max-height: 400rem;
       transition: 1s ease-in-out;
       max-height: 3000px;
-      transition: max-height 1s ease-in; }
+      transition: max-height 1s ease-in;
+      overflow: hidden; }
       @media only screen and (min-width: 50em) {
         .global-nav > ul > li.has-sub-nav.sub-nav-open .global-nav__sub-nav {
           opacity: 1; } }
@@ -2701,7 +2805,8 @@ button {
       height: 1.3rem; }
     .accordion dt.is-open + dd {
       max-height: 3000px;
-      transition: max-height 1.5s ease-in; }
+      transition: max-height 1.5s ease-in;
+      overflow: hidden; }
   .accordion dd {
     max-height: 0;
     transition: max-height 0.9s ease-out;
@@ -2719,7 +2824,8 @@ button {
         display: none; }
     .accordion--only-mobile dd {
       max-height: 3000px;
-      transition: max-height 1.5s ease-in; } }
+      transition: max-height 1.5s ease-in;
+      overflow: hidden; } }
 
 .carousel-section {
   padding-top: 4rem;
@@ -3412,7 +3518,8 @@ button {
 
 .slide-down {
   max-height: 3000px;
-  transition: max-height 1s ease-in; }
+  transition: max-height 1s ease-in;
+  overflow: hidden; }
 
 .slide-up {
   max-height: 0;

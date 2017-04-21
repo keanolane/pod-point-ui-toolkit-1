@@ -3,8 +3,6 @@ import { selectFirst } from '@pod-point/dom-ops';
 
 let instances = [];
 
-let isVisible = false;
-
 class ToggleAccordionPanel {
 
     /**
@@ -14,8 +12,10 @@ class ToggleAccordionPanel {
      */
     constructor(element) {
         this.toggleButton = element;
+        this.toggleIcon = selectFirst('.circle-icon--toggle-panel', this.toggleButton);
         this.panel = selectFirst('#' + this.toggleButton.getAttribute('data-toggle-panel'));
-        this.closeButton = selectFirst('.close-panel', this.panel);
+        this.closeButton = selectFirst('.circle-icon--close-panel', this.panel);
+        this.panelIsVisible = false;
 
         this.bindEvents();
     }
@@ -54,7 +54,7 @@ class ToggleAccordionPanel {
     doPanel(event) {
         event.preventDefault();
 
-        if (isVisible) {
+        if (this.panelIsVisible) {
             this.closePanel();
         } else {
             this.openPanel();
@@ -67,11 +67,8 @@ class ToggleAccordionPanel {
     openPanel() {
         this.panel.classList.remove('slide-up');
         this.panel.classList.add('slide-down');
-
-        const icon = selectFirst('.circle-icon', this.toggleButton);
-        icon.classList.add('rotate');
-
-        isVisible = true;
+        this.toggleIcon.classList.add('rotate');
+        this.panelIsVisible = true;
     }
 
     /**
@@ -80,11 +77,8 @@ class ToggleAccordionPanel {
     closePanel() {
         this.panel.classList.remove('slide-down');
         this.panel.classList.add('slide-up');
-
-        const icon = selectFirst('.circle-icon', this.toggleButton);
-        icon.classList.remove('rotate');
-
-        isVisible = false;
+        this.toggleIcon.classList.remove('rotate');
+        this.panelIsVisible = false;
     }
 }
 

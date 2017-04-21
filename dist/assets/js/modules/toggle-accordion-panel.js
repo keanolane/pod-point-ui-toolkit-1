@@ -14,8 +14,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var instances = [];
 
-var isVisible = false;
-
 var ToggleAccordionPanel = function () {
 
     /**
@@ -27,8 +25,10 @@ var ToggleAccordionPanel = function () {
         _classCallCheck(this, ToggleAccordionPanel);
 
         this.toggleButton = element;
+        this.toggleIcon = (0, _domOps.selectFirst)('.circle-icon--toggle-panel', this.toggleButton);
         this.panel = (0, _domOps.selectFirst)('#' + this.toggleButton.getAttribute('data-toggle-panel'));
-        this.closeButton = (0, _domOps.selectFirst)('.close-panel', this.panel);
+        this.closeButton = (0, _domOps.selectFirst)('.circle-icon--close-panel', this.panel);
+        this.panelIsVisible = false;
 
         this.bindEvents();
     }
@@ -79,7 +79,7 @@ var ToggleAccordionPanel = function () {
         value: function doPanel(event) {
             event.preventDefault();
 
-            if (isVisible) {
+            if (this.panelIsVisible) {
                 this.closePanel();
             } else {
                 this.openPanel();
@@ -95,11 +95,8 @@ var ToggleAccordionPanel = function () {
         value: function openPanel() {
             this.panel.classList.remove('slide-up');
             this.panel.classList.add('slide-down');
-
-            var icon = (0, _domOps.selectFirst)('.circle-icon', this.toggleButton);
-            icon.classList.add('rotate');
-
-            isVisible = true;
+            this.toggleIcon.classList.add('rotate');
+            this.panelIsVisible = true;
         }
 
         /**
@@ -111,11 +108,8 @@ var ToggleAccordionPanel = function () {
         value: function closePanel() {
             this.panel.classList.remove('slide-down');
             this.panel.classList.add('slide-up');
-
-            var icon = (0, _domOps.selectFirst)('.circle-icon', this.toggleButton);
-            icon.classList.remove('rotate');
-
-            isVisible = false;
+            this.toggleIcon.classList.remove('rotate');
+            this.panelIsVisible = false;
         }
     }]);
 
