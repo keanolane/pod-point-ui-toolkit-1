@@ -37,7 +37,7 @@
 }
 
 // Iconfont icon in a circle with optional colours
-@mixin icon-in-circle($bgColor: $icon-color, $color: #fff, $border: none ) {
+@mixin icon-in-circle($bgColor: $icon-color, $color: #fff, $boxShadow: none ) {
 	@include hide-text-not-pseudo;
 	text-align: center;
 	display: block;
@@ -45,7 +45,7 @@
 	padding: 0;
 	background-color: #{$bgColor};
 	border-radius: 50%;
-	border: $border;
+	box-shadow: $boxShadow;
 	&:before {
 		width: 100%;
 		height: 100%;
@@ -62,7 +62,6 @@
 		line-height: $dimension;
 	}
 }
-
 @mixin horizontal-spacing {
 	@include padding(null $horizontal-spacing-mobile);
 	@media only screen and (min-width: $medium-screen) {

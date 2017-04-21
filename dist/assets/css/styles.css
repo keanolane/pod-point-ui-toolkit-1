@@ -311,15 +311,15 @@ table {
   margin-left: auto;
   max-width: 104rem;
   padding-right: 2.5rem;
-  padding-left: 2.5rem; }
+  padding-left: 2.5rem;
+  max-width: 54rem; }
   @media only screen and (min-width: 50em) {
     .container {
       padding-right: 3rem;
       padding-left: 3rem; } }
-  .container--wide {
-    max-width: 120rem; }
-  .container--wide {
-    max-width: 90rem; }
+  @media only screen and (min-width: 50em) {
+    .container {
+      max-width: 104rem; } }
 
 .max-width-text {
   max-width: 60rem; }
@@ -353,7 +353,8 @@ table {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: 0 -1rem; }
+  margin: 0 -1rem;
+  margin-top: 2rem; }
   .grid-row--vertical-center {
     -ms-flex-align: center;
         align-items: center; }
@@ -362,8 +363,9 @@ table {
     -ms-flex: 0 0 calc( 100% - 2rem);
         flex: 0 0 calc( 100% - 2rem);
     margin: 0 1rem 2rem; }
-    .grid-row .grid-col--separator:not(:last-child) {
-      padding-bottom: 2rem;
+    .grid-row .grid-col--separator {
+      padding-bottom: 4rem;
+      margin-bottom: 4rem;
       border-bottom: 1px dashed #ccc; }
     .grid-row .grid-col--no-space {
       margin-bottom: 0; }
@@ -396,9 +398,10 @@ table {
     .grid-row .grid-col--md-right {
       -ms-flex-order: 10;
           order: 10; }
-    .grid-row .grid-col--md-separator:not(:last-child) {
+    .grid-row .grid-col--md-separator {
       padding-right: 2rem;
       padding-bottom: 0;
+      margin-bottom: 2rem;
       border-right: 1px dashed #ccc;
       border-bottom: none; }
     .grid-row .grid-col--no-space--md {
@@ -1081,6 +1084,7 @@ textarea[type="text"] {
   line-height: 1.6rem;
   font-size: 1.6rem;
   font-family: "Quicksand Bold", sans-serif;
+  line-height: 2.4rem;
   box-sizing: border-box;
   width: 100%;
   height: 4rem;
@@ -1318,6 +1322,7 @@ textarea[type="text"] {
     line-height: 1.6rem;
     font-size: 1.6rem;
     font-family: "Quicksand Bold", sans-serif;
+    line-height: 2.4rem;
     box-sizing: border-box;
     width: 100%;
     height: 4rem;
@@ -1343,8 +1348,11 @@ textarea[type="text"] {
   display: block; }
   .select-dd-inline-wrap--heading {
     margin-bottom: 2rem; }
-    .select-dd-inline-wrap--heading .h1 {
-      margin-right: 0.5rem; }
+    .select-dd-inline-wrap--heading h1.h1,
+    .select-dd-inline-wrap--heading .h1,
+    .select-dd-inline-wrap--heading h1 {
+      margin-right: 0.5rem;
+      padding-bottom: 0.2rem; }
   .select-dd-inline-wrap--body-text .select-dd-inline-wrap__text {
     margin: 0;
     font-family: "Quicksand Regular", sans-serif;
@@ -1394,6 +1402,7 @@ textarea[type="text"] {
     line-height: 1.6rem;
     font-size: 1.6rem;
     font-family: "Quicksand Bold", sans-serif;
+    line-height: 2.4rem;
     box-sizing: border-box;
     width: 100%;
     height: 4rem;
@@ -1531,6 +1540,7 @@ textarea[type="text"] {
     line-height: 1.6rem;
     font-size: 1.6rem;
     font-family: "Quicksand Bold", sans-serif;
+    line-height: 2.4rem;
     box-sizing: border-box;
     width: 100%;
     height: 4rem;
@@ -1881,7 +1891,7 @@ button {
 .button {
   box-sizing: border-box;
   vertical-align: middle;
-  width: 100%;
+  width: auto;
   display: inline-block;
   padding: 0.8rem 3.5rem;
   min-height: 4rem;
@@ -1896,9 +1906,6 @@ button {
   border: 1px solid #8CC63F;
   transition: all 0.2s ease;
   max-width: 50rem; }
-  @media only screen and (min-width: 40em) {
-    .button {
-      width: auto; } }
   .button:hover:not(.is-disabled), .button:focus:not(.is-disabled), .button:active:not(.is-disabled) {
     color: #8CC63F;
     background-color: transparent;
@@ -2096,7 +2103,7 @@ button {
   padding: 0;
   background-color: #333;
   border-radius: 50%;
-  border: none;
+  box-shadow: none;
   width: 4rem;
   height: 4rem; }
   .circle-icon:before, .circle-icon:after {
@@ -2153,7 +2160,7 @@ button {
     padding: 0;
     background-color: #8CC63F;
     border-radius: 50%;
-    border: none; }
+    box-shadow: none; }
     .circle-icon--green:before, .circle-icon--green:after {
       text-indent: 0;
       float: left;
@@ -2173,7 +2180,7 @@ button {
     padding: 0;
     background-color: transparent;
     border-radius: 50%;
-    border: 1px solid #333; }
+    box-shadow: 0px 0px 0px 2px #333; }
     .circle-icon--outlined:before, .circle-icon--outlined:after {
       text-indent: 0;
       float: left;
@@ -2185,8 +2192,6 @@ button {
       margin: 0;
       padding: 0;
       color: #333; }
-    .circle-icon--outlined:before {
-      width: 104%; }
   .circle-icon--outlined-green {
     text-indent: -9999px;
     text-align: center;
@@ -2195,7 +2200,7 @@ button {
     padding: 0;
     background-color: transparent;
     border-radius: 50%;
-    border: 1px solid #8CC63F; }
+    box-shadow: 0px 0px 0px 2px #8CC63F; }
     .circle-icon--outlined-green:before, .circle-icon--outlined-green:after {
       text-indent: 0;
       float: left;
@@ -2207,8 +2212,6 @@ button {
       margin: 0;
       padding: 0;
       color: #8CC63F; }
-    .circle-icon--outlined-green:before {
-      width: 104%; }
   .circle-icon--outlined-dark {
     text-indent: -9999px;
     text-align: center;
@@ -2217,7 +2220,7 @@ button {
     padding: 0;
     background-color: transparent;
     border-radius: 50%;
-    border: 1px solid white; }
+    box-shadow: 0px 0px 0px 2px white; }
     .circle-icon--outlined-dark:before, .circle-icon--outlined-dark:after {
       text-indent: 0;
       float: left;
@@ -2229,8 +2232,6 @@ button {
       margin: 0;
       padding: 0;
       color: white; }
-    .circle-icon--outlined-dark:before {
-      width: 104%; }
   .circle-icon--white-outline {
     text-indent: -9999px;
     text-align: center;
@@ -2239,7 +2240,7 @@ button {
     padding: 0;
     background-color: white;
     border-radius: 50%;
-    border: 1px solid #ccc; }
+    box-shadow: 0px 0px 0px 2px #ccc; }
     .circle-icon--white-outline:before, .circle-icon--white-outline:after {
       text-indent: 0;
       float: left;
@@ -2251,16 +2252,15 @@ button {
       margin: 0;
       padding: 0;
       color: #333; }
-    .circle-icon--white-outline:before {
-      width: 104%; }
 
 .inline-circle-icon {
-  position: relative; }
+  position: relative;
+  padding-right: 3.5rem; }
   .inline-circle-icon .circle-icon--toggle-panel,
   .inline-circle-icon .toggle-panel {
     position: absolute;
     top: 0;
-    right: -3.5rem; }
+    right: 0; }
 
 .circle-icon--toggle-panel {
   text-indent: -9999px;
@@ -2270,7 +2270,7 @@ button {
   padding: 0;
   background-color: transparent;
   border-radius: 50%;
-  border: 1px solid #8CC63F;
+  box-shadow: 0px 0px 0px 2px #8CC63F;
   width: 2.5rem;
   height: 2.5rem;
   transition: transform 0.8s ease-in-out; }
@@ -2307,8 +2307,6 @@ button {
   .circle-icon--toggle-panel:before {
     font-size: 1.2rem;
     line-height: 2.5rem; }
-  .circle-icon--toggle-panel:before {
-    width: 105%; }
   .circle-icon--toggle-panel.rotate {
     transition: transform 0.7s ease-in-out;
     -ms-transform: rotate(-180deg);
@@ -2322,7 +2320,7 @@ button {
   padding: 0;
   background-color: transparent;
   border-radius: 50%;
-  border: 1px solid #8CC63F;
+  box-shadow: 0px 0px 0px 2px #8CC63F;
   width: 4rem;
   height: 4rem;
   -ms-transform: rotate(180deg);
@@ -2360,8 +2358,6 @@ button {
   .circle-icon--close-panel:before {
     font-size: 1.7rem;
     line-height: 4rem; }
-  .circle-icon--close-panel:before {
-    width: 105%; }
 
 .img--resp {
   max-width: 100%; }
@@ -3422,81 +3418,86 @@ button {
   padding-left: 5rem; }
 
 .text-center {
-  text-align: center; }
+  text-align: center !important; }
 
 .text-right {
-  text-align: right; }
+  text-align: right !important; }
 
 .text-left {
-  text-align: left; }
+  text-align: left !important; }
 
 .float-right {
-  float: right; }
+  float: right !important; }
 
 .float-left {
-  float: left; }
+  float: left !important; }
+
+.marg-to-left {
+  margin-left: 0 !important; }
 
 .marg-center {
-  margin-right: auto;
-  margin-left: auto; }
+  margin-right: auto !important;
+  margin-left: auto !important; }
 
 .hidden {
-  display: none; }
+  display: none !important; }
 
 .block {
-  display: block; }
+  display: block !important; }
 
 .inline-block {
-  display: inline-block; }
+  display: inline-block !important; }
 
 .full-width {
-  width: 100%; }
+  width: 100% !important; }
 
 @media only screen and (min-width: 50em) {
   .text-center-md {
-    text-align: center; }
+    text-align: center !important; }
   .text-right-md {
-    text-align: right; }
+    text-align: right !important; }
   .text-left-md {
-    text-align: left; }
+    text-align: left !important; }
   .float-right-md {
-    float: right; }
+    float: right !important; }
   .float-left-md {
-    float: left; }
+    float: left !important; }
   .marg-center-md {
-    margin-right: auto;
-    margin-left: auto; }
+    margin-right: auto !important;
+    margin-left: auto !important; }
+  .marg-to-left-md {
+    margin-left: 0 !important; }
   .hidden-md {
-    display: none; }
+    display: none !important; }
   .block-md {
-    display: block; }
+    display: block !important; }
   .inline-block-md {
-    display: inline-block; }
+    display: inline-block !important; }
   .full-width-md {
-    width: 100%; } }
+    width: 100% !important; } }
 
 @media only screen and (min-width: 64em) {
   .text-center-lg {
-    text-align: center; }
+    text-align: center !important; }
   .text-right-lg {
-    text-align: right; }
+    text-align: right !important; }
   .text-left-lg {
-    text-align: left; }
+    text-align: left !important; }
   .float-right-lg {
-    float: right; }
+    float: right !important; }
   .float-left-lg {
-    float: left; }
+    float: left !important; }
   .marg-center-lg {
-    margin-right: auto;
-    margin-left: auto; }
+    margin-right: auto !important;
+    margin-left: auto !important; }
   .hidden-lg {
-    display: none; }
+    display: none !important; }
   .block-lg {
-    display: block; }
+    display: block !important; }
   .inline-block-lg {
-    display: inline-block; }
+    display: inline-block !important; }
   .full-width-lg {
-    width: 100%; } }
+    width: 100% !important; } }
 
 .is-disabled {
   cursor: not-allowed;

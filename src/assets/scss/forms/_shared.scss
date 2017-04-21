@@ -32,6 +32,7 @@ input.form-font-large {
 
 @mixin input-styles {
 	@include font-style-forms;
+	line-height: 2.4rem;
 	box-sizing: border-box;
 	width: 100%;
 	height: $input-height;

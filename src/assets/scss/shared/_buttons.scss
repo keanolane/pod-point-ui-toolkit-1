@@ -16,7 +16,7 @@ button {
 .button {
 	box-sizing: border-box;
 	vertical-align: middle;
-	width: 100%;
+	width: auto;
 	display: inline-block;
 	@include padding(0.8rem 3.5rem);
 	min-height: 4rem;
@@ -31,9 +31,6 @@ button {
 	border: 1px solid $primary-color;
 	transition: all 0.2s ease;
 	max-width: $button-max-width;
-	@media only screen and (min-width: $small-screen) {
-		width: auto;
-	}
 
 	&:hover:not(.is-disabled),
 	&:focus:not(.is-disabled),

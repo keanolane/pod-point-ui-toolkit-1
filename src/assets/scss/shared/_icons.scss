@@ -25,38 +25,34 @@
 		@include icon-in-circle($bgColor: $primary-color, $color: white);
 	}
 	&--outlined {
-		@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $border: 1px solid $font-color-base);
-		&:before { width: 104%; }
+		@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $boxShadow: 0px 0px 0px 2px $font-color-base);
 	}
 	&--outlined-green {
-		@include icon-in-circle($bgColor: transparent, $color: $primary-color, $border: 1px solid $primary-color);
-		&:before { width: 104%; }
+		@include icon-in-circle($bgColor: transparent, $color: $primary-color, $boxShadow: 0px 0px 0px 2px $primary-color);
 	}
 	&--outlined-dark {
-		@include icon-in-circle($bgColor: transparent, $color: white, $border: 1px solid white);
-		&:before { width: 104%; }
+		@include icon-in-circle($bgColor: transparent, $color: white, $boxShadow: 0px 0px 0px 2px white);
 	}
 	&--white-outline {
-		@include icon-in-circle($bgColor: white, $color: $font-color-base, $border: 1px solid $gray-keyline);
-		&:before { width: 104%; }
+		@include icon-in-circle($bgColor: white, $color: $font-color-base, $boxShadow: 0px 0px 0px 2px $gray-keyline);
 	}
 }
 
 .inline-circle-icon {
 	position: relative;
+	padding-right: 3.5rem;
 	.circle-icon--toggle-panel,
 	.toggle-panel {
-		@include position(absolute, 0 -3.5rem null null);
+		@include position(absolute, 0 0 null null);
 	}
 }
 
 .circle-icon--toggle-panel {
 	@include iconfont('cheveron');
 	&:before { @include iconfont-styles; }
-	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $border: 1px solid $primary-color);
+	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $boxShadow: 0px 0px 0px 2px $primary-color);
 	@include icon-in-circle--size($dimension: 2.5rem, $font-size: 1.2rem);
 	transition: transform 0.8s ease-in-out;
-	&:before { width: 105%; }
 	&.rotate {
 		transition: transform 0.7s ease-in-out;
 		transform: rotate(-180deg);
@@ -65,8 +61,7 @@
 .circle-icon--close-panel {
 	@include iconfont('cheveron');
 	&:before { @include iconfont-styles; }
-	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $border: 1px solid $primary-color);
+	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $boxShadow: 0px 0px 0px 2px $primary-color);
 	@include icon-in-circle--size();
 	transform: rotate(180deg);
-	&:before { width: 105%; }
 }

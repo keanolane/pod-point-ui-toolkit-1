@@ -4,11 +4,9 @@
 
 .container {
 	@include container;
-	&--wide {
-		max-width: $max-width-content-wide;
-	}
-	&--wide {
-		max-width: $max-width-content-narrow;
+	max-width: 54rem;
+	@media only screen and (min-width: $medium-screen) {
+		max-width: $max-width-content;
 	}
 }
 

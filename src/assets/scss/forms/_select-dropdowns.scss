@@ -9,11 +9,13 @@ $select-dd-alternative-height: 2.5rem;
 
 	&--heading {
 		margin-bottom: 2rem;
-		.h1 {
+		h1.h1,
+		.h1,
+		h1 {
 			margin-right: 0.5rem;
+			padding-bottom: 0.2rem;
 		}
 	}
-
 	&--body-text {
 		.select-dd-inline-wrap__text {
 			@include font-style-large;

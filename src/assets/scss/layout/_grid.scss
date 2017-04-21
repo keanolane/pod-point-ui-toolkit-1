@@ -9,13 +9,15 @@ $default-gutter: 2rem;
 
 .grid-row {
 	@include grid($flex-wrap: wrap, $gutter: $default-gutter);
+	margin-top: $default-gutter;
 	&--vertical-center {
 		align-items: center;
 	}
 	.grid-col {
 		@include grid-col($col: 12, $gutter: $default-gutter);
-		&--separator:not(:last-child) {
-			padding-bottom: 2rem;
+		&--separator {
+			padding-bottom: 4rem;
+			margin-bottom: 4rem;
 			border-bottom: 1px dashed $gray-keyline;
 		}
 		&--no-space {
@@ -41,9 +43,10 @@ $default-gutter: 2rem;
 		.grid-col--md-right {
 			order: 10;
 		}
-		.grid-col--md-separator:not(:last-child) {
+		.grid-col--md-separator {
 			padding-right: 2rem;
 			padding-bottom: 0;
+			margin-bottom: $default-gutter;
 			border-right: 1px dashed $gray-keyline;
 			border-bottom: none;
 		}
