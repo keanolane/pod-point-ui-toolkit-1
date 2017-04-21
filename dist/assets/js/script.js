@@ -14091,12 +14091,15 @@
 	    }, {
 	        key: 'toggleAccordion',
 	        value: function toggleAccordion(event, element) {
-	            var allDtEls = (0, _domOps.nodesToArray)(this.element.querySelectorAll('dt'));
-	            allDtEls.forEach(function (dt) {
-	                return (0, _domOps.removeClass)(dt, IS_OPEN);
-	            });
-	
-	            (0, _domOps.addClass)(element.closest('dt'), IS_OPEN);
+	            if ((0, _domOps.hasClass)(element, IS_OPEN)) {
+	                (0, _domOps.removeClass)(element, IS_OPEN);
+	            } else {
+	                var allDtEls = (0, _domOps.nodesToArray)(this.element.querySelectorAll('dt'));
+	                allDtEls.forEach(function (dt) {
+	                    return (0, _domOps.removeClass)(dt, IS_OPEN);
+	                });
+	                (0, _domOps.addClass)(element.closest('dt'), IS_OPEN);
+	            }
 	        }
 	    }]);
 	

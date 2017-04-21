@@ -95,7 +95,7 @@
 						height: auto;
 						max-height: 400rem;
 						transition: 1s ease-in-out;
-						@include slideDownActive(1s);
+						@include slideDownActive(1s, 500px);
 						@media only screen and (min-width: $medium-screen) {
 							opacity: 1;
 						}

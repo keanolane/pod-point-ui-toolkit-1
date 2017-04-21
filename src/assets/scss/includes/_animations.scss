@@ -15,8 +15,8 @@
    transition: max-height $duration ease-out;
    overflow: hidden;
 }
-@mixin slideDownActive($duration) {
-   max-height: 3000px;
+@mixin slideDownActive($duration, $approxHeight) {
+   max-height: $approxHeight;
    transition: max-height $duration ease-in;
    overflow: hidden;
 }

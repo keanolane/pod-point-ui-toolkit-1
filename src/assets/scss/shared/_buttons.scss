@@ -84,12 +84,5 @@ button {
 	overflow: hidden;
 	.button {
 		@include margin(1rem);
-		width: calc(100% - 2rem);
-		@media only screen and (min-width: $small-screen) {
-			width: auto;
-		}
-		&--auto-width {
-			width: auto;
-		}
 	}
 }

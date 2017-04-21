@@ -19,7 +19,9 @@
 .content-block {
 	@include padding(4rem null);
 	&--standout {
-		@include padding(8rem null);
+		@media only screen and (min-width: $medium-screen) {
+			@include padding(8rem null);
+		}
 	}
 	&--strip {
 		@include padding(2rem null);

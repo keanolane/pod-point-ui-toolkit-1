@@ -52,10 +52,13 @@ class Accordion {
      * @param {Element} element
      */
     toggleAccordion(event, element) {
-        var allDtEls = nodesToArray(this.element.querySelectorAll('dt'));
-        allDtEls.forEach(dt => removeClass(dt, IS_OPEN));
-
-        addClass(element.closest('dt'), IS_OPEN);
+        if (hasClass(element, IS_OPEN)) {
+            removeClass(element, IS_OPEN);
+        } else {
+            var allDtEls = nodesToArray(this.element.querySelectorAll('dt'));
+            allDtEls.forEach(dt => removeClass(dt, IS_OPEN));
+            addClass(element.closest('dt'), IS_OPEN);
+        }
     }
 }
 

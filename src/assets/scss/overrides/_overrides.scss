@@ -24,7 +24,7 @@
 }
 
 .slide-down {
-	@include slideDownActive(1s);
+	@include slideDownActive(1s, 3000px);
 }
 .slide-up {
 	@include slideDownCollapsed(0.8s);

@@ -19,12 +19,12 @@
 		}
 		&.is-open {
 			+ dd {
-				@include slideDownActive(1.5s);
+				@include slideDownActive(1s, 300px);
 			}
 		}
 	}
 	dd {
-		@include slideDownCollapsed(0.9s);
+		@include slideDownCollapsed(1s);
 		margin: 0;
 		.accordion__item-content {
 			@include padding(1rem null);
@@ -41,7 +41,7 @@
 				}
 			}
 			dd {
-				@include slideDownActive(1.5s);
+				@include slideDownActive(1s, 300px);
 			}
 		}
 	}

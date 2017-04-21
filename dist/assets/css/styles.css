@@ -331,9 +331,10 @@ table {
 .content-block {
   padding-top: 4rem;
   padding-bottom: 4rem; }
-  .content-block--standout {
-    padding-top: 8rem;
-    padding-bottom: 8rem; }
+  @media only screen and (min-width: 50em) {
+    .content-block--standout {
+      padding-top: 8rem;
+      padding-bottom: 8rem; } }
   .content-block--strip {
     padding-top: 2rem;
     padding-bottom: 2rem; }
@@ -1672,7 +1673,7 @@ textarea[type="text"] {
   font-weight: bold;
   line-height: 1.2;
   font-size: 2rem;
-  padding-bottom: 0.5rem; }
+  padding-bottom: 0.5rem !important; }
   .select-dd-wrapper--alternative--h1 .dk-selected:last-child,
   .select-dd-wrapper--alternative--h1 .mobile-select:last-child,
   .select-dd-wrapper--alternative--h1.select-dd-wrapper--mobile select:last-child {
@@ -1961,13 +1962,7 @@ button {
   margin: -1rem;
   overflow: hidden; }
   .buttons-container .button {
-    margin: 1rem;
-    width: calc(100% - 2rem); }
-    @media only screen and (min-width: 40em) {
-      .buttons-container .button {
-        width: auto; } }
-    .buttons-container .button--auto-width {
-      width: auto; }
+    margin: 1rem; }
 
 .navicon {
   width: 2.5rem;
@@ -2633,7 +2628,7 @@ button {
       height: auto;
       max-height: 400rem;
       transition: 1s ease-in-out;
-      max-height: 3000px;
+      max-height: 500px;
       transition: max-height 1s ease-in;
       overflow: hidden; }
       @media only screen and (min-width: 50em) {
@@ -2800,12 +2795,12 @@ button {
       width: 1.3rem;
       height: 1.3rem; }
     .accordion dt.is-open + dd {
-      max-height: 3000px;
-      transition: max-height 1.5s ease-in;
+      max-height: 300px;
+      transition: max-height 1s ease-in;
       overflow: hidden; }
   .accordion dd {
     max-height: 0;
-    transition: max-height 0.9s ease-out;
+    transition: max-height 1s ease-out;
     overflow: hidden;
     margin: 0; }
     .accordion dd .accordion__item-content {
@@ -2819,8 +2814,8 @@ button {
       .accordion--only-mobile dt .plus-minus-toggle {
         display: none; }
     .accordion--only-mobile dd {
-      max-height: 3000px;
-      transition: max-height 1.5s ease-in;
+      max-height: 300px;
+      transition: max-height 1s ease-in;
       overflow: hidden; } }
 
 .carousel-section {
@@ -2845,7 +2840,7 @@ button {
   max-width: 70rem;
   padding-right: 2.5rem;
   padding-left: 2.5rem;
-  width: 90%;
+  width: 80%;
   position: relative; }
   @media only screen and (min-width: 50em) {
     .carousel-wrap {

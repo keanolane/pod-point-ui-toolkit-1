@@ -301,7 +301,7 @@ $select-dd-alternative-height: 2.5rem;
 		.mobile-select,
 		&.select-dd-wrapper--mobile select {
 			@include font-style-h1;
-			padding-bottom: 0.5rem;
+			padding-bottom: 0.5rem!important;
 			@media only screen and (min-width: $medium-screen) {
 				margin-top: -0.7rem;
 				@include padding(null 3rem 0.7rem null);
