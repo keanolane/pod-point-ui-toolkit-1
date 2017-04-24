@@ -65,3 +65,7 @@
 .aspect-radio-10-7 {
 	@include aspect-ratio(10, 7);
 }
+
+.b-b-base {
+	border-bottom: $border-base;
+}

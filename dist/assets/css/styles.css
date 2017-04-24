@@ -1077,7 +1077,8 @@ label {
       padding-bottom: 0; }
 
 .label--block {
-  width: 100%; }
+  width: 100%;
+  font-family: "Quicksand Bold", sans-serif; }
 
 input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"],
 textarea[type="text"] {
@@ -3209,26 +3210,32 @@ button {
     display: table;
     clear: both; }
   .steps-indicator__step {
-    width: 5rem;
-    margin-right: calc(33.333% - 6.67rem);
-    float: left;
+    text-align: center;
+    width: 23%;
+    display: inline-block;
     z-index: 1;
     position: relative; }
-    .steps-indicator__step svg {
-      border-radius: 50%;
-      background-color: #f9fafa; }
+    .steps-indicator__step p {
+      color: #ccc;
+      font-family: "Quicksand Bold", sans-serif; }
     .steps-indicator__step.active-step svg {
       background-color: white; }
     .steps-indicator__step.active-step .st0 {
       fill: #8CC63F; }
     .steps-indicator__step:last-child {
       margin-right: 0; }
+  .steps-indicator__icon {
+    display: inline-block;
+    width: 5rem; }
+    .steps-indicator__icon svg {
+      border-radius: 50%;
+      background-color: #f9fafa; }
   .steps-indicator:after {
     content: '';
     position: absolute;
     top: 2.4rem;
-    right: 3%;
-    width: 94%;
+    right: 17%;
+    width: 73%;
     height: 2px;
     background-color: #ccc; }
 
@@ -3611,3 +3618,6 @@ button {
     left: 0;
     right: 0;
     bottom: 0; }
+
+.b-b-base {
+  border-bottom: 1px solid #ccc; }
