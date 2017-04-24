@@ -1,0 +1,33 @@
+// =============================================================================
+//  STEPS INDICATOR
+// =============================================================================
+
+.steps-indicator {
+	@include clearfix;
+	position: relative;
+	&__step {
+		width: 5rem;
+		margin-right: calc(33.333% - 6.67rem);
+		float: left;
+		z-index: 1;
+		position: relative;
+		svg {
+			border-radius: 50%;
+			background-color: $gray-very-light;
+		}
+		&.active-step {
+			svg { background-color: white; }
+			.st0 { fill: $primary-color; }
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	&:after {
+		content: '';
+		@include position(absolute, 2.4rem 3% null null);
+		width: 94%;
+		height: 2px;
+		background-color: #ccc;
+	}
+}

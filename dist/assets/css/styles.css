@@ -3202,6 +3202,36 @@ button {
           border-right: none;
           padding: 3rem 0 3rem 2rem; } }
 
+.steps-indicator {
+  position: relative; }
+  .steps-indicator:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .steps-indicator__step {
+    width: 5rem;
+    margin-right: calc(33.333% - 6.67rem);
+    float: left;
+    z-index: 1;
+    position: relative; }
+    .steps-indicator__step svg {
+      border-radius: 50%;
+      background-color: #f9fafa; }
+    .steps-indicator__step.active-step svg {
+      background-color: white; }
+    .steps-indicator__step.active-step .st0 {
+      fill: #8CC63F; }
+    .steps-indicator__step:last-child {
+      margin-right: 0; }
+  .steps-indicator:after {
+    content: '';
+    position: absolute;
+    top: 2.4rem;
+    right: 3%;
+    width: 94%;
+    height: 2px;
+    background-color: #ccc; }
+
 .m-none {
   margin: 0; }
 
