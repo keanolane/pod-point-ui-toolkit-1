@@ -22,6 +22,11 @@
 	animation-fill-mode: both;
 	animation-name: fadeIn;
 }
+.fade-in-slow {
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	animation-name: fadeIn;
+}
 
 .slide-down {
 	@include slideDownActive(1s, 3000px);
@@ -55,4 +60,8 @@
 	&--xl { max-width: $max-width-xl; }
 	&--xxl { max-width: $max-width-xxl; }
 	&--xxxl { max-width: $max-width-xxxl; }
+}
+
+.aspect-radio-10-7 {
+	@include aspect-ratio(10, 7);
 }

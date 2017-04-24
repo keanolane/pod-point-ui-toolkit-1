@@ -30,18 +30,18 @@ h5, .h5 { @include font-style-h5; }
 h6, .h6 { @include font-style-h6; }
 
 .font-style-base,
-.font-style-base > p {
+.font-style-base p {
 	@include font-style-base;
 }
 .font-base {
 	@include font-base;
 }
 .font-style-large,
-.font-style-large > p {
+.font-style-large p {
 	@include font-style-large;
 }
 .font-style-small,
-.font-style-small > p {
+.font-style-small p {
 	@include font-style-small;
 }
 .font-small {

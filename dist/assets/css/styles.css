@@ -551,7 +551,7 @@ h6, .h6 {
       font-size: 1.6rem; } }
 
 .font-style-base,
-.font-style-base > p {
+.font-style-base p {
   margin: 0;
   font-family: "Quicksand Regular", sans-serif;
   font-size: 1.4rem;
@@ -559,10 +559,10 @@ h6, .h6 {
   padding-bottom: 0.5em; }
   @media only screen and (min-width: 50em) {
     .font-style-base,
-    .font-style-base > p {
+    .font-style-base p {
       font-size: 1.6rem; } }
   .font-style-base:last-child,
-  .font-style-base > p:last-child {
+  .font-style-base p:last-child {
     padding-bottom: 0; }
 
 .font-base {
@@ -575,7 +575,7 @@ h6, .h6 {
       font-size: 1.6rem; } }
 
 .font-style-large,
-.font-style-large > p {
+.font-style-large p {
   margin: 0;
   font-family: "Quicksand Regular", sans-serif;
   font-size: 1.4rem;
@@ -585,18 +585,18 @@ h6, .h6 {
   padding-bottom: 0.5em; }
   @media only screen and (min-width: 50em) {
     .font-style-large,
-    .font-style-large > p {
+    .font-style-large p {
       font-size: 1.6rem; } }
   @media only screen and (min-width: 50em) {
     .font-style-large,
-    .font-style-large > p {
+    .font-style-large p {
       font-size: 2rem; } }
   .font-style-large:last-child,
-  .font-style-large > p:last-child {
+  .font-style-large p:last-child {
     padding-bottom: 0; }
 
 .font-style-small,
-.font-style-small > p {
+.font-style-small p {
   margin: 0;
   font-family: "Quicksand Regular", sans-serif;
   font-size: 1.4rem;
@@ -605,14 +605,14 @@ h6, .h6 {
   padding-bottom: 0.5em; }
   @media only screen and (min-width: 50em) {
     .font-style-small,
-    .font-style-small > p {
+    .font-style-small p {
       font-size: 1.6rem; } }
   @media only screen and (min-width: 50em) {
     .font-style-small,
-    .font-style-small > p {
+    .font-style-small p {
       font-size: 1.4rem; } }
   .font-style-small:last-child,
-  .font-style-small > p:last-child {
+  .font-style-small p:last-child {
     padding-bottom: 0; }
 
 .font-small {
@@ -2618,10 +2618,10 @@ button {
     @media only screen and (min-width: 50em) {
       .is-desktop .global-nav > ul > li.has-sub-nav:hover .global-nav__sub-nav {
         display: block;
-        transition: 0.5s ease-in-out;
+        transition: 0.8s ease-in-out;
         height: auto;
         max-height: 400rem;
-        animation-duration: 0.8s;
+        animation-duration: 0.3s;
         animation-fill-mode: both;
         animation-name: fadeIn; } }
     .global-nav > ul > li.has-sub-nav.sub-nav-open .global-nav__sub-nav {
@@ -3512,6 +3512,11 @@ button {
   animation-fill-mode: both;
   animation-name: fadeIn; }
 
+.fade-in-slow {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: fadeIn; }
+
 .slide-down {
   max-height: 3000px;
   transition: max-height 1s ease-in;
@@ -3562,3 +3567,17 @@ button {
 
 .max-width--xxxl {
   max-width: 70rem; }
+
+.aspect-radio-10-7 {
+  position: relative; }
+  .aspect-radio-10-7:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 70%; }
+  .aspect-radio-10-7 > .aspect-ratio-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }

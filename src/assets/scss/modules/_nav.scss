@@ -80,10 +80,10 @@
 						.is-desktop & {
 							@media only screen and (min-width: $medium-screen) {
 								display: block;
-								transition: 0.5s ease-in-out;
+								transition: 0.8s ease-in-out;
 								height: auto;
 								max-height: 400rem;
-								animation-duration: 0.8s;
+								animation-duration: 0.3s;
 								animation-fill-mode: both;
 								animation-name: fadeIn;
 							}

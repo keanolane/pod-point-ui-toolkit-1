@@ -18,6 +18,7 @@ import accordion from './modules/accordion';
 import headerNav from './modules/header-nav';
 import carousel from './modules/Carousel';
 import addressLookup from './modules/address-lookup';
+import changeContent from './modules/change-content';
 
 import { initAutocomplete, geolocate, fillInAddress } from './modules/address-lookup';
 
@@ -48,6 +49,7 @@ dom.whenReady(() => {
             accordion,
             carousel,
             addressLookup,
+            changeContent,
         })
     });
 });

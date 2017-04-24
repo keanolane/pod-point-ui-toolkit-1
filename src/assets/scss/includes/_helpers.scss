@@ -24,6 +24,24 @@
 	-webkit-transform: translateY(0);
 }
 
+// Maintain aspect radio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .aspect-ratio-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
 // Hide text not the pseudo
 @mixin hide-text-not-pseudo {
 	text-indent: -9999px;
