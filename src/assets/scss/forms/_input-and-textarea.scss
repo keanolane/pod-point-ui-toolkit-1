@@ -21,7 +21,7 @@ textarea[type="text"] {
 	&.input--secondary {
 		border-radius: 0;
 		border: none;
-		border-bottom: 1px solid $form-keyline;
+		border-bottom: 2px solid $form-keyline;
 		max-width: 40rem;
 		display: inline-block;
 		&.form-font-large {

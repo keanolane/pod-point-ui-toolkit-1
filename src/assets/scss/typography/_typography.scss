@@ -100,11 +100,11 @@ a {
 
 hr {
 	margin: $spacing-base 0;
-	border-bottom: $border-base;
+	border-bottom: $border-thin;
 	border-left: none;
 	border-right: none;
 	border-top: none;
-	background-color: $gray-keyline;
+	background-color: $gray-keyline-very-light;
 }
 p, h1, h2, h3, h4, h5, h6 {
 	& + hr {

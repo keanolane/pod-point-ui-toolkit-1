@@ -44,7 +44,7 @@ input.form-font-large {
 @mixin input-border {
 	transition: border-color;
 	background-color: $background-color-base;
-	border: 1px solid $form-keyline;
+	border: $form-border-base;
 	border-radius: $form-border-radius;
 }
 

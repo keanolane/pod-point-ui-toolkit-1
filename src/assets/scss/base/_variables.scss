@@ -76,6 +76,7 @@ $primary-color-light: #e2eecc;
 $secondary-color-dark: green;
 
 // Keyline colors
+$gray-keyline-very-light: #e2e2e2;
 $gray-keyline-light: #b3b3b3;
 $gray-keyline: #ccc;
 $gray-keyline-dark: #777;
@@ -96,7 +97,8 @@ $pinterest-color: #bd081c;
 
 // Border
 $border-color-base: $gray-keyline;
-$border-base: 1px solid $border-color-base;
+$border-base: 2px solid $border-color-base;
+$border-thin: 1px solid $gray-keyline-very-light;
 
 // Shadow
 $bottom-shadow: 0px 11px 16px -10px rgba(0,0,0,0.1);
@@ -119,8 +121,8 @@ $inputs-list:
 $inputs: assign-inputs($inputs-list);
 
 // Form colors
-$form-keyline: $gray;
-$radio-border: $gray;
+$form-keyline: $border-color-base;
+$radio-border: $border-color-base;
 $radio-fill-color: $primary-color;
 $checkbox-border: $form-keyline;
 $checked-fill-color: $primary-color;
@@ -135,6 +137,7 @@ $input-padding: 1rem;
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
 $form-border-radius: 5px;
+$form-border-base: $border-base;
 $input-text-color: #444;
 $input-placeholder-color: #ccc;
 $input-icon-color: #9C9C9C;

@@ -5,7 +5,7 @@
 .bg--white {
 	background-color: white;
 	& + .bg--white {
-		border-top: $border-base;
+		border-top: $border-thin;
 	}
 }
 .bg--dark-gray {

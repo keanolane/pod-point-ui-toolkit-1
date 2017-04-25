@@ -12,8 +12,12 @@
 		z-index: 1;
 		position: relative;
 		p {
+			display: none;
 			color: $font-color-very-light;
 			font-family: $font-family-bold;
+			@media only screen and (min-width: $medium-screen) {
+				display: block;
+			}
 		}
 		&.active-step {
 			svg { background-color: white; }

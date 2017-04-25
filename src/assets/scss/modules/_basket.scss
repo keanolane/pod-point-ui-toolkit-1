@@ -1,0 +1,146 @@
+// =============================================================================
+//  BASKET
+// =============================================================================
+
+$floating-basket-horizontal-padding: 1.5rem;
+$basket-horizontal-padding: 3rem;
+
+.floating-basket-wrapper {
+	position: relative;
+	.basket {
+		border: none;
+		border-radius: 0;
+		@include position(absolute, 0 0 null null);
+		background-color: white;
+		width: 25rem;
+		&__header {
+			display: block;
+			background-color: $gray-very-dark;
+			height: 4.5rem;
+			@include iconfont('cheveron');
+			position: relative;
+			@include padding(0 $floating-basket-horizontal-padding);
+			&:hover,
+			&:active,
+			&:focus {
+				opacity: 1;
+			}
+			&:before {
+				@include iconfont-styles;
+				@include position(absolute, 1.7rem 1.5rem null null);
+				height: 1.6rem;
+			}
+		}
+		&__title {
+			color: white;
+			padding-top: 1.4rem;
+			padding-bottom: 0;
+		}
+		&__content {
+			display: none;
+			border-right: $border-base;
+			border-left: $border-base;
+			@include padding(null $floating-basket-horizontal-padding);
+		}
+		&__total {
+			border-bottom-right-radius: $border-radius-base;
+			border-bottom-left-radius: $border-radius-base;
+			border-right: $border-base;
+			border-bottom: $border-base;
+			border-left: $border-base;
+			@include padding(null $floating-basket-horizontal-padding);
+		}
+	}
+}
+
+.basket {
+	border-radius: $border-radius-base;
+	border: $border-base;
+	background-color: $gray-very-light;
+	&__header {
+		@include padding(2rem $basket-horizontal-padding);
+	}
+	&__title {
+		@include font-style-h5;
+	}
+	&__items-num {
+		@include position(absolute, 1rem 5rem null null);
+		color: white;
+		display: inline-block;
+		background-color: $primary-color;
+		border-radius: 50%;
+		text-align: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		font-size: 1.6rem;
+		line-height: 2.3rem;
+		font-family: $font-family-bold;
+	}
+	&__content {
+		@include padding(null $basket-horizontal-padding);
+	}
+	&__items {
+		@include padding(0.8rem null);
+	}
+	&__item {
+		@include clearfix;
+		margin-bottom: 1rem;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&__thumb {
+			float: left;
+			width: 4rem;
+			margin-right: 0.5rem;
+		}
+		&__title {
+			padding-top: 0.8rem;
+			width: calc(100% - 9rem);
+			margin-right: 0.5rem;
+			float: left;
+			&__main {
+				font-size: 1.2rem;
+				line-height: 1.2rem;
+				font-family: $font-family-bold;
+				padding-bottom: 0.3rem;
+			}
+			&__sub {
+				font-size: 1rem;
+				line-height: 1.1rem;
+				padding-bottom: 0;
+			}
+		}
+		&__price {
+			padding-top: 0.8rem;
+			width: 4rem;
+			float: left;
+			text-align: right;
+			font-size: 1.2rem;
+			font-family: $font-family-bold;
+		}
+	}
+	&__total {
+		@include clearfix;
+		@include padding(2rem $basket-horizontal-padding);
+		p {
+		 	font-family: $font-family-bold;
+		 	padding-bottom: 0;
+		}
+		&__title {
+			float: left;
+		}
+		&__value {
+			float: right;
+		}
+	}
+	&.is-open {
+		.basket__header {
+			&:before {
+				transform: rotate(180deg);
+			}
+		}
+		.basket__content {
+			display: block;
+		}
+	}
+}

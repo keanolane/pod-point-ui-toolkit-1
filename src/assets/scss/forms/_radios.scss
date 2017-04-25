@@ -32,8 +32,8 @@
 			left: 0;
 			top: 0;
 			@include margin(0.6rem null 0.6rem null);
-			width: 2rem;
-			height: 2rem;
+			width: 1.8rem;
+			height: 1.8rem;
 			z-index: 0;
 			transition: .28s ease;
 			@media only screen and (min-width: $medium-screen) {
@@ -42,11 +42,11 @@
 		}
 		&:before {
 			border-radius: 50%;
-			border: 1px solid $radio-border;
+			border: 2px solid $radio-border;
 		}
 		&:after {
 			border-radius: 50%;
-			border: 1px solid $radio-border;
+			border: 2px solid $radio-border;
 			z-index: -1;
 			@include transform(scale(0));
 		}
@@ -54,11 +54,11 @@
 	&:checked {
 		& + label:before {
 			border-radius: 50%;
-			border: 1px solid transparent;
+			border: 2px solid transparent;
 		}
 		& + label:after {
 			border-radius: 50%;
-			border: 1px solid $radio-fill-color;
+			border: 2px solid $radio-fill-color;
 			background-color: $radio-fill-color;
 			z-index: 0;
 			@include transform(scale(1.02));

@@ -32,12 +32,12 @@
 				@include iconfont-styles;
 				@include position(absolute, 0.3rem null null 0);
 				content: "";
-				padding-top: 0.3rem;
-				font-size: 1.1rem;
+				font-size: 1.4rem;
+				line-height: 2rem;
 				width: 2rem;
 				height: 2rem;
 				z-index: 1;
-				border: 1px solid $checkbox-border;
+				border: 2px solid $checkbox-border;
 				border-radius: $form-border-radius;
 			}
 		}

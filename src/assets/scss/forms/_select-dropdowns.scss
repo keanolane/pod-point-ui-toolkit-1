@@ -92,8 +92,8 @@ $select-dd-alternative-height: 2.5rem;
 	}
 	.dk-select {
 		.dk-select-options {
-			border: 1px solid $gray-keyline;
-			border-radius: $border-radius-base;
+			border: $form-border-base;
+			border-radius: $form-border-radius;
 			box-shadow: $box-shadow-subtle;
 			background-color: white;
 			position: absolute;
@@ -140,8 +140,7 @@ $select-dd-alternative-height: 2.5rem;
 		}
 	}
 	.dk-optgroup {
-		border: solid #CCCCCC;
-		border-width: 1px 0;
+		border: $form-border-base;
 		padding: 0.25em 0;
 		margin-top: 0.25em;
 		+ .dk-option {
