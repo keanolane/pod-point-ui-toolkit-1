@@ -10,16 +10,40 @@
 	color: $font-color-base;
 	@include padding(2rem);
 
+	&--more-pad {
+		@include padding(4rem 3rem);
+	}
+
 	&--centered {
 		text-align: center;
+		hr {
+			@include margin(null 20%);
+		}
 	}
 	&--highlight {
 		border: solid $primary-color 2px;
 	}
-	&--standout {
-		background-color: $gray-very-light;
+	&:not(.card--standout-sash) {
+		.card__recommended span {
+			display: none;
+		}
 	}
-	&--sash {
+	&--standout,
+	&--standout-sash {
+		background-color: $gray-very-light;
+		.card__recommended {
+			position: relative;
+			span {
+				@include font-base;
+				display: block;
+				color: $primary-color;
+				font-family: $font-family-bold;
+				margin-bottom: -2rem;
+			}
+		}
+	}
+	&--sash,
+	&--standout-sash {
 		position: relative;
 		@include iconfont('star');
 		&:before {
@@ -45,6 +69,7 @@
 
 	hr {
 		@include margin(1rem null);
+		opacity: 0.5;
 	}
 	p, h1, h2, h3, h4, h5, h6 {
 		& + hr {

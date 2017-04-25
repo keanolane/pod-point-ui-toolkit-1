@@ -590,6 +590,7 @@ h6, .h6 {
   @media only screen and (min-width: 50em) {
     .font-style-large,
     .font-style-large p {
+      line-height: 1.2;
       font-size: 2rem; } }
   .font-style-large:last-child,
   .font-style-large p:last-child {
@@ -628,6 +629,13 @@ h6, .h6 {
     .font-small {
       font-size: 1.4rem; } }
 
+.font-huge {
+  font-size: 2rem;
+  line-height: 1.1; }
+  @media only screen and (min-width: 50em) {
+    .font-huge {
+      font-size: 3.6rem; } }
+
 strong,
 .bold {
   font-weight: normal;
@@ -636,6 +644,26 @@ strong,
 .green,
 .primary {
   color: #8CC63F; }
+
+.crossed-out {
+  color: #ccc;
+  position: relative;
+  display: inline-block; }
+  .crossed-out:before {
+    content: '';
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ccc;
+    -ms-transform: rotate(20deg);
+        transform: rotate(20deg); }
+  .crossed-out:after {
+    content: '';
+    display: block; }
 
 a {
   color: #8CC63F;
@@ -789,6 +817,7 @@ ol {
       font-size: 1.6rem; } }
   @media only screen and (min-width: 50em) {
     .rich-text--featured {
+      line-height: 1.2;
       font-size: 2rem; } }
   .rich-text--featured:last-child {
     padding-bottom: 0; }
@@ -813,6 +842,7 @@ ol {
           font-size: 1.6rem; } }
       @media only screen and (min-width: 50em) {
         .rich-text--featured ul li {
+          line-height: 1.2;
           font-size: 2rem; } }
       .rich-text--featured ul li:last-child {
         padding-bottom: 0; }
@@ -1369,6 +1399,7 @@ textarea[type="text"] {
         font-size: 1.6rem; } }
     @media only screen and (min-width: 50em) {
       .select-dd-inline-wrap--body-text .select-dd-inline-wrap__text {
+        line-height: 1.2;
         font-size: 2rem; } }
     .select-dd-inline-wrap--body-text .select-dd-inline-wrap__text:last-child {
       padding-bottom: 0; }
@@ -1729,6 +1760,7 @@ textarea[type="text"] {
     .select-dd-wrapper--alternative--font-large .dk-selected,
     .select-dd-wrapper--alternative--font-large .mobile-select,
     .select-dd-wrapper--alternative--font-large.select-dd-wrapper--mobile select {
+      line-height: 1.2;
       font-size: 2rem; } }
   .select-dd-wrapper--alternative--font-large .dk-selected:last-child,
   .select-dd-wrapper--alternative--font-large .mobile-select:last-child,
@@ -3023,17 +3055,38 @@ button {
   border: 1px solid #ccc;
   color: #333;
   padding: 2rem; }
+  .card--more-pad {
+    padding: 4rem 3rem; }
   .card--centered {
     text-align: center; }
+    .card--centered hr {
+      margin-right: 20%;
+      margin-left: 20%; }
   .card--highlight {
     border: solid #8CC63F 2px; }
-  .card--standout {
+  .card:not(.card--standout-sash) .card__recommended span {
+    display: none; }
+  .card--standout, .card--standout-sash {
     background-color: #f9fafa; }
-  .card--sash {
+    .card--standout .card__recommended, .card--standout-sash .card__recommended {
+      position: relative; }
+      .card--standout .card__recommended span, .card--standout-sash .card__recommended span {
+        margin: 0;
+        font-family: "Quicksand Regular", sans-serif;
+        font-size: 1.4rem;
+        line-height: 1.5em;
+        display: block;
+        color: #8CC63F;
+        font-family: "Quicksand Bold", sans-serif;
+        margin-bottom: -2rem; }
+        @media only screen and (min-width: 50em) {
+          .card--standout .card__recommended span, .card--standout-sash .card__recommended span {
+            font-size: 1.6rem; } }
+  .card--sash, .card--standout-sash {
     position: relative; }
-    .card--sash:before {
+    .card--sash:before, .card--standout-sash:before {
       content: ""; }
-    .card--sash:before {
+    .card--sash:before, .card--standout-sash:before {
       display: inline-block;
       height: inherit;
       margin-right: 0.2rem;
@@ -3059,7 +3112,7 @@ button {
       top: 0;
       right: 0;
       color: white; }
-    .card--sash:after {
+    .card--sash:after, .card--standout-sash:after {
       content: '';
       position: absolute;
       top: 0;
@@ -3071,7 +3124,8 @@ button {
       border-color: transparent #8CC63F transparent transparent; }
   .card hr {
     margin-top: 1rem;
-    margin-bottom: 1rem; }
+    margin-bottom: 1rem;
+    opacity: 0.5; }
   .card p + hr, .card h1 + hr, .card h2 + hr, .card h3 + hr, .card h4 + hr, .card h5 + hr, .card h6 + hr {
     margin-top: 0.5rem; }
 

@@ -24,9 +24,19 @@
 	font-size: 1.6rem;
 	line-height: 1.5;
 	@media only screen and (min-width: $medium-screen) {
+		line-height: 1.2;
 		font-size: 2rem;
 	}
 }
+
+@mixin font-huge {
+	font-size: 2rem;
+	line-height: 1.1;
+	@media only screen and (min-width: $medium-screen) {
+		font-size: 3.6rem;
+	}
+}
+
 
 // Font styles
 @mixin font-style-base {
