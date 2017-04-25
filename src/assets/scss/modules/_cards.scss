@@ -9,11 +9,9 @@
 	border: 2px solid $gray-keyline-very-light;
 	color: $font-color-base;
 	@include padding(2rem);
-	// min-height: calc(100% - 4rem);
 
 	&--more-pad {
 		@include padding(4rem 3rem);
-		min-height: calc(100% - 8rem);
 	}
 	&--centered {
 		text-align: center;
@@ -92,6 +90,14 @@
 		.card--standout,
 		.card--standout-sash {
 			transform: scale(1.07, 1.07);
+		}
+	}
+}
+.cards-same-height {
+	.card {
+		min-height: calc(100% - 4rem);
+		&--more-pad {
+			min-height: calc(100% - 8rem);
 		}
 	}
 }

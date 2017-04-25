@@ -3055,8 +3055,7 @@ button {
   color: #333;
   padding: 2rem; }
   .card--more-pad {
-    padding: 4rem 3rem;
-    min-height: calc(100% - 8rem); }
+    padding: 4rem 3rem; }
   .card--centered {
     text-align: center; }
     .card--centered hr {
@@ -3140,6 +3139,11 @@ button {
   .card-set-standout .card--standout-sash {
     -ms-transform: scale(1.07, 1.07);
         transform: scale(1.07, 1.07); } }
+
+.cards-same-height .card {
+  min-height: calc(100% - 4rem); }
+  .cards-same-height .card--more-pad {
+    min-height: calc(100% - 8rem); }
 
 .table--specs {
   overflow-x: auto;
