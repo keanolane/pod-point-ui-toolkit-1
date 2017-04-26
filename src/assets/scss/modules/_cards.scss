@@ -10,6 +10,15 @@
 	color: $font-color-base;
 	@include padding(2rem);
 
+	hr {
+		@include margin(1rem null);
+		opacity: 0.5;
+	}
+	p, h1, h2, h3, h4, h5, h6 {
+		& + hr {
+			margin-top: 0.5rem;
+		}
+	}
 	&--more-pad {
 		@include padding(4rem 3rem);
 	}
@@ -70,16 +79,7 @@
 		border: $border-base;
 		background-color: $gray-very-light;
 		@include padding(3rem);
-	}
-
-	hr {
-		@include margin(1rem null);
-		opacity: 0.5;
-	}
-	p, h1, h2, h3, h4, h5, h6 {
-		& + hr {
-			margin-top: 0.5rem;
-		}
+		hr { opacity: 1; }
 	}
 }
 

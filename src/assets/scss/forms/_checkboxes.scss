@@ -6,7 +6,7 @@
 .checkbox-wrap {
 	text-align: left;
 	position: relative;
-	margin-bottom: 0.5rem;
+	margin-bottom: 2rem;
 
 	&--inline {
 		display: inline-block;
@@ -25,12 +25,12 @@
 		& ~ label {
 			text-transform: none;
 			display: inline-block;
-			@include padding(0.2rem null 0.5rem 3rem);
+			@include padding(0 null 0.5rem 3.5rem);
 			cursor: pointer;
 
 			&:before {
 				@include iconfont-styles;
-				@include position(absolute, 0.3rem null null 0);
+				@include position(absolute, 0 null null 0);
 				content: "";
 				font-size: 1.4rem;
 				line-height: 2rem;

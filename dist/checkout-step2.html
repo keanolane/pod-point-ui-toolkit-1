@@ -183,43 +183,82 @@
 							<div class="card card--informative m-b-md">
 								<h3 class="h4">Claim the OLEV Grant</h3>
 								<p>Do you want to reduce the cost of your chargepoint by £500, by claiming the OLEV Grant?</p>
-								<div class="field-row">
-									<div class="radios-wrap">
-										<div class="radio-wrap radio-wrap--inline">
-											<input data-radio-open-panel="olevPanel" type="radio" name="olevDiscount" id="yesOlevDiscount" value="yesOlevDiscount"/>
-											<label for="yesOlevDiscount" class="radio">Yes</label>
-										</div>
-										<div class="radio-wrap radio-wrap--inline">
-											<input data-radio-close-panel="olevPanel" type="radio" name="olevDiscount" id="noOlevDiscount" value="noOlevDiscount" checked="checked"/>
-											<label for="noOlevDiscount" class="radio">No</label>
-										</div>
+								<div class="radios-wrap">
+									<div class="radio-wrap radio-wrap--inline">
+										<input data-radio-open-panel="olevPanel" type="radio" name="olevDiscount" id="yesOlevDiscount" value="yesOlevDiscount"/>
+										<label for="yesOlevDiscount" class="radio">Yes</label>
+									</div>
+									<div class="radio-wrap radio-wrap--inline">
+										<input data-radio-close-panel="olevPanel" type="radio" name="olevDiscount" id="noOlevDiscount" value="noOlevDiscount" checked="checked"/>
+										<label for="noOlevDiscount" class="radio">No</label>
 									</div>
 								</div>
 							
-								<div id="olevPanel" data-js-module="toggleAccordionPanel" class="slide-up">
-									<h4>Select your purchase option</h4>
-									<h4>Search for your dealership</h4>
+								<div id="olevPanel" data-js-module="toggleAccordionPanel" class="accordion-panel accordion-panel--md">
+									<hr class="m-t-lg m-b-lg">
+									<p class="p-b-lg bold">You need to qualify for all of the below criteria in order to be eligible for the OLEV grant. Please check all the boxes that apply to you.</p>
+									<div class="field-row">
+										<div class="checkboxes-wrap">
+											<div class="checkbox-wrap">
+												<input type="checkbox" name="ownVehicle" id="ownVehicle">
+												<label for="ownVehicle">I ordered, own or lease an electric vehicle</label>
+											</div>
+											<div class="checkbox-wrap">
+												<input type="checkbox" name="orderedAfter" id="orderedAfter">
+												<label for="orderedAfter">
+													My Vehicle was purchased after the 1st of April 2015
+													<br>
+													<span class="font-style-small">(If the vehicle is a company car, a letter from the company is required as evidence)</span>
+												</label>
+											</div>
+											<div class="checkbox-wrap">
+												<input type="checkbox" name="offStreetParking" id="offStreetParking">
+												<label for="offStreetParking">I have private, off-street parking at my domestic property</label>
+											</div>
+											<div class="checkbox-wrap">
+												<input type="checkbox" name="rightOfWayCable" id="rightOfWayCable">
+												<label for="rightOfWayCable">The cable, when run from the chargepoint to the car, will not cross a public right of way</label>
+											</div>
+										</div>
+									</div>
+									<div class="buttons-container">
+										<button class="button">Claim OLEV grant</button>
+									</div>
 								</div>
 							</div>						<div class="card card--informative">
 								<h3 class="h4">Claim your dealership discount</h3>
 								<p>Do you want to reduce the cost of your chargepoint by claiming your dealership discount.</p>
 							
-								<div class="field-row">
-									<div class="radios-wrap">
-										<div class="radio-wrap radio-wrap--inline">
-											<input data-radio-open-panel="dealershipPanel" type="radio" name="dealershipDiscount" id="yesDealershipDiscount" value="yesDealershipDiscount"/>
-											<label for="yesDealershipDiscount" class="radio">Yes</label>
-										</div>
-										<div class="radio-wrap radio-wrap--inline">
-											<input data-radio-close-panel="dealershipPanel" type="radio" name="dealershipDiscount" id="noDealershipDiscount" value="noDealershipDiscount" checked="checked"/>
-											<label for="noDealershipDiscount" class="radio">No</label>
-										</div>
+								<div class="radios-wrap">
+									<div class="radio-wrap radio-wrap--inline">
+										<input data-radio-open-panel="dealershipPanel" type="radio" name="dealershipDiscount" id="yesDealershipDiscount" value="yesDealershipDiscount"/>
+										<label for="yesDealershipDiscount" class="radio">Yes</label>
+									</div>
+									<div class="radio-wrap radio-wrap--inline">
+										<input data-radio-close-panel="dealershipPanel" type="radio" name="dealershipDiscount" id="noDealershipDiscount" value="noDealershipDiscount" checked="checked"/>
+										<label for="noDealershipDiscount" class="radio">No</label>
 									</div>
 								</div>
 							
-								<div id="dealershipPanel" data-js-module="toggleAccordionPanel" class="slide-up">
-									<h4>Select your purchase option</h4>
-									<h4>Search for your dealership</h4>
+								<div id="dealershipPanel" data-js-module="toggleAccordionPanel" class="accordion-panel accordion-panel--md">
+									<hr class="m-t-lg m-b-lg">
+									<div class="field-row">
+										<label class="label--block">Select your purchase option</label>
+										<div class="form-field-wrapper">
+											<div data-js-module="selectDropdown" class="select-dd-wrapper">
+												<select>
+													<option value="00">00</option>
+													<option selected value="01">01</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="field-row">
+										<label class="label--block">Search for your dealership</label>
+										<div class="form-field-wrapper">
+											<input type="text" placeholder="Town/City, Dealership" />
+										</div>
+									</div>
 								</div>
 							</div>					</div>
 						<div class="grid-col grid-col--md-4">
@@ -282,13 +321,11 @@
 		<div class="container content-block content-block--standout">
 			<h2>Payment details</h2>
 			<div class="max-width-text marg-center">
-				<div class="field-row">
-					<div class="form-field-wrapper">
-						<input data-input-open-panel="cardDetails" type="text" placeholder="Card Number" />
-					</div>
+				<div class="form-field-wrapper">
+					<input data-input-open-panel="cardDetails" type="text" placeholder="Card Number" />
 				</div>
 	
-				<div id="cardDetails" data-js-module="toggleAccordionPanel" class="slide-up">
+				<div id="cardDetails" data-js-module="toggleAccordionPanel" class="accordion-panel accordion-panel--xs">
 					<div class="grid-row">
 						<div class="grid-col grid-col--md-4">
 							<div class="form-field-wrapper">

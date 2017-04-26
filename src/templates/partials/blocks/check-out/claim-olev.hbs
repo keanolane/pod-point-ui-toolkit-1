@@ -1,21 +1,46 @@
 <div class="card card--informative m-b-md">
 	<h3 class="h4">Claim the OLEV Grant</h3>
 	<p>Do you want to reduce the cost of your chargepoint by £500, by claiming the OLEV Grant?</p>
-	<div class="field-row">
-		<div class="radios-wrap">
-			<div class="radio-wrap radio-wrap--inline">
-				<input data-radio-open-panel="olevPanel" type="radio" name="olevDiscount" id="yesOlevDiscount" value="yesOlevDiscount"/>
-				<label for="yesOlevDiscount" class="radio">Yes</label>
-			</div>
-			<div class="radio-wrap radio-wrap--inline">
-				<input data-radio-close-panel="olevPanel" type="radio" name="olevDiscount" id="noOlevDiscount" value="noOlevDiscount" checked="checked"/>
-				<label for="noOlevDiscount" class="radio">No</label>
-			</div>
+	<div class="radios-wrap">
+		<div class="radio-wrap radio-wrap--inline">
+			<input data-radio-open-panel="olevPanel" type="radio" name="olevDiscount" id="yesOlevDiscount" value="yesOlevDiscount"/>
+			<label for="yesOlevDiscount" class="radio">Yes</label>
+		</div>
+		<div class="radio-wrap radio-wrap--inline">
+			<input data-radio-close-panel="olevPanel" type="radio" name="olevDiscount" id="noOlevDiscount" value="noOlevDiscount" checked="checked"/>
+			<label for="noOlevDiscount" class="radio">No</label>
 		</div>
 	</div>
 
-	<div id="olevPanel" data-js-module="toggleAccordionPanel" class="slide-up">
-		<h4>Select your purchase option</h4>
-		<h4>Search for your dealership</h4>
+	<div id="olevPanel" data-js-module="toggleAccordionPanel" class="accordion-panel accordion-panel--md">
+		<hr class="m-t-lg m-b-lg">
+		<p class="p-b-lg bold">You need to qualify for all of the below criteria in order to be eligible for the OLEV grant. Please check all the boxes that apply to you.</p>
+		<div class="field-row">
+			<div class="checkboxes-wrap">
+				<div class="checkbox-wrap">
+					<input type="checkbox" name="ownVehicle" id="ownVehicle">
+					<label for="ownVehicle">I ordered, own or lease an electric vehicle</label>
+				</div>
+				<div class="checkbox-wrap">
+					<input type="checkbox" name="orderedAfter" id="orderedAfter">
+					<label for="orderedAfter">
+						My Vehicle was purchased after the 1st of April 2015
+						<br>
+						<span class="font-style-small">(If the vehicle is a company car, a letter from the company is required as evidence)</span>
+					</label>
+				</div>
+				<div class="checkbox-wrap">
+					<input type="checkbox" name="offStreetParking" id="offStreetParking">
+					<label for="offStreetParking">I have private, off-street parking at my domestic property</label>
+				</div>
+				<div class="checkbox-wrap">
+					<input type="checkbox" name="rightOfWayCable" id="rightOfWayCable">
+					<label for="rightOfWayCable">The cable, when run from the chargepoint to the car, will not cross a public right of way</label>
+				</div>
+			</div>
+		</div>
+		<div class="buttons-container">
+			<button class="button">Claim OLEV grant</button>
+		</div>
 	</div>
 </div>

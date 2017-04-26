@@ -65,12 +65,12 @@ input.form-font-large {
 
 label {
 	display: inline-block;
-	@include font-style-small;
+	@include font-style-base;
 	padding-bottom: 0.5rem;
 
 	.checkbox-wrap &,
 	.radio-wrap & {
-		@include font-style-small;
+		@include font-style-base;
 	}
 }
 

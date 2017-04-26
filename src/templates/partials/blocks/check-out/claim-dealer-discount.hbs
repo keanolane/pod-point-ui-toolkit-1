@@ -2,21 +2,35 @@
 	<h3 class="h4">Claim your dealership discount</h3>
 	<p>Do you want to reduce the cost of your chargepoint by claiming your dealership discount.</p>
 
-	<div class="field-row">
-		<div class="radios-wrap">
-			<div class="radio-wrap radio-wrap--inline">
-				<input data-radio-open-panel="dealershipPanel" type="radio" name="dealershipDiscount" id="yesDealershipDiscount" value="yesDealershipDiscount"/>
-				<label for="yesDealershipDiscount" class="radio">Yes</label>
-			</div>
-			<div class="radio-wrap radio-wrap--inline">
-				<input data-radio-close-panel="dealershipPanel" type="radio" name="dealershipDiscount" id="noDealershipDiscount" value="noDealershipDiscount" checked="checked"/>
-				<label for="noDealershipDiscount" class="radio">No</label>
-			</div>
+	<div class="radios-wrap">
+		<div class="radio-wrap radio-wrap--inline">
+			<input data-radio-open-panel="dealershipPanel" type="radio" name="dealershipDiscount" id="yesDealershipDiscount" value="yesDealershipDiscount"/>
+			<label for="yesDealershipDiscount" class="radio">Yes</label>
+		</div>
+		<div class="radio-wrap radio-wrap--inline">
+			<input data-radio-close-panel="dealershipPanel" type="radio" name="dealershipDiscount" id="noDealershipDiscount" value="noDealershipDiscount" checked="checked"/>
+			<label for="noDealershipDiscount" class="radio">No</label>
 		</div>
 	</div>
 
-	<div id="dealershipPanel" data-js-module="toggleAccordionPanel" class="slide-up">
-		<h4>Select your purchase option</h4>
-		<h4>Search for your dealership</h4>
+	<div id="dealershipPanel" data-js-module="toggleAccordionPanel" class="accordion-panel accordion-panel--md">
+		<hr class="m-t-lg m-b-lg">
+		<div class="field-row">
+			<label class="label--block">Select your purchase option</label>
+			<div class="form-field-wrapper">
+				<div data-js-module="selectDropdown" class="select-dd-wrapper">
+					<select>
+						<option value="00">00</option>
+						<option selected value="01">01</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="field-row">
+			<label class="label--block">Search for your dealership</label>
+			<div class="form-field-wrapper">
+				<input type="text" placeholder="Town/City, Dealership" />
+			</div>
+		</div>
 	</div>
 </div>

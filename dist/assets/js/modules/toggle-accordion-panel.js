@@ -13,6 +13,7 @@ var _domOps = require('@pod-point/dom-ops');
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instances = [];
+var IS_OPEN = 'is-open';
 
 var ToggleAccordionPanel = function () {
 
@@ -80,7 +81,8 @@ var ToggleAccordionPanel = function () {
 
             this.toggleListener = new _domDelegate.Delegate(this.toggleButton);
             this.toggleListener.on('click', function (event) {
-                _this.doPanel(event);
+                event.preventDefault();
+                _this.doPanel();
             });
         }
 
@@ -101,30 +103,26 @@ var ToggleAccordionPanel = function () {
 
         /**
          * Handle the panel opening.
-         *
-         * @param {Event} event
          */
 
     }, {
         key: 'doPanel',
-        value: function doPanel(event) {
+        value: function doPanel() {
             if (this.panelIsVisible) {
-                this.closePanel(event);
+                this.closePanel();
             } else {
-                this.openPanel(event);
+                this.openPanel();
             }
         }
 
         /**
          * Handle the panel opening.
-         *
          */
 
     }, {
         key: 'openPanel',
         value: function openPanel() {
-            this.panel.classList.remove('slide-up');
-            this.panel.classList.add('slide-down');
+            this.panel.classList.add(IS_OPEN);
             if (this.toggleIcon) {
                 this.toggleIcon.classList.add('rotate');
             }
@@ -133,14 +131,12 @@ var ToggleAccordionPanel = function () {
 
         /**
          * Handle the panel closing.
-         *
          */
 
     }, {
         key: 'closePanel',
         value: function closePanel() {
-            this.panel.classList.remove('slide-down');
-            this.panel.classList.add('slide-up');
+            this.panel.classList.remove(IS_OPEN);
             if (this.toggleIcon) {
                 this.toggleIcon.classList.remove('rotate');
             }

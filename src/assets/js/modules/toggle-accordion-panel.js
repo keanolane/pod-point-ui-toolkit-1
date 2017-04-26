@@ -2,6 +2,7 @@ import { Delegate } from 'dom-delegate';
 import { selectFirst } from '@pod-point/dom-ops';
 
 let instances = [];
+const IS_OPEN = 'is-open';
 
 class ToggleAccordionPanel {
 
@@ -59,7 +60,8 @@ class ToggleAccordionPanel {
 
         this.toggleListener = new Delegate(this.toggleButton);
         this.toggleListener.on('click', (event) => {
-            this.doPanel(event);
+            event.preventDefault();
+            this.doPanel();
         });
     }
 
@@ -77,35 +79,29 @@ class ToggleAccordionPanel {
 
     /**
      * Handle the panel opening.
-     *
-     * @param {Event} event
      */
-    doPanel(event) {
+    doPanel() {
         if (this.panelIsVisible) {
-            this.closePanel(event);
+            this.closePanel();
         } else {
-            this.openPanel(event);
+            this.openPanel();
         }
     }
 
     /**
      * Handle the panel opening.
-     *
      */
     openPanel() {
-        this.panel.classList.remove('slide-up');
-        this.panel.classList.add('slide-down');
+        this.panel.classList.add(IS_OPEN);
         if (this.toggleIcon) { this.toggleIcon.classList.add('rotate'); }
         this.panelIsVisible = true;
     }
 
     /**
      * Handle the panel closing.
-     *
      */
     closePanel() {
-        this.panel.classList.remove('slide-down');
-        this.panel.classList.add('slide-up');
+        this.panel.classList.remove(IS_OPEN);
         if (this.toggleIcon) { this.toggleIcon.classList.remove('rotate'); }
         this.panelIsVisible = false;
     }

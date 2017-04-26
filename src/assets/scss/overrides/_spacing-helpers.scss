@@ -14,33 +14,33 @@ $spacings: (
 
 @each $size, $value in $spacings {
 	.m-#{$size} {
-		margin: $value;
+		margin: $value!important;
 	}
 	.m-t-#{$size} {
-		margin-top: $value;
+		margin-top: $value!important;
 	}
 	.m-r-#{$size} {
-		margin-right: $value;
+		margin-right: $value!important;
 	}
 	.m-b-#{$size} {
-		margin-bottom: $value;
+		margin-bottom: $value!important;
 	}
 	.m-l-#{$size} {
-		margin-left: $value;
+		margin-left: $value!important;
 	}
 	.p-#{$size} {
-		padding: $value;
+		padding: $value!important;
 	}
 	.p-t-#{$size} {
-		padding-top: $value;
+		padding-top: $value!important;
 	}
 	.p-r-#{$size} {
-		padding-right: $value;
+		padding-right: $value!important;
 	}
 	.p-b-#{$size} {
-		padding-bottom: $value;
+		padding-bottom: $value!important;
 	}
 	.p-l-#{$size} {
-		padding-left: $value;
+		padding-left: $value!important;
 	}
 }

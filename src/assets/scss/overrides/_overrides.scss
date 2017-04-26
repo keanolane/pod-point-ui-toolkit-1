@@ -75,3 +75,22 @@
 .b-b-thin {
 	border-bottom: $border-thin;
 }
+
+.accordion-panel {
+	&--xs {
+		@include slideDownCollapsed(0.8s);
+		&.is-open { @include slideDownActive(0.5s, 200px); }
+	}
+	&--sm {
+		@include slideDownCollapsed(0.8s);
+		&.is-open { @include slideDownActive(0.5s, 400px); }
+	}
+	&--md {
+		@include slideDownCollapsed(0.8s);
+		&.is-open { @include slideDownActive(1s, 1000px); }
+	}
+	&--xl {
+		@include slideDownCollapsed(0.8s);
+		&.is-open { @include slideDownActive(1s, 3000px); }
+	}
+}
