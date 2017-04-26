@@ -47,7 +47,9 @@ h6, .h6 { @include font-style-h6; }
 .font-small {
 	@include font-small;
 }
-
+.font-tiny {
+	@include font-tiny;
+}
 .font-huge {
 	@include font-huge;
 }
@@ -60,8 +62,10 @@ strong,
 .green,
 .primary {
 	color: $primary-color;
+	a {
+		border-bottom: 2px solid $primary-color;
+	}
 }
-
 .crossed-out {
 	color: $font-color-very-light;
 	position: relative;

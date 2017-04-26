@@ -52,11 +52,6 @@
 	&:before { @include iconfont-styles; }
 	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $boxShadow: 0px 0px 0px 2px $primary-color);
 	@include icon-in-circle--size($dimension: 2.5rem, $font-size: 1.2rem);
-	transition: transform 0.8s ease-in-out;
-	&.rotate {
-		transition: transform 0.7s ease-in-out;
-		transform: rotate(-180deg);
-	}
 }
 .circle-icon--close-panel {
 	@include iconfont('cheveron');
@@ -64,4 +59,12 @@
 	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $boxShadow: 0px 0px 0px 2px $primary-color);
 	@include icon-in-circle--size();
 	transform: rotate(180deg);
+}
+
+.toggle-rotate-icon {
+	transition: transform 0.8s ease-in-out;
+	&.rotate {
+		transition: transform 0.7s ease-in-out;
+		transform: rotate(-180deg);
+	}
 }

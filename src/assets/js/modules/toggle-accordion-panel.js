@@ -11,10 +11,16 @@ class ToggleAccordionPanel {
      * @param element
      */
     constructor(element) {
-        this.toggleButton = element;
-        this.toggleIcon = selectFirst('.circle-icon--toggle-panel', this.toggleButton);
-        this.panel = selectFirst('#' + this.toggleButton.getAttribute('data-toggle-panel'));
-        this.closeButton = selectFirst('.circle-icon--close-panel', this.panel);
+        this.panel = element;
+        this.panelId = element.getAttribute('id');
+        this.toggleButton = document.querySelector('[data-toggle-panel="'+this.panelId+'"]');
+        if (this.toggleButton) { this.toggleIcon = this.toggleButton.querySelector('.toggle-rotate-icon') };
+        this.openButton = document.querySelector('[data-open-panel="'+this.panelId+'"]');
+        this.closeButton = document.querySelector('[data-close-panel="'+this.panelId+'"]');
+        this.openRadioButton = document.querySelector('[data-radio-open-panel="'+this.panelId+'"]');
+        this.closeRadioButton = document.querySelector('[data-radio-close-panel="'+this.panelId+'"]');
+        this.openInputButton = document.querySelector('[data-input-open-panel="'+this.panelId+'"]');
+
         this.panelIsVisible = false;
 
         this.bindEvents();
@@ -24,17 +30,36 @@ class ToggleAccordionPanel {
      * Binds the event listeners from the elements.
      */
     bindEvents() {
-        this.toggleListener = new Delegate(this.toggleButton);
-
-        this.toggleListener.on('click', (event) => {
-            this.doPanel(event);
+        this.openListener = new Delegate(this.openButton);
+        this.openListener.on('click', (event) => {
+            event.preventDefault();
+            this.openPanel();
         });
 
         this.closeListener = new Delegate(this.closeButton);
-
         this.closeListener.on('click', (event) => {
             event.preventDefault();
             this.closePanel();
+        });
+
+        this.radioOpenListener = new Delegate(this.openRadioButton);
+        this.radioOpenListener.on('change', () => {
+            this.openPanel();
+        });
+
+        this.radioCloseListener = new Delegate(this.closeRadioButton);
+        this.radioCloseListener.on('change', () => {
+            this.closePanel();
+        });
+
+        this.inputOpenListener = new Delegate(this.openInputButton);
+        this.inputOpenListener.on('focus', () => {
+            this.openPanel();
+        });
+
+        this.toggleListener = new Delegate(this.toggleButton);
+        this.toggleListener.on('click', (event) => {
+            this.doPanel(event);
         });
     }
 
@@ -43,7 +68,11 @@ class ToggleAccordionPanel {
      */
     unbindEvents() {
         this.toggleListener.destroy();
+        this.openListener.destroy();
         this.closeListener.destroy();
+        this.radioOpenListener.destroy();
+        this.radioCloseListener.destroy();
+        this.inputOpenListener.destroy();
     }
 
     /**
@@ -52,32 +81,32 @@ class ToggleAccordionPanel {
      * @param {Event} event
      */
     doPanel(event) {
-        event.preventDefault();
-
         if (this.panelIsVisible) {
-            this.closePanel();
+            this.closePanel(event);
         } else {
-            this.openPanel();
+            this.openPanel(event);
         }
     }
 
     /**
      * Handle the panel opening.
+     *
      */
     openPanel() {
         this.panel.classList.remove('slide-up');
         this.panel.classList.add('slide-down');
-        this.toggleIcon.classList.add('rotate');
+        if (this.toggleIcon) { this.toggleIcon.classList.add('rotate'); }
         this.panelIsVisible = true;
     }
 
     /**
      * Handle the panel closing.
+     *
      */
     closePanel() {
         this.panel.classList.remove('slide-down');
         this.panel.classList.add('slide-up');
-        this.toggleIcon.classList.remove('rotate');
+        if (this.toggleIcon) { this.toggleIcon.classList.remove('rotate'); }
         this.panelIsVisible = false;
     }
 }

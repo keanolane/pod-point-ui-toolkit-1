@@ -69,6 +69,7 @@
 	&--informative {
 		border: $border-base;
 		background-color: $gray-very-light;
+		@include padding(3rem);
 	}
 
 	hr {

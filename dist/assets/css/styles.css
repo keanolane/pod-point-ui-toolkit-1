@@ -603,6 +603,7 @@ h6, .h6 {
   font-size: 1.4rem;
   line-height: 1.5em;
   font-size: 1.2rem;
+  line-height: 1.2;
   padding-bottom: 0.5em; }
   @media only screen and (min-width: 50em) {
     .font-style-small,
@@ -621,13 +622,28 @@ h6, .h6 {
   font-family: "Quicksand Regular", sans-serif;
   font-size: 1.4rem;
   line-height: 1.5em;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+  line-height: 1.2; }
   @media only screen and (min-width: 50em) {
     .font-small {
       font-size: 1.6rem; } }
   @media only screen and (min-width: 50em) {
     .font-small {
       font-size: 1.4rem; } }
+
+.font-tiny {
+  margin: 0;
+  font-family: "Quicksand Regular", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.5em;
+  font-size: 1rem;
+  line-height: 1.2; }
+  @media only screen and (min-width: 50em) {
+    .font-tiny {
+      font-size: 1.6rem; } }
+  @media only screen and (min-width: 50em) {
+    .font-tiny {
+      font-size: 1.2rem; } }
 
 .font-huge {
   font-size: 2rem;
@@ -644,6 +660,9 @@ strong,
 .green,
 .primary {
   color: #8CC63F; }
+  .green a,
+  .primary a {
+    border-bottom: 2px solid #8CC63F; }
 
 .crossed-out {
   color: #ccc;
@@ -698,7 +717,8 @@ ol {
     font-family: "Quicksand Regular", sans-serif;
     font-size: 1.4rem;
     line-height: 1.5em;
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    line-height: 1.2; }
     @media only screen and (min-width: 50em) {
       ul.list--small,
       ol.list--small {
@@ -1076,6 +1096,7 @@ label {
   font-size: 1.4rem;
   line-height: 1.5em;
   font-size: 1.2rem;
+  line-height: 1.2;
   padding-bottom: 0.5em;
   padding-bottom: 0.5rem; }
   @media only screen and (min-width: 50em) {
@@ -1093,6 +1114,7 @@ label {
     font-size: 1.4rem;
     line-height: 1.5em;
     font-size: 1.2rem;
+    line-height: 1.2;
     padding-bottom: 0.5em; }
     @media only screen and (min-width: 50em) {
       .checkbox-wrap label,
@@ -1123,7 +1145,7 @@ textarea[type="text"] {
   -webkit-appearance: none;
   padding: 0.6rem 1rem;
   display: block;
-  max-width: 50rem;
+  max-width: 60rem;
   transition: border-color;
   background-color: #fff;
   border: 2px solid #ccc;
@@ -1188,6 +1210,7 @@ textarea[type="text"] {
     font-size: 1.4rem;
     line-height: 1.5em;
     padding-bottom: 0.5em;
+    font-family: "Quicksand Bold", sans-serif;
     position: relative;
     padding: 0.6rem 2.5rem 0 3rem;
     cursor: pointer;
@@ -1320,7 +1343,7 @@ textarea[type="text"] {
   cursor: pointer;
   margin-top: 0;
   height: 4rem;
-  max-width: 50rem;
+  max-width: 60rem;
   cursor: pointer; }
   .select-wrapper:after {
     content: ""; }
@@ -1361,7 +1384,7 @@ textarea[type="text"] {
     -webkit-appearance: none;
     padding: 0.6rem 1rem;
     display: block;
-    max-width: 50rem;
+    max-width: 60rem;
     transition: border-color;
     background-color: #fff;
     border: 2px solid #ccc;
@@ -1442,7 +1465,7 @@ textarea[type="text"] {
     -webkit-appearance: none;
     padding: 0.6rem 1rem;
     display: block;
-    max-width: 50rem; }
+    max-width: 60rem; }
   .select-dd-wrapper .dk-selected,
   .select-dd-wrapper .mobile-select {
     width: 100%;
@@ -1548,7 +1571,7 @@ textarea[type="text"] {
 
 .select-dd-wrapper:not(.select-dd-wrapper--alternative) {
   height: 4rem;
-  max-width: 50rem;
+  max-width: 60rem;
   margin-top: 0; }
   @media only screen and (min-width: 50em) {
     .select-dd-wrapper:not(.select-dd-wrapper--alternative) {
@@ -1579,7 +1602,7 @@ textarea[type="text"] {
     -webkit-appearance: none;
     padding: 0.6rem 1rem;
     display: block;
-    max-width: 50rem; }
+    max-width: 60rem; }
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-selected,
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select {
     transition: border-color;
@@ -1804,7 +1827,7 @@ textarea[type="text"] {
 .form-field-wrapper {
   display: inline-block;
   width: 100%;
-  max-width: 50rem; }
+  max-width: 60rem; }
 
 @media only screen and (min-width: 40em) {
   .form-field-wrapper {
@@ -1885,6 +1908,7 @@ textarea[type="text"] {
   font-size: 1.4rem;
   line-height: 1.5em;
   font-size: 1.2rem;
+  line-height: 1.2;
   padding-bottom: 0.5em;
   font-family: "Quicksand Bold", sans-serif;
   color: #C1272D;
@@ -1938,7 +1962,7 @@ button {
   border-radius: 3rem;
   border: 2px solid #8CC63F;
   transition: all 0.2s ease;
-  max-width: 50rem; }
+  max-width: 60rem; }
   .button:hover:not(.is-disabled), .button:focus:not(.is-disabled), .button:active:not(.is-disabled) {
     color: #8CC63F;
     background-color: transparent;
@@ -2299,8 +2323,7 @@ button {
   border-radius: 50%;
   box-shadow: 0px 0px 0px 2px #8CC63F;
   width: 2.5rem;
-  height: 2.5rem;
-  transition: transform 0.8s ease-in-out; }
+  height: 2.5rem; }
   .circle-icon--toggle-panel:before {
     content: ""; }
   .circle-icon--toggle-panel:before {
@@ -2334,10 +2357,6 @@ button {
   .circle-icon--toggle-panel:before {
     font-size: 1.2rem;
     line-height: 2.5rem; }
-  .circle-icon--toggle-panel.rotate {
-    transition: transform 0.7s ease-in-out;
-    -ms-transform: rotate(-180deg);
-        transform: rotate(-180deg); }
 
 .circle-icon--close-panel {
   text-indent: -9999px;
@@ -2385,6 +2404,13 @@ button {
   .circle-icon--close-panel:before {
     font-size: 1.7rem;
     line-height: 4rem; }
+
+.toggle-rotate-icon {
+  transition: transform 0.8s ease-in-out; }
+  .toggle-rotate-icon.rotate {
+    transition: transform 0.7s ease-in-out;
+    -ms-transform: rotate(-180deg);
+        transform: rotate(-180deg); }
 
 .img--resp {
   max-width: 100%; }
@@ -2528,6 +2554,7 @@ button {
     font-size: 1.4rem;
     line-height: 1.5em;
     font-size: 1.2rem;
+    line-height: 1.2;
     font-family: "Quicksand Bold", sans-serif; }
     @media only screen and (min-width: 50em) {
       .global-footer__section-bottom p,
@@ -2581,7 +2608,8 @@ button {
     font-family: "Quicksand Regular", sans-serif;
     font-size: 1.4rem;
     line-height: 1.5em;
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    line-height: 1.2; }
     @media only screen and (min-width: 50em) {
       .global-nav ul li {
         font-size: 1.6rem; } }
@@ -2805,6 +2833,7 @@ button {
   font-size: 1.4rem;
   line-height: 1.5em;
   font-size: 1.2rem;
+  line-height: 1.2;
   padding-bottom: 0.5em; }
   .accordion.grid-row .grid-col-4 {
     margin-top: 0;
@@ -3039,6 +3068,7 @@ button {
   font-size: 1.4rem;
   line-height: 1.5em;
   font-size: 1.2rem;
+  line-height: 1.2;
   margin-left: 0.5rem; }
   @media only screen and (min-width: 50em) {
     .ticker-desc {
@@ -3123,7 +3153,8 @@ button {
       border-color: transparent #8CC63F transparent transparent; }
   .card--informative {
     border: 2px solid #ccc;
-    background-color: #f9fafa; }
+    background-color: #f9fafa;
+    padding: 3rem; }
   .card hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -3305,27 +3336,131 @@ button {
     height: 2px;
     background-color: #ccc; }
 
+.basket-content__items {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem; }
+
+.basket-content__item {
+  margin-bottom: 1rem; }
+  .basket-content__item:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .basket-content__item:last-child {
+    margin-bottom: 0; }
+  .basket-content__item__thumb {
+    float: left;
+    width: 4rem;
+    margin-right: 0.5rem; }
+  .basket-content__item__title {
+    padding-top: 0.8rem;
+    width: calc(100% - 9rem);
+    margin-right: 0.5rem;
+    float: left; }
+    .basket-content__item__title__main {
+      margin: 0;
+      font-family: "Quicksand Regular", sans-serif;
+      font-size: 1.4rem;
+      line-height: 1.5em;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      font-family: "Quicksand Bold", sans-serif;
+      padding-bottom: 0.3rem; }
+      @media only screen and (min-width: 50em) {
+        .basket-content__item__title__main {
+          font-size: 1.6rem; } }
+      @media only screen and (min-width: 50em) {
+        .basket-content__item__title__main {
+          font-size: 1.4rem; } }
+    .basket-content__item__title__sub {
+      margin: 0;
+      font-family: "Quicksand Regular", sans-serif;
+      font-size: 1.4rem;
+      line-height: 1.5em;
+      font-size: 1rem;
+      line-height: 1.2;
+      font-size: 1rem; }
+      @media only screen and (min-width: 50em) {
+        .basket-content__item__title__sub {
+          font-size: 1.6rem; } }
+      @media only screen and (min-width: 50em) {
+        .basket-content__item__title__sub {
+          font-size: 1.2rem; } }
+  .basket-content__item__extra {
+    clear: both;
+    margin: 0;
+    font-family: "Quicksand Regular", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.5em;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    font-family: "Quicksand Bold", sans-serif;
+    padding-top: 1rem;
+    margin-bottom: 1rem; }
+    @media only screen and (min-width: 50em) {
+      .basket-content__item__extra {
+        font-size: 1.6rem; } }
+    @media only screen and (min-width: 50em) {
+      .basket-content__item__extra {
+        font-size: 1.4rem; } }
+  .basket-content__item__price {
+    padding-top: 0.8rem;
+    width: 4rem;
+    float: left;
+    text-align: right;
+    margin: 0;
+    font-family: "Quicksand Regular", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.5em;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    font-family: "Quicksand Bold", sans-serif; }
+    @media only screen and (min-width: 50em) {
+      .basket-content__item__price {
+        font-size: 1.6rem; } }
+    @media only screen and (min-width: 50em) {
+      .basket-content__item__price {
+        font-size: 1.4rem; } }
+
+.basket-total {
+  padding-top: 1rem; }
+  .basket-total:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .basket-total p {
+    font-family: "Quicksand Bold", sans-serif;
+    padding-bottom: 0; }
+  .basket-total__title {
+    float: left; }
+  .basket-total__value {
+    float: right; }
+
 .floating-basket-wrapper {
   position: relative; }
-  .floating-basket-wrapper .basket {
-    border: none;
-    border-radius: 0;
+  .floating-basket-wrapper .floating-basket {
     position: absolute;
     top: 0;
     right: 0;
     background-color: white;
     width: 25rem; }
-    .floating-basket-wrapper .basket__header {
+    .floating-basket-wrapper .floating-basket__header {
+      position: relative;
       display: block;
       background-color: #333;
       height: 4.5rem;
-      position: relative;
       padding: 0 1.5rem; }
-      .floating-basket-wrapper .basket__header:before {
-        content: ""; }
-      .floating-basket-wrapper .basket__header:hover, .floating-basket-wrapper .basket__header:active, .floating-basket-wrapper .basket__header:focus {
+      .floating-basket-wrapper .floating-basket__header:hover, .floating-basket-wrapper .floating-basket__header:active, .floating-basket-wrapper .floating-basket__header:focus {
         opacity: 1; }
-      .floating-basket-wrapper .basket__header:before {
+    .floating-basket-wrapper .floating-basket__toggle-icon {
+      display: block;
+      height: 1.6rem;
+      position: absolute;
+      top: 1.7rem;
+      right: 1.5rem; }
+      .floating-basket-wrapper .floating-basket__toggle-icon:before {
+        content: ""; }
+      .floating-basket-wrapper .floating-basket__toggle-icon:before {
         display: inline-block;
         height: inherit;
         margin-right: 0.2rem;
@@ -3341,120 +3476,40 @@ button {
         text-transform: none;
         speak: none;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        position: absolute;
-        top: 1.7rem;
-        right: 1.5rem;
-        height: 1.6rem; }
-    .floating-basket-wrapper .basket__title {
+        -moz-osx-font-smoothing: grayscale; }
+    .floating-basket-wrapper .floating-basket__title {
       color: white;
       padding-top: 1.4rem;
       padding-bottom: 0; }
-    .floating-basket-wrapper .basket__content {
-      display: none;
+    .floating-basket-wrapper .floating-basket__items-num {
+      position: absolute;
+      top: 1rem;
+      right: 5rem;
+      color: white;
+      display: inline-block;
+      background-color: #8CC63F;
+      border-radius: 50%;
+      text-align: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.6rem;
+      line-height: 2.3rem;
+      font-family: "Quicksand Bold", sans-serif; }
+    .floating-basket-wrapper .floating-basket .basket-content {
       border-right: 2px solid #ccc;
       border-left: 2px solid #ccc;
       padding-right: 1.5rem;
       padding-left: 1.5rem; }
-    .floating-basket-wrapper .basket__total {
+      .floating-basket-wrapper .floating-basket .basket-content__items {
+        padding-top: 2rem;
+        padding-bottom: 2rem; }
+    .floating-basket-wrapper .floating-basket .basket-total {
       border-bottom-right-radius: 5px;
       border-bottom-left-radius: 5px;
       border-right: 2px solid #ccc;
       border-bottom: 2px solid #ccc;
       border-left: 2px solid #ccc;
-      padding-right: 1.5rem;
-      padding-left: 1.5rem; }
-
-.basket {
-  border-radius: 5px;
-  border: 2px solid #ccc;
-  background-color: #f9fafa; }
-  .basket__header {
-    padding: 2rem 3rem; }
-  .basket__title {
-    margin: 0;
-    padding-bottom: 1em;
-    font-family: "Quicksand Medium", sans-serif;
-    font-size: 1.2rem;
-    font-weight: bold;
-    line-height: 1.2;
-    font-size: 1.4rem; }
-    .basket__title:last-child {
-      padding-bottom: 0; }
-    @media only screen and (min-width: 50em) {
-      .basket__title {
-        font-size: 1.8rem; } }
-  .basket__items-num {
-    position: absolute;
-    top: 1rem;
-    right: 5rem;
-    color: white;
-    display: inline-block;
-    background-color: #8CC63F;
-    border-radius: 50%;
-    text-align: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.6rem;
-    line-height: 2.3rem;
-    font-family: "Quicksand Bold", sans-serif; }
-  .basket__content {
-    padding-right: 3rem;
-    padding-left: 3rem; }
-  .basket__items {
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem; }
-  .basket__item {
-    margin-bottom: 1rem; }
-    .basket__item:after {
-      content: "";
-      display: table;
-      clear: both; }
-    .basket__item:last-child {
-      margin-bottom: 0; }
-    .basket__item__thumb {
-      float: left;
-      width: 4rem;
-      margin-right: 0.5rem; }
-    .basket__item__title {
-      padding-top: 0.8rem;
-      width: calc(100% - 9rem);
-      margin-right: 0.5rem;
-      float: left; }
-      .basket__item__title__main {
-        font-size: 1.2rem;
-        line-height: 1.2rem;
-        font-family: "Quicksand Bold", sans-serif;
-        padding-bottom: 0.3rem; }
-      .basket__item__title__sub {
-        font-size: 1rem;
-        line-height: 1.1rem;
-        padding-bottom: 0; }
-    .basket__item__price {
-      padding-top: 0.8rem;
-      width: 4rem;
-      float: left;
-      text-align: right;
-      font-size: 1.2rem;
-      font-family: "Quicksand Bold", sans-serif; }
-  .basket__total {
-    padding: 2rem 3rem; }
-    .basket__total:after {
-      content: "";
-      display: table;
-      clear: both; }
-    .basket__total p {
-      font-family: "Quicksand Bold", sans-serif;
-      padding-bottom: 0; }
-    .basket__total__title {
-      float: left; }
-    .basket__total__value {
-      float: right; }
-  .basket.is-open .basket__header:before {
-    -ms-transform: rotate(180deg);
-        transform: rotate(180deg); }
-  .basket.is-open .basket__content {
-    display: block; }
+      padding: 1rem 1.5rem; }
 
 .m-none {
   margin: 0; }
@@ -3757,6 +3812,9 @@ button {
 
 .lowercase {
   text-transform: lowercase; }
+
+.max-width-text {
+  max-width: 60rem; }
 
 .max-width-text-narrow {
   max-width: 50rem; }

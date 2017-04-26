@@ -13800,10 +13800,18 @@
 	    function ToggleAccordionPanel(element) {
 	        _classCallCheck(this, ToggleAccordionPanel);
 	
-	        this.toggleButton = element;
-	        this.toggleIcon = (0, _domOps.selectFirst)('.circle-icon--toggle-panel', this.toggleButton);
-	        this.panel = (0, _domOps.selectFirst)('#' + this.toggleButton.getAttribute('data-toggle-panel'));
-	        this.closeButton = (0, _domOps.selectFirst)('.circle-icon--close-panel', this.panel);
+	        this.panel = element;
+	        this.panelId = element.getAttribute('id');
+	        this.toggleButton = document.querySelector('[data-toggle-panel="' + this.panelId + '"]');
+	        if (this.toggleButton) {
+	            this.toggleIcon = this.toggleButton.querySelector('.toggle-rotate-icon');
+	        };
+	        this.openButton = document.querySelector('[data-open-panel="' + this.panelId + '"]');
+	        this.closeButton = document.querySelector('[data-close-panel="' + this.panelId + '"]');
+	        this.openRadioButton = document.querySelector('[data-radio-open-panel="' + this.panelId + '"]');
+	        this.closeRadioButton = document.querySelector('[data-radio-close-panel="' + this.panelId + '"]');
+	        this.openInputButton = document.querySelector('[data-input-open-panel="' + this.panelId + '"]');
+	
 	        this.panelIsVisible = false;
 	
 	        this.bindEvents();
@@ -13819,17 +13827,36 @@
 	        value: function bindEvents() {
 	            var _this = this;
 	
-	            this.toggleListener = new _domDelegate.Delegate(this.toggleButton);
-	
-	            this.toggleListener.on('click', function (event) {
-	                _this.doPanel(event);
+	            this.openListener = new _domDelegate.Delegate(this.openButton);
+	            this.openListener.on('click', function (event) {
+	                event.preventDefault();
+	                _this.openPanel();
 	            });
 	
 	            this.closeListener = new _domDelegate.Delegate(this.closeButton);
-	
 	            this.closeListener.on('click', function (event) {
 	                event.preventDefault();
 	                _this.closePanel();
+	            });
+	
+	            this.radioOpenListener = new _domDelegate.Delegate(this.openRadioButton);
+	            this.radioOpenListener.on('change', function () {
+	                _this.openPanel();
+	            });
+	
+	            this.radioCloseListener = new _domDelegate.Delegate(this.closeRadioButton);
+	            this.radioCloseListener.on('change', function () {
+	                _this.closePanel();
+	            });
+	
+	            this.inputOpenListener = new _domDelegate.Delegate(this.openInputButton);
+	            this.inputOpenListener.on('focus', function () {
+	                _this.openPanel();
+	            });
+	
+	            this.toggleListener = new _domDelegate.Delegate(this.toggleButton);
+	            this.toggleListener.on('click', function (event) {
+	                _this.doPanel(event);
 	            });
 	        }
 	
@@ -13841,7 +13868,11 @@
 	        key: 'unbindEvents',
 	        value: function unbindEvents() {
 	            this.toggleListener.destroy();
+	            this.openListener.destroy();
 	            this.closeListener.destroy();
+	            this.radioOpenListener.destroy();
+	            this.radioCloseListener.destroy();
+	            this.inputOpenListener.destroy();
 	        }
 	
 	        /**
@@ -13853,17 +13884,16 @@
 	    }, {
 	        key: 'doPanel',
 	        value: function doPanel(event) {
-	            event.preventDefault();
-	
 	            if (this.panelIsVisible) {
-	                this.closePanel();
+	                this.closePanel(event);
 	            } else {
-	                this.openPanel();
+	                this.openPanel(event);
 	            }
 	        }
 	
 	        /**
 	         * Handle the panel opening.
+	         *
 	         */
 	
 	    }, {
@@ -13871,12 +13901,15 @@
 	        value: function openPanel() {
 	            this.panel.classList.remove('slide-up');
 	            this.panel.classList.add('slide-down');
-	            this.toggleIcon.classList.add('rotate');
+	            if (this.toggleIcon) {
+	                this.toggleIcon.classList.add('rotate');
+	            }
 	            this.panelIsVisible = true;
 	        }
 	
 	        /**
 	         * Handle the panel closing.
+	         *
 	         */
 	
 	    }, {
@@ -13884,7 +13917,9 @@
 	        value: function closePanel() {
 	            this.panel.classList.remove('slide-down');
 	            this.panel.classList.add('slide-up');
-	            this.toggleIcon.classList.remove('rotate');
+	            if (this.toggleIcon) {
+	                this.toggleIcon.classList.remove('rotate');
+	            }
 	            this.panelIsVisible = false;
 	        }
 	    }]);

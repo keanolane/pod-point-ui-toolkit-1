@@ -15,8 +15,17 @@
 @mixin font-small {
 	@include font-base;
 	font-size: 1.2rem;
+	line-height: 1.2;
 	@media only screen and (min-width: $medium-screen) {
 		font-size: 1.4rem;
+	}
+}
+@mixin font-tiny {
+	@include font-base;
+	font-size: 1rem;
+	line-height: 1.2;
+	@media only screen and (min-width: $medium-screen) {
+		font-size: 1.2rem;
 	}
 }
 @mixin font-large {

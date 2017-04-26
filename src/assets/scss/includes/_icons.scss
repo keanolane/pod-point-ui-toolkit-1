@@ -37,64 +37,64 @@
 @function iconfont-char($filename) {
 	$char: "";
 
-	@if $filename == "email" {
+	@if $filename == "arrow" {
 		$char: "\E001";
 	}
-	@if $filename == "facebook" {
+	@if $filename == "charge-location" {
 		$char: "\E002";
 	}
-	@if $filename == "google" {
+	@if $filename == "charge" {
 		$char: "\E003";
 	}
-	@if $filename == "instagram" {
+	@if $filename == "cheveron" {
 		$char: "\E004";
 	}
-	@if $filename == "linkedin" {
+	@if $filename == "cross" {
 		$char: "\E005";
 	}
-	@if $filename == "twitter" {
+	@if $filename == "folder" {
 		$char: "\E006";
 	}
-	@if $filename == "youtube" {
+	@if $filename == "location" {
 		$char: "\E007";
 	}
-	@if $filename == "arrow" {
+	@if $filename == "money" {
 		$char: "\E008";
 	}
-	@if $filename == "charge-location" {
+	@if $filename == "navicon" {
 		$char: "\E009";
 	}
-	@if $filename == "charge" {
+	@if $filename == "pencil" {
 		$char: "\E00A";
 	}
-	@if $filename == "cheveron" {
+	@if $filename == "star" {
 		$char: "\E00B";
 	}
-	@if $filename == "cross" {
+	@if $filename == "tick" {
 		$char: "\E00C";
 	}
-	@if $filename == "folder" {
+	@if $filename == "user" {
 		$char: "\E00D";
 	}
-	@if $filename == "location" {
+	@if $filename == "email" {
 		$char: "\E00E";
 	}
-	@if $filename == "money" {
+	@if $filename == "facebook" {
 		$char: "\E00F";
 	}
-	@if $filename == "navicon" {
+	@if $filename == "google" {
 		$char: "\E010";
 	}
-	@if $filename == "pencil" {
+	@if $filename == "instagram" {
 		$char: "\E011";
 	}
-	@if $filename == "star" {
+	@if $filename == "linkedin" {
 		$char: "\E012";
 	}
-	@if $filename == "tick" {
+	@if $filename == "twitter" {
 		$char: "\E013";
 	}
-	@if $filename == "user" {
+	@if $filename == "youtube" {
 		$char: "\E014";
 	}
 
@@ -107,27 +107,6 @@
 	}
 }
 
-.iconfont-email {
-	@include iconfont("email");
-}
-.iconfont-facebook {
-	@include iconfont("facebook");
-}
-.iconfont-google {
-	@include iconfont("google");
-}
-.iconfont-instagram {
-	@include iconfont("instagram");
-}
-.iconfont-linkedin {
-	@include iconfont("linkedin");
-}
-.iconfont-twitter {
-	@include iconfont("twitter");
-}
-.iconfont-youtube {
-	@include iconfont("youtube");
-}
 .iconfont-arrow {
 	@include iconfont("arrow");
 }
@@ -166,4 +145,25 @@
 }
 .iconfont-user {
 	@include iconfont("user");
+}
+.iconfont-email {
+	@include iconfont("email");
+}
+.iconfont-facebook {
+	@include iconfont("facebook");
+}
+.iconfont-google {
+	@include iconfont("google");
+}
+.iconfont-instagram {
+	@include iconfont("instagram");
+}
+.iconfont-linkedin {
+	@include iconfont("linkedin");
+}
+.iconfont-twitter {
+	@include iconfont("twitter");
+}
+.iconfont-youtube {
+	@include iconfont("youtube");
 }

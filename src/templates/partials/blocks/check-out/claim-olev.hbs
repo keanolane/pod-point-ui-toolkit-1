@@ -1,16 +1,21 @@
 <div class="card card--informative m-b-md">
-	<h3>Claim the OLEV Grant</h3>
+	<h3 class="h4">Claim the OLEV Grant</h3>
 	<p>Do you want to reduce the cost of your chargepoint by £500, by claiming the OLEV Grant?</p>
 	<div class="field-row">
 		<div class="radios-wrap">
 			<div class="radio-wrap radio-wrap--inline">
-				<input type="radio" name="radioExampleInline" id="radioExampleInline1" value="radioExampleInline1" checked="checked"/>
-				<label for="radioExampleInline1" class="radio">Yes</label>
+				<input data-radio-open-panel="olevPanel" type="radio" name="olevDiscount" id="yesOlevDiscount" value="yesOlevDiscount"/>
+				<label for="yesOlevDiscount" class="radio">Yes</label>
 			</div>
 			<div class="radio-wrap radio-wrap--inline">
-				<input type="radio" name="radioExampleInline" id="radioExampleInline2" value="radioExampleInline2"/>
-				<label for="radioExampleInline2" class="radio">No</label>
+				<input data-radio-close-panel="olevPanel" type="radio" name="olevDiscount" id="noOlevDiscount" value="noOlevDiscount" checked="checked"/>
+				<label for="noOlevDiscount" class="radio">No</label>
 			</div>
 		</div>
+	</div>
+
+	<div id="olevPanel" data-js-module="toggleAccordionPanel" class="slide-up">
+		<h4>Select your purchase option</h4>
+		<h4>Search for your dealership</h4>
 	</div>
 </div>

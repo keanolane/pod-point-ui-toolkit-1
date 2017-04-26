@@ -181,65 +181,74 @@
 					<div class="grid-row">
 						<div class="grid-col grid-col--md-8">
 							<div class="card card--informative m-b-md">
-								<h3>Claim the OLEV Grant</h3>
+								<h3 class="h4">Claim the OLEV Grant</h3>
 								<p>Do you want to reduce the cost of your chargepoint by £500, by claiming the OLEV Grant?</p>
 								<div class="field-row">
 									<div class="radios-wrap">
 										<div class="radio-wrap radio-wrap--inline">
-											<input type="radio" name="radioExampleInline" id="radioExampleInline1" value="radioExampleInline1" checked="checked"/>
-											<label for="radioExampleInline1" class="radio">Yes</label>
+											<input data-radio-open-panel="olevPanel" type="radio" name="olevDiscount" id="yesOlevDiscount" value="yesOlevDiscount"/>
+											<label for="yesOlevDiscount" class="radio">Yes</label>
 										</div>
 										<div class="radio-wrap radio-wrap--inline">
-											<input type="radio" name="radioExampleInline" id="radioExampleInline2" value="radioExampleInline2"/>
-											<label for="radioExampleInline2" class="radio">No</label>
+											<input data-radio-close-panel="olevPanel" type="radio" name="olevDiscount" id="noOlevDiscount" value="noOlevDiscount" checked="checked"/>
+											<label for="noOlevDiscount" class="radio">No</label>
 										</div>
 									</div>
 								</div>
+							
+								<div id="olevPanel" data-js-module="toggleAccordionPanel" class="slide-up">
+									<h4>Select your purchase option</h4>
+									<h4>Search for your dealership</h4>
+								</div>
 							</div>						<div class="card card--informative">
-								<h3>Claim your dealership discount</h3>
+								<h3 class="h4">Claim your dealership discount</h3>
 								<p>Do you want to reduce the cost of your chargepoint by claiming your dealership discount.</p>
 							
 								<div class="field-row">
 									<div class="radios-wrap">
 										<div class="radio-wrap radio-wrap--inline">
-											<input type="radio" name="radioExampleInline" id="radioExampleInline1" value="radioExampleInline1" checked="checked"/>
-											<label for="radioExampleInline1" class="radio">Yes</label>
+											<input data-radio-open-panel="dealershipPanel" type="radio" name="dealershipDiscount" id="yesDealershipDiscount" value="yesDealershipDiscount"/>
+											<label for="yesDealershipDiscount" class="radio">Yes</label>
 										</div>
 										<div class="radio-wrap radio-wrap--inline">
-											<input type="radio" name="radioExampleInline" id="radioExampleInline2" value="radioExampleInline2"/>
-											<label for="radioExampleInline2" class="radio">No</label>
+											<input data-radio-close-panel="dealershipPanel" type="radio" name="dealershipDiscount" id="noDealershipDiscount" value="noDealershipDiscount" checked="checked"/>
+											<label for="noDealershipDiscount" class="radio">No</label>
 										</div>
 									</div>
 								</div>
+							
+								<div id="dealershipPanel" data-js-module="toggleAccordionPanel" class="slide-up">
+									<h4>Select your purchase option</h4>
+									<h4>Search for your dealership</h4>
+								</div>
 							</div>					</div>
 						<div class="grid-col grid-col--md-4">
-							<div class="basket">
-								<div class="basket__header">
-									<h3 class="basket__title">Your basket</h3>
-								</div>
-								<div class="basket__content">
-									<ul class="basket__items">
-										<li class="basket__item">
-											<img class="basket__item__thumb" src="assets/img/content/homecharger-without-cable.png" alt="">
-											<div class="basket__item__title">
-												<p class="basket__item__title__main">7kW Universal connector</p>
-												<p class="basket__item__title__sub">with free standard installation</p>
+							<div class="final-basket card card--informative">
+								<h3 class="h4">Your basket</h3>
+								<div class="basket-content">
+									<ul class="basket-content__items">
+										<li class="basket-content__item">
+											<img class="basket-content__item__thumb" src="assets/img/content/homecharger-without-cable.png" alt="">
+											<div class="basket-content__item__title">
+												<p class="basket-content__item__title__main">7kW Universal connector</p>
+												<p class="basket-content__item__title__sub">with free standard installation</p>
 											</div>
-											<p class="basket__item__price">£859</p>
+											<p class="basket-content__item__price">£859*</p>
+											<p class="basket-content__item__extra green">*Claim <a href="#">OLEV grant</a> to reduce by £500</p>
 										</li>
-										<li class="basket__item">
-											<img class="basket__item__thumb" src="assets/img/content/portable-cable.png" alt="">
-											<div class="basket__item__title">
-												<p class="basket__item__title__main">Charging cable</p>
+										<li class="basket-content__item">
+											<img class="basket-content__item__thumb" src="assets/img/content/portable-cable.png" alt="">
+											<div class="basket-content__item__title">
+												<p class="basket-content__item__title__main">Charging cable</p>
 											</div>
-											<p class="basket__item__price">£150</p>
+											<p class="basket-content__item__price">£150</p>
 										</li>
 									</ul>
 									<hr class="m-none">
 								</div>
-								<div class="basket__total">
-									<p class="basket__total__title">Sub total</p>
-									<p class="basket__total__value">£1,009</p>
+								<div class="basket-total">
+									<p class="basket-total__title">Sub total</p>
+									<p class="basket-total__value">£1,009</p>
 								</div>
 							</div>					</div>
 					</div>
@@ -247,6 +256,98 @@
 			</div>
 		</div>
 	</section>
+	<section class="bg--white">
+		<div class="container content-block content-block--standout">
+			<h2>Your details</h2>
+			<div class="max-width-text marg-center">
+				<div class="field-row">
+					<div class="form-field-wrapper">
+						<input type="text" placeholder="First Name" />
+					</div>
+				</div>
+				<div class="field-row">
+					<div class="form-field-wrapper">
+						<input type="text" placeholder="Last Name" />
+					</div>
+				</div>
+				<div class="field-row">
+					<div class="form-field-wrapper">
+						<input type="text" placeholder="Email" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="bg--white">
+		<div class="container content-block content-block--standout">
+			<h2>Payment details</h2>
+			<div class="max-width-text marg-center">
+				<div class="field-row">
+					<div class="form-field-wrapper">
+						<input data-input-open-panel="cardDetails" type="text" placeholder="Card Number" />
+					</div>
+				</div>
+	
+				<div id="cardDetails" data-js-module="toggleAccordionPanel" class="slide-up">
+					<div class="grid-row">
+						<div class="grid-col grid-col--md-4">
+							<div class="form-field-wrapper">
+								<input type="text" placeholder="Expiry Month" />
+							</div>
+						</div>
+						<div class="grid-col grid-col--md-4">
+							<div class="form-field-wrapper">
+								<input type="text" placeholder="Expiry Year" />
+							</div>
+						</div>
+						<div class="grid-col grid-col--md-4">
+							<div class="form-field-wrapper">
+								<input type="text" placeholder="CVC" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="bg--white">
+		<div class="container content-block">
+			<div class="buttons-container clear">
+				<button class="button button--tertiary float-left-md">Chat now</button>
+				<button class="button float-right-md">Next</button>
+			</div>
+		</div>
+	</section>
+	<section class="bg--white">
+		<div class="container">
+			<div class="content-block">
+				<h2 class="text-center text-left-md">Questions</h2>
+				<div class="grid-wrap">
+					<div class="grid-row">
+						<div class="grid-col grid-col--md-4">
+							<div class="rich-text">
+								<h3>Question 1</h3>
+								<p>Questions 1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+							</div>
+						</div>
+						<div class="grid-col grid-col--md-4">
+							<div class="rich-text">
+								<h3>Question 2</h3>
+								<p>Questions 1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+							</div>
+						</div>
+						<div class="grid-col grid-col--md-4">
+							<div class="rich-text">
+								<h3>Question 3</h3>
+								<p>Questions 1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<footer class="global-footer">
 		<div class="global-footer__section-top">
 			<div class="container content-block">
