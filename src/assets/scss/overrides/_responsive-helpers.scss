@@ -12,7 +12,7 @@
 .hidden { display: none!important; }
 .block { display: block!important; }
 .inline-block { display: inline-block!important; }
-.full-width { width: 100%!important; }
+.full-width { width: 100%!important; max-width: 100%!important; }
 
 @media only screen and (min-width: $medium-screen) {
 	.text-center-md { text-align: center!important; }
@@ -25,7 +25,7 @@
 	.hidden-md { display: none!important; }
 	.block-md { display: block!important; }
 	.inline-block-md { display: inline-block!important; }
-	.full-width-md { width: 100%!important; }
+	.full-width-md { width: 100%!important; max-width: 100%!important; }
 }
 @media only screen and (min-width: $large-screen) {
 	.text-center-lg { text-align: center!important; }
@@ -37,5 +37,5 @@
 	.hidden-lg { display: none!important; }
 	.block-lg { display: block!important; }
 	.inline-block-lg { display: inline-block!important; }
-	.full-width-lg { width: 100%!important; }
+	.full-width-lg { width: 100%!important; max-width: 100%!important; }
 }

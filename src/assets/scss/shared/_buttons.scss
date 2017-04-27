@@ -86,3 +86,13 @@ button {
 		@include margin(1rem);
 	}
 }
+
+.setback-button {
+	color: $font-color-base;
+	font-family: $font-family-bold;
+	&:before {
+		font-size: 1rem;
+		font-weight: bold;
+		margin-right: 0.5rem;
+	}
+}

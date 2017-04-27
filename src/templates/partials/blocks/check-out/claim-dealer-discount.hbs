@@ -2,35 +2,38 @@
 	<h3 class="h4">Claim your dealership discount</h3>
 	<p>Do you want to reduce the cost of your chargepoint by claiming your dealership discount.</p>
 
-	<div class="radios-wrap">
-		<div class="radio-wrap radio-wrap--inline">
-			<input data-radio-open-panel="dealershipPanel" type="radio" name="dealershipDiscount" id="yesDealershipDiscount" value="yesDealershipDiscount"/>
-			<label for="yesDealershipDiscount" class="radio">Yes</label>
-		</div>
-		<div class="radio-wrap radio-wrap--inline">
-			<input data-radio-close-panel="dealershipPanel" type="radio" name="dealershipDiscount" id="noDealershipDiscount" value="noDealershipDiscount" checked="checked"/>
-			<label for="noDealershipDiscount" class="radio">No</label>
-		</div>
-	</div>
+	<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="dealershipPanel">Find out if I am eligible<span class="circle-icon--toggle-panel toggle-rotate-icon"></span></a></p>
 
 	<div id="dealershipPanel" data-js-module="toggleAccordionPanel" class="accordion-panel accordion-panel--md">
 		<hr class="m-t-lg m-b-lg">
-		<div class="field-row">
-			<label class="label--block">Select your purchase option</label>
-			<div class="form-field-wrapper">
-				<div data-js-module="selectDropdown" class="select-dd-wrapper">
-					<select>
-						<option value="00">00</option>
-						<option selected value="01">01</option>
-					</select>
+
+		<div class="grid-row">
+			<div class="grid-col grid-col--md-6">
+				<div class="field-row">
+					<label class="label--block">Select your purchase option</label>
+					<div class="form-field-wrapper">
+						<div data-js-module="selectDropdown" class="select-dd-wrapper">
+							<select>
+								<option value="00">00</option>
+								<option selected value="01">01</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="field-row">
+					<label class="label--block">Search for your dealership</label>
+					<div class="form-field-wrapper">
+						<input type="text" placeholder="Town/City, Dealership" />
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="field-row">
-			<label class="label--block">Search for your dealership</label>
-			<div class="form-field-wrapper">
-				<input type="text" placeholder="Town/City, Dealership" />
+			<div class="grid-col grid-col--md-6">
 			</div>
+		</div>
+
+		<div class="p-t-md">
+			<button disabled="true" class="button is-disabled">Claim</button>
+			<a data-close-panel="dealershipPanel" href="#" class="iconfont-cross setback-button m-l-sm">Skip (Close panel, I don't want to claim)</a>
 		</div>
 	</div>
 </div>

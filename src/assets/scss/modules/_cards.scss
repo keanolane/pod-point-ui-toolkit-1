@@ -74,11 +74,13 @@
 			border-color: transparent $primary-color transparent transparent;
 		}
 	}
-
 	&--informative {
 		border: $border-base;
-		background-color: $gray-very-light;
 		@include padding(3rem);
+		hr { opacity: 1; }
+	}
+	&--very-light-gray {
+		background-color: $gray-very-light;
 		hr { opacity: 1; }
 	}
 }

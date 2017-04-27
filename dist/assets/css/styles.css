@@ -166,64 +166,64 @@ table {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.iconfont-email:before {
+.iconfont-arrow:before {
   content: ""; }
 
-.iconfont-facebook:before {
+.iconfont-charge-location:before {
   content: ""; }
 
-.iconfont-google:before {
+.iconfont-charge:before {
   content: ""; }
 
-.iconfont-instagram:before {
+.iconfont-cheveron:before {
   content: ""; }
 
-.iconfont-linkedin:before {
+.iconfont-cross:before {
   content: ""; }
 
-.iconfont-twitter:before {
+.iconfont-folder:before {
   content: ""; }
 
-.iconfont-youtube:before {
+.iconfont-location:before {
   content: ""; }
 
-.iconfont-arrow:before {
+.iconfont-money:before {
   content: ""; }
 
-.iconfont-charge-location:before {
+.iconfont-navicon:before {
   content: ""; }
 
-.iconfont-charge:before {
+.iconfont-pencil:before {
   content: ""; }
 
-.iconfont-cheveron:before {
+.iconfont-star:before {
   content: ""; }
 
-.iconfont-cross:before {
+.iconfont-tick:before {
   content: ""; }
 
-.iconfont-folder:before {
+.iconfont-user:before {
   content: ""; }
 
-.iconfont-location:before {
+.iconfont-email:before {
   content: ""; }
 
-.iconfont-money:before {
+.iconfont-facebook:before {
   content: ""; }
 
-.iconfont-navicon:before {
+.iconfont-google:before {
   content: ""; }
 
-.iconfont-pencil:before {
+.iconfont-instagram:before {
   content: ""; }
 
-.iconfont-star:before {
+.iconfont-linkedin:before {
   content: ""; }
 
-.iconfont-tick:before {
+.iconfont-twitter:before {
   content: ""; }
 
-.iconfont-user:before {
+.iconfont-youtube:before {
   content: ""; }
 
 .slick-slider {
@@ -867,7 +867,7 @@ ol {
       .rich-text--featured ul li:last-child {
         padding-bottom: 0; }
       .rich-text--featured ul li:before {
-        content: ""; }
+        content: ""; }
       .rich-text--featured ul li:last-child {
         padding-bottom: 0; }
       .rich-text--featured ul li:before {
@@ -1312,7 +1312,7 @@ textarea[type="text"] {
         border: 2px solid #ccc;
         border-radius: 5px; }
     .checkbox-wrap input[type="checkbox"]:checked ~ label:before {
-      content: ""; }
+      content: ""; }
     .checkbox-wrap input[type="checkbox"]:checked ~ label:before {
       background-color: #8CC63F;
       border-color: #8CC63F;
@@ -1335,7 +1335,7 @@ textarea[type="text"] {
   max-width: 60rem;
   cursor: pointer; }
   .select-wrapper:after {
-    content: ""; }
+    content: ""; }
   .select-wrapper:focus:after {
     color: #8CC63F; }
   .select-wrapper:after {
@@ -1615,7 +1615,7 @@ textarea[type="text"] {
     padding: 0; }
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select:after {
-    content: ""; }
+    content: ""; }
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select:after {
     position: absolute;
@@ -1672,7 +1672,7 @@ textarea[type="text"] {
   padding-left: 0; }
   .select-dd-wrapper--alternative .dk-selected:after,
   .select-dd-wrapper--alternative .mobile-select:after {
-    content: ""; }
+    content: ""; }
   .select-dd-wrapper--alternative .dk-selected:after,
   .select-dd-wrapper--alternative .mobile-select:after {
     position: absolute;
@@ -1857,7 +1857,7 @@ textarea[type="text"] {
 
 @media only screen and (min-width: 40em) {
   .form-field-wrapper.is-valid:before {
-    content: ""; } }
+    content: ""; } }
 
 .form-field-wrapper.is-valid:before {
   color: #8CC63F; }
@@ -1875,7 +1875,7 @@ textarea[type="text"] {
 
 @media only screen and (min-width: 40em) {
   .form-field-wrapper.is-invalid:before {
-    content: ""; } }
+    content: ""; } }
 
 .form-field-wrapper.is-invalid:before {
   color: #C1272D; }
@@ -1976,7 +1976,7 @@ button {
   .button.button--selected {
     text-indent: -9999px; }
     .button.button--selected:before {
-      content: ""; }
+      content: ""; }
     .button.button--selected:before, .button.button--selected:after {
       text-indent: 0;
       float: left;
@@ -2008,6 +2008,14 @@ button {
   overflow: hidden; }
   .buttons-container .button {
     margin: 1rem; }
+
+.setback-button {
+  color: #333;
+  font-family: "Quicksand Bold", sans-serif; }
+  .setback-button:before {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 0.5rem; }
 
 .navicon {
   width: 2.5rem;
@@ -2092,7 +2100,7 @@ button {
             transform: rotate(360deg); }
 
 .circle-icon--close:before {
-  content: ""; }
+  content: ""; }
 
 .circle-icon--close:before {
   display: inline-block;
@@ -2316,7 +2324,7 @@ button {
   width: 2.5rem;
   height: 2.5rem; }
   .circle-icon--toggle-panel:before {
-    content: ""; }
+    content: ""; }
   .circle-icon--toggle-panel:before {
     display: inline-block;
     height: inherit;
@@ -2363,7 +2371,7 @@ button {
   -ms-transform: rotate(180deg);
       transform: rotate(180deg); }
   .circle-icon--close-panel:before {
-    content: ""; }
+    content: ""; }
   .circle-icon--close-panel:before {
     display: inline-block;
     height: inherit;
@@ -2633,7 +2641,7 @@ button {
       position: relative;
       padding-left: 2.2rem; }
       .global-nav ul li a.find-chargepoint:before {
-        content: ""; }
+        content: ""; }
       .global-nav ul li a.find-chargepoint:before {
         display: inline-block;
         height: inherit;
@@ -2931,7 +2939,7 @@ button {
 .stars-list li {
   display: inline-block; }
   .stars-list li:before {
-    content: ""; }
+    content: ""; }
   .stars-list li:before {
     display: inline-block;
     height: inherit;
@@ -2966,7 +2974,7 @@ button {
     width: 100%;
     margin: 0; }
   .slick-arrow:before {
-    content: ""; }
+    content: ""; }
   .slick-arrow:before {
     display: inline-block;
     height: inherit;
@@ -3041,7 +3049,7 @@ button {
     text-align: center;
     height: 2rem;
     min-width: 1.2rem;
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 2px;
     margin-right: 2px;
     margin-bottom: 1rem;
@@ -3111,7 +3119,7 @@ button {
   .card--sash, .card--standout-sash {
     position: relative; }
     .card--sash:before, .card--standout-sash:before {
-      content: ""; }
+      content: ""; }
     .card--sash:before, .card--standout-sash:before {
       display: inline-block;
       height: inherit;
@@ -3150,9 +3158,12 @@ button {
       border-color: transparent #8CC63F transparent transparent; }
   .card--informative {
     border: 2px solid #ccc;
-    background-color: #f9fafa;
     padding: 3rem; }
     .card--informative hr {
+      opacity: 1; }
+  .card--very-light-gray {
+    background-color: #f9fafa; }
+    .card--very-light-gray hr {
       opacity: 1; }
 
 @media only screen and (min-width: 50em) {
@@ -3452,7 +3463,7 @@ button {
       top: 1.7rem;
       right: 1.5rem; }
       .floating-basket-wrapper .floating-basket__toggle-icon:before {
-        content: ""; }
+        content: ""; }
       .floating-basket-wrapper .floating-basket__toggle-icon:before {
         display: inline-block;
         height: inherit;
@@ -3746,7 +3757,8 @@ button {
   display: inline-block !important; }
 
 .full-width {
-  width: 100% !important; }
+  width: 100% !important;
+  max-width: 100% !important; }
 
 @media only screen and (min-width: 50em) {
   .text-center-md {
@@ -3771,7 +3783,8 @@ button {
   .inline-block-md {
     display: inline-block !important; }
   .full-width-md {
-    width: 100% !important; } }
+    width: 100% !important;
+    max-width: 100% !important; } }
 
 @media only screen and (min-width: 64em) {
   .text-center-lg {
@@ -3794,7 +3807,8 @@ button {
   .inline-block-lg {
     display: inline-block !important; }
   .full-width-lg {
-    width: 100% !important; } }
+    width: 100% !important;
+    max-width: 100% !important; } }
 
 .is-disabled {
   cursor: not-allowed;
