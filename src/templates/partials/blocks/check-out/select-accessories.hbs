@@ -1,9 +1,9 @@
 <section class="bg--white">
 	<div class="container">
 		<div class="content-block">
-			<h2 class="text-center text-left-md">Select connector</h2>
-			<div class="grid-wrap">
-				<div class="grid-row cards-same-height">
+			<h2 class="text-center text-left-md">Select accesories</h2>
+			<div class="grid-wrap cards-same-height hidden block-md">
+				<div class="grid-row">
 					<div class="grid-col grid-col--md-4">
 						<div class="card card--centered card--more-pad">
 							<h3 class="font-large">Key Lock</h3>
@@ -11,7 +11,10 @@
 							<img class="max-width--sm marg-center" src="assets/img/content/key-lock.png" alt="">
 							<p class="font-style-large">£30.00</p>
 							<p>Read description</p>
-							<button class="button button--secondary m-t-sm">Select</button>
+							<div class="button-checkbox-wrap m-t-sm">
+								<input type="checkbox" name="keyLock" value="keyLock" id="keyLock">
+								<label for="keyLock" class="button button--secondary">Select</label>
+							</div>
 						</div>
 					</div>
 					<div class="grid-col grid-col--md-4">
@@ -21,7 +24,10 @@
 							<img class="max-width--sm marg-center" src="assets/img/content/portable-cable.png" alt="">
 							<p class="font-style-large">£150.00</p>
 							<p>Read description</p>
-							<button class="button button--secondary m-t-sm">Select</button>
+							<div class="button-checkbox-wrap m-t-sm">
+								<input type="checkbox" name="portableCable" value="portableCable" id="portableCable">
+								<label for="portableCable" class="button button--secondary">Select</label>
+							</div>
 						</div>
 					</div>
 					<div class="grid-col grid-col--md-4">
@@ -31,7 +37,65 @@
 							<img class="max-width--sm marg-center" src="assets/img/content/fixed-cable.png" alt="">
 							<p class="font-style-large">£175.00</p>
 							<p>Read description</p>
-							<button class="button button--secondary m-t-sm">Select</button>
+							<div class="button-checkbox-wrap m-t-sm">
+								<input type="checkbox" name="fixedCableExt" value="fixedCableExt" id="fixedCableExt">
+								<label for="fixedCableExt" class="button button--secondary">Select</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="grid-wrap cards-same-height block hidden-md">
+				<div class="grid-row">
+					<div class="grid-col">
+						<div class="panel-checkbox-wrap">
+							<input type="checkbox" name="keyLock-mobile" value="keyLock" id="keyLock-mobile">
+							<label for="keyLock-mobile"></label>
+							<div class="card card--very-light-gray">
+								<div class="grid-row grid-row--vertical-center grid-row--mobile-cols m-t-none">
+									<div class="grid-col grid-col--6 grid-col--no-space">
+										<p class="bold">Key Lock</p>
+										<p>£30.00</p>
+									</div>
+									<div class="grid-col grid-col--6 grid-col--no-space">
+										<img class="max-width--xs float-right" src="assets/img/content/key-lock.png" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="grid-col">
+						<div class="panel-checkbox-wrap">
+							<input type="checkbox" name="portableCable-mobile" value="portableCable" id="portableCable-mobile">
+							<label for="portableCable-mobile"></label>
+							<div class="card card--very-light-gray">
+								<div class="grid-row grid-row--vertical-center grid-row--mobile-cols m-t-none">
+									<div class="grid-col grid-col--6 grid-col--no-space">
+										<p class="bold">Portable Cable</p>
+										<p>£150.00</p>
+									</div>
+									<div class="grid-col grid-col--6 grid-col--no-space">
+										<img class="max-width--xs float-right" src="assets/img/content/portable-cable.png" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="grid-col">
+						<div class="panel-checkbox-wrap">
+							<input type="checkbox" name="fixedCableExt-mobile" value="fixedCableExt" id="fixedCableExt-mobile">
+							<label for="fixedCableExt-mobile"></label>
+							<div class="card card--very-light-gray">
+								<div class="grid-row grid-row--vertical-center grid-row--mobile-cols m-t-none">
+									<div class="grid-col grid-col--6 grid-col--no-space">
+										<p class="bold">Fixed Cable Extension</p>
+										<p>£175.00</p>
+									</div>
+									<div class="grid-col grid-col--6 grid-col--no-space">
+										<img class="max-width--xs float-right" src="assets/img/content/fixed-cable.png" alt="">
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

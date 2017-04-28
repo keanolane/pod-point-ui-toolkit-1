@@ -3,6 +3,7 @@
 // =============================================================================
 
 .card {
+	display: block;
 	overflow: hidden;
 	background-color: white;
 	border-radius: $border-radius-base;
@@ -39,6 +40,7 @@
 	&--standout,
 	&--standout-sash {
 		background-color: $gray-very-light;
+		border-color: $gray-keyline;
 		.card__recommended {
 			position: relative;
 			span {

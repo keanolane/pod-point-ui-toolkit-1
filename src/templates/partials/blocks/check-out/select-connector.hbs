@@ -1,12 +1,14 @@
 <section class="bg--white">
 	<div class="container">
 		<div class="content-block">
-			<h2 class="text-center text-left-md">Select connector</h2>
-			<div class="grid-wrap">
-				<div class="grid-row cards-same-height">
+			<h2 class="text-center text-left-md p-b-sm">Select a connector</h2>
+			<p class="text-center text-left-md p-b-lg">A connector is included in the price of your POD Point.</p>
+			<div class="grid-wrap cards-same-height hidden block-md">
+				<div class="grid-row">
 					<div class="grid-col grid-col--md-6">
 						<div class="card card--centered card--more-pad">
-							<h3 class="font-large">Universal Socket - Flexibility</h3>
+							<h3 class="font-large">Universal Socket</h3>
+							<p>Flexibility lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae magna a dolor luctus elementum nec.</p>
 							<img class="max-width--md marg-center" src="assets/img/content/homecharger-without-cable.png" alt="">
 							<div class="rich-text text-left m-t-md">
 								<ul>
@@ -15,12 +17,16 @@
 									<li>Type 2 socket</li>
 								</ul>
 							</div>
-							<button class="button button--secondary m-t-sm">Select</button>
+							<div class="button-radio-wrap m-t-sm">
+								<input type="radio" name="connector-desktop" value="connectorUniversal" id="connectorUniversal">
+								<label for="connectorUniversal" class="button button--secondary">Select</label>
+							</div>
 						</div>
 					</div>
 					<div class="grid-col grid-col--md-6">
 						<div class="card card--centered card--more-pad">
-							<h3 class="font-large">Fixed Cable - Convenience</h3>
+							<h3 class="font-large">Fixed Cable</h3>
+							<p>Convenience maecenas laoreet ullamcorper leo nec congue. Aenean ligula justo, aliquet quis auctor faucibus.</p>
 							<img class="max-width--md marg-center" src="assets/img/content/homecharger-with-cable.png" alt="">
 							<div class="rich-text text-left m-t-md">
 								<ul>
@@ -28,7 +34,46 @@
 									<li>4.5m fixed cable</li>
 								</ul>
 							</div>
-							<button class="button button--secondary m-t-sm">Select</button>
+							<div class="button-radio-wrap m-t-sm">
+								<input type="radio" name="connector-mobile" value="connectorFixed" id="connectorFixed">
+								<label for="connectorFixed" class="button button--secondary">Select</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="grid-wrap cards-same-height block hidden-md">
+				<div class="grid-row">
+					<div class="grid-col">
+						<div class="panel-radio-wrap">
+							<input type="radio" name="connector-mobile" value="connectorUniversal" id="connectorUniversal-mobile">
+							<label for="connectorUniversal-mobile"></label>
+							<div class="card card--very-light-gray">
+								<div class="grid-row grid-row--vertical-center grid-row--mobile-cols m-t-none">
+									<div class="grid-col grid-col--6 grid-col--no-space">
+										<p class="bold">Universal socket</p>
+									</div>
+									<div class="grid-col grid-col--6 grid-col--no-space">
+										<img class="max-width--xs float-right" src="assets/img/content/homecharger-without-cable.png" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="grid-col">
+						<div class="panel-radio-wrap">
+							<input type="radio" name="connector-mobile" value="connectorFixed" id="connectorFixed-mobile">
+							<label for="connectorFixed-mobile"></label>
+							<div class="card card--very-light-gray">
+								<div class="grid-row grid-row--vertical-center grid-row--mobile-cols m-t-none">
+									<div class="grid-col grid-col--6 grid-col--no-space">
+										<p class="bold">Fixed Cable</p>
+									</div>
+									<div class="grid-col grid-col--6 grid-col--no-space">
+										<img class="max-width--xs float-right" src="assets/img/content/homecharger-with-cable.png" alt="">
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

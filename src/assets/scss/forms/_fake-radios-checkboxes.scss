@@ -1,0 +1,72 @@
+// =============================================================================
+//  FAKE RADIO AND CHECKBOXES
+// =============================================================================
+
+.button-radio-wrap,
+.button-checkbox-wrap {
+	position: relative;
+	input[type="radio"],
+	input[type="checkbox"] {
+		& + label.button {
+			min-width: 15rem;
+			@include iconfont('tick');
+			&:before {
+				opacity: 0;
+				transform: rotate(45deg);
+				@include position(absolute, 25% 0 null null);
+				@include iconfont-styles;
+				font-weight: bold;
+				color: white;
+			}
+		}
+		&:checked {
+			& + label.button {
+				@include hide-text-not-pseudo;
+				background-color: $primary-color;
+				border-color: $primary-color;
+				&:before {
+					transform: rotate(0deg);
+					transition: all 0.2s ease-in;
+					opacity: 1;
+				}
+			}
+		}
+		&:disabled + label.button {
+			color: $disabled-color;
+			cursor: not-allowed;
+		}
+	}
+	input[type="radio"]:checked + label.button {
+		&:hover {
+			color: white;
+			cursor: default;
+		}
+	}
+	input[type="checkbox"]:checked + label.button {
+		&:hover {
+			border-color: $primary-color;
+			background-color: transparent;
+			&:before {
+				color: $primary-color;
+			}
+		}
+	}
+}
+
+
+.panel-radio-wrap,
+.panel-checkbox-wrap {
+	position: relative;
+	label {
+		cursor: pointer;
+		@include position(absolute, 0 0 0 0);
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 2;
+	}
+	input[type="radio"]:checked + label + .card,
+	input[type="checkbox"]:checked + label + .card {
+		border-color: $primary-color;
+	}
+}

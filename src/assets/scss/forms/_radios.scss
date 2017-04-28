@@ -5,75 +5,78 @@
 .radios-wrap {
 	margin-bottom: -1rem;
 }
+
+input[type="radio"] {
+	position: absolute;
+	left: -9999px;
+}
+
 .radio-wrap {
 	display: block;
 	&--inline {
 		display: inline-block;
 	}
-}
-[type="radio"] {
-	position: absolute;
-	left: -9999px;
+	input[type="radio"] {
+		& + label {
+			@include font-style-base;
+			font-family: $font-family-bold;
+			position: relative;
+			@include padding(0.6rem 2.5rem 0 3rem);
+			cursor: pointer;
+			display: inline-block;
+			min-height: 3rem;
+			transition: all .28s ease;
+			user-select: none;
 
-	& + label {
-		@include font-style-base;
-		font-family: $font-family-bold;
-		position: relative;
-		@include padding(0.6rem 2.5rem 0 3rem);
-		cursor: pointer;
-		display: inline-block;
-		min-height: 3rem;
-		transition: all .28s ease;
-		user-select: none;
-
-		&:after,
-		&:before {
-			content: '';
-			position: absolute;
-			left: 0;
-			top: 0;
-			@include margin(0.6rem null 0.6rem null);
-			width: 1.8rem;
-			height: 1.8rem;
-			z-index: 0;
-			transition: .28s ease;
-			@media only screen and (min-width: $medium-screen) {
-				@include margin(0.8rem null 0.8rem null);
+			&:after,
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				@include margin(0.6rem null 0.6rem null);
+				width: 1.8rem;
+				height: 1.8rem;
+				z-index: 0;
+				transition: .28s ease;
+				@media only screen and (min-width: $medium-screen) {
+					@include margin(0.8rem null 0.8rem null);
+				}
+			}
+			&:before {
+				border-radius: 50%;
+				border: 2px solid $radio-border;
+			}
+			&:after {
+				border-radius: 50%;
+				border: 2px solid $radio-border;
+				z-index: -1;
+				@include transform(scale(0));
 			}
 		}
-		&:before {
-			border-radius: 50%;
-			border: 2px solid $radio-border;
+		&:checked {
+			& + label:before {
+				border-radius: 50%;
+				border: 2px solid transparent;
+			}
+			& + label:after {
+				border-radius: 50%;
+				border: 2px solid $radio-fill-color;
+				background-color: $radio-fill-color;
+				z-index: 0;
+				@include transform(scale(1.02));
+			}
 		}
-		&:after {
-			border-radius: 50%;
-			border: 2px solid $radio-border;
-			z-index: -1;
-			@include transform(scale(0));
-		}
-	}
-	&:checked {
-		& + label:before {
-			border-radius: 50%;
-			border: 2px solid transparent;
-		}
-		& + label:after {
-			border-radius: 50%;
-			border: 2px solid $radio-fill-color;
-			background-color: $radio-fill-color;
-			z-index: 0;
-			@include transform(scale(1.02));
-		}
-	}
-	&:disabled + label {
-		color: $disabled-color;
-		cursor: not-allowed;
-		&:before {
-			background-color: transparent;
-			border-color: $disabled-color;
-			opacity: 0.5;
-			&:hover {
+		&:disabled + label {
+			color: $disabled-color;
+			cursor: not-allowed;
+			&:before {
+				background-color: transparent;
 				border-color: $disabled-color;
+				opacity: 0.5;
+				&:hover {
+					border-color: $disabled-color;
+				}
 			}
 		}
 	}

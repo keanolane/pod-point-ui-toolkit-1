@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="content-block">
 			<h2 class="text-center text-left-md">Select your POD Point</h2>
-			<div class="grid-wrap card-set-standout cards-same-height">
+			<div class="grid-wrap card-set-standout cards-same-height hidden block-md">
 				<div class="grid-row">
 					<div class="grid-col grid-col--md-4">
 						<div class="card card--centered card--more-pad">
@@ -17,7 +17,10 @@
 							<p class="font-small">*with government grant</p>
 							<hr>
 							<p class="font-small bold">Includes standard installation</p>
-							<button class="button button--secondary m-t-sm">Select</button>
+							<div class="button-radio-wrap m-t-sm">
+								<input type="radio" name="podPoint-desktop" value="podPoint3kW" id="podPoint3kW">
+								<label for="podPoint3kW" class="button button--secondary">Select</label>
+							</div>
 						</div>
 					</div>
 					<div class="grid-col grid-col--md-4">
@@ -33,7 +36,10 @@
 							<p class="font-small">*with government grant</p>
 							<hr>
 							<p class="font-small bold">Includes standard installation</p>
-							<button class="button m-t-sm">Select</button>
+							<div class="button-radio-wrap m-t-sm">
+								<input type="radio" name="podPoint-desktop" value="podPoint7kW" id="podPoint7kW">
+								<label for="podPoint7kW" class="button button--secondary">Select</label>
+							</div>
 						</div>
 					</div>
 					<div class="grid-col grid-col--md-4">
@@ -49,7 +55,56 @@
 							<p class="font-small">*with government grant</p>
 							<hr>
 							<p class="font-small bold">Includes standard installation</p>
-							<button class="button button--secondary m-t-sm">Select</button>
+							<div class="button-radio-wrap m-t-sm">
+								<input type="radio" name="podPoint-desktop" value="podPoint22kW" id="podPoint22kW">
+								<label for="podPoint22kW" class="button button--secondary">Select</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="grid-wrap card-set-standout cards-same-height block hidden-md">
+				<div class="grid-row">
+					<div class="grid-col">
+						<div class="panel-radio-wrap">
+							<input type="radio" name="podPoint-mobile" value="podPoint3kW" id="podPoint3kW-mobile">
+							<label for="podPoint3kW-mobile"></label>
+							<div class="card card--very-light-gray">
+								<div class="clear m-b-sm">
+									<h3 class="font-huge p-b-none float-left">3kW</h3>
+									<p class="h1 green p-b-none float-right">£259*</p>
+									<p class="h1 crossed-out p-b-none m-r-xs float-right">£759</p>
+								</div>
+								<p class="bold">Charges a BMW i3 in XX hours</p>
+							</div>
+						</div>
+					</div>
+					<div class="grid-col">
+						<div class="panel-radio-wrap">
+							<input type="radio" name="podPoint-mobile" value="podPoint7kW" id="podPoint7kW-mobile">
+							<label for="podPoint7kW-mobile"></label>
+							<div class="card card--very-light-gray card--standout-sash">
+								<div class="clear m-b-sm">
+									<h3 class="font-huge p-b-none float-left">7kW</h3>
+									<p class="h1 green p-b-none float-right">£359*</p>
+									<p class="h1 crossed-out p-b-none m-r-xs float-right">£859</p>
+								</div>
+								<p class="bold">Charges a BMW i3 in XX hours</p>
+							</div>
+						</div>
+					</div>
+					<div class="grid-col">
+						<div class="panel-radio-wrap">
+							<input type="radio" name="podPoint-mobile" value="podPoint22kW" id="podPoint22kW-mobile">
+							<label for="podPoint22kW-mobile"></label>
+							<div class="card card--very-light-gray">
+								<div class="clear m-b-sm">
+									<h3 class="font-huge p-b-none float-left">22kW</h3>
+									<p class="h1 green p-b-none float-right">£759*</p>
+									<p class="h1 crossed-out p-b-none m-r-xs float-right">£1259</p>
+								</div>
+								<p class="bold">Charges a BMW i3 in XX hours</p>
+							</div>
 						</div>
 					</div>
 				</div>
