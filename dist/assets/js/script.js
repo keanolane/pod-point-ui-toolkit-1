@@ -13803,15 +13803,13 @@
 	
 	        this.panel = element;
 	        this.panelId = element.getAttribute('id');
-	        this.toggleButton = document.querySelector('[data-toggle-panel="' + this.panelId + '"]');
-	        if (this.toggleButton) {
-	            this.toggleIcon = this.toggleButton.querySelector('.toggle-rotate-icon');
-	        };
-	        this.openButton = document.querySelector('[data-open-panel="' + this.panelId + '"]');
-	        this.closeButton = document.querySelector('[data-close-panel="' + this.panelId + '"]');
-	        this.openRadioButton = document.querySelector('[data-radio-open-panel="' + this.panelId + '"]');
-	        this.closeRadioButton = document.querySelector('[data-radio-close-panel="' + this.panelId + '"]');
-	        this.openInputButton = document.querySelector('[data-input-open-panel="' + this.panelId + '"]');
+	        this.toggleIcon = document.querySelector('[data-toggle-icon="' + this.panelId + '"]');
+	        this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-toggle-panel="' + this.panelId + '"]')) || [];
+	        this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-open-panel="' + this.panelId + '"]')) || [];
+	        this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-close-panel="' + this.panelId + '"]')) || [];
+	        this.radioOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-radio-open-panel="' + this.panelId + '"]')) || [];
+	        this.radioCloseButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-radio-close-panel="' + this.panelId + '"]')) || [];
+	        this.inputOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-input-open-panel="' + this.panelId + '"]')) || [];
 	
 	        this.panelIsVisible = false;
 	
@@ -13828,37 +13826,63 @@
 	        value: function bindEvents() {
 	            var _this = this;
 	
-	            this.openListener = new _domDelegate.Delegate(this.openButton);
-	            this.openListener.on('click', function (event) {
-	                event.preventDefault();
-	                _this.openPanel();
+	            this.toggleListeners = [];
+	            this.toggleButtons.forEach(function (toggleButton) {
+	                var toggleListener = new _domDelegate.Delegate(toggleButton);
+	                _this.toggleListeners.push(toggleListener);
+	                toggleListener.on('click', function (event) {
+	                    event.preventDefault();
+	                    _this.togglePanel();
+	                });
 	            });
 	
-	            this.closeListener = new _domDelegate.Delegate(this.closeButton);
-	            this.closeListener.on('click', function (event) {
-	                event.preventDefault();
-	                _this.closePanel();
+	            this.openListeners = [];
+	            this.openButtons.forEach(function (openButton) {
+	                var openListener = new _domDelegate.Delegate(openButton);
+	                _this.openListeners.push(openListener);
+	                openListener.on('click', function (event) {
+	                    event.preventDefault();
+	                    _this.openPanel();
+	                });
 	            });
 	
-	            this.radioOpenListener = new _domDelegate.Delegate(this.openRadioButton);
-	            this.radioOpenListener.on('change', function () {
-	                _this.openPanel();
+	            this.closeListeners = [];
+	            this.closeButtons.forEach(function (closeButton) {
+	                var closeListener = new _domDelegate.Delegate(closeButton);
+	                _this.closeListeners.push(closeListener);
+	                closeListener.on('click', function (event) {
+	                    event.preventDefault();
+	                    _this.closePanel();
+	                });
 	            });
 	
-	            this.radioCloseListener = new _domDelegate.Delegate(this.closeRadioButton);
-	            this.radioCloseListener.on('change', function () {
-	                _this.closePanel();
+	            this.radioOpenListeners = [];
+	            this.radioOpenButtons.forEach(function (radioOpenButton) {
+	                var radioOpenListener = new _domDelegate.Delegate(radioOpenButton);
+	                _this.radioOpenListeners.push(radioOpenListener);
+	                radioOpenListener.on('change', function (event) {
+	                    event.preventDefault();
+	                    _this.openPanel();
+	                });
 	            });
 	
-	            this.inputOpenListener = new _domDelegate.Delegate(this.openInputButton);
-	            this.inputOpenListener.on('focus', function () {
-	                _this.openPanel();
+	            this.radioCloseListeners = [];
+	            this.radioCloseButtons.forEach(function (radioCloseButton) {
+	                var radioCloseListener = new _domDelegate.Delegate(radioCloseButton);
+	                _this.radioCloseListeners.push(radioCloseListener);
+	                radioCloseListener.on('change', function (event) {
+	                    event.preventDefault();
+	                    _this.closePanel();
+	                });
 	            });
 	
-	            this.toggleListener = new _domDelegate.Delegate(this.toggleButton);
-	            this.toggleListener.on('click', function (event) {
-	                event.preventDefault();
-	                _this.doPanel();
+	            this.inputOpenListeners = [];
+	            this.inputOpenButtons.forEach(function (inputOpenButton) {
+	                var inputOpenListener = new _domDelegate.Delegate(inputOpenButton);
+	                _this.inputOpenListeners.push(inputOpenListener);
+	                inputOpenListener.on('focus', function () {
+	                    return _this.openPanel();
+	                });
 	            });
 	        }
 	
@@ -13869,21 +13893,33 @@
 	    }, {
 	        key: 'unbindEvents',
 	        value: function unbindEvents() {
-	            this.toggleListener.destroy();
-	            this.openListener.destroy();
-	            this.closeListener.destroy();
-	            this.radioOpenListener.destroy();
-	            this.radioCloseListener.destroy();
-	            this.inputOpenListener.destroy();
+	            this.toggleListeners.forEach(function (toggleListener) {
+	                return toggleListener.destroy();
+	            });
+	            this.openListeners.forEach(function (openListener) {
+	                return openListener.destroy();
+	            });
+	            this.closeListeners.forEach(function (closeListener) {
+	                return closeListener.destroy();
+	            });
+	            this.radioOpenListeners.forEach(function (radioOpenListener) {
+	                return radioOpenListener.destroy();
+	            });
+	            this.radioCloseListeners.forEach(function (radioCloseListener) {
+	                return radioCloseListener.destroy();
+	            });
+	            this.inputOpenListeners.forEach(function (inputOpenListener) {
+	                return inputOpenListener.destroy();
+	            });
 	        }
 	
 	        /**
-	         * Handle the panel opening.
+	         * Toggle panel depending if already open or not.
 	         */
 	
 	    }, {
-	        key: 'doPanel',
-	        value: function doPanel() {
+	        key: 'togglePanel',
+	        value: function togglePanel() {
 	            if (this.panelIsVisible) {
 	                this.closePanel();
 	            } else {

@@ -1,5 +1,5 @@
 import { Delegate } from 'dom-delegate';
-import { selectFirst } from '@pod-point/dom-ops';
+import { selectFirst, nodesToArray } from '@pod-point/dom-ops';
 
 let instances = [];
 const IS_OPEN = 'is-open';
@@ -14,13 +14,13 @@ class ToggleAccordionPanel {
     constructor(element) {
         this.panel = element;
         this.panelId = element.getAttribute('id');
-        this.toggleButton = document.querySelector('[data-toggle-panel="'+this.panelId+'"]');
-        if (this.toggleButton) { this.toggleIcon = this.toggleButton.querySelector('.toggle-rotate-icon') };
-        this.openButton = document.querySelector('[data-open-panel="'+this.panelId+'"]');
-        this.closeButton = document.querySelector('[data-close-panel="'+this.panelId+'"]');
-        this.openRadioButton = document.querySelector('[data-radio-open-panel="'+this.panelId+'"]');
-        this.closeRadioButton = document.querySelector('[data-radio-close-panel="'+this.panelId+'"]');
-        this.openInputButton = document.querySelector('[data-input-open-panel="'+this.panelId+'"]');
+        this.toggleIcon = document.querySelector('[data-toggle-icon="'+this.panelId+'"]')
+        this.toggleButtons = nodesToArray(document.querySelectorAll('[data-toggle-panel="'+this.panelId+'"]')) || [];
+        this.openButtons = nodesToArray(document.querySelectorAll('[data-open-panel="'+this.panelId+'"]')) || [];
+        this.closeButtons = nodesToArray(document.querySelectorAll('[data-close-panel="'+this.panelId+'"]')) || [];
+        this.radioOpenButtons = nodesToArray(document.querySelectorAll('[data-radio-open-panel="'+this.panelId+'"]')) || [];
+        this.radioCloseButtons = nodesToArray(document.querySelectorAll('[data-radio-close-panel="'+this.panelId+'"]')) || [];
+        this.inputOpenButtons = nodesToArray(document.querySelectorAll('[data-input-open-panel="'+this.panelId+'"]')) || [];
 
         this.panelIsVisible = false;
 
@@ -31,37 +31,61 @@ class ToggleAccordionPanel {
      * Binds the event listeners from the elements.
      */
     bindEvents() {
-        this.openListener = new Delegate(this.openButton);
-        this.openListener.on('click', (event) => {
-            event.preventDefault();
-            this.openPanel();
+        this.toggleListeners = [];
+        this.toggleButtons.forEach(toggleButton => {
+            const toggleListener = new Delegate(toggleButton);
+            this.toggleListeners.push(toggleListener);
+            toggleListener.on('click', (event) => {
+                event.preventDefault();
+                this.togglePanel();
+            });
         });
 
-        this.closeListener = new Delegate(this.closeButton);
-        this.closeListener.on('click', (event) => {
-            event.preventDefault();
-            this.closePanel();
+        this.openListeners = [];
+        this.openButtons.forEach(openButton => {
+            const openListener = new Delegate(openButton);
+            this.openListeners.push(openListener);
+            openListener.on('click', (event) => {
+                event.preventDefault();
+                this.openPanel();
+            });
         });
 
-        this.radioOpenListener = new Delegate(this.openRadioButton);
-        this.radioOpenListener.on('change', () => {
-            this.openPanel();
+        this.closeListeners = [];
+        this.closeButtons.forEach(closeButton => {
+            const closeListener = new Delegate(closeButton);
+            this.closeListeners.push(closeListener);
+            closeListener.on('click', (event) => {
+                event.preventDefault();
+                this.closePanel();
+            });
         });
 
-        this.radioCloseListener = new Delegate(this.closeRadioButton);
-        this.radioCloseListener.on('change', () => {
-            this.closePanel();
+        this.radioOpenListeners = [];
+        this.radioOpenButtons.forEach(radioOpenButton => {
+            const radioOpenListener = new Delegate(radioOpenButton);
+            this.radioOpenListeners.push(radioOpenListener);
+            radioOpenListener.on('change', (event) => {
+                event.preventDefault();
+                this.openPanel();
+            });
         });
 
-        this.inputOpenListener = new Delegate(this.openInputButton);
-        this.inputOpenListener.on('focus', () => {
-            this.openPanel();
+        this.radioCloseListeners = [];
+        this.radioCloseButtons.forEach(radioCloseButton => {
+            const radioCloseListener = new Delegate(radioCloseButton);
+            this.radioCloseListeners.push(radioCloseListener);
+            radioCloseListener.on('change', (event) => {
+                event.preventDefault();
+                this.closePanel();
+            });
         });
 
-        this.toggleListener = new Delegate(this.toggleButton);
-        this.toggleListener.on('click', (event) => {
-            event.preventDefault();
-            this.doPanel();
+        this.inputOpenListeners = [];
+        this.inputOpenButtons.forEach(inputOpenButton => {
+            const inputOpenListener = new Delegate(inputOpenButton);
+            this.inputOpenListeners.push(inputOpenListener);
+            inputOpenListener.on('focus', () => this.openPanel());
         });
     }
 
@@ -69,18 +93,18 @@ class ToggleAccordionPanel {
      * Unbinds the event listeners from the elements.
      */
     unbindEvents() {
-        this.toggleListener.destroy();
-        this.openListener.destroy();
-        this.closeListener.destroy();
-        this.radioOpenListener.destroy();
-        this.radioCloseListener.destroy();
-        this.inputOpenListener.destroy();
+        this.toggleListeners.forEach(toggleListener => toggleListener.destroy());
+        this.openListeners.forEach(openListener => openListener.destroy());
+        this.closeListeners.forEach(closeListener => closeListener.destroy());
+        this.radioOpenListeners.forEach(radioOpenListener => radioOpenListener.destroy());
+        this.radioCloseListeners.forEach(radioCloseListener => radioCloseListener.destroy());
+        this.inputOpenListeners.forEach(inputOpenListener => inputOpenListener.destroy());
     }
 
     /**
-     * Handle the panel opening.
+     * Toggle panel depending if already open or not.
      */
-    doPanel() {
+    togglePanel() {
         if (this.panelIsVisible) {
             this.closePanel();
         } else {
