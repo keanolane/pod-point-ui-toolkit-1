@@ -1,5 +1,5 @@
 import { Delegate } from 'dom-delegate';
-import { selectFirst, nodesToArray } from '@pod-point/dom-ops';
+import { nodesToArray } from '@pod-point/dom-ops';
 
 let instances = [];
 const IS_OPEN = 'is-open';

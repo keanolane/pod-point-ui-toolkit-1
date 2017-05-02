@@ -13,6 +13,7 @@ import dropdown from './modules/dropdown';
 import selectDropdown from './modules/select-dropdown';
 import toggle from './modules/toggle';
 import toggleAccordionPanel from './modules/toggle-accordion-panel';
+import toggleElement from './modules/toggle-element';
 import gallerySimple from './modules/gallery-simple';
 import accordion from './modules/accordion';
 import headerNav from './modules/header-nav';
@@ -43,6 +44,7 @@ dom.whenReady(() => {
             dropdown,
             toggle,
             toggleAccordionPanel,
+            toggleElement,
             selectDropdown,
             gallerySimple,
             headerNav,

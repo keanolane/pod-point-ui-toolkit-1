@@ -1,0 +1,83 @@
+// =============================================================================
+//  TOOLTIP
+// =============================================================================
+
+.tooltip-icon {
+	@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $boxShadow: 0px 0px 0px 2px $font-color-base);
+	@include icon-in-circle--size($dimension: 1.2rem, $font-size: 0.9rem);
+	display: inline-block;
+	&:before { content: '?'; }
+}
+
+.tooltip-wrap {
+	display: block;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+	@media only screen and (min-width: $medium-screen) {
+		display: inline-block;
+		width: 0px;
+	}
+}
+
+.tooltip {
+	&__box {
+		box-sizing: border-box;
+		@include position(absolute, 27px null null 0);
+		z-index: auto;
+		width: 100%;
+		@include padding(3rem);
+		background-color: white;
+		border: $border-base;
+		border-radius: $border-radius-base;
+		box-shadow: $box-shadow-front;
+		@media only screen and (min-width: $medium-screen) {
+			width: 35rem;
+			left: -18.3rem;
+		}
+		&:before {
+			content: "";
+			@include position(absolute, -14px null null 50%);
+			margin-left: -15px;
+			z-index: -1;
+			width: 30px;
+			height: 30px;
+			display: block;
+			transform: rotate(-45deg);
+			background-color: white;
+			box-shadow: $box-shadow-front;
+			border: $border-base;
+		}
+		&:after {
+			content: "";
+			@include position(absolute, -13px null null 50%);
+			margin-left: -11px;
+			z-index: 1;
+			width: 26px;
+			height: 26px;
+			display: block;
+			transform: rotate(-45deg);
+			background-color: white;
+		}
+		.rich-text {
+			ul {
+				padding-left: 2rem;
+			}
+			p, li {
+				@include font-style-small;
+			}
+			h1,h2,h3,h4,h5,h6 {
+				@include font-style-h6;
+			}
+		}
+	}
+	&__close {
+		@include iconfont('cross');
+		@include position(absolute, 1rem 1.5rem null null);
+		&:before {
+			@include iconfont-styles;
+			font-size: 1.5rem;
+			color: $font-color-base;
+		}
+	}
+}

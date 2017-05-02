@@ -19,7 +19,6 @@ input[type="radio"] {
 	input[type="radio"] {
 		& + label {
 			@include font-style-base;
-			font-family: $font-family-bold;
 			position: relative;
 			@include padding(0.6rem 2.5rem 0 3rem);
 			cursor: pointer;

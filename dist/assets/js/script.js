@@ -90,27 +90,31 @@
 	
 	var _toggleAccordionPanel2 = _interopRequireDefault(_toggleAccordionPanel);
 	
-	var _gallerySimple = __webpack_require__(25);
+	var _toggleElement = __webpack_require__(25);
+	
+	var _toggleElement2 = _interopRequireDefault(_toggleElement);
+	
+	var _gallerySimple = __webpack_require__(26);
 	
 	var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
 	
-	var _accordion = __webpack_require__(26);
+	var _accordion = __webpack_require__(27);
 	
 	var _accordion2 = _interopRequireDefault(_accordion);
 	
-	var _headerNav = __webpack_require__(27);
+	var _headerNav = __webpack_require__(28);
 	
 	var _headerNav2 = _interopRequireDefault(_headerNav);
 	
-	var _Carousel = __webpack_require__(28);
+	var _Carousel = __webpack_require__(29);
 	
 	var _Carousel2 = _interopRequireDefault(_Carousel);
 	
-	var _addressLookup = __webpack_require__(30);
+	var _addressLookup = __webpack_require__(31);
 	
 	var _addressLookup2 = _interopRequireDefault(_addressLookup);
 	
-	var _changeContent = __webpack_require__(31);
+	var _changeContent = __webpack_require__(32);
 	
 	var _changeContent2 = _interopRequireDefault(_changeContent);
 	
@@ -118,7 +122,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(32);
+	__webpack_require__(33);
 	
 	window.initAutocomplete = _addressLookup.initAutocomplete;
 	window.geolocate = _addressLookup.geolocate;
@@ -141,6 +145,7 @@
 	            dropdown: _dropdown2.default,
 	            toggle: _toggle2.default,
 	            toggleAccordionPanel: _toggleAccordionPanel2.default,
+	            toggleElement: _toggleElement2.default,
 	            selectDropdown: _selectDropdown2.default,
 	            gallerySimple: _gallerySimple2.default,
 	            headerNav: _headerNav2.default,
@@ -13988,6 +13993,162 @@
 	
 	var _domOps = __webpack_require__(4);
 	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	var IS_OPEN = 'fade-in';
+	
+	var ToggleElement = function () {
+	
+	    /**
+	     * Creates a new toggle element.
+	     *
+	     * @param element
+	     */
+	    function ToggleElement(element) {
+	        _classCallCheck(this, ToggleElement);
+	
+	        this.element = element;
+	        this.elementId = element.getAttribute('id');
+	        this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-toggle-el="' + this.elementId + '"]')) || [];
+	        this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-open-el="' + this.elementId + '"]')) || [];
+	        this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-close-el="' + this.elementId + '"]')) || [];
+	
+	        this.elementIsVisible = false;
+	
+	        this.bindEvents();
+	    }
+	
+	    /**
+	     * Binds the event listeners from the elements.
+	     */
+	
+	
+	    _createClass(ToggleElement, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+	
+	            this.toggleListeners = [];
+	            this.toggleButtons.forEach(function (toggleButton) {
+	                var toggleListener = new _domDelegate.Delegate(toggleButton);
+	                _this.toggleListeners.push(toggleListener);
+	                toggleListener.on('click', function (event) {
+	                    event.preventDefault();
+	                    _this.toggleElement();
+	                });
+	            });
+	
+	            this.openListeners = [];
+	            this.openButtons.forEach(function (openButton) {
+	                var openListener = new _domDelegate.Delegate(openButton);
+	                _this.openListeners.push(openListener);
+	                openListener.on('click', function (event) {
+	                    event.preventDefault();
+	                    _this.openElement();
+	                });
+	            });
+	
+	            this.closeListeners = [];
+	            this.closeButtons.forEach(function (closeButton) {
+	                var closeListener = new _domDelegate.Delegate(closeButton);
+	                _this.closeListeners.push(closeListener);
+	                closeListener.on('click', function (event) {
+	                    event.preventDefault();
+	                    _this.closeElement();
+	                });
+	            });
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements.
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.toggleListeners.forEach(function (toggleListener) {
+	                return toggleListener.destroy();
+	            });
+	            this.openListeners.forEach(function (openListener) {
+	                return openListener.destroy();
+	            });
+	            this.closeListeners.forEach(function (closeListener) {
+	                return closeListener.destroy();
+	            });
+	        }
+	
+	        /**
+	         * Toggle element depending if already open or not.
+	         */
+	
+	    }, {
+	        key: 'toggleElement',
+	        value: function toggleElement() {
+	            if (this.elementIsVisible) {
+	                this.closeElement();
+	            } else {
+	                this.openElement();
+	            }
+	        }
+	
+	        /**
+	         * Handle the element opening.
+	         */
+	
+	    }, {
+	        key: 'openElement',
+	        value: function openElement() {
+	            this.element.classList.remove('hidden');
+	            this.element.classList.add(IS_OPEN);
+	            this.elementIsVisible = true;
+	        }
+	
+	        /**
+	         * Handle the element closing.
+	         */
+	
+	    }, {
+	        key: 'closeElement',
+	        value: function closeElement() {
+	            this.element.classList.add('hidden');
+	            this.element.classList.remove(IS_OPEN);
+	            this.elementIsVisible = false;
+	        }
+	    }]);
+	
+	    return ToggleElement;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new ToggleElement(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(6);
+	
+	var _domOps = __webpack_require__(4);
+	
 	var _utilities = __webpack_require__(8);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -14079,7 +14240,7 @@
 	};
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14192,7 +14353,7 @@
 	};
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14343,7 +14504,7 @@
 	};
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -14354,7 +14515,7 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _slickCarousel = __webpack_require__(29);
+	var _slickCarousel = __webpack_require__(30);
 	
 	var _slickCarousel2 = _interopRequireDefault(_slickCarousel);
 	
@@ -14421,7 +14582,7 @@
 	};
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -17319,7 +17480,7 @@
 
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -17391,7 +17552,7 @@
 	};
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17493,7 +17654,7 @@
 	};
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports) {
 
 	"use strict";
