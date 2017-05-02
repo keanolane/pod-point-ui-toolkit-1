@@ -61,7 +61,17 @@
 	transform: rotate(180deg);
 }
 
+.inline-cheveron-icon {
+	margin-left: 0.3rem;
+	@include iconfont('cheveron');
+	&:before {
+		font-family: icons;
+		font-size: 1.2rem;
+	}
+}
+
 .toggle-rotate-icon {
+	display: inline-block;
 	transition: transform 0.8s ease-in-out;
 	&.rotate {
 		transition: transform 0.7s ease-in-out;

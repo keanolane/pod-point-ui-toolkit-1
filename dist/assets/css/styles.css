@@ -725,6 +725,9 @@ a {
   a:active, a:focus {
     outline: none; }
 
+.color-base {
+  color: #333; }
+
 hr {
   margin: 3rem 0;
   border-bottom: 1px solid #e2e2e2;
@@ -2545,7 +2548,16 @@ button {
     font-size: 1.7rem;
     line-height: 4rem; }
 
+.inline-cheveron-icon {
+  margin-left: 0.3rem; }
+  .inline-cheveron-icon:before {
+    content: ""; }
+  .inline-cheveron-icon:before {
+    font-family: icons;
+    font-size: 1.2rem; }
+
 .toggle-rotate-icon {
+  display: inline-block;
   transition: transform 0.8s ease-in-out; }
   .toggle-rotate-icon.rotate {
     transition: transform 0.7s ease-in-out;

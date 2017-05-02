@@ -317,7 +317,7 @@
 						<div class="grid-row">
 							<div class="grid-col">
 								<div class="panel-radio-wrap">
-									<input type="radio" name="podPoint-mobile" value="podPoint3kW" id="podPoint3kW-mobile">
+									<input type="radio" data-radio-open-panel="connectors" name="podPoint-mobile" value="podPoint3kW" id="podPoint3kW-mobile">
 									<label for="podPoint3kW-mobile"></label>
 									<div class="card card--very-light-gray">
 										<div class="clear m-b-sm">
@@ -331,7 +331,7 @@
 							</div>
 							<div class="grid-col">
 								<div class="panel-radio-wrap">
-									<input type="radio" name="podPoint-mobile" value="podPoint7kW" id="podPoint7kW-mobile">
+									<input type="radio" data-radio-open-panel="connectors" name="podPoint-mobile" value="podPoint7kW" id="podPoint7kW-mobile">
 									<label for="podPoint7kW-mobile"></label>
 									<div class="card card--very-light-gray card--standout-sash">
 										<div class="clear m-b-sm">
@@ -345,7 +345,7 @@
 							</div>
 							<div class="grid-col">
 								<div class="panel-radio-wrap">
-									<input type="radio" name="podPoint-mobile" value="podPoint22kW" id="podPoint22kW-mobile">
+									<input type="radio" data-radio-open-panel="connectors" name="podPoint-mobile" value="podPoint22kW" id="podPoint22kW-mobile">
 									<label for="podPoint22kW-mobile"></label>
 									<div class="card card--very-light-gray">
 										<div class="clear m-b-sm">
@@ -457,7 +457,10 @@
 									<p>Prevent the risk of electricity theft</p>
 									<img class="max-width--sm marg-center" src="assets/img/content/key-lock.png" alt="">
 									<p class="font-style-large">£30.00</p>
-									<p>Read description</p>
+									<p><a class="color-base" href="#" data-toggle-panel="keyLockDesc">Read description <span data-toggle-icon="keyLockDesc" class="inline-cheveron-icon toggle-rotate-icon"></span></a></p>
+									<div id="keyLockDesc" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
+										<p>Phasellus aliquam mollis arcu sed imperdiet. Vivamus turpis eros, semper et varius non, dictum ultricies orci. Nunc varius ante magna, eu mattis nulla rhoncus in.</p>
+									</div>
 									<div class="button-checkbox-wrap m-t-sm">
 										<input type="checkbox" name="keyLock" value="keyLock" id="keyLock">
 										<label for="keyLock" class="button button--secondary">Select</label>
@@ -470,7 +473,10 @@
 									<p>Plug in your EV on the go with this 5m cable.</p>
 									<img class="max-width--sm marg-center" src="assets/img/content/portable-cable.png" alt="">
 									<p class="font-style-large">£150.00</p>
-									<p>Read description</p>
+									<p><a class="color-base" href="#" data-toggle-panel="portableCableDesc">Read description <span data-toggle-icon="portableCableDesc" class="inline-cheveron-icon toggle-rotate-icon"></span></a></p>
+									<div id="portableCableDesc" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
+										<p>Fusce vitae felis bibendum, egestas purus vitae, lacinia diam. Fusce blandit turpis sed nibh hendrerit rutrum. Suspendisse diam quam, dictum id urna et, aliquet facilisis metus.</p>
+									</div>
 									<div class="button-checkbox-wrap m-t-sm">
 										<input type="checkbox" name="portableCable" value="portableCable" id="portableCable">
 										<label for="portableCable" class="button button--secondary">Select</label>
@@ -483,7 +489,10 @@
 									<p>Plug in your EV on the go with this 7.5m cable.</p>
 									<img class="max-width--sm marg-center" src="assets/img/content/fixed-cable.png" alt="">
 									<p class="font-style-large">£175.00</p>
-									<p>Read description</p>
+									<p><a class="color-base" href="#" data-toggle-panel="fixedCableDesc">Read description <span data-toggle-icon="fixedCableDesc" class="inline-cheveron-icon toggle-rotate-icon"></span></a></p>
+									<div id="fixedCableDesc" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
+										<p>Duis porttitor mauris porta lectus mattis, a suscipit risus lacinia. Vestibulum vitae facilisis enim. Praesent mattis lacus nisi, ac egestas nibh luctus sed. Vivamus consectetur ac neque a porta.</p>
+									</div>
 									<div class="button-checkbox-wrap m-t-sm">
 										<input type="checkbox" name="fixedCableExt" value="fixedCableExt" id="fixedCableExt">
 										<label for="fixedCableExt" class="button button--secondary">Select</label>
@@ -558,37 +567,37 @@
 					<button type="submit" class="button float-right-md">Next</button>
 				</div>
 			</div>
-		</section>	</form>
-
-	<section class="bg--white">
-		<div class="container">
-			<div class="content-block">
-				<h2 class="text-center text-left-md">Questions</h2>
-				<div class="grid-wrap">
-					<div class="grid-row">
-						<div class="grid-col grid-col--md-4">
-							<div class="rich-text text-center text-left-md">
-								<h3>Question 1</h3>
-								<p>Questions 1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+		</section>
+		<section class="bg--white">
+			<div class="container">
+				<div class="content-block">
+					<h2 class="text-center text-left-md">Questions</h2>
+					<div class="grid-wrap">
+						<div class="grid-row">
+							<div class="grid-col grid-col--md-4">
+								<div class="rich-text text-center text-left-md">
+									<h3>Question 1</h3>
+									<p>Questions 1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+								</div>
 							</div>
-						</div>
-						<div class="grid-col grid-col--md-4">
-							<div class="rich-text text-center text-left-md">
-								<h3>Question 2</h3>
-								<p>Questions 1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+							<div class="grid-col grid-col--md-4">
+								<div class="rich-text text-center text-left-md">
+									<h3>Question 2</h3>
+									<p>Questions 1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+								</div>
 							</div>
-						</div>
-						<div class="grid-col grid-col--md-4">
-							<div class="rich-text text-center text-left-md">
-								<h3>Question 3</h3>
-								<p>Questions 1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+							<div class="grid-col grid-col--md-4">
+								<div class="rich-text text-center text-left-md">
+									<h3>Question 3</h3>
+									<p>Questions 1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</form>
 
 	<footer class="global-footer">
 		<div class="global-footer__section-top">
