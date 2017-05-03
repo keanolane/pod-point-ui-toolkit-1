@@ -8,7 +8,7 @@
 	font-family: $font-family-base;
 	font-size: 1.4rem;
 	line-height: 1.5em;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		font-size: 1.6rem;
 	}
 }
@@ -16,7 +16,7 @@
 	@include font-base;
 	font-size: 1.2rem;
 	line-height: 1.2;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		font-size: 1.4rem;
 	}
 }
@@ -24,7 +24,7 @@
 	@include font-base;
 	font-size: 1rem;
 	line-height: 1.2;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		font-size: 1.2rem;
 	}
 }
@@ -32,7 +32,7 @@
 	@include font-base;
 	font-size: 1.6rem;
 	line-height: 1.5;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		line-height: 1.2;
 		font-size: 2rem;
 	}
@@ -41,7 +41,7 @@
 @mixin font-huge {
 	font-size: 2rem;
 	line-height: 1.1;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		font-size: 3.6rem;
 	}
 }
@@ -86,7 +86,7 @@
 @mixin font-style-h1 {
 	@include font-style-headings;
 	font-size: 2rem;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		font-size: 2.8rem;
 	}
 }
@@ -94,7 +94,7 @@
 @mixin font-style-h2 {
 	@include font-style-headings;
 	font-size: 1.8rem;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		font-size: 2.4rem;
 	}
 }
@@ -102,7 +102,7 @@
 @mixin font-style-h3 {
 	@include font-style-headings;
 	font-size: 1.4rem;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		font-size: 2.2rem;
 	}
 }
@@ -110,7 +110,7 @@
 @mixin font-style-h4 {
 	@include font-style-headings;
 	font-size: 1.4rem;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		font-size: 2rem;
 	}
 }
@@ -118,7 +118,7 @@
 @mixin font-style-h5 {
 	@include font-style-headings;
 	font-size: 1.4rem;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		font-size: 1.8rem;
 	}
 }
@@ -126,7 +126,7 @@
 @mixin font-style-h6 {
 	@include font-style-headings;
 	font-size: 1.4rem;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		font-size: 1.6rem;
 	}
 }
@@ -142,7 +142,7 @@
 	line-height: 1.6rem;
 	font-size: 1.6rem;
 	font-family: $font-family-bold;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		line-height: 2rem;
 		font-size: 2rem;
 	}

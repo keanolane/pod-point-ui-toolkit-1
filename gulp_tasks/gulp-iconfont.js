@@ -28,7 +28,7 @@ gulp.task('complileIconfont', () => {
 // Feel free to get rid if you can fix it.
 gulp.task('copyIconsScss', ['complileIconfont'], () => {
 	return gulp.src('./temp/_icons.scss')
-	.pipe(gulp.dest(config.src.scss + 'includes/'))
+	.pipe(gulp.dest(config.src.scss + 'plugins/iconfont/'))
 });
 gulp.task('deleteTemp', ['copyIconsScss'], (cb) => {
 	rimraf('./temp', cb);

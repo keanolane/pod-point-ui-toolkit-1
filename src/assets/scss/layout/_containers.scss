@@ -5,7 +5,7 @@
 .container {
 	@include container;
 	max-width: 54rem;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		max-width: $max-width-content;
 	}
 }
@@ -16,11 +16,12 @@
 	&--narrow { max-width: $max-width-text-narrow; }
 }
 
+
 .content-block {
 	@include padding(6rem null);
 	&--standout {
-		@media only screen and (min-width: $medium-screen) {
-			@include padding(8rem null);
+		@include medium-and-up {
+			@include padding(10rem null);
 		}
 	}
 	&--strip {
@@ -37,11 +38,17 @@
 		padding-top: 0;
 	}
 	&__legal {
+		width: 100%;
 		position: relative;
 		p {
-			text-align: left;
+			width: 100%;
 			@include font-style-small;
 			@include position(absolute, 2rem null 0 0);
+			.content-block--standout & {
+				@include medium-and-up {
+					top: 6rem;
+				}
+			}
 		}
 	}
 }

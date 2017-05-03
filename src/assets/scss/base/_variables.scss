@@ -2,6 +2,12 @@
 //	VARIABLES
 // =============================================================================
 
+// Screen sizes
+$xsmall-screen: 24em;
+$small-screen: 40em;
+$medium-screen: 50em;
+$large-screen: 64em;
+
 // Typography
 $font-family-base: "Quicksand Regular", sans-serif;
 $font-family-heading: "Quicksand Medium", sans-serif;
@@ -40,7 +46,7 @@ $max-width-xxxl: 70rem;
 $max-width-content: 104rem;
 $max-width-content-wide: 120rem;
 $max-width-content-narrow: 90rem;
-$max-width-text: 60rem;
+$max-width-text: 64rem;
 $max-width-text-wide: 70rem;
 $max-width-text-narrow: 50rem;
 

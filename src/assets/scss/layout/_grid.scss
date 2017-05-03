@@ -46,8 +46,16 @@ $-default-gutter: -2rem;
 			margin-bottom: 0;
 		}
 	}
+	&--b-space-mobile {
+		.grid-col {
+			margin-bottom: 8rem;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
 
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		.grid-col--md-12 {
 			@include grid-col($col: 12, $gutter: $default-gutter);
 		}
@@ -77,7 +85,7 @@ $-default-gutter: -2rem;
 			margin-bottom: 0;
 		}
 	}
-	@media only screen and (min-width: $large-screen) {
+	@include large-and-up {
 		.grid-col--lg-12 {
 			@include grid-col($col: 12, $gutter: $default-gutter);
 		}

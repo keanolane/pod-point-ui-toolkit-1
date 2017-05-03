@@ -9,13 +9,12 @@
 	@include font-style-small;
 	dt {
 		font-family: $font-family-bold;
-		border-bottom: $border-base;
+		border-bottom: $border-thin;
 		position: relative;
 		cursor: pointer;
 		@include padding(1rem 0);
-		.plus-minus-toggle span {
-			width: 1.3rem;
-			height: 1.3rem;
+		.plus-minus-toggle {
+			@include position(absolute, 0 0 null null);
 		}
 		&.is-open {
 			+ dd {
@@ -31,7 +30,7 @@
 		}
 	}
 	&--only-mobile {
-		@media only screen and (min-width: $medium-screen) {
+		@include medium-and-up {
 			dt {
 				border-bottom: none;
 				padding: 0;
@@ -42,6 +41,25 @@
 			}
 			dd {
 				@include slideDownActive(1s, 300px);
+			}
+		}
+	}
+	&--featured {
+		@include font-style-base;
+		dt {
+			font-family: $font-family-base;
+			@include padding(4rem null 4rem 6rem);
+			border-bottom: none;
+			.plus-minus-toggle {
+				@include position(absolute, 3.6rem auto null 0);
+			}
+		}
+		dd {
+			padding-left: 6rem;
+			border-bottom: $border-thin;
+			.accordion__item-content {
+				margin-bottom: 4rem;
+				padding: 0;
 			}
 		}
 	}

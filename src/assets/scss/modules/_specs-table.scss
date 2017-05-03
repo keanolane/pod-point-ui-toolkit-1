@@ -83,7 +83,7 @@ $svg-specs-safety: 'data:image/svg+xml;utf8,<svg style="enable-background:new 0 
             }
         }
     }
-    @media only screen and (min-width: $small-screen) {
+    @include small-and-up {
         > thead,
         > tbody,
         > tfoot {

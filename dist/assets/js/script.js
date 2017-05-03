@@ -14272,6 +14272,7 @@
 	    function Accordion(element) {
 	        _classCallCheck(this, Accordion);
 	
+	        console.log(element);
 	        this.element = element;
 	        this.mobileOrDesktop();
 	    }
@@ -14285,7 +14286,7 @@
 	    _createClass(Accordion, [{
 	        key: 'mobileOrDesktop',
 	        value: function mobileOrDesktop() {
-	            if ((0, _domOps.hasClass)(this.element, MOBILE_ONLY) && isMobileSize) this.bindEvents();
+	            if ((0, _domOps.hasClass)(this.element, MOBILE_ONLY) && isMobileSize || (0, _domOps.hasClass)(this.element, MOBILE_ONLY) != true) this.bindEvents();
 	        }
 	
 	        /**

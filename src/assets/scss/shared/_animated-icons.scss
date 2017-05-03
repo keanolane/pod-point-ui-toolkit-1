@@ -10,7 +10,7 @@
 	transition: .5s ease-in-out;
 	span {
 		display: block;
-		height: 1px;
+		height: 2px;
 		width: 100%;
 		background-color: $icon-color;
 		@include position(absolute, null null null 0);
@@ -45,22 +45,21 @@
 
 .plus-minus-toggle {
 	cursor: pointer;
-	@include position(absolute, 0 0 null null);
-	width: 4rem;
-	height: 4rem;
+	width: 2.5rem;
+	height: 2.5rem;
 	span {
 		display: block;
-		@include position(relative, 2rem 0.5rem null null);
+		@include position(relative, 1.7rem 0 null null);
 		float: right;
-		width: 1.7rem;
-		height: 1.7rem;
+		width: 1.5rem;
+		height: 1.5rem;
 		transition: .5s ease-in-out;
 		transform: rotate(0deg);
 		&:before,
 		&:after {
 			content: '';
 			display: block;
-			height: 1px;
+			height: 2px;
 			width: 100%;
 			background-color: $icon-color;
 			@include position(absolute, 0 null null null);
@@ -81,6 +80,19 @@
 			.accordion .is-open & {
 				opacity: 0;
 				transform: rotate(360deg);
+			}
+		}
+	}
+	&--green-in-circle {
+		border-radius: 50%;
+		border: 2px solid $primary-color;
+		span {
+			@include position(relative, 1.2rem 0.4rem null null);
+			width: 1.8rem;
+			height: 1.8rem;
+			&:before,
+			&:after {
+				background-color: $primary-color;
 			}
 		}
 	}

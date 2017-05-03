@@ -10,19 +10,19 @@
 .global-header {
 	@include container;
 	@include clearfix;
-	@media only screen and (min-width: $medium-screen) {
-		height: 10rem;
+	@include medium-and-up {
+		height: 9.6rem;
 	}
 	&.nav-open {
 		box-shadow: $bottom-shadow;
-		@media only screen and (min-width: $medium-screen) {
+		@include medium-and-up {
 			box-shadow: none;
 		}
 	}
 	&__content {
 		position: relative;
 		height: 6rem;
-		@media only screen and (min-width: $medium-screen) {
+		@include medium-and-up {
 			height: auto;
 			border-bottom: none;
 		}
@@ -32,11 +32,11 @@
 .logo-main {
 	width: 10rem;
 	@include position(absolute, 2rem null null 0);
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		top: 3rem;
 		width: 14rem;
 	}
-	@media only screen and (min-width: $large-screen) {
+	@include large-and-up {
 		width: 18rem;
 	}
 }
@@ -44,7 +44,7 @@
 .navicon {
 	margin-top: 2rem;
 	float: right;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		display: none;
 	}
 }

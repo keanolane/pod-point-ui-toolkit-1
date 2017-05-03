@@ -14,6 +14,7 @@ class Accordion {
      * @param element
      */
     constructor(element) {
+        console.log(element);
         this.element = element;
         this.mobileOrDesktop();
     }
@@ -23,7 +24,7 @@ class Accordion {
      *
      */
     mobileOrDesktop() {
-        if (hasClass(this.element, MOBILE_ONLY) && isMobileSize)
+        if ((hasClass(this.element, MOBILE_ONLY) && isMobileSize) || (hasClass(this.element, MOBILE_ONLY) != true))
             this.bindEvents();
     }
 

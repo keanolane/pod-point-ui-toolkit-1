@@ -82,7 +82,7 @@
 }
 @mixin horizontal-spacing {
 	@include padding(null $horizontal-spacing-mobile);
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		@include padding(null $horizontal-spacing);
 	}
 }

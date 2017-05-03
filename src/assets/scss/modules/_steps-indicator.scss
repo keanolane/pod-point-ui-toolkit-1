@@ -15,7 +15,7 @@
 			display: none;
 			color: $font-color-very-light;
 			font-family: $font-family-bold;
-			@media only screen and (min-width: $medium-screen) {
+			@include medium-and-up {
 				display: block;
 			}
 		}

@@ -38,7 +38,7 @@ input[type="radio"] {
 				height: 1.8rem;
 				z-index: 0;
 				transition: .28s ease;
-				@media only screen and (min-width: $medium-screen) {
+				@include medium-and-up {
 					@include margin(0.8rem null 0.8rem null);
 				}
 			}

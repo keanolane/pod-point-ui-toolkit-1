@@ -108,40 +108,6 @@ table {
   border-spacing: 0; }
 
 @font-face {
-  font-family: "Quicksand Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/quicksand-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/quicksand-regular.woff") format("woff"), url("../fonts/quicksand-regular.ttf") format("truetype"), url("../fonts/quicksand-regular.svg#Quicksand Regular") format("svg"); }
-
-@font-face {
-  font-family: "Quicksand Medium";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/quicksand-medium.eot?#iefix") format("embedded-opentype"), url("../fonts/quicksand-medium.woff") format("woff"), url("../fonts/quicksand-medium.ttf") format("truetype"), url("../fonts/quicksand-medium.svg#Quicksand Medium") format("svg"); }
-
-@font-face {
-  font-family: "Quicksand Light";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/quicksand-light.eot?#iefix") format("embedded-opentype"), url("../fonts/quicksand-light.woff") format("woff"), url("../fonts/quicksand-light.ttf") format("truetype"), url("../fonts/quicksand-light.svg#Quicksand Light") format("svg"); }
-
-@font-face {
-  font-family: "Quicksand Bold";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/quicksand-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/quicksand-bold.woff") format("woff"), url("../fonts/quicksand-bold.ttf") format("truetype"), url("../fonts/quicksand-bold.svg#Quicksand Bold") format("svg"); }
-
-.hide {
-  display: none !important; }
-
-.tel-link:hover {
-  opacity: 1;
-  cursor: default; }
-
-.full-img {
-  width: 100%; }
-
-@font-face {
   font-family: "icons";
   src: url("../fonts/icons.eot");
   src: url("../fonts/icons.eot?#iefix") format("eot"), url("../fonts/icons.woff") format("woff"), url("../fonts/icons.ttf") format("truetype"), url("../fonts/icons.svg#icons") format("svg"); }
@@ -225,6 +191,40 @@ table {
 
 .iconfont-youtube:before {
   content: ""; }
+
+@font-face {
+  font-family: "Quicksand Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/quicksand-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/quicksand-regular.woff") format("woff"), url("../fonts/quicksand-regular.ttf") format("truetype"), url("../fonts/quicksand-regular.svg#Quicksand Regular") format("svg"); }
+
+@font-face {
+  font-family: "Quicksand Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/quicksand-medium.eot?#iefix") format("embedded-opentype"), url("../fonts/quicksand-medium.woff") format("woff"), url("../fonts/quicksand-medium.ttf") format("truetype"), url("../fonts/quicksand-medium.svg#Quicksand Medium") format("svg"); }
+
+@font-face {
+  font-family: "Quicksand Light";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/quicksand-light.eot?#iefix") format("embedded-opentype"), url("../fonts/quicksand-light.woff") format("woff"), url("../fonts/quicksand-light.ttf") format("truetype"), url("../fonts/quicksand-light.svg#Quicksand Light") format("svg"); }
+
+@font-face {
+  font-family: "Quicksand Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/quicksand-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/quicksand-bold.woff") format("woff"), url("../fonts/quicksand-bold.ttf") format("truetype"), url("../fonts/quicksand-bold.svg#Quicksand Bold") format("svg"); }
+
+.hide {
+  display: none !important; }
+
+.tel-link:hover {
+  opacity: 1;
+  cursor: default; }
+
+.full-img {
+  width: 100%; }
 
 .slick-slider {
   position: relative;
@@ -313,16 +313,16 @@ table {
   padding-right: 2.5rem;
   padding-left: 2.5rem;
   max-width: 54rem; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .container {
       padding-right: 3rem;
       padding-left: 3rem; } }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .container {
       max-width: 104rem; } }
 
 .max-width-text {
-  max-width: 60rem; }
+  max-width: 64rem; }
   .max-width-text--wide {
     max-width: 70rem; }
   .max-width-text--narrow {
@@ -331,10 +331,10 @@ table {
 .content-block {
   padding-top: 6rem;
   padding-bottom: 6rem; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .content-block--standout {
-      padding-top: 8rem;
-      padding-bottom: 8rem; } }
+      padding-top: 10rem;
+      padding-bottom: 10rem; } }
   .content-block--strip {
     padding-top: 2rem;
     padding-bottom: 2rem; }
@@ -348,9 +348,10 @@ table {
   .content-block + .content-block {
     padding-top: 0; }
   .content-block__legal {
+    width: 100%;
     position: relative; }
     .content-block__legal p {
-      text-align: left;
+      width: 100%;
       margin: 0;
       font-family: "Quicksand Regular", sans-serif;
       font-size: 1.4rem;
@@ -362,14 +363,17 @@ table {
       top: 2rem;
       bottom: 0;
       left: 0; }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .content-block__legal p {
           font-size: 1.6rem; } }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .content-block__legal p {
           font-size: 1.4rem; } }
       .content-block__legal p:last-child {
         padding-bottom: 0; }
+      @media (min-width: 50em) {
+        .content-block--standout .content-block__legal p {
+          top: 6rem; } }
 
 .grid-row {
   box-sizing: border-box;
@@ -425,7 +429,11 @@ table {
     border-bottom: 1px dashed #ccc; }
   .grid-row .grid-col--no-space {
     margin-bottom: 0; }
-  @media only screen and (min-width: 50em) {
+  .grid-row--b-space-mobile .grid-col {
+    margin-bottom: 8rem; }
+    .grid-row--b-space-mobile .grid-col:last-child {
+      margin-bottom: 0; }
+  @media (min-width: 50em) {
     .grid-row .grid-col--md-12 {
       box-sizing: border-box;
       -ms-flex: 0 0 calc( 100% - 2rem);
@@ -462,7 +470,7 @@ table {
       border-bottom: none; }
     .grid-row .grid-col--no-space--md {
       margin-bottom: 0; } }
-  @media only screen and (min-width: 64em) {
+  @media (min-width: 64em) {
     .grid-row .grid-col--lg-12 {
       box-sizing: border-box;
       -ms-flex: 0 0 calc( 100% - 2rem);
@@ -515,7 +523,7 @@ p, .p {
   font-size: 1.4rem;
   line-height: 1.5em;
   padding-bottom: 0.5em; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     p, .p {
       font-size: 1.6rem; } }
   p:last-child, .p:last-child {
@@ -531,7 +539,7 @@ h1, .h1 {
   font-size: 2rem; }
   h1:last-child, .h1:last-child {
     padding-bottom: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     h1, .h1 {
       font-size: 2.8rem; } }
 
@@ -545,7 +553,7 @@ h2, .h2 {
   font-size: 1.8rem; }
   h2:last-child, .h2:last-child {
     padding-bottom: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     h2, .h2 {
       font-size: 2.4rem; } }
 
@@ -559,7 +567,7 @@ h3, .h3 {
   font-size: 1.4rem; }
   h3:last-child, .h3:last-child {
     padding-bottom: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     h3, .h3 {
       font-size: 2.2rem; } }
 
@@ -573,7 +581,7 @@ h4, .h4 {
   font-size: 1.4rem; }
   h4:last-child, .h4:last-child {
     padding-bottom: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     h4, .h4 {
       font-size: 2rem; } }
 
@@ -587,7 +595,7 @@ h5, .h5 {
   font-size: 1.4rem; }
   h5:last-child, .h5:last-child {
     padding-bottom: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     h5, .h5 {
       font-size: 1.8rem; } }
 
@@ -601,7 +609,7 @@ h6, .h6 {
   font-size: 1.4rem; }
   h6:last-child, .h6:last-child {
     padding-bottom: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     h6, .h6 {
       font-size: 1.6rem; } }
 
@@ -612,7 +620,7 @@ h6, .h6 {
   font-size: 1.4rem;
   line-height: 1.5em;
   padding-bottom: 0.5em; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .font-style-base,
     .font-style-base p {
       font-size: 1.6rem; } }
@@ -625,7 +633,7 @@ h6, .h6 {
   font-family: "Quicksand Regular", sans-serif;
   font-size: 1.4rem;
   line-height: 1.5em; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .font-base {
       font-size: 1.6rem; } }
 
@@ -638,11 +646,11 @@ h6, .h6 {
   font-size: 1.6rem;
   line-height: 1.5;
   padding-bottom: 0.5em; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .font-style-large,
     .font-style-large p {
       font-size: 1.6rem; } }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .font-style-large,
     .font-style-large p {
       line-height: 1.2;
@@ -660,11 +668,11 @@ h6, .h6 {
   font-size: 1.2rem;
   line-height: 1.2;
   padding-bottom: 0.5em; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .font-style-small,
     .font-style-small p {
       font-size: 1.6rem; } }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .font-style-small,
     .font-style-small p {
       font-size: 1.4rem; } }
@@ -679,10 +687,10 @@ h6, .h6 {
   line-height: 1.5em;
   font-size: 1.2rem;
   line-height: 1.2; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .font-small {
       font-size: 1.6rem; } }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .font-small {
       font-size: 1.4rem; } }
 
@@ -693,17 +701,17 @@ h6, .h6 {
   line-height: 1.5em;
   font-size: 1rem;
   line-height: 1.2; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .font-tiny {
       font-size: 1.6rem; } }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .font-tiny {
       font-size: 1.2rem; } }
 
 .font-huge {
   font-size: 2rem;
   line-height: 1.1; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .font-huge {
       font-size: 3.6rem; } }
 
@@ -777,14 +785,20 @@ ol {
     line-height: 1.5em;
     font-size: 1.2rem;
     line-height: 1.2; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       ul.list--small,
       ol.list--small {
         font-size: 1.6rem; } }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       ul.list--small,
       ol.list--small {
         font-size: 1.4rem; } }
+    ul.list--small li,
+    ol.list--small li {
+      margin-bottom: 1rem; }
+      ul.list--small li:last-child,
+      ol.list--small li:last-child {
+        margin-bottom: 0; }
   ul.list--links li a,
   ol.list--links li a {
     color: inherit; }
@@ -836,7 +850,7 @@ ol {
   line-height: 1.5em;
   padding-bottom: 0.5em;
   padding-bottom: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .rich-text ul, .rich-text ol {
       font-size: 1.6rem; } }
   .rich-text ul:last-child, .rich-text ol:last-child {
@@ -853,7 +867,7 @@ ol {
   .rich-text ul li {
     padding-left: 0rem;
     list-style-type: disc; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .rich-text ul li {
         padding-left: 0.5rem; } }
     .rich-text ul li ul li {
@@ -864,7 +878,7 @@ ol {
   .rich-text ol li {
     padding-left: 0.5rem;
     list-style-type: decimal; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .rich-text ol li {
         padding-left: 1rem; } }
 
@@ -890,10 +904,10 @@ ol {
   font-size: 1.6rem;
   line-height: 1.5;
   padding-bottom: 0.5em; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .rich-text--featured {
       font-size: 1.6rem; } }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .rich-text--featured {
       line-height: 1.2;
       font-size: 2rem; } }
@@ -915,10 +929,10 @@ ol {
       font-family: "Quicksand Bold", sans-serif;
       padding-bottom: 1.5rem;
       padding-left: 3rem; }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .rich-text--featured ul li {
           font-size: 1.6rem; } }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .rich-text--featured ul li {
           line-height: 1.2;
           font-size: 2rem; } }
@@ -926,6 +940,9 @@ ol {
         padding-bottom: 0; }
       .rich-text--featured ul li:before {
         content: ""; }
+      @media (min-width: 50em) {
+        .rich-text--featured ul li {
+          padding-bottom: 3rem; } }
       .rich-text--featured ul li:last-child {
         padding-bottom: 0; }
       .rich-text--featured ul li:before {
@@ -960,7 +977,7 @@ ol {
   font-size: 1.4rem;
   line-height: 1.5em;
   padding-bottom: 0.5em; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .table {
       font-size: 1.6rem; } }
   .table:last-child {
@@ -1030,7 +1047,7 @@ table th[class*="col-"] {
 .table--responsive {
   overflow-x: auto;
   min-height: 0.01%; }
-  @media only screen and (min-width: 40em) {
+  @media (min-width: 40em) {
     .table--responsive {
       width: 100%;
       margin-bottom: 1.875rem;
@@ -1112,7 +1129,7 @@ input.form-font-large ::-webkit-input-placeholder {
   line-height: 1.6rem;
   font-size: 1.6rem;
   font-family: "Quicksand Bold", sans-serif; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     input.form-font-large ::-webkit-input-placeholder {
       line-height: 2rem;
       font-size: 2rem; } }
@@ -1122,7 +1139,7 @@ input.form-font-large :-moz-placeholder {
   line-height: 1.6rem;
   font-size: 1.6rem;
   font-family: "Quicksand Bold", sans-serif; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     input.form-font-large :-moz-placeholder {
       line-height: 2rem;
       font-size: 2rem; } }
@@ -1132,7 +1149,7 @@ input.form-font-large ::-moz-placeholder {
   line-height: 1.6rem;
   font-size: 1.6rem;
   font-family: "Quicksand Bold", sans-serif; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     input.form-font-large ::-moz-placeholder {
       line-height: 2rem;
       font-size: 2rem; } }
@@ -1142,7 +1159,7 @@ input.form-font-large :-ms-input-placeholder {
   line-height: 1.6rem;
   font-size: 1.6rem;
   font-family: "Quicksand Bold", sans-serif; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     input.form-font-large :-ms-input-placeholder {
       line-height: 2rem;
       font-size: 2rem; } }
@@ -1155,7 +1172,7 @@ label {
   line-height: 1.5em;
   padding-bottom: 0.5em;
   padding-bottom: 0.5rem; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     label {
       font-size: 1.6rem; } }
   label:last-child {
@@ -1167,7 +1184,7 @@ label {
     font-size: 1.4rem;
     line-height: 1.5em;
     padding-bottom: 0.5em; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .checkbox-wrap label,
       .radio-wrap label {
         font-size: 1.6rem; } }
@@ -1225,7 +1242,7 @@ input[type="date"].input--secondary, input[type="email"].input--secondary, input
     font-family: "Quicksand Bold", sans-serif;
     padding-top: 2.5rem;
     padding-bottom: 2.5rem; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       input[type="date"].input--secondary.form-font-large, input[type="email"].input--secondary.form-font-large, input[type="number"].input--secondary.form-font-large, input[type="password"].input--secondary.form-font-large, input[type="search"].input--secondary.form-font-large, input[type="tel"].input--secondary.form-font-large, input[type="text"].input--secondary.form-font-large, input[type="url"].input--secondary.form-font-large {
         line-height: 2rem;
         font-size: 2rem; } }
@@ -1267,7 +1284,7 @@ input[type="radio"] {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .radio-wrap input[type="radio"] + label {
         font-size: 1.6rem; } }
     .radio-wrap input[type="radio"] + label:last-child {
@@ -1283,7 +1300,7 @@ input[type="radio"] {
       height: 1.8rem;
       z-index: 0;
       transition: .28s ease; }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .radio-wrap input[type="radio"] + label:after, .radio-wrap input[type="radio"] + label:before {
           margin-top: 0.8rem;
           margin-bottom: 0.8rem; } }
@@ -1571,10 +1588,10 @@ input[type="checkbox"] {
     line-height: 1.5;
     padding-bottom: 0.5em;
     font-family: "Quicksand Bold", sans-serif; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .select-dd-inline-wrap--body-text .select-dd-inline-wrap__text {
         font-size: 1.6rem; } }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .select-dd-inline-wrap--body-text .select-dd-inline-wrap__text {
         line-height: 1.2;
         font-size: 2rem; } }
@@ -1727,7 +1744,7 @@ input[type="checkbox"] {
   height: 4rem;
   max-width: 60rem;
   margin-top: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .select-dd-wrapper:not(.select-dd-wrapper--alternative) {
       margin-top: 0; } }
   .select-dd-wrapper:not(.select-dd-wrapper--alternative).select-dd-wrapper--mobile select {
@@ -1865,7 +1882,7 @@ input[type="checkbox"] {
     font-size: 1.2rem;
     height: 1.2rem;
     font-weight: bold; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .select-dd-wrapper--alternative .dk-selected:after,
       .select-dd-wrapper--alternative .mobile-select:after {
         font-size: 1.4rem;
@@ -1886,23 +1903,23 @@ input[type="checkbox"] {
   .select-dd-wrapper--alternative--h1 .mobile-select:last-child,
   .select-dd-wrapper--alternative--h1.select-dd-wrapper--mobile select:last-child {
     padding-bottom: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .select-dd-wrapper--alternative--h1 .dk-selected,
     .select-dd-wrapper--alternative--h1 .mobile-select,
     .select-dd-wrapper--alternative--h1.select-dd-wrapper--mobile select {
       font-size: 2.8rem; } }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .select-dd-wrapper--alternative--h1 .dk-selected,
     .select-dd-wrapper--alternative--h1 .mobile-select,
     .select-dd-wrapper--alternative--h1.select-dd-wrapper--mobile select {
-      margin-top: -0.7rem;
+      margin-top: -0.8rem;
       padding-right: 3rem;
       padding-bottom: 0.7rem; } }
   .select-dd-wrapper--alternative--h1 .dk-selected:after,
   .select-dd-wrapper--alternative--h1 .mobile-select:after,
   .select-dd-wrapper--alternative--h1.select-dd-wrapper--mobile select:after {
     top: 27%; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .select-dd-wrapper--alternative--h1 .dk-selected:after,
       .select-dd-wrapper--alternative--h1 .mobile-select:after,
       .select-dd-wrapper--alternative--h1.select-dd-wrapper--mobile select:after {
@@ -1910,7 +1927,16 @@ input[type="checkbox"] {
         font-size: 1.7rem;
         height: 1.7rem; } }
 
-@media only screen and (min-width: 50em) {
+.select-dd-wrapper--alternative--h1 .dk-select .dk-select-options {
+  top: -1.9rem;
+  width: 30.3rem; }
+
+.select-dd-wrapper--alternative--h1 .dk-option {
+  font-size: 2.2rem;
+  padding: 1.6rem 2rem;
+  height: 5.7rem; }
+
+@media (min-width: 50em) {
   .select-dd-wrapper--alternative--font-large {
     margin-left: 0.3rem; } }
 
@@ -1927,12 +1953,12 @@ input[type="checkbox"] {
   font-family: "Quicksand Bold", sans-serif;
   margin-top: -0.4rem;
   padding-bottom: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .select-dd-wrapper--alternative--font-large .dk-selected,
     .select-dd-wrapper--alternative--font-large .mobile-select,
     .select-dd-wrapper--alternative--font-large.select-dd-wrapper--mobile select {
       font-size: 1.6rem; } }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .select-dd-wrapper--alternative--font-large .dk-selected,
     .select-dd-wrapper--alternative--font-large .mobile-select,
     .select-dd-wrapper--alternative--font-large.select-dd-wrapper--mobile select {
@@ -1942,16 +1968,16 @@ input[type="checkbox"] {
   .select-dd-wrapper--alternative--font-large .mobile-select:last-child,
   .select-dd-wrapper--alternative--font-large.select-dd-wrapper--mobile select:last-child {
     padding-bottom: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .select-dd-wrapper--alternative--font-large .dk-selected,
     .select-dd-wrapper--alternative--font-large .mobile-select,
     .select-dd-wrapper--alternative--font-large.select-dd-wrapper--mobile select {
       margin-top: -0.8rem;
       padding-right: 2.5rem; } }
 
-.select-dd-wrapper--alternative .dk-select .dk-select-options {
+.select-dd-wrapper--alternative--font-large .dk-select .dk-select-options {
   top: -0.7rem;
-  width: 300px; }
+  width: 30rem; }
 
 .pac-container {
   border-radius: 5px;
@@ -1983,17 +2009,17 @@ input[type="checkbox"] {
   width: 100%;
   max-width: 60rem; }
 
-@media only screen and (min-width: 40em) {
+@media (min-width: 40em) {
   .form-field-wrapper {
     padding-right: 3rem; } }
 
-@media only screen and (min-width: 50em) {
+@media (min-width: 50em) {
   .form-field-wrapper {
     padding-right: 0; } }
 
 .form-field-wrapper.is-valid, .form-field-wrapper.is-invalid {
   position: relative; }
-  @media only screen and (min-width: 40em) {
+  @media (min-width: 40em) {
     .form-field-wrapper.is-valid:before, .form-field-wrapper.is-invalid:before {
       display: inline-block;
       height: inherit;
@@ -2016,11 +2042,11 @@ input[type="checkbox"] {
       position: absolute;
       top: 0.9rem;
       right: 0; } }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .form-field-wrapper.is-valid:before, .form-field-wrapper.is-invalid:before {
       right: -3rem; } }
 
-@media only screen and (min-width: 40em) {
+@media (min-width: 40em) {
   .form-field-wrapper.is-valid:before {
     content: ""; } }
 
@@ -2038,7 +2064,7 @@ input[type="checkbox"] {
 .form-field-wrapper.is-valid .select-dd-wrapper--mobile .mobile-select:after {
   color: #8CC63F; }
 
-@media only screen and (min-width: 40em) {
+@media (min-width: 40em) {
   .form-field-wrapper.is-invalid:before {
     content: ""; } }
 
@@ -2067,10 +2093,10 @@ input[type="checkbox"] {
   font-family: "Quicksand Bold", sans-serif;
   color: #C1272D;
   margin-top: 0.3rem; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .error-message {
       font-size: 1.6rem; } }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .error-message {
       font-size: 1.4rem; } }
   .error-message:last-child {
@@ -2192,7 +2218,7 @@ button {
   transition: .5s ease-in-out; }
   .navicon span {
     display: block;
-    height: 1px;
+    height: 2px;
     width: 100%;
     background-color: #333;
     position: absolute;
@@ -2222,26 +2248,23 @@ button {
 
 .plus-minus-toggle {
   cursor: pointer;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 4rem;
-  height: 4rem; }
+  width: 2.5rem;
+  height: 2.5rem; }
   .plus-minus-toggle span {
     display: block;
     position: relative;
-    top: 2rem;
-    right: 0.5rem;
+    top: 1.7rem;
+    right: 0;
     float: right;
-    width: 1.7rem;
-    height: 1.7rem;
+    width: 1.5rem;
+    height: 1.5rem;
     transition: .5s ease-in-out;
     -ms-transform: rotate(0deg);
         transform: rotate(0deg); }
     .plus-minus-toggle span:before, .plus-minus-toggle span:after {
       content: '';
       display: block;
-      height: 1px;
+      height: 2px;
       width: 100%;
       background-color: #333;
       position: absolute;
@@ -2264,6 +2287,17 @@ button {
         opacity: 0;
         -ms-transform: rotate(360deg);
             transform: rotate(360deg); }
+  .plus-minus-toggle--green-in-circle {
+    border-radius: 50%;
+    border: 2px solid #8CC63F; }
+    .plus-minus-toggle--green-in-circle span {
+      position: relative;
+      top: 1.2rem;
+      right: 0.4rem;
+      width: 1.8rem;
+      height: 1.8rem; }
+      .plus-minus-toggle--green-in-circle span:before, .plus-minus-toggle--green-in-circle span:after {
+        background-color: #8CC63F; }
 
 .circle-icon--close:before {
   content: ""; }
@@ -2293,13 +2327,13 @@ button {
 
 .divider--steps {
   background-image: url('data:image/svg+xml;utf8,<svg style="enable-background:new 0 0 3 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 3 20" version="1.1" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">.st0{fill:none;stroke:#8CC63F;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:5;}</style><line y1=".5" x2="1.5" x1="1.5" y2="20.2" class="st0"/></svg>');
-  margin: 0 auto;
+  margin: 2rem auto 0;
   width: 0.6rem;
   height: 6rem;
   background-repeat: repeat-y; }
   .divider--steps + .grid-row {
     margin-top: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .divider--steps {
       background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 436 107" style="enable-background:new 0 0 436 107;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#8CC63F;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:12;}</style><path class="st0" d="M2,0v5c0,29.3,23.7,53,53,53h326c29.3,0,53,23.7,53,53v0"/></svg>');
       margin: 0 auto;
@@ -2348,7 +2382,7 @@ button {
     .circle-icon--small-resp:before {
       font-size: 1.2rem;
       line-height: 2.5rem; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .circle-icon--small-resp {
         width: 4rem;
         height: 4rem; }
@@ -2361,7 +2395,7 @@ button {
     .circle-icon--large-resp:before {
       font-size: 1.7rem;
       line-height: 4rem; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .circle-icon--large-resp {
         width: 6rem;
         height: 6rem; }
@@ -2624,7 +2658,7 @@ button {
   max-width: 104rem;
   padding-right: 2.5rem;
   padding-left: 2.5rem; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .global-header {
       padding-right: 3rem;
       padding-left: 3rem; } }
@@ -2632,18 +2666,18 @@ button {
     content: "";
     display: table;
     clear: both; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .global-header {
-      height: 10rem; } }
+      height: 9.6rem; } }
   .global-header.nav-open {
     box-shadow: 0px 11px 16px -10px rgba(0, 0, 0, 0.1); }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .global-header.nav-open {
         box-shadow: none; } }
   .global-header__content {
     position: relative;
     height: 6rem; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .global-header__content {
         height: auto;
         border-bottom: none; } }
@@ -2653,22 +2687,22 @@ button {
   position: absolute;
   top: 2rem;
   left: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .logo-main {
       top: 3rem;
       width: 14rem; } }
-  @media only screen and (min-width: 64em) {
+  @media (min-width: 64em) {
     .logo-main {
       width: 18rem; } }
 
 .navicon {
   margin-top: 2rem;
   float: right; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .navicon {
       display: none; } }
 
-@media only screen and (min-width: 50em) {
+@media (min-width: 50em) {
   .global-footer .list--links:not(.list--inline) li {
     margin-bottom: 1rem; }
     .global-footer .list--links:not(.list--inline) li:last-child {
@@ -2678,7 +2712,7 @@ button {
   background-color: #f9fafa; }
   .global-footer__section-top .list--links {
     color: #999; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .global-footer__section-top .accordion dd .accordion__item-content {
       padding-top: 2rem;
       padding-bottom: 0; } }
@@ -2689,10 +2723,10 @@ button {
       width: 100%;
       display: inline-block;
       margin-top: 2rem; }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .global-footer__section-top__bottom .icons-list {
           margin-bottom: 1.2rem; } }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .global-footer__section-top__bottom {
         margin-top: 0;
         text-align: right;
@@ -2717,7 +2751,7 @@ button {
   background-color: #333;
   padding-top: 2rem;
   padding-bottom: 2rem; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .global-footer__section-bottom {
       padding-top: 1.5rem;
       padding-bottom: 1.5rem; } }
@@ -2730,11 +2764,11 @@ button {
     font-size: 1.2rem;
     line-height: 1.2;
     font-family: "Quicksand Bold", sans-serif; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .global-footer__section-bottom p,
       .global-footer__section-bottom ul {
         font-size: 1.6rem; } }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .global-footer__section-bottom p,
       .global-footer__section-bottom ul {
         font-size: 1.4rem; } }
@@ -2742,7 +2776,7 @@ button {
     margin-bottom: 0; }
   .global-footer__section-bottom .list--inline {
     text-align: center; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .global-footer__section-bottom .list--inline {
         text-align: left; } }
   .global-footer__section-bottom ul {
@@ -2750,7 +2784,7 @@ button {
   .global-footer__section-bottom .copyright {
     margin-top: 1rem;
     text-align: center; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .global-footer__section-bottom .copyright {
         margin-top: 0;
         text-align: right; } }
@@ -2764,9 +2798,9 @@ button {
     content: "";
     display: table;
     clear: both; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .global-nav {
-      height: 10rem;
+      height: 9.5rem;
       display: block;
       float: right; } }
   .nav-open .global-nav {
@@ -2777,38 +2811,38 @@ button {
     animation-name: fadeIn; }
   .global-nav ul li {
     position: relative;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 1px solid #e2e2e2;
     margin: 0;
     font-family: "Quicksand Regular", sans-serif;
     font-size: 1.4rem;
     line-height: 1.5em;
     font-size: 1.2rem;
     line-height: 1.2; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .global-nav ul li {
         font-size: 1.6rem; } }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .global-nav ul li {
         font-size: 1.4rem; } }
     .global-nav ul li:last-child {
       border-bottom: none; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .global-nav ul li {
         position: static;
         border-bottom: none;
         display: inline-block;
         margin-right: 1rem;
         margin-left: 1rem; } }
-    @media only screen and (min-width: 64em) {
+    @media (min-width: 64em) {
       .global-nav ul li {
         margin-right: 2rem;
         margin-left: 2rem; } }
     .global-nav ul li a:not(.plus-minus-toggle) {
-      padding: 1rem 0;
+      padding: 1.5rem 0;
       color: #333;
       font-family: "Quicksand Bold", sans-serif;
       display: block; }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .global-nav ul li a:not(.plus-minus-toggle) {
           padding: 3.9rem 0.5rem; } }
     .global-nav ul li a.find-chargepoint {
@@ -2839,17 +2873,17 @@ button {
         top: 50%;
         left: -0.5rem;
         margin-top: -11px; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .global-nav > ul {
       float: right;
       margin-right: -2rem; } }
   .global-nav > ul > li {
     min-height: 4.3rem; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .is-desktop .global-nav > ul > li.has-sub-nav .global-nav__sub-nav {
         display: none;
         transition: 0.1s ease-in-out; } }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .is-desktop .global-nav > ul > li.has-sub-nav:hover .global-nav__sub-nav {
         display: block;
         transition: 0.8s ease-in-out;
@@ -2865,16 +2899,20 @@ button {
       max-height: 500px;
       transition: max-height 1s ease-in;
       overflow: hidden; }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .global-nav > ul > li.has-sub-nav.sub-nav-open .global-nav__sub-nav {
           opacity: 1; } }
     .global-nav > ul > li.has-sub-nav .plus-minus-toggle {
-      z-index: -1; }
-      @media only screen and (min-width: 50em) {
+      z-index: -1;
+      position: absolute;
+      top: 0.4rem;
+      right: 0; }
+      @media (min-width: 50em) {
         .global-nav > ul > li.has-sub-nav .plus-minus-toggle {
           display: none; } }
-    .global-nav > ul > li:hover, .global-nav > ul > li.is-active {
-      border-bottom: 2px solid #8CC63F; }
+    @media (min-width: 50em) {
+      .global-nav > ul > li:hover, .global-nav > ul > li.is-active {
+        border-bottom: 2px solid #8CC63F; } }
   .global-nav__sub-nav {
     width: 100%;
     text-align: center;
@@ -2883,11 +2921,11 @@ button {
     transition: max-height 0.5s ease-out;
     overflow: hidden;
     background-color: white; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .global-nav__sub-nav {
         opacity: 0;
         position: absolute;
-        top: 10.2rem;
+        top: 9.6rem;
         right: 0;
         box-shadow: 0px 11px 16px -10px rgba(0, 0, 0, 0.1); } }
     .global-nav__sub-nav ul {
@@ -2898,18 +2936,18 @@ button {
       padding-left: 2.5rem;
       background-color: rgba(255, 255, 255, 0.3);
       margin-bottom: 2rem; }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .global-nav__sub-nav ul {
           padding-right: 3rem;
           padding-left: 3rem; } }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .global-nav__sub-nav ul {
           margin-bottom: 0; } }
       .global-nav__sub-nav ul li {
         border-bottom: none;
         padding-right: 2rem;
         padding-left: 2rem; }
-        @media only screen and (min-width: 40em) {
+        @media (min-width: 40em) {
           .global-nav__sub-nav ul li {
             display: inline-block; } }
         .global-nav__sub-nav ul li a {
@@ -2918,7 +2956,7 @@ button {
             margin: 0.5rem auto 2rem;
             display: block;
             width: 8rem; }
-            @media only screen and (min-width: 50em) {
+            @media (min-width: 50em) {
               .global-nav__sub-nav ul li a img {
                 width: 10rem; } }
 
@@ -2940,7 +2978,7 @@ button {
     position: absolute;
     top: 2.5rem;
     right: 2.5rem; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .modal .circle-icon--close {
         position: absolute;
         top: 3rem;
@@ -2953,11 +2991,11 @@ button {
     padding-left: 2.5rem;
     margin-top: 8rem;
     margin-bottom: 8rem; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .modal__content {
         padding-right: 3rem;
         padding-left: 3rem; } }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .modal__content {
         margin-top: 10rem;
         margin-bottom: 10rem; } }
@@ -2976,11 +3014,11 @@ button {
     font-size: 2rem; }
     .panel__title:last-child {
       padding-bottom: 0; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .panel__title {
         font-size: 2.8rem; } }
   .panel__text-content {
-    max-width: 60rem;
+    max-width: 64rem;
     margin-right: auto;
     margin-left: auto; }
 
@@ -3012,23 +3050,24 @@ button {
   .accordion.grid-row .grid-col-4 {
     margin-top: 0;
     margin-bottom: 0; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .accordion {
       font-size: 1.6rem; } }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .accordion {
       font-size: 1.4rem; } }
   .accordion:last-child {
     padding-bottom: 0; }
   .accordion dt {
     font-family: "Quicksand Bold", sans-serif;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 1px solid #e2e2e2;
     position: relative;
     cursor: pointer;
     padding: 1rem 0; }
-    .accordion dt .plus-minus-toggle span {
-      width: 1.3rem;
-      height: 1.3rem; }
+    .accordion dt .plus-minus-toggle {
+      position: absolute;
+      top: 0;
+      right: 0; }
     .accordion dt.is-open + dd {
       max-height: 300px;
       transition: max-height 1s ease-in;
@@ -3041,7 +3080,7 @@ button {
     .accordion dd .accordion__item-content {
       padding-top: 1rem;
       padding-bottom: 1rem; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .accordion--only-mobile dt {
       border-bottom: none;
       padding: 0;
@@ -3052,6 +3091,34 @@ button {
       max-height: 300px;
       transition: max-height 1s ease-in;
       overflow: hidden; } }
+  .accordion--featured {
+    margin: 0;
+    font-family: "Quicksand Regular", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.5em;
+    padding-bottom: 0.5em; }
+    @media (min-width: 50em) {
+      .accordion--featured {
+        font-size: 1.6rem; } }
+    .accordion--featured:last-child {
+      padding-bottom: 0; }
+    .accordion--featured dt {
+      font-family: "Quicksand Regular", sans-serif;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      padding-left: 6rem;
+      border-bottom: none; }
+      .accordion--featured dt .plus-minus-toggle {
+        position: absolute;
+        top: 3.6rem;
+        right: auto;
+        left: 0; }
+    .accordion--featured dd {
+      padding-left: 6rem;
+      border-bottom: 1px solid #e2e2e2; }
+      .accordion--featured dd .accordion__item-content {
+        margin-bottom: 4rem;
+        padding: 0; }
 
 .carousel-section {
   padding-top: 4rem;
@@ -3060,7 +3127,7 @@ button {
 
 .reviews-from-text {
   display: none; }
-  @media only screen and (min-width: 40em) {
+  @media (min-width: 40em) {
     .reviews-from-text {
       display: inline-block;
       padding-right: 0.5rem; } }
@@ -3077,7 +3144,7 @@ button {
   padding-left: 2.5rem;
   width: 80%;
   position: relative; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .carousel-wrap {
       padding-right: 3rem;
       padding-left: 3rem; } }
@@ -3089,7 +3156,7 @@ button {
       left: 50%;
       z-index: 1;
       margin-left: -2rem; }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .carousel-wrap--reviews .circle-icon--large-resp {
           top: -3rem;
           margin-left: -3rem; } }
@@ -3172,7 +3239,7 @@ button {
     color: white; }
   .slick-arrow.slick-prev {
     right: -4.5rem; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .slick-arrow.slick-prev {
         right: -8rem; } }
     .slick-arrow.slick-prev:before {
@@ -3180,7 +3247,7 @@ button {
           transform: rotate(-90deg); }
   .slick-arrow.slick-next {
     left: -4.5rem; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .slick-arrow.slick-next {
         left: -8rem; } }
     .slick-arrow.slick-next:before {
@@ -3229,7 +3296,7 @@ button {
     margin-right: 2px;
     margin-bottom: 1rem;
     line-height: 2rem; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .ticker span {
         font-size: 1.6rem; } }
     .ticker span:last-child {
@@ -3244,10 +3311,10 @@ button {
   font-size: 1.2rem;
   line-height: 1.2;
   margin-left: 0.5rem; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .ticker-desc {
       font-size: 1.6rem; } }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .ticker-desc {
       font-size: 1.4rem; } }
 
@@ -3290,7 +3357,7 @@ button {
         color: #8CC63F;
         font-family: "Quicksand Bold", sans-serif;
         margin-bottom: -2rem; }
-        @media only screen and (min-width: 50em) {
+        @media (min-width: 50em) {
           .card--standout .card__recommended span, .card--standout-sash .card__recommended span {
             font-size: 1.6rem; } }
   .card--sash, .card--standout-sash {
@@ -3343,7 +3410,7 @@ button {
     .card--very-light-gray hr {
       opacity: 1; }
 
-@media only screen and (min-width: 50em) {
+@media (min-width: 50em) {
   .card-set-standout .grid-row {
     margin-top: 0.7rem;
     margin-bottom: 0.7rem; }
@@ -3444,7 +3511,7 @@ button {
     .table--specs tr td:first-child.specs-icon--safety {
       background-image: url('data:image/svg+xml;utf8,<svg style="enable-background:new 0 0 18 22" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 18 22" version="1.1" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">.st0{fill:#8FC043;}.st1{fill:#333333;}</style><path class="st0" d="m16.3 4.4c0.2 3.3 0.1 6.7-1.4 9.7-1.3 2.5-3.2 4.6-5.6 6-0.1 0.1-0.3 0.1-0.4 0.2s-1.8-1.1-2-1.3c-0.7-0.5-1.3-1.1-1.8-1.8-1.5-1.9-2.7-4.2-3-6.6-0.2-2.1-0.2-4.2-0.2-6.2l7.2-2.4 7.2 2.4z"/><path class="st1" d="m8.9 20.8c-0.3 0-0.9-0.3-2.3-1.4-0.7-0.5-1.3-1.2-1.9-1.9-1.8-2.2-2.8-4.6-3.1-6.9-0.2-2.1-0.2-4.3-0.2-6.2 0-0.2 0.1-0.4 0.3-0.5l7.3-2.4h0.3l7.2 2.4c0.2 0.1 0.3 0.2 0.3 0.4 0.2 3.1 0.2 6.7-1.5 10-1.3 2.7-3.3 4.8-5.7 6.2-0.1 0.1-0.2 0.1-0.3 0.2-0.1 0-0.2 0.1-0.4 0.1zm-6.5-16.1c0 1.8 0 3.8 0.2 5.8 0.2 2.1 1.2 4.3 2.9 6.4 0.5 0.7 1.1 1.2 1.7 1.7 0.2 0.2 1.2 0.9 1.6 1.1 0.1 0 0.1-0.1 0.2-0.1 2.3-1.3 4.1-3.3 5.4-5.8 1.5-2.9 1.5-6.2 1.4-9.1l-6.7-2.2-6.7 2.2z"/><path class="st1" d="m8 14.2c-0.1 0-0.3-0.1-0.4-0.1l-2.5-2.5c-0.1-0.3-0.1-0.6 0.1-0.8s0.5-0.2 0.7 0l2.1 2.1 5.1-6.1c0.2-0.2 0.5-0.2 0.7-0.1 0.2 0.3 0.2 0.6 0 0.8l-5.4 6.5c-0.1 0.1-0.2 0.2-0.4 0.2z"/></svg>');
       background-position: 0 0.4rem; }
-  @media only screen and (min-width: 40em) {
+  @media (min-width: 40em) {
     .table--specs > thead > tr,
     .table--specs > tbody > tr,
     .table--specs > tfoot > tr {
@@ -3517,7 +3584,7 @@ button {
       display: none;
       color: #ccc;
       font-family: "Quicksand Bold", sans-serif; }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .steps-indicator__step p {
           display: block; } }
     .steps-indicator__step.active-step svg {
@@ -3571,10 +3638,10 @@ button {
       line-height: 1.2;
       font-family: "Quicksand Bold", sans-serif;
       padding-bottom: 0.3rem; }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .basket-content__item__title__main {
           font-size: 1.6rem; } }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .basket-content__item__title__main {
           font-size: 1.4rem; } }
     .basket-content__item__title__sub {
@@ -3585,10 +3652,10 @@ button {
       font-size: 1rem;
       line-height: 1.2;
       font-size: 1rem; }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .basket-content__item__title__sub {
           font-size: 1.6rem; } }
-      @media only screen and (min-width: 50em) {
+      @media (min-width: 50em) {
         .basket-content__item__title__sub {
           font-size: 1.2rem; } }
   .basket-content__item__extra {
@@ -3602,10 +3669,10 @@ button {
     font-family: "Quicksand Bold", sans-serif;
     padding-top: 1rem;
     margin-bottom: 1rem; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .basket-content__item__extra {
         font-size: 1.6rem; } }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .basket-content__item__extra {
         font-size: 1.4rem; } }
   .basket-content__item__price {
@@ -3620,10 +3687,10 @@ button {
     font-size: 1.2rem;
     line-height: 1.2;
     font-family: "Quicksand Bold", sans-serif; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .basket-content__item__price {
         font-size: 1.6rem; } }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .basket-content__item__price {
         font-size: 1.4rem; } }
 
@@ -3750,7 +3817,7 @@ button {
   width: 100%;
   position: relative;
   z-index: 1; }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .tooltip-wrap {
       display: inline-block;
       width: 0px; } }
@@ -3767,7 +3834,7 @@ button {
   border: 2px solid #ccc;
   border-radius: 5px;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.2); }
-  @media only screen and (min-width: 50em) {
+  @media (min-width: 50em) {
     .tooltip__box {
       width: 35rem;
       left: -18.3rem; } }
@@ -3809,10 +3876,10 @@ button {
     font-size: 1.2rem;
     line-height: 1.2;
     padding-bottom: 0.5em; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .tooltip__box .rich-text p, .tooltip__box .rich-text li {
         font-size: 1.6rem; } }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .tooltip__box .rich-text p, .tooltip__box .rich-text li {
         font-size: 1.4rem; } }
     .tooltip__box .rich-text p:last-child, .tooltip__box .rich-text li:last-child {
@@ -3827,7 +3894,7 @@ button {
     font-size: 1.4rem; }
     .tooltip__box .rich-text h1:last-child, .tooltip__box .rich-text h2:last-child, .tooltip__box .rich-text h3:last-child, .tooltip__box .rich-text h4:last-child, .tooltip__box .rich-text h5:last-child, .tooltip__box .rich-text h6:last-child {
       padding-bottom: 0; }
-    @media only screen and (min-width: 50em) {
+    @media (min-width: 50em) {
       .tooltip__box .rich-text h1, .tooltip__box .rich-text h2, .tooltip__box .rich-text h3, .tooltip__box .rich-text h4, .tooltip__box .rich-text h5, .tooltip__box .rich-text h6 {
         font-size: 1.6rem; } }
 
@@ -4102,7 +4169,7 @@ button {
   width: 100% !important;
   max-width: 100% !important; }
 
-@media only screen and (min-width: 50em) {
+@media (min-width: 50em) {
   .text-center-md {
     text-align: center !important; }
   .text-right-md {
@@ -4128,7 +4195,7 @@ button {
     width: 100% !important;
     max-width: 100% !important; } }
 
-@media only screen and (min-width: 64em) {
+@media (min-width: 64em) {
   .text-center-lg {
     text-align: center !important; }
   .text-right-lg {
@@ -4163,7 +4230,7 @@ button {
   text-transform: lowercase; }
 
 .max-width-text {
-  max-width: 60rem; }
+  max-width: 64rem; }
 
 .max-width-text-narrow {
   max-width: 50rem; }

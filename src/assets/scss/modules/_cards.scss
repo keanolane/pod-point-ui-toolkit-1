@@ -90,7 +90,7 @@ $card-padding-base: 2rem;
 }
 
 .card-set-standout {
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		.grid-row {
 			@include margin(0.7rem null);
 		}

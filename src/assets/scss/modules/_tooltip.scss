@@ -14,7 +14,7 @@
 	width: 100%;
 	position: relative;
 	z-index: 1;
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		display: inline-block;
 		width: 0px;
 	}
@@ -31,7 +31,7 @@
 		border: $border-base;
 		border-radius: $border-radius-base;
 		box-shadow: $box-shadow-front;
-		@media only screen and (min-width: $medium-screen) {
+		@include medium-and-up {
 			width: 35rem;
 			left: -18.3rem;
 		}

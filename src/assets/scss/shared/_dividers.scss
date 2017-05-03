@@ -4,16 +4,16 @@
 
 .divider--steps {
 	background-image: url($svg-divider-repeater);
-	margin: 0 auto;
+	@include margin(2rem auto 0 auto);
 	width: 0.6rem;
 	height: 6rem;
 	background-repeat: repeat-y;
 	& + .grid-row {
 		margin-top: 0;
 	}
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		background-image: url($svg-steps-divider-desktop);
-		margin: 0 auto;
+		@include margin(0 auto);
 		width: 70%;
 		height: 11rem;
 		background-repeat: no-repeat;

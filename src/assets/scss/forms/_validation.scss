@@ -3,29 +3,29 @@
 // =============================================================================
 
 .form-field-wrapper {
-	@media only screen and (min-width: $small-screen) {
+	@include small-and-up {
 		padding-right: 3rem;
 	}
-	@media only screen and (min-width: $medium-screen) {
+	@include medium-and-up {
 		padding-right: 0;
 	}
 	&.is-valid,
 	&.is-invalid {
 		position: relative;
 		&:before {
-			@media only screen and (min-width: $small-screen) {
+			@include small-and-up {
 				@include iconfont-styles;
 				font-weight: bold;
 				font-size: 1.6rem;
 				@include position(absolute, 0.9rem 0 null null);
 			}
-			@media only screen and (min-width: $medium-screen) {
+			@include medium-and-up {
 				right: -3rem;
 			}
 		}
 	}
 	&.is-valid {
-		@media only screen and (min-width: $small-screen) {
+		@include small-and-up {
 			@include iconfont('tick');
 		}
 		&:before {
@@ -44,7 +44,7 @@
 		}
 	}
 	&.is-invalid {
-		@media only screen and (min-width: $small-screen) {
+		@include small-and-up {
 			@include iconfont('cross');
 		}
 		&:before {

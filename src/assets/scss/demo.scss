@@ -3,7 +3,7 @@
 // =============================================================================
 
 @import 'base/variables';
-@import 'base/media-queries';
+@import 'includes/media-queries';
 
 .demo-header {
 	padding-top: 1rem;
@@ -27,7 +27,7 @@
 		text-transform: uppercase;
 		font-size: 1.2rem;
 		font-family: $font-family-bold;
-		@media only screen and (min-width: $medium-screen) {
+		@include medium-and-up {
 			font-size: 1.4rem;
 		}
 	}
