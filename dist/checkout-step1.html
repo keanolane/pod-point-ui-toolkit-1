@@ -252,21 +252,32 @@
 			<div class="container">
 				<div class="content-block">
 					<h2 class="text-center text-left-md">Select your POD Point</h2>
-					<div class="grid-wrap card-set-standout cards-same-height hidden block-md">
+					<div class="tooltip-wrap p-b-lg">
+						<p class="text-center text-left-md">All of our POD Points include standard installation <a href="#" data-toggle-el="tipExample" class="tooltip-icon"></a></p>
+						<div data-js-module="toggleElement" id="tipExample" class="tooltip hidden">
+							<div class="tooltip__box">
+								<a href="#" class="tooltip__close" data-close-el="tipExample"></a>
+								<div class="rich-text">
+									<h3>I am a heading</h3>
+									<p>I am a paragraph</p>
+									<ul>
+										<li>I am a list item</li>
+									</ul>
+								</div>
+							</div>
+						</div>			</div>
+					<div class="grid-wrap card-set-standout cards-same-height">
 						<div class="grid-row">
 							<div class="grid-col grid-col--md-4">
 								<div class="card card--centered card--more-pad">
-									<h3 class="font-huge p-b-none card__recommended">
+									<h3 class="font-huge p-b-lg card__recommended">
 										3kW
 										<span>Recommended</span>
 									</h3>
-									<p class="font-style-large bold m-t-xl">Charges a BMW i3 in XX hours</p>
+									<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
 									<hr>
 									<p class="h1 crossed-out p-b-none">£759</p>
 									<p class="h1 green p-b-none">£279*</p>
-									<p class="font-small">*with government grant</p>
-									<hr>
-									<p class="font-small bold">Includes standard installation</p>
 									<div class="button-radio-wrap m-t-sm">
 										<input type="radio" data-radio-open-panel="connectors" name="podPoint-desktop" value="podPoint3kW" id="podPoint3kW">
 										<label for="podPoint3kW" class="button button--secondary">Select</label>
@@ -275,17 +286,15 @@
 							</div>
 							<div class="grid-col grid-col--md-4">
 								<div class="card card--centered card--more-pad card--standout-sash">
-									<h3 class="font-huge p-b-none card__recommended">
+									<h3 class="font-huge p-b-lg card__recommended">
 										7kW
 										<span>Recommended</span>
 									</h3>
-									<p class="font-style-large bold m-t-xl">Charges a BMW i3 in XX hours</p>
+									<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
 									<hr>
 									<p class="h1 crossed-out p-b-none">£859</p>
 									<p class="h1 green p-b-none">£359*</p>
-									<p class="font-small">*with government grant</p>
-									<hr>
-									<p class="font-small bold">Includes standard installation</p>
+		
 									<div class="button-radio-wrap m-t-sm">
 										<input type="radio" data-radio-open-panel="connectors" name="podPoint-desktop" value="podPoint7kW" id="podPoint7kW">
 										<label for="podPoint7kW" class="button button--secondary">Select</label>
@@ -294,17 +303,14 @@
 							</div>
 							<div class="grid-col grid-col--md-4">
 								<div class="card card--more-pad card--centered">
-									<h3 class="font-huge p-b-none card__recommended">
+									<h3 class="font-huge p-b-lg card__recommended">
 										22kW
 										<span>Recommended</span>
 									</h3>
-									<p class="font-style-large bold m-t-xl">Charges a BMW i3 in XX hours</p>
+									<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
 									<hr>
 									<p class="h1 crossed-out p-b-none">£125</p>
 									<p class="h1 green p-b-none">£759*</p>
-									<p class="font-small">*with government grant</p>
-									<hr>
-									<p class="font-small bold">Includes standard installation</p>
 									<div class="button-radio-wrap m-t-sm">
 										<input type="radio" data-radio-open-panel="connectors" name="podPoint-desktop" value="podPoint22kW" id="podPoint22kW">
 										<label for="podPoint22kW" class="button button--secondary">Select</label>
@@ -313,51 +319,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="grid-wrap card-set-standout cards-same-height block hidden-md">
-						<div class="grid-row">
-							<div class="grid-col">
-								<div class="panel-radio-wrap">
-									<input type="radio" data-radio-open-panel="connectors" name="podPoint-mobile" value="podPoint3kW" id="podPoint3kW-mobile">
-									<label for="podPoint3kW-mobile"></label>
-									<div class="card card--very-light-gray">
-										<div class="clear m-b-sm">
-											<h3 class="font-huge p-b-none float-left">3kW</h3>
-											<p class="h1 green p-b-none float-right">£259*</p>
-											<p class="h1 crossed-out p-b-none m-r-xs float-right">£759</p>
-										</div>
-										<p class="bold">Charges a BMW i3 in XX hours</p>
-									</div>
-								</div>
-							</div>
-							<div class="grid-col">
-								<div class="panel-radio-wrap">
-									<input type="radio" data-radio-open-panel="connectors" name="podPoint-mobile" value="podPoint7kW" id="podPoint7kW-mobile">
-									<label for="podPoint7kW-mobile"></label>
-									<div class="card card--very-light-gray card--standout-sash">
-										<div class="clear m-b-sm">
-											<h3 class="font-huge p-b-none float-left">7kW</h3>
-											<p class="h1 green p-b-none float-right">£359*</p>
-											<p class="h1 crossed-out p-b-none m-r-xs float-right">£859</p>
-										</div>
-										<p class="bold">Charges a BMW i3 in XX hours</p>
-									</div>
-								</div>
-							</div>
-							<div class="grid-col">
-								<div class="panel-radio-wrap">
-									<input type="radio" data-radio-open-panel="connectors" name="podPoint-mobile" value="podPoint22kW" id="podPoint22kW-mobile">
-									<label for="podPoint22kW-mobile"></label>
-									<div class="card card--very-light-gray">
-										<div class="clear m-b-sm">
-											<h3 class="font-huge p-b-none float-left">22kW</h3>
-											<p class="h1 green p-b-none float-right">£759*</p>
-											<p class="h1 crossed-out p-b-none m-r-xs float-right">£1259</p>
-										</div>
-										<p class="bold">Charges a BMW i3 in XX hours</p>
-									</div>
-								</div>
-							</div>
-						</div>
+		
+					<div class="content-block__legal">
+						<p>*with government grant</p>
 					</div>
 				</div>
 			</div>
@@ -367,19 +331,22 @@
 				<div class="content-block">
 					<h2 class="text-center text-left-md p-b-sm">Select a connector</h2>
 					<p class="text-center text-left-md p-b-lg">A connector is included in the price of your POD Point.</p>
-					<div class="grid-wrap cards-same-height hidden block-md">
+					<div class="grid-wrap cards-same-height">
 						<div class="grid-row">
 							<div class="grid-col grid-col--md-6">
 								<div class="card card--centered card--more-pad">
 									<h3 class="font-large">Universal Socket</h3>
 									<p>Flexibility lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae magna a dolor luctus elementum nec.</p>
 									<img class="max-width--md marg-center" src="assets/img/content/homecharger-without-cable.png" alt="">
-									<div class="rich-text text-left m-t-md">
-										<ul>
-											<li>Compatible with any plug-in vehicle</li>
-											<li>You may need to purchase a charging cable separately</li>
-											<li>Type 2 socket</li>
-										</ul>
+									<p class="m-t-sm"><a class="color-base bold inline-circle-icon" href="#" data-toggle-panel="universalSocket">Read description <span data-toggle-icon="universalSocket" class="toggle-panel-icon--secondary toggle-rotate-icon"></span></a></p>
+									<div id="universalSocket" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
+										<div class="rich-text text-left">
+											<ul>
+												<li>Compatible with any plug-in vehicle</li>
+												<li>You may need to purchase a charging cable separately</li>
+												<li>Type 2 socket</li>
+											</ul>
+										</div>
 									</div>
 									<div class="button-radio-wrap m-t-sm">
 										<input type="radio" name="connector-desktop" value="connectorUniversal" id="connectorUniversal">
@@ -392,11 +359,14 @@
 									<h3 class="font-large">Fixed Cable</h3>
 									<p>Convenience maecenas laoreet ullamcorper leo nec congue. Aenean ligula justo, aliquet quis auctor faucibus.</p>
 									<img class="max-width--md marg-center" src="assets/img/content/homecharger-with-cable.png" alt="">
-									<div class="rich-text text-left m-t-md">
-										<ul>
-											<li>Fix the connector holster in a convenient place for use with the same EV every day</li>
-											<li>4.5m fixed cable</li>
-										</ul>
+									<p class="m-t-sm"><a class="color-base bold inline-circle-icon" href="#" data-toggle-panel="fixedCable">Read description <span data-toggle-icon="fixedCable" class="toggle-panel-icon--secondary toggle-rotate-icon"></span></a></p>
+									<div id="fixedCable" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
+										<div class="rich-text text-left">
+											<ul>
+												<li>Fix the connector holster in a convenient place for use with the same EV every day</li>
+												<li>4.5m fixed cable</li>
+											</ul>
+										</div>
 									</div>
 									<div class="button-radio-wrap m-t-sm">
 										<input type="radio" name="connector-desktop" value="connectorFixed" id="connectorFixed">
@@ -406,58 +376,23 @@
 							</div>
 						</div>
 					</div>
-					<div class="grid-wrap cards-same-height block hidden-md">
-						<div class="grid-row">
-							<div class="grid-col">
-								<div class="panel-radio-wrap">
-									<input type="radio" name="connector-mobile" value="connectorUniversal" id="connectorUniversal-mobile">
-									<label for="connectorUniversal-mobile"></label>
-									<div class="card card--very-light-gray">
-										<div class="grid-row grid-row--vertical-center grid-row--mobile-cols m-t-none">
-											<div class="grid-col grid-col--6 grid-col--no-space">
-												<p class="bold">Universal socket</p>
-											</div>
-											<div class="grid-col grid-col--6 grid-col--no-space">
-												<img class="max-width--xs float-right" src="assets/img/content/homecharger-without-cable.png" alt="">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="grid-col">
-								<div class="panel-radio-wrap">
-									<input type="radio" name="connector-mobile" value="connectorFixed" id="connectorFixed-mobile">
-									<label for="connectorFixed-mobile"></label>
-									<div class="card card--very-light-gray">
-										<div class="grid-row grid-row--vertical-center grid-row--mobile-cols m-t-none">
-											<div class="grid-col grid-col--6 grid-col--no-space">
-												<p class="bold">Fixed Cable</p>
-											</div>
-											<div class="grid-col grid-col--6 grid-col--no-space">
-												<img class="max-width--xs float-right" src="assets/img/content/homecharger-with-cable.png" alt="">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</section>
+
 		<section class="bg--white">
 			<div class="container">
 				<div class="content-block">
 					<h2 class="text-center text-left-md">Select accesories</h2>
-					<div class="grid-wrap cards-same-height hidden block-md">
+					<div class="grid-wrap cards-same-height">
 						<div class="grid-row">
 							<div class="grid-col grid-col--md-4">
 								<div class="card card--centered card--more-pad">
 									<h3 class="font-large">Key Lock</h3>
 									<p>Prevent the risk of electricity theft</p>
 									<img class="max-width--sm marg-center" src="assets/img/content/key-lock.png" alt="">
-									<p class="font-style-large">£30.00</p>
-									<p><a class="color-base" href="#" data-toggle-panel="keyLockDesc">Read description <span data-toggle-icon="keyLockDesc" class="inline-cheveron-icon toggle-rotate-icon"></span></a></p>
+									<p class="font-style-large bold">£30.00</p>
+									<p><a class="color-base bold inline-circle-icon" href="#" data-toggle-panel="keyLockDesc">Read description <span data-toggle-icon="keyLockDesc" class="toggle-panel-icon--secondary toggle-rotate-icon"></span></a></p>
 									<div id="keyLockDesc" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
 										<p>Phasellus aliquam mollis arcu sed imperdiet. Vivamus turpis eros, semper et varius non, dictum ultricies orci. Nunc varius ante magna, eu mattis nulla rhoncus in.</p>
 									</div>
@@ -472,10 +407,10 @@
 									<h3 class="font-large">Portable Cable</h3>
 									<p>Plug in your EV on the go with this 5m cable.</p>
 									<img class="max-width--sm marg-center" src="assets/img/content/portable-cable.png" alt="">
-									<p class="font-style-large">£150.00</p>
-									<p><a class="color-base" href="#" data-toggle-panel="portableCableDesc">Read description <span data-toggle-icon="portableCableDesc" class="inline-cheveron-icon toggle-rotate-icon"></span></a></p>
+									<p class="font-style-large bold">£150.00</p>
+									<p><a class="color-base bold inline-circle-icon" href="#" data-toggle-panel="portableCableDesc">Read description <span data-toggle-icon="portableCableDesc" class="toggle-panel-icon--secondary toggle-rotate-icon"></span></a></p>
 									<div id="portableCableDesc" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
-										<p>Fusce vitae felis bibendum, egestas purus vitae, lacinia diam. Fusce blandit turpis sed nibh hendrerit rutrum. Suspendisse diam quam, dictum id urna et, aliquet facilisis metus.</p>
+										<p>Phasellus aliquam mollis arcu sed imperdiet. Vivamus turpis eros, semper et varius non, dictum ultricies orci. Nunc varius ante magna, eu mattis nulla rhoncus in.</p>
 									</div>
 									<div class="button-checkbox-wrap m-t-sm">
 										<input type="checkbox" name="portableCable" value="portableCable" id="portableCable">
@@ -488,69 +423,14 @@
 									<h3 class="font-large">Fixed Cable Extension</h3>
 									<p>Plug in your EV on the go with this 7.5m cable.</p>
 									<img class="max-width--sm marg-center" src="assets/img/content/fixed-cable.png" alt="">
-									<p class="font-style-large">£175.00</p>
-									<p><a class="color-base" href="#" data-toggle-panel="fixedCableDesc">Read description <span data-toggle-icon="fixedCableDesc" class="inline-cheveron-icon toggle-rotate-icon"></span></a></p>
+									<p class="font-style-large bold">£175.00</p>
+									<p><a class="color-base bold inline-circle-icon" href="#" data-toggle-panel="fixedCableDesc">Read description <span data-toggle-icon="fixedCableDesc" class="toggle-panel-icon--secondary toggle-rotate-icon"></span></a></p>
 									<div id="fixedCableDesc" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
-										<p>Duis porttitor mauris porta lectus mattis, a suscipit risus lacinia. Vestibulum vitae facilisis enim. Praesent mattis lacus nisi, ac egestas nibh luctus sed. Vivamus consectetur ac neque a porta.</p>
+										<p>Phasellus aliquam mollis arcu sed imperdiet. Vivamus turpis eros, semper et varius non, dictum ultricies orci. Nunc varius ante magna, eu mattis nulla rhoncus in.</p>
 									</div>
 									<div class="button-checkbox-wrap m-t-sm">
 										<input type="checkbox" name="fixedCableExt" value="fixedCableExt" id="fixedCableExt">
 										<label for="fixedCableExt" class="button button--secondary">Select</label>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="grid-wrap cards-same-height block hidden-md">
-						<div class="grid-row">
-							<div class="grid-col">
-								<div class="panel-checkbox-wrap">
-									<input type="checkbox" name="keyLock-mobile" value="keyLock" id="keyLock-mobile">
-									<label for="keyLock-mobile"></label>
-									<div class="card card--very-light-gray">
-										<div class="grid-row grid-row--vertical-center grid-row--mobile-cols m-t-none">
-											<div class="grid-col grid-col--6 grid-col--no-space">
-												<p class="bold">Key Lock</p>
-												<p>£30.00</p>
-											</div>
-											<div class="grid-col grid-col--6 grid-col--no-space">
-												<img class="max-width--xs float-right" src="assets/img/content/key-lock.png" alt="">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="grid-col">
-								<div class="panel-checkbox-wrap">
-									<input type="checkbox" name="portableCable-mobile" value="portableCable" id="portableCable-mobile">
-									<label for="portableCable-mobile"></label>
-									<div class="card card--very-light-gray">
-										<div class="grid-row grid-row--vertical-center grid-row--mobile-cols m-t-none">
-											<div class="grid-col grid-col--6 grid-col--no-space">
-												<p class="bold">Portable Cable</p>
-												<p>£150.00</p>
-											</div>
-											<div class="grid-col grid-col--6 grid-col--no-space">
-												<img class="max-width--xs float-right" src="assets/img/content/portable-cable.png" alt="">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="grid-col">
-								<div class="panel-checkbox-wrap">
-									<input type="checkbox" name="fixedCableExt-mobile" value="fixedCableExt" id="fixedCableExt-mobile">
-									<label for="fixedCableExt-mobile"></label>
-									<div class="card card--very-light-gray">
-										<div class="grid-row grid-row--vertical-center grid-row--mobile-cols m-t-none">
-											<div class="grid-col grid-col--6 grid-col--no-space">
-												<p class="bold">Fixed Cable Extension</p>
-												<p>£175.00</p>
-											</div>
-											<div class="grid-col grid-col--6 grid-col--no-space">
-												<img class="max-width--xs float-right" src="assets/img/content/fixed-cable.png" alt="">
-											</div>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -563,8 +443,8 @@
 		<section class="bg--white">
 			<div class="container content-block">
 				<div class="buttons-container clear">
-					<button class="button button--tertiary float-left-md">Chat now</button>
-					<button type="submit" class="button float-right-md">Next</button>
+					<button class="button button--tertiary float-left-sm">Chat now</button>
+					<button type="submit" class="button float-right-sm">Next</button>
 				</div>
 			</div>
 		</section>

@@ -13,6 +13,7 @@ var _domOps = require('@pod-point/dom-ops');
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instances = [];
+var anElementIsOpen = false;
 var IS_OPEN = 'fade-in';
 
 var ToggleElement = function () {
@@ -30,6 +31,8 @@ var ToggleElement = function () {
         this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-toggle-el="' + this.elementId + '"]')) || [];
         this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-open-el="' + this.elementId + '"]')) || [];
         this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-close-el="' + this.elementId + '"]')) || [];
+
+        this.allElements = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-js-module="toggleElement"]'));
 
         this.elementIsVisible = false;
 
@@ -116,9 +119,11 @@ var ToggleElement = function () {
     }, {
         key: 'openElement',
         value: function openElement() {
+            this.closeAllElements();
+            anElementIsOpen = true;
+            this.elementIsVisible = true;
             this.element.classList.remove('hidden');
             this.element.classList.add(IS_OPEN);
-            this.elementIsVisible = true;
         }
 
         /**
@@ -130,6 +135,20 @@ var ToggleElement = function () {
         value: function closeElement() {
             this.element.classList.add('hidden');
             this.element.classList.remove(IS_OPEN);
+            this.elementIsVisible = false;
+        }
+
+        /**
+         * Handle the closing of all other elements.
+         */
+
+    }, {
+        key: 'closeAllElements',
+        value: function closeAllElements() {
+            this.allElements.forEach(function (el) {
+                el.classList.add('hidden');
+                el.classList.remove(IS_OPEN);
+            });
             this.elementIsVisible = false;
         }
     }]);

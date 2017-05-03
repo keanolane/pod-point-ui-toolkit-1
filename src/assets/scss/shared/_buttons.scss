@@ -19,7 +19,7 @@ button {
 	vertical-align: middle;
 	width: auto;
 	display: inline-block;
-	@include padding(0.8rem 3.5rem);
+	@include padding(0.8rem 2rem);
 	min-height: 4rem;
 	color: white;
 	background-color: $primary-color;
@@ -32,6 +32,10 @@ button {
 	border: 2px solid $primary-color;
 	transition: all 0.2s ease;
 	max-width: $button-max-width;
+
+	@include small-and-up {
+		@include padding(null 3.5rem);
+	}
 
 	&:hover:not(.is-disabled),
 	&:focus:not(.is-disabled),

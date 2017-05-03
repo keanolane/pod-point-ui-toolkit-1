@@ -40,18 +40,27 @@
 
 .inline-circle-icon {
 	position: relative;
-	padding-right: 3.5rem;
-	.circle-icon--toggle-panel,
+	padding-right: 3rem;
+	.toggle-panel-icon,
 	.toggle-panel {
-		@include position(absolute, 0 0 null null);
+		@include position(absolute, 0 -0.5rem null null);
+	}
+	.toggle-panel-icon--secondary {
+		@include position(absolute, 3px 0 null null);
 	}
 }
 
-.circle-icon--toggle-panel {
+.toggle-panel-icon {
 	@include iconfont('cheveron');
 	&:before { @include iconfont-styles; }
 	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $boxShadow: 0px 0px 0px 2px $primary-color);
 	@include icon-in-circle--size($dimension: 2.5rem, $font-size: 1.2rem);
+}
+.toggle-panel-icon--secondary {
+	@include iconfont('cheveron');
+	&:before { @include iconfont-styles; }
+	@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $boxShadow: 0px 0px 0px 2px $font-color-base);
+	@include icon-in-circle--size($dimension: 2rem, $font-size: 1rem);
 }
 .circle-icon--close-panel {
 	@include iconfont('cheveron');
@@ -59,15 +68,6 @@
 	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $boxShadow: 0px 0px 0px 2px $primary-color);
 	@include icon-in-circle--size();
 	transform: rotate(180deg);
-}
-
-.inline-cheveron-icon {
-	margin-left: 0.3rem;
-	@include iconfont('cheveron');
-	&:before {
-		font-family: icons;
-		font-size: 1.2rem;
-	}
 }
 
 .toggle-rotate-icon {

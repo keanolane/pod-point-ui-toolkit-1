@@ -27,7 +27,6 @@ var Accordion = function () {
     function Accordion(element) {
         _classCallCheck(this, Accordion);
 
-        console.log(element);
         this.element = element;
         this.mobileOrDesktop();
     }

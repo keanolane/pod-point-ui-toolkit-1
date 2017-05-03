@@ -14,6 +14,20 @@
 .inline-block { display: inline-block!important; }
 .full-width { width: 100%!important; max-width: 100%!important; }
 
+@include small-and-up {
+	.text-center-sm { text-align: center!important; }
+	.text-right-sm { text-align: right!important; }
+	.text-left-sm { text-align: left!important; }
+	.float-right-sm { float: right!important; }
+	.float-left-sm { float: left!important; }
+	.marg-center-sm { margin-right: auto!important; margin-left: auto!important; }
+	.marg-to-left-sm { margin-left: 0!important; }
+	.hidden-sm { display: none!important; }
+	.block-sm { display: block!important; }
+	.inline-block-sm { display: inline-block!important; }
+	.full-width-sm { width: 100%!important; max-width: 100%!important; }
+}
+
 @include medium-and-up {
 	.text-center-md { text-align: center!important; }
 	.text-right-md { text-align: right!important; }

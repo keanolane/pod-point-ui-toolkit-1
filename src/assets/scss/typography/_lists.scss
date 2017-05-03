@@ -36,7 +36,9 @@ ol {
 			}
 		}
 		&--tiny {
+			margin-bottom: -1rem;
 			li {
+				margin-bottom: 1rem;
 				img {
 					max-height: 4.5rem;
 					width: auto;

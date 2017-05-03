@@ -14,7 +14,6 @@ class Accordion {
      * @param element
      */
     constructor(element) {
-        console.log(element);
         this.element = element;
         this.mobileOrDesktop();
     }

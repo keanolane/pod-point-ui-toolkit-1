@@ -2,6 +2,7 @@ import { Delegate } from 'dom-delegate';
 import { nodesToArray } from '@pod-point/dom-ops';
 
 let instances = [];
+let anElementIsOpen = false;
 const IS_OPEN = 'fade-in';
 
 class ToggleElement {
@@ -17,6 +18,8 @@ class ToggleElement {
         this.toggleButtons = nodesToArray(document.querySelectorAll('[data-toggle-el="'+this.elementId+'"]')) || [];
         this.openButtons = nodesToArray(document.querySelectorAll('[data-open-el="'+this.elementId+'"]')) || [];
         this.closeButtons = nodesToArray(document.querySelectorAll('[data-close-el="'+this.elementId+'"]')) || [];
+
+        this.allElements = nodesToArray(document.querySelectorAll('[data-js-module="toggleElement"]'));
 
         this.elementIsVisible = false;
 
@@ -82,9 +85,11 @@ class ToggleElement {
      * Handle the element opening.
      */
     openElement() {
+        this.closeAllElements();
+        anElementIsOpen = true;
+        this.elementIsVisible = true;
         this.element.classList.remove('hidden');
         this.element.classList.add(IS_OPEN);
-        this.elementIsVisible = true;
     }
 
     /**
@@ -93,6 +98,17 @@ class ToggleElement {
     closeElement() {
         this.element.classList.add('hidden');
         this.element.classList.remove(IS_OPEN);
+        this.elementIsVisible = false;
+    }
+
+    /**
+     * Handle the closing of all other elements.
+     */
+    closeAllElements() {
+        this.allElements.forEach(el => {
+            el.classList.add('hidden');
+            el.classList.remove(IS_OPEN);
+        });
         this.elementIsVisible = false;
     }
 }

@@ -6,7 +6,6 @@ $card-padding-base: 2rem;
 
 .card {
 	display: block;
-	overflow: hidden;
 	background-color: white;
 	border-radius: $border-radius-base;
 	border: 2px solid $gray-keyline-very-light;
@@ -125,7 +124,7 @@ $card-padding-base: 2rem;
 				.card {
 					border: none;
 					border-radius: 0;
-					border-bottom: 2px solid $gray-keyline-very-light;
+					border-bottom: $border-thin;
 					@include padding(null 0);
 					@include margin(null $card-padding-base);
 				}

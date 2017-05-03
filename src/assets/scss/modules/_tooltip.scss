@@ -16,14 +16,14 @@
 	z-index: 1;
 	@include medium-and-up {
 		display: inline-block;
-		width: 0px;
+		width: auto;
 	}
 }
 
 .tooltip {
 	&__box {
+		@include position(absolute, 50px null null 0);
 		box-sizing: border-box;
-		@include position(absolute, 27px null null 0);
 		z-index: auto;
 		width: 100%;
 		@include padding(3rem);
@@ -33,7 +33,8 @@
 		box-shadow: $box-shadow-front;
 		@include medium-and-up {
 			width: 35rem;
-			left: -18.3rem;
+			margin-left: -17.5rem;
+			left: 50%;
 		}
 		&:before {
 			content: "";
@@ -73,7 +74,7 @@
 	}
 	&__close {
 		@include iconfont('cross');
-		@include position(absolute, 1rem 1.5rem null null);
+		@include position(absolute, 1.5rem 1.5rem null null);
 		&:before {
 			@include iconfont-styles;
 			font-size: 1.5rem;
