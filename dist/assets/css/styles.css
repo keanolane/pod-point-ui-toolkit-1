@@ -347,6 +347,29 @@ table {
     text-align: center; }
   .content-block + .content-block {
     padding-top: 0; }
+  .content-block__legal {
+    position: relative; }
+    .content-block__legal p {
+      text-align: left;
+      margin: 0;
+      font-family: "Quicksand Regular", sans-serif;
+      font-size: 1.4rem;
+      line-height: 1.5em;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      padding-bottom: 0.5em;
+      position: absolute;
+      top: 2rem;
+      bottom: 0;
+      left: 0; }
+      @media only screen and (min-width: 50em) {
+        .content-block__legal p {
+          font-size: 1.6rem; } }
+      @media only screen and (min-width: 50em) {
+        .content-block__legal p {
+          font-size: 1.4rem; } }
+      .content-block__legal p:last-child {
+        padding-bottom: 0; }
 
 .grid-row {
   box-sizing: border-box;
@@ -355,7 +378,7 @@ table {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0 -1rem;
-  margin-top: 2rem; }
+  margin-bottom: -2rem; }
   .grid-row--vertical-center {
     -ms-flex-align: center;
         align-items: center; }
@@ -3333,6 +3356,30 @@ button {
   min-height: calc(100% - 4rem); }
   .cards-same-height .card--more-pad {
     min-height: calc(100% - 8rem); }
+
+@media only screen and (max-width: 50em) {
+  .cards-merged-mobile .grid-row {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid #e2e2e2;
+    margin-right: auto;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    max-width: 30rem; }
+    .cards-merged-mobile .grid-row .grid-col {
+      -ms-flex: 100%;
+          flex: 100%;
+      margin: 0; }
+      .cards-merged-mobile .grid-row .grid-col .card {
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px solid #e2e2e2;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 2rem;
+        margin-left: 2rem; }
+      .cards-merged-mobile .grid-row .grid-col:last-child .card {
+        border-bottom: none; } }
 
 .table--specs {
   overflow-x: auto;

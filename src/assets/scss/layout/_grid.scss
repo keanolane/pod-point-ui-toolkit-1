@@ -6,11 +6,12 @@
 $default-gutter: 2rem;
 $mobile-gutter: 0.5rem;
 
-// SAMPLE GRID (change or delete as required)
+$-default-gutter: -2rem;
 
+// SAMPLE GRID (change or delete as required)
 .grid-row {
 	@include grid($flex-wrap: wrap, $gutter: $default-gutter);
-	margin-top: $default-gutter;
+	margin-bottom: $-default-gutter;
 	&--vertical-center {
 		align-items: center;
 	}

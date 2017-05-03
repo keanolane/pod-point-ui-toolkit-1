@@ -36,4 +36,12 @@
 	& + .content-block {
 		padding-top: 0;
 	}
+	&__legal {
+		position: relative;
+		p {
+			text-align: left;
+			@include font-style-small;
+			@include position(absolute, 2rem null 0 0);
+		}
+	}
 }

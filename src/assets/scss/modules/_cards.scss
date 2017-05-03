@@ -2,6 +2,8 @@
 //	CARDS
 // =============================================================================
 
+$card-padding-base: 2rem;
+
 .card {
 	display: block;
 	overflow: hidden;
@@ -9,7 +11,7 @@
 	border-radius: $border-radius-base;
 	border: 2px solid $gray-keyline-very-light;
 	color: $font-color-base;
-	@include padding(2rem);
+	@include padding($card-padding-base);
 
 	hr {
 		@include margin(1rem null);
@@ -103,6 +105,36 @@
 		min-height: calc(100% - 4rem);
 		&--more-pad {
 			min-height: calc(100% - 8rem);
+		}
+	}
+}
+
+
+@media only screen and (max-width: $medium-screen) {
+	.cards-merged-mobile {
+		.grid-row {
+			background-color: white;
+			border-radius: $border-radius-base;
+			border: 2px solid $gray-keyline-very-light;
+			@include margin(null auto 3rem auto);
+			max-width: $max-width-md;
+
+			.grid-col {
+				flex: 100%;
+				margin: 0;
+				.card {
+					border: none;
+					border-radius: 0;
+					border-bottom: 2px solid $gray-keyline-very-light;
+					@include padding(null 0);
+					@include margin(null $card-padding-base);
+				}
+				&:last-child {
+					.card {
+						border-bottom: none;
+					}
+				}
+			}
 		}
 	}
 }
