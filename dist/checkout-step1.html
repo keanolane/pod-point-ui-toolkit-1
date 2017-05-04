@@ -174,10 +174,10 @@
 			</div>
 		</div>
 	</section>
-	<form>
+	<form data-js-module="checkoutYourPodPoint">
 		<section class="container hidden block-md">
 			<div class="floating-basket-wrapper">
-				<div class="floating-basket">
+				<div data-js-module="basket" class="floating-basket">
 					<a data-toggle-panel="floatingBasket" href="#" class="floating-basket__header">
 						<h3 class="h5 floating-basket__title">Your basket</h3>
 						<span class="floating-basket__items-num">2</span>
@@ -221,7 +221,7 @@
 									<label class="label--block">Make</label>
 									<div class="form-field-wrapper">
 										<div data-js-module="selectDropdown" class="select-dd-wrapper">
-											<select>
+											<select id="selectEvMake">
 												<option selected value="0">- Please select -</option>
 												<option value="nissan">Nissan</option>
 											</select>
@@ -232,7 +232,7 @@
 									<label class="label--block">Model</label>
 									<div class="form-field-wrapper">
 										<div data-js-module="selectDropdown" class="select-dd-wrapper">
-											<select disabled="true">
+											<select id="selectEvModel" disabled="true">
 												<option selected value="0">- Please select -</option>
 												<option value="leaf">Leaf</option>
 											</select>
@@ -241,7 +241,7 @@
 								</div>
 							</div>
 							<div class="grid-col grid-col--md-6">
-								<img class="marg-center float-left-md max-width--lg" src="assets/img/content/cars/none.png" alt="">
+								<img id="carImage" class="marg-center float-left-md max-width--lg" src="assets/img/content/cars/none.png" alt="">
 							</div>
 						</div>
 					</div>
@@ -274,8 +274,8 @@
 										3kW
 										<span>Recommended</span>
 									</h3>
-									<div class="hidden">
-										<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+									<div class="">
+										<p class="font-style-large bold">Charges a Nissan Leaf in <br>7 hours</p>
 									</div>
 									<hr>
 									<p class="h1 crossed-out p-b-none">£759</p>
@@ -292,8 +292,8 @@
 										7kW
 										<span>Recommended</span>
 									</h3>
-									<div class="hidden">
-										<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+									<div class="">
+										<p class="font-style-large bold">Charges a Nissan Leaf in <br>4 hours</p>
 									</div>
 									<hr>
 									<p class="h1 crossed-out p-b-none">£859</p>
@@ -311,8 +311,8 @@
 										22kW
 										<span>Recommended</span>
 									</h3>
-									<div class="hidden">
-										<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+									<div class="">
+										<p class="font-style-large bold">Charges a Nissan Leaf in <br>4 hours</p>
 									</div>
 									<hr>
 									<p class="h1 crossed-out p-b-none">£125</p>
@@ -396,7 +396,7 @@
 								<div class="card card--centered card--more-pad">
 									<h3 class="font-large">Key Lock</h3>
 									<p>Prevent the risk of electricity theft</p>
-									<img class="max-width--sm marg-center" src="assets/img/content/key-lock.png" alt="">
+									<img class="max-width--xs marg-center" src="assets/img/content/key-lock.png" alt="">
 									<p class="font-style-large bold">£30.00</p>
 									<p><a class="color-base bold inline-circle-icon" href="#" data-toggle-panel="keyLockDesc">Read description <span data-toggle-icon="keyLockDesc" class="toggle-panel-icon--secondary toggle-rotate-icon"></span></a></p>
 									<div id="keyLockDesc" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
@@ -412,7 +412,7 @@
 								<div class="card card--centered card--more-pad">
 									<h3 class="font-large">Portable Cable</h3>
 									<p>Plug in your EV on the go with this 5m cable.</p>
-									<img class="max-width--sm marg-center" src="assets/img/content/portable-cable.png" alt="">
+									<img class="max-width--xs marg-center" src="assets/img/content/portable-cable.png" alt="">
 									<p class="font-style-large bold">£150.00</p>
 									<p><a class="color-base bold inline-circle-icon" href="#" data-toggle-panel="portableCableDesc">Read description <span data-toggle-icon="portableCableDesc" class="toggle-panel-icon--secondary toggle-rotate-icon"></span></a></p>
 									<div id="portableCableDesc" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
@@ -428,7 +428,7 @@
 								<div class="card card--centered card--more-pad">
 									<h3 class="font-large">Fixed Cable Extension</h3>
 									<p>Plug in your EV on the go with this 7.5m cable.</p>
-									<img class="max-width--sm marg-center" src="assets/img/content/fixed-cable.png" alt="">
+									<img class="max-width--xs marg-center" src="assets/img/content/fixed-cable.png" alt="">
 									<p class="font-style-large bold">£175.00</p>
 									<p><a class="color-base bold inline-circle-icon" href="#" data-toggle-panel="fixedCableDesc">Read description <span data-toggle-icon="fixedCableDesc" class="toggle-panel-icon--secondary toggle-rotate-icon"></span></a></p>
 									<div id="fixedCableDesc" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
@@ -576,54 +576,60 @@
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://d3js.org/queue.v1.min.js"></script>
 	<script src="http://d3js.org/topojson.v1.min.js"></script>
-	<script src="assets/js/gridmap.js"></script>
+	<script src="assets/js-plugins/gridmap.js"></script>
+
 	<script>
-		  var width = 960,
-		    height = 1160;
 
-		  var projection = d3.geo.albers()
-		    .center([0, 55.4])
-		    .rotate([4.4, 0])
-		    .parallels([50, 60])
-		    .scale(6000)
-		    .translate([width / 2, height / 2]),
-		    path = d3.geo.path().projection(projection);
+		var mapElement = document.querySelector("#gridmap");
 
-		queue()
-		    .defer(d3.json, "assets/js/data/geo-data/uk.json")
-		    .await(ready);
+		if (mapElement) {
+			var width = 500,
+			height = 600;
 
-		getRandomInt = function(min, max) {
-		  return Math.floor(Math.random() * (max - min + 1)) + min
+			var projection = d3.geo.albers()
+			.center([0, 55.4])
+			.rotate([4.4, 0])
+			.parallels([50, 60])
+			.scale(2500)
+			.translate([width / 2, height / 2]),
+			path = d3.geo.path().projection(projection);
+
+			queue()
+			.defer(d3.json, "assets/js/data/geo-data/uk.json")
+			.await(ready);
+
+			getRandomInt = function(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min
+			}
+
+			function ready(error, uk) {
+
+			//var features =  topojson.feature(us, us.objects.counties).features;
+			var features =  topojson.feature(uk, uk.objects.subunits).features;
+
+			// generate some random data
+			var data = d3.map(); // data is a d3.map !!
+			var j;
+			for (j = 0, len = features.length; j < len; j++) {
+			data.set(features[j]["id"], getRandomInt(1,5));
+			}
+
+			chart = new gridmap()
+			  .data(data)
+			  .width(width)
+			  .height(height)
+			  .key("id")
+			  .side(10)
+			  .isDensity(true)
+			  .projection(projection)
+			  .features(features)
+			  .fill("#CCCCCC");
+
+			d3.select("#gridmap").call(chart);
 		}
+	}
 
-		function ready(error, uk) {
-
-		  //var features =  topojson.feature(us, us.objects.counties).features;
-		  var features =  topojson.feature(uk, uk.objects.subunits).features;
-
-		  // generate some random data
-		  var data = d3.map(); // data is a d3.map !!
-		  var j;
-		  for (j = 0, len = features.length; j < len; j++) {
-		    data.set(features[j]["id"], getRandomInt(1,5));
-		  }
-
-		  chart = gridmap()
-		      .data(data)
-		      .width(width)
-		      .height(height)
-		      .key("id")
-		      .side(10)
-		      .isDensity(true)
-		      .projection(projection)
-		      .features(features)
-		      .fill("#CCCCCC");
-
-		  d3.select("#evMap").call(chart);
-
-		}
-	</script>
+</script>
 
 </body>
 </html>

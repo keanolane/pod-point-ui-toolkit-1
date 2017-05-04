@@ -132,7 +132,7 @@
 		<button type="button" class="circle-icon circle-icon--close circle-icon--outlined-dark circle-icon--small-resp modal-close">Close</button>
 		<div class="modal__content">
 			<div class="panel">
-				<img class="img--resp img--rounded-corners" src="http://placehold.it/700x400">
+				<img class="img--resp img--rounded-corners" src="assets/img/content/homecharge-video-placeholder.jpg">
 				<div class="content-block">
 					<h2 class="panel__title">Pricing</h2>
 					<div class="panel__text-content" class="font-style-large">
@@ -143,28 +143,32 @@
 				<div class="grid-wrap">
 					<div class="grid-row">
 						<div class="grid-col grid-col--md-4">
-							<div class="card card--centered card--no-border">
+							<div class="card card--centered card--no-border marg-center max-width--md">
 								<h3>3.7kW</h3>
-								<img class="img--resp img--rounded-corners" src="http://placehold.it/100x50">
+								<img class="marg-center max-width--xs img--rounded-corners m-b-sm" src="assets/img/content/homechargers.png">
 								<p>(Up to 15 miles RPH)<br>from <strong class="green">&pound;279*</strong></p>
 							</div>
 						</div>
 						<div class="grid-col grid-col--md-4">
-							<div class="card card--centered card--no-border">
+							<div class="card card--centered card--no-border marg-center max-width--md">
 								<h3>7kW</h3>
-								<img class="img--resp img--rounded-corners" src="http://placehold.it/100x50">
+								<img class="marg-center max-width--xs img--rounded-corners m-b-sm" src="assets/img/content/homechargers.png">
 								<p>(Up to 30 miles RPH)<br>from <strong class="green">&pound;359*</strong></p>
 							</div>
 						</div>
 						<div class="grid-col grid-col--md-4">
-							<div class="card card--centered card--no-border">
+							<div class="card card--centered card--no-border marg-center max-width--md">
 								<h3>22kW</h3>
-								<img class="img--resp img--rounded-corners" src="http://placehold.it/100x50">
+								<img class="marg-center max-width--xs img--rounded-corners m-b-sm" src="assets/img/content/homechargers.png">
 								<p>(Up to 80 miles RPH)<br>from <strong class="green">&pound;999*</strong></p>
 							</div>
 						</div>
 					</div>
 				</div>
+				<a href="checkout-step1.html" class="button m-t-xl">Buy now</a>
+	
+				<p class="font-style-small m-t-xl text-left">*with government grant</p>
+	
 			</div>
 		</div>
 	</div>
@@ -467,12 +471,12 @@
 							<div class="grid-wrap">
 								<div class="grid-row">
 									<div class="grid-col grid-col--lg-6 grid-col--lg-right">
-										<img class="marg-center max-width--md" src="assets/img/content/podpoint-homecharge-gallery-item-one.png" alt="">
+										<img class="marg-center max-width--md" src="assets/img/content/homecharger-without-cable.png" alt="">
 									</div>
 									<div class="grid-col grid-col--lg-6">
 										<div class="rich-text text-center text-left-md">
 											<h2>Universal Unit</h2>
-											<p>If you change/upgrade your EV to a different Type ie. Type 1 to 2 you will just need to purchase a cable or a cable might be supplied with the car.</p>
+											<p>This unit connects to any electric car (using a cable that's sold separately). This means you're future proofed if you change vehicle in future.</p>
 										</div>
 									</div>
 								</div>
@@ -482,12 +486,12 @@
 							<div class="grid-wrap">
 								<div class="grid-row">
 									<div class="grid-col grid-col--lg-6 grid-col--lg-right">
-										<img class="marg-center max-width--md" src="assets/img/content/podpoint-homecharge-gallery-item-one.png" alt="">
+										<img class="marg-center max-width--md" src="assets/img/content/homecharger-with-cable.png" alt="">
 									</div>
 									<div class="grid-col grid-col--lg-6">
 										<div class="rich-text text-center text-left-md">
-											<h2>Tethered Unit</h2>
-											<p>This is a convenient option as the 4.8m cable is attached to the unit.</p>
+											<h2>Fixed Cable Unit</h2>
+											<p>This unit is more convenient because it has a 4.8m charging cable permanently attached. However, if you change vehicle in the future you may need to upgrade your unit for it to be compatible with your new car.</p>
 										</div>
 									</div>
 								</div>
@@ -495,7 +499,7 @@
 						</div>
 					</div>
 				</div>
-				<p class="m-t-md bold text-center"><a href="#" class="inline-circle-icon" data-toggle-panel="techSpecs">View tech specs<span data-toggle-icon="techSpecs" class="toggle-panel-icon toggle-rotate-icon"></span></a></p>
+				<p class="m-t-xl bold text-center"><a href="#" class="inline-circle-icon" data-toggle-panel="techSpecs">View tech specs<span data-toggle-icon="techSpecs" class="toggle-panel-icon toggle-rotate-icon"></span></a></p>
 			</div>
 		</div>
 	</section>
@@ -773,54 +777,60 @@
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://d3js.org/queue.v1.min.js"></script>
 	<script src="http://d3js.org/topojson.v1.min.js"></script>
-	<script src="assets/js/gridmap.js"></script>
+	<script src="assets/js-plugins/gridmap.js"></script>
+
 	<script>
-		  var width = 960,
-		    height = 1160;
 
-		  var projection = d3.geo.albers()
-		    .center([0, 55.4])
-		    .rotate([4.4, 0])
-		    .parallels([50, 60])
-		    .scale(6000)
-		    .translate([width / 2, height / 2]),
-		    path = d3.geo.path().projection(projection);
+		var mapElement = document.querySelector("#gridmap");
 
-		queue()
-		    .defer(d3.json, "assets/js/data/geo-data/uk.json")
-		    .await(ready);
+		if (mapElement) {
+			var width = 500,
+			height = 600;
 
-		getRandomInt = function(min, max) {
-		  return Math.floor(Math.random() * (max - min + 1)) + min
+			var projection = d3.geo.albers()
+			.center([0, 55.4])
+			.rotate([4.4, 0])
+			.parallels([50, 60])
+			.scale(2500)
+			.translate([width / 2, height / 2]),
+			path = d3.geo.path().projection(projection);
+
+			queue()
+			.defer(d3.json, "assets/js/data/geo-data/uk.json")
+			.await(ready);
+
+			getRandomInt = function(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min
+			}
+
+			function ready(error, uk) {
+
+			//var features =  topojson.feature(us, us.objects.counties).features;
+			var features =  topojson.feature(uk, uk.objects.subunits).features;
+
+			// generate some random data
+			var data = d3.map(); // data is a d3.map !!
+			var j;
+			for (j = 0, len = features.length; j < len; j++) {
+			data.set(features[j]["id"], getRandomInt(1,5));
+			}
+
+			chart = new gridmap()
+			  .data(data)
+			  .width(width)
+			  .height(height)
+			  .key("id")
+			  .side(10)
+			  .isDensity(true)
+			  .projection(projection)
+			  .features(features)
+			  .fill("#CCCCCC");
+
+			d3.select("#gridmap").call(chart);
 		}
+	}
 
-		function ready(error, uk) {
-
-		  //var features =  topojson.feature(us, us.objects.counties).features;
-		  var features =  topojson.feature(uk, uk.objects.subunits).features;
-
-		  // generate some random data
-		  var data = d3.map(); // data is a d3.map !!
-		  var j;
-		  for (j = 0, len = features.length; j < len; j++) {
-		    data.set(features[j]["id"], getRandomInt(1,5));
-		  }
-
-		  chart = gridmap()
-		      .data(data)
-		      .width(width)
-		      .height(height)
-		      .key("id")
-		      .side(10)
-		      .isDensity(true)
-		      .projection(projection)
-		      .features(features)
-		      .fill("#CCCCCC");
-
-		  d3.select("#evMap").call(chart);
-
-		}
-	</script>
+</script>
 
 </body>
 </html>

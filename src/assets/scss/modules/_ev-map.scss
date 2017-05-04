@@ -2,7 +2,18 @@
 //  EV MAP
 // =============================================================================
 
+.ev-map-wrap {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 470px;
+}
 .ev-map {
+	display: block;
+	width: 500px;
+	height: 700px;
+	@include position(absolute, -100px null null 50%);
+	margin-left: -250px;
 	circle {
 		transform-origin: 50% 50%;
 		transform: scale(1,1);

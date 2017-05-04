@@ -11,10 +11,17 @@ gulp.task('copyMain', () => {
 			config.src.fonts + '{,*/}*.*',
 		])
 	.pipe(gulp.dest(config.dist.fonts));
+});
+
+gulp.task('copyJS', () => {
 	gulp.src([
 			config.src.jsData,
 		])
 	.pipe(gulp.dest(config.dist.jsData));
+	gulp.src([
+			config.src.jsPlugins + '*.js',
+		])
+	.pipe(gulp.dest(config.dist.jsPlugins));
 });
 
 gulp.task('copyImages', () => {
@@ -24,4 +31,4 @@ gulp.task('copyImages', () => {
 	.pipe(gulp.dest(config.dist.img));
 });
 
-gulp.task('copyAll', ['copyMain', 'copyImages']);
+gulp.task('copyAll', ['copyMain', 'copyJS', 'copyImages']);

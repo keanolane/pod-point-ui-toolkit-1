@@ -20,6 +20,9 @@ import headerNav from './modules/header-nav';
 import carousel from './modules/Carousel';
 import addressLookup from './modules/address-lookup';
 import changeContent from './modules/change-content';
+import checkoutYourPodPoint from './modules/checkout-your-pod-point';
+import basket from './modules/basket';
+
 
 import { initAutocomplete, geolocate, fillInAddress } from './modules/address-lookup';
 
@@ -52,6 +55,8 @@ dom.whenReady(() => {
             carousel,
             addressLookup,
             changeContent,
+            checkoutYourPodPoint,
+            basket,
         })
     });
 });

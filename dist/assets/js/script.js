@@ -118,11 +118,19 @@
 	
 	var _changeContent2 = _interopRequireDefault(_changeContent);
 	
+	var _checkoutYourPodPoint = __webpack_require__(33);
+	
+	var _checkoutYourPodPoint2 = _interopRequireDefault(_checkoutYourPodPoint);
+	
+	var _basket = __webpack_require__(34);
+	
+	var _basket2 = _interopRequireDefault(_basket);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(33);
+	__webpack_require__(35);
 	
 	window.initAutocomplete = _addressLookup.initAutocomplete;
 	window.geolocate = _addressLookup.geolocate;
@@ -152,7 +160,9 @@
 	            accordion: _accordion2.default,
 	            carousel: _Carousel2.default,
 	            addressLookup: _addressLookup2.default,
-	            changeContent: _changeContent2.default
+	            changeContent: _changeContent2.default,
+	            checkoutYourPodPoint: _checkoutYourPodPoint2.default,
+	            basket: _basket2.default
 	        })
 	    });
 	});
@@ -17674,6 +17684,140 @@
 
 /***/ },
 /* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(6);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var CheckoutYourPodPoint = function () {
+	
+	    /**
+	     * Creates a new form element.
+	     *
+	     * @param element
+	     */
+	    function CheckoutYourPodPoint(element) {
+	        _classCallCheck(this, CheckoutYourPodPoint);
+	
+	        this.element = element;
+	
+	        this.selectEvMake = this.element.querySelector('#selectEvMake');
+	        this.selectEvModel = this.element.querySelector('#selectEvMake');
+	        this.carImage = this.element.querySelector('#carImage');
+	    }
+	
+	    /**
+	     * Binds the event listeners from the elements.
+	     */
+	
+	
+	    _createClass(CheckoutYourPodPoint, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {}
+	
+	        /**
+	         * Unbinds the event listeners from the elements.
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {}
+	    }]);
+	
+	    return CheckoutYourPodPoint;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new CheckoutYourPodPoint(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(6);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var Basket = function () {
+	
+	    /**
+	     * Creates a new basket element.
+	     *
+	     * @param element
+	     */
+	    function Basket(element) {
+	        _classCallCheck(this, Basket);
+	
+	        this.element = element;
+	    }
+	
+	    /**
+	     * Binds the event listeners from the elements.
+	     */
+	
+	
+	    _createClass(Basket, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {}
+	
+	        /**
+	         * Unbinds the event listeners from the elements.
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {}
+	    }]);
+	
+	    return Basket;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new Basket(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ },
+/* 35 */
 /***/ function(module, exports) {
 
 	"use strict";
