@@ -4038,6 +4038,21 @@ button {
     font-size: 1.5rem;
     color: #333; }
 
+.ev-map circle {
+  -ms-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+  -ms-transform: scale(1, 1);
+      transform: scale(1, 1); }
+
+.ev-map circle.gridmap-dot:hover {
+  fill: #8cc63f !important; }
+
+.ev-map path.arc {
+  fill-opacity: 0;
+  stroke: #8cc63f;
+  stroke-width: 7;
+  stroke-linecap: "round"; }
+
 .m-none {
   margin: 0 !important; }
 

@@ -219,7 +219,7 @@
 								</div>
 							</div>
 							<div class="text-center text-left-md m-t-lg">
-								<button class="button button--secondary">Read more</button>
+								<a href="https://pod-point.com/landing-pages/how-long-does-it-take-to-charge-an-electric-car" target="_blank" class="button button--secondary">Read more</a>
 							</div>
 						</div>
 						<div class="grid-col grid-col--md-6">
@@ -238,7 +238,7 @@
 								</div>
 							</div>
 							<div class="text-center text-left-md m-t-lg">
-								<button class="button button--secondary">Read more</button>
+								<a href="https://pod-point.com/landing-pages/cost-of-charging-electric-car" target="_blank" class="button button--secondary">Read more</a>
 							</div>
 						</div>
 					</div>
@@ -302,7 +302,7 @@
 				<div class="grid-wrap">
 					<div class="grid-row">
 						<div class="grid-col grid-col--md-6 grid-col--md-right">
-	
+							<div id="evMap"></div>
 						</div>
 						<div class="grid-col grid-col--md-6 text-center text-left-md">
 							<button class="button">Find a chargepoint</button>
@@ -413,6 +413,58 @@
 	</div>
 
 	<script src="assets/js/script.js"></script>
+
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="http://d3js.org/queue.v1.min.js"></script>
+	<script src="http://d3js.org/topojson.v1.min.js"></script>
+	<script src="assets/js/gridmap.js"></script>
+	<script>
+		  var width = 960,
+		    height = 1160;
+
+		  var projection = d3.geo.albers()
+		    .center([0, 55.4])
+		    .rotate([4.4, 0])
+		    .parallels([50, 60])
+		    .scale(6000)
+		    .translate([width / 2, height / 2]),
+		    path = d3.geo.path().projection(projection);
+
+		queue()
+		    .defer(d3.json, "assets/js/data/geo-data/uk.json")
+		    .await(ready);
+
+		getRandomInt = function(min, max) {
+		  return Math.floor(Math.random() * (max - min + 1)) + min
+		}
+
+		function ready(error, uk) {
+
+		  //var features =  topojson.feature(us, us.objects.counties).features;
+		  var features =  topojson.feature(uk, uk.objects.subunits).features;
+
+		  // generate some random data
+		  var data = d3.map(); // data is a d3.map !!
+		  var j;
+		  for (j = 0, len = features.length; j < len; j++) {
+		    data.set(features[j]["id"], getRandomInt(1,5));
+		  }
+
+		  chart = gridmap()
+		      .data(data)
+		      .width(width)
+		      .height(height)
+		      .key("id")
+		      .side(10)
+		      .isDensity(true)
+		      .projection(projection)
+		      .features(features)
+		      .fill("#CCCCCC");
+
+		  d3.select("#evMap").call(chart);
+
+		}
+	</script>
 
 </body>
 </html>

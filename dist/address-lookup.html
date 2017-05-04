@@ -37,18 +37,14 @@
 
 	<section>
 		<div class="container content-block">
-
 			<div data-js-module="addressLookup">
-
-				<div class="field-row">
-					<label class="label--block">Look up your address</label>
-					<div id="locationField" class="form-field-wrapper">
-						<input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text"></input>
-					</div>
+			
+				<div id="locationField" class="form-field-wrapper">
+					<input id="autocomplete" placeholder="Search by postcode, street or address" onFocus="geolocate()" type="text"></input>
 				</div>
-
+			
 				<hr>
-
+			
 				<div id="address" class="grid-wrap">
 					<div class="grid-row">
 						<div class="grid-col grid-col--md-6">
@@ -93,19 +89,70 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- Replace the value of the key parameter with your own API key. -->
-				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJDHzP78pQL4DbiEBhV8RyBRLJnIzhLX0&libraries=places&callback=initAutocomplete"
-			        async defer></script>
-
-			</div>
-		</div>
+			
+			</div>		</div>
 	</section>
 
 </div>
+
+<!-- Replace the value of the key parameter with your own API key. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJDHzP78pQL4DbiEBhV8RyBRLJnIzhLX0&libraries=places&callback=initAutocomplete"
+    async defer></script>
 	</div>
 
 	<script src="assets/js/script.js"></script>
+
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="http://d3js.org/queue.v1.min.js"></script>
+	<script src="http://d3js.org/topojson.v1.min.js"></script>
+	<script src="assets/js/gridmap.js"></script>
+	<script>
+		  var width = 960,
+		    height = 1160;
+
+		  var projection = d3.geo.albers()
+		    .center([0, 55.4])
+		    .rotate([4.4, 0])
+		    .parallels([50, 60])
+		    .scale(6000)
+		    .translate([width / 2, height / 2]),
+		    path = d3.geo.path().projection(projection);
+
+		queue()
+		    .defer(d3.json, "assets/js/data/geo-data/uk.json")
+		    .await(ready);
+
+		getRandomInt = function(min, max) {
+		  return Math.floor(Math.random() * (max - min + 1)) + min
+		}
+
+		function ready(error, uk) {
+
+		  //var features =  topojson.feature(us, us.objects.counties).features;
+		  var features =  topojson.feature(uk, uk.objects.subunits).features;
+
+		  // generate some random data
+		  var data = d3.map(); // data is a d3.map !!
+		  var j;
+		  for (j = 0, len = features.length; j < len; j++) {
+		    data.set(features[j]["id"], getRandomInt(1,5));
+		  }
+
+		  chart = gridmap()
+		      .data(data)
+		      .width(width)
+		      .height(height)
+		      .key("id")
+		      .side(10)
+		      .isDensity(true)
+		      .projection(projection)
+		      .features(features)
+		      .fill("#CCCCCC");
+
+		  d3.select("#evMap").call(chart);
+
+		}
+	</script>
 
 </body>
 </html>

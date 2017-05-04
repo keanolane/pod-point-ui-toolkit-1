@@ -1,0 +1,19 @@
+// =============================================================================
+//  EV MAP
+// =============================================================================
+
+.ev-map {
+	circle {
+		transform-origin: 50% 50%;
+		transform: scale(1,1);
+	}
+	circle.gridmap-dot:hover {
+		fill: rgb(140, 198, 63) !important;
+	}
+	path.arc{
+		fill-opacity: 0;
+		stroke: rgb(140, 198, 63);
+		stroke-width: 7;
+		stroke-linecap:"round";
+	}
+}

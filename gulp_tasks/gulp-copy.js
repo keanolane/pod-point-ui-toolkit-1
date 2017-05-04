@@ -11,6 +11,10 @@ gulp.task('copyMain', () => {
 			config.src.fonts + '{,*/}*.*',
 		])
 	.pipe(gulp.dest(config.dist.fonts));
+	gulp.src([
+			config.src.jsData,
+		])
+	.pipe(gulp.dest(config.dist.jsData));
 });
 
 gulp.task('copyImages', () => {
