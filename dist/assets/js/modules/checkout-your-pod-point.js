@@ -8,6 +8,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _domDelegate = require('dom-delegate');
 
+var _utilities = require('./../utilities');
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instances = [];
@@ -25,8 +27,10 @@ var CheckoutYourPodPoint = function () {
         this.element = element;
 
         this.selectEvMake = this.element.querySelector('#selectEvMake');
-        this.selectEvModel = this.element.querySelector('#selectEvMake');
+        this.selectEvModel = this.element.querySelector('#selectEvModel');
         this.carImage = this.element.querySelector('#carImage');
+
+        this.bindEvents();
     }
 
     /**
@@ -36,7 +40,21 @@ var CheckoutYourPodPoint = function () {
 
     _createClass(CheckoutYourPodPoint, [{
         key: 'bindEvents',
-        value: function bindEvents() {}
+        value: function bindEvents() {
+            var _this = this;
+
+            this.selectEVMakeListener = new _domDelegate.Delegate(this.selectEvMake);
+
+            this.selectEVMakeListener.on('change', function (event, element) {
+                (0, _utilities.disableOrEnableDd)(_this.selectEvModel);
+            });
+
+            this.selectEVModelListener = new _domDelegate.Delegate(this.selectEvModel);
+
+            this.selectEVModelListener.on('change', function (event, element) {
+                _this.carImage.src = "assets/img/content/cars/nissan.png";
+            });
+        }
 
         /**
          * Unbinds the event listeners from the elements.
@@ -44,7 +62,10 @@ var CheckoutYourPodPoint = function () {
 
     }, {
         key: 'unbindEvents',
-        value: function unbindEvents() {}
+        value: function unbindEvents() {
+            this.selectEVMakeListener.destroy();
+            this.selectEVModelListener.destroy();
+        }
     }]);
 
     return CheckoutYourPodPoint;

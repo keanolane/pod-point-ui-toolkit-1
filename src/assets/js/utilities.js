@@ -1,3 +1,5 @@
+import Dropkick from 'dropkickjs';
+
 /**
  * Remove hidden class from element, showing it via CSS.
  *
@@ -34,4 +36,19 @@ export function isVisible(element) {
  */
 export function isHidden(element) {
     return element.classList.contains('hidden');
+}
+
+/**
+ * Enable element
+ *
+ * @param element
+ * @boolean disable
+ */
+export function disableOrEnableDd(element, disable) {
+	var select = new Dropkick(element);
+	if (disable) {
+		select.disable();
+	} else {
+		select.disable(false);
+	}
 }

@@ -180,7 +180,7 @@
 				<div data-js-module="basket" class="floating-basket">
 					<a data-toggle-panel="floatingBasket" href="#" class="floating-basket__header">
 						<h3 class="h5 floating-basket__title">Your basket</h3>
-						<span class="floating-basket__items-num">2</span>
+						<span id="basketNumberOfItems" class="floating-basket__items-num">0</span>
 						<span data-toggle-icon="floatingBasket" class="floating-basket__toggle-icon toggle-rotate-icon"></span>
 					</a>
 					<div id="floatingBasket" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
@@ -281,7 +281,7 @@
 									<p class="h1 crossed-out p-b-none">£759</p>
 									<p class="h1 green p-b-none">£279*</p>
 									<div class="button-radio-wrap m-t-sm">
-										<input type="radio" data-radio-open-panel="connectors" name="podPoint-desktop" value="podPoint3kW" id="podPoint3kW">
+										<input class="product" type="radio" data-radio-open-panel="connectors" name="podPointUnit" value="podPoint3kW" id="podPoint3kW" data-name="3kW" data-price="759">
 										<label for="podPoint3kW" class="button button--secondary">Select</label>
 									</div>
 								</div>
@@ -300,7 +300,7 @@
 									<p class="h1 green p-b-none">£359*</p>
 		
 									<div class="button-radio-wrap m-t-sm">
-										<input type="radio" data-radio-open-panel="connectors" name="podPoint-desktop" value="podPoint7kW" id="podPoint7kW">
+										<input class="product" type="radio" data-radio-open-panel="connectors" name="podPointUnit" value="podPoint7kW" id="podPoint7kW" data-name="7kW" data-price="859">
 										<label for="podPoint7kW" class="button button--secondary">Select</label>
 									</div>
 								</div>
@@ -315,10 +315,10 @@
 										<p class="font-style-large bold">Charges a Nissan Leaf in <br>4 hours</p>
 									</div>
 									<hr>
-									<p class="h1 crossed-out p-b-none">£125</p>
+									<p class="h1 crossed-out p-b-none">£1259</p>
 									<p class="h1 green p-b-none">£759*</p>
 									<div class="button-radio-wrap m-t-sm">
-										<input type="radio" data-radio-open-panel="connectors" name="podPoint-desktop" value="podPoint22kW" id="podPoint22kW">
+										<input class="product" type="radio" data-radio-open-panel="connectors" name="podPointUnit" value="podPoint22kW" id="podPoint22kW" data-name="22kW" data-price="759">
 										<label for="podPoint22kW" class="button button--secondary">Select</label>
 									</div>
 								</div>
@@ -355,7 +355,7 @@
 										</div>
 									</div>
 									<div class="button-radio-wrap m-t-sm">
-										<input type="radio" name="connector-desktop" value="connectorUniversal" id="connectorUniversal">
+										<input class="product" type="radio" name="podPointConnector" value="connectorUniversal" id="connectorUniversal" data-name="Universal Socket">
 										<label for="connectorUniversal" class="button button--secondary">Select</label>
 									</div>
 								</div>
@@ -375,7 +375,7 @@
 										</div>
 									</div>
 									<div class="button-radio-wrap m-t-sm">
-										<input type="radio" name="connector-desktop" value="connectorFixed" id="connectorFixed">
+										<input class="product" type="radio" name="podPointConnector" value="connectorFixed" id="connectorFixed" data-name="Fixed Cable">
 										<label for="connectorFixed" class="button button--secondary">Select</label>
 									</div>
 								</div>
@@ -403,7 +403,7 @@
 										<p>Phasellus aliquam mollis arcu sed imperdiet. Vivamus turpis eros, semper et varius non, dictum ultricies orci. Nunc varius ante magna, eu mattis nulla rhoncus in.</p>
 									</div>
 									<div class="button-checkbox-wrap m-t-sm">
-										<input type="checkbox" name="keyLock" value="keyLock" id="keyLock">
+										<input class="product" type="checkbox" name="keyLock" value="keyLock" id="keyLock" data-name="Key lock" data-price="30">
 										<label for="keyLock" class="button button--secondary">Select</label>
 									</div>
 								</div>
@@ -419,7 +419,7 @@
 										<p>Phasellus aliquam mollis arcu sed imperdiet. Vivamus turpis eros, semper et varius non, dictum ultricies orci. Nunc varius ante magna, eu mattis nulla rhoncus in.</p>
 									</div>
 									<div class="button-checkbox-wrap m-t-sm">
-										<input type="checkbox" name="portableCable" value="portableCable" id="portableCable">
+										<input class="product" type="checkbox" name="portableCable" value="portableCable" id="portableCable" data-name="Portable cable" data-price="150">
 										<label for="portableCable" class="button button--secondary">Select</label>
 									</div>
 								</div>
@@ -435,7 +435,7 @@
 										<p>Phasellus aliquam mollis arcu sed imperdiet. Vivamus turpis eros, semper et varius non, dictum ultricies orci. Nunc varius ante magna, eu mattis nulla rhoncus in.</p>
 									</div>
 									<div class="button-checkbox-wrap m-t-sm">
-										<input type="checkbox" name="fixedCableExt" value="fixedCableExt" id="fixedCableExt">
+										<input class="product" type="checkbox" name="fixedCableExt" value="fixedCableExt" id="fixedCableExt" data-name="Fixed Cable Extension" data-price="175">
 										<label for="fixedCableExt" class="button button--secondary">Select</label>
 									</div>
 								</div>
