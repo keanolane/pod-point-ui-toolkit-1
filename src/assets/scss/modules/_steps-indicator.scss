@@ -43,3 +43,48 @@
 		background-color: $font-color-very-light;
 	}
 }
+
+[data-page="checkout-step1"] {
+	.steps-indicator {
+		.steps-indicator__step {
+			&:nth-child(1) {
+				svg { background-color: white; }
+				.st0 { fill: $primary-color; }
+				p { color: $primary-color; }
+			}
+		}
+	}
+}
+[data-page="checkout-step2"] {
+	.steps-indicator {
+		.steps-indicator__step {
+			&:nth-child(2) {
+				svg { background-color: white; }
+				.st0 { fill: $primary-color; }
+				p { color: $primary-color; }
+			}
+		}
+	}
+}
+[data-page="checkout-step3"] {
+	.steps-indicator {
+		.steps-indicator__step {
+			&:nth-child(3) {
+				svg { background-color: white; }
+				.st0 { fill: $primary-color; }
+				p { color: $primary-color; }
+			}
+		}
+	}
+}
+[data-page="checkout-step4"] {
+	.steps-indicator {
+		.steps-indicator__step {
+			&:nth-child(4) {
+				svg { background-color: white; }
+				.st0 { fill: $primary-color; }
+				p { color: $primary-color; }
+			}
+		}
+	}
+}

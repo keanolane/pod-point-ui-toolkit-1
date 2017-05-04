@@ -25,7 +25,7 @@
 	<div class="global-header-wrap">
 		<header role="header" class="global-header" data-js-module="headerNav">
 			<div class="global-header__content">
-				<a class="logo-main" href="/">
+				<a class="logo-main" href="home.html">
 					<img src="assets/img/pod-point-logo.svg" alt="POD Point">
 				</a>
 				<a href="#" class="navicon">
@@ -97,7 +97,7 @@
 	<section class="bg--very-light-gray b-b-thin">
 		<div class="container content-block content-block--strip">
 			<div class="steps-indicator">
-				<div class="steps-indicator__step active-step">
+				<div class="steps-indicator__step">
 					<div class="steps-indicator__icon"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 	<svg style="enable-background:new 0 0 100.8 100.8" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 100.8 100.8" version="1.1" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<style type="text/css">
@@ -253,12 +253,12 @@
 				<div class="content-block">
 					<h2 class="text-center text-left-md">Select your POD Point</h2>
 					<div class="tooltip-wrap p-b-lg">
-						<p class="text-center text-left-md">All of our POD Points include standard installation <a href="#" data-toggle-el="tipExample" class="tooltip-icon"></a></p>
-						<div data-js-module="toggleElement" id="tipExample" class="tooltip hidden">
+						<p class="text-center text-left-md">All of our POD Points include standard installation <a href="#" data-toggle-el="tipStandardInstallation" class="tooltip-icon"></a></p>
+						<div data-js-module="toggleElement" id="tipStandardInstallation" class="tooltip hidden">
 							<div class="tooltip__box">
-								<a href="#" class="tooltip__close" data-close-el="tipExample"></a>
+								<a href="#" class="tooltip__close" data-close-el="tipStandardInstallation"></a>
 								<div class="rich-text">
-									<h3>I am a heading</h3>
+									<h3>Standard installation package</h3>
 									<p>I am a paragraph</p>
 									<ul>
 										<li>I am a list item</li>
@@ -274,7 +274,9 @@
 										3kW
 										<span>Recommended</span>
 									</h3>
-									<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+									<div class="hidden">
+										<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+									</div>
 									<hr>
 									<p class="h1 crossed-out p-b-none">£759</p>
 									<p class="h1 green p-b-none">£279*</p>
@@ -290,7 +292,9 @@
 										7kW
 										<span>Recommended</span>
 									</h3>
-									<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+									<div class="hidden">
+										<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+									</div>
 									<hr>
 									<p class="h1 crossed-out p-b-none">£859</p>
 									<p class="h1 green p-b-none">£359*</p>
@@ -307,7 +311,9 @@
 										22kW
 										<span>Recommended</span>
 									</h3>
-									<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+									<div class="hidden">
+										<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+									</div>
 									<hr>
 									<p class="h1 crossed-out p-b-none">£125</p>
 									<p class="h1 green p-b-none">£759*</p>
@@ -444,7 +450,7 @@
 			<div class="container content-block">
 				<div class="buttons-container clear">
 					<button class="button button--tertiary float-left-sm">Chat now</button>
-					<button type="submit" class="button float-right-sm">Next</button>
+					<a href="checkout-step2.html" class="button float-right-sm">Next</a>
 				</div>
 			</div>
 		</section>

@@ -3,8 +3,8 @@
 		<div class="content-block">
 			<h2 class="text-center text-left-md">Select your POD Point</h2>
 			<div class="tooltip-wrap p-b-lg">
-				<p class="text-center text-left-md">All of our POD Points include standard installation <a href="#" data-toggle-el="tipExample" class="tooltip-icon"></a></p>
-				{{> tooltip }}
+				<p class="text-center text-left-md">All of our POD Points include standard installation <a href="#" data-toggle-el="tipStandardInstallation" class="tooltip-icon"></a></p>
+				{{> tip-standard-installation }}
 			</div>
 			<div class="grid-wrap card-set-standout cards-same-height">
 				<div class="grid-row">
@@ -14,7 +14,9 @@
 								3kW
 								<span>Recommended</span>
 							</h3>
-							<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+							<div class="hidden">
+								<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+							</div>
 							<hr>
 							<p class="h1 crossed-out p-b-none">£759</p>
 							<p class="h1 green p-b-none">£279*</p>
@@ -30,7 +32,9 @@
 								7kW
 								<span>Recommended</span>
 							</h3>
-							<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+							<div class="hidden">
+								<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+							</div>
 							<hr>
 							<p class="h1 crossed-out p-b-none">£859</p>
 							<p class="h1 green p-b-none">£359*</p>
@@ -47,7 +51,9 @@
 								22kW
 								<span>Recommended</span>
 							</h3>
-							<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+							<div class="hidden">
+								<p class="font-style-large bold">Charges a BMW i3 in XX hours</p>
+							</div>
 							<hr>
 							<p class="h1 crossed-out p-b-none">£125</p>
 							<p class="h1 green p-b-none">£759*</p>

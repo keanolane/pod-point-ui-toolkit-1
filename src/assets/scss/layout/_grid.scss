@@ -40,7 +40,10 @@ $-default-gutter: -2rem;
 		&--separator {
 			padding-bottom: 4rem;
 			margin-bottom: 4rem;
-			border-bottom: 1px dashed $gray-keyline;
+			background-image: url($svg-divider-repeater-gray-horizontal);
+			background-repeat: repeat-x;
+			background-position: bottom center;
+			background-size: 42px;
 		}
 		&--no-space {
 			margin-bottom: 0;
@@ -78,7 +81,10 @@ $-default-gutter: -2rem;
 			padding-right: 2rem;
 			padding-bottom: 0;
 			margin-bottom: $default-gutter;
-			border-right: 1px dashed $gray-keyline;
+			background-image: url($svg-divider-repeater-gray);
+			background-repeat: repeat-y;
+			background-position: center right;
+			background-size: 6px;
 			border-bottom: none;
 		}
 		.grid-col--no-space--md {
