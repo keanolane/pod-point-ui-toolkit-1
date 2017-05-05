@@ -132,64 +132,64 @@ table {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.iconfont-email:before {
+.iconfont-arrow:before {
   content: ""; }
 
-.iconfont-facebook:before {
+.iconfont-charge-location:before {
   content: ""; }
 
-.iconfont-google:before {
+.iconfont-charge:before {
   content: ""; }
 
-.iconfont-instagram:before {
+.iconfont-cheveron:before {
   content: ""; }
 
-.iconfont-linkedin:before {
+.iconfont-cross:before {
   content: ""; }
 
-.iconfont-twitter:before {
+.iconfont-folder:before {
   content: ""; }
 
-.iconfont-youtube:before {
+.iconfont-location:before {
   content: ""; }
 
-.iconfont-arrow:before {
+.iconfont-money:before {
   content: ""; }
 
-.iconfont-charge-location:before {
+.iconfont-navicon:before {
   content: ""; }
 
-.iconfont-charge:before {
+.iconfont-pencil:before {
   content: ""; }
 
-.iconfont-cheveron:before {
+.iconfont-star:before {
   content: ""; }
 
-.iconfont-cross:before {
+.iconfont-tick:before {
   content: ""; }
 
-.iconfont-folder:before {
+.iconfont-user:before {
   content: ""; }
 
-.iconfont-location:before {
+.iconfont-email:before {
   content: ""; }
 
-.iconfont-money:before {
+.iconfont-facebook:before {
   content: ""; }
 
-.iconfont-navicon:before {
+.iconfont-google:before {
   content: ""; }
 
-.iconfont-pencil:before {
+.iconfont-instagram:before {
   content: ""; }
 
-.iconfont-star:before {
+.iconfont-linkedin:before {
   content: ""; }
 
-.iconfont-tick:before {
+.iconfont-twitter:before {
   content: ""; }
 
-.iconfont-user:before {
+.iconfont-youtube:before {
   content: ""; }
 
 @font-face {
@@ -951,7 +951,7 @@ ol {
       .rich-text--featured ul li:last-child {
         padding-bottom: 0; }
       .rich-text--featured ul li:before {
-        content: ""; }
+        content: ""; }
       @media (min-width: 50em) {
         .rich-text--featured ul li {
           padding-bottom: 3rem; } }
@@ -1400,7 +1400,7 @@ input[type="checkbox"] {
         border: 2px solid #ccc;
         border-radius: 5px; }
     .checkbox-wrap input[type="checkbox"]:checked ~ label:before {
-      content: ""; }
+      content: ""; }
     .checkbox-wrap input[type="checkbox"]:checked ~ label:before {
       background-color: #8CC63F;
       border-color: #8CC63F;
@@ -1424,7 +1424,7 @@ input[type="checkbox"] {
     .button-radio-wrap input[type="checkbox"] + label.button:before,
     .button-checkbox-wrap input[type="radio"] + label.button:before,
     .button-checkbox-wrap input[type="checkbox"] + label.button:before {
-      content: ""; }
+      content: ""; }
     .button-radio-wrap input[type="radio"] + label.button:before,
     .button-radio-wrap input[type="checkbox"] + label.button:before,
     .button-checkbox-wrap input[type="radio"] + label.button:before,
@@ -1529,7 +1529,7 @@ input[type="checkbox"] {
   max-width: 60rem;
   cursor: pointer; }
   .select-wrapper:after {
-    content: ""; }
+    content: ""; }
   .select-wrapper:focus:after {
     color: #8CC63F; }
   .select-wrapper:after {
@@ -1809,7 +1809,7 @@ input[type="checkbox"] {
     padding: 0; }
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select:after {
-    content: ""; }
+    content: ""; }
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
   .select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select:after {
     position: absolute;
@@ -1866,7 +1866,7 @@ input[type="checkbox"] {
   padding-left: 0; }
   .select-dd-wrapper--alternative .dk-selected:after,
   .select-dd-wrapper--alternative .mobile-select:after {
-    content: ""; }
+    content: ""; }
   .select-dd-wrapper--alternative .dk-selected:after,
   .select-dd-wrapper--alternative .mobile-select:after {
     position: absolute;
@@ -2060,7 +2060,7 @@ input[type="checkbox"] {
 
 @media (min-width: 40em) {
   .form-field-wrapper.is-valid:before {
-    content: ""; } }
+    content: ""; } }
 
 .form-field-wrapper.is-valid:before {
   color: #8CC63F; }
@@ -2078,7 +2078,7 @@ input[type="checkbox"] {
 
 @media (min-width: 40em) {
   .form-field-wrapper.is-invalid:before {
-    content: ""; } }
+    content: ""; } }
 
 .form-field-wrapper.is-invalid:before {
   color: #C1272D; }
@@ -2188,7 +2188,7 @@ button {
   .button.button--selected {
     text-indent: -9999px; }
     .button.button--selected:before {
-      content: ""; }
+      content: ""; }
     .button.button--selected:before, .button.button--selected:after {
       text-indent: 0;
       float: left;
@@ -2320,7 +2320,7 @@ button {
         background-color: #8CC63F; }
 
 .circle-icon--close:before {
-  content: ""; }
+  content: ""; }
 
 .circle-icon--close:before {
   display: inline-block;
@@ -2548,7 +2548,7 @@ button {
   width: 2.5rem;
   height: 2.5rem; }
   .toggle-panel-icon:before {
-    content: ""; }
+    content: ""; }
   .toggle-panel-icon:before {
     display: inline-block;
     height: inherit;
@@ -2593,7 +2593,7 @@ button {
   width: 2rem;
   height: 2rem; }
   .toggle-panel-icon--secondary:before {
-    content: ""; }
+    content: ""; }
   .toggle-panel-icon--secondary:before {
     display: inline-block;
     height: inherit;
@@ -2640,7 +2640,7 @@ button {
   -ms-transform: rotate(180deg);
       transform: rotate(180deg); }
   .circle-icon--close-panel:before {
-    content: ""; }
+    content: ""; }
   .circle-icon--close-panel:before {
     display: inline-block;
     height: inherit;
@@ -2932,7 +2932,7 @@ button {
       position: relative;
       padding-left: 2.2rem; }
       .global-nav ul li a.find-chargepoint:before {
-        content: ""; }
+        content: ""; }
       .global-nav ul li a.find-chargepoint:before {
         display: inline-block;
         height: inherit;
@@ -3263,7 +3263,7 @@ button {
 .stars-list li {
   display: inline-block; }
   .stars-list li:before {
-    content: ""; }
+    content: ""; }
   .stars-list li:before {
     display: inline-block;
     height: inherit;
@@ -3298,7 +3298,7 @@ button {
     width: 100%;
     margin: 0; }
   .slick-arrow:before {
-    content: ""; }
+    content: ""; }
   .slick-arrow:before {
     display: inline-block;
     height: inherit;
@@ -3444,7 +3444,7 @@ button {
   .card--sash, .card--standout-sash {
     position: relative; }
     .card--sash:before, .card--standout-sash:before {
-      content: ""; }
+      content: ""; }
     .card--sash:before, .card--standout-sash:before {
       display: inline-block;
       height: inherit;
@@ -3848,7 +3848,7 @@ button {
       top: 1.7rem;
       right: 1.5rem; }
       .floating-basket-wrapper .floating-basket__toggle-icon:before {
-        content: ""; }
+        content: ""; }
       .floating-basket-wrapper .floating-basket__toggle-icon:before {
         display: inline-block;
         height: inherit;
@@ -4021,7 +4021,7 @@ button {
   top: 1.5rem;
   right: 1.5rem; }
   .tooltip__close:before {
-    content: ""; }
+    content: ""; }
   .tooltip__close:before {
     display: inline-block;
     height: inherit;

@@ -1183,6 +1183,9 @@
 	exports.isVisible = isVisible;
 	exports.isHidden = isHidden;
 	exports.disableOrEnableDd = disableOrEnableDd;
+	exports.addItemToCookie = addItemToCookie;
+	exports.readItemFromCookie = readItemFromCookie;
+	exports.deleteItemFromCookie = deleteItemFromCookie;
 	
 	var _dropkickjs = __webpack_require__(9);
 	
@@ -1241,6 +1244,21 @@
 	  } else {
 	    select.disable(false);
 	  }
+	}
+	
+	function addItemToCookie(name, value) {
+	  var cookie = [name + '=' + JSON.stringify(value)];
+	  document.cookie = cookie;
+	}
+	
+	function readItemFromCookie(name) {
+	  var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+	  result && (result = JSON.parse(result[1]));
+	  return result;
+	}
+	
+	function deleteItemFromCookie(name) {
+	  document.cookie = [name, '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', window.location.host.toString()].join('');
 	}
 
 /***/ },
@@ -17829,13 +17847,25 @@
 	    function Basket(element) {
 	        _classCallCheck(this, Basket);
 	
-	        this.basketItems = {};
-	        this.basketTotalItems;
-	        this.basketTotalPrice;
+	        var basketObjCookie = (0, _utilities.readItemFromCookie)('basketObj');
+	
+	        if (!basketObjCookie) {
+	            this.basketObj = {
+	                items: {},
+	                totalItems: '',
+	                totalPrice: ''
+	            };
+	        }
 	
 	        this.element = element;
-	        this.podPointUnits = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
-	        this.bindEvents();
+	        var basketType = this.element.getAttribute('id');
+	
+	        if (basketType === 'basketOpen') {
+	            this.podPointUnits = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
+	            this.bindEvents();
+	        } else {
+	            console.log('basket final');
+	        }
 	
 	        // Getting elements, element text and img src on the page to populate
 	        this.imgPath = element.getAttribute('data-img-path');
@@ -17889,18 +17919,28 @@
 	                type: element.getAttribute("name"),
 	                category: category
 	            };
-	            this.basketItems[product.type] = product;
+	            this.basketObj.items[product.type] = product;
 	
 	            this.checkItemsToUpdate();
 	            this.updateDOMTotals();
+	
+	            this.updateCookie();
 	        }
 	    }, {
 	        key: 'deleteItemFromBasketObj',
 	        value: function deleteItemFromBasketObj(element) {
 	            var itemId = element.getAttribute("id");
-	            delete this.basketItems[itemId];
+	            delete this.basketObj.items[itemId];
 	            this.removeAccessory(itemId);
 	            this.updateDOMTotals();
+	
+	            this.updateCookie();
+	        }
+	    }, {
+	        key: 'updateCookie',
+	        value: function updateCookie() {
+	            (0, _utilities.addItemToCookie)('basketObj', this.basketObj);
+	            var basketObjCookie = (0, _utilities.readItemFromCookie)('basketObj');
 	        }
 	    }, {
 	        key: 'checkItemsToUpdate',
@@ -17910,7 +17950,7 @@
 	            var _iteratorError = undefined;
 	
 	            try {
-	                for (var _iterator = Object.entries(this.basketItems)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                for (var _iterator = Object.entries(this.basketObj.items)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var _step$value = _slicedToArray(_step.value, 2),
 	                        key = _step$value[0],
 	                        value = _step$value[1];
@@ -17943,13 +17983,13 @@
 	    }, {
 	        key: 'addUnit',
 	        value: function addUnit() {
-	            var podPointUnit = this.basketItems.podPointUnit || {};
-	            var podPointConnector = this.basketItems.podPointConnector || {};
+	            var podPointUnit = this.basketObj.items.podPointUnit || {};
+	            var podPointConnector = this.basketObj.items.podPointConnector || {};
 	
-	            if (this.basketItems.podPointUnit) {
+	            if (this.basketObj.items.podPointUnit) {
 	                (0, _utilities.show)(this.unitEl);
 	            }
-	            if (this.basketItems.podPointConnector) {
+	            if (this.basketObj.items.podPointConnector) {
 	                this.unitImgEl.src = this.imgPath + podPointConnector.id + '.png';
 	            }
 	
@@ -17980,8 +18020,8 @@
 	    }, {
 	        key: 'updateDOMTotals',
 	        value: function updateDOMTotals() {
-	            var numberOfItems = Object.keys(this.basketItems).length;
-	            if ('podPointConnector' in this.basketItems) {
+	            var numberOfItems = Object.keys(this.basketObj.items).length;
+	            if ('podPointConnector' in this.basketObj.items) {
 	                numberOfItems = numberOfItems - 1;
 	            }
 	            this.numberOfItemsEl.innerHTML = numberOfItems;
@@ -17992,7 +18032,7 @@
 	            var _iteratorError2 = undefined;
 	
 	            try {
-	                for (var _iterator2 = Object.entries(this.basketItems)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                for (var _iterator2 = Object.entries(this.basketObj.items)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	                    var _step2$value = _slicedToArray(_step2.value, 2),
 	                        key = _step2$value[0],
 	                        value = _step2$value[1];
@@ -18015,6 +18055,9 @@
 	            }
 	
 	            this.totalPriceEl.innerHTML = '£' + totalPrice;
+	
+	            this.basketObj.totalItems = numberOfItems;
+	            this.basketObj.totalPrice = totalPrice;
 	        }
 	
 	        /**

@@ -1,6 +1,6 @@
 import { Delegate } from 'dom-delegate';
 import { nodesToArray, hasClass } from '@pod-point/dom-ops';
-import { isVisible, hide, show } from './../utilities';
+import { isVisible, hide, show, addItemToCookie, readItemFromCookie, deleteItemFromCookie } from './../utilities';
 
 let instances = [];
 
@@ -12,13 +12,25 @@ class Basket {
      * @param element
      */
     constructor(element) {
-        this.basketItems = {};
-        this.basketTotalItems;
-        this.basketTotalPrice;
+        const basketObjCookie = readItemFromCookie('basketObj');
+
+        if (!basketObjCookie) {
+            this.basketObj = {
+                items: {},
+                totalItems: '',
+                totalPrice: ''
+            }
+        }
 
         this.element = element;
-        this.podPointUnits = nodesToArray(document.querySelectorAll('.product'));
-        this.bindEvents();
+        const basketType = this.element.getAttribute('id');
+
+        if (basketType === 'basketOpen') {
+            this.podPointUnits = nodesToArray(document.querySelectorAll('.product'));
+            this.bindEvents();
+        } else {
+            console.log('basket final');
+        }
 
         // Getting elements, element text and img src on the page to populate
         this.imgPath = element.getAttribute('data-img-path');
@@ -65,21 +77,30 @@ class Basket {
             type: element.getAttribute("name"),
             category: category
         }
-        this.basketItems[product.type] = product;
+        this.basketObj.items[product.type] = product;
 
         this.checkItemsToUpdate();
         this.updateDOMTotals();
+
+        this.updateCookie();
     }
 
     deleteItemFromBasketObj(element) {
         const itemId = element.getAttribute("id");
-        delete this.basketItems[itemId];
+        delete this.basketObj.items[itemId];
         this.removeAccessory(itemId);
         this.updateDOMTotals();
+
+        this.updateCookie();
+    }
+
+    updateCookie() {
+        addItemToCookie('basketObj', this.basketObj);
+        var basketObjCookie = readItemFromCookie('basketObj');
     }
 
     checkItemsToUpdate() {
-        for (var [key, value] of Object.entries(this.basketItems)) {
+        for (var [key, value] of Object.entries(this.basketObj.items)) {
             if (value.category === 'accessory') {
                 const itemElement = this.element.querySelector('[data-item="'+value.id+'"]');
                 // if accessory element is not empty, add accessory
@@ -93,11 +114,11 @@ class Basket {
     }
 
     addUnit() {
-        const podPointUnit = this.basketItems.podPointUnit || {};
-        const podPointConnector = this.basketItems.podPointConnector || {};
+        const podPointUnit = this.basketObj.items.podPointUnit || {};
+        const podPointConnector = this.basketObj.items.podPointConnector || {};
 
-        if (this.basketItems.podPointUnit) { show(this.unitEl) }
-        if (this.basketItems.podPointConnector) { this.unitImgEl.src = this.imgPath + podPointConnector.id + '.png'; }
+        if (this.basketObj.items.podPointUnit) { show(this.unitEl) }
+        if (this.basketObj.items.podPointConnector) { this.unitImgEl.src = this.imgPath + podPointConnector.id + '.png'; }
 
         this.unitNameEl.innerHTML = podPointUnit.name || '';
         this.unitConnectorNameEl.innerHTML = podPointConnector.name || '';
@@ -123,15 +144,18 @@ class Basket {
     }
 
     updateDOMTotals() {
-        let numberOfItems = Object.keys(this.basketItems).length;
-        if ('podPointConnector' in this.basketItems) { numberOfItems = numberOfItems - 1 }
+        let numberOfItems = Object.keys(this.basketObj.items).length;
+        if ('podPointConnector' in this.basketObj.items) { numberOfItems = numberOfItems - 1 }
         this.numberOfItemsEl.innerHTML = numberOfItems;
         let totalPrice = 0;
 
-        for (var [key, value] of Object.entries(this.basketItems)) {
+        for (var [key, value] of Object.entries(this.basketObj.items)) {
             totalPrice = totalPrice + parseInt(value.price);
         }
         this.totalPriceEl.innerHTML = '£' + totalPrice;
+
+        this.basketObj.totalItems = numberOfItems;
+        this.basketObj.totalPrice = totalPrice;
     }
 
     /**

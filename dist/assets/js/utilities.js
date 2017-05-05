@@ -8,6 +8,9 @@ exports.hide = hide;
 exports.isVisible = isVisible;
 exports.isHidden = isHidden;
 exports.disableOrEnableDd = disableOrEnableDd;
+exports.addItemToCookie = addItemToCookie;
+exports.readItemFromCookie = readItemFromCookie;
+exports.deleteItemFromCookie = deleteItemFromCookie;
 
 var _dropkickjs = require('dropkickjs');
 
@@ -66,4 +69,19 @@ function disableOrEnableDd(element, disable) {
   } else {
     select.disable(false);
   }
+}
+
+function addItemToCookie(name, value) {
+  var cookie = [name + '=' + JSON.stringify(value)];
+  document.cookie = cookie;
+}
+
+function readItemFromCookie(name) {
+  var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+  result && (result = JSON.parse(result[1]));
+  return result;
+}
+
+function deleteItemFromCookie(name) {
+  document.cookie = [name, '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', window.location.host.toString()].join('');
 }
