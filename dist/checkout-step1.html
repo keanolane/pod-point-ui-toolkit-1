@@ -177,35 +177,42 @@
 	<form data-js-module="checkoutYourPodPoint">
 		<section class="container hidden block-md">
 			<div class="floating-basket-wrapper">
-				<div data-js-module="basket" class="floating-basket">
+				<div data-js-module="basket" data-img-path="assets/img/products/product-thumbnails/" class="floating-basket">
 					<a data-toggle-panel="floatingBasket" href="#" class="floating-basket__header">
 						<h3 class="h5 floating-basket__title">Your basket</h3>
-						<span id="basketNumberOfItems" class="floating-basket__items-num">0</span>
+						<span data-number-of-items class="floating-basket__items-num">0</span>
 						<span data-toggle-icon="floatingBasket" class="floating-basket__toggle-icon toggle-rotate-icon"></span>
 					</a>
 					<div id="floatingBasket" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
-						<ul class="basket-content__items">
-							<li class="basket-content__item">
-								<img class="basket-content__item__thumb" src="assets/img/content/homecharger-without-cable.png" alt="">
+						<ul data-items class="basket-content__items">
+							<li data-item="unit" class="basket-content__item hidden">
+								<img data-unit="img" class="basket-content__item__thumb" src="assets/img/products/product-thumbnails/connectorUniversal.png" alt="">
 								<div class="basket-content__item__title">
-									<p class="basket-content__item__title__main">7kW Universal connector</p>
+									<p class="basket-content__item__title__main"><span data-unit="name"></span> <span data-unit="connector-name"></span></p>
 									<p class="basket-content__item__title__sub">with free standard installation</p>
 								</div>
-								<p class="basket-content__item__price">£859</p>
+								<p data-unit="price" class="basket-content__item__price"></p>
 							</li>
-							<li class="basket-content__item">
-								<img class="basket-content__item__thumb" src="assets/img/content/portable-cable.png" alt="">
-								<div class="basket-content__item__title">
-									<p class="basket-content__item__title__main">Charging cable</p>
-								</div>
-								<p class="basket-content__item__price">£150</p>
-							</li>
+							<li data-item="keyLock" class="basket-content__item hidden"></li>
+							<li data-item="portableCable" class="basket-content__item hidden"></li>
+							<li data-item="fixedCableExt" class="basket-content__item hidden"></li>
 						</ul>
+		
+						<div class="hidden">
+							<div data-item="example-accessory-content">
+								<img data-accessory="img" class="basket-content__item__thumb" src="" alt="">
+								<div class="basket-content__item__title">
+									<p data-accessory="name" class="basket-content__item__title__main"></p>
+								</div>
+								<p data-accessory="price" class="basket-content__item__price"></p>
+							</div>
+						</div>
+		
 						<hr class="m-none">
 					</div>
 					<div class="basket-total">
 						<p class="basket-total__title">Sub total</p>
-						<p class="basket-total__value">£1,009</p>
+						<p data-total-price class="basket-total__value">£0</p>
 					</div>
 				</div>
 			</div>
@@ -355,7 +362,7 @@
 										</div>
 									</div>
 									<div class="button-radio-wrap m-t-sm">
-										<input class="product" type="radio" name="podPointConnector" value="connectorUniversal" id="connectorUniversal" data-name="Universal Socket">
+										<input class="product" type="radio" name="podPointConnector" value="connectorUniversal" id="connectorUniversal" data-name="Universal Socket" data-price="0">
 										<label for="connectorUniversal" class="button button--secondary">Select</label>
 									</div>
 								</div>
@@ -375,7 +382,7 @@
 										</div>
 									</div>
 									<div class="button-radio-wrap m-t-sm">
-										<input class="product" type="radio" name="podPointConnector" value="connectorFixed" id="connectorFixed" data-name="Fixed Cable">
+										<input class="product" type="radio" name="podPointConnector" value="connectorFixed" id="connectorFixed" data-name="Fixed Cable" data-price="0">
 										<label for="connectorFixed" class="button button--secondary">Select</label>
 									</div>
 								</div>
@@ -403,7 +410,7 @@
 										<p>Phasellus aliquam mollis arcu sed imperdiet. Vivamus turpis eros, semper et varius non, dictum ultricies orci. Nunc varius ante magna, eu mattis nulla rhoncus in.</p>
 									</div>
 									<div class="button-checkbox-wrap m-t-sm">
-										<input class="product" type="checkbox" name="keyLock" value="keyLock" id="keyLock" data-name="Key lock" data-price="30">
+										<input class="product accessory" type="checkbox" name="keyLock" value="keyLock" id="keyLock" data-name="Key lock" data-price="30">
 										<label for="keyLock" class="button button--secondary">Select</label>
 									</div>
 								</div>
@@ -419,7 +426,7 @@
 										<p>Phasellus aliquam mollis arcu sed imperdiet. Vivamus turpis eros, semper et varius non, dictum ultricies orci. Nunc varius ante magna, eu mattis nulla rhoncus in.</p>
 									</div>
 									<div class="button-checkbox-wrap m-t-sm">
-										<input class="product" type="checkbox" name="portableCable" value="portableCable" id="portableCable" data-name="Portable cable" data-price="150">
+										<input class="product accessory" type="checkbox" name="portableCable" value="portableCable" id="portableCable" data-name="Portable cable" data-price="150">
 										<label for="portableCable" class="button button--secondary">Select</label>
 									</div>
 								</div>
@@ -435,7 +442,7 @@
 										<p>Phasellus aliquam mollis arcu sed imperdiet. Vivamus turpis eros, semper et varius non, dictum ultricies orci. Nunc varius ante magna, eu mattis nulla rhoncus in.</p>
 									</div>
 									<div class="button-checkbox-wrap m-t-sm">
-										<input class="product" type="checkbox" name="fixedCableExt" value="fixedCableExt" id="fixedCableExt" data-name="Fixed Cable Extension" data-price="175">
+										<input class="product accessory" type="checkbox" name="fixedCableExt" value="fixedCableExt" id="fixedCableExt" data-name="Fixed Cable Extension" data-price="175">
 										<label for="fixedCableExt" class="button button--secondary">Select</label>
 									</div>
 								</div>

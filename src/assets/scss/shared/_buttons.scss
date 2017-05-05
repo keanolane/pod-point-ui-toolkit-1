@@ -11,6 +11,7 @@ button {
 	text-decoration: none;
 	background-color: transparent;
 	border: none;
+	&:focus { outline: none; }
 }
 
 .button {
@@ -36,6 +37,8 @@ button {
 	@include small-and-up {
 		@include padding(null 3.5rem);
 	}
+
+	&:focus { outline: none; }
 
 	&:hover:not(.is-disabled),
 	&:focus:not(.is-disabled),
