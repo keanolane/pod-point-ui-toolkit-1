@@ -59,9 +59,12 @@ var Basket = function () {
         };
 
         var basketObjInCookie = (0, _utilities.readItemFromCookie)('basketObj');
-        this.basketObj = basketObjInCookie || emptyBasketObj;
+
         if (basketObjInCookie) {
+            this.basketObj = basketObjInCookie;
             this.updateDomFromCookie();
+        } else {
+            this.basketObj = emptyBasketObj;
         }
 
         var basketType = this.element.getAttribute('id');
@@ -70,8 +73,6 @@ var Basket = function () {
             this.productEls = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
             this.bindEvents();
         }
-
-        this.updateDomFromCookie();
     }
 
     /**
@@ -93,6 +94,11 @@ var Basket = function () {
                 });
             });
         }
+
+        /**
+         * Update Basket in the DOM from the object in the cookie.
+         */
+
     }, {
         key: 'updateDomFromCookie',
         value: function updateDomFromCookie() {
@@ -129,23 +135,29 @@ var Basket = function () {
 
         /**
          * Add item to basket object.
-         *
-         * @param element
+         * @param {element} selected element
          */
 
     }, {
         key: 'addItemToBasketObj',
         value: function addItemToBasketObj(element) {
             var category = (0, _domOps.hasClass)(element, 'accessory') ? 'accessory' : element.getAttribute("name");
+            var podPointExists = Object.keys(this.basketObj.accessories).length > 0 ? true : false;
 
             switch (category) {
                 case 'podPointUnit':
-                    this.basketObj.podPoint = {
-                        id: element.getAttribute("id"),
-                        name: element.getAttribute("data-name"),
-                        price: element.getAttribute("data-price"),
-                        imgName: 'connectorUniversal'
-                    };
+                    if (podPointExists) {
+                        this.basketObj.podPoint.id = element.getAttribute("id");
+                        this.basketObj.podPoint.name = element.getAttribute("data-name");
+                        this.basketObj.podPoint.price = element.getAttribute("data-price");
+                    } else {
+                        this.basketObj.podPoint = {
+                            id: element.getAttribute("id"),
+                            name: element.getAttribute("data-name"),
+                            price: element.getAttribute("data-price"),
+                            imgName: 'connectorUniversal'
+                        };
+                    }
                     this.updatePodPointToDOM();
                     break;
                 case 'podPointConnector':
@@ -167,14 +179,12 @@ var Basket = function () {
                     break;
             }
 
-            console.log(this.basketObj);
             this.updateTotals();
             this.updateCookie();
         }
 
         /**
          * Delete item from basket object.
-         *
          * @param element
          */
 
@@ -189,7 +199,7 @@ var Basket = function () {
         }
 
         /**
-         * Update basket in cookie.
+         * Update basket object in the cookie.
          */
 
     }, {
@@ -317,7 +327,11 @@ var Basket = function () {
 
     }, {
         key: 'unbindEvents',
-        value: function unbindEvents() {}
+        value: function unbindEvents() {
+            this.productListeners.forEach(function (productListener) {
+                return productListener.destroy();
+            });
+        }
     }]);
 
     return Basket;

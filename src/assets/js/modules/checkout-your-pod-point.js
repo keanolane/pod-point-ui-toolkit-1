@@ -1,5 +1,5 @@
 import { Delegate } from 'dom-delegate';
-import { nodesToArray } from '@pod-point/dom-ops';
+import { nodesToArray, addClass } from '@pod-point/dom-ops';
 import { disableOrEnableDd, readItemFromCookie } from './../utilities';
 
 let instances = [];
@@ -20,7 +20,7 @@ class CheckoutYourPodPoint {
 
         this.productEls = nodesToArray(document.querySelectorAll('.product'));
         this.basketObj = readItemFromCookie('basketObj');
-        // if (this.basketObj) { this.preselectFields() }
+        if (this.basketObj) { this.preselectFields() }
 
         this.bindEvents();
     }
@@ -42,16 +42,25 @@ class CheckoutYourPodPoint {
         });
     }
 
+    /**
+     * Dynamically checks product checkboxes and rados, based on basket object in cookie.
+     */
     preselectFields() {
-        console.log(this.basketObj.items);
+        const podPointUnitId = this.basketObj.podPoint.id;
+        const connector = this.basketObj.podPoint.connector;
+        const accessories = this.basketObj.accessories;
 
-        if (this.basketObj.items.podPointUnit)
+        if (podPointUnitId) { this.element.querySelector('[value="'+podPointUnitId+'"]').checked = true };
+        if (connector) {
+            this.element.querySelector('[value="'+connector.id+'"]').checked = true;
+            addClass(this.element.querySelector('#connectors'), 'is-open');
+        };
 
-        this.productEls.forEach(productEl => {
-
-            console.log(productEl.getAttribute('name'));
-            productEl.checked = true;
-        });
+        if (Object.keys(accessories).length > 0) {
+            for (var [key, value] of Object.entries(this.basketObj.accessories)) {
+                this.element.querySelector('[value="'+key+'"]').checked = true
+            }
+        }
     }
 
 
