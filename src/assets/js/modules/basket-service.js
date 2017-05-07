@@ -4,7 +4,7 @@ import { isVisible, hide, show, addItemToCookie, readItemFromCookie, deleteItemF
 
 let instances = [];
 
-class Basket {
+class BasketService {
 
     /**
      * Creates a new basket element.

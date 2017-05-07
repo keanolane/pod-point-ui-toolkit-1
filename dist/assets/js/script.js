@@ -17737,6 +17737,8 @@
 	
 	var _domDelegate = __webpack_require__(6);
 	
+	var _domOps = __webpack_require__(4);
+	
 	var _utilities = __webpack_require__(8);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -17758,6 +17760,10 @@
 	        this.selectEvMake = this.element.querySelector('#selectEvMake');
 	        this.selectEvModel = this.element.querySelector('#selectEvModel');
 	        this.carImage = this.element.querySelector('#carImage');
+	
+	        this.productEls = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
+	        this.basketObj = (0, _utilities.readItemFromCookie)('basketObj');
+	        // if (this.basketObj) { this.preselectFields() }
 	
 	        this.bindEvents();
 	    }
@@ -17782,6 +17788,17 @@
 	
 	            this.selectEVModelListener.on('change', function (event, element) {
 	                _this.carImage.src = "assets/img/content/cars/nissan.png";
+	            });
+	        }
+	    }, {
+	        key: 'preselectFields',
+	        value: function preselectFields() {
+	            console.log(this.basketObj.items);
+	
+	            if (this.basketObj.items.podPointUnit) this.productEls.forEach(function (productEl) {
+	
+	                console.log(productEl.getAttribute('name'));
+	                productEl.checked = true;
 	            });
 	        }
 	
@@ -17847,25 +17864,7 @@
 	    function Basket(element) {
 	        _classCallCheck(this, Basket);
 	
-	        var basketObjCookie = (0, _utilities.readItemFromCookie)('basketObj');
-	
-	        if (!basketObjCookie) {
-	            this.basketObj = {
-	                items: {},
-	                totalItems: '',
-	                totalPrice: ''
-	            };
-	        }
-	
 	        this.element = element;
-	        var basketType = this.element.getAttribute('id');
-	
-	        if (basketType === 'basketOpen') {
-	            this.podPointUnits = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
-	            this.bindEvents();
-	        } else {
-	            console.log('basket final');
-	        }
 	
 	        // Getting elements, element text and img src on the page to populate
 	        this.imgPath = element.getAttribute('data-img-path');
@@ -17886,6 +17885,29 @@
 	        this.accessoryExampleNameEl = this.accessoryExampleContentEl.querySelector('[data-accessory="name"]');
 	        this.accessoryExamplePriceEl = this.accessoryExampleContentEl.querySelector('[data-accessory="price"]');
 	        this.accessoryExampleImgEl = this.accessoryExampleContentEl.querySelector('[data-accessory="img"]');
+	
+	        // Creating empty basket object
+	        var emptyBasketObj = {
+	            podPoint: {},
+	            accessories: {},
+	            totalItems: '',
+	            totalPrice: ''
+	        };
+	
+	        var basketObjInCookie = (0, _utilities.readItemFromCookie)('basketObj');
+	        this.basketObj = basketObjInCookie || emptyBasketObj;
+	        if (basketObjInCookie) {
+	            this.updateDomFromCookie();
+	        }
+	
+	        var basketType = this.element.getAttribute('id');
+	
+	        if (basketType === 'basketOpen') {
+	            this.productEls = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
+	            this.bindEvents();
+	        }
+	
+	        this.updateDomFromCookie();
 	    }
 	
 	    /**
@@ -17898,141 +17920,203 @@
 	        value: function bindEvents() {
 	            var _this = this;
 	
-	            this.podPointUnitListeners = [];
-	            this.podPointUnits.forEach(function (podPointUnit) {
-	                var podPointUnitListener = new _domDelegate.Delegate(podPointUnit);
-	                _this.podPointUnitListeners.push(podPointUnitListener);
-	                podPointUnitListener.on('change', function (event, element) {
-	                    element.checked ? _this.addItemToBasketObj(element) : _this.deleteItemFromBasketObj(element);
+	            this.productListeners = [];
+	            this.productEls.forEach(function (productEl) {
+	                var productListener = new _domDelegate.Delegate(productEl);
+	                _this.productListeners.push(productListener);
+	                productListener.on('change', function (event, element) {
+	                    element.checked ? _this.addItemToBasketObj(element) : _this.deleteAccessoryFromBasketObj(element);
 	                });
 	            });
 	        }
+	    }, {
+	        key: 'updateDomFromCookie',
+	        value: function updateDomFromCookie() {
+	            this.updatePodPointToDOM();
+	            if (Object.keys(this.basketObj.accessories).length > 0) {
+	                var _iteratorNormalCompletion = true;
+	                var _didIteratorError = false;
+	                var _iteratorError = undefined;
+	
+	                try {
+	                    for (var _iterator = Object.entries(this.basketObj.accessories)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                        var _step$value = _slicedToArray(_step.value, 2),
+	                            key = _step$value[0],
+	                            value = _step$value[1];
+	
+	                        this.addAccessoryToDOM(value);
+	                    }
+	                } catch (err) {
+	                    _didIteratorError = true;
+	                    _iteratorError = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion && _iterator.return) {
+	                            _iterator.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError) {
+	                            throw _iteratorError;
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	
+	        /**
+	         * Add item to basket object.
+	         *
+	         * @param element
+	         */
+	
 	    }, {
 	        key: 'addItemToBasketObj',
 	        value: function addItemToBasketObj(element) {
 	            var category = (0, _domOps.hasClass)(element, 'accessory') ? 'accessory' : element.getAttribute("name");
 	
-	            var product = {
-	                id: element.getAttribute("id"),
-	                name: element.getAttribute("data-name"),
-	                price: element.getAttribute("data-price"),
-	                type: element.getAttribute("name"),
-	                category: category
-	            };
-	            this.basketObj.items[product.type] = product;
+	            switch (category) {
+	                case 'podPointUnit':
+	                    this.basketObj.podPoint = {
+	                        id: element.getAttribute("id"),
+	                        name: element.getAttribute("data-name"),
+	                        price: element.getAttribute("data-price"),
+	                        imgName: 'connectorUniversal'
+	                    };
+	                    this.updatePodPointToDOM();
+	                    break;
+	                case 'podPointConnector':
+	                    this.basketObj.podPoint['connector'] = {
+	                        id: element.getAttribute("id"),
+	                        name: element.getAttribute("data-name")
+	                    };
+	                    this.basketObj.podPoint.imgName = element.getAttribute("id");
+	                    this.updatePodPointToDOM();
+	                    break;
+	                case 'accessory':
+	                    var accessoryObj = {
+	                        id: element.getAttribute("id"),
+	                        name: element.getAttribute("data-name"),
+	                        price: element.getAttribute("data-price")
+	                    };
+	                    this.basketObj.accessories[element.getAttribute("id")] = accessoryObj;
+	                    this.addAccessoryToDOM(accessoryObj);
+	                    break;
+	            }
 	
-	            this.checkItemsToUpdate();
-	            this.updateDOMTotals();
-	
+	            console.log(this.basketObj);
+	            this.updateTotals();
 	            this.updateCookie();
 	        }
+	
+	        /**
+	         * Delete item from basket object.
+	         *
+	         * @param element
+	         */
+	
 	    }, {
-	        key: 'deleteItemFromBasketObj',
-	        value: function deleteItemFromBasketObj(element) {
+	        key: 'deleteAccessoryFromBasketObj',
+	        value: function deleteAccessoryFromBasketObj(element) {
 	            var itemId = element.getAttribute("id");
-	            delete this.basketObj.items[itemId];
-	            this.removeAccessory(itemId);
-	            this.updateDOMTotals();
-	
+	            delete this.basketObj.accessories[itemId];
+	            this.removeAccessoryFromDOM(itemId);
+	            this.updateTotals();
 	            this.updateCookie();
 	        }
+	
+	        /**
+	         * Update basket in cookie.
+	         */
+	
 	    }, {
 	        key: 'updateCookie',
 	        value: function updateCookie() {
 	            (0, _utilities.addItemToCookie)('basketObj', this.basketObj);
 	            var basketObjCookie = (0, _utilities.readItemFromCookie)('basketObj');
 	        }
+	
+	        /**
+	         * Add POD Point to the basket in the DOM.
+	         */
+	
 	    }, {
-	        key: 'checkItemsToUpdate',
-	        value: function checkItemsToUpdate() {
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
+	        key: 'updatePodPointToDOM',
+	        value: function updatePodPointToDOM() {
+	            var podPoint = this.basketObj.podPoint || {};
+	            var connector = this.basketObj.podPoint.connector || {};
 	
-	            try {
-	                for (var _iterator = Object.entries(this.basketObj.items)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var _step$value = _slicedToArray(_step.value, 2),
-	                        key = _step$value[0],
-	                        value = _step$value[1];
-	
-	                    if (value.category === 'accessory') {
-	                        var itemElement = this.element.querySelector('[data-item="' + value.id + '"]');
-	                        // if accessory element is not empty, add accessory
-	                        if (!itemElement.hasChildNodes()) {
-	                            this.addAccessory(key, value, itemElement);
-	                        }
-	                    } else {
-	                        this.addUnit();
-	                    }
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
-	            }
-	        }
-	    }, {
-	        key: 'addUnit',
-	        value: function addUnit() {
-	            var podPointUnit = this.basketObj.items.podPointUnit || {};
-	            var podPointConnector = this.basketObj.items.podPointConnector || {};
-	
-	            if (this.basketObj.items.podPointUnit) {
+	            if (podPoint) {
 	                (0, _utilities.show)(this.unitEl);
 	            }
-	            if (this.basketObj.items.podPointConnector) {
-	                this.unitImgEl.src = this.imgPath + podPointConnector.id + '.png';
+	            if (connector) {
+	                this.unitImgEl.src = this.imgPath + podPoint.imgName + '.png';
 	            }
 	
-	            this.unitNameEl.innerHTML = podPointUnit.name || '';
-	            this.unitConnectorNameEl.innerHTML = podPointConnector.name || '';
-	            this.unitPriceEl.innerHTML = '£' + podPointUnit.price || '';
+	            this.unitNameEl.innerHTML = podPoint.name || '';
+	            this.unitConnectorNameEl.innerHTML = connector.name || '';
+	            this.unitPriceEl.innerHTML = '£' + podPoint.price || '';
 	
-	            this.updateDOMTotals();
+	            this.updateTotals();
 	        }
+	
+	        /**
+	         * Add an accessory to the basket in the DOM.
+	         * @param {object} accessoryObj
+	         */
+	
 	    }, {
-	        key: 'addAccessory',
-	        value: function addAccessory(key, value, itemElement) {
-	            this.accessoryExampleImgEl.src = this.imgPath + value.id + '.png';
-	            this.accessoryExampleNameEl.innerHTML = value.name;
-	            this.accessoryExamplePriceEl.innerHTML = '£' + value.price;
+	        key: 'addAccessoryToDOM',
+	        value: function addAccessoryToDOM(accessoryObj) {
+	            var itemElement = this.element.querySelector('[data-item="' + accessoryObj.id + '"]');
+	            if (itemElement.hasChildNodes()) {
+	                return;
+	            }
+	
+	            this.accessoryExampleImgEl.src = this.imgPath + accessoryObj.id + '.png';
+	            this.accessoryExampleNameEl.innerHTML = accessoryObj.name;
+	            this.accessoryExamplePriceEl.innerHTML = '£' + accessoryObj.price;
 	
 	            var accessoryItemContentClone = this.accessoryExampleContentEl.cloneNode(true);
 	            itemElement.appendChild(accessoryItemContentClone);
 	            (0, _utilities.show)(itemElement);
 	        }
+	
+	        /**
+	         * Remove accessory from the basket in the DOM.
+	         * @param accessory ID
+	         */
+	
 	    }, {
-	        key: 'removeAccessory',
-	        value: function removeAccessory(itemId) {
+	        key: 'removeAccessoryFromDOM',
+	        value: function removeAccessoryFromDOM(itemId) {
 	            var itemElement = this.element.querySelector('[data-item="' + itemId + '"]');
 	            itemElement.innerHTML = '';
 	            (0, _utilities.hide)(itemElement);
 	        }
+	
+	        /**
+	         * Update the totals of the basket in the DOM.
+	         */
+	
 	    }, {
-	        key: 'updateDOMTotals',
-	        value: function updateDOMTotals() {
-	            var numberOfItems = Object.keys(this.basketObj.items).length;
-	            if ('podPointConnector' in this.basketObj.items) {
-	                numberOfItems = numberOfItems - 1;
-	            }
-	            this.numberOfItemsEl.innerHTML = numberOfItems;
+	        key: 'updateTotals',
+	        value: function updateTotals() {
+	            // Updating total items
+	            var numberOfAccessories = Object.keys(this.basketObj.accessories).length;
+	            var numberOfPodPoint = this.basketObj.podPoint.name ? 1 : 0;
+	            var numberOfItems = numberOfAccessories + numberOfPodPoint;
+	            this.basketObj.totalItems = numberOfItems;
+	
+	            // Updating total price
 	            var totalPrice = 0;
+	            totalPrice = parseInt(this.basketObj.podPoint.price) || 0;
 	
 	            var _iteratorNormalCompletion2 = true;
 	            var _didIteratorError2 = false;
 	            var _iteratorError2 = undefined;
 	
 	            try {
-	                for (var _iterator2 = Object.entries(this.basketObj.items)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                for (var _iterator2 = Object.entries(this.basketObj.accessories)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	                    var _step2$value = _slicedToArray(_step2.value, 2),
 	                        key = _step2$value[0],
 	                        value = _step2$value[1];
@@ -18054,10 +18138,13 @@
 	                }
 	            }
 	
-	            this.totalPriceEl.innerHTML = '£' + totalPrice;
-	
-	            this.basketObj.totalItems = numberOfItems;
 	            this.basketObj.totalPrice = totalPrice;
+	
+	            // Update the totals of the basket in the DOM
+	            if (this.numberOfItemsEl) {
+	                this.numberOfItemsEl.innerHTML = numberOfItems;
+	            }
+	            this.totalPriceEl.innerHTML = '£' + totalPrice;
 	        }
 	
 	        /**

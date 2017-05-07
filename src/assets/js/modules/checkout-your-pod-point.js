@@ -1,5 +1,6 @@
 import { Delegate } from 'dom-delegate';
-import { disableOrEnableDd } from './../utilities';
+import { nodesToArray } from '@pod-point/dom-ops';
+import { disableOrEnableDd, readItemFromCookie } from './../utilities';
 
 let instances = [];
 
@@ -16,6 +17,10 @@ class CheckoutYourPodPoint {
         this.selectEvMake = this.element.querySelector('#selectEvMake');
         this.selectEvModel = this.element.querySelector('#selectEvModel');
         this.carImage = this.element.querySelector('#carImage');
+
+        this.productEls = nodesToArray(document.querySelectorAll('.product'));
+        this.basketObj = readItemFromCookie('basketObj');
+        // if (this.basketObj) { this.preselectFields() }
 
         this.bindEvents();
     }
@@ -34,6 +39,18 @@ class CheckoutYourPodPoint {
 
         this.selectEVModelListener.on('change', (event, element) => {
             this.carImage.src = "assets/img/content/cars/nissan.png";
+        });
+    }
+
+    preselectFields() {
+        console.log(this.basketObj.items);
+
+        if (this.basketObj.items.podPointUnit)
+
+        this.productEls.forEach(productEl => {
+
+            console.log(productEl.getAttribute('name'));
+            productEl.checked = true;
         });
     }
 

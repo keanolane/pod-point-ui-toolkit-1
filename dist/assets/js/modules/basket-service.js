@@ -18,15 +18,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var instances = [];
 
-var Basket = function () {
+var BasketService = function () {
 
     /**
      * Creates a new basket element.
      *
      * @param element
      */
-    function Basket(element) {
-        _classCallCheck(this, Basket);
+    function BasketService(element) {
+        _classCallCheck(this, BasketService);
 
         this.element = element;
 
@@ -79,7 +79,7 @@ var Basket = function () {
      */
 
 
-    _createClass(Basket, [{
+    _createClass(BasketService, [{
         key: 'bindEvents',
         value: function bindEvents() {
             var _this = this;
@@ -320,7 +320,7 @@ var Basket = function () {
         value: function unbindEvents() {}
     }]);
 
-    return Basket;
+    return BasketService;
 }();
 
 exports.default = {
