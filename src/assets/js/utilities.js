@@ -1,4 +1,5 @@
 import Dropkick from 'dropkickjs';
+import { nodesToArray } from '@pod-point/dom-ops';
 
 const IS_OPEN = 'is-open';
 
@@ -46,6 +47,23 @@ export function isHidden(element) {
  * @param element
  * @boolean disable
  */
+export function disableOrEnableButton(element, disable) {
+	if (disable) {
+		element.disabled = true;
+		element.classList.add('is-disabled');
+	} else {
+		element.disabled = false;
+		element.classList.remove('is-disabled');
+	}
+}
+
+
+/**
+ * Enable element
+ *
+ * @param element
+ * @boolean disable
+ */
 export function disableOrEnableDd(element, disable) {
 	var select = new Dropkick(element);
 	if (disable) {
@@ -84,4 +102,25 @@ export function closePanel(panel) {
 
 	panel.classList.remove(IS_OPEN);
     if (toggleIcon) { toggleIcon.classList.remove('rotate'); }
+}
+
+export function allRadiosSelected(radiosWraps) {
+	const numberOfRadioGroups = nodesToArray(radiosWraps).length;
+	let numberOfRadiosSelected = 0;
+
+    radiosWraps.forEach(radiosWrap => {
+        const checkedRadios = nodesToArray(radiosWrap.querySelectorAll('input[type="radio"]:checked'));
+        if (checkedRadios.length === 1) { numberOfRadiosSelected+=1 }
+    });
+    return (numberOfRadioGroups === numberOfRadiosSelected) ? true : false;
+}
+
+export function aRadioContains(radios, specifiedClass) {
+	let containsClass = false;
+    radios.forEach(radio => {
+        if (radio.checked) {
+            if (radio.classList.contains(specifiedClass)) { containsClass = true }
+        }
+    });
+    return containsClass;
 }

@@ -30,7 +30,13 @@ var CheckoutPayment = function () {
         this.element = element;
 
         this.olevPanel = this.element.querySelector('#olevPanel');
+        this.claimOlevButton = this.olevPanel.querySelector('#claimOlevButton');
         this.olevRadios = this.olevPanel.querySelectorAll('input[type="radio"]');
+        this.olevRadiosWraps = this.olevPanel.querySelectorAll('.radios-wrap');
+
+        this.dealershipPanel = this.element.querySelector('#dealershipPanel');
+        this.dealershipInput = this.dealershipPanel.querySelector('#dealershipInput');
+        this.claimDealershipButton = this.dealershipPanel.querySelector('#claimDealershipButton');
 
         this.bindEvents();
     }
@@ -53,6 +59,23 @@ var CheckoutPayment = function () {
                     _this.checkAllRadios();
                 });
             });
+
+            var claimOlevListener = new _domDelegate.Delegate(this.claimOlevButton);
+            claimOlevListener.on('click', function (event, element) {
+                event.preventDefault();
+                _this.claimedOlev();
+            });
+
+            var dealershipInputListener = new _domDelegate.Delegate(this.dealershipInput);
+            dealershipInputListener.on('keyup', function (event, element) {
+                _this.checkForEligibleDealership(element.value);
+            });
+
+            var claimDealershipListener = new _domDelegate.Delegate(this.claimDealershipButton);
+            claimDealershipListener.on('click', function (event, element) {
+                event.preventDefault();
+                _this.claimedDealership();
+            });
         }
 
         /**
@@ -62,15 +85,15 @@ var CheckoutPayment = function () {
     }, {
         key: 'checkAllRadios',
         value: function checkAllRadios() {
-            var _this2 = this;
+            var allRadiosAreSelected = (0, _utilities.allRadiosSelected)(this.olevRadiosWraps);
+            var aRadioContainsNo = (0, _utilities.aRadioContains)(this.olevRadios, 'no');
 
-            this.olevRadios.forEach(function (olevRadio) {
-                if (olevRadio.checked) {
-                    if ((0, _domOps.hasClass)(olevRadio, 'no')) {
-                        _this2.notOlevEligible();
-                    }
-                }
-            });
+            if (aRadioContainsNo) {
+                this.notOlevEligible();
+            } else if (allRadiosAreSelected) {
+                // Activate buuton to claim Olev
+                (0, _utilities.disableOrEnableButton)(this.claimOlevButton, false);
+            }
         }
 
         /**
@@ -80,8 +103,48 @@ var CheckoutPayment = function () {
     }, {
         key: 'notOlevEligible',
         value: function notOlevEligible() {
+            (0, _utilities.disableOrEnableButton)(this.claimOlevButton, true);
             alert('sorry you do not qualify for the OLEV grant');
             (0, _utilities.closePanel)(this.olevPanel);
+        }
+
+        /**
+         * User clicks to claim Olev
+         */
+
+    }, {
+        key: 'claimedOlev',
+        value: function claimedOlev() {
+            alert('you have 500 off your bill');
+            (0, _utilities.disableOrEnableButton)(this.claimOlevButton, true);
+            (0, _utilities.closePanel)(this.olevPanel);
+        }
+
+        /**
+         * User clicks to claim dealership
+         */
+
+    }, {
+        key: 'claimedDealership',
+        value: function claimedDealership() {
+            alert('you have 150 off your bill');
+            (0, _utilities.disableOrEnableButton)(this.claimDealershipButton, true);
+            (0, _utilities.closePanel)(this.dealershipPanel);
+        }
+
+        /**
+         * Check if user types an eligible dealership
+         */
+
+    }, {
+        key: 'checkForEligibleDealership',
+        value: function checkForEligibleDealership(value) {
+            var eligibleDealership = 'nissan';
+            if (eligibleDealership === value) {
+                (0, _utilities.disableOrEnableButton)(this.claimDealershipButton, false);
+            } else {
+                (0, _utilities.disableOrEnableButton)(this.claimDealershipButton, true);
+            }
         }
 
         /**

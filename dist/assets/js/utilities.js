@@ -7,16 +7,21 @@ exports.show = show;
 exports.hide = hide;
 exports.isVisible = isVisible;
 exports.isHidden = isHidden;
+exports.disableOrEnableButton = disableOrEnableButton;
 exports.disableOrEnableDd = disableOrEnableDd;
 exports.addItemToCookie = addItemToCookie;
 exports.readItemFromCookie = readItemFromCookie;
 exports.deleteItemFromCookie = deleteItemFromCookie;
 exports.openPanel = openPanel;
 exports.closePanel = closePanel;
+exports.allRadiosSelected = allRadiosSelected;
+exports.aRadioContains = aRadioContains;
 
 var _dropkickjs = require('dropkickjs');
 
 var _dropkickjs2 = _interopRequireDefault(_dropkickjs);
+
+var _domOps = require('@pod-point/dom-ops');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -58,6 +63,22 @@ function isVisible(element) {
  */
 function isHidden(element) {
   return element.classList.contains('hidden');
+}
+
+/**
+ * Enable element
+ *
+ * @param element
+ * @boolean disable
+ */
+function disableOrEnableButton(element, disable) {
+  if (disable) {
+    element.disabled = true;
+    element.classList.add('is-disabled');
+  } else {
+    element.disabled = false;
+    element.classList.remove('is-disabled');
+  }
 }
 
 /**
@@ -108,4 +129,29 @@ function closePanel(panel) {
   if (toggleIcon) {
     toggleIcon.classList.remove('rotate');
   }
+}
+
+function allRadiosSelected(radiosWraps) {
+  var numberOfRadioGroups = (0, _domOps.nodesToArray)(radiosWraps).length;
+  var numberOfRadiosSelected = 0;
+
+  radiosWraps.forEach(function (radiosWrap) {
+    var checkedRadios = (0, _domOps.nodesToArray)(radiosWrap.querySelectorAll('input[type="radio"]:checked'));
+    if (checkedRadios.length === 1) {
+      numberOfRadiosSelected += 1;
+    }
+  });
+  return numberOfRadioGroups === numberOfRadiosSelected ? true : false;
+}
+
+function aRadioContains(radios, specifiedClass) {
+  var containsClass = false;
+  radios.forEach(function (radio) {
+    if (radio.checked) {
+      if (radio.classList.contains(specifiedClass)) {
+        containsClass = true;
+      }
+    }
+  });
+  return containsClass;
 }

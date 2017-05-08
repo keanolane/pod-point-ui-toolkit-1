@@ -263,7 +263,7 @@
 									</div>
 							
 									<div class="p-t-lg">
-										<button disabled="true" class="button is-disabled">Claim</button>
+										<button id="claimOlevButton" disabled="true" class="button is-disabled">Claim</button>
 										<a data-close-panel="olevPanel" href="#" class="iconfont-cross setback-button m-l-sm">Skip (Close panel, I don't want to claim)</a>
 									</div>
 								</div>
@@ -283,8 +283,8 @@
 												<div class="form-field-wrapper">
 													<div data-js-module="selectDropdown" class="select-dd-wrapper">
 														<select>
-															<option value="00">00</option>
-															<option selected value="01">01</option>
+															<option selected value="buyOutright">Purchased outright</option>
+															<option value="leased">Purchased on lease</option>
 														</select>
 													</div>
 												</div>
@@ -292,7 +292,7 @@
 											<div class="field-row">
 												<label class="label--block">Search for your dealership</label>
 												<div class="form-field-wrapper">
-													<input type="text" placeholder="Town/City, Dealership" />
+													<input id="dealershipInput" type="text" placeholder="Town/City, Dealership" />
 												</div>
 											</div>
 										</div>
@@ -301,7 +301,7 @@
 									</div>
 							
 									<div class="p-t-md">
-										<button disabled="true" class="button is-disabled">Claim</button>
+										<button id="claimDealershipButton" disabled="true" class="button is-disabled">Claim</button>
 										<a data-close-panel="dealershipPanel" href="#" class="iconfont-cross setback-button m-l-sm">Skip (Close panel, I don't want to claim)</a>
 									</div>
 								</div>
