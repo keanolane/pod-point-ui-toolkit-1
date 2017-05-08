@@ -1,5 +1,6 @@
 import { Delegate } from 'dom-delegate';
-import { nodesToArray } from '@pod-point/dom-ops';
+import { nodesToArray, hasClass, addClass, removeClass } from '@pod-point/dom-ops';
+import { openPanel, closePanel } from './../utilities';
 
 let instances = [];
 const IS_OPEN = 'is-open';
@@ -21,8 +22,6 @@ class ToggleAccordionPanel {
         this.radioOpenButtons = nodesToArray(document.querySelectorAll('[data-radio-open-panel="'+this.panelId+'"]')) || [];
         this.radioCloseButtons = nodesToArray(document.querySelectorAll('[data-radio-close-panel="'+this.panelId+'"]')) || [];
         this.inputOpenButtons = nodesToArray(document.querySelectorAll('[data-input-open-panel="'+this.panelId+'"]')) || [];
-
-        this.panelIsVisible = false;
 
         this.bindEvents();
     }
@@ -105,29 +104,13 @@ class ToggleAccordionPanel {
      * Toggle panel depending if already open or not.
      */
     togglePanel() {
-        if (this.panelIsVisible) {
-            this.closePanel();
+        const panelIsVisible = hasClass(this.panel, IS_OPEN);
+
+        if (panelIsVisible) {
+            closePanel(this.panel);
         } else {
-            this.openPanel();
+            openPanel(this.panel);
         }
-    }
-
-    /**
-     * Handle the panel opening.
-     */
-    openPanel() {
-        this.panel.classList.add(IS_OPEN);
-        if (this.toggleIcon) { this.toggleIcon.classList.add('rotate'); }
-        this.panelIsVisible = true;
-    }
-
-    /**
-     * Handle the panel closing.
-     */
-    closePanel() {
-        this.panel.classList.remove(IS_OPEN);
-        if (this.toggleIcon) { this.toggleIcon.classList.remove('rotate'); }
-        this.panelIsVisible = false;
     }
 }
 

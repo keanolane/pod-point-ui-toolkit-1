@@ -10,6 +10,8 @@ var _domDelegate = require('dom-delegate');
 
 var _domOps = require('@pod-point/dom-ops');
 
+var _utilities = require('./../utilities');
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instances = [];
@@ -34,8 +36,6 @@ var ToggleAccordionPanel = function () {
         this.radioOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-radio-open-panel="' + this.panelId + '"]')) || [];
         this.radioCloseButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-radio-close-panel="' + this.panelId + '"]')) || [];
         this.inputOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-input-open-panel="' + this.panelId + '"]')) || [];
-
-        this.panelIsVisible = false;
 
         this.bindEvents();
     }
@@ -144,39 +144,13 @@ var ToggleAccordionPanel = function () {
     }, {
         key: 'togglePanel',
         value: function togglePanel() {
-            if (this.panelIsVisible) {
-                this.closePanel();
+            var panelIsVisible = (0, _domOps.hasClass)(this.panel, IS_OPEN);
+
+            if (panelIsVisible) {
+                (0, _utilities.closePanel)(this.panel);
             } else {
-                this.openPanel();
+                (0, _utilities.openPanel)(this.panel);
             }
-        }
-
-        /**
-         * Handle the panel opening.
-         */
-
-    }, {
-        key: 'openPanel',
-        value: function openPanel() {
-            this.panel.classList.add(IS_OPEN);
-            if (this.toggleIcon) {
-                this.toggleIcon.classList.add('rotate');
-            }
-            this.panelIsVisible = true;
-        }
-
-        /**
-         * Handle the panel closing.
-         */
-
-    }, {
-        key: 'closePanel',
-        value: function closePanel() {
-            this.panel.classList.remove(IS_OPEN);
-            if (this.toggleIcon) {
-                this.toggleIcon.classList.remove('rotate');
-            }
-            this.panelIsVisible = false;
         }
     }]);
 

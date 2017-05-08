@@ -122,7 +122,11 @@
 	
 	var _checkoutYourPodPoint2 = _interopRequireDefault(_checkoutYourPodPoint);
 	
-	var _basket = __webpack_require__(34);
+	var _checkoutPayment = __webpack_require__(34);
+	
+	var _checkoutPayment2 = _interopRequireDefault(_checkoutPayment);
+	
+	var _basket = __webpack_require__(35);
 	
 	var _basket2 = _interopRequireDefault(_basket);
 	
@@ -130,7 +134,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(35);
+	__webpack_require__(36);
 	
 	window.initAutocomplete = _addressLookup.initAutocomplete;
 	window.geolocate = _addressLookup.geolocate;
@@ -162,6 +166,7 @@
 	            addressLookup: _addressLookup2.default,
 	            changeContent: _changeContent2.default,
 	            checkoutYourPodPoint: _checkoutYourPodPoint2.default,
+	            checkoutPayment: _checkoutPayment2.default,
 	            basket: _basket2.default
 	        })
 	    });
@@ -1186,12 +1191,16 @@
 	exports.addItemToCookie = addItemToCookie;
 	exports.readItemFromCookie = readItemFromCookie;
 	exports.deleteItemFromCookie = deleteItemFromCookie;
+	exports.openPanel = openPanel;
+	exports.closePanel = closePanel;
 	
 	var _dropkickjs = __webpack_require__(9);
 	
 	var _dropkickjs2 = _interopRequireDefault(_dropkickjs);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var IS_OPEN = 'is-open';
 	
 	/**
 	 * Remove hidden class from element, showing it via CSS.
@@ -1259,6 +1268,26 @@
 	
 	function deleteItemFromCookie(name) {
 	  document.cookie = [name, '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', window.location.host.toString()].join('');
+	}
+	
+	function openPanel(panel) {
+	  var panelId = panel.getAttribute('id');
+	  var toggleIcon = document.querySelector('[data-toggle-icon="' + panelId + '"]');
+	
+	  panel.classList.add(IS_OPEN);
+	  if (toggleIcon) {
+	    toggleIcon.classList.add('rotate');
+	  }
+	}
+	
+	function closePanel(panel) {
+	  var panelId = panel.getAttribute('id');
+	  var toggleIcon = document.querySelector('[data-toggle-icon="' + panelId + '"]');
+	
+	  panel.classList.remove(IS_OPEN);
+	  if (toggleIcon) {
+	    toggleIcon.classList.remove('rotate');
+	  }
 	}
 
 /***/ },
@@ -13842,6 +13871,8 @@
 	
 	var _domOps = __webpack_require__(4);
 	
+	var _utilities = __webpack_require__(8);
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
@@ -13866,8 +13897,6 @@
 	        this.radioOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-radio-open-panel="' + this.panelId + '"]')) || [];
 	        this.radioCloseButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-radio-close-panel="' + this.panelId + '"]')) || [];
 	        this.inputOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-input-open-panel="' + this.panelId + '"]')) || [];
-	
-	        this.panelIsVisible = false;
 	
 	        this.bindEvents();
 	    }
@@ -13976,39 +14005,13 @@
 	    }, {
 	        key: 'togglePanel',
 	        value: function togglePanel() {
-	            if (this.panelIsVisible) {
-	                this.closePanel();
+	            var panelIsVisible = (0, _domOps.hasClass)(this.panel, IS_OPEN);
+	
+	            if (panelIsVisible) {
+	                (0, _utilities.closePanel)(this.panel);
 	            } else {
-	                this.openPanel();
+	                (0, _utilities.openPanel)(this.panel);
 	            }
-	        }
-	
-	        /**
-	         * Handle the panel opening.
-	         */
-	
-	    }, {
-	        key: 'openPanel',
-	        value: function openPanel() {
-	            this.panel.classList.add(IS_OPEN);
-	            if (this.toggleIcon) {
-	                this.toggleIcon.classList.add('rotate');
-	            }
-	            this.panelIsVisible = true;
-	        }
-	
-	        /**
-	         * Handle the panel closing.
-	         */
-	
-	    }, {
-	        key: 'closePanel',
-	        value: function closePanel() {
-	            this.panel.classList.remove(IS_OPEN);
-	            if (this.toggleIcon) {
-	                this.toggleIcon.classList.remove('rotate');
-	            }
-	            this.panelIsVisible = false;
 	        }
 	    }]);
 	
@@ -17882,6 +17885,125 @@
 	    value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(6);
+	
+	var _domOps = __webpack_require__(4);
+	
+	var _utilities = __webpack_require__(8);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	var IS_OPEN = 'is-open';
+	
+	var CheckoutPayment = function () {
+	
+	    /**
+	     * Creates a new form element.
+	     *
+	     * @param element
+	     */
+	    function CheckoutPayment(element) {
+	        _classCallCheck(this, CheckoutPayment);
+	
+	        this.element = element;
+	
+	        this.olevPanel = this.element.querySelector('#olevPanel');
+	        this.olevRadios = this.olevPanel.querySelectorAll('input[type="radio"]');
+	
+	        this.bindEvents();
+	    }
+	
+	    /**
+	     * Binds the event listeners from the elements.
+	     */
+	
+	
+	    _createClass(CheckoutPayment, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+	
+	            this.olevRadioListeners = [];
+	            this.olevRadios.forEach(function (olevRadio) {
+	                var olevRadioListener = new _domDelegate.Delegate(olevRadio);
+	                _this.olevRadioListeners.push(olevRadioListener);
+	                olevRadioListener.on('change', function (event, element) {
+	                    _this.checkAllRadios();
+	                });
+	            });
+	        }
+	
+	        /**
+	         * Check
+	         */
+	
+	    }, {
+	        key: 'checkAllRadios',
+	        value: function checkAllRadios() {
+	            var _this2 = this;
+	
+	            this.olevRadios.forEach(function (olevRadio) {
+	                if (olevRadio.checked) {
+	                    if ((0, _domOps.hasClass)(olevRadio, 'no')) {
+	                        _this2.notOlevEligible();
+	                    }
+	                }
+	            });
+	        }
+	
+	        /**
+	         * If user is not eligible
+	         */
+	
+	    }, {
+	        key: 'notOlevEligible',
+	        value: function notOlevEligible() {
+	            alert('sorry you do not qualify for the OLEV grant');
+	            (0, _utilities.closePanel)(this.olevPanel);
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements.
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.olevRadioListeners.forEach(function (olevRadioListener) {
+	                return olevRadioListener.destroy();
+	            });
+	        }
+	    }]);
+	
+	    return CheckoutPayment;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new CheckoutPayment(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
 	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -18229,7 +18351,7 @@
 	};
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports) {
 
 	"use strict";

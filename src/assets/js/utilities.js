@@ -1,5 +1,7 @@
 import Dropkick from 'dropkickjs';
 
+const IS_OPEN = 'is-open';
+
 /**
  * Remove hidden class from element, showing it via CSS.
  *
@@ -66,4 +68,20 @@ export function readItemFromCookie(name) {
 
 export function deleteItemFromCookie(name) {
 	document.cookie = [name, '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', window.location.host.toString()].join('');
+}
+
+export function openPanel(panel) {
+	const panelId = panel.getAttribute('id');
+	const toggleIcon = document.querySelector('[data-toggle-icon="'+panelId+'"]');
+
+	panel.classList.add(IS_OPEN);
+    if (toggleIcon) { toggleIcon.classList.add('rotate'); }
+}
+
+export function closePanel(panel) {
+	const panelId = panel.getAttribute('id');
+	const toggleIcon = document.querySelector('[data-toggle-icon="'+panelId+'"]');
+
+	panel.classList.remove(IS_OPEN);
+    if (toggleIcon) { toggleIcon.classList.remove('rotate'); }
 }

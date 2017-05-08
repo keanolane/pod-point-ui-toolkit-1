@@ -11,12 +11,16 @@ exports.disableOrEnableDd = disableOrEnableDd;
 exports.addItemToCookie = addItemToCookie;
 exports.readItemFromCookie = readItemFromCookie;
 exports.deleteItemFromCookie = deleteItemFromCookie;
+exports.openPanel = openPanel;
+exports.closePanel = closePanel;
 
 var _dropkickjs = require('dropkickjs');
 
 var _dropkickjs2 = _interopRequireDefault(_dropkickjs);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var IS_OPEN = 'is-open';
 
 /**
  * Remove hidden class from element, showing it via CSS.
@@ -84,4 +88,24 @@ function readItemFromCookie(name) {
 
 function deleteItemFromCookie(name) {
   document.cookie = [name, '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', window.location.host.toString()].join('');
+}
+
+function openPanel(panel) {
+  var panelId = panel.getAttribute('id');
+  var toggleIcon = document.querySelector('[data-toggle-icon="' + panelId + '"]');
+
+  panel.classList.add(IS_OPEN);
+  if (toggleIcon) {
+    toggleIcon.classList.add('rotate');
+  }
+}
+
+function closePanel(panel) {
+  var panelId = panel.getAttribute('id');
+  var toggleIcon = document.querySelector('[data-toggle-icon="' + panelId + '"]');
+
+  panel.classList.remove(IS_OPEN);
+  if (toggleIcon) {
+    toggleIcon.classList.remove('rotate');
+  }
 }

@@ -21,6 +21,7 @@ import carousel from './modules/Carousel';
 import addressLookup from './modules/address-lookup';
 import changeContent from './modules/change-content';
 import checkoutYourPodPoint from './modules/checkout-your-pod-point';
+import checkoutPayment from './modules/checkout-payment';
 import basket from './modules/basket';
 
 
@@ -56,6 +57,7 @@ dom.whenReady(() => {
             addressLookup,
             changeContent,
             checkoutYourPodPoint,
+            checkoutPayment,
             basket,
         })
     });
