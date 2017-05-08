@@ -66,7 +66,7 @@ var ToggleAccordionPanel = function () {
                 _this.openListeners.push(openListener);
                 openListener.on('click', function (event) {
                     event.preventDefault();
-                    _this.openPanel();
+                    (0, _utilities.openPanel)(_this.panel);
                 });
             });
 
@@ -76,7 +76,7 @@ var ToggleAccordionPanel = function () {
                 _this.closeListeners.push(closeListener);
                 closeListener.on('click', function (event) {
                     event.preventDefault();
-                    _this.closePanel();
+                    (0, _utilities.closePanel)(_this.panel);
                 });
             });
 
@@ -86,7 +86,7 @@ var ToggleAccordionPanel = function () {
                 _this.radioOpenListeners.push(radioOpenListener);
                 radioOpenListener.on('change', function (event) {
                     event.preventDefault();
-                    _this.openPanel();
+                    (0, _utilities.openPanel)(_this.panel);
                 });
             });
 
@@ -96,7 +96,7 @@ var ToggleAccordionPanel = function () {
                 _this.radioCloseListeners.push(radioCloseListener);
                 radioCloseListener.on('change', function (event) {
                     event.preventDefault();
-                    _this.closePanel();
+                    (0, _utilities.closePanel)(_this.panel);
                 });
             });
 
@@ -105,7 +105,7 @@ var ToggleAccordionPanel = function () {
                 var inputOpenListener = new _domDelegate.Delegate(inputOpenButton);
                 _this.inputOpenListeners.push(inputOpenListener);
                 inputOpenListener.on('focus', function () {
-                    return _this.openPanel();
+                    return (0, _utilities.openPanel)(_this.panel);
                 });
             });
         }

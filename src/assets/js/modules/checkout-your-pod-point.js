@@ -1,6 +1,6 @@
 import { Delegate } from 'dom-delegate';
 import { nodesToArray, addClass } from '@pod-point/dom-ops';
-import { disableOrEnableDd, readItemFromCookie } from './../utilities';
+import { disableOrEnableDd, readItemFromCookie, openPanel } from './../utilities';
 
 let instances = [];
 
@@ -50,11 +50,11 @@ class CheckoutYourPodPoint {
         const connector = this.basketObj.podPoint.connector;
         const accessories = this.basketObj.accessories;
 
-        if (podPointUnitId) { this.element.querySelector('[value="'+podPointUnitId+'"]').checked = true };
-        if (connector) {
-            this.element.querySelector('[value="'+connector.id+'"]').checked = true;
-            addClass(this.element.querySelector('#connectors'), 'is-open');
+        if (podPointUnitId) {
+            this.element.querySelector('[value="'+podPointUnitId+'"]').checked = true;
+            openPanel(this.element.querySelector('#connectors'));
         };
+        if (connector) { this.element.querySelector('[value="'+connector.id+'"]').checked = true };
 
         if (Object.keys(accessories).length > 0) {
             for (var [key, value] of Object.entries(this.basketObj.accessories)) {

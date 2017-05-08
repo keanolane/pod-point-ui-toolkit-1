@@ -46,7 +46,7 @@ class ToggleAccordionPanel {
             this.openListeners.push(openListener);
             openListener.on('click', (event) => {
                 event.preventDefault();
-                this.openPanel();
+                openPanel(this.panel);
             });
         });
 
@@ -56,7 +56,7 @@ class ToggleAccordionPanel {
             this.closeListeners.push(closeListener);
             closeListener.on('click', (event) => {
                 event.preventDefault();
-                this.closePanel();
+                closePanel(this.panel);
             });
         });
 
@@ -66,7 +66,7 @@ class ToggleAccordionPanel {
             this.radioOpenListeners.push(radioOpenListener);
             radioOpenListener.on('change', (event) => {
                 event.preventDefault();
-                this.openPanel();
+               openPanel(this.panel);
             });
         });
 
@@ -76,7 +76,7 @@ class ToggleAccordionPanel {
             this.radioCloseListeners.push(radioCloseListener);
             radioCloseListener.on('change', (event) => {
                 event.preventDefault();
-                this.closePanel();
+                closePanel(this.panel);
             });
         });
 
@@ -84,7 +84,7 @@ class ToggleAccordionPanel {
         this.inputOpenButtons.forEach(inputOpenButton => {
             const inputOpenListener = new Delegate(inputOpenButton);
             this.inputOpenListeners.push(inputOpenListener);
-            inputOpenListener.on('focus', () => this.openPanel());
+            inputOpenListener.on('focus', () => openPanel(this.panel));
         });
     }
 

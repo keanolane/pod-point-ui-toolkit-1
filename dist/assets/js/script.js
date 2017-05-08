@@ -13927,7 +13927,7 @@
 	                _this.openListeners.push(openListener);
 	                openListener.on('click', function (event) {
 	                    event.preventDefault();
-	                    _this.openPanel();
+	                    (0, _utilities.openPanel)(_this.panel);
 	                });
 	            });
 	
@@ -13937,7 +13937,7 @@
 	                _this.closeListeners.push(closeListener);
 	                closeListener.on('click', function (event) {
 	                    event.preventDefault();
-	                    _this.closePanel();
+	                    (0, _utilities.closePanel)(_this.panel);
 	                });
 	            });
 	
@@ -13947,7 +13947,7 @@
 	                _this.radioOpenListeners.push(radioOpenListener);
 	                radioOpenListener.on('change', function (event) {
 	                    event.preventDefault();
-	                    _this.openPanel();
+	                    (0, _utilities.openPanel)(_this.panel);
 	                });
 	            });
 	
@@ -13957,7 +13957,7 @@
 	                _this.radioCloseListeners.push(radioCloseListener);
 	                radioCloseListener.on('change', function (event) {
 	                    event.preventDefault();
-	                    _this.closePanel();
+	                    (0, _utilities.closePanel)(_this.panel);
 	                });
 	            });
 	
@@ -13966,7 +13966,7 @@
 	                var inputOpenListener = new _domDelegate.Delegate(inputOpenButton);
 	                _this.inputOpenListeners.push(inputOpenListener);
 	                inputOpenListener.on('focus', function () {
-	                    return _this.openPanel();
+	                    return (0, _utilities.openPanel)(_this.panel);
 	                });
 	            });
 	        }
@@ -17811,10 +17811,10 @@
 	
 	            if (podPointUnitId) {
 	                this.element.querySelector('[value="' + podPointUnitId + '"]').checked = true;
+	                (0, _utilities.openPanel)(this.element.querySelector('#connectors'));
 	            };
 	            if (connector) {
 	                this.element.querySelector('[value="' + connector.id + '"]').checked = true;
-	                (0, _domOps.addClass)(this.element.querySelector('#connectors'), 'is-open');
 	            };
 	
 	            if (Object.keys(accessories).length > 0) {

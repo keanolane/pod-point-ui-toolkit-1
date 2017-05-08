@@ -79,10 +79,10 @@ var CheckoutYourPodPoint = function () {
 
             if (podPointUnitId) {
                 this.element.querySelector('[value="' + podPointUnitId + '"]').checked = true;
+                (0, _utilities.openPanel)(this.element.querySelector('#connectors'));
             };
             if (connector) {
                 this.element.querySelector('[value="' + connector.id + '"]').checked = true;
-                (0, _domOps.addClass)(this.element.querySelector('#connectors'), 'is-open');
             };
 
             if (Object.keys(accessories).length > 0) {
