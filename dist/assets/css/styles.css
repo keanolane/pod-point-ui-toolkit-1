@@ -4069,6 +4069,55 @@ button {
     stroke-width: 7;
     stroke-linecap: "round"; }
 
+.electricity-meter {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #ccc;
+  box-sizing: border-box; }
+  .electricity-meter:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .electricity-meter__s {
+    float: left;
+    width: 20%;
+    height: 12rem;
+    background-color: white;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-family: "Quicksand Bold", sans-serif;
+    font-size: 5rem;
+    text-align: center;
+    line-height: 11rem; }
+  .electricity-meter__inputs {
+    float: left;
+    width: 80%;
+    box-sizing: border-box; }
+  .electricity-meter__row {
+    box-sizing: border-box; }
+    .electricity-meter__row:after {
+      content: "";
+      display: table;
+      clear: both; }
+    .electricity-meter__row input {
+      height: 6rem;
+      line-height: 6rem;
+      font-size: 2rem;
+      border-radius: 0;
+      float: left;
+      text-align: center;
+      width: calc(100% / 3); }
+      .electricity-meter__row input[readonly]:hover, .electricity-meter__row input[readonly]:focus, .electricity-meter__row input[readonly]:active {
+        border-color: #ccc; }
+    .electricity-meter__row:last-child input:nth-child(1) {
+      width: calc(100% / 4); }
+    .electricity-meter__row:last-child input:nth-child(2) {
+      width: calc(100% / 2); }
+    .electricity-meter__row:last-child input:nth-child(3) {
+      width: calc(100% / 4); }
+
 .m-none {
   margin: 0 !important; }
 

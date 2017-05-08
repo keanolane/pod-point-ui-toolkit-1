@@ -1,0 +1,63 @@
+// =============================================================================
+//  ELECTRICITY METER
+// =============================================================================
+
+.electricity-meter {
+	@include clearfix;
+	border: $form-border-base;
+	border-radius: $form-border-radius;
+	background-color: $form-keyline;
+	box-sizing: border-box;
+
+	&__s {
+		float: left;
+		width: 20%;
+		height: 12rem;
+		background-color: white;
+		border: $form-border-base;
+		box-sizing: border-box;
+		border-top-left-radius: $form-border-radius;
+		border-bottom-left-radius: $form-border-radius;
+		font-family: $font-family-bold;
+		font-size: 5rem;
+		text-align: center;
+		line-height: 11rem;
+	}
+	&__inputs {
+		float: left;
+		width: 80%;
+		box-sizing: border-box;
+	}
+	&__row {
+		box-sizing: border-box;
+		@include clearfix;
+		input {
+			height: 6rem;
+			line-height: 6rem;
+			font-size: 2rem;
+			border-radius: 0;
+			float: left;
+			text-align: center;
+			width: calc(100% / 3);
+
+			&[readonly] {
+				&:hover,
+				&:focus,
+				&:active {
+					border-color: $form-keyline;
+				}
+			}
+		}
+		&:last-child {
+			input:nth-child(1) {
+				width: calc(100% / 4);
+			}
+			input:nth-child(2) {
+				width: calc(100% / 2);
+			}
+			input:nth-child(3) {
+				width: calc(100% / 4);
+			}
+		}
+	}
+}
