@@ -1,6 +1,6 @@
 import { Delegate } from 'dom-delegate';
 import { nodesToArray, addClass, removeClass, hasClass } from '@pod-point/dom-ops';
-import { openPanel, closePanel, allRadiosSelected, aRadioContains, disableOrEnableButton } from './../utilities';
+import { openPanel, closePanel, allRadiosSelected, aRadioContains, disableOrEnableButton, show } from './../utilities';
 
 let instances = [];
 const IS_OPEN = 'is-open';
@@ -19,10 +19,14 @@ class CheckoutPayment {
         this.claimOlevButton = this.olevPanel.querySelector('#claimOlevButton');
         this.olevRadios = this.olevPanel.querySelectorAll('input[type="radio"]');
         this.olevRadiosWraps = this.olevPanel.querySelectorAll('.radios-wrap');
+        this.confirmNotOlevEligible = this.element.querySelector('#confirmNotOlevEligible');
+        this.confirmClaimedOlev = this.element.querySelector('#confirmClaimedOlev');
+        this.confirmUnsureClaimOlev = this.element.querySelector('#confirmUnsureClaimOlev');
 
         this.dealershipPanel = this.element.querySelector('#dealershipPanel');
         this.dealershipInput = this.dealershipPanel.querySelector('#dealershipInput');
         this.claimDealershipButton = this.dealershipPanel.querySelector('#claimDealershipButton');
+        this.confirmDealershipEligible = this.element.querySelector('#confirmDealershipEligible');
 
         this.bindEvents();
     }
@@ -78,7 +82,7 @@ class CheckoutPayment {
      */
     notOlevEligible() {
         disableOrEnableButton(this.claimOlevButton, true);
-        alert('sorry you do not qualify for the OLEV grant');
+        show(this.confirmNotOlevEligible);
         closePanel(this.olevPanel);
     }
 
@@ -86,7 +90,9 @@ class CheckoutPayment {
      * User clicks to claim Olev
      */
     claimedOlev() {
-        alert('you have 500 off your bill');
+        const aRadioContainsUnsure = aRadioContains(this.olevRadios, 'unsure');
+        (aRadioContainsUnsure) ? show(this.confirmUnsureClaimOlev) : show(this.confirmClaimedOlev);
+
         disableOrEnableButton(this.claimOlevButton, true);
         closePanel(this.olevPanel);
     }
@@ -95,7 +101,7 @@ class CheckoutPayment {
      * User clicks to claim dealership
      */
     claimedDealership() {
-        alert('you have 150 off your bill');
+        show(this.confirmDealershipEligible);
         disableOrEnableButton(this.claimDealershipButton, true);
         closePanel(this.dealershipPanel);
     }

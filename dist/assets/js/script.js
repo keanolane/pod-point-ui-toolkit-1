@@ -17960,10 +17960,14 @@
 	        this.claimOlevButton = this.olevPanel.querySelector('#claimOlevButton');
 	        this.olevRadios = this.olevPanel.querySelectorAll('input[type="radio"]');
 	        this.olevRadiosWraps = this.olevPanel.querySelectorAll('.radios-wrap');
+	        this.confirmNotOlevEligible = this.element.querySelector('#confirmNotOlevEligible');
+	        this.confirmClaimedOlev = this.element.querySelector('#confirmClaimedOlev');
+	        this.confirmUnsureClaimOlev = this.element.querySelector('#confirmUnsureClaimOlev');
 	
 	        this.dealershipPanel = this.element.querySelector('#dealershipPanel');
 	        this.dealershipInput = this.dealershipPanel.querySelector('#dealershipInput');
 	        this.claimDealershipButton = this.dealershipPanel.querySelector('#claimDealershipButton');
+	        this.confirmDealershipEligible = this.element.querySelector('#confirmDealershipEligible');
 	
 	        this.bindEvents();
 	    }
@@ -18031,7 +18035,7 @@
 	        key: 'notOlevEligible',
 	        value: function notOlevEligible() {
 	            (0, _utilities.disableOrEnableButton)(this.claimOlevButton, true);
-	            alert('sorry you do not qualify for the OLEV grant');
+	            (0, _utilities.show)(this.confirmNotOlevEligible);
 	            (0, _utilities.closePanel)(this.olevPanel);
 	        }
 	
@@ -18042,7 +18046,9 @@
 	    }, {
 	        key: 'claimedOlev',
 	        value: function claimedOlev() {
-	            alert('you have 500 off your bill');
+	            var aRadioContainsUnsure = (0, _utilities.aRadioContains)(this.olevRadios, 'unsure');
+	            aRadioContainsUnsure ? (0, _utilities.show)(this.confirmUnsureClaimOlev) : (0, _utilities.show)(this.confirmClaimedOlev);
+	
 	            (0, _utilities.disableOrEnableButton)(this.claimOlevButton, true);
 	            (0, _utilities.closePanel)(this.olevPanel);
 	        }
@@ -18054,7 +18060,7 @@
 	    }, {
 	        key: 'claimedDealership',
 	        value: function claimedDealership() {
-	            alert('you have 150 off your bill');
+	            (0, _utilities.show)(this.confirmDealershipEligible);
 	            (0, _utilities.disableOrEnableButton)(this.claimDealershipButton, true);
 	            (0, _utilities.closePanel)(this.dealershipPanel);
 	        }

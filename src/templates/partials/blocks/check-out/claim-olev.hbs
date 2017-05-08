@@ -84,3 +84,33 @@
 		</div>
 	</div>
 </div>
+
+
+<div data-js-module="toggleElement" id="confirmNotOlevEligible" class="confirm-popup hidden">
+	<div class="confirm-popup__box">
+		<div class="rich-text">
+			<p>Unfortunately you don't qualify for the OLEV grant if you answer 'no' to any of the eligibility questions. Please see <a href="#">Terms and conditions</a> for more information.</p>
+		</div>
+		<button class="button" data-close-el="confirmNotOlevEligible">Continue at normal price</button>
+	</div>
+</div>
+
+<div data-js-module="toggleElement" id="confirmClaimedOlev" class="confirm-popup hidden">
+	<div class="confirm-popup__box">
+		<div class="rich-text">
+			<p>You are eligible for the OLEV grant.</p>
+		</div>
+		<button class="button" data-close-el="confirmClaimedOlev">Claim OLEV Grant</button>
+	</div>
+</div>
+
+<div data-js-module="toggleElement" id="confirmUnsureClaimOlev" class="confirm-popup hidden">
+	<div class="confirm-popup__box">
+		<div class="rich-text">
+			<p>As you've answered 'unsure' to some of the eligibility questions, you can proceed to claim the OLEV grant, however, we'll need to review your situation before we install the POD Point.</p>
+			<p>If you're not eligible we'll be in touch to request you pay the remaining balance or offer a full refund.</p>
+		</div>
+		<button class="button" data-close-el="confirmUnsureClaimOlev">Claim OLEV Grant</button>
+		<a data-close-el="confirmUnsureClaimOlev" href="#" class="iconfont-cross setback-button m-l-sm m-t-md block">Skip - I don't want to claim</a>
+	</div>
+</div>
