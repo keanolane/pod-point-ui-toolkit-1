@@ -11,6 +11,9 @@
 		height: 9.5rem;
 		display: block;
 		float: right;
+		.is-minified & {
+			height: 5rem;
+		}
 	}
 	.nav-open & {
 		display: block;
@@ -43,6 +46,9 @@
 				display: block;
 				@include medium-and-up {
 					@include padding(3.9rem 0.5rem);
+					.is-minified & {
+						@include padding(1.5rem null);
+					}
 				}
 			}
 			a.find-chargepoint {
@@ -127,6 +133,9 @@
 			opacity: 0;
 			@include position(absolute, 9.6rem 0 null null);
 			box-shadow: $bottom-shadow;
+			.is-minified & {
+				top: 5rem;
+			}
 		}
 		ul {
 			@include container;

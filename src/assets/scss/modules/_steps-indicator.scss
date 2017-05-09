@@ -2,6 +2,16 @@
 //  STEPS INDICATOR
 // =============================================================================
 
+.steps-indicator-wrap {
+	width: 100%;
+	// position: fixed;
+	// z-index: 99;
+
+	&.is-minified {
+		padding-top: 5rem;
+	}
+}
+
 .steps-indicator {
 	@include clearfix;
 	position: relative;

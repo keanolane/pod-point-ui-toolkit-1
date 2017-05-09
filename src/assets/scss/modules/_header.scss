@@ -4,7 +4,22 @@
 
 .global-header-wrap {
 	position: relative;
-	z-index: 100;
+	// z-index: 100;
+	// position: fixed;
+	width: 100%;
+	background-color: white;
+
+	// + section {
+	// 	padding-top: 6rem;
+	// }
+	// @include medium-and-up {
+	// 	+ section {
+	// 		padding-top: 9.6rem;
+	// 	}
+	// }
+	&.is-minified {
+		box-shadow: $bottom-shadow-subtle;
+	}
 }
 
 .global-header {
@@ -12,6 +27,9 @@
 	@include clearfix;
 	@include medium-and-up {
 		height: 9.6rem;
+		.is-minified & {
+			height: 5rem;
+		}
 	}
 	&.nav-open {
 		box-shadow: $bottom-shadow;
@@ -33,11 +51,18 @@
 	width: 10rem;
 	@include position(absolute, 2rem null null 0);
 	@include medium-and-up {
-		top: 3rem;
+		top: 2.2rem;
 		width: 14rem;
+		.is-minified & {
+			top: 0.9rem;
+			width: 12rem;
+		}
 	}
 	@include large-and-up {
 		width: 18rem;
+		.is-minified & {
+			width: 12rem;
+		}
 	}
 }
 

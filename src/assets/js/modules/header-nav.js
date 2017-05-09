@@ -1,15 +1,20 @@
 import { Delegate } from 'dom-delegate';
-import { select, addClass, removeClass, nextElement, nodesToArray, selectFirst } from '@pod-point/dom-ops';
+import { select, addClass, removeClass, nextElement, nodesToArray } from '@pod-point/dom-ops';
 import { isVisible, hide, show } from './../utilities';
+import Sticky from 'sticky-js';
 
 let instances = [];
 
 const NAV_OPEN = 'nav-open';
 const SUBNAV_OPEN = 'sub-nav-open';
+const HEADER_MINFIED = 'is-minified';
 
 let navIsOpen = false;
 let subNavIsOpen = false;
 
+let scrollPos = 0;
+const headerWrap = document.querySelector('.global-header-wrap');
+const stepsIndicator = document.querySelector('#stepsIndicator');
 
 class HeaderNav {
 
@@ -20,8 +25,9 @@ class HeaderNav {
      */
     constructor(element) {
         this.element = element;
-        this.navicon = selectFirst('.navicon', this.element);
-        this.nav = selectFirst('.global-nav', this.element);
+        this.navicon = this.element.querySelector('.navicon');
+        this.nav = this.element.querySelector('.global-nav');
+        this.headerWrap = document.querySelector('.global-header-wrap');
 
         this.bindEvents();
     }
@@ -41,14 +47,16 @@ class HeaderNav {
         this.navListener.on('click', '.has-sub-nav a', (event, clickedElement) => {
             this.toggleSubNav(event, clickedElement);
         });
-    }
 
-    /**
-     * Unbinds the event listeners from the elements.
-     */
-    unbindEvents() {
-        this.naviconListener.destroy();
-        this.navListener.destroy();
+        // window.addEventListener('scroll', function() {
+        //     if (document.body.scrollTop > 0) {
+        //         addClass(headerWrap, HEADER_MINFIED);
+        //         addClass(stepsIndicator, HEADER_MINFIED);
+        //     } else {
+        //         removeClass(headerWrap, HEADER_MINFIED);
+        //         removeClass(stepsIndicator, HEADER_MINFIED);
+        //     }
+        // });
     }
 
     /**
@@ -96,6 +104,14 @@ class HeaderNav {
         } else {
             removeClass(subNavLi, SUBNAV_OPEN);
         }
+    }
+
+    /**
+     * Unbinds the event listeners from the elements.
+     */
+    unbindEvents() {
+        this.naviconListener.destroy();
+        this.navListener.destroy();
     }
 }
 

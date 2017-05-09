@@ -2737,7 +2737,10 @@ button {
 
 .global-header-wrap {
   position: relative;
-  z-index: 100; }
+  width: 100%;
+  background-color: white; }
+  .global-header-wrap.is-minified {
+    box-shadow: 0px 11px 16px -10px rgba(0, 0, 0, 0.05); }
 
 .global-header {
   margin-right: auto;
@@ -2755,7 +2758,9 @@ button {
     clear: both; }
   @media (min-width: 50em) {
     .global-header {
-      height: 9.6rem; } }
+      height: 9.6rem; }
+      .is-minified .global-header {
+        height: 5rem; } }
   .global-header.nav-open {
     box-shadow: 0px 11px 16px -10px rgba(0, 0, 0, 0.1); }
     @media (min-width: 50em) {
@@ -2776,11 +2781,16 @@ button {
   left: 0; }
   @media (min-width: 50em) {
     .logo-main {
-      top: 3rem;
-      width: 14rem; } }
+      top: 2.2rem;
+      width: 14rem; }
+      .is-minified .logo-main {
+        top: 0.9rem;
+        width: 12rem; } }
   @media (min-width: 64em) {
     .logo-main {
-      width: 18rem; } }
+      width: 18rem; }
+      .is-minified .logo-main {
+        width: 12rem; } }
 
 .navicon {
   margin-top: 2rem;
@@ -2887,7 +2897,9 @@ button {
     .global-nav {
       height: 9.5rem;
       display: block;
-      float: right; } }
+      float: right; }
+      .is-minified .global-nav {
+        height: 5rem; } }
   .nav-open .global-nav {
     display: block;
     transition: 0.5s ease-in-out;
@@ -2929,7 +2941,10 @@ button {
       display: block; }
       @media (min-width: 50em) {
         .global-nav ul li a:not(.plus-minus-toggle) {
-          padding: 3.9rem 0.5rem; } }
+          padding: 3.9rem 0.5rem; }
+          .is-minified .global-nav ul li a:not(.plus-minus-toggle) {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem; } }
     .global-nav ul li a.find-chargepoint {
       color: #8CC63F;
       position: relative;
@@ -3012,7 +3027,9 @@ button {
         position: absolute;
         top: 9.6rem;
         right: 0;
-        box-shadow: 0px 11px 16px -10px rgba(0, 0, 0, 0.1); } }
+        box-shadow: 0px 11px 16px -10px rgba(0, 0, 0, 0.1); }
+        .is-minified .global-nav__sub-nav {
+          top: 5rem; } }
     .global-nav__sub-nav ul {
       margin-right: auto;
       margin-left: auto;
@@ -3651,6 +3668,11 @@ button {
         .table--specs > tfoot > tr > td:last-child {
           border-right: none;
           padding: 3rem 0 3rem 2rem; } }
+
+.steps-indicator-wrap {
+  width: 100%; }
+  .steps-indicator-wrap.is-minified {
+    padding-top: 5rem; }
 
 .steps-indicator {
   position: relative; }
@@ -4574,6 +4596,20 @@ button {
     width: 100%;
     padding-top: 70%; }
   .aspect-radio-10-7 > .aspect-ratio-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+
+.aspect-radio-9-5 {
+  position: relative; }
+  .aspect-radio-9-5:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 55.5556%; }
+  .aspect-radio-9-5 > .aspect-ratio-content {
     position: absolute;
     top: 0;
     left: 0;
