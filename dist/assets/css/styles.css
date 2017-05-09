@@ -2694,6 +2694,9 @@ button {
   .bg--white + .bg--white {
     border-top: 1px solid #e2e2e2; }
 
+.global-header-wrap + .bg--white {
+  border-top: 1px solid #e2e2e2; }
+
 .bg--dark-gray {
   background-color: #4d4d4d;
   color: white; }
@@ -4530,6 +4533,11 @@ button {
   position: absolute;
   right: 0;
   bottom: 0; }
+
+.abs-top-right {
+  position: absolute;
+  top: 0;
+  right: 0; }
 
 .max-width--xxs {
   max-width: 10rem; }

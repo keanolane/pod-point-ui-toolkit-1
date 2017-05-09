@@ -8,6 +8,10 @@
 		border-top: $border-thin;
 	}
 }
+.global-header-wrap + .bg--white {
+	border-top: $border-thin;
+}
+
 .bg--dark-gray {
 	background-color: $gray-dark;
 	color: white;
