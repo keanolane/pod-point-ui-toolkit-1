@@ -37,10 +37,12 @@ $floating-basket-horizontal-padding: 1.5rem;
 		}
 		&__extra {
 			clear: both;
-			@include font-small;
-			font-family: $font-family-bold;
 			padding-top: 1rem;
 			margin-bottom: 1rem;
+			p {
+				@include font-small;
+				font-family: $font-family-bold;
+			}
 		}
 		&__price {
 			padding-top: 0.8rem;

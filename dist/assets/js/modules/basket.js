@@ -229,6 +229,7 @@ var Basket = function () {
             this.unitNameEl.innerHTML = podPoint.name || '';
             this.unitConnectorNameEl.innerHTML = connector.name || '';
             this.unitPriceEl.innerHTML = '£' + podPoint.price || '';
+            this.unitPriceEl.setAttribute('data-price', podPoint.price);
 
             this.updateTotals();
         }
@@ -319,6 +320,7 @@ var Basket = function () {
                 this.numberOfItemsEl.innerHTML = numberOfItems;
             }
             this.totalPriceEl.innerHTML = '£' + totalPrice;
+            this.totalPriceEl.setAttribute('data-total-price', totalPrice);
         }
 
         /**

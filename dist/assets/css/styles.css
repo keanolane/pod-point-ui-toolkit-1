@@ -541,7 +541,7 @@ h1, .h1 {
   font-family: "Quicksand Medium", sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.3;
   font-size: 2rem; }
   h1:last-child, .h1:last-child {
     padding-bottom: 0; }
@@ -555,7 +555,7 @@ h2, .h2 {
   font-family: "Quicksand Medium", sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.3;
   font-size: 1.8rem; }
   h2:last-child, .h2:last-child {
     padding-bottom: 0; }
@@ -569,7 +569,7 @@ h3, .h3 {
   font-family: "Quicksand Medium", sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.3;
   font-size: 1.4rem; }
   h3:last-child, .h3:last-child {
     padding-bottom: 0; }
@@ -583,7 +583,7 @@ h4, .h4 {
   font-family: "Quicksand Medium", sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.3;
   font-size: 1.4rem; }
   h4:last-child, .h4:last-child {
     padding-bottom: 0; }
@@ -597,7 +597,7 @@ h5, .h5 {
   font-family: "Quicksand Medium", sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.3;
   font-size: 1.4rem; }
   h5:last-child, .h5:last-child {
     padding-bottom: 0; }
@@ -611,7 +611,7 @@ h6, .h6 {
   font-family: "Quicksand Medium", sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.3;
   font-size: 1.4rem; }
   h6:last-child, .h6:last-child {
     padding-bottom: 0; }
@@ -1908,7 +1908,7 @@ input[type="checkbox"] {
   font-family: "Quicksand Medium", sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.3;
   font-size: 2rem;
   padding-bottom: 0.5rem !important; }
   .select-dd-wrapper--alternative--h1 .dk-selected:last-child,
@@ -2831,12 +2831,10 @@ button {
 .global-footer__section-bottom {
   color: white;
   background-color: #333;
-  padding-top: 2rem;
-  padding-bottom: 2rem; }
+  padding-top: 2rem; }
   @media (min-width: 50em) {
     .global-footer__section-bottom {
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem; } }
+      padding-top: 1.5rem; } }
   .global-footer__section-bottom p,
   .global-footer__section-bottom ul {
     margin: 0;
@@ -3092,7 +3090,7 @@ button {
     font-family: "Quicksand Medium", sans-serif;
     font-size: 1.2rem;
     font-weight: bold;
-    line-height: 1.2;
+    line-height: 1.3;
     font-size: 2rem; }
     .panel__title:last-child {
       padding-bottom: 0; }
@@ -3777,21 +3775,22 @@ button {
           font-size: 1.2rem; } }
   .basket-content__item__extra {
     clear: both;
-    margin: 0;
-    font-family: "Quicksand Regular", sans-serif;
-    font-size: 1.4rem;
-    line-height: 1.5em;
-    font-size: 1.2rem;
-    line-height: 1.2;
-    font-family: "Quicksand Bold", sans-serif;
     padding-top: 1rem;
     margin-bottom: 1rem; }
-    @media (min-width: 50em) {
-      .basket-content__item__extra {
-        font-size: 1.6rem; } }
-    @media (min-width: 50em) {
-      .basket-content__item__extra {
-        font-size: 1.4rem; } }
+    .basket-content__item__extra p {
+      margin: 0;
+      font-family: "Quicksand Regular", sans-serif;
+      font-size: 1.4rem;
+      line-height: 1.5em;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      font-family: "Quicksand Bold", sans-serif; }
+      @media (min-width: 50em) {
+        .basket-content__item__extra p {
+          font-size: 1.6rem; } }
+      @media (min-width: 50em) {
+        .basket-content__item__extra p {
+          font-size: 1.4rem; } }
   .basket-content__item__price {
     padding-top: 0.8rem;
     width: 4rem;
@@ -4008,7 +4007,7 @@ button {
     font-family: "Quicksand Medium", sans-serif;
     font-size: 1.2rem;
     font-weight: bold;
-    line-height: 1.2;
+    line-height: 1.3;
     font-size: 1.4rem; }
     .tooltip__box .rich-text h1:last-child, .tooltip__box .rich-text h2:last-child, .tooltip__box .rich-text h3:last-child, .tooltip__box .rich-text h4:last-child, .tooltip__box .rich-text h5:last-child, .tooltip__box .rich-text h6:last-child {
       padding-bottom: 0; }

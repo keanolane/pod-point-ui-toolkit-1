@@ -122,11 +122,15 @@
 	
 	var _checkoutYourPodPoint2 = _interopRequireDefault(_checkoutYourPodPoint);
 	
-	var _checkoutPayment = __webpack_require__(34);
+	var _claimOlev = __webpack_require__(34);
 	
-	var _checkoutPayment2 = _interopRequireDefault(_checkoutPayment);
+	var _claimOlev2 = _interopRequireDefault(_claimOlev);
 	
-	var _basket = __webpack_require__(35);
+	var _claimDealerDiscount = __webpack_require__(35);
+	
+	var _claimDealerDiscount2 = _interopRequireDefault(_claimDealerDiscount);
+	
+	var _basket = __webpack_require__(36);
 	
 	var _basket2 = _interopRequireDefault(_basket);
 	
@@ -134,7 +138,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(36);
+	__webpack_require__(37);
 	
 	window.initAutocomplete = _addressLookup.initAutocomplete;
 	window.geolocate = _addressLookup.geolocate;
@@ -166,7 +170,8 @@
 	            addressLookup: _addressLookup2.default,
 	            changeContent: _changeContent2.default,
 	            checkoutYourPodPoint: _checkoutYourPodPoint2.default,
-	            checkoutPayment: _checkoutPayment2.default,
+	            claimOlev: _claimOlev2.default,
+	            claimDealerDiscount: _claimDealerDiscount2.default,
 	            basket: _basket2.default
 	        })
 	    });
@@ -17943,31 +17948,37 @@
 	
 	var instances = [];
 	var IS_OPEN = 'is-open';
+	var CLAIMED_OLEV = 'claimed-olev';
 	
-	var CheckoutPayment = function () {
+	var ClaimOlev = function () {
 	
 	    /**
-	     * Creates a new form element.
+	     * Creates a claim olev element.
 	     *
 	     * @param element
 	     */
-	    function CheckoutPayment(element) {
-	        _classCallCheck(this, CheckoutPayment);
+	    function ClaimOlev(element) {
+	        _classCallCheck(this, ClaimOlev);
 	
 	        this.element = element;
 	
 	        this.olevPanel = this.element.querySelector('#olevPanel');
-	        this.claimOlevButton = this.olevPanel.querySelector('#claimOlevButton');
-	        this.olevRadios = this.olevPanel.querySelectorAll('input[type="radio"]');
-	        this.olevRadiosWraps = this.olevPanel.querySelectorAll('.radios-wrap');
-	        this.confirmNotOlevEligible = this.element.querySelector('#confirmNotOlevEligible');
-	        this.confirmClaimedOlev = this.element.querySelector('#confirmClaimedOlev');
-	        this.confirmUnsureClaimOlev = this.element.querySelector('#confirmUnsureClaimOlev');
+	        this.claimButton = this.olevPanel.querySelector('#claimOlevButton');
 	
-	        this.dealershipPanel = this.element.querySelector('#dealershipPanel');
-	        this.dealershipInput = this.dealershipPanel.querySelector('#dealershipInput');
-	        this.claimDealershipButton = this.dealershipPanel.querySelector('#claimDealershipButton');
-	        this.confirmDealershipEligible = this.element.querySelector('#confirmDealershipEligible');
+	        this.radios = this.olevPanel.querySelectorAll('input[type="radio"]');
+	        this.radiosWraps = this.olevPanel.querySelectorAll('.radios-wrap');
+	
+	        this.confirmNotEligible = this.element.querySelector('#confirmNotOlevEligible');
+	        this.confirmUnsureClaim = this.element.querySelector('#confirmUnsureClaimOlev');
+	        this.claimUnsureButton = this.element.querySelector('#claimUnsureOlevButton');
+	
+	        this.basket = document.querySelector('#basketFinal');
+	        this.podPointProduct = this.basket.querySelector('[data-item="unit"]');
+	        this.claimOlevBasketCta = this.basket.querySelector('#claimOlevBasketCta');
+	        this.claimedOlevBasketText = this.basket.querySelector('#claimedOlevBasket');
+	        this.podPointPriceEl = this.podPointProduct.querySelector('[data-price]');
+	        this.totalPriceEl = this.basket.querySelector('[data-total-price]');
+	        this.claimedDiscountText = this.basket.querySelector('#claimedDealerDiscountBasket');
 	
 	        this.bindEvents();
 	    }
@@ -17977,53 +17988,47 @@
 	     */
 	
 	
-	    _createClass(CheckoutPayment, [{
+	    _createClass(ClaimOlev, [{
 	        key: 'bindEvents',
 	        value: function bindEvents() {
 	            var _this = this;
 	
-	            this.olevRadioListeners = [];
-	            this.olevRadios.forEach(function (olevRadio) {
-	                var olevRadioListener = new _domDelegate.Delegate(olevRadio);
-	                _this.olevRadioListeners.push(olevRadioListener);
-	                olevRadioListener.on('change', function (event, element) {
+	            this.radioListeners = [];
+	            this.radios.forEach(function (radio) {
+	                var radioListener = new _domDelegate.Delegate(radio);
+	                _this.radioListeners.push(radioListener);
+	                radioListener.on('change', function (event, element) {
 	                    _this.checkAllRadios();
 	                });
 	            });
 	
-	            var claimOlevListener = new _domDelegate.Delegate(this.claimOlevButton);
-	            claimOlevListener.on('click', function (event, element) {
+	            var claimListener = new _domDelegate.Delegate(this.claimButton);
+	            claimListener.on('click', function (event, element) {
 	                event.preventDefault();
-	                _this.claimedOlev();
+	                _this.checkForUnsure();
 	            });
 	
-	            var dealershipInputListener = new _domDelegate.Delegate(this.dealershipInput);
-	            dealershipInputListener.on('keyup', function (event, element) {
-	                _this.checkForEligibleDealership(element.value);
-	            });
-	
-	            var claimDealershipListener = new _domDelegate.Delegate(this.claimDealershipButton);
-	            claimDealershipListener.on('click', function (event, element) {
+	            var claimUnsureListener = new _domDelegate.Delegate(this.claimUnsureButton);
+	            claimUnsureListener.on('click', function (event, element) {
 	                event.preventDefault();
-	                _this.claimedDealership();
+	                _this.claimOlev();
 	            });
 	        }
 	
 	        /**
-	         * Check
+	         * Check all radios for any selected as 'no' and if all have been selected
 	         */
 	
 	    }, {
 	        key: 'checkAllRadios',
 	        value: function checkAllRadios() {
-	            var allRadiosAreSelected = (0, _utilities.allRadiosSelected)(this.olevRadiosWraps);
-	            var aRadioContainsNo = (0, _utilities.aRadioContains)(this.olevRadios, 'no');
+	            var allRadiosAreSelected = (0, _utilities.allRadiosSelected)(this.radiosWraps);
+	            var aRadioContainsNo = (0, _utilities.aRadioContains)(this.radios, 'no');
 	
 	            if (aRadioContainsNo) {
-	                this.notOlevEligible();
+	                this.notEligible();
 	            } else if (allRadiosAreSelected) {
-	                // Activate buuton to claim Olev
-	                (0, _utilities.disableOrEnableButton)(this.claimOlevButton, false);
+	                (0, _utilities.disableOrEnableButton)(this.claimButton, false);
 	            }
 	        }
 	
@@ -18032,52 +18037,66 @@
 	         */
 	
 	    }, {
-	        key: 'notOlevEligible',
-	        value: function notOlevEligible() {
-	            (0, _utilities.disableOrEnableButton)(this.claimOlevButton, true);
-	            (0, _utilities.show)(this.confirmNotOlevEligible);
+	        key: 'notEligible',
+	        value: function notEligible() {
+	            (0, _utilities.disableOrEnableButton)(this.claimButton, true);
+	            (0, _utilities.show)(this.confirmNotEligible);
 	            (0, _utilities.closePanel)(this.olevPanel);
+	
+	            (0, _domOps.removeClass)(this.podPointProduct, CLAIMED_OLEV);
+	            (0, _utilities.hide)(this.claimedOlevBasketText);
+	            (0, _utilities.show)(this.claimOlevBasketCta);
+	
+	            this.applyCalculations(0);
 	        }
 	
 	        /**
-	         * User clicks to claim Olev
+	         * Apply calculations to basket in the DOM
 	         */
 	
 	    }, {
-	        key: 'claimedOlev',
-	        value: function claimedOlev() {
-	            var aRadioContainsUnsure = (0, _utilities.aRadioContains)(this.olevRadios, 'unsure');
-	            aRadioContainsUnsure ? (0, _utilities.show)(this.confirmUnsureClaimOlev) : (0, _utilities.show)(this.confirmClaimedOlev);
+	        key: 'applyCalculations',
+	        value: function applyCalculations(olevGrant) {
+	            // Current numbers
+	            var currentOlevDiscount = parseInt(this.basket.getAttribute('data-olev-discount'));
+	            var currentDealerDiscount = parseInt(this.basket.getAttribute('data-dealer-discount'));
+	            var currentPodPointPrice = parseInt(this.podPointPriceEl.getAttribute('data-price'));
+	            var currentTotalPrice = parseInt(this.totalPriceEl.getAttribute('data-total-price'));
+	            // Calculations
+	            var newPodPointPrice = currentPodPointPrice - currentDealerDiscount - olevGrant;
+	            var newTotalPrice = currentTotalPrice - currentDealerDiscount - olevGrant;
+	            // DOM
+	            this.basket.setAttribute('data-olev-discount', olevGrant);
+	            this.podPointPriceEl.innerHTML = '£' + newPodPointPrice;
+	            this.totalPriceEl.innerHTML = '£' + newTotalPrice;
+	        }
 	
-	            (0, _utilities.disableOrEnableButton)(this.claimOlevButton, true);
+	        /**
+	         * Check if any radios are selected as 'unsure'
+	         */
+	
+	    }, {
+	        key: 'checkForUnsure',
+	        value: function checkForUnsure() {
+	            var aRadioContainsUnsure = (0, _utilities.aRadioContains)(this.radios, 'unsure');
+	            aRadioContainsUnsure ? (0, _utilities.show)(this.confirmUnsureClaim) : this.claimOlev();
+	        }
+	
+	        /**
+	         * Apply OLEV claim
+	         */
+	
+	    }, {
+	        key: 'claimOlev',
+	        value: function claimOlev() {
+	            (0, _utilities.disableOrEnableButton)(this.claimButton, true);
 	            (0, _utilities.closePanel)(this.olevPanel);
-	        }
 	
-	        /**
-	         * User clicks to claim dealership
-	         */
+	            (0, _domOps.addClass)(this.podPointProduct, CLAIMED_OLEV);
+	            (0, _utilities.hide)(this.claimOlevBasketCta);
+	            (0, _utilities.show)(this.claimedOlevBasketText);
 	
-	    }, {
-	        key: 'claimedDealership',
-	        value: function claimedDealership() {
-	            (0, _utilities.show)(this.confirmDealershipEligible);
-	            (0, _utilities.disableOrEnableButton)(this.claimDealershipButton, true);
-	            (0, _utilities.closePanel)(this.dealershipPanel);
-	        }
-	
-	        /**
-	         * Check if user types an eligible dealership
-	         */
-	
-	    }, {
-	        key: 'checkForEligibleDealership',
-	        value: function checkForEligibleDealership(value) {
-	            var eligibleDealership = 'nissan';
-	            if (eligibleDealership === value) {
-	                (0, _utilities.disableOrEnableButton)(this.claimDealershipButton, false);
-	            } else {
-	                (0, _utilities.disableOrEnableButton)(this.claimDealershipButton, true);
-	            }
+	            this.applyCalculations(500);
 	        }
 	
 	        /**
@@ -18087,18 +18106,18 @@
 	    }, {
 	        key: 'unbindEvents',
 	        value: function unbindEvents() {
-	            this.olevRadioListeners.forEach(function (olevRadioListener) {
-	                return olevRadioListener.destroy();
+	            this.radioListeners.forEach(function (radioListener) {
+	                return radioListener.destroy();
 	            });
 	        }
 	    }]);
 	
-	    return CheckoutPayment;
+	    return ClaimOlev;
 	}();
 	
 	exports.default = {
 	    init: function init(element) {
-	        instances.push(new CheckoutPayment(element));
+	        instances.push(new ClaimOlev(element));
 	    },
 	
 	    destroy: function destroy() {
@@ -18111,6 +18130,150 @@
 
 /***/ },
 /* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(6);
+	
+	var _domOps = __webpack_require__(4);
+	
+	var _utilities = __webpack_require__(8);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	var IS_OPEN = 'is-open';
+	
+	var ClaimDealerDiscount = function () {
+	
+	    /**
+	     * Creates a new dealership claim element.
+	     *
+	     * @param element
+	     */
+	    function ClaimDealerDiscount(element) {
+	        _classCallCheck(this, ClaimDealerDiscount);
+	
+	        this.element = element;
+	
+	        this.dealershipPanel = this.element.querySelector('#dealershipPanel');
+	        this.dealershipInput = this.dealershipPanel.querySelector('#dealershipInput');
+	        this.claimButton = this.dealershipPanel.querySelector('#claimDealershipButton');
+	        this.confirmEligible = this.element.querySelector('#confirmDealershipEligible');
+	
+	        this.eligibleText = this.element.querySelector('#dealerDiscountEligibleText');
+	        this.notEligibleText = this.element.querySelector('#dealerDiscountNotEligibleText');
+	
+	        this.basket = document.querySelector('#basketFinal');
+	        this.podPointProduct = this.basket.querySelector('[data-item="unit"]');
+	        this.claimedDealerDiscountBasketText = this.basket.querySelector('#claimedDealerDiscountBasket');
+	        this.podPointPriceEl = this.podPointProduct.querySelector('[data-price]');
+	        this.totalPriceEl = this.basket.querySelector('[data-total-price]');
+	        this.claimedDiscountText = this.basket.querySelector('#claimedDealerDiscountBasket');
+	
+	        this.bindEvents();
+	    }
+	
+	    /**
+	     * Binds the event listeners from the elements.
+	     */
+	
+	
+	    _createClass(ClaimDealerDiscount, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+	
+	            var dealershipInputListener = new _domDelegate.Delegate(this.dealershipInput);
+	            dealershipInputListener.on('keyup', function (event, element) {
+	                _this.checkForEligibility(element.value);
+	            });
+	
+	            var claimDealershipListener = new _domDelegate.Delegate(this.claimButton);
+	            claimDealershipListener.on('click', function (event, element) {
+	                event.preventDefault();
+	                _this.claimDiscount();
+	            });
+	        }
+	
+	        /**
+	         * User clicks to claim dealership discount
+	         */
+	
+	    }, {
+	        key: 'claimDiscount',
+	        value: function claimDiscount() {
+	            (0, _utilities.disableOrEnableButton)(this.claimButton, true);
+	            (0, _utilities.closePanel)(this.dealershipPanel);
+	
+	            // Current numbers
+	            var currentOlevDiscount = parseInt(this.basket.getAttribute('data-olev-discount'));
+	            var currentDealerDiscount = parseInt(this.basket.getAttribute('data-dealer-discount'));
+	            var currentPodPointPrice = parseInt(this.podPointPriceEl.getAttribute('data-price'));
+	            var currentTotalPrice = parseInt(this.totalPriceEl.getAttribute('data-total-price'));
+	            // Calculations
+	            var dealerDiscount = 150;
+	            var newPodPointPrice = currentPodPointPrice - currentOlevDiscount - dealerDiscount;
+	            var newTotalPrice = currentTotalPrice - currentOlevDiscount - dealerDiscount;
+	            // DOM
+	            this.basket.setAttribute('data-dealer-discount', dealerDiscount);
+	            this.podPointPriceEl.innerHTML = '£' + newPodPointPrice;
+	            this.totalPriceEl.innerHTML = '£' + newTotalPrice;
+	            (0, _utilities.show)(this.claimedDiscountText);
+	        }
+	
+	        /**
+	         * Check if user types an eligible dealership
+	         */
+	
+	    }, {
+	        key: 'checkForEligibility',
+	        value: function checkForEligibility(value) {
+	            var eligibleDealership = 'nissan';
+	            if (eligibleDealership === value) {
+	                (0, _utilities.disableOrEnableButton)(this.claimButton, false);
+	                (0, _utilities.hide)(this.notEligibleText);
+	                (0, _utilities.show)(this.eligibleText);
+	            } else {
+	                (0, _utilities.disableOrEnableButton)(this.claimButton, true);
+	                (0, _utilities.hide)(this.eligibleText);
+	            }
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements.
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {}
+	    }]);
+	
+	    return ClaimDealerDiscount;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new ClaimDealerDiscount(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ },
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18344,6 +18507,7 @@
 	            this.unitNameEl.innerHTML = podPoint.name || '';
 	            this.unitConnectorNameEl.innerHTML = connector.name || '';
 	            this.unitPriceEl.innerHTML = '£' + podPoint.price || '';
+	            this.unitPriceEl.setAttribute('data-price', podPoint.price);
 	
 	            this.updateTotals();
 	        }
@@ -18434,6 +18598,7 @@
 	                this.numberOfItemsEl.innerHTML = numberOfItems;
 	            }
 	            this.totalPriceEl.innerHTML = '£' + totalPrice;
+	            this.totalPriceEl.setAttribute('data-total-price', totalPrice);
 	        }
 	
 	        /**
@@ -18466,7 +18631,7 @@
 	};
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports) {
 
 	"use strict";

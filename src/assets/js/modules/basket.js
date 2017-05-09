@@ -165,6 +165,7 @@ class Basket {
         this.unitNameEl.innerHTML = podPoint.name || '';
         this.unitConnectorNameEl.innerHTML = connector.name || '';
         this.unitPriceEl.innerHTML = '£' + podPoint.price || '';
+        this.unitPriceEl.setAttribute('data-price', podPoint.price);
 
         this.updateTotals();
     }
@@ -218,6 +219,7 @@ class Basket {
         // Update the totals of the basket in the DOM
         if (this.numberOfItemsEl) {this.numberOfItemsEl.innerHTML = numberOfItems}
         this.totalPriceEl.innerHTML = '£' + totalPrice;
+        this.totalPriceEl.setAttribute('data-total-price', totalPrice);
     }
 
     /**

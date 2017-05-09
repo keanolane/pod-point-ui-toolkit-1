@@ -1,8 +1,8 @@
-<div class="card card--informative m-b-md">
+<div data-js-module="claimOlev" class="card card--informative m-b-md">
 	<h3 class="h4">Claim the OLEV Grant</h3>
 	<p>Do you want to reduce the cost of your chargepoint by <strong>£500</strong>, by claiming the OLEV Grant?</p>
 
-	<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="olevPanel">Find out if I am eligible<span data-toggle-icon="olevPanel" class="toggle-panel-icon toggle-rotate-icon"></span></a></p>
+	<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="olevPanel">Claim now<span data-toggle-icon="olevPanel" class="toggle-panel-icon toggle-rotate-icon"></span></a></p>
 
 	<div id="olevPanel" data-js-module="toggleAccordionPanel" class="accordion-panel accordion-panel--md">
 		<hr class="m-t-lg m-b-lg">
@@ -80,37 +80,29 @@
 
 		<div class="p-t-lg">
 			<button id="claimOlevButton" disabled="true" class="button is-disabled">Claim</button>
-			<a data-close-panel="olevPanel" href="#" class="iconfont-cross setback-button m-l-sm">Skip (Close panel, I don't want to claim)</a>
+			<a data-close-panel="olevPanel" href="#" class="iconfont-cross setback-button m-l-sm">Skip - close panel</a>
 		</div>
 	</div>
-</div>
 
-
-<div data-js-module="toggleElement" id="confirmNotOlevEligible" class="confirm-popup hidden">
-	<div class="confirm-popup__box">
-		<div class="rich-text">
-			<p>Unfortunately you don't qualify for the OLEV grant if you answer 'no' to any of the eligibility questions. Please see <a href="#">Terms and conditions</a> for more information.</p>
+	<div data-js-module="toggleElement" id="confirmNotOlevEligible" class="confirm-popup hidden">
+		<div class="confirm-popup__box">
+			<div class="rich-text">
+				<h5>OLEV grant not applied</h5>
+				<p>Unfortunately you don't qualify for the OLEV grant if you answer 'no' to any of the eligibility questions. Please see <a href="#">Terms and conditions</a> for more information.</p>
+			</div>
+			<button class="button" data-close-el="confirmNotOlevEligible">Continue at normal price</button>
 		</div>
-		<button class="button" data-close-el="confirmNotOlevEligible">Continue at normal price</button>
 	</div>
-</div>
 
-<div data-js-module="toggleElement" id="confirmClaimedOlev" class="confirm-popup hidden">
-	<div class="confirm-popup__box">
-		<div class="rich-text">
-			<p>You are eligible for the OLEV grant.</p>
+	<div data-js-module="toggleElement" id="confirmUnsureClaimOlev" class="confirm-popup hidden">
+		<div class="confirm-popup__box">
+			<div class="rich-text">
+				<h5>Information about your claim</h5>
+				<p>As you've answered 'unsure' to some of the eligibility questions, you can proceed to claim the OLEV grant, however, we'll need to review your situation before we install the POD Point.</p>
+				<p>If you're not eligible we'll be in touch to request you pay the remaining balance or offer a full refund.</p>
+			</div>
+			<button id="claimUnsureOlevButton" data-close-el="confirmUnsureClaimOlev" class="button">Claim OLEV Grant</button>
+			<a data-close-el="confirmUnsureClaimOlev" href="#" class="iconfont-cross setback-button m-l-sm m-t-md block">Skip - I don't want to claim</a>
 		</div>
-		<button class="button" data-close-el="confirmClaimedOlev">Claim OLEV Grant</button>
-	</div>
-</div>
-
-<div data-js-module="toggleElement" id="confirmUnsureClaimOlev" class="confirm-popup hidden">
-	<div class="confirm-popup__box">
-		<div class="rich-text">
-			<p>As you've answered 'unsure' to some of the eligibility questions, you can proceed to claim the OLEV grant, however, we'll need to review your situation before we install the POD Point.</p>
-			<p>If you're not eligible we'll be in touch to request you pay the remaining balance or offer a full refund.</p>
-		</div>
-		<button class="button" data-close-el="confirmUnsureClaimOlev">Claim OLEV Grant</button>
-		<a data-close-el="confirmUnsureClaimOlev" href="#" class="iconfont-cross setback-button m-l-sm m-t-md block">Skip - I don't want to claim</a>
 	</div>
 </div>

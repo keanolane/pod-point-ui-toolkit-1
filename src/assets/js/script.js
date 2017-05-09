@@ -21,7 +21,8 @@ import carousel from './modules/Carousel';
 import addressLookup from './modules/address-lookup';
 import changeContent from './modules/change-content';
 import checkoutYourPodPoint from './modules/checkout-your-pod-point';
-import checkoutPayment from './modules/checkout-payment';
+import claimOlev from './modules/claim-olev';
+import claimDealerDiscount from './modules/claim-dealer-discount';
 import basket from './modules/basket';
 
 
@@ -57,7 +58,8 @@ dom.whenReady(() => {
             addressLookup,
             changeContent,
             checkoutYourPodPoint,
-            checkoutPayment,
+            claimOlev,
+            claimDealerDiscount,
             basket,
         })
     });

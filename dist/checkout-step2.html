@@ -182,11 +182,11 @@
 				<div class="grid-wrap">
 					<div class="grid-row">
 						<div class="grid-col grid-col--md-8">
-							<div class="card card--informative m-b-md">
+							<div data-js-module="claimOlev" class="card card--informative m-b-md">
 								<h3 class="h4">Claim the OLEV Grant</h3>
 								<p>Do you want to reduce the cost of your chargepoint by <strong>£500</strong>, by claiming the OLEV Grant?</p>
 							
-								<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="olevPanel">Find out if I am eligible<span data-toggle-icon="olevPanel" class="toggle-panel-icon toggle-rotate-icon"></span></a></p>
+								<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="olevPanel">Claim now<span data-toggle-icon="olevPanel" class="toggle-panel-icon toggle-rotate-icon"></span></a></p>
 							
 								<div id="olevPanel" data-js-module="toggleAccordionPanel" class="accordion-panel accordion-panel--md">
 									<hr class="m-t-lg m-b-lg">
@@ -264,49 +264,41 @@
 							
 									<div class="p-t-lg">
 										<button id="claimOlevButton" disabled="true" class="button is-disabled">Claim</button>
-										<a data-close-panel="olevPanel" href="#" class="iconfont-cross setback-button m-l-sm">Skip (Close panel, I don't want to claim)</a>
+										<a data-close-panel="olevPanel" href="#" class="iconfont-cross setback-button m-l-sm">Skip - close panel</a>
 									</div>
 								</div>
-							</div>
 							
-							
-							<div data-js-module="toggleElement" id="confirmNotOlevEligible" class="confirm-popup hidden">
-								<div class="confirm-popup__box">
-									<div class="rich-text">
-										<p>Unfortunately you don't qualify for the OLEV grant if you answer 'no' to any of the eligibility questions. Please see <a href="#">Terms and conditions</a> for more information.</p>
+								<div data-js-module="toggleElement" id="confirmNotOlevEligible" class="confirm-popup hidden">
+									<div class="confirm-popup__box">
+										<div class="rich-text">
+											<h5>OLEV grant not applied</h5>
+											<p>Unfortunately you don't qualify for the OLEV grant if you answer 'no' to any of the eligibility questions. Please see <a href="#">Terms and conditions</a> for more information.</p>
+										</div>
+										<button class="button" data-close-el="confirmNotOlevEligible">Continue at normal price</button>
 									</div>
-									<button class="button" data-close-el="confirmNotOlevEligible">Continue at normal price</button>
 								</div>
-							</div>
 							
-							<div data-js-module="toggleElement" id="confirmClaimedOlev" class="confirm-popup hidden">
-								<div class="confirm-popup__box">
-									<div class="rich-text">
-										<p>You are eligible for the OLEV grant.</p>
+								<div data-js-module="toggleElement" id="confirmUnsureClaimOlev" class="confirm-popup hidden">
+									<div class="confirm-popup__box">
+										<div class="rich-text">
+											<h5>Information about your claim</h5>
+											<p>As you've answered 'unsure' to some of the eligibility questions, you can proceed to claim the OLEV grant, however, we'll need to review your situation before we install the POD Point.</p>
+											<p>If you're not eligible we'll be in touch to request you pay the remaining balance or offer a full refund.</p>
+										</div>
+										<button id="claimUnsureOlevButton" data-close-el="confirmUnsureClaimOlev" class="button">Claim OLEV Grant</button>
+										<a data-close-el="confirmUnsureClaimOlev" href="#" class="iconfont-cross setback-button m-l-sm m-t-md block">Skip - I don't want to claim</a>
 									</div>
-									<button class="button" data-close-el="confirmClaimedOlev">Claim OLEV Grant</button>
 								</div>
-							</div>
-							
-							<div data-js-module="toggleElement" id="confirmUnsureClaimOlev" class="confirm-popup hidden">
-								<div class="confirm-popup__box">
-									<div class="rich-text">
-										<p>As you've answered 'unsure' to some of the eligibility questions, you can proceed to claim the OLEV grant, however, we'll need to review your situation before we install the POD Point.</p>
-										<p>If you're not eligible we'll be in touch to request you pay the remaining balance or offer a full refund.</p>
-									</div>
-									<button class="button" data-close-el="confirmUnsureClaimOlev">Claim OLEV Grant</button>
-									<a data-close-el="confirmUnsureClaimOlev" href="#" class="iconfont-cross setback-button m-l-sm m-t-md block">Skip - I don't want to claim</a>
-								</div>
-							</div>						<div class="card card--informative">
+							</div>						<div data-js-module="claimDealerDiscount" class="card card--informative">
 								<h3 class="h4">Claim your dealership discount</h3>
-								<p>Do you want to reduce the cost of your chargepoint by claiming your dealership discount.</p>
+								<p>Do you want to reduce the cost of your chargepoint by claiming your dealership discount?</p>
 							
-								<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="dealershipPanel">Find out if I am eligible<span data-toggle-icon="dealershipPanel" class="toggle-panel-icon toggle-rotate-icon"></span></a></p>
+								<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="dealershipPanel">Claim now<span data-toggle-icon="dealershipPanel" class="toggle-panel-icon toggle-rotate-icon"></span></a></p>
 							
 								<div id="dealershipPanel" data-js-module="toggleAccordionPanel" class="accordion-panel accordion-panel--md">
 									<hr class="m-t-lg m-b-lg">
 							
-									<div class="grid-row">
+									<div class="grid-row grid-row--vertical-center">
 										<div class="grid-col grid-col--md-6">
 											<div class="field-row">
 												<label class="label--block">Select your purchase option</label>
@@ -326,27 +318,36 @@
 												</div>
 											</div>
 										</div>
-										<div class="grid-col grid-col--md-6">
+										<div class="grid-col grid-col--md-6 text-center">
+											<div id="dealerDiscountEligibleText" class="hidden">
+												<i class="circle-icon circle-icon--outlined-green iconfont-tick inline-block"></i>
+												<p class="bold max-width--sm marg-center">You are eligible for the £150 dealership discount.</p>
+											</div>
+											<div id="dealerDiscountNotEligibleText" class="hidden">
+												<i class="circle-icon circle-icon--outlined-green iconfont-cross inline-block"></i>
+												<p class="bold max-width--sm marg-center">Sorry, you are not eligible for a dealership discount.</p>
+											</div>
 										</div>
 									</div>
 							
 									<div class="p-t-md">
 										<button id="claimDealershipButton" disabled="true" class="button is-disabled">Claim</button>
-										<a data-close-panel="dealershipPanel" href="#" class="iconfont-cross setback-button m-l-sm">Skip (Close panel, I don't want to claim)</a>
+										<a data-close-panel="dealershipPanel" href="#" class="iconfont-cross setback-button m-l-sm">Skip - close panel</a>
 									</div>
 								</div>
-							</div>
 							
-							<div data-js-module="toggleElement" id="confirmDealershipEligible" class="confirm-popup hidden">
-								<div class="confirm-popup__box">
-									<div class="rich-text">
-										<p>You are eligible for the dealership discount.</p>
+								<div data-js-module="toggleElement" id="confirmNotDealershipEligible" class="confirm-popup hidden">
+									<div class="confirm-popup__box">
+										<div class="rich-text">
+											<h3>Discount not applied</h3>
+											<p>Unfortunately you do not qualify for the dealership discount. This is only available to select dealerships.</p>
+										</div>
+										<button class="button" data-close-el="confirmNotDealershipEligible">Continue</button>
 									</div>
-									<button class="button" data-close-el="confirmDealershipEligible">Claim dealership discount</button>
 								</div>
 							</div>					</div>
 						<div class="grid-col grid-col--md-4">
-							<div id="basketFinal" data-js-module="basket" data-img-path="assets/img/products/product-thumbnails/" class="final-basket card card--informative card--very-light-gray">
+							<div id="basketFinal" data-olev-discount="0" data-dealer-discount="0" data-js-module="basket" data-img-path="assets/img/products/product-thumbnails/" class="final-basket card card--informative card--very-light-gray">
 								<h3 class="h4">Your basket</h3>
 								<div class="basket-content">
 							
@@ -357,8 +358,12 @@
 												<p class="basket-content__item__title__main"><span data-unit="name"></span> <span data-unit="connector-name"></span></p>
 												<p class="basket-content__item__title__sub">with free standard installation</p>
 											</div>
-											<p data-unit="price" class="basket-content__item__price"></p>
-											<p class="basket-content__item__extra green">*Claim <a href="#" data-open-panel="olevPanel">OLEV grant</a> to reduce by £500</p>
+											<p data-unit="price" data-price="" class="basket-content__item__price"></p>
+											<div class="basket-content__item__extra">
+												<p id="claimOlevBasketCta" class="green">*Claim <a href="#" data-open-panel="olevPanel">OLEV grant</a> to reduce by £500</p>
+												<p id="claimedOlevBasket" class="green hidden">OLEV grant has been applied.</p>
+												<p id="claimedDealerDiscountBasket" class="green hidden">Dealership discount has been applied.</p>
+											</div>
 										</li>
 										<li data-item="keyLock" class="basket-content__item hidden"></li>
 										<li data-item="portableCable" class="basket-content__item hidden"></li>
@@ -379,7 +384,7 @@
 								</div>
 								<div class="basket-total">
 									<p class="basket-total__title">Sub total</p>
-									<p data-total-price class="basket-total__value">£0</p>
+									<p data-total-price="" class="basket-total__value">£0</p>
 								</div>
 							</div>
 						</div>
@@ -462,20 +467,20 @@
 					<div class="grid-row">
 						<div class="grid-col grid-col--md-4">
 							<div class="rich-text text-center text-left-md">
-								<h3>Question 1</h3>
-								<p>Questions 1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+								<h5>What are the next steps after payment?</h5>
+								<p>Once you complete the payment section, you will be instructed to enter details about your installation on next page. Following that, you will be asked to upload a form to complete the OLEV grant application.</p>
 							</div>
 						</div>
 						<div class="grid-col grid-col--md-4">
 							<div class="rich-text text-center text-left-md">
-								<h3>Question 2</h3>
-								<p>Questions 1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+								<h5>How do I know if I'm eligible for the dealership discount?</h5>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
 							</div>
 						</div>
 						<div class="grid-col grid-col--md-4">
 							<div class="rich-text text-center text-left-md">
-								<h3>Question 3</h3>
-								<p>Questions 1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+								<h5>Do I have to pay full price for the Pod Point if my OLEV application is rejected at a later stage?</h5>
+								<p>If you claim the OLEV grant at this stage of the process and your application is unsuccessful, we will offer you a full refund or the opportunity to pay the remainder of the price.</p>
 							</div>
 						</div>
 					</div>

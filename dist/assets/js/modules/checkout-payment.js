@@ -16,6 +16,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var instances = [];
 var IS_OPEN = 'is-open';
+var CLAIMED_OLEV = 'claimed-olev';
 
 var CheckoutPayment = function () {
 
@@ -36,6 +37,8 @@ var CheckoutPayment = function () {
         this.confirmNotOlevEligible = this.element.querySelector('#confirmNotOlevEligible');
         this.confirmClaimedOlev = this.element.querySelector('#confirmClaimedOlev');
         this.confirmUnsureClaimOlev = this.element.querySelector('#confirmUnsureClaimOlev');
+
+        this.podPointProduct = document.querySelector('[data-item="unit"]');
 
         this.dealershipPanel = this.element.querySelector('#dealershipPanel');
         this.dealershipInput = this.dealershipPanel.querySelector('#dealershipInput');
@@ -60,14 +63,14 @@ var CheckoutPayment = function () {
                 var olevRadioListener = new _domDelegate.Delegate(olevRadio);
                 _this.olevRadioListeners.push(olevRadioListener);
                 olevRadioListener.on('change', function (event, element) {
-                    _this.checkAllRadios();
+                    _this.checkAllOlevRadios();
                 });
             });
 
             var claimOlevListener = new _domDelegate.Delegate(this.claimOlevButton);
             claimOlevListener.on('click', function (event, element) {
                 event.preventDefault();
-                _this.claimedOlev();
+                _this.checkForUnsure();
             });
 
             var dealershipInputListener = new _domDelegate.Delegate(this.dealershipInput);
@@ -87,8 +90,8 @@ var CheckoutPayment = function () {
          */
 
     }, {
-        key: 'checkAllRadios',
-        value: function checkAllRadios() {
+        key: 'checkAllOlevRadios',
+        value: function checkAllOlevRadios() {
             var allRadiosAreSelected = (0, _utilities.allRadiosSelected)(this.olevRadiosWraps);
             var aRadioContainsNo = (0, _utilities.aRadioContains)(this.olevRadios, 'no');
 
@@ -111,19 +114,27 @@ var CheckoutPayment = function () {
             (0, _utilities.show)(this.confirmNotOlevEligible);
             (0, _utilities.closePanel)(this.olevPanel);
         }
+    }, {
+        key: 'checkForUnsure',
+        value: function checkForUnsure() {
+            var aRadioContainsUnsure = (0, _utilities.aRadioContains)(this.olevRadios, 'unsure');
+            if (aRadioContainsUnsure) {
+                (0, _utilities.show)(this.confirmUnsureClaimOlev);
+            } else {
+                this.claimOlev();
+            }
+        }
 
         /**
-         * User clicks to claim Olev
+         * Apply OLEV claim
          */
 
     }, {
-        key: 'claimedOlev',
-        value: function claimedOlev() {
-            var aRadioContainsUnsure = (0, _utilities.aRadioContains)(this.olevRadios, 'unsure');
-            aRadioContainsUnsure ? (0, _utilities.show)(this.confirmUnsureClaimOlev) : (0, _utilities.show)(this.confirmClaimedOlev);
-
+        key: 'claimOlev',
+        value: function claimOlev() {
             (0, _utilities.disableOrEnableButton)(this.claimOlevButton, true);
             (0, _utilities.closePanel)(this.olevPanel);
+            (0, _domOps.addClass)(this.podPointProduct, CLAIMED_OLEV);
         }
 
         /**
