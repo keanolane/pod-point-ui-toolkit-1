@@ -393,6 +393,8 @@ table {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin: 0 -0.25rem; }
+  .grid-row--no-space {
+    margin-bottom: 0; }
   .grid-row .grid-col {
     box-sizing: border-box;
     -ms-flex: 0 0 calc( 100% - 2rem);

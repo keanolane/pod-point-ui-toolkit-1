@@ -1,3 +1,5 @@
+import { openPanel } from './../utilities';
+
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50,6 +52,8 @@ function fillInAddress() {
             document.getElementById(addressType).value = val;
         }
     }
+
+    openPanel(document.querySelector('#address'));
 };
 
 

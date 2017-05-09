@@ -18,6 +18,9 @@ $-default-gutter: -2rem;
 	&--mobile-cols {
 		@include grid($flex-wrap: wrap, $gutter: $mobile-gutter);
 	}
+	&--no-space {
+		margin-bottom: 0;
+	}
 	.grid-col {
 		@include grid-col($col: 12, $gutter: $default-gutter);
 	}

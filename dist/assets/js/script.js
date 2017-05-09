@@ -17605,8 +17605,12 @@
 
 /***/ },
 /* 31 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	var _utilities = __webpack_require__(8);
+	
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -17655,6 +17659,8 @@
 	            document.getElementById(addressType).value = val;
 	        }
 	    }
+	
+	    (0, _utilities.openPanel)(document.querySelector('#address'));
 	};
 	
 	// Bias the autocomplete object to the user's geographical location,

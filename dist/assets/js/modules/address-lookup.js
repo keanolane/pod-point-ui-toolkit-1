@@ -1,5 +1,9 @@
 'use strict';
 
+var _utilities = require('./../utilities');
+
+'use strict';
+
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -46,6 +50,8 @@ function fillInAddress() {
             document.getElementById(addressType).value = val;
         }
     }
+
+    (0, _utilities.openPanel)(document.querySelector('#address'));
 };
 
 // Bias the autocomplete object to the user's geographical location,
