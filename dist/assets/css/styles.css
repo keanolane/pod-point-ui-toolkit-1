@@ -3671,10 +3671,12 @@ button {
       @media (min-width: 50em) {
         .steps-indicator__step p {
           display: block; } }
-    .steps-indicator__step.active-step svg {
-      background-color: white; }
-    .steps-indicator__step.active-step .st0 {
-      fill: #8CC63F; }
+    .steps-indicator__step:hover, .steps-indicator__step:active, .steps-indicator__step.active-step {
+      opacity: 1; }
+      .steps-indicator__step:hover svg, .steps-indicator__step:active svg, .steps-indicator__step.active-step svg {
+        background-color: white; }
+      .steps-indicator__step:hover .st0, .steps-indicator__step:active .st0, .steps-indicator__step.active-step .st0 {
+        fill: #8CC63F; }
     .steps-indicator__step:last-child {
       margin-right: 0; }
   .steps-indicator__icon {
@@ -3830,7 +3832,8 @@ button {
     float: right; }
 
 .floating-basket-wrapper {
-  position: relative; }
+  position: relative;
+  z-index: 100; }
   .floating-basket-wrapper .floating-basket {
     position: absolute;
     top: 0;

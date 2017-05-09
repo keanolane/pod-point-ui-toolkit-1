@@ -19,7 +19,10 @@
 				display: block;
 			}
 		}
+		&:hover,
+		&:active,
 		&.active-step {
+			opacity: 1;
 			svg { background-color: white; }
 			.st0 { fill: $primary-color; }
 		}

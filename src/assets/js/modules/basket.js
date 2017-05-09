@@ -1,6 +1,7 @@
 import { Delegate } from 'dom-delegate';
 import { nodesToArray, hasClass } from '@pod-point/dom-ops';
 import { isVisible, hide, show, addItemToCookie, readItemFromCookie, deleteItemFromCookie } from './../utilities';
+import Sticky from 'sticky-js';
 
 let instances = [];
 
@@ -56,6 +57,7 @@ class Basket {
         if (basketType === 'basketOpen') {
             this.productEls = nodesToArray(document.querySelectorAll('.product'));
             this.bindEvents();
+            this.makeSticky();
         }
     }
 
@@ -71,6 +73,13 @@ class Basket {
                 (element.checked) ? this.addItemToBasketObj(element) : this.deleteAccessoryFromBasketObj(element);
             });
         });
+    }
+
+    /**
+     * Make basket stick to top of window when scrolled.
+     */
+    makeSticky() {
+        var sticky = new Sticky('#basketOpen');
     }
 
     /**

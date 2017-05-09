@@ -14,6 +14,12 @@ var _domOps = require('@pod-point/dom-ops');
 
 var _utilities = require('./../utilities');
 
+var _stickyJs = require('sticky-js');
+
+var _stickyJs2 = _interopRequireDefault(_stickyJs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instances = [];
@@ -72,6 +78,7 @@ var Basket = function () {
         if (basketType === 'basketOpen') {
             this.productEls = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
             this.bindEvents();
+            this.makeSticky();
         }
     }
 
@@ -93,6 +100,16 @@ var Basket = function () {
                     element.checked ? _this.addItemToBasketObj(element) : _this.deleteAccessoryFromBasketObj(element);
                 });
             });
+        }
+
+        /**
+         * Make basket stick to top of window when scrolled.
+         */
+
+    }, {
+        key: 'makeSticky',
+        value: function makeSticky() {
+            var sticky = new _stickyJs2.default('#basketOpen');
         }
 
         /**

@@ -74,6 +74,7 @@ $floating-basket-horizontal-padding: 1.5rem;
 // Floating basket
 .floating-basket-wrapper {
 	position: relative;
+	z-index: 100;
 	.floating-basket {
 		@include position(absolute, 0 0 null null);
 		background-color: white;
