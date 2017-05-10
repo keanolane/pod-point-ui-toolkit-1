@@ -4,9 +4,6 @@
 
 .steps-indicator-wrap {
 	width: 100%;
-	// position: fixed;
-	// z-index: 99;
-
 	&.is-minified {
 		padding-top: 5rem;
 	}
@@ -29,8 +26,6 @@
 				display: block;
 			}
 		}
-		&:hover,
-		&:active,
 		&.active-step {
 			opacity: 1;
 			svg { background-color: white; }

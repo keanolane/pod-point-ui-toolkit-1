@@ -2798,6 +2798,8 @@ button {
   @media (min-width: 50em) {
     .navicon {
       display: none; } }
+  .checkout-flow .navicon {
+    display: none; }
 
 @media (min-width: 50em) {
   .global-footer .list--links:not(.list--inline) li {
@@ -2813,6 +2815,8 @@ button {
     .global-footer__section-top .accordion dd .accordion__item-content {
       padding-top: 2rem;
       padding-bottom: 0; } }
+  .checkout-flow .global-footer__section-top {
+    display: none; }
   .global-footer__section-top__bottom {
     margin-top: 2rem;
     text-align: center; }
@@ -2900,6 +2904,8 @@ button {
       float: right; }
       .is-minified .global-nav {
         height: 5rem; } }
+  .checkout-flow .global-nav {
+    display: none; }
   .nav-open .global-nav {
     display: block;
     transition: 0.5s ease-in-out;
@@ -3693,11 +3699,11 @@ button {
       @media (min-width: 50em) {
         .steps-indicator__step p {
           display: block; } }
-    .steps-indicator__step:hover, .steps-indicator__step:active, .steps-indicator__step.active-step {
+    .steps-indicator__step.active-step {
       opacity: 1; }
-      .steps-indicator__step:hover svg, .steps-indicator__step:active svg, .steps-indicator__step.active-step svg {
+      .steps-indicator__step.active-step svg {
         background-color: white; }
-      .steps-indicator__step:hover .st0, .steps-indicator__step:active .st0, .steps-indicator__step.active-step .st0 {
+      .steps-indicator__step.active-step .st0 {
         fill: #8CC63F; }
     .steps-indicator__step:last-child {
       margin-right: 0; }

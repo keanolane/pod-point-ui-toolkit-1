@@ -23,6 +23,7 @@
 				@include padding(2rem null 0 null);
 			}
 		}
+		.checkout-flow & { display: none; }
 		&__bottom {
 			margin-top: 2rem;
 			text-align: center;
