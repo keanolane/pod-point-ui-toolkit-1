@@ -6,6 +6,7 @@
 	position: relative;
 	width: 100%;
 	background-color: white;
+	z-index: 100;
 	&.is-minified {
 		box-shadow: $bottom-shadow-subtle;
 	}

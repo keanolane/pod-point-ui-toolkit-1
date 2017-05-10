@@ -2738,7 +2738,8 @@ button {
 .global-header-wrap {
   position: relative;
   width: 100%;
-  background-color: white; }
+  background-color: white;
+  z-index: 100; }
   .global-header-wrap.is-minified {
     box-shadow: 0px 11px 16px -10px rgba(0, 0, 0, 0.05); }
 
