@@ -62,16 +62,16 @@ button {
 		}
 	}
 	&.button--tertiary {
-		color: $gray-dark;
+		color: $gray-very-dark;
 		background-color: transparent;
-		border-color: $gray-dark;
+		border-color: $gray-very-dark;
 
 		&:hover:not(.is-disabled),
 		&:focus:not(.is-disabled),
 		&:active:not(.is-disabled) {
 			color: white;
-			background-color: $gray-dark;
-			border-color: $gray-dark;
+			background-color: $gray-very-dark;
+			border-color: $gray-very-dark;
 		}
 	}
 	&.button--selected {

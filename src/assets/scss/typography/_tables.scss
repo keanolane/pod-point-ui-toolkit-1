@@ -10,7 +10,7 @@ $text-muted: $gray;
 $line-height-computed: $table-line-height;
 $table-border-color: $gray-light;
 $table-condensed-cell-padding: $table-line-height;
-$table-bg-accent: #F9F9F9;
+$table-bg-accent: $gray-very-light;
 
 $table-bg-hover: mix($table-bg-accent, black, 10%);
 $table-bg-active: $table-bg-hover;

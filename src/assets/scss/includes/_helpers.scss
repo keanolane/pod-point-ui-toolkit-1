@@ -55,7 +55,7 @@
 }
 
 // Iconfont icon in a circle with optional colours
-@mixin icon-in-circle($bgColor: $icon-color, $color: #fff, $boxShadow: none ) {
+@mixin icon-in-circle($bgColor: $icon-color, $color: white, $boxShadow: none ) {
 	@include hide-text-not-pseudo;
 	text-align: center;
 	display: block;

@@ -87,6 +87,9 @@
 .b-b-thin {
 	border-bottom: $border-thin;
 }
+.b-t-none {
+	border-top: none!important;
+}
 
 .accordion-panel {
 	&--xs {
