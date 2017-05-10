@@ -1,0 +1,27 @@
+// =============================================================================
+//  LABELS
+// =============================================================================
+
+.label {
+	border-radius: $border-radius-base;
+	background-color: $gray-very-dark;
+	color: white;
+	@include font-base;
+	font-family: $font-family-bold;
+	line-height: 3.5rem;
+	min-height: 3.5rem;
+	@include padding(null 1.5rem);
+	display: inline-block;
+	margin-bottom: 1rem;
+	&:before {
+		position: relative;
+		top: 0.3rem;
+		left: -0.3rem;
+		font-size: 2rem;
+		font-weight: bold;
+	}
+
+	&--gray {
+		background-color: $gray-medium;
+	}
+}

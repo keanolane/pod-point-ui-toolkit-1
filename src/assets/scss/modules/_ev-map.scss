@@ -7,6 +7,15 @@
 	position: relative;
 	width: 100%;
 	height: 470px;
+	&__labels {
+		text-align: left;
+		width: 30rem;
+		@include position(absolute, 60% null null 58%);
+	}
+	&__pulse {
+		@include position(absolute, 54% null null 50%);
+		width: 10rem;
+	}
 }
 .ev-map {
 	display: block;
