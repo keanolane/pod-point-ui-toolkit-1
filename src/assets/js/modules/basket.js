@@ -54,11 +54,8 @@ class Basket {
 
         const basketType = this.element.getAttribute('id');
 
-        if (basketType === 'basketOpen') {
-            this.productEls = nodesToArray(document.querySelectorAll('.product'));
-            this.bindEvents();
-            this.makeSticky();
-        }
+        this.productEls = nodesToArray(document.querySelectorAll('.product'));
+        this.bindEvents();
     }
 
     /**
@@ -79,7 +76,7 @@ class Basket {
      * Make basket stick to top of window when scrolled.
      */
     makeSticky() {
-        var sticky = new Sticky('#basketOpen');
+        var sticky = new Sticky('#basketFinal');
     }
 
     /**

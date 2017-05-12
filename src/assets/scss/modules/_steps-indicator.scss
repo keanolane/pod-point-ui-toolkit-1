@@ -12,9 +12,11 @@
 .steps-indicator {
 	@include clearfix;
 	position: relative;
+	max-width: 60rem;
+	@include margin(null auto);
 	&__step {
 		text-align: center;
-		width: 23%;
+		width: 30.6%;
 		display: inline-block;
 		z-index: 1;
 		position: relative;
@@ -45,8 +47,8 @@
 	}
 	&:after {
 		content: '';
-		@include position(absolute, 2.4rem 17% null null);
-		width: 73%;
+		@include position(absolute, 2.4rem 22% null null);
+		width: 62%;
 		height: 2px;
 		background-color: $font-color-very-light;
 	}

@@ -3678,14 +3678,17 @@ button {
     padding-top: 5rem; }
 
 .steps-indicator {
-  position: relative; }
+  position: relative;
+  max-width: 60rem;
+  margin-right: auto;
+  margin-left: auto; }
   .steps-indicator:after {
     content: "";
     display: table;
     clear: both; }
   .steps-indicator__step {
     text-align: center;
-    width: 23%;
+    width: 30.6%;
     display: inline-block;
     z-index: 1;
     position: relative; }
@@ -3714,8 +3717,8 @@ button {
     content: '';
     position: absolute;
     top: 2.4rem;
-    right: 17%;
-    width: 73%;
+    right: 22%;
+    width: 62%;
     height: 2px;
     background-color: #ccc; }
 
@@ -3859,78 +3862,79 @@ button {
 .floating-basket-wrapper {
   position: relative;
   z-index: 100; }
-  .floating-basket-wrapper .floating-basket {
+
+.floating-basket {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white;
+  width: 25rem; }
+  .floating-basket__header {
+    position: relative;
+    display: block;
+    background-color: #333;
+    height: 4.5rem;
+    padding: 0 1.5rem; }
+    .floating-basket__header:hover, .floating-basket__header:active, .floating-basket__header:focus {
+      opacity: 1; }
+  .floating-basket__toggle-icon {
+    display: block;
+    height: 1.6rem;
     position: absolute;
-    top: 0;
-    right: 0;
-    background-color: white;
-    width: 25rem; }
-    .floating-basket-wrapper .floating-basket__header {
-      position: relative;
-      display: block;
-      background-color: #333;
-      height: 4.5rem;
-      padding: 0 1.5rem; }
-      .floating-basket-wrapper .floating-basket__header:hover, .floating-basket-wrapper .floating-basket__header:active, .floating-basket-wrapper .floating-basket__header:focus {
-        opacity: 1; }
-    .floating-basket-wrapper .floating-basket__toggle-icon {
-      display: block;
-      height: 1.6rem;
-      position: absolute;
-      top: 1.7rem;
-      right: 1.5rem; }
-      .floating-basket-wrapper .floating-basket__toggle-icon:before {
-        content: ""; }
-      .floating-basket-wrapper .floating-basket__toggle-icon:before {
-        display: inline-block;
-        height: inherit;
-        margin-right: 0.2rem;
-        margin-left: 0.2rem;
-        font-size: 2rem;
-        font-family: "icons";
-        font-variant: normal;
-        font-style: normal;
-        font-weight: normal;
-        line-height: 1;
-        text-decoration: inherit;
-        text-align: center;
-        text-transform: none;
-        speak: none;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale; }
-    .floating-basket-wrapper .floating-basket__title {
-      color: white;
-      padding-top: 1.4rem;
-      padding-bottom: 0; }
-    .floating-basket-wrapper .floating-basket__items-num {
-      position: absolute;
-      top: 1rem;
-      right: 5rem;
-      color: white;
+    top: 1.7rem;
+    right: 1.5rem; }
+    .floating-basket__toggle-icon:before {
+      content: ""; }
+    .floating-basket__toggle-icon:before {
       display: inline-block;
-      background-color: #8CC63F;
-      border-radius: 50%;
+      height: inherit;
+      margin-right: 0.2rem;
+      margin-left: 0.2rem;
+      font-size: 2rem;
+      font-family: "icons";
+      font-variant: normal;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      text-decoration: inherit;
       text-align: center;
-      width: 2.5rem;
-      height: 2.5rem;
-      font-size: 1.6rem;
-      line-height: 2.3rem;
-      font-family: "Quicksand Bold", sans-serif; }
-    .floating-basket-wrapper .floating-basket .basket-content {
-      border-right: 2px solid #ccc;
-      border-left: 2px solid #ccc;
-      padding-right: 1.5rem;
-      padding-left: 1.5rem; }
-      .floating-basket-wrapper .floating-basket .basket-content__items {
-        padding-top: 2rem;
-        padding-bottom: 2rem; }
-    .floating-basket-wrapper .floating-basket .basket-total {
-      border-bottom-right-radius: 5px;
-      border-bottom-left-radius: 5px;
-      border-right: 2px solid #ccc;
-      border-bottom: 2px solid #ccc;
-      border-left: 2px solid #ccc;
-      padding: 1rem 1.5rem; }
+      text-transform: none;
+      speak: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale; }
+  .floating-basket__title {
+    color: white;
+    padding-top: 1.4rem;
+    padding-bottom: 0; }
+  .floating-basket__items-num {
+    position: absolute;
+    top: 1rem;
+    right: 5rem;
+    color: white;
+    display: inline-block;
+    background-color: #8CC63F;
+    border-radius: 50%;
+    text-align: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    font-family: "Quicksand Bold", sans-serif; }
+  .floating-basket .basket-content {
+    border-right: 2px solid #ccc;
+    border-left: 2px solid #ccc;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem; }
+    .floating-basket .basket-content__items {
+      padding-top: 2rem;
+      padding-bottom: 2rem; }
+  .floating-basket .basket-total {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    border-left: 2px solid #ccc;
+    padding: 1rem 1.5rem; }
 
 .tooltip-icon {
   text-indent: -9999px;

@@ -19,10 +19,6 @@
 					<input type="radio" name="ownElectricVehicle" id="no-ownElectricVehicle" value="no-ownElectricVehicle" class="no" />
 					<label for="no-ownElectricVehicle" class="radio">No</label>
 				</div>
-				<div class="radio-wrap radio-wrap--inline">
-					<input type="radio" name="ownElectricVehicle" id="unsure-ownElectricVehicle" value="unsure-ownElectricVehicle" class="unsure" />
-					<label for="unsure-ownElectricVehicle" class="radio"> Not sure</label>
-				</div>
 			</div>
 		</div>
 		<div class="field-row m-b-lg">
@@ -37,10 +33,6 @@
 					<input type="radio" name="purchaseDate" id="no-purchaseDate" value="no-purchaseDate" class="no"/>
 					<label for="no-purchaseDate" class="radio">No</label>
 				</div>
-				<div class="radio-wrap radio-wrap--inline">
-					<input type="radio" name="purchaseDate" id="unsure-purchaseDate" value="unsure-purchaseDate" class="unsure" />
-					<label for="unsure-purchaseDate" class="radio"> Not sure</label>
-				</div>
 			</div>
 		</div>
 		<div class="field-row m-b-lg">
@@ -54,10 +46,6 @@
 					<input type="radio" name="offStreePark" id="no-offStreePark" value="no-offStreePark" class="no" />
 					<label for="no-offStreePark" class="radio">No</label>
 				</div>
-				<div class="radio-wrap radio-wrap--inline">
-					<input type="radio" name="offStreePark" id="unsure-offStreePark" value="unsure-offStreePark" class="unsure" />
-					<label for="unsure-offStreePark" class="radio"> Not sure</label>
-				</div>
 			</div>
 		</div>
 		<div class="field-row m-b-lg">
@@ -70,10 +58,6 @@
 				<div class="radio-wrap radio-wrap--inline">
 					<input type="radio" name="RightOfWay" id="no-RightOfWay" value="no-RightOfWay" class="no" />
 					<label for="no-RightOfWay" class="radio">No</label>
-				</div>
-				<div class="radio-wrap radio-wrap--inline">
-					<input type="radio" name="RightOfWay" id="unsure-RightOfWay" value="unsure-RightOfWay" class="unsure" />
-					<label for="unsure-RightOfWay" class="radio"> Not sure</label>
 				</div>
 			</div>
 		</div>
@@ -91,18 +75,6 @@
 				<p>Unfortunately you don't qualify for the OLEV grant if you answer 'no' to any of the eligibility questions. Please see <a href="#">Terms and conditions</a> for more information.</p>
 			</div>
 			<button class="button" data-close-el="confirmNotOlevEligible">Continue at normal price</button>
-		</div>
-	</div>
-
-	<div data-js-module="toggleElement" id="confirmUnsureClaimOlev" class="confirm-popup hidden">
-		<div class="confirm-popup__box">
-			<div class="rich-text">
-				<h5>Information about your claim</h5>
-				<p>As you've answered 'unsure' to some of the eligibility questions, you can proceed to claim the OLEV grant, however, we'll need to review your situation before we install the POD Point.</p>
-				<p>If you're not eligible we'll be in touch to request you pay the remaining balance or offer a full refund.</p>
-			</div>
-			<button id="claimUnsureOlevButton" data-close-el="confirmUnsureClaimOlev" class="button">Claim OLEV Grant</button>
-			<a data-close-el="confirmUnsureClaimOlev" href="#" class="iconfont-cross setback-button m-l-sm m-t-md block">Skip - I don't want to claim</a>
 		</div>
 	</div>
 </div>

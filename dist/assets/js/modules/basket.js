@@ -75,11 +75,8 @@ var Basket = function () {
 
         var basketType = this.element.getAttribute('id');
 
-        if (basketType === 'basketOpen') {
-            this.productEls = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
-            this.bindEvents();
-            this.makeSticky();
-        }
+        this.productEls = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
+        this.bindEvents();
     }
 
     /**
@@ -109,7 +106,7 @@ var Basket = function () {
     }, {
         key: 'makeSticky',
         value: function makeSticky() {
-            var sticky = new _stickyJs2.default('#basketOpen');
+            var sticky = new _stickyJs2.default('#basketFinal');
         }
 
         /**
