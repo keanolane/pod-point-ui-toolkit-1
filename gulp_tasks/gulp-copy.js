@@ -15,7 +15,7 @@ gulp.task('copyMain', () => {
 
 gulp.task('copyJS', () => {
 	gulp.src([
-			config.src.jsData,
+			config.src.jsData + '**/*.json',
 		])
 	.pipe(gulp.dest(config.dist.jsData));
 	gulp.src([
