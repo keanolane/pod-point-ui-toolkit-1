@@ -15,7 +15,7 @@ gulp.task('watch', ['browser-sync'], () => {
 	// Watch for new images
 	gulp.watch(config.src.img + '**/*.*', ['copyImages']);
 	// Watch for new icons
-	gulp.watch(config.src.icons + '**/*.svg', ['iconfont']);
+	gulp.watch(config.src.icons + '**/*.svg', ['svgSprite']);
 
 	// Refresh browser
 	gulp.watch([config.dist.root + '**/*', '!'+ config.dist.css + '**/*']).on('change', browserSync.reload);

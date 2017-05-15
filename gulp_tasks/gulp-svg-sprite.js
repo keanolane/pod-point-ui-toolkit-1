@@ -16,7 +16,7 @@ var svgConfig = {
 };
 
 // The task itself
-gulp.task('svg',function(){
+gulp.task('svgSprite', () => {
     return gulp.src(config.src.icons+'**/*.svg')
     .pipe(svgSprite(svgConfig))
     .pipe(gulp.dest(config.dist.svg));

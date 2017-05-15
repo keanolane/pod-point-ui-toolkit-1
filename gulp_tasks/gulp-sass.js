@@ -19,7 +19,7 @@ const autoprefixerOptions = {
 	browsers: ['last 2 versions', 'ie 9']
 };
 
-gulp.task('sass', ['iconfont'], () => {
+gulp.task('sass', () => {
 	return gulp.src(config.src.scss + '**/*.scss')
 		.pipe(sass(sassOptions).on('error', sass.logError))
 		.pipe(autoprefixer(autoprefixerOptions))

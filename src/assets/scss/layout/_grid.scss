@@ -43,7 +43,7 @@ $-default-gutter: -2rem;
 		&--separator {
 			padding-bottom: 4rem;
 			margin-bottom: 4rem;
-			background-image: url($svg-divider-repeater-gray-horizontal);
+			@include svg-bg-divider-repeater-horizontal();
 			background-repeat: repeat-x;
 			background-position: bottom center;
 			background-size: 42px;
@@ -84,7 +84,7 @@ $-default-gutter: -2rem;
 			padding-right: 2rem;
 			padding-bottom: 0;
 			margin-bottom: $default-gutter;
-			background-image: url($svg-divider-repeater-gray);
+			@include svg-bg-divider-repeater();
 			background-repeat: repeat-y;
 			background-position: center right;
 			background-size: 6px;

@@ -71,42 +71,48 @@
 .stars-list {
 	li {
 		display: inline-block;
-		@include iconfont('star');
 		&:before {
-			@include iconfont-styles;
-			font-size: 2.5rem;
-			color: $primary-color;
+			content: '';
+			display: block;
+			@include svg-bg-star($primary-color);
+			background-size: cover;
+			width: 2rem;
+			height: 2rem;
 		}
 	}
 }
 
 .slick-arrow {
 	@include hide-text-not-pseudo;
-	@include iconfont('cheveron');
 	display: block;
-	width: 5rem;
+	width: 2.5rem;
 	@include position(absolute, 50% null null null);
 	margin-top: -1.5rem;
 	z-index: 2;
+	padding: 0;
 	&:before {
-		@include iconfont-styles;
-		margin: 0;
-		font-size: 2.5rem;
-		color: white;
+		display: inline-block;
+		content: '';
+		@include svg-bg-cheveron(white);
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 2.5rem;
+		width: 2.5rem;
+		margin: 0 auto;
 	}
 	&.slick-prev {
-		right: -4.5rem;
+		right: -3rem;
 		@include medium-and-up {
-			right: -8rem;
+			right: -5rem;
 		}
 		&:before {
 			transform: rotate(-90deg);
 		}
 	}
 	&.slick-next {
-		left: -4.5rem;
+		left: -3rem;
 		@include medium-and-up {
-			left: -8rem;
+			left: -5rem;
 		}
 		&:before {
 			transform: rotate(90deg);

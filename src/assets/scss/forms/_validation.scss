@@ -14,9 +14,10 @@
 		position: relative;
 		&:before {
 			@include small-and-up {
-				@include iconfont-styles;
-				font-weight: bold;
-				font-size: 1.6rem;
+				content: '';
+				width: 1.8rem;
+				height: 1.8rem;
+				background-size: cover;
 				@include position(absolute, 0.9rem 0 null null);
 			}
 			@include medium-and-up {
@@ -25,18 +26,16 @@
 		}
 	}
 	&.is-valid {
-		@include small-and-up {
-			@include iconfont('tick');
-		}
 		&:before {
-			color: $primary-color;
+			@include small-and-up {
+				@include svg-bg-tick($color: $primary-color);
+			}
 		}
 		#{$inputs},
 		textarea[type="text"],
 		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-selected,
 		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select {
 			border-color: $primary-color;
-			color: $primary-color;
 		}
 		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
 		.select-dd-wrapper--mobile .mobile-select:after {
@@ -44,11 +43,10 @@
 		}
 	}
 	&.is-invalid {
-		@include small-and-up {
-			@include iconfont('cross');
-		}
 		&:before {
-			color: $error-red;
+			@include small-and-up {
+				@include svg-bg-cross($color: $error-red);
+			}
 		}
 		#{$inputs},
 		textarea[type="text"],

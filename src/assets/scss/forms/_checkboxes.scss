@@ -31,11 +31,8 @@ input[type="checkbox"] {
 			cursor: pointer;
 
 			&:before {
-				@include iconfont-styles;
 				@include position(absolute, 0 null null 0);
 				content: "";
-				font-size: 1.4rem;
-				line-height: 2rem;
 				width: 2rem;
 				height: 2rem;
 				z-index: 1;
@@ -45,12 +42,13 @@ input[type="checkbox"] {
 		}
 
 		&:checked ~ label {
-			@include iconfont("tick");
 			&:before {
+				@include svg-bg-tick(white);
+				background-size: 1.5rem 1.5rem;
+				background-repeat: no-repeat;
+				background-position: center;
 				background-color: $primary-color;
 				border-color: $primary-color;
-				color: white;
-				font-weight: bold;
 			}
 		}
 

@@ -75,11 +75,20 @@ button {
 		}
 	}
 	&.button--selected {
-		@include iconfont('tick');
 		@include hide-text-not-pseudo;
 		&:before {
-			@include iconfont-styles;
-			font-weight: bold;
+			content: '';
+			@include svg-bg-tick(white);
+			background-size: cover;
+			width: 2rem;
+			height: 2rem;
+		}
+		&:hover:not(.is-disabled),
+		&:focus:not(.is-disabled),
+		&:active:not(.is-disabled) {
+			&:before {
+				@include svg-bg-tick($primary-color);
+			}
 		}
 	}
 	&.button--auto-width {

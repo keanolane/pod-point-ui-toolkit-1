@@ -2,6 +2,24 @@
 //  ICONS
 // =============================================================================
 
+.icon {
+	height: 2.5rem;
+	width: 2.5rem;
+	@include margin(null 0.2rem);
+	&--sm {
+		height: 2rem;
+		width: 2rem;
+	}
+	&--xs {
+		height: 1.5rem;
+		width: 1.5rem;
+	}
+	&--xxs {
+		height: 1rem;
+		width: 1rem;
+	}
+}
+
 .circle-icon {
 	@include icon-in-circle;
 	@include icon-in-circle--size;

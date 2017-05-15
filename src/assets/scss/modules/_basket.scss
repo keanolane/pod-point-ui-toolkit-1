@@ -95,11 +95,14 @@ $floating-basket-horizontal-padding: 1.5rem;
 	}
 	&__toggle-icon {
 		display: block;
-		@include iconfont('cheveron');
 		height: 1.6rem;
 		@include position(absolute, 1.7rem 1.5rem null null);
 		&:before {
-			@include iconfont-styles;
+			content: '';
+			@include svg-bg-cheveron($primary-color);
+			background-size: cover;
+			width: 1.6rem;
+			height: 1.6rem;
 		}
 	}
 	&__title {
