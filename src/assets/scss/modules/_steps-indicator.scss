@@ -20,9 +20,11 @@
 		display: inline-block;
 		z-index: 1;
 		position: relative;
+		.st0 { fill: $gray; }
+		.st1{ fill: $gray-very-light; }
 		p {
 			display: none;
-			color: $font-color-very-light;
+			color: $gray;
 			font-family: $font-family-bold;
 			@include medium-and-up {
 				display: block;

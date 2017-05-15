@@ -3249,9 +3249,13 @@ button {
     display: inline-block;
     z-index: 1;
     position: relative; }
+    .steps-indicator__step .st0 {
+      fill: #b3b3b3; }
+    .steps-indicator__step .st1 {
+      fill: #f9fafa; }
     .steps-indicator__step p {
       display: none;
-      color: #ccc;
+      color: #b3b3b3;
       font-family: "Quicksand Bold", sans-serif; }
       @media (min-width: 50em) {
         .steps-indicator__step p {

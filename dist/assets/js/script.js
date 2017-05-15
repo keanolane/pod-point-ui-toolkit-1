@@ -186,6 +186,27 @@
 	        })
 	    });
 	});
+	
+	function debounce(callback, wait) {
+	    var context = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this;
+	
+	    var timeout = null;
+	    var callbackArgs = null;
+	    var later = function later() {
+	        return callback.apply(context, callbackArgs);
+	    };
+	
+	    return function () {
+	        callbackArgs = arguments;
+	        clearTimeout(timeout);
+	        timeout = setTimeout(later, wait);
+	    };
+	}
+	var handleResize = debounce(function (e) {
+	    console.log('Window resized.');
+	}, 100);
+	
+	window.addEventListener('resize', handleResize);
 
 /***/ },
 /* 1 */

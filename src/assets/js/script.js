@@ -68,3 +68,21 @@ dom.whenReady(() => {
         })
     });
 });
+
+function debounce(callback, wait, context = this) {
+    let timeout = null
+    let callbackArgs = null
+    const later = () => callback.apply(context, callbackArgs)
+
+    return function() {
+        callbackArgs = arguments
+        clearTimeout(timeout)
+        timeout = setTimeout(later, wait)
+    }
+}
+const handleResize = debounce((e) => {
+    console.log('Window resized.');
+}, 100)
+
+window.addEventListener('resize', handleResize)
+
