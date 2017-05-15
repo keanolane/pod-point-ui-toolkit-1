@@ -8,7 +8,8 @@ module.exports = {
         img: './src/assets/img/',
         fonts: './src/assets/fonts/',
         icons: './src/assets/icons/',
-        templates: './src/templates/'
+        templates: './src/templates/',
+        svg: './src/templates/partials/',
     },
     dist: {
         root: './dist/',
@@ -17,6 +18,7 @@ module.exports = {
         jsData: './dist/assets/js/data/',
         jsPlugins: './dist/assets/js-plugins/',
         img: './dist/assets/img/',
-        fonts: './dist/assets/fonts/'
+        fonts: './dist/assets/fonts/',
+        svg: './dist/assets/svg/',
     }
 };

@@ -9,6 +9,7 @@ import modal from './modules/modal';
 import ajaxForm from './modules/ajax-form';
 import formFields from './modules/form-fields';
 import collapse from './modules/collapse';
+import chat from './modules/chat';
 import dropdown from './modules/dropdown';
 import selectDropdown from './modules/select-dropdown';
 import toggle from './modules/toggle';
@@ -24,6 +25,7 @@ import checkoutYourPodPoint from './modules/checkout-your-pod-point';
 import claimOlev from './modules/claim-olev';
 import claimDealerDiscount from './modules/claim-dealer-discount';
 import basket from './modules/basket';
+import inlineSvg from './modules/inline-svg';
 
 
 import { initAutocomplete, geolocate, fillInAddress } from './modules/address-lookup';
@@ -42,6 +44,7 @@ window.isMobileSize = (winWidth < winWidthMedium) ? true : false;
 dom.whenReady(() => {
     loadModules({
         formFields,
+        inlineSvg,
         domModules: combineDomModules({
             modal,
             ajaxForm,
@@ -61,6 +64,7 @@ dom.whenReady(() => {
             claimOlev,
             claimDealerDiscount,
             basket,
+            chat,
         })
     });
 });

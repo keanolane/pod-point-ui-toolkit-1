@@ -11,8 +11,22 @@
 
 	<link href="assets/css/styles.css" rel="stylesheet">
 	<link href="assets/css/demo.css" rel="stylesheet">
+
+
+
+	<!--Start of Zendesk Chat Script-->
+	<script type="text/javascript">
+	window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+	d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+	_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+	$.src="https://v2.zopim.com/?49vIu3qscYr2sp40IjcXOg8ypK3xwFRh";z.t=+new Date;$.
+	type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+	</script>
+	<!--End of Zendesk Chat Script-->
 </head>
 <body>
+
+	<img class="svg hidden" src="assets/svg/symbol/svg/sprite.symbol.svg" alt="">
 
 	<!--[if lt IE 9]>
 		<div class="browsehappy">
@@ -90,7 +104,7 @@
 							</ul>
 						</div>
 					</li>
-					<li><a class="find-chargepoint" href="#">Find a Chargepoint</a></li>
+					<li><a class="find-chargepoint" href="#"><svg><use xlink:href="#general--charge-location"/></svg><span>Find a Chargepoint</span></a></li>
 				</ul>
 			</nav>	</header>
 	</div>
@@ -204,7 +218,7 @@
 						<p class="text-center text-left-md">All of our POD Points include standard installation <a href="#" data-toggle-el="tipStandardInstallation" class="tooltip-icon"></a></p>
 						<div data-js-module="toggleElement" id="tipStandardInstallation" class="tooltip hidden">
 							<div class="tooltip__box">
-								<a href="#" class="tooltip__close" data-close-el="tipStandardInstallation"></a>
+								<a href="#" class="tooltip__close" data-close-el="tipStandardInstallation"><svg class="icon icon--xs"><use xlink:href="#general--cross"/></svg></a>
 								<div class="rich-text">
 									<h3>Standard installation package</h3>
 									<p>Your install is included in the price of the chargepoint if it meets our standard install criteria. If it doesn't, we'll provide a no obligation quote or a full refund if you don't want to proceed.</p>
@@ -289,7 +303,7 @@
 									<h3 class="font-large">Universal Pod Point</h3>
 									<p>Connects to any electric car, this Pod Point requires a separate cable which can be purchased below.</p>
 									<img class="max-width--sm marg-center" src="assets/img/content/homecharger-without-cable.png" alt="">
-									<p class="m-t-sm"><a class="color-base bold inline-circle-icon" href="#" data-toggle-panel="universalSocket">Read description <span data-toggle-icon="universalSocket" class="toggle-panel-icon--secondary toggle-rotate-icon"></span></a></p>
+									<p class="m-t-sm"><a href="#" class="color-base bold inline-circle-icon" data-toggle-panel="universalSocket">Read description <span data-toggle-icon="universalSocket" class="toggle-panel-icon--secondary toggle-rotate-icon"><svg><use xlink:href="#general--cheveron"/></svg></span></a></p>
 									<div id="universalSocket" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
 										<div class="rich-text">
 											<p>Although this Pod Point requires an additional cable, you're covered if you ever update your car in the future.</p>
@@ -306,7 +320,7 @@
 									<h3 class="font-large">Fixed Cable Connector</h3>
 									<p>Comes with a permanently attached cable for convenient charging.</p>
 									<img class="max-width--sm marg-center" src="assets/img/content/homecharger-with-cable.png" alt="">
-									<p class="m-t-sm"><a class="color-base bold inline-circle-icon" href="#" data-toggle-panel="fixedCable">Read description <span data-toggle-icon="fixedCable" class="toggle-panel-icon--secondary toggle-rotate-icon"></span></a></p>
+									<p class="m-t-sm"><a href="#" class="color-base bold inline-circle-icon" data-toggle-panel="fixedCable">Read description <span data-toggle-icon="fixedCable" class="toggle-panel-icon--secondary toggle-rotate-icon"><svg><use xlink:href="#general--cheveron"/></svg></span></a></p>
 									<div id="fixedCable" data-js-module="toggleAccordionPanel" class="basket-content accordion-panel accordion-panel--sm">
 										<div class="rich-text">
 											<p>This Pod Point has a 4.8m charging cable permanently attached. Unlike the universal socket, this Pod Point is not compatible with every car and you may need to upgrade should you change vehicle in the future.</p>
@@ -336,7 +350,7 @@
 									<h3 class="h4">Claim the OLEV Grant</h3>
 									<p>Do you want to reduce the cost of your chargepoint by <strong>£500</strong>, by claiming the OLEV Grant?</p>
 								
-									<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="olevPanel">Claim now<span data-toggle-icon="olevPanel" class="toggle-panel-icon toggle-rotate-icon"></span></a></p>
+									<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="olevPanel">Claim now<span data-toggle-icon="olevPanel" class="toggle-panel-icon toggle-rotate-icon"><svg><use xlink:href="#general--cheveron"/></svg></span></a></p>
 								
 									<div id="olevPanel" data-js-module="toggleAccordionPanel" class="accordion-panel accordion-panel--md">
 										<hr class="m-t-lg m-b-lg">
@@ -398,7 +412,7 @@
 								
 										<div class="p-t-lg">
 											<button id="claimOlevButton" disabled="true" class="button is-disabled">Claim</button>
-											<a data-close-panel="olevPanel" href="#" class="iconfont-cross setback-button m-l-sm">Skip - close panel</a>
+											<a href="#" class="setback-button m-l-xs" data-close-panel="olevPanel"><svg class="icon icon--xxs"><use xlink:href="#general--cross"/></svg>Skip - close panel</a>
 										</div>
 									</div>
 								
@@ -415,7 +429,7 @@
 									<h3 class="h4">Claim your dealership discount</h3>
 									<p>Do you want to reduce the cost of your chargepoint by claiming your dealership discount?</p>
 								
-									<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="dealershipPanel">Claim now<span data-toggle-icon="dealershipPanel" class="toggle-panel-icon toggle-rotate-icon"></span></a></p>
+									<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="dealershipPanel">Claim now<span data-toggle-icon="dealershipPanel" class="toggle-panel-icon toggle-rotate-icon"><svg><use xlink:href="#general--cheveron"/></svg></span></a></p>
 								
 									<div id="dealershipPanel" data-js-module="toggleAccordionPanel" class="accordion-panel accordion-panel--md">
 										<hr class="m-t-lg m-b-lg">
@@ -454,7 +468,7 @@
 								
 										<div class="p-t-md">
 											<button id="claimDealershipButton" disabled="true" class="button is-disabled">Claim</button>
-											<a data-close-panel="dealershipPanel" href="#" class="iconfont-cross setback-button m-l-sm">Skip - close panel</a>
+											<a href="#" class="setback-button m-l-xs" data-close-panel="dealershipPanel"><svg class="icon icon--xxs"><use xlink:href="#general--cross"/></svg>Skip - close panel</a>
 										</div>
 									</div>
 								
@@ -520,9 +534,8 @@
 				<h2>Confirm eligibility for free standard installation</h2>
 				<div class="rich-text">
 					<p>Our standard install for the homecharge POD Point covers the majority of home installs in the UK.</p>
-					<p>Please complete the checklist below to confirm your eligibility.</p>
 		
-					<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="terms">Standard installation terms<span data-toggle-icon="terms" class="toggle-panel-icon toggle-rotate-icon"></span></a></p>
+					<p class="m-t-md bold"><a href="#" class="inline-circle-icon" data-toggle-panel="terms">Standard installation terms<span data-toggle-icon="terms" class="toggle-panel-icon toggle-rotate-icon"><svg><use xlink:href="#general--cheveron"/></svg></span></a></p>
 		
 					<hr>
 		
@@ -553,7 +566,7 @@
 								<li>Significant additional works: engineer site survey on day then project manager will contact within 5 working days with new quote.</li>
 								<li>In all of the above, if you choose not to go ahead you can get a full refund.</li>
 							</ul>
-						</div>				<a data-close-panel="terms" href="#" class="circle-icon--close-panel marg-center m-t-xl">Close panel</a>
+						</div>				<a data-close-panel="terms" href="#" class="circle-icon--close-panel marg-center m-t-xl"><svg><use xlink:href="#general--cheveron"/></svg></a>
 						<hr>
 					</div>
 		
@@ -761,12 +774,12 @@
 									<li><a href="#">info@pod-point.com</a></li>
 								</ul>
 								<ul class="icons-list icons-list--inline">
-									<li><a href="#" class="circle-icon circle-icon--small iconfont-facebook"></a></li>
-									<li><a href="#" class="circle-icon circle-icon--small iconfont-twitter"></a></li>
-									<li><a href="#" class="circle-icon circle-icon--small iconfont-linkedin"></a></li>
-									<li><a href="#" class="circle-icon circle-icon--small iconfont-youtube"></a></li>
-									<li><a href="#" class="circle-icon circle-icon--small iconfont-instagram"></a></li>
-									<li><a href="#" class="circle-icon circle-icon--small iconfont-google"></a></li>
+									<li><a class="circle-icon circle-icon--small" href="#"><svg class="icon"><use xlink:href="#social--facebook"/></svg></a></li>
+									<li><a class="circle-icon circle-icon--small" href="#"><svg class="icon"><use xlink:href="#social--twitter"/></svg></a></li>
+									<li><a class="circle-icon circle-icon--small" href="#"><svg class="icon"><use xlink:href="#social--linkedin"/></svg></a></li>
+									<li><a class="circle-icon circle-icon--small" href="#"><svg class="icon"><use xlink:href="#social--youtube"/></svg></a></li>
+									<li><a class="circle-icon circle-icon--small" href="#"><svg class="icon"><use xlink:href="#social--instagram"/></svg></a></li>
+									<li><a class="circle-icon circle-icon--small" href="#"><svg class="icon"><use xlink:href="#social--google"/></svg></a></li>
 								</ul>
 							</div>
 						</div>

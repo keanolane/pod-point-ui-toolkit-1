@@ -74,71 +74,79 @@
 	
 	var _collapse2 = _interopRequireDefault(_collapse);
 	
-	var _dropdown = __webpack_require__(21);
+	var _chat = __webpack_require__(21);
+	
+	var _chat2 = _interopRequireDefault(_chat);
+	
+	var _dropdown = __webpack_require__(22);
 	
 	var _dropdown2 = _interopRequireDefault(_dropdown);
 	
-	var _selectDropdown = __webpack_require__(22);
+	var _selectDropdown = __webpack_require__(23);
 	
 	var _selectDropdown2 = _interopRequireDefault(_selectDropdown);
 	
-	var _toggle = __webpack_require__(23);
+	var _toggle = __webpack_require__(24);
 	
 	var _toggle2 = _interopRequireDefault(_toggle);
 	
-	var _toggleAccordionPanel = __webpack_require__(24);
+	var _toggleAccordionPanel = __webpack_require__(25);
 	
 	var _toggleAccordionPanel2 = _interopRequireDefault(_toggleAccordionPanel);
 	
-	var _toggleElement = __webpack_require__(25);
+	var _toggleElement = __webpack_require__(26);
 	
 	var _toggleElement2 = _interopRequireDefault(_toggleElement);
 	
-	var _gallerySimple = __webpack_require__(26);
+	var _gallerySimple = __webpack_require__(27);
 	
 	var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
 	
-	var _accordion = __webpack_require__(27);
+	var _accordion = __webpack_require__(28);
 	
 	var _accordion2 = _interopRequireDefault(_accordion);
 	
-	var _headerNav = __webpack_require__(28);
+	var _headerNav = __webpack_require__(29);
 	
 	var _headerNav2 = _interopRequireDefault(_headerNav);
 	
-	var _Carousel = __webpack_require__(31);
+	var _Carousel = __webpack_require__(32);
 	
 	var _Carousel2 = _interopRequireDefault(_Carousel);
 	
-	var _addressLookup = __webpack_require__(33);
+	var _addressLookup = __webpack_require__(34);
 	
 	var _addressLookup2 = _interopRequireDefault(_addressLookup);
 	
-	var _changeContent = __webpack_require__(34);
+	var _changeContent = __webpack_require__(35);
 	
 	var _changeContent2 = _interopRequireDefault(_changeContent);
 	
-	var _checkoutYourPodPoint = __webpack_require__(35);
+	var _checkoutYourPodPoint = __webpack_require__(36);
 	
 	var _checkoutYourPodPoint2 = _interopRequireDefault(_checkoutYourPodPoint);
 	
-	var _claimOlev = __webpack_require__(36);
+	var _claimOlev = __webpack_require__(37);
 	
 	var _claimOlev2 = _interopRequireDefault(_claimOlev);
 	
-	var _claimDealerDiscount = __webpack_require__(37);
+	var _claimDealerDiscount = __webpack_require__(38);
 	
 	var _claimDealerDiscount2 = _interopRequireDefault(_claimDealerDiscount);
 	
-	var _basket = __webpack_require__(38);
+	var _basket = __webpack_require__(39);
 	
 	var _basket2 = _interopRequireDefault(_basket);
+	
+	var _inlineSvg = __webpack_require__(40);
+	
+	var _inlineSvg2 = _interopRequireDefault(_inlineSvg);
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(39);
+	__webpack_require__(42);
 	
 	window.initAutocomplete = _addressLookup.initAutocomplete;
 	window.geolocate = _addressLookup.geolocate;
@@ -154,6 +162,7 @@
 	dom.whenReady(function () {
 	    (0, _moduleLoader2.default)({
 	        formFields: _formFields2.default,
+	        inlineSvg: _inlineSvg2.default,
 	        domModules: (0, _domModuleLoader2.default)({
 	            modal: _modal2.default,
 	            ajaxForm: _ajaxForm2.default,
@@ -172,7 +181,8 @@
 	            checkoutYourPodPoint: _checkoutYourPodPoint2.default,
 	            claimOlev: _claimOlev2.default,
 	            claimDealerDiscount: _claimDealerDiscount2.default,
-	            basket: _basket2.default
+	            basket: _basket2.default,
+	            chat: _chat2.default
 	        })
 	    });
 	});
@@ -617,6 +627,7 @@
 	            this.closeListener = new _domDelegate.Delegate(this.closeButton);
 	
 	            this.closeListener.on('click', function (event) {
+	                event.preventDefault();
 	                _this.closeModal();
 	            });
 	
@@ -13533,6 +13544,79 @@
 	
 	var _domDelegate = __webpack_require__(6);
 	
+	var _superagent = __webpack_require__(12);
+	
+	var _superagent2 = _interopRequireDefault(_superagent);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var Chat = function () {
+	
+	    /**
+	     * Create a new Chat widget.
+	     *
+	     * @param element
+	     */
+	    function Chat(element) {
+	        _classCallCheck(this, Chat);
+	
+	        this.element = element;
+	        this.url = "https://www.zopim.com/api/v2/chats";
+	        this.requestInProgress = false;
+	
+	        this.ajaxRequest();
+	    }
+	
+	    _createClass(Chat, [{
+	        key: 'ajaxRequest',
+	        value: function ajaxRequest() {
+	            this.requestInProgress = true;
+	            _superagent2.default.get(this.url).end(function (error, response) {
+	                this.requestInProgress = false;
+	
+	                if (response && response.ok) {
+	                    console.log(response);
+	                } else {
+	                    console.log(error);
+	                }
+	            });
+	        }
+	    }]);
+	
+	    return Chat;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new Chat(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(6);
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
@@ -13634,7 +13718,7 @@
 	};
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13769,7 +13853,7 @@
 	};
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13907,7 +13991,7 @@
 	};
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14083,7 +14167,7 @@
 	};
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14258,7 +14342,7 @@
 	};
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14364,7 +14448,7 @@
 	};
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14477,7 +14561,7 @@
 	};
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14494,7 +14578,7 @@
 	
 	var _utilities = __webpack_require__(8);
 	
-	var _stickyJs = __webpack_require__(29);
+	var _stickyJs = __webpack_require__(30);
 	
 	var _stickyJs2 = _interopRequireDefault(_stickyJs);
 	
@@ -14650,17 +14734,17 @@
 	};
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var Sticky = __webpack_require__(30);
+	var Sticky = __webpack_require__(31);
 	
 	module.exports = Sticky;
 
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15130,7 +15214,7 @@
 	})(this, Sticky);
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -15141,7 +15225,7 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _slickCarousel = __webpack_require__(32);
+	var _slickCarousel = __webpack_require__(33);
 	
 	var _slickCarousel2 = _interopRequireDefault(_slickCarousel);
 	
@@ -15208,7 +15292,7 @@
 	};
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -18106,7 +18190,7 @@
 
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18184,7 +18268,7 @@
 	};
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18286,7 +18370,7 @@
 	};
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18435,7 +18519,7 @@
 	};
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18637,7 +18721,7 @@
 	};
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18781,7 +18865,7 @@
 	};
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18800,7 +18884,7 @@
 	
 	var _utilities = __webpack_require__(8);
 	
-	var _stickyJs = __webpack_require__(29);
+	var _stickyJs = __webpack_require__(30);
 	
 	var _stickyJs2 = _interopRequireDefault(_stickyJs);
 	
@@ -19153,7 +19237,72 @@
 	};
 
 /***/ },
-/* 39 */
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _inlineSvg = __webpack_require__(41);
+	
+	var _inlineSvg2 = _interopRequireDefault(_inlineSvg);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var inlineSvg = function () {
+	
+	    /**
+	     */
+	    function inlineSvg() {
+	        var root = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
+	
+	        _classCallCheck(this, inlineSvg);
+	
+	        this.makeInline();
+	    }
+	
+	    /**
+	     */
+	
+	
+	    _createClass(inlineSvg, [{
+	        key: 'makeInline',
+	        value: function makeInline() {
+	            _inlineSvg2.default.init({
+	                svgSelector: 'img.svg', // the class attached to all images that should be inlined
+	                initClass: 'js-inlinesvg' }, function () {
+	                console.log('All SVGs inlined');
+	            });
+	        }
+	    }]);
+	
+	    return inlineSvg;
+	}();
+	
+	exports.default = {
+	    init: function init(root) {
+	        instances.push(new inlineSvg(root));
+	    }
+	};
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {!function(a,b){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b(a)), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof exports?module.exports=b(a):a.inlineSVG=b(a)}("undefined"!=typeof global?global:this.window||this.global,function(a){var b,c={},d=!!document.querySelector&&!!a.addEventListener,e={initClass:"js-inlinesvg",svgSelector:"img.svg"},f=function(a,b){return function(){return--a<1?b.apply(this,arguments):void 0}},g=function(){var a={},b=!1,c=0,d=arguments.length;"[object Boolean]"===Object.prototype.toString.call(arguments[0])&&(b=arguments[0],c++);for(var e=function(c){for(var d in c)Object.prototype.hasOwnProperty.call(c,d)&&(b&&"[object Object]"===Object.prototype.toString.call(c[d])?a[d]=g(!0,a[d],c[d]):a[d]=c[d])};d>c;c++){var f=arguments[c];e(f)}return a},h=function(){var a=document.querySelectorAll(b.svgSelector);return a},i=function(a){var c=h(),d=f(c.length,a);Array.prototype.forEach.call(c,function(a,c){var e=a.src||a.getAttribute("data-src"),f=a.attributes,g=new XMLHttpRequest;g.open("GET",e,!0),g.onload=function(){if(g.status>=200&&g.status<400){var c=new DOMParser,e=c.parseFromString(g.responseText,"text/xml"),h=e.getElementsByTagName("svg")[0];if(h.removeAttribute("xmlns:a"),h.removeAttribute("width"),h.removeAttribute("height"),h.removeAttribute("x"),h.removeAttribute("y"),h.removeAttribute("enable-background"),h.removeAttribute("xmlns:xlink"),h.removeAttribute("xml:space"),h.removeAttribute("version"),Array.prototype.slice.call(f).forEach(function(a){"src"!==a.name&&"alt"!==a.name&&h.setAttribute(a.name,a.value)}),h.classList?h.classList.add("inlined-svg"):h.className+=" inlined-svg",h.setAttribute("role","img"),f.longdesc){var i=document.createElementNS("http://www.w3.org/2000/svg","desc"),j=document.createTextNode(f.longdesc.value);i.appendChild(j),h.insertBefore(i,h.firstChild)}if(f.alt){h.setAttribute("aria-labelledby","title");var k=document.createElementNS("http://www.w3.org/2000/svg","title"),l=document.createTextNode(f.alt.value);k.appendChild(l),h.insertBefore(k,h.firstChild)}a.parentNode.replaceChild(h,a),d(b.svgSelector)}else console.error("There was an error retrieving the source of the SVG.")},g.onerror=function(){console.error("There was an error connecting to the origin server.")},g.send()})};return c.init=function(a,c){d&&(b=g(e,a||{}),i(c||function(){}),document.documentElement.className+=" "+b.initClass)},c});
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 42 */
 /***/ function(module, exports) {
 
 	"use strict";

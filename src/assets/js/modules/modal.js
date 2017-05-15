@@ -32,6 +32,7 @@ class Modal {
         this.closeListener = new Delegate(this.closeButton);
 
         this.closeListener.on('click', (event) => {
+            event.preventDefault();
             this.closeModal();
         });
 

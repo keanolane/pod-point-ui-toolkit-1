@@ -54,14 +54,14 @@
 			}
 			a.find-chargepoint {
 				color: $primary-color;
-				@include iconfont('charge-location');
+				padding-left: 2.5rem;
 				position: relative;
-				padding-left: 2.2rem;
-				&:before {
-					@include iconfont-styles;
-					font-size: 22px;
-					@include position(absolute, 50% null null -0.5rem);
-					margin-top: -11px;
+				svg {
+					@include position(absolute, 50% null null 0);
+					margin-top: -1rem;
+					width: 2rem;
+					height: 2rem;
+					fill: $primary-color;
 				}
 			}
 		}

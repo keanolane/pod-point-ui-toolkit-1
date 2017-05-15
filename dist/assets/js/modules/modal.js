@@ -52,6 +52,7 @@ var Modal = function () {
             this.closeListener = new _domDelegate.Delegate(this.closeButton);
 
             this.closeListener.on('click', function (event) {
+                event.preventDefault();
                 _this.closeModal();
             });
 

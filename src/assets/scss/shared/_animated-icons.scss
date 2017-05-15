@@ -99,10 +99,6 @@
 }
 
 .circle-icon--close {
-	@include iconfont('cross');
-	&:before {
-		@include iconfont-styles;
-	}
 	&:hover {
 		transition: transform 0.8s ease-in-out;
 		transform: rotate(360deg);

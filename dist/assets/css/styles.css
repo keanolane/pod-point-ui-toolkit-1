@@ -1472,6 +1472,7 @@ input[type="checkbox"] {
       text-indent: 0;
       float: left;
       width: 100%;
+      height: 100%;
       margin: 0; }
     .button-radio-wrap input[type="radio"]:checked + label.button:before,
     .button-radio-wrap input[type="checkbox"]:checked + label.button:before,
@@ -2195,6 +2196,7 @@ button {
       text-indent: 0;
       float: left;
       width: 100%;
+      height: 100%;
       margin: 0; }
     .button.button--selected:before {
       display: inline-block;
@@ -2226,10 +2228,9 @@ button {
 .setback-button {
   color: #333;
   font-family: "Quicksand Bold", sans-serif; }
-  .setback-button:before {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-right: 0.5rem; }
+  .setback-button svg {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem; }
 
 .navicon {
   width: 2.5rem;
@@ -2321,27 +2322,6 @@ button {
       .plus-minus-toggle--green-in-circle span:before, .plus-minus-toggle--green-in-circle span:after {
         background-color: #8CC63F; }
 
-.circle-icon--close:before {
-  content: ""; }
-
-.circle-icon--close:before {
-  display: inline-block;
-  height: inherit;
-  margin-right: 0.2rem;
-  margin-left: 0.2rem;
-  font-size: 2rem;
-  font-family: "icons";
-  font-variant: normal;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  text-decoration: inherit;
-  text-align: center;
-  text-transform: none;
-  speak: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
 .circle-icon--close:hover {
   transition: transform 0.8s ease-in-out;
   -ms-transform: rotate(360deg);
@@ -2368,161 +2348,125 @@ button {
         filter: FlipH; } }
 
 .circle-icon {
-  text-indent: -9999px;
   text-align: center;
   display: block;
   margin: 0;
   padding: 0;
   background-color: #333;
   border-radius: 50%;
-  box-shadow: none;
+  border: none;
   width: 4rem;
   height: 4rem; }
-  .circle-icon:before, .circle-icon:after {
-    text-indent: 0;
-    float: left;
-    width: 100%;
-    margin: 0; }
+  .circle-icon svg {
+    fill: white; }
   .circle-icon:before {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
     color: white; }
-  .circle-icon:before {
-    font-size: 1.7rem;
-    line-height: 4rem; }
+  .circle-icon svg {
+    width: 2rem;
+    height: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
   .circle-icon--small {
     width: 2.5rem;
     height: 2.5rem; }
-    .circle-icon--small:before {
-      font-size: 1.2rem;
-      line-height: 2.5rem; }
+    .circle-icon--small svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.625rem;
+      margin-bottom: 0.625rem; }
   .circle-icon--small-resp {
     width: 2.5rem;
     height: 2.5rem; }
-    .circle-icon--small-resp:before {
-      font-size: 1.2rem;
-      line-height: 2.5rem; }
+    .circle-icon--small-resp svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.625rem;
+      margin-bottom: 0.625rem; }
     @media (min-width: 50em) {
       .circle-icon--small-resp {
         width: 4rem;
         height: 4rem; }
-        .circle-icon--small-resp:before {
-          font-size: 1.7rem;
-          line-height: 4rem; } }
+        .circle-icon--small-resp svg {
+          width: 2rem;
+          height: 2rem;
+          margin-top: 1rem;
+          margin-bottom: 1rem; } }
   .circle-icon--large-resp {
     width: 4rem;
     height: 4rem; }
-    .circle-icon--large-resp:before {
-      font-size: 1.7rem;
-      line-height: 4rem; }
+    .circle-icon--large-resp svg {
+      width: 2rem;
+      height: 2rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem; }
     @media (min-width: 50em) {
       .circle-icon--large-resp {
         width: 6rem;
         height: 6rem; }
-        .circle-icon--large-resp:before {
-          font-size: 2.5rem;
-          line-height: 6rem; } }
+        .circle-icon--large-resp svg {
+          width: 3rem;
+          height: 3rem;
+          margin-top: 1.5rem;
+          margin-bottom: 1.5rem; } }
   .circle-icon--green {
-    text-indent: -9999px;
     text-align: center;
     display: block;
     margin: 0;
     padding: 0;
     background-color: #8CC63F;
     border-radius: 50%;
-    box-shadow: none; }
-    .circle-icon--green:before, .circle-icon--green:after {
-      text-indent: 0;
-      float: left;
-      width: 100%;
-      margin: 0; }
+    border: none; }
+    .circle-icon--green svg {
+      fill: white; }
     .circle-icon--green:before {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
       color: white; }
   .circle-icon--outlined {
-    text-indent: -9999px;
     text-align: center;
     display: block;
     margin: 0;
     padding: 0;
     background-color: transparent;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px 2px #333; }
-    .circle-icon--outlined:before, .circle-icon--outlined:after {
-      text-indent: 0;
-      float: left;
-      width: 100%;
-      margin: 0; }
+    border: 2px solid #333; }
+    .circle-icon--outlined svg {
+      fill: #333; }
     .circle-icon--outlined:before {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
       color: #333; }
   .circle-icon--outlined-green {
-    text-indent: -9999px;
     text-align: center;
     display: block;
     margin: 0;
     padding: 0;
     background-color: transparent;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px 2px #8CC63F; }
-    .circle-icon--outlined-green:before, .circle-icon--outlined-green:after {
-      text-indent: 0;
-      float: left;
-      width: 100%;
-      margin: 0; }
+    border: 2px solid #8CC63F; }
+    .circle-icon--outlined-green svg {
+      fill: #8CC63F; }
     .circle-icon--outlined-green:before {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
       color: #8CC63F; }
   .circle-icon--outlined-dark {
-    text-indent: -9999px;
     text-align: center;
     display: block;
     margin: 0;
     padding: 0;
     background-color: transparent;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px 2px white; }
-    .circle-icon--outlined-dark:before, .circle-icon--outlined-dark:after {
-      text-indent: 0;
-      float: left;
-      width: 100%;
-      margin: 0; }
+    border: 2px solid white; }
+    .circle-icon--outlined-dark svg {
+      fill: white; }
     .circle-icon--outlined-dark:before {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
       color: white; }
   .circle-icon--white-outline {
-    text-indent: -9999px;
     text-align: center;
     display: block;
     margin: 0;
     padding: 0;
     background-color: white;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px 2px #ccc; }
-    .circle-icon--white-outline:before, .circle-icon--white-outline:after {
-      text-indent: 0;
-      float: left;
-      width: 100%;
-      margin: 0; }
+    border: 2px solid #ccc; }
+    .circle-icon--white-outline svg {
+      fill: #333; }
     .circle-icon--white-outline:before {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
       color: #333; }
 
 .inline-circle-icon {
@@ -2539,141 +2483,66 @@ button {
     right: 0; }
 
 .toggle-panel-icon {
-  text-indent: -9999px;
   text-align: center;
   display: block;
   margin: 0;
   padding: 0;
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 2px #8CC63F;
+  border: 2px solid #8CC63F;
   width: 2.5rem;
   height: 2.5rem; }
+  .toggle-panel-icon svg {
+    fill: #8CC63F; }
   .toggle-panel-icon:before {
-    content: ""; }
-  .toggle-panel-icon:before {
-    display: inline-block;
-    height: inherit;
-    margin-right: 0.2rem;
-    margin-left: 0.2rem;
-    font-size: 2rem;
-    font-family: "icons";
-    font-variant: normal;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    text-decoration: inherit;
-    text-align: center;
-    text-transform: none;
-    speak: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; }
-  .toggle-panel-icon:before, .toggle-panel-icon:after {
-    text-indent: 0;
-    float: left;
-    width: 100%;
-    margin: 0; }
-  .toggle-panel-icon:before {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
     color: #8CC63F; }
-  .toggle-panel-icon:before {
-    font-size: 1.2rem;
-    line-height: 2.5rem; }
+  .toggle-panel-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem; }
 
 .toggle-panel-icon--secondary {
-  text-indent: -9999px;
   text-align: center;
   display: block;
   margin: 0;
   padding: 0;
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 2px #333;
+  border: 2px solid #333;
   width: 2rem;
   height: 2rem; }
+  .toggle-panel-icon--secondary svg {
+    fill: #333; }
   .toggle-panel-icon--secondary:before {
-    content: ""; }
-  .toggle-panel-icon--secondary:before {
-    display: inline-block;
-    height: inherit;
-    margin-right: 0.2rem;
-    margin-left: 0.2rem;
-    font-size: 2rem;
-    font-family: "icons";
-    font-variant: normal;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    text-decoration: inherit;
-    text-align: center;
-    text-transform: none;
-    speak: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; }
-  .toggle-panel-icon--secondary:before, .toggle-panel-icon--secondary:after {
-    text-indent: 0;
-    float: left;
-    width: 100%;
-    margin: 0; }
-  .toggle-panel-icon--secondary:before {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
     color: #333; }
-  .toggle-panel-icon--secondary:before {
-    font-size: 1rem;
-    line-height: 2rem; }
+  .toggle-panel-icon--secondary svg {
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; }
 
 .circle-icon--close-panel {
-  text-indent: -9999px;
   text-align: center;
   display: block;
   margin: 0;
   padding: 0;
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 2px #8CC63F;
+  border: 2px solid #8CC63F;
   width: 4rem;
   height: 4rem;
   -ms-transform: rotate(180deg);
       transform: rotate(180deg); }
+  .circle-icon--close-panel svg {
+    fill: #8CC63F; }
   .circle-icon--close-panel:before {
-    content: ""; }
-  .circle-icon--close-panel:before {
-    display: inline-block;
-    height: inherit;
-    margin-right: 0.2rem;
-    margin-left: 0.2rem;
-    font-size: 2rem;
-    font-family: "icons";
-    font-variant: normal;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    text-decoration: inherit;
-    text-align: center;
-    text-transform: none;
-    speak: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; }
-  .circle-icon--close-panel:before, .circle-icon--close-panel:after {
-    text-indent: 0;
-    float: left;
-    width: 100%;
-    margin: 0; }
-  .circle-icon--close-panel:before {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
     color: #8CC63F; }
-  .circle-icon--close-panel:before {
-    font-size: 1.7rem;
-    line-height: 4rem; }
+  .circle-icon--close-panel svg {
+    width: 2rem;
+    height: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
 
 .toggle-rotate-icon {
   display: inline-block;
@@ -2730,6 +2599,21 @@ button {
     opacity: 0.85;
     width: 100%;
     height: 100%; }
+
+.icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-right: 0.2rem;
+  margin-left: 0.2rem; }
+  .icon--sm {
+    height: 2rem;
+    width: 2rem; }
+  .icon--xs {
+    height: 1.5rem;
+    width: 1.5rem; }
+  .icon--xxs {
+    height: 1rem;
+    width: 1rem; }
 
 .global-header-wrap {
   position: relative;
@@ -2950,32 +2834,16 @@ button {
             padding-bottom: 1.5rem; } }
     .global-nav ul li a.find-chargepoint {
       color: #8CC63F;
-      position: relative;
-      padding-left: 2.2rem; }
-      .global-nav ul li a.find-chargepoint:before {
-        content: ""; }
-      .global-nav ul li a.find-chargepoint:before {
-        display: inline-block;
-        height: inherit;
-        margin-right: 0.2rem;
-        margin-left: 0.2rem;
-        font-size: 2rem;
-        font-family: "icons";
-        font-variant: normal;
-        font-style: normal;
-        font-weight: normal;
-        line-height: 1;
-        text-decoration: inherit;
-        text-align: center;
-        text-transform: none;
-        speak: none;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-size: 22px;
+      padding-left: 2.5rem;
+      position: relative; }
+      .global-nav ul li a.find-chargepoint svg {
         position: absolute;
         top: 50%;
-        left: -0.5rem;
-        margin-top: -11px; }
+        left: 0;
+        margin-top: -1rem;
+        width: 2rem;
+        height: 2rem;
+        fill: #8CC63F; }
   @media (min-width: 50em) {
     .global-nav > ul {
       float: right;
@@ -3319,6 +3187,7 @@ button {
     text-indent: 0;
     float: left;
     width: 100%;
+    height: 100%;
     margin: 0; }
   .slick-arrow:before {
     content: ""; }
@@ -3937,33 +3806,36 @@ button {
     padding: 1rem 1.5rem; }
 
 .tooltip-icon {
-  text-indent: -9999px;
   text-align: center;
   display: block;
   margin: 0;
   padding: 0;
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 2px #333;
+  border: 2px solid #333;
   width: 1.2rem;
   height: 1.2rem;
+  text-indent: -9999px;
   display: inline-block; }
+  .tooltip-icon svg {
+    fill: #333; }
+  .tooltip-icon:before {
+    color: #333; }
+  .tooltip-icon svg {
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem; }
   .tooltip-icon:before, .tooltip-icon:after {
     text-indent: 0;
     float: left;
     width: 100%;
+    height: 100%;
     margin: 0; }
   .tooltip-icon:before {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    color: #333; }
-  .tooltip-icon:before {
+    content: '?';
     font-size: 0.9rem;
     line-height: 1.2rem; }
-  .tooltip-icon:before {
-    content: '?'; }
 
 .tooltip-wrap {
   display: block;
@@ -4056,27 +3928,6 @@ button {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem; }
-  .tooltip__close:before {
-    content: ""; }
-  .tooltip__close:before {
-    display: inline-block;
-    height: inherit;
-    margin-right: 0.2rem;
-    margin-left: 0.2rem;
-    font-size: 2rem;
-    font-family: "icons";
-    font-variant: normal;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    text-decoration: inherit;
-    text-align: center;
-    text-transform: none;
-    speak: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 1.5rem;
-    color: #333; }
 
 .ev-map-wrap {
   overflow: hidden;
@@ -4198,6 +4049,7 @@ button {
       margin-top: 2rem; }
 
 .label {
+  position: relative;
   border-radius: 5px;
   background-color: #333;
   color: white;
@@ -4206,21 +4058,23 @@ button {
   font-size: 1.4rem;
   line-height: 1.5em;
   font-family: "Quicksand Bold", sans-serif;
-  line-height: 3.5rem;
+  box-sizing: border-box;
+  line-height: 1.6rem;
   min-height: 3.5rem;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
+  padding: 0.8rem 1.5rem 0.5rem 3.5rem;
   display: inline-block;
   margin-bottom: 1rem; }
   @media (min-width: 50em) {
     .label {
       font-size: 1.6rem; } }
-  .label:before {
-    position: relative;
-    top: 0.3rem;
-    left: -0.3rem;
-    font-size: 2rem;
-    font-weight: bold; }
+  .label svg {
+    fill: white;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    margin-top: -1rem; }
   .label--gray {
     background-color: #b3b3b3; }
 

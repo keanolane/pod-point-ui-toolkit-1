@@ -7,34 +7,34 @@
 	@include icon-in-circle--size;
 
 	&--small {
-		@include icon-in-circle--size($dimension: 2.5rem, $font-size: 1.2rem);
+		@include icon-in-circle--size($dimension: 2.5rem);
 	}
 	&--small-resp {
-		@include icon-in-circle--size($dimension: 2.5rem, $font-size: 1.2rem);
+		@include icon-in-circle--size($dimension: 2.5rem);
 		@include medium-and-up {
-			@include icon-in-circle--size($dimension: 4rem, $font-size: 1.7rem);
+			@include icon-in-circle--size($dimension: 4rem);
 		}
 	}
 	&--large-resp {
-		@include icon-in-circle--size($dimension: 4rem, $font-size: 1.7rem);
+		@include icon-in-circle--size($dimension: 4rem);
 		@include medium-and-up {
-			@include icon-in-circle--size($dimension: 6rem, $font-size: 2.5rem);
+			@include icon-in-circle--size($dimension: 6rem);
 		}
 	}
 	&--green {
 		@include icon-in-circle($bgColor: $primary-color, $color: white);
 	}
 	&--outlined {
-		@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $boxShadow: 0px 0px 0px 2px $font-color-base);
+		@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $border: 2px solid $font-color-base);
 	}
 	&--outlined-green {
-		@include icon-in-circle($bgColor: transparent, $color: $primary-color, $boxShadow: 0px 0px 0px 2px $primary-color);
+		@include icon-in-circle($bgColor: transparent, $color: $primary-color, $border: 2px solid $primary-color);
 	}
 	&--outlined-dark {
-		@include icon-in-circle($bgColor: transparent, $color: white, $boxShadow: 0px 0px 0px 2px white);
+		@include icon-in-circle($bgColor: transparent, $color: white, $border: 2px solid white);
 	}
 	&--white-outline {
-		@include icon-in-circle($bgColor: white, $color: $font-color-base, $boxShadow: 0px 0px 0px 2px $gray-keyline);
+		@include icon-in-circle($bgColor: white, $color: $font-color-base, $border: 2px solid $gray-keyline);
 	}
 }
 
@@ -51,21 +51,15 @@
 }
 
 .toggle-panel-icon {
-	@include iconfont('cheveron');
-	&:before { @include iconfont-styles; }
-	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $boxShadow: 0px 0px 0px 2px $primary-color);
-	@include icon-in-circle--size($dimension: 2.5rem, $font-size: 1.2rem);
+	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $border: 2px solid $primary-color);
+	@include icon-in-circle--size($dimension: 2.5rem);
 }
 .toggle-panel-icon--secondary {
-	@include iconfont('cheveron');
-	&:before { @include iconfont-styles; }
-	@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $boxShadow: 0px 0px 0px 2px $font-color-base);
-	@include icon-in-circle--size($dimension: 2rem, $font-size: 1rem);
+	@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $border: 2px solid $font-color-base);
+	@include icon-in-circle--size($dimension: 2rem);
 }
 .circle-icon--close-panel {
-	@include iconfont('cheveron');
-	&:before { @include iconfont-styles; }
-	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $boxShadow: 0px 0px 0px 2px $primary-color);
+	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $border: 2px solid $primary-color);
 	@include icon-in-circle--size();
 	transform: rotate(180deg);
 }

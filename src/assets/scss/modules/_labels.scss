@@ -3,22 +3,24 @@
 // =============================================================================
 
 .label {
+	position: relative;
 	border-radius: $border-radius-base;
 	background-color: $gray-very-dark;
 	color: white;
 	@include font-base;
 	font-family: $font-family-bold;
-	line-height: 3.5rem;
+	box-sizing: border-box;
+	line-height: 1.6rem;
 	min-height: 3.5rem;
-	@include padding(null 1.5rem);
+	@include padding(0.8rem 1.5rem 0.5rem 3.5rem);
 	display: inline-block;
 	margin-bottom: 1rem;
-	&:before {
-		position: relative;
-		top: 0.3rem;
-		left: -0.3rem;
-		font-size: 2rem;
-		font-weight: bold;
+	svg {
+		fill: white;
+		width: 2rem;
+		height: 2rem;
+		@include position(absolute, 50% null null 1rem);
+		margin-top: -1rem;
 	}
 
 	&--gray {
