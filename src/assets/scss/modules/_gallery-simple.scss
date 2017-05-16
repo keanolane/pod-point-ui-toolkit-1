@@ -3,18 +3,18 @@
 // =============================================================================
 
 .gallery-simple {
-	max-width: 30rem;
+	max-width: 300px;
 	&__image {
 		width: 100%;
 		border-radius: $border-radius-base;
 	}
 	&__thumbnails {
 		text-align: center;
-		@include margin(2rem -0.5rem);
+		@include margin(20px -5px);
 		li {
-			width: 4rem;
+			width: 40px;
 			display: inline-block;
-			@include margin(null 0.5rem);
+			@include margin(null 5px);
 			img {
 				width: 100%;
 				border-radius: $border-radius-base;

@@ -8,18 +8,18 @@
 	input[type="radio"],
 	input[type="checkbox"] {
 		& + label.button {
-			min-width: 15rem;
+			min-width: rem(150);
 			position: relative;
 			&:before {
 				content: '';
 				@include svg-bg-tick(white);
 				background-size: cover;
 				opacity: 0;
-				width: 2rem;
-				height: 2rem;
+				width: rem(20);
+				height: rem(20);
 				transform: rotate(45deg);
 				@include position(absolute, 25% null null 50%);
-				left: calc(50% - 1rem);
+				left: calc(50% - 10px);
 			}
 		}
 		&:checked {
@@ -32,8 +32,8 @@
 					transform: rotate(0deg);
 					transition: all 0.2s ease-in;
 					opacity: 1;
-					width: 2rem;
-					height: 2rem;
+					width: rem(20);
+					height: rem(20);
 				}
 			}
 		}

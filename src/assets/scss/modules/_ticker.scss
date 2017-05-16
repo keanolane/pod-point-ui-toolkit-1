@@ -3,7 +3,7 @@
 // =============================================================================
 
 .ticker-list {
-	@include padding(2rem null 1rem null);
+	@include padding(20px null 10px null);
 }
 .ticker {
 	display: inline-block;
@@ -14,13 +14,13 @@
 		background-color: white;
 		color: $font-color-base;
 		text-align: center;
-		height: 2rem;
-		min-width: 1.2rem;
+		height: rem(20);
+		min-width: rem(12);
 		border: 1px solid $border-color-base;
 		border-radius: 2px;
 		margin-right: 2px;
-		margin-bottom: 1rem;
-		line-height: 2rem;
+		margin-bottom: 10px;
+		line-height: rem(20);
 		&:last-child {
 			margin-right: 0;
 		}
@@ -29,5 +29,5 @@
 .ticker-desc {
 	display: inline-block;
 	@include font-small;
-	margin-left: 0.5rem;
+	margin-left: 5px;
 }

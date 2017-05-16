@@ -4,13 +4,13 @@
 
 .tooltip-icon {
 	@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $border: 2px solid $font-color-base);
-	@include icon-in-circle--size($dimension: 1.2rem);
+	@include icon-in-circle--size($dimension: 12px);
 	@include hide-text-not-pseudo;
 	display: inline-block;
 	&:before {
 		content: '?';
-		font-size: 0.9rem;
-		line-height: 1.2rem;
+		font-size: 9px;
+		line-height: 12px;
 	}
 }
 
@@ -31,14 +31,14 @@
 		box-sizing: border-box;
 		z-index: auto;
 		width: 100%;
-		@include padding(3rem);
+		@include padding(30px);
 		background-color: white;
 		border: $border-base;
 		border-radius: $border-radius-base;
 		box-shadow: $box-shadow-front;
 		@include medium-and-up {
-			width: 35rem;
-			margin-left: -17.5rem;
+			width: 350px;
+			margin-left: -175px;
 			left: 50%;
 		}
 		&:before {
@@ -67,7 +67,7 @@
 		}
 		.rich-text {
 			ul {
-				padding-left: 2rem;
+				padding-left: 20px;
 			}
 			p, li {
 				@include font-style-small;
@@ -78,6 +78,6 @@
 		}
 	}
 	&__close {
-		@include position(absolute, 1.5rem 1.5rem null null);
+		@include position(absolute, 15px 15px null null);
 	}
 }

@@ -6,7 +6,7 @@
 	.list--links:not(.list--inline) {
 		@include medium-and-up {
 			li {
-				margin-bottom: 1rem;
+				margin-bottom: 10px;
 				&:last-child {
 					margin-bottom: 0;
 				}
@@ -20,19 +20,19 @@
 		}
 		.accordion dd .accordion__item-content {
 			@include medium-and-up {
-				@include padding(2rem null 0 null);
+				@include padding(20px null 0 null);
 			}
 		}
 		.checkout-flow & { display: none; }
 		&__bottom {
-			margin-top: 2rem;
+			margin-top: 20px;
 			text-align: center;
 			.icons-list {
 				width: 100%;
 				display: inline-block;;
-				margin-top: 2rem;
+				margin-top: 20px;
 				@include medium-and-up {
-					margin-bottom: 1.2rem
+					margin-bottom: 12px;
 				}
 			}
 			@include medium-and-up {
@@ -55,9 +55,9 @@
 	&__section-bottom {
 		color: white;
 		background-color: $gray-very-dark;
-		padding-top: 2rem;
+		padding-top: 20px;
 		@include medium-and-up {
-			padding-top: 1.5rem;
+			padding-top: 15px;
 		}
 		p,
 		ul {
@@ -79,11 +79,89 @@
 			text-transform: uppercase;
 		}
 		.copyright {
-			margin-top: 1rem;
+			margin-top: 10px;
 			text-align: center;
 			@include medium-and-up {
 				margin-top: 0;
 				text-align: right;
+			}
+		}
+	}
+}
+
+
+// The lists module would affect other list elements on the old site...
+// So I'm adding the whole of typography/_lists.scss here so that the footer is independant.
+.global-footer {
+	ul,
+	ol {
+		margin: 0;
+		padding: 0;
+		li {
+			list-style: none;
+		}
+		&.list--small {
+			@include font-small;
+			li {
+				margin-bottom: rem(10);
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+		&.list--links {
+			li a {
+				color: inherit;
+			}
+		}
+		&.list--inline {
+			@include margin(null rem(-15));
+			li {
+				display: inline-block;
+				@include margin(null rem(15));
+			}
+			&--sm-gutter {
+				@include margin(null rem(-5));
+				li {
+					@include margin(null rem(5));
+				}
+			}
+			&--tiny {
+				margin-bottom: rem(-10);
+				li {
+					margin-bottom: rem(10);
+					img {
+						max-height: rem(45);
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+
+	.dl {
+		margin-bottom: 15px;
+		dt {
+			font-weight: bold;
+			margin-top: 15px;
+		}
+		dd {
+			margin: 0;
+		}
+	}
+
+	.icons-list {
+		&--inline {
+			@include margin(null rem(-1.5));
+			li {
+				display: inline-block;
+				@include margin(null rem(1.5));
+				a:not(.circle-icon) {
+					&:before {
+						color: black;
+						font-size: rem(25);
+					}
+				}
 			}
 		}
 	}

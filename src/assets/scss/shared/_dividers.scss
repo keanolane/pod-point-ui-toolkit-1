@@ -4,9 +4,9 @@
 
 .divider--steps {
 	@include svg-bg-divider-repeater($primary-color);
-	@include margin(2rem auto 0 auto);
-	width: 0.6rem;
-	height: 6rem;
+	@include margin(20px auto 0 auto);
+	width: 6px;
+	height: 60px;
 	background-repeat: repeat-y;
 	& + .grid-row {
 		margin-top: 0;
@@ -15,7 +15,7 @@
 		@include svg-bg-steps-divider-desktop($primary-color);
 		@include margin(0 auto);
 		width: 70%;
-		height: 11rem;
+		height: 110px;
 		background-repeat: no-repeat;
 		&--flipped {
 			transform: scaleX(-1);

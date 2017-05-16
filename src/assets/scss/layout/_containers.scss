@@ -4,7 +4,7 @@
 
 .container {
 	@include container;
-	max-width: 54rem;
+	max-width: 540px;
 	@include medium-and-up {
 		max-width: $max-width-content;
 	}
@@ -18,14 +18,14 @@
 
 
 .content-block {
-	@include padding(6rem null);
+	@include padding(60px null);
 	&--standout {
 		@include medium-and-up {
-			@include padding(10rem null);
+			@include padding(100px null);
 		}
 	}
 	&--strip {
-		@include padding(2rem null);
+		@include padding(20px null);
 	}
 	&--no-padding {
 		@include padding(0 null);
@@ -43,10 +43,10 @@
 		p {
 			width: 100%;
 			@include font-style-small;
-			@include position(absolute, 2rem null 0 0);
+			@include position(absolute, 20px null 0 0);
 			.content-block--standout & {
 				@include medium-and-up {
-					top: 6rem;
+					top: 60px;
 				}
 			}
 		}

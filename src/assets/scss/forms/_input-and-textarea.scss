@@ -22,11 +22,11 @@ textarea[type="text"] {
 		border-radius: 0;
 		border: none;
 		border-bottom: 2px solid $form-keyline;
-		max-width: 40rem;
+		max-width: 400px;
 		display: inline-block;
 		&.form-font-large {
 			@include font-style-forms-large;
-			@include padding(2.5rem null);
+			@include padding(rem(25) null);
 		}
 	}
 }
@@ -34,7 +34,7 @@ textarea[type="text"] {
 textarea[type="text"] {
 	@include font-style-forms;
 	height: auto;
-	min-height: 13rem;
+	min-height: 130px;
 	resize: vertical;
 	@include padding($input-padding);
 }

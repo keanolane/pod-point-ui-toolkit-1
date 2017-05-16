@@ -6,43 +6,43 @@
 @mixin font-base {
 	margin: 0;
 	font-family: $font-family-base;
-	font-size: 1.4rem;
-	line-height: 1.5em;
+	font-size: rem(14);
+	line-height: 1.5;
 	@include medium-and-up {
-		font-size: 1.6rem;
+		font-size: rem(16);
 	}
 }
 @mixin font-small {
 	@include font-base;
-	font-size: 1.2rem;
+	font-size: rem(12);
 	line-height: 1.2;
 	@include medium-and-up {
-		font-size: 1.4rem;
+		font-size: rem(14);
 	}
 }
 @mixin font-tiny {
 	@include font-base;
-	font-size: 1rem;
+	font-size: rem(10);
 	line-height: 1.2;
 	@include medium-and-up {
-		font-size: 1.2rem;
+		font-size: rem(12);
 	}
 }
 @mixin font-large {
 	@include font-base;
-	font-size: 1.6rem;
+	font-size: rem(16);
 	line-height: 1.5;
 	@include medium-and-up {
 		line-height: 1.2;
-		font-size: 2rem;
+		font-size: rem(20);
 	}
 }
 
 @mixin font-huge {
-	font-size: 2rem;
+	font-size: rem(20);
 	line-height: 1.1;
 	@include medium-and-up {
-		font-size: 3.6rem;
+		font-size: rem(36);
 	}
 }
 
@@ -85,66 +85,66 @@
 
 @mixin font-style-h1 {
 	@include font-style-headings;
-	font-size: 2rem;
+	font-size: rem(20);
 	@include medium-and-up {
-		font-size: 2.8rem;
+		font-size: rem(28);
 	}
 }
 
 @mixin font-style-h2 {
 	@include font-style-headings;
-	font-size: 1.8rem;
+	font-size: rem(18);
 	@include medium-and-up {
-		font-size: 2.4rem;
+		font-size: rem(24);
 	}
 }
 
 @mixin font-style-h3 {
 	@include font-style-headings;
-	font-size: 1.4rem;
+	font-size: rem(14);
 	@include medium-and-up {
-		font-size: 2.2rem;
+		font-size: rem(22);
 	}
 }
 
 @mixin font-style-h4 {
 	@include font-style-headings;
-	font-size: 1.4rem;
+	font-size: rem(14);
 	@include medium-and-up {
-		font-size: 2rem;
+		font-size: rem(20);
 	}
 }
 
 @mixin font-style-h5 {
 	@include font-style-headings;
-	font-size: 1.4rem;
+	font-size: rem(14);
 	@include medium-and-up {
-		font-size: 1.8rem;
+		font-size: rem(18);
 	}
 }
 
 @mixin font-style-h6 {
 	@include font-style-headings;
-	font-size: 1.4rem;
+	font-size: rem(14);
 	@include medium-and-up {
-		font-size: 1.6rem;
+		font-size: rem(16);
 	}
 }
 
 @mixin font-style-forms {
 	margin: 0;
-	line-height: 1.6rem;
-	font-size: 1.6rem; // Has to be 16px min for IOS
+	line-height: rem(16);
+	font-size: rem(16); // Has to be 16px min for IOS
 	font-family: $font-family-bold;
 }
 @mixin font-style-forms-large {
 	margin: 0;
-	line-height: 1.6rem;
-	font-size: 1.6rem;
+	line-height: rem(16);
+	font-size: rem(16);
 	font-family: $font-family-bold;
 	@include medium-and-up {
-		line-height: 2rem;
-		font-size: 2rem;
+		line-height: rem(20);
+		font-size: rem(20);
 	}
 }
 

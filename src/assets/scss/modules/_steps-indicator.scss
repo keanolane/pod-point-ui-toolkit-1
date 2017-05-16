@@ -5,14 +5,14 @@
 .steps-indicator-wrap {
 	width: 100%;
 	&.is-minified {
-		padding-top: 5rem;
+		padding-top: 50px;
 	}
 }
 
 .steps-indicator {
 	@include clearfix;
 	position: relative;
-	max-width: 60rem;
+	max-width: 600px;
 	@include margin(null auto);
 	&__step {
 		text-align: center;
@@ -41,7 +41,7 @@
 	}
 	&__icon {
 		display: inline-block;
-		width: 5rem;
+		width: 50px;
 		svg {
 			border-radius: 50%;
 			background-color: $gray-very-light;
@@ -49,7 +49,7 @@
 	}
 	&:after {
 		content: '';
-		@include position(absolute, 2.4rem 22% null null);
+		@include position(absolute, 24px 22% null null);
 		width: 62%;
 		height: 2px;
 		background-color: $font-color-very-light;

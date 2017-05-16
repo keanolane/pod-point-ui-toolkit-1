@@ -32,12 +32,12 @@ input.form-font-large {
 
 @mixin input-styles {
 	@include font-style-forms;
-	line-height: 2.4rem;
+	line-height: rem(24);
 	box-sizing: border-box;
 	width: 100%;
 	height: $input-height;
 	-webkit-appearance: none;
-	@include padding(0.6rem $input-padding);
+	@include padding(rem(6) $input-padding);
 	display: block;
 	max-width: $form-field-max-width;
 }
@@ -66,7 +66,7 @@ input.form-font-large {
 label {
 	display: inline-block;
 	@include font-style-base;
-	padding-bottom: 0.5rem;
+	padding-bottom: rem(5);
 
 	.checkbox-wrap &,
 	.radio-wrap & {

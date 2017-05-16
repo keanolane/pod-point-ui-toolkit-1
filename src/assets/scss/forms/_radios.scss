@@ -3,7 +3,7 @@
 // =============================================================================
 
 .radios-wrap {
-	margin-bottom: -1rem;
+	margin-bottom: rem(-10);
 }
 
 input[type="radio"] {
@@ -20,10 +20,10 @@ input[type="radio"] {
 		& + label {
 			@include font-style-base;
 			position: relative;
-			@include padding(0.6rem 2.5rem 0 3rem);
+			@include padding(rem(6) rem(25) 0 rem(30));
 			cursor: pointer;
 			display: inline-block;
-			min-height: 3rem;
+			min-height: rem(30);
 			transition: all .28s ease;
 			user-select: none;
 
@@ -33,13 +33,13 @@ input[type="radio"] {
 				position: absolute;
 				left: 0;
 				top: 0;
-				@include margin(0.6rem null 0.6rem null);
-				width: 1.8rem;
-				height: 1.8rem;
+				@include margin(rem(6) null rem(6) null);
+				width: rem(18);
+				height: rem(18);
 				z-index: 0;
 				transition: .28s ease;
 				@include medium-and-up {
-					@include margin(0.8rem null 0.8rem null);
+					@include margin(rem(8) null rem(8) null);
 				}
 			}
 			&:before {

@@ -2,7 +2,7 @@
 //	CARDS
 // =============================================================================
 
-$card-padding-base: 2rem;
+$card-padding-base: 20px;
 
 .card {
 	display: block;
@@ -13,16 +13,16 @@ $card-padding-base: 2rem;
 	@include padding($card-padding-base);
 
 	hr {
-		@include margin(1rem null);
+		@include margin(10px null);
 		opacity: 0.5;
 	}
 	p, h1, h2, h3, h4, h5, h6 {
 		& + hr {
-			margin-top: 0.5rem;
+			margin-top: 5px;
 		}
 	}
 	&--more-pad {
-		@include padding(4rem 3rem);
+		@include padding(40px 30px);
 	}
 	&--centered {
 		text-align: center;
@@ -49,7 +49,7 @@ $card-padding-base: 2rem;
 				display: block;
 				color: $primary-color;
 				font-family: $font-family-bold;
-				margin-bottom: -2rem;
+				margin-bottom: -20px;
 			}
 		}
 	}
@@ -60,11 +60,11 @@ $card-padding-base: 2rem;
 			content: '';
 			@include svg-bg-star(white);
 			background-size: cover;
-			width: 1rem;
-			height: 1rem;
+			width: 10px;
+			height: 10px;
 			z-index: 1;
 			text-align: center;
-			@include position(absolute, 0.3rem 0.3rem null null);
+			@include position(absolute, 3px 3px null null);
 		}
 		&:after {
 			content: '';
@@ -78,7 +78,7 @@ $card-padding-base: 2rem;
 	}
 	&--informative {
 		border: $border-base;
-		@include padding(3rem);
+		@include padding(30px);
 		hr { opacity: 1; }
 	}
 	&--very-light-gray {
@@ -90,7 +90,7 @@ $card-padding-base: 2rem;
 .card-set-standout {
 	@include medium-and-up {
 		.grid-row {
-			@include margin(0.7rem null);
+			@include margin(7px null);
 		}
 		.card--standout,
 		.card--standout-sash {
@@ -100,9 +100,9 @@ $card-padding-base: 2rem;
 }
 .cards-same-height {
 	.card {
-		min-height: calc(100% - 4rem);
+		min-height: calc(100% - 40px);
 		&--more-pad {
-			min-height: calc(100% - 8rem);
+			min-height: calc(100% - 80px);
 		}
 	}
 }
@@ -114,7 +114,7 @@ $card-padding-base: 2rem;
 			background-color: white;
 			border-radius: $border-radius-base;
 			border: 2px solid $gray-keyline-very-light;
-			@include margin(null auto 3rem auto);
+			@include margin(null auto 30px auto);
 			max-width: $max-width-md;
 
 			.grid-col {

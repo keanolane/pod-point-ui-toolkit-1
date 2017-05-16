@@ -3,8 +3,8 @@
 // =============================================================================
 
 .navicon {
-	width: 2.5rem;
-	height: 1.8rem;
+	width: 25px;
+	height: 18px;
 	position: relative;
 	transform: rotate(0deg);
 	transition: .5s ease-in-out;
@@ -14,7 +14,7 @@
 		width: 100%;
 		background-color: $icon-color;
 		@include position(absolute, null null null 0);
-		border-radius: 0.5rem;
+		border-radius: 5px;
 		transform: rotate(0deg);
 		transition: .25s ease-in-out;
 		opacity: 1;
@@ -28,7 +28,7 @@
 		&:nth-child(2) {
 			top: 50%;
 			.nav-open & {
-				left: -2.5rem;
+				left: -25px;
 				opacity: 0;
 			}
 		}
@@ -45,14 +45,14 @@
 
 .plus-minus-toggle {
 	cursor: pointer;
-	width: 2.5rem;
-	height: 2.5rem;
+	width: 25px;
+	height: 25px;
 	span {
 		display: block;
-		@include position(relative, 1.7rem 0 null null);
+		@include position(relative, 17px 0 null null);
 		float: right;
-		width: 1.5rem;
-		height: 1.5rem;
+		width: 15px;
+		height: 15px;
 		transition: .5s ease-in-out;
 		transform: rotate(0deg);
 		&:before,
@@ -63,13 +63,13 @@
 			width: 100%;
 			background-color: $icon-color;
 			@include position(absolute, 0 null null null);
-			border-radius: 0.5rem;
+			border-radius: 5px;
 			transform: rotate(0deg);
 			transition: .25s ease-in-out;
 			opacity: 1;
 		}
 		&:before {
-			top: -0.1rem;
+			top: 0;
 			.sub-nav-open & {
 				transform: rotate(180deg);
 			}
@@ -87,9 +87,9 @@
 		border-radius: 50%;
 		border: 2px solid $primary-color;
 		span {
-			@include position(relative, 1.2rem 0.4rem null null);
-			width: 1.8rem;
-			height: 1.8rem;
+			@include position(relative, 12px 4px null null);
+			width: 18px;
+			height: 18px;
 			&:before,
 			&:after {
 				background-color: $primary-color;

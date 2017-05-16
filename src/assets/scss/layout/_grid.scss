@@ -3,10 +3,10 @@
 // =============================================================================
 // Below is a very basic grid based on a 12 col grid and provides half, third and quarter width columns that expand to full width on a smaller screen. See here to fully configure grids: http://thingsym.github.io/flexbox-grid-mixins
 
-$default-gutter: 2rem;
-$mobile-gutter: 0.5rem;
+$default-gutter: 20px;
+$mobile-gutter: 5px;
 
-$-default-gutter: -2rem;
+$-default-gutter: -20px;
 
 // SAMPLE GRID (change or delete as required)
 .grid-row {
@@ -41,8 +41,8 @@ $-default-gutter: -2rem;
 	}
 	.grid-col {
 		&--separator {
-			padding-bottom: 4rem;
-			margin-bottom: 4rem;
+			padding-bottom: 40px;
+			margin-bottom: 40px;
 			@include svg-bg-divider-repeater-horizontal();
 			background-repeat: repeat-x;
 			background-position: bottom center;
@@ -54,7 +54,7 @@ $-default-gutter: -2rem;
 	}
 	&--b-space-mobile {
 		.grid-col {
-			margin-bottom: 8rem;
+			margin-bottom: 80px;
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -81,7 +81,7 @@ $-default-gutter: -2rem;
 			order: 10;
 		}
 		.grid-col--md-separator {
-			padding-right: 2rem;
+			padding-right: 20px;
 			padding-bottom: 0;
 			margin-bottom: $default-gutter;
 			@include svg-bg-divider-repeater();

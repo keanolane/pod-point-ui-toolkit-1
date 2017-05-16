@@ -3,20 +3,20 @@
 // =============================================================================
 
 .icon {
-	height: 2.5rem;
-	width: 2.5rem;
-	@include margin(null 0.2rem);
+	height: 25px;
+	width: 25px;
+	@include margin(null 2px);
 	&--sm {
-		height: 2rem;
-		width: 2rem;
+		height: 20px;
+		width: 20px;
 	}
 	&--xs {
-		height: 1.5rem;
-		width: 1.5rem;
+		height: 15px;
+		width: 15px;
 	}
 	&--xxs {
-		height: 1rem;
-		width: 1rem;
+		height: 10px;
+		width: 10px;
 	}
 }
 
@@ -25,18 +25,18 @@
 	@include icon-in-circle--size;
 
 	&--small {
-		@include icon-in-circle--size($dimension: 2.5rem);
+		@include icon-in-circle--size($dimension: 25px);
 	}
 	&--small-resp {
-		@include icon-in-circle--size($dimension: 2.5rem);
+		@include icon-in-circle--size($dimension: 25px);
 		@include medium-and-up {
-			@include icon-in-circle--size($dimension: 4rem);
+			@include icon-in-circle--size($dimension: 40px);
 		}
 	}
 	&--large-resp {
-		@include icon-in-circle--size($dimension: 4rem);
+		@include icon-in-circle--size($dimension: 40px);
 		@include medium-and-up {
-			@include icon-in-circle--size($dimension: 6rem);
+			@include icon-in-circle--size($dimension: 60px);
 		}
 	}
 	&--green {
@@ -58,10 +58,10 @@
 
 .inline-circle-icon {
 	position: relative;
-	padding-right: 3rem;
+	padding-right: 30px;
 	.toggle-panel-icon,
 	.toggle-panel {
-		@include position(absolute, 0 -0.5rem null null);
+		@include position(absolute, 0 -5px null null);
 	}
 	.toggle-panel-icon--secondary {
 		@include position(absolute, 3px 0 null null);
@@ -70,11 +70,11 @@
 
 .toggle-panel-icon {
 	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $border: 2px solid $primary-color);
-	@include icon-in-circle--size($dimension: 2.5rem);
+	@include icon-in-circle--size($dimension: 25px);
 }
 .toggle-panel-icon--secondary {
 	@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $border: 2px solid $font-color-base);
-	@include icon-in-circle--size($dimension: 2rem);
+	@include icon-in-circle--size($dimension: 20px);
 }
 .circle-icon--close-panel {
 	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $border: 2px solid $primary-color);

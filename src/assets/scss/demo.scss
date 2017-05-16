@@ -6,12 +6,12 @@
 @import 'includes/media-queries';
 
 .demo-header {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	padding-top: rem(10);
+	padding-bottom: rem(10);
 }
 .demo-logo-main {
 	img {
-		width: 12rem;
+		width: rem(120);
 	}
 }
 .demo-section-heading {
@@ -20,15 +20,15 @@
 }
 .demo-section-sub-heading {
 	background-color: $gray-very-light;
-	padding-top: 2rem;
-	padding-bottom: 2rem;
+	padding-top: rem(20);
+	padding-bottom: rem(20);
 
 	h3 {
 		text-transform: uppercase;
-		font-size: 1.2rem;
+		font-size: rem(12);
 		font-family: $font-family-bold;
 		@include medium-and-up {
-			font-size: 1.4rem;
+			font-size: rem(14);
 		}
 	}
 }
@@ -37,6 +37,6 @@
 	.grid-row > div {
 		background-color: $gray;
 		color: white;
-		padding: 2rem;
+		padding: rem(20);
 	}
 }

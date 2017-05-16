@@ -9,12 +9,12 @@
 	height: 470px;
 	&__labels {
 		text-align: left;
-		width: 30rem;
+		width: 300px;
 		@include position(absolute, 60% null null 58%);
 	}
 	&__pulse {
 		@include position(absolute, 54% null null 50%);
-		width: 10rem;
+		width: 100px;
 	}
 }
 .ev-map {

@@ -4,7 +4,7 @@
 
 .form-field-wrapper {
 	@include small-and-up {
-		padding-right: 3rem;
+		padding-right: rem(3);
 	}
 	@include medium-and-up {
 		padding-right: 0;
@@ -15,13 +15,13 @@
 		&:before {
 			@include small-and-up {
 				content: '';
-				width: 1.8rem;
-				height: 1.8rem;
+				width: rem(18);
+				height: rem(18);
 				background-size: cover;
-				@include position(absolute, 0.9rem 0 null null);
+				@include position(absolute, 9px 0 null null);
 			}
 			@include medium-and-up {
-				right: -3rem;
+				right: -30px;
 			}
 		}
 	}
@@ -66,7 +66,7 @@
 	@include font-style-small;
 	font-family: $font-family-bold;
 	color: $error-red;
-	margin-top: 0.3rem;
+	margin-top: rem(3);
 	.checkbox-wrap & {
 		margin-top: 0;
 	}

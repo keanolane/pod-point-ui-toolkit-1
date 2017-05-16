@@ -21,9 +21,9 @@
 	}
 	&__content {
 		@include container;
-		@include margin(8rem null);
+		@include margin(80px null);
 		@include medium-and-up {
-			@include margin(10rem null);
+			@include margin(100px null);
 		}
 	}
 }

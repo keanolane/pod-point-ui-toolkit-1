@@ -19,12 +19,12 @@ $typography-vertical-spacing: 0.5em;
 		}
 	}
 	ul {
-		padding-left: 3rem;
+		padding-left: 30px;
 		li {
-			padding-left: 0rem;
+			padding-left: 0;
 			list-style-type: disc;
 			@include medium-and-up {
-				padding-left: 0.5rem;
+				padding-left: 5px;
 			}
 			ul li {
 				list-style-type: circle;
@@ -32,12 +32,12 @@ $typography-vertical-spacing: 0.5em;
 		}
 	}
 	ol {
-		padding-left: 2.5rem;
+		padding-left: 25px;
 		li {
-			padding-left: 0.5rem;
+			padding-left: 5px;
 			list-style-type: decimal;
 			@include medium-and-up {
-				padding-left: 1rem;
+				padding-left: 10px;
 			}
 		}
 	}
@@ -58,28 +58,28 @@ $typography-vertical-spacing: 0.5em;
 	&--featured {
 		@include font-style-large;
 		ul {
-			margin-top: 2rem;
+			margin-top: 20px;
 			padding-left: 0;
 			li {
 				@include font-style-large;
 				position: relative;
 				list-style: none;
 				font-family: $font-family-bold;
-				padding-bottom: 1.5rem;
-				padding-left: 3rem;
+				padding-bottom: 15px;
+				padding-left: 30px;
 				@include medium-and-up {
-					padding-bottom: 3rem;
+					padding-bottom: 30px;
 				}
 				&:last-child {
 					padding-bottom: 0;
 				}
 				&:before {
 					content: '';
-					@include position(absolute, 0.4rem null null 0);
+					@include position(absolute, 4px null null 0);
 					@include svg-bg-tick($primary-color);
 					background-size: cover;
-					width: 1.8rem;
-					height: 1.8rem;
+					width: 18px;
+					height: 18px;
 				}
 			}
 		}

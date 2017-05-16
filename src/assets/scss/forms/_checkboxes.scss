@@ -14,27 +14,27 @@ input[type="checkbox"] {
 .checkbox-wrap {
 	text-align: left;
 	position: relative;
-	margin-bottom: 2rem;
+	margin-bottom: rem(20);
 
 	&--inline {
 		display: inline-block;
-		margin-right: 2.5rem;
+		margin-right: rem(25);
 	}
 
 	input[type="checkbox"] {
-		width: 2rem;
-		height: 2rem;
+		width: rem(20);
+		height: rem(20);
 		& ~ label {
 			text-transform: none;
 			display: inline-block;
-			@include padding(0 null 0.5rem 3.5rem);
+			@include padding(0 null rem(5) rem(35));
 			cursor: pointer;
 
 			&:before {
 				@include position(absolute, 0 null null 0);
 				content: "";
-				width: 2rem;
-				height: 2rem;
+				width: rem(20);
+				height: rem(20);
 				z-index: 1;
 				border: 2px solid $checkbox-border;
 				border-radius: $form-border-radius;
@@ -44,7 +44,7 @@ input[type="checkbox"] {
 		&:checked ~ label {
 			&:before {
 				@include svg-bg-tick(white);
-				background-size: 1.5rem 1.5rem;
+				background-size: rem(15) rem(15);
 				background-repeat: no-repeat;
 				background-position: center;
 				background-color: $primary-color;

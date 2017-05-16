@@ -12,7 +12,7 @@ ol {
 	&.list--small {
 		@include font-small;
 		li {
-			margin-bottom: 1rem;
+			margin-bottom: rem(10);
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -24,23 +24,23 @@ ol {
 		}
 	}
 	&.list--inline {
-		@include margin(null -1.5rem);
+		@include margin(null rem(-15));
 		li {
 			display: inline-block;
-			@include margin(null 1.5rem);
+			@include margin(null rem(15));
 		}
 		&--sm-gutter {
-			@include margin(null -0.5rem);
+			@include margin(null rem(-5));
 			li {
-				@include margin(null 0.5rem);
+				@include margin(null rem(5));
 			}
 		}
 		&--tiny {
-			margin-bottom: -1rem;
+			margin-bottom: rem(-10);
 			li {
-				margin-bottom: 1rem;
+				margin-bottom: rem(10);
 				img {
-					max-height: 4.5rem;
+					max-height: rem(45);
 					width: auto;
 				}
 			}
@@ -49,10 +49,10 @@ ol {
 }
 
 .dl {
-	margin-bottom: $spacing-small;
+	margin-bottom: 15px;
 	dt {
 		font-weight: bold;
-		margin-top: $spacing-small;
+		margin-top: 15px;
 	}
 	dd {
 		margin: 0;
@@ -61,14 +61,14 @@ ol {
 
 .icons-list {
 	&--inline {
-		@include margin(null -0.15rem);
+		@include margin(null rem(-1.5));
 		li {
 			display: inline-block;
-			@include margin(null 0.15rem);
+			@include margin(null rem(1.5));
 			a:not(.circle-icon) {
 				&:before {
 					color: black;
-					font-size: 2.5rem;
+					font-size: rem(25);
 				}
 			}
 		}

@@ -12,7 +12,7 @@
 		border-bottom: $border-thin;
 		position: relative;
 		cursor: pointer;
-		@include padding(1rem 0);
+		@include padding(10px 0);
 		.plus-minus-toggle {
 			@include position(absolute, 0 0 null null);
 		}
@@ -26,7 +26,7 @@
 		@include slideDownCollapsed(1s);
 		margin: 0;
 		.accordion__item-content {
-			@include padding(1rem null);
+			@include padding(10px null);
 		}
 	}
 	&--only-mobile {
@@ -48,17 +48,17 @@
 		@include font-style-base;
 		dt {
 			font-family: $font-family-base;
-			@include padding(4rem null 4rem 6rem);
+			@include padding(40px null 40px 60px);
 			border-bottom: none;
 			.plus-minus-toggle {
-				@include position(absolute, 3.6rem auto null 0);
+				@include position(absolute, 36px auto null 0);
 			}
 		}
 		dd {
-			padding-left: 6rem;
+			padding-left: 60px;
 			border-bottom: $border-thin;
 			.accordion__item-content {
-				margin-bottom: 4rem;
+				margin-bottom: 40px;
 				padding: 0;
 			}
 		}

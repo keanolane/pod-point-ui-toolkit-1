@@ -16,9 +16,9 @@
 	@include container;
 	@include clearfix;
 	@include medium-and-up {
-		height: 9.6rem;
+		height: 96px;
 		.is-minified & {
-			height: 5rem;
+			height: 50px;
 		}
 	}
 	&.nav-open {
@@ -29,7 +29,7 @@
 	}
 	&__content {
 		position: relative;
-		height: 6rem;
+		height: 60px;
 		@include medium-and-up {
 			height: auto;
 			border-bottom: none;
@@ -38,26 +38,26 @@
 }
 
 .logo-main {
-	width: 10rem;
-	@include position(absolute, 2rem null null 0);
+	width: 100px;
+	@include position(absolute, 20px null null 0);
 	@include medium-and-up {
-		top: 2.2rem;
-		width: 14rem;
+		top: 22px;
+		width: 140px;
 		.is-minified & {
-			top: 0.9rem;
-			width: 12rem;
+			top: 9px;
+			width: 120px;
 		}
 	}
 	@include large-and-up {
-		width: 18rem;
+		width: 180px;
 		.is-minified & {
-			width: 12rem;
+			width: 120px;
 		}
 	}
 }
 
 .navicon {
-	margin-top: 2rem;
+	margin-top: 20px;
 	float: right;
 	@include medium-and-up {
 		display: none;

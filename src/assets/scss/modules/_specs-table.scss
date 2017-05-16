@@ -28,23 +28,23 @@ $svg-specs-safety: 'data:image/svg+xml;utf8,<svg style="enable-background:new 0 
     > tbody,
     > tfoot {
         > tr {
-            margin-bottom: 1rem;
+            margin-bottom: 10px;
             > th,
             > td {
                 box-sizing: border-box;
                 border-top: none;
                 width: 100%;
                 display: block;
-                padding-left: 3rem;
+                padding-left: 30px;
                 p {
                     padding-bottom: 0;
                 }
                 ul {
-                    padding-left: 2rem;
+                    padding-left: 20px;
                 }
                 &:last-child {
                     padding-top: 0;
-                    padding-bottom: 2rem;
+                    padding-bottom: 20px;
                 }
             }
         }
@@ -53,14 +53,14 @@ $svg-specs-safety: 'data:image/svg+xml;utf8,<svg style="enable-background:new 0 
         &.specs-icon {
             background-repeat: no-repeat;
             background-size: 20px;
-            background-position: 0 0.6rem;
+            background-position: 0 6px;
             &--phases {
                 background-image: url($svg-specs-phases);
-                background-position: 0 1rem;
+                background-position: 0 10px;
             }
             &--output {
                 background-image: url($svg-specs-output);
-                background-position: 0 0rem;
+                background-position: 0 0;
             }
             &--connectors {
                 background-image: url($svg-specs-connectors);
@@ -79,7 +79,7 @@ $svg-specs-safety: 'data:image/svg+xml;utf8,<svg style="enable-background:new 0 
             }
             &--safety {
                 background-image: url($svg-specs-safety);
-                background-position: 0 0.4rem;
+                background-position: 0 4px;
             }
         }
     }
@@ -97,23 +97,23 @@ $svg-specs-safety: 'data:image/svg+xml;utf8,<svg style="enable-background:new 0 
                     width: auto;
                     display: table-cell;
                     border-right: $border-base;
-                    @include padding(3rem 2rem);
+                    @include padding(30px 20px);
                     &:first-child {
-                        padding-left: 3rem;
-                        width: 20rem;
+                        padding-left: 30px;
+                        width: 200px;
                         &.specs-icon {
-                            background-position: 0 3.25rem;
+                            background-position: 0 32.5px;
                             &--phases {
-                                background-position: 0 3.7rem;
+                                background-position: 0 37px;
                             }
                             &--output {
-                                background-position: 0 2.7rem;
+                                background-position: 0 27px;
                             }
                         }
                     }
                     &:last-child {
                         border-right: none;
-                        @include padding(3rem 0 3rem 2rem);
+                        @include padding(30px 0 30px 20px);
                     }
                 }
             }

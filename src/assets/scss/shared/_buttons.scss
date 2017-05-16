@@ -20,22 +20,22 @@ button {
 	vertical-align: middle;
 	width: auto;
 	display: inline-block;
-	@include padding(0.8rem 2rem);
-	min-height: 4rem;
+	@include padding(8px 20px);
+	min-height: 40px;
 	color: white;
 	background-color: $primary-color;
 	font-family: $font-family-bold;
-	font-size: 1.5rem;
+	font-size: rem(15);
 	font-weight: normal;
 	line-height: 1.2;
-	letter-spacing: 0.1rem;
-	border-radius: 3rem;
+	letter-spacing: rem(1);
+	border-radius: 30px;
 	border: 2px solid $primary-color;
 	transition: all 0.2s ease;
 	max-width: $button-max-width;
 
 	@include small-and-up {
-		@include padding(null 3.5rem);
+		@include padding(null 35px);
 	}
 
 	&:focus { outline: none; }
@@ -80,8 +80,8 @@ button {
 			content: '';
 			@include svg-bg-tick(white);
 			background-size: cover;
-			width: 2rem;
-			height: 2rem;
+			width: 20px;
+			height: 20px;
 		}
 		&:hover:not(.is-disabled),
 		&:focus:not(.is-disabled),
@@ -97,10 +97,10 @@ button {
 }
 
 .buttons-container {
-	@include margin(-1rem);
+	@include margin(-10px);
 	overflow: hidden;
 	.button {
-		@include margin(1rem);
+		@include margin(10px);
 	}
 }
 
@@ -108,6 +108,6 @@ button {
 	color: $font-color-base;
 	font-family: $font-family-bold;
 	svg {
-		@include margin(null 0.5rem);
+		@include margin(null 5px);
 	}
 }
