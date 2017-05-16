@@ -15,6 +15,8 @@
 .global-header {
 	@include container;
 	@include clearfix;
+	position: relative;
+	z-index: 10;
 	@include medium-and-up {
 		height: 96px;
 		.is-minified & {

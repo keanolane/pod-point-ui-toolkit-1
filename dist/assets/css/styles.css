@@ -2367,7 +2367,9 @@ button {
   margin-left: auto;
   max-width: 1040px;
   padding-right: 25px;
-  padding-left: 25px; }
+  padding-left: 25px;
+  position: relative;
+  z-index: 10; }
   @media (min-width: 50em) {
     .global-header {
       padding-right: 30px;
