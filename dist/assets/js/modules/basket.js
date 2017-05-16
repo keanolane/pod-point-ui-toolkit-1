@@ -77,6 +77,7 @@ var Basket = function () {
 
         this.productEls = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
         this.bindEvents();
+        this.makeSticky();
     }
 
     /**
@@ -106,7 +107,7 @@ var Basket = function () {
     }, {
         key: 'makeSticky',
         value: function makeSticky() {
-            var sticky = new _stickyJs2.default('#basketFinal');
+            var sticky = new _stickyJs2.default('#basketOpen');
         }
 
         /**

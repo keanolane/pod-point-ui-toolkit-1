@@ -203,7 +203,7 @@
 	    };
 	}
 	var handleResize = debounce(function (e) {
-	    console.log('Window resized.');
+	    (0, _moduleLoader2.default)();
 	}, 100);
 	
 	window.addEventListener('resize', handleResize);
@@ -14502,35 +14502,26 @@
 	        _classCallCheck(this, Accordion);
 	
 	        this.element = element;
-	        this.mobileOrDesktop();
+	        this.bindEvents();
 	    }
 	
 	    /**
-	     * Checks if mobile or desktop.
-	     *
+	     * Binds the event listeners from the elements.
 	     */
 	
 	
 	    _createClass(Accordion, [{
-	        key: 'mobileOrDesktop',
-	        value: function mobileOrDesktop() {
-	            if ((0, _domOps.hasClass)(this.element, MOBILE_ONLY) && isMobileSize || (0, _domOps.hasClass)(this.element, MOBILE_ONLY) != true) this.bindEvents();
-	        }
-	
-	        /**
-	         * Binds the event listeners from the elements.
-	         */
-	
-	    }, {
 	        key: 'bindEvents',
 	        value: function bindEvents() {
 	            var _this = this;
 	
 	            this.listener = new _domDelegate.Delegate(this.element);
 	
-	            this.listener.on('click', 'dt', function (event, element) {
-	                _this.toggleAccordion(event, element);
-	            });
+	            if ((0, _domOps.hasClass)(this.element, MOBILE_ONLY) && isMobileSize || (0, _domOps.hasClass)(this.element, MOBILE_ONLY) != true) {
+	                this.listener.on('click', 'dt', function (event, element) {
+	                    _this.toggleAccordion(event, element);
+	                });
+	            }
 	        }
 	
 	        /**
@@ -18968,6 +18959,7 @@
 	
 	        this.productEls = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
 	        this.bindEvents();
+	        this.makeSticky();
 	    }
 	
 	    /**
@@ -18997,7 +18989,7 @@
 	    }, {
 	        key: 'makeSticky',
 	        value: function makeSticky() {
-	            var sticky = new _stickyJs2.default('#basketFinal');
+	            var sticky = new _stickyJs2.default('#basketOpen');
 	        }
 	
 	        /**

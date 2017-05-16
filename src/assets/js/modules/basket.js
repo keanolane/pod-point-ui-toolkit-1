@@ -56,6 +56,7 @@ class Basket {
 
         this.productEls = nodesToArray(document.querySelectorAll('.product'));
         this.bindEvents();
+        this.makeSticky();
     }
 
     /**
@@ -76,7 +77,7 @@ class Basket {
      * Make basket stick to top of window when scrolled.
      */
     makeSticky() {
-        var sticky = new Sticky('#basketFinal');
+        var sticky = new Sticky('#basketOpen');
     }
 
     /**

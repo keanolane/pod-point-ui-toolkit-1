@@ -81,7 +81,7 @@ function debounce(callback, wait, context = this) {
     }
 }
 const handleResize = debounce((e) => {
-    console.log('Window resized.');
+    loadModules();
 }, 100)
 
 window.addEventListener('resize', handleResize)

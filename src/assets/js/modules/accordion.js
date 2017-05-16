@@ -15,16 +15,7 @@ class Accordion {
      */
     constructor(element) {
         this.element = element;
-        this.mobileOrDesktop();
-    }
-
-    /**
-     * Checks if mobile or desktop.
-     *
-     */
-    mobileOrDesktop() {
-        if ((hasClass(this.element, MOBILE_ONLY) && isMobileSize) || (hasClass(this.element, MOBILE_ONLY) != true))
-            this.bindEvents();
+        this.bindEvents();
     }
 
     /**
@@ -33,9 +24,11 @@ class Accordion {
     bindEvents() {
         this.listener = new Delegate(this.element);
 
-        this.listener.on('click', 'dt', (event, element) => {
-            this.toggleAccordion(event, element);
-        });
+        if ((hasClass(this.element, MOBILE_ONLY) && isMobileSize) || (hasClass(this.element, MOBILE_ONLY) != true)) {
+            this.listener.on('click', 'dt', (event, element) => {
+                this.toggleAccordion(event, element);
+            });
+        }
     }
 
     /**
