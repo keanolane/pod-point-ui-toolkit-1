@@ -11,7 +11,9 @@
 	&__thumbnails {
 		text-align: center;
 		@include margin(20px -5px);
+		padding: 0;
 		li {
+			list-style: none;
 			width: 40px;
 			display: inline-block;
 			@include margin(null 5px);

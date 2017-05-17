@@ -2,63 +2,49 @@
 //  LISTS
 // =============================================================================
 
-ul,
-ol {
-	margin: 0;
-	padding: 0;
+.list--small,
+.list--links,
+.list--inline,
+.icons-list {
+	@include remove-list-styles;
+}
+.list--small {
+	@include font-small;
 	li {
-		list-style: none;
+		margin-bottom: rem(10);
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
-	&.list--small {
-		@include font-small;
+}
+.list--links {
+	li a {
+		color: inherit;
+	}
+}
+.list--inline {
+	@include margin(null rem(-15));
+	li {
+		display: inline-block;
+		@include margin(null rem(15));
+	}
+	&--sm-gutter {
+		@include margin(null rem(-5));
+		li {
+			@include margin(null rem(5));
+		}
+	}
+	&--tiny {
+		margin-bottom: rem(-10);
 		li {
 			margin-bottom: rem(10);
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-	}
-	&.list--links {
-		li a {
-			color: inherit;
-		}
-	}
-	&.list--inline {
-		@include margin(null rem(-15));
-		li {
-			display: inline-block;
-			@include margin(null rem(15));
-		}
-		&--sm-gutter {
-			@include margin(null rem(-5));
-			li {
-				@include margin(null rem(5));
-			}
-		}
-		&--tiny {
-			margin-bottom: rem(-10);
-			li {
-				margin-bottom: rem(10);
-				img {
-					max-height: rem(45);
-					width: auto;
-				}
+			img {
+				max-height: rem(45);
+				width: auto;
 			}
 		}
 	}
 }
-
-.dl {
-	margin-bottom: 15px;
-	dt {
-		font-weight: bold;
-		margin-top: 15px;
-	}
-	dd {
-		margin: 0;
-	}
-}
-
 .icons-list {
 	&--inline {
 		@include margin(null rem(-1.5));
@@ -72,5 +58,17 @@ ol {
 				}
 			}
 		}
+	}
+}
+
+
+.dl {
+	margin-bottom: 15px;
+	dt {
+		font-weight: bold;
+		margin-top: 15px;
+	}
+	dd {
+		margin: 0;
 	}
 }

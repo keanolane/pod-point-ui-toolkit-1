@@ -24,6 +24,7 @@
 		animation-name: fadeIn;
 	}
 	ul {
+		@include remove-list-styles;
 		li {
 			position: relative;
 			border-bottom: $border-thin;

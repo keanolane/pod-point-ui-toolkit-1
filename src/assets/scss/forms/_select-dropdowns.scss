@@ -283,7 +283,7 @@ $select-dd-alternative-height: rem(25);
 		border-bottom: 2px $primary-color solid;
 		@include padding(0 rem(20) null 0);
 		&:after {
-			@include position(absolute, 35% $input-padding null null);
+			@include position(absolute, 35% 0 null null);
 			width: rem(15);
 			height: rem(15);
 			@include svg-bg-cheveron($primary-color);
