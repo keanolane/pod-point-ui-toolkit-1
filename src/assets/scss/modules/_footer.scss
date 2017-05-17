@@ -55,10 +55,7 @@
 	&__section-bottom {
 		color: white;
 		background-color: $gray-very-dark;
-		padding-top: 20px;
-		@include medium-and-up {
-			padding-top: 15px;
-		}
+		@include padding(20px null);
 		p,
 		ul {
 			@include font-small;

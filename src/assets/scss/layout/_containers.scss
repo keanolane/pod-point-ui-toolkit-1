@@ -4,6 +4,7 @@
 
 .container {
 	@include container;
+	box-sizing: border-box;
 	max-width: 540px;
 	@include medium-and-up {
 		max-width: $max-width-content;
