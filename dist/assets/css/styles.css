@@ -3,9 +3,13 @@ body {
   width: 100%; }
 
 html {
+  box-sizing: border-box;
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
 
 body {
   margin: 0; }
@@ -223,7 +227,7 @@ table {
 .container {
   margin-right: auto;
   margin-left: auto;
-  max-width: 1040px;
+  max-width: 1100px;
   padding-right: 25px;
   padding-left: 25px;
   box-sizing: border-box;
@@ -234,7 +238,7 @@ table {
       padding-left: 30px; } }
   @media (min-width: 50em) {
     .container {
-      max-width: 1040px; } }
+      max-width: 1100px; } }
 
 .max-width-text {
   max-width: 600px; }
@@ -1257,8 +1261,8 @@ input[type="checkbox"] {
     display: inline-block;
     margin-right: 1.5625rem; }
   .checkbox-wrap input[type="checkbox"] {
-    width: 1.25rem;
-    height: 1.25rem; }
+    width: 1.4375rem;
+    height: 1.4375rem; }
     .checkbox-wrap input[type="checkbox"] ~ label {
       text-transform: none;
       display: inline-block;
@@ -1271,8 +1275,8 @@ input[type="checkbox"] {
         top: 0;
         left: 0;
         content: "";
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1.4375rem;
+        height: 1.4375rem;
         z-index: 1;
         border: 2px solid #ccc;
         border-radius: 5px; }
@@ -1996,8 +2000,8 @@ button {
 
 .plus-minus-toggle {
   cursor: pointer;
-  width: 25px;
-  height: 25px; }
+  width: 29px;
+  height: 29px; }
   .plus-minus-toggle span {
     display: block;
     position: relative;
@@ -2088,6 +2092,7 @@ button {
     width: 10px; }
 
 .circle-icon {
+  box-sizing: content-box;
   text-align: center;
   display: block;
   margin: 0;
@@ -2099,7 +2104,8 @@ button {
   height: 40px;
   font-size: 10px; }
   .circle-icon svg {
-    fill: white; }
+    fill: white;
+    box-sizing: content-box; }
   .circle-icon:before {
     color: white; }
   .circle-icon svg {
@@ -2163,7 +2169,8 @@ button {
     border-radius: 50%;
     border: none; }
     .circle-icon--green svg {
-      fill: white; }
+      fill: white;
+      box-sizing: content-box; }
     .circle-icon--green:before {
       color: white; }
   .circle-icon--outlined {
@@ -2175,7 +2182,8 @@ button {
     border-radius: 50%;
     border: 2px solid #333; }
     .circle-icon--outlined svg {
-      fill: #333; }
+      fill: #333;
+      box-sizing: content-box; }
     .circle-icon--outlined:before {
       color: #333; }
   .circle-icon--outlined-green {
@@ -2187,7 +2195,8 @@ button {
     border-radius: 50%;
     border: 2px solid #8CC63F; }
     .circle-icon--outlined-green svg {
-      fill: #8CC63F; }
+      fill: #8CC63F;
+      box-sizing: content-box; }
     .circle-icon--outlined-green:before {
       color: #8CC63F; }
   .circle-icon--outlined-dark {
@@ -2199,7 +2208,8 @@ button {
     border-radius: 50%;
     border: 2px solid white; }
     .circle-icon--outlined-dark svg {
-      fill: white; }
+      fill: white;
+      box-sizing: content-box; }
     .circle-icon--outlined-dark:before {
       color: white; }
   .circle-icon--white-outline {
@@ -2211,7 +2221,8 @@ button {
     border-radius: 50%;
     border: 2px solid #ccc; }
     .circle-icon--white-outline svg {
-      fill: #333; }
+      fill: #333;
+      box-sizing: content-box; }
     .circle-icon--white-outline:before {
       color: #333; }
 
@@ -2238,9 +2249,13 @@ button {
   border: 2px solid #8CC63F;
   width: 25px;
   height: 25px;
+  font-size: 10px;
+  width: 25px;
+  height: 25px;
   font-size: 10px; }
   .toggle-panel-icon svg {
-    fill: #8CC63F; }
+    fill: #8CC63F;
+    box-sizing: content-box; }
   .toggle-panel-icon:before {
     color: #8CC63F; }
   .toggle-panel-icon svg {
@@ -2248,6 +2263,11 @@ button {
     height: 12.5px;
     margin-top: 6.25px;
     margin-bottom: 6.25px; }
+  .toggle-panel-icon svg {
+    width: 12.5px;
+    height: 12.5px;
+    margin-top: 4.1667px;
+    margin-bottom: 4.1667px; }
 
 .toggle-panel-icon--secondary {
   text-align: center;
@@ -2257,18 +2277,19 @@ button {
   background-color: transparent;
   border-radius: 50%;
   border: 2px solid #333;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   font-size: 10px; }
   .toggle-panel-icon--secondary svg {
-    fill: #333; }
+    fill: #333;
+    box-sizing: content-box; }
   .toggle-panel-icon--secondary:before {
     color: #333; }
   .toggle-panel-icon--secondary svg {
-    width: 10px;
-    height: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px; }
+    width: 12px;
+    height: 12px;
+    margin-top: 4px;
+    margin-bottom: 4px; }
 
 .circle-icon--close-panel {
   text-align: center;
@@ -2284,14 +2305,15 @@ button {
   -ms-transform: rotate(180deg);
       transform: rotate(180deg); }
   .circle-icon--close-panel svg {
-    fill: #8CC63F; }
+    fill: #8CC63F;
+    box-sizing: content-box; }
   .circle-icon--close-panel:before {
     color: #8CC63F; }
   .circle-icon--close-panel svg {
     width: 20px;
     height: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px; }
+    margin-top: 6.6667px;
+    margin-bottom: 6.6667px; }
 
 .toggle-rotate-icon {
   display: inline-block;
@@ -2360,7 +2382,7 @@ button {
 .global-header {
   margin-right: auto;
   margin-left: auto;
-  max-width: 1040px;
+  max-width: 1100px;
   padding-right: 25px;
   padding-left: 25px; }
   @media (min-width: 50em) {
@@ -2641,7 +2663,7 @@ button {
     .global-nav__sub-nav ul {
       margin-right: auto;
       margin-left: auto;
-      max-width: 1040px;
+      max-width: 1100px;
       padding-right: 25px;
       padding-left: 25px;
       background-color: rgba(255, 255, 255, 0.3);
@@ -2696,7 +2718,7 @@ button {
   .modal__content {
     margin-right: auto;
     margin-left: auto;
-    max-width: 1040px;
+    max-width: 1100px;
     padding-right: 25px;
     padding-left: 25px;
     margin-top: 80px;
@@ -2967,6 +2989,7 @@ button {
 .ticker {
   display: inline-block; }
   .ticker span {
+    box-sizing: content-box;
     margin: 0;
     font-family: "Quicksand Regular", sans-serif;
     font-size: 0.875rem;
@@ -3328,8 +3351,12 @@ button {
   color: #8CC63F; }
 
 .basket-content__items {
+  padding: 0;
+  margin: 0;
   padding-top: 8px;
   padding-bottom: 8px; }
+  .basket-content__items li {
+    list-style: none; }
 
 .basket-content__item {
   margin-bottom: 10px; }
@@ -3500,20 +3527,21 @@ button {
   background-color: transparent;
   border-radius: 50%;
   border: 2px solid #333;
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
   font-size: 10px;
   text-indent: -9999px;
   display: inline-block; }
   .tooltip-icon svg {
-    fill: #333; }
+    fill: #333;
+    box-sizing: content-box; }
   .tooltip-icon:before {
     color: #333; }
   .tooltip-icon svg {
-    width: 6px;
-    height: 6px;
-    margin-top: 3px;
-    margin-bottom: 3px; }
+    width: 7.5px;
+    height: 7.5px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px; }
   .tooltip-icon:before, .tooltip-icon:after {
     text-indent: 0;
     float: left;

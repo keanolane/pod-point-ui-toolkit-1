@@ -21,6 +21,7 @@
 }
 
 .circle-icon {
+	box-sizing: content-box;
 	@include icon-in-circle;
 	@include icon-in-circle--size;
 
@@ -71,14 +72,15 @@
 .toggle-panel-icon {
 	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $border: 2px solid $primary-color);
 	@include icon-in-circle--size($dimension: 25px);
+	@include icon-in-border-circle--size($dimension: 25px);
 }
 .toggle-panel-icon--secondary {
 	@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $border: 2px solid $font-color-base);
-	@include icon-in-circle--size($dimension: 20px);
+	@include icon-in-border-circle--size($dimension: 24px);
 }
 .circle-icon--close-panel {
 	@include icon-in-circle($bgColor: transparent, $color: $primary-color, $border: 2px solid $primary-color);
-	@include icon-in-circle--size();
+	@include icon-in-border-circle--size();
 	transform: rotate(180deg);
 }
 

@@ -72,7 +72,7 @@
 	background-color: #{$bgColor};
 	border-radius: 50%;
 	border: $border;
-	svg { fill: #{$color}; }
+	svg { fill: #{$color}; box-sizing: content-box;}
 	&:before { color: $color; }
 }
 @mixin icon-in-circle--size($dimension: 40px) {
@@ -84,6 +84,17 @@
 		height: $dimension / 2;
 		margin-top: $dimension / 4;
 		margin-bottom: $dimension / 4;
+	}
+}
+@mixin icon-in-border-circle--size($dimension: 40px) {
+	width: $dimension;
+	height: $dimension;
+	font-size: 10px;
+	svg {
+		width: $dimension / 2;
+		height: $dimension / 2;
+		margin-top: $dimension / 6;
+		margin-bottom: $dimension / 6;
 	}
 }
 @mixin horizontal-spacing {

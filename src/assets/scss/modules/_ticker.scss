@@ -8,6 +8,7 @@
 .ticker {
 	display: inline-block;
 	span {
+		box-sizing: content-box;
 		@include font-base;
 		font-family: $font-family-bold;
 		display: inline-block;

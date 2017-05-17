@@ -4,7 +4,7 @@
 
 .tooltip-icon {
 	@include icon-in-circle($bgColor: transparent, $color: $font-color-base, $border: 2px solid $font-color-base);
-	@include icon-in-circle--size($dimension: 12px);
+	@include icon-in-border-circle--size($dimension: 15px);
 	@include hide-text-not-pseudo;
 	display: inline-block;
 	&:before {
