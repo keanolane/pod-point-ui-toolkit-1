@@ -55,7 +55,7 @@
 			}
 			a.find-chargepoint {
 				color: $primary-color;
-				padding-left: 25px;
+				padding-left: 25px!important;
 				position: relative;
 				svg {
 					@include position(absolute, 50% null null 0);

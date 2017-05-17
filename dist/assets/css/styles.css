@@ -2593,7 +2593,7 @@ button {
               padding-bottom: 15px; } }
       .global-nav ul li a.find-chargepoint {
         color: #8CC63F;
-        padding-left: 25px;
+        padding-left: 25px !important;
         position: relative; }
         .global-nav ul li a.find-chargepoint svg {
           position: absolute;
