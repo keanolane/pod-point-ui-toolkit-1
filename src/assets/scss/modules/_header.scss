@@ -39,9 +39,9 @@
 
 .logo-main {
 	width: 100px;
-	@include position(absolute, 20px null null 0);
+	@include position(absolute, 17px null null 0);
 	@include medium-and-up {
-		top: 22px;
+		top: 30px;
 		width: 140px;
 		.is-minified & {
 			top: 9px;
@@ -49,6 +49,7 @@
 		}
 	}
 	@include large-and-up {
+		top: 22px;
 		width: 180px;
 		.is-minified & {
 			width: 120px;

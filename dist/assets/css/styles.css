@@ -2414,17 +2414,18 @@ button {
 .logo-main {
   width: 100px;
   position: absolute;
-  top: 20px;
+  top: 17px;
   left: 0; }
   @media (min-width: 50em) {
     .logo-main {
-      top: 22px;
+      top: 30px;
       width: 140px; }
       .is-minified .logo-main {
         top: 9px;
         width: 120px; } }
   @media (min-width: 64em) {
     .logo-main {
+      top: 22px;
       width: 180px; }
       .is-minified .logo-main {
         width: 120px; } }
