@@ -62,6 +62,9 @@
 .abs-top-right {
 	@include position(absolute, 0 0 null null);
 }
+.abs-top-left {
+	@include position(absolute, 0 null null 0);
+}
 
 .max-width {
 	&--xxs { max-width: $max-width-xxs; }

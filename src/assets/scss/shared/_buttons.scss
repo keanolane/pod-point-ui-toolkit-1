@@ -105,8 +105,11 @@ button {
 }
 
 .setback-button {
+	display: inline-block;
 	color: $font-color-base;
 	font-family: $font-family-bold;
+	border-bottom: 1px solid $font-color-base;
+
 	svg {
 		@include margin(null 5px);
 	}

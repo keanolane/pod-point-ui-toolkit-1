@@ -18,11 +18,14 @@
 .bg--very-light-gray {
 	background-color: $gray-very-light;
 }
+.bg--light-gray {
+	background-color: $gray-light;
+}
 .bg--wall {
 	background-color: $gray-very-light;
 	background-image: url(../img/backgrounds/wall.png);
 	background-position: center center;
-	background-size: cover;
+	background-size: 1500px 1006px;
 }
 .bg--img-cover {
 	background-position: center center;
