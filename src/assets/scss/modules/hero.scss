@@ -1,0 +1,65 @@
+// =============================================================================
+//	HERO
+// =============================================================================
+
+.home-hero {
+	overflow: hidden;
+	.content-block {
+		min-height: 300px;
+		@include medium-and-up {
+			min-height: 420px;
+		}
+	}
+	&__content {
+		max-width: 300px;
+		@include medium-and-up {
+			max-width: 500px;
+		}
+	}
+	.network-right,
+	.network-left {
+		display: none;
+		position: absolute;
+		top: 0;
+		width: 355px;
+		display: none;
+		@include xsmall-and-up {
+			display: block;
+		}
+		@include medium-and-up {
+			width: 500px;
+		}
+	}
+	.network-right {
+		left: 85%;
+		@include small-and-up {
+			left: 75%;
+		}
+		@include medium-and-up {
+			left: 80%;
+		}
+		@include large-and-up {
+			left: 75%;
+		}
+		@include xlarge-and-up {
+			right: 0;
+			left: auto;
+		}
+	}
+	.network-left {
+		right: 85%;
+		@include small-and-up {
+			right: 75%;
+		}
+		@include medium-and-up {
+			right: 80%;
+		}
+		@include large-and-up {
+			right: 75%;
+		}
+		@include xlarge-and-up {
+			right: auto;
+			left: 0;
+		}
+	}
+}

@@ -2990,17 +2990,7 @@ button {
 
 .ticker-list {
   padding-top: 20px;
-  padding-bottom: 10px;
-  margin-right: -80px; }
-  .ticker-list li {
-    width: 230px;
-    padding-right: 40px;
-    padding-left: 0;
-    margin-right: 40px;
-    margin-left: 0;
-    border-right: 1px solid white; }
-    .ticker-list li:last-child {
-      border-right: none; }
+  padding-bottom: 10px; }
 
 .ticker {
   display: inline-block; }
@@ -3812,6 +3802,64 @@ button {
   .label--gray {
     background-color: #b3b3b3; }
 
+.home-hero {
+  overflow: hidden; }
+  .home-hero .content-block {
+    min-height: 300px; }
+    @media (min-width: 50em) {
+      .home-hero .content-block {
+        min-height: 420px; } }
+  .home-hero__content {
+    max-width: 300px; }
+    @media (min-width: 50em) {
+      .home-hero__content {
+        max-width: 500px; } }
+  .home-hero .network-right,
+  .home-hero .network-left {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 355px;
+    display: none; }
+    @media (min-width: 24em) {
+      .home-hero .network-right,
+      .home-hero .network-left {
+        display: block; } }
+    @media (min-width: 50em) {
+      .home-hero .network-right,
+      .home-hero .network-left {
+        width: 500px; } }
+  .home-hero .network-right {
+    left: 85%; }
+    @media (min-width: 40em) {
+      .home-hero .network-right {
+        left: 75%; } }
+    @media (min-width: 50em) {
+      .home-hero .network-right {
+        left: 80%; } }
+    @media (min-width: 64em) {
+      .home-hero .network-right {
+        left: 75%; } }
+    @media (min-width: 100em) {
+      .home-hero .network-right {
+        right: 0;
+        left: auto; } }
+  .home-hero .network-left {
+    right: 85%; }
+    @media (min-width: 40em) {
+      .home-hero .network-left {
+        right: 75%; } }
+    @media (min-width: 50em) {
+      .home-hero .network-left {
+        right: 80%; } }
+    @media (min-width: 64em) {
+      .home-hero .network-left {
+        right: 75%; } }
+    @media (min-width: 100em) {
+      .home-hero .network-left {
+        right: auto;
+        left: 0; } }
+
 .m-none {
   margin: 0 !important; }
 
@@ -4298,3 +4346,16 @@ button {
     max-height: 3000px;
     transition: max-height 1s ease-in;
     overflow: hidden; }
+
+.flip-x {
+  -ms-transform: scaleX(-1);
+      transform: scaleX(-1);
+  filter: FlipH; }
+
+.v-align-content {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center; }

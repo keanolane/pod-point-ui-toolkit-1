@@ -112,3 +112,12 @@
 		&.is-open { @include slideDownActive(1s, 3000px); }
 	}
 }
+
+.flip-x {
+	transform: scaleX(-1);
+	filter: FlipH;
+}
+
+.v-align-content {
+	@include vertical-align;
+}

@@ -4,17 +4,6 @@
 
 .ticker-list {
 	@include padding(20px null 10px null);
-	margin-right: -80px;
-
-	li {
-		width: 230px;
-		@include padding(null 40px null 0);
-		@include margin(null 40px null 0);
-		border-right: 1px solid white;
-		&:last-child {
-			border-right: none;
-		}
-	}
 }
 .ticker {
 	display: inline-block;
