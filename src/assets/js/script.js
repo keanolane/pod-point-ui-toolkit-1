@@ -26,6 +26,7 @@ import claimOlev from './modules/claim-olev';
 import claimDealerDiscount from './modules/claim-dealer-discount';
 import basket from './modules/basket';
 import inlineSvg from './modules/inline-svg';
+import ticker from './modules/ticker';
 
 
 import { initAutocomplete, geolocate, fillInAddress } from './modules/address-lookup';
@@ -65,6 +66,7 @@ dom.whenReady(() => {
             claimDealerDiscount,
             basket,
             chat,
+            ticker,
         })
     });
 });

@@ -142,11 +142,15 @@
 	
 	var _inlineSvg2 = _interopRequireDefault(_inlineSvg);
 	
+	var _ticker = __webpack_require__(42);
+	
+	var _ticker2 = _interopRequireDefault(_ticker);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(42);
+	__webpack_require__(43);
 	
 	window.initAutocomplete = _addressLookup.initAutocomplete;
 	window.geolocate = _addressLookup.geolocate;
@@ -182,7 +186,8 @@
 	            claimOlev: _claimOlev2.default,
 	            claimDealerDiscount: _claimDealerDiscount2.default,
 	            basket: _basket2.default,
-	            chat: _chat2.default
+	            chat: _chat2.default,
+	            ticker: _ticker2.default
 	        })
 	    });
 	});
@@ -19316,6 +19321,52 @@
 
 /***/ },
 /* 42 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	// import $ from "jquery";
+	// import FlipClock from "flipclock/compiled/flipclock.js";
+	
+	var instances = [];
+	
+	var Ticker =
+	
+	/**
+	 * Creates a new ticker element.
+	 *
+	 * @param element
+	 */
+	function Ticker(element) {
+	    _classCallCheck(this, Ticker);
+	
+	    this.element = element;
+	
+	    // var clock = $(element).FlipClock(100, {
+	    //     clockFace: 'Counter'
+	    // });
+	
+	    // setTimeout(function() {
+	    //     setInterval(function() {
+	    //         clock.increment();
+	    //     }, 1000);
+	    // });
+	};
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new Ticker(element));
+	    }
+	};
+
+/***/ },
+/* 43 */
 /***/ function(module, exports) {
 
 	"use strict";
