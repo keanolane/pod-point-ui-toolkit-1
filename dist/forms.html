@@ -270,59 +270,133 @@
 	<script src="https://d3js.org/d3.v3.min.js"></script>
 	<script src="https://d3js.org/queue.v1.min.js"></script>
 	<script src="https://d3js.org/topojson.v1.min.js"></script>
+	<script src="assets/js/data/chargeData.js"></script>
 	<script src="assets/js-plugins/gridmap.js"></script>
 
 	<script>
-
 		var mapElement = document.querySelector("#gridmap");
+		var markerHolder = document.getElementById('markerHolder');
 
 		if (mapElement) {
-			var width = 500,
-			height = 600;
+			var timeDelay = 3500; // time in milliseconds between new charges appearing on the map
+			var mapWidth = 460;
+			var mapHeight = 267; // these values set the physical size of the map on the page
+			var mapDotStepSize = 6; // this sets size of the map dots
+			var mapLonLeft = -10.65; // enter the longitude in degrees on left edge of map, by comparing with Google Maps
+			var mapLonRight = 20.01; // enter the longitude in degrees on right edge of map
+			var mapLatBottom = 49.3; // enter the latitude in degrees on bottom edge of map
+			var lastHighlightedDot = [];
 
-			var projection = d3.geo.albers()
-			.center([0, 55.4])
-			.rotate([4.4, 0])
-			.parallels([50, 60])
-			.scale(2500)
-			.translate([width / 2, height / 2]),
-			path = d3.geo.path().projection(projection);
+			// these values set scale and boundaries of the map
+			var s = 1342, t = [168, 1382];
+
+			var projection = d3.geo.azimuthalEqualArea().scale(s).translate(t).clipAngle(180).precision(1),
+	        path = d3.geo.path().projection(projection);
 
 			queue()
-			.defer(d3.json, "assets/js/data/geo-data/uk.json")
-			.await(ready);
+				.defer(d3.json, "assets/js/data/geo-data/eu.json")
+				.await(ready);
 
 			getRandomInt = function(min, max) {
-			return Math.floor(Math.random() * (max - min + 1)) + min
+				return Math.floor(Math.random() * (max - min + 1)) + min
 			}
 
-			function ready(error, uk) {
+			function ready(error, eu) {
+				// var features =  topojson.feature(us, us.objects.counties).features;
+				var features =  topojson.feature(eu, eu.objects.europe).features;
+				// generate some random data
+				var data = d3.map(); // data is a d3.map !!
+				var j;
+				for (j = 0, len = features.length; j < len; j++) {
+					data.set(features[j]["id"], getRandomInt(1,5));
+				}
 
-			//var features =  topojson.feature(us, us.objects.counties).features;
-			var features =  topojson.feature(uk, uk.objects.subunits).features;
+				chart = new gridmap()
+					.data(data)
+					.width(mapWidth)
+					.height(mapHeight)
+					.key("id")
+					.side(mapDotStepSize) // change this to make dots larger or smaller
+					.isDensity(true)
+					.projection(projection)
+					.features(features)
+					.fill("#CCCCCC");
 
-			// generate some random data
-			var data = d3.map(); // data is a d3.map !!
-			var j;
-			for (j = 0, len = features.length; j < len; j++) {
-			data.set(features[j]["id"], getRandomInt(1,5));
+				d3.select("#gridmap").call(chart);
 			}
 
-			chart = new gridmap()
-			  .data(data)
-			  .width(width)
-			  .height(height)
-			  .key("id")
-			  .side(10)
-			  .isDensity(true)
-			  .projection(projection)
-			  .features(features)
-			  .fill("#CCCCCC");
+			function showMarker(x, y, kw, saving) {
+				var lastHighlightedDot = [x, y];
+				var mapPoint = document.querySelectorAll('circle[cx="' + x + '"][cy="' + y + '"]');
 
-			d3.select("#gridmap").call(chart);
+				if (mapPoint.length) {
+					mapPoint[0].classList.add('gridmap-dot-selected');
+					var kwText = document.getElementById('kw');
+					kwText.innerHTML = kw;
+
+					savingText = document.getElementById('saving');
+					savingText.innerHTML = saving;
+
+					markerHolder.style.left = (x - 32) + 'px';
+					markerHolder.style.top = (y - 32) + 'px';
+					markerHolder.style.visibility = 'visible';
+					markerHolder.classList.add('bulge-appear');
+				} else {
+					nextCharge();
+				}
+			}
+
+			function hideMarker() {
+				if (lastHighlightedDot[0]) {
+					mapPoint = document.querySelectorAll('circle[cx="' + lastHighlightedDot[0] + '"][cy="' + lastHighlightedDot[1] + '"]');
+					if (mapPoint.length) {
+						mapPoint[0].classList.remove('gridmap-dot-selected');
+					}
+				}
+				markerHolder.classList.remove('bulge-appear');
+				markerHolder.style.visibility = 'hidden';
+				void markerHolder.offsetWidth; // workaround to force browser to reflow so bulge animation class works again next time
+				lastHighlightedDot = [];
+			}
+
+			Number.prototype.roundTo = function(num) {
+				var resto = this%num;
+				if (resto <= (num/2)) {
+					return this-resto;
+				} else {
+					return this+num-resto;
+				}
+			}
+
+			// adapted from http://stackoverflow.com/a/27313080
+			function convertLatLongToDot(latitude, longitude) {
+				var mapLonDelta = mapLonRight - mapLonLeft;
+				var mapLatBottomDegree = mapLatBottom * Math.PI / 180;
+				var x = (longitude - mapLonLeft) * (mapWidth / mapLonDelta);
+				latitude = latitude * Math.PI / 180;
+				var worldMapWidth = ((mapWidth / mapLonDelta) * 360) / (2 * Math.PI);
+				var mapOffsetY = (worldMapWidth / 2 * Math.log((1 + Math.sin(mapLatBottomDegree)) / (1 - Math.sin(mapLatBottomDegree))));
+				var y = mapHeight - ((worldMapWidth / 2 * Math.log((1 + Math.sin(latitude)) / (1 - Math.sin(latitude)))) - mapOffsetY);
+				var dotX = x.roundTo(mapDotStepSize);
+				var dotY = y.roundTo(mapDotStepSize);
+
+				return [dotX, dotY];
+			}
+
+			function showChargeOnMap(latitude, longitude, kw, saving) {
+				var dotCoords = convertLatLongToDot(latitude, longitude);
+				showMarker(dotCoords[0], dotCoords[1], kw, saving);
+			}
+
+			function nextCharge() {
+				hideMarker();
+				var charge = chargesData[Math.floor(Math.random() * chargesData.length)];
+				showChargeOnMap(charge[0], charge[1], charge[2], charge[3]);
+			}
+
+			// setInterval(nextCharge, timeDelay);
+
 		}
-	}
-
 </script>
 
 </body>

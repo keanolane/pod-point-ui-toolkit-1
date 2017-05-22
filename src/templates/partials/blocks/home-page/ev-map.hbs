@@ -1,5 +1,5 @@
 <section class="bg--light-gray">
-	<div class="container">
+	<div class="container rel">
 		<div class="content-block">
 			<div class="grid-wrap">
 				<div class="grid-row">
@@ -23,15 +23,15 @@
 							<button class="button m-t-lg">Find a chargepoint</button>
 						</div>
 					</div>
-					<div class="grid-col grid-col--md-6 text-center text-left-md">
-						<div class="text-center ev-map-wrap">
-							<div class="ev-map inline-block" id="gridmap"></div>
-							<img class="ev-map-wrap__pulse" src="assets/img/illustrations/map-pulse.svg" alt="">
-							<div class="ev-map-wrap__labels">
-								<div class="label label--gray"><svg><use xlink:href="#general--charge"/></svg>Just charged 34kW</div>
-								<div class="label"><svg><use xlink:href="#general--money"/></svg>Saved £15.68</div>
-							</div>
-						</div>
+				</div>
+			</div>
+			<div class="ev-map-wrap">
+				<div class="ev-map inline-block" id="gridmap"></div>
+				<div class="ev-map-wrap__markers" id="markerHolder">
+					<img id="marker" class="ev-map-wrap__pulse rotate" src="assets/img/illustrations/map-pulse.svg" alt="">
+					<div id="markerText" class="ev-map-wrap__labels">
+						<div id="kwBubble" class="label label--gray"><svg><use xlink:href="#general--charge"/></svg>Just charged <span id="kw"></span>kW</div>
+						<div id="savingBubble" class="label"><svg><use xlink:href="#general--money"/></svg>Saved <span id="saving"></span></div>
 					</div>
 				</div>
 			</div>

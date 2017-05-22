@@ -3,26 +3,27 @@
 // =============================================================================
 
 .ev-map-wrap {
-	overflow: hidden;
-	position: relative;
-	width: 100%;
-	height: 470px;
+	&__markers {
+		@include position(absolute, 50% null null 61%);
+	}
 	&__labels {
+		float: left;
 		text-align: left;
-		width: 300px;
-		@include position(absolute, 60% null null 58%);
+		margin-left: 10px;
+		width: 250px;
 	}
 	&__pulse {
-		@include position(absolute, 54% null null 50%);
+		float: left;
 		width: 100px;
 	}
 }
 .ev-map {
 	display: block;
-	width: 500px;
-	height: 700px;
-	@include position(absolute, -100px null null 50%);
-	margin-left: -250px;
+	@include position(absolute, 0 -20% null null);
+	svg {
+		width: 700px;
+		height: 553px;
+	}
 	circle {
 		transform-origin: 50% 50%;
 		transform: scale(1,1);
