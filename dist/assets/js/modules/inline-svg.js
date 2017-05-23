@@ -37,9 +37,7 @@ var inlineSvg = function () {
         value: function makeInline() {
             _inlineSvg2.default.init({
                 svgSelector: 'img.svg', // the class attached to all images that should be inlined
-                initClass: 'js-inlinesvg' }, function () {
-                console.log('All SVGs inlined');
-            });
+                initClass: 'js-inlinesvg' }, function () {});
         }
     }]);
 

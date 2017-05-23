@@ -1,8 +1,7 @@
-(function () {
+import * as d3 from "d3";
 
-  var mapElement = document.querySelector("#gridmap");
-
-  if (mapElement) {
+export function Gridmap() {
+  (function() {
     var flat, isInside, root, subGrid;
 
     root = typeof exports !== "undefined" && exports !== null ? exports : this;
@@ -254,5 +253,5 @@
       };
       return chart;
     };
-  }
-}).call(this);
+  }).call(this);
+};

@@ -11,6 +11,7 @@
     "@pod-point/utils": "^1.5.0",
     "bourbon": "^4.3.4",
     "bourbon-neat": "^2.0.0",
+    "d3": "^4.9.1",
     "dom-delegate": "^2.0.3",
     "dropkickjs": "^2.1.10",
     "exports-loader": "^0.6.4",
@@ -23,6 +24,7 @@
     "sticky-js": "^1.2.0",
     "superagent": "^1.8.3",
     "tiny-slider": "^1.4.1",
+    "topojson": "^3.0.0",
     "wavestation": "^1.0.1"
   },
   "devDependencies": {

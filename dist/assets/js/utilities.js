@@ -16,6 +16,8 @@ exports.openPanel = openPanel;
 exports.closePanel = closePanel;
 exports.allRadiosSelected = allRadiosSelected;
 exports.aRadioContains = aRadioContains;
+exports.getRandomInt = getRandomInt;
+exports.roundNumberTo = roundNumberTo;
 
 var _dropkickjs = require('dropkickjs');
 
@@ -154,4 +156,17 @@ function aRadioContains(radios, specifiedClass) {
     }
   });
   return containsClass;
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function roundNumberTo(num) {
+  var resto = this % num;
+  if (resto <= num / 2) {
+    return this - resto;
+  } else {
+    return this + num - resto;
+  }
 }

@@ -18,10 +18,6 @@ gulp.task('copyJS', () => {
 			config.src.jsData + '**/*.json',
 		])
 	.pipe(gulp.dest(config.dist.jsData));
-	gulp.src([
-			config.src.jsPlugins + '*.js',
-		])
-	.pipe(gulp.dest(config.dist.jsPlugins));
 });
 
 gulp.task('copyImages', () => {

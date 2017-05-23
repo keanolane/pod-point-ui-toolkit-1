@@ -1,8 +1,18 @@
-(function () {
+"use strict";
 
-  var mapElement = document.querySelector("#gridmap");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Gridmap = Gridmap;
 
-  if (mapElement) {
+var _d = require("d3");
+
+var d3 = _interopRequireWildcard(_d);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function Gridmap() {
+  (function () {
     var flat, isInside, root, subGrid;
 
     root = typeof exports !== "undefined" && exports !== null ? exports : this;
@@ -254,5 +264,5 @@
       };
       return chart;
     };
-  }
-}).call(this);
+  }).call(this);
+};
