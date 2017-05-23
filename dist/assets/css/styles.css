@@ -3800,61 +3800,61 @@ button {
   .label--gray {
     background-color: #b3b3b3; }
 
-.home-hero {
+.hero {
   overflow: hidden; }
-  .home-hero .content-block {
+  .hero .content-block {
     min-height: 300px; }
     @media (min-width: 50em) {
-      .home-hero .content-block {
+      .hero .content-block {
         min-height: 420px; } }
-  .home-hero__content {
+  .hero__content {
     max-width: 300px; }
     @media (min-width: 50em) {
-      .home-hero__content {
+      .hero__content {
         max-width: 500px; } }
-  .home-hero .network-right,
-  .home-hero .network-left {
+  .hero--home .network-right,
+  .hero--home .network-left {
     display: none;
     position: absolute;
     top: 0;
     width: 355px;
     display: none; }
     @media (min-width: 24em) {
-      .home-hero .network-right,
-      .home-hero .network-left {
+      .hero--home .network-right,
+      .hero--home .network-left {
         display: block; } }
     @media (min-width: 50em) {
-      .home-hero .network-right,
-      .home-hero .network-left {
+      .hero--home .network-right,
+      .hero--home .network-left {
         width: 500px; } }
-  .home-hero .network-right {
+  .hero--home .network-right {
     left: 85%; }
     @media (min-width: 40em) {
-      .home-hero .network-right {
+      .hero--home .network-right {
         left: 75%; } }
     @media (min-width: 50em) {
-      .home-hero .network-right {
+      .hero--home .network-right {
         left: 80%; } }
     @media (min-width: 64em) {
-      .home-hero .network-right {
+      .hero--home .network-right {
         left: 75%; } }
     @media (min-width: 100em) {
-      .home-hero .network-right {
+      .hero--home .network-right {
         right: 0;
         left: auto; } }
-  .home-hero .network-left {
+  .hero--home .network-left {
     right: 85%; }
     @media (min-width: 40em) {
-      .home-hero .network-left {
+      .hero--home .network-left {
         right: 75%; } }
     @media (min-width: 50em) {
-      .home-hero .network-left {
+      .hero--home .network-left {
         right: 80%; } }
     @media (min-width: 64em) {
-      .home-hero .network-left {
+      .hero--home .network-left {
         right: 75%; } }
     @media (min-width: 100em) {
-      .home-hero .network-left {
+      .hero--home .network-left {
         right: auto;
         left: 0; } }
 
