@@ -642,9 +642,10 @@ h6, .h6 {
       font-size: 2.25rem; } }
 
 strong,
-.bold {
+.bold,
+.bold p {
   font-weight: normal;
-  font-family: "Quicksand Bold", sans-serif; }
+  font-family: "Quicksand Bold", sans-serif !important; }
 
 .green,
 .primary {
@@ -699,13 +700,15 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
 .list--small,
 .list--links,
 .list--inline,
-.icons-list {
+.icons-list,
+.list--ticks {
   padding: 0;
   margin: 0; }
   .list--small li,
   .list--links li,
   .list--inline li,
-  .icons-list li {
+  .icons-list li,
+  .list--ticks li {
     list-style: none; }
 
 .list--small {
@@ -729,6 +732,35 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
 .list--links li a {
   color: inherit; }
 
+.list--ticks li {
+  margin: 0;
+  font-family: "Quicksand Regular", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  padding-bottom: 0.5em;
+  position: relative;
+  padding-bottom: 10px;
+  padding-left: 30px; }
+  @media (min-width: 50em) {
+    .list--ticks li {
+      font-size: 1rem; } }
+  .list--ticks li:last-child {
+    padding-bottom: 0; }
+  @media (min-width: 50em) {
+    .list--ticks li {
+      padding-bottom: 20px; } }
+  .list--ticks li:last-child {
+    padding-bottom: 0; }
+  .list--ticks li:before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve"><path fill="#8CC63F" d="M168.5,472c-4,0-7.9-1.7-10.7-4.7l-141-154c-5.4-5.9-5-15.1,0.9-20.5c5.8-5.4,15.1-5,20.5,0.9l129.1,141L462.2,35c4.7-6.4,13.8-7.7,20.2-3.1c6.4,4.7,7.8,13.8,3.1,20.2L180.1,466.1c-2.6,3.5-6.6,5.6-10.9,5.8C169,472,168.8,472,168.5,472z"/></svg>');
+    background-size: cover;
+    width: 18px;
+    height: 18px; }
+
 .list--inline {
   margin-right: -0.9375rem;
   margin-left: -0.9375rem; }
@@ -742,6 +774,13 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
     .list--inline--sm-gutter li {
       margin-right: 0.3125rem;
       margin-left: 0.3125rem; }
+  .list--inline--small {
+    margin-bottom: -0.625rem; }
+    .list--inline--small li {
+      margin-bottom: 0.625rem; }
+      .list--inline--small li img {
+        height: 2.625rem;
+        width: auto; }
   .list--inline--tiny {
     margin-bottom: -0.625rem; }
     .list--inline--tiny li {
@@ -2349,6 +2388,9 @@ button {
 .bg--light-gray {
   background-color: #f2f2f2; }
 
+.bg--sky-blue {
+  background-color: #deeefc; }
+
 .bg--wall {
   background-color: #f9fafa;
   background-image: url(../img/backgrounds/wall.png);
@@ -2372,7 +2414,7 @@ button {
     bottom: 0;
     left: 0;
     background-color: #4d4d4d;
-    opacity: 0.85;
+    opacity: 0.65;
     width: 100%;
     height: 100%; }
 
@@ -4354,6 +4396,4 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center; }
+      align-items: center; }

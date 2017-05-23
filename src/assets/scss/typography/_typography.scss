@@ -54,9 +54,10 @@ h6, .h6 { @include font-style-h6; }
 }
 
 strong,
-.bold {
+.bold,
+.bold p {
 	font-weight: normal;
-	font-family: $font-family-bold;
+	font-family: $font-family-bold!important;
 }
 .green,
 .primary {

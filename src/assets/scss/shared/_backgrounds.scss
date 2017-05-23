@@ -21,6 +21,9 @@
 .bg--light-gray {
 	background-color: $gray-light;
 }
+.bg--sky-blue {
+	background-color: $sky-blue;
+}
 .bg--wall {
 	background-color: $gray-very-light;
 	background-image: url(../img/backgrounds/wall.png);
@@ -41,7 +44,7 @@
 		content: '';
 		@include position(absolute, 0 0 0 0);
 		background-color: $gray-very-dark;
-		opacity: 0.85;
+		opacity: 0.65;
 		width: 100%;
 		height: 100%;
 	}
