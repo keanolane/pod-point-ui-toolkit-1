@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Tick">
+
+    <title>Tick</title>
+
+    <!-- preset page, only needed for demo purposes -->
+    <link rel="stylesheet" href="./preset.css">
+    
+    <!-- load tick styles -->
+    <link rel="stylesheet" href="./tick.css">
+    
+</head>
+<body>
+
+<!-- start of preset snippet -->
+
+<div>
+
+    <style>
+
+        body {
+            background: #1da1f2;
+            color: #fff;
+        }
+
+        .tick {
+            font-size: 1.5em;
+            line-height: 2;
+        }
+
+        .tick-flip {
+            line-height:1.5;
+        }
+        
+        .tick-flip-panel {
+            color:#333;
+            background:#fff;
+        }
+        
+        .tick-group {
+            white-space:nowrap;
+        }
+        
+    </style>
+
+    <div class="tick"
+         data-value="followers:3025, year:2017"
+         data-did-init="handleTickInit">
+
+        Reached <span class="tick-group" data-repeat="true" data-key="followers"><span data-view="flip"></span></span> new followers since start of <span class="tick-group" data-repeat="true" data-key="year"><span data-view="flip"></span></span>
+        
+    </div>
+
+    <script>
+        var followers = 3025;
+        var year = (new Date()).getFullYear();
+        function handleTickInit(tick) {
+            Tick.helper.interval(function(){
+                followers += Math.round(Math.random());
+                tick.value = {
+                    followers: followers,
+                    year: year
+                }
+            }, 2000);
+            
+        }
+    </script>
+    
+    
+
+</div>
+
+<!-- end of preset snippet -->
+
+<!-- load tick -->
+<script src="./tick.js"></script>
+
+</body>
+</html>

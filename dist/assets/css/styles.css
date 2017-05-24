@@ -2642,13 +2642,13 @@ button {
       list-style: none; }
     .global-nav ul li {
       position: relative;
-      border-bottom: 1px solid #e2e2e2;
       margin: 0;
       font-family: "Quicksand Regular", sans-serif;
       font-size: 0.875rem;
       line-height: 1.5;
       font-size: 0.75rem;
-      line-height: 1.2; }
+      line-height: 1.2;
+      border-bottom: 1px solid #e2e2e2; }
       @media (min-width: 50em) {
         .global-nav ul li {
           font-size: 1rem; } }
@@ -2662,12 +2662,12 @@ button {
           position: static;
           border-bottom: none;
           display: inline-block;
-          margin-right: 10px;
-          margin-left: 10px; } }
+          padding-right: 10px;
+          padding-left: 10px; } }
       @media (min-width: 64em) {
         .global-nav ul li {
-          margin-right: 20px;
-          margin-left: 20px; } }
+          padding-right: 20px;
+          padding-left: 20px; } }
       .global-nav ul li a:not(.plus-minus-toggle) {
         padding: 15px 0;
         color: #333;
@@ -2729,7 +2729,7 @@ button {
         .global-nav > ul > li.has-sub-nav .plus-minus-toggle {
           display: none; } }
     @media (min-width: 50em) {
-      .global-nav > ul > li:hover, .global-nav > ul > li.is-active {
+      .global-nav > ul > li:hover > a, .global-nav > ul > li.is-active > a {
         border-bottom: 2px solid #8CC63F; } }
   .global-nav__sub-nav {
     width: 100%;

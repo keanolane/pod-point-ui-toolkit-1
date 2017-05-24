@@ -27,8 +27,8 @@
 		@include remove-list-styles;
 		li {
 			position: relative;
-			border-bottom: $border-thin;
 			@include font-small;
+			border-bottom: $border-thin;
 			&:last-child {
 				border-bottom: none;
 			}
@@ -36,10 +36,10 @@
 				position: static;
 				border-bottom: none;
 				display: inline-block;
-				@include margin(null 10px);
+				@include padding(null 10px);
 			}
 			@include large-and-up {
-				@include margin(null 20px);
+				@include padding(null 20px);
 			}
 			a:not(.plus-minus-toggle) {
 				@include padding(15px 0);
@@ -120,7 +120,9 @@
 			@include medium-and-up {
 				&:hover,
 				&.is-active {
-					border-bottom: 2px solid $primary-color;
+					> a {
+						border-bottom: 2px solid $primary-color;
+					}
 				}
 			}
 		}
