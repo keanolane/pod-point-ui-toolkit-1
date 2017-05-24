@@ -108,7 +108,7 @@ button {
 	display: inline-block;
 	color: $font-color-base;
 	font-family: $font-family-bold;
-	border-bottom: 1px solid $font-color-base;
+	text-decoration: underline;
 
 	svg {
 		@include margin(null 5px);

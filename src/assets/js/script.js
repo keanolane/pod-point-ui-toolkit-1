@@ -25,15 +25,15 @@ import claimOlev from './modules/claim-olev';
 import claimDealerDiscount from './modules/claim-dealer-discount';
 import basket from './modules/basket';
 import inlineSvg from './modules/inline-svg';
-import ticker from './modules/ticker';
+import flipCounter from './modules/flip-counter';
 import evMap from './modules/ev-map';
-
 
 import { initAutocomplete, geolocate, fillInAddress } from './modules/address-lookup';
 
 window.initAutocomplete = initAutocomplete;
 window.geolocate = geolocate;
 window.fillInAddress = fillInAddress;
+window.handleTickInit = flipCounter.handleTickInit;
 
 window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
 isTouchDevice ? addClass(document.body, 'is-touch') : addClass(document.body, 'is-desktop')
@@ -65,7 +65,7 @@ dom.whenReady(() => {
             claimOlev,
             claimDealerDiscount,
             basket,
-            ticker,
+            flipCounter,
             evMap,
         })
     });

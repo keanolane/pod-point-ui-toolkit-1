@@ -1,3 +1,4 @@
+@import url(/assets/plugins/flip-counter/flip/tick.css);
 html,
 body {
   width: 100%; }
@@ -437,7 +438,7 @@ table {
       border-bottom: none; }
     .grid-row .grid-col--no-space--md {
       margin-bottom: 0; } }
-  @media (min-width: 64em) {
+  @media (min-width: 68em) {
     .grid-row .grid-col--lg-12 {
       box-sizing: border-box;
       -ms-flex: 0 0 calc( 100% - 20px);
@@ -2037,7 +2038,7 @@ button {
   display: inline-block;
   color: #333;
   font-family: "Quicksand Bold", sans-serif;
-  border-bottom: 1px solid #333; }
+  text-decoration: underline; }
   .setback-button svg {
     margin-right: 5px;
     margin-left: 5px; }
@@ -2510,7 +2511,7 @@ button {
       .is-minified .logo-main {
         top: 9px;
         width: 120px; } }
-  @media (min-width: 64em) {
+  @media (min-width: 68em) {
     .logo-main {
       top: 22px;
       width: 180px; }
@@ -2664,7 +2665,7 @@ button {
           display: inline-block;
           padding-right: 10px;
           padding-left: 10px; } }
-      @media (min-width: 64em) {
+      @media (min-width: 68em) {
         .global-nav ul li {
           padding-right: 20px;
           padding-left: 20px; } }
@@ -3069,54 +3070,6 @@ button {
       text-indent: -9999px; }
     .slick-dots li.slick-active button {
       background-color: #8CC63F; }
-
-.ticker-list {
-  padding-top: 20px;
-  padding-bottom: 10px; }
-
-.ticker {
-  display: inline-block; }
-  .ticker span {
-    box-sizing: content-box;
-    margin: 0;
-    font-family: "Quicksand Regular", sans-serif;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    font-family: "Quicksand Bold", sans-serif;
-    display: inline-block;
-    background-color: white;
-    color: #333;
-    text-align: center;
-    height: 1.25rem;
-    min-width: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    margin-right: 2px;
-    margin-bottom: 10px;
-    line-height: 1.25rem; }
-    @media (min-width: 50em) {
-      .ticker span {
-        font-size: 1rem; } }
-    .ticker span:last-child {
-      margin-right: 0; }
-
-.ticker-desc {
-  display: inline-block;
-  margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  font-size: 0.75rem;
-  line-height: 1.2;
-  font-family: "Quicksand Bold", sans-serif;
-  text-transform: uppercase;
-  margin-left: 5px; }
-  @media (min-width: 50em) {
-    .ticker-desc {
-      font-size: 1rem; } }
-  @media (min-width: 50em) {
-    .ticker-desc {
-      font-size: 0.875rem; } }
 
 .card {
   display: block;
@@ -3859,7 +3812,7 @@ button {
     @media (min-width: 50em) {
       .hero--home .network-right {
         left: 80%; } }
-    @media (min-width: 64em) {
+    @media (min-width: 68em) {
       .hero--home .network-right {
         left: 75%; } }
     @media (min-width: 100em) {
@@ -3874,13 +3827,53 @@ button {
     @media (min-width: 50em) {
       .hero--home .network-left {
         right: 80%; } }
-    @media (min-width: 64em) {
+    @media (min-width: 68em) {
       .hero--home .network-left {
         right: 75%; } }
     @media (min-width: 100em) {
       .hero--home .network-left {
         right: auto;
         left: 0; } }
+
+.tick {
+  font-size: 1.5em;
+  line-height: 2;
+  margin-right: -15px;
+  margin-left: -15px; }
+
+.tick-flip {
+  line-height: 1.5; }
+
+.tick-flip-panel {
+  color: #333;
+  background: #fff; }
+
+@media (min-width: 50em) {
+  .tick-group-wrap {
+    margin-right: 15px;
+    margin-left: 15px; } }
+
+.tick-group {
+  white-space: nowrap; }
+  .tick-group__desc {
+    display: block;
+    margin: 0;
+    font-family: "Quicksand Regular", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    font-family: "Quicksand Bold", sans-serif;
+    text-transform: uppercase; }
+    @media (min-width: 50em) {
+      .tick-group__desc {
+        font-size: 1rem; } }
+    @media (min-width: 50em) {
+      .tick-group__desc {
+        font-size: 0.875rem; } }
+    @media (min-width: 24em) {
+      .tick-group__desc {
+        display: inline-block; } }
 
 .m-none {
   margin: 0 !important; }
@@ -4179,7 +4172,7 @@ button {
     width: 100% !important;
     max-width: 100% !important; } }
 
-@media (min-width: 64em) {
+@media (min-width: 68em) {
   .text-center-lg {
     text-align: center !important; }
   .text-right-lg {

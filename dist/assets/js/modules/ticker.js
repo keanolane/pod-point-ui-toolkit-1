@@ -4,10 +4,13 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _tick = require("../../plugins/flip-counter/flip/tick.js");
 
-// import $ from "jquery";
-// import FlipClock from "flipclock/compiled/flipclock.js";
+var _tick2 = _interopRequireDefault(_tick);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instances = [];
 
@@ -22,16 +25,6 @@ function Ticker(element) {
     _classCallCheck(this, Ticker);
 
     this.element = element;
-
-    // var clock = $(element).FlipClock(100, {
-    //     clockFace: 'Counter'
-    // });
-
-    // setTimeout(function() {
-    //     setInterval(function() {
-    //         clock.increment();
-    //     }, 1000);
-    // });
 };
 
 exports.default = {
