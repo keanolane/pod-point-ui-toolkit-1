@@ -61,6 +61,40 @@ $-default-gutter: -20px;
 		}
 	}
 
+	@include small-and-up {
+		.grid-col--sm-12 {
+			@include grid-col($col: 12, $gutter: $default-gutter);
+		}
+		.grid-col--sm-8 {
+			@include grid-col($col: 8, $gutter: $default-gutter);
+		}
+		.grid-col--sm-6 {
+			@include grid-col($col: 6, $gutter: $default-gutter);
+		}
+		.grid-col--sm-3 {
+			@include grid-col($col: 3, $gutter: $default-gutter);
+		}
+		.grid-col--sm-4 {
+			@include grid-col($col: 4, $gutter: $default-gutter);
+		}
+		.grid-col--sm-right {
+			order: 10;
+		}
+		.grid-col--sm-separator {
+			padding-right: 20px;
+			padding-bottom: 0;
+			margin-bottom: $default-gutter;
+			@include svg-bg-divider-repeater();
+			background-repeat: repeat-y;
+			background-position: center right;
+			background-size: 6px;
+			border-bottom: none;
+		}
+		.grid-col--no-space--sm {
+			margin-bottom: 0;
+		}
+	}
+
 	@include medium-and-up {
 		.grid-col--md-12 {
 			@include grid-col($col: 12, $gutter: $default-gutter);

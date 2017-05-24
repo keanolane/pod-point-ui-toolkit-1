@@ -8,17 +8,37 @@ $card-padding-base: 20px;
 	display: block;
 	background-color: white;
 	border-radius: $border-radius-base;
-	border: 2px solid $gray-keyline-very-light;
+	border: $border-thin-dark;
 	color: $font-color-base;
+	box-shadow: $box-shadow-subtle;
 	@include padding($card-padding-base);
-
-	hr {
-		@include margin(10px null);
-		opacity: 0.5;
+	&.rich-text {
+		ul {
+			padding-left: 20px;
+			li {
+				padding-left: 0;
+			}
+		}
+		hr {
+			@include margin(20px null);
+		}
 	}
-	p, h1, h2, h3, h4, h5, h6 {
-		& + hr {
-			margin-top: 5px;
+	&--options {
+		position: relative;
+		&:before {
+			content: '';
+			@include position(absolute, -6px null null -1px);
+			z-index: -1;
+			width: calc(100% + 2px);
+			height: 10px;
+			border-top-right-radius: $border-radius-base;
+			border-top-left-radius: $border-radius-base;
+			background-color: $gray-keyline-very-light;
+		}
+		&--recommended {
+			&:before {
+				background-color: $primary-color;
+			}
 		}
 	}
 	&--more-pad {
@@ -33,49 +53,6 @@ $card-padding-base: 20px;
 	&--highlight {
 		border: solid $primary-color 2px;
 	}
-	&:not(.card--standout-sash) {
-		.card__recommended span {
-			display: none;
-		}
-	}
-	&--standout,
-	&--standout-sash {
-		background-color: $gray-very-light;
-		border-color: $gray-keyline;
-		.card__recommended {
-			position: relative;
-			span {
-				@include font-base;
-				display: block;
-				color: $primary-color;
-				font-family: $font-family-bold;
-				margin-bottom: -20px;
-			}
-		}
-	}
-	&--sash,
-	&--standout-sash {
-		position: relative;
-		&:before {
-			content: '';
-			@include svg-bg-star(white);
-			background-size: cover;
-			width: 10px;
-			height: 10px;
-			z-index: 1;
-			text-align: center;
-			@include position(absolute, 3px 3px null null);
-		}
-		&:after {
-			content: '';
-			@include position(absolute, 0 0 null null);
-			width: 0;
-			height: 0;
-			border-style: solid;
-			border-width: 0 30px 30px 0;
-			border-color: transparent $primary-color transparent transparent;
-		}
-	}
 	&--informative {
 		border: $border-base;
 		@include padding(30px);
@@ -87,52 +64,11 @@ $card-padding-base: 20px;
 	}
 }
 
-.card-set-standout {
-	@include medium-and-up {
-		.grid-row {
-			@include margin(7px null);
-		}
-		.card--standout,
-		.card--standout-sash {
-			transform: scale(1.07, 1.07);
-		}
-	}
-}
 .cards-same-height {
 	.card {
 		min-height: calc(100% - 40px);
 		&--more-pad {
 			min-height: calc(100% - 80px);
-		}
-	}
-}
-
-
-@media only screen and (max-width: $medium-screen) {
-	.cards-merged-mobile {
-		.grid-row {
-			background-color: white;
-			border-radius: $border-radius-base;
-			border: 2px solid $gray-keyline-very-light;
-			@include margin(null auto 30px auto);
-			max-width: $max-width-md;
-
-			.grid-col {
-				flex: 100%;
-				margin: 0;
-				.card {
-					border: none;
-					border-radius: 0;
-					border-bottom: $border-thin;
-					@include padding(null 0);
-					@include margin(null $card-padding-base);
-				}
-				&:last-child {
-					.card {
-						border-bottom: none;
-					}
-				}
-			}
 		}
 	}
 }
