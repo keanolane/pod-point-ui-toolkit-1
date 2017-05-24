@@ -55,6 +55,11 @@ $typography-vertical-spacing: 0.5em;
 	img + h1, img + h2, img + h3, img + h4, img + h5, img + h6 {
 		padding-top: $typography-vertical-spacing * 2;
 	}
+	a {
+		color: inherit;
+		font-family: $font-family-bold;
+		text-decoration: underline;
+	}
 	&--featured {
 		@include font-style-large;
 		ul {

@@ -87,10 +87,8 @@ strong,
 }
 
 a {
-	color: $primary-color;
 	text-decoration: none;
 	transition: all 0.2s linear;
-
 	&:active,
 	&:focus,
 	&:hover {
@@ -100,6 +98,11 @@ a {
 	&:focus {
 		outline: none;
 	}
+}
+.a {
+	color: inherit;
+	font-family: $font-family-bold;
+	text-decoration: underline;
 }
 .color-base {
 	color: $font-color-base;
