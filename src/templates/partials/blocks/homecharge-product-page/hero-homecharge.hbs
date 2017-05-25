@@ -1,0 +1,76 @@
+<style>
+	.hero { background-image: url(assets/img/content/backgrounds/homecharge-hero/homecharge-hero-bg-500.jpg); }
+	@media (min-width: 480px) {
+		.hero { background-image: url(assets/img/content/backgrounds/homecharge-hero/homecharge-hero-bg-800.jpg); }
+	}
+	@media (min-width: 820px) {
+		.hero { background-image: url(assets/img/content/backgrounds/homecharge-hero/homecharge-hero-bg-1100.jpg); }
+	}
+	@media (min-width: 1280px) {
+		.hero { background-image: url(assets/img/content/backgrounds/homecharge-hero/homecharge-hero-bg-1300.jpg); }
+	}
+</style>
+
+<section class="hero bg--img-cover rel bg-img-overlay">
+	<div class="container">
+		<div class="content-block content-block--standout v-align-content">
+			<div class="hero__content max-width--lg">
+				<h1>Home charging</h1>
+				<div class="rich-text font-style-large bold">
+					<p>Fast, safe, easy and Wi-fi enabled. <br>The best way to charge your EV at home.</p>
+				</div>
+				<div class="buttons-container m-t-md">
+					<button class="button button--secondary" data-js-module="modal" data-modal="videoModal">Watch video</button>
+					<a href="checkout-step1.html" class="button">Buy now</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<!-- HIDDEN MODALS -->
+<div class="modal hidden fade-in" id="videoModal">
+	<a href="#" class="circle-icon circle-icon--close circle-icon--outlined-dark circle-icon--small-resp modal-close"><svg class="icon"><use xlink:href="#general--cross"/></svg></a>
+	<div class="modal__content">
+		<div class="panel">
+			<img class="img--resp img--rounded-corners max-width--xxl marg-center" src="assets/img/content/video-placeholders/homecharge-video-placeholder.jpg">
+			<div class="content-block">
+				<h2 class="panel__title">Pricing</h2>
+				<div class="panel__text-content" class="font-style-large">
+					<p>We offer competitive pricing across our range of home charging points with a generous standard installation package.</p>
+				</div>
+			</div>
+			<div class="grid-wrap">
+				<div class="grid-row">
+					<div class="grid-col grid-col--md-4">
+						<div class="card card--centered card--no-border marg-center max-width--md">
+							<h3>3.7kW</h3>
+							<img class="marg-center max-width--xs img--rounded-corners m-b-sm" src="assets/img/content/homecharge-products/homechargers.png">
+							<p>(Up to 15 miles RPH)<br>from <strong class="green">&pound;279*</strong></p>
+						</div>
+					</div>
+					<div class="grid-col grid-col--md-4">
+						<div class="card card--centered card--no-border marg-center max-width--md">
+							<h3>7kW</h3>
+							<img class="marg-center max-width--xs img--rounded-corners m-b-sm" src="assets/img/content/homecharge-products/homechargers.png">
+							<p>(Up to 30 miles RPH)<br>from <strong class="green">&pound;359*</strong></p>
+						</div>
+					</div>
+					<div class="grid-col grid-col--md-4">
+						<div class="card card--centered card--no-border marg-center max-width--md">
+							<h3>22kW</h3>
+							<img class="marg-center max-width--xs img--rounded-corners m-b-sm" src="assets/img/content/homecharge-products/homechargers.png">
+							<p>(Up to 80 miles RPH)<br>from <strong class="green">&pound;999*</strong></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href="checkout-step1.html" class="button m-t-xl">Buy now</a>
+
+			<p class="font-style-small m-t-xl text-left">*with government grant</p>
+
+		</div>
+	</div>
+</div>
