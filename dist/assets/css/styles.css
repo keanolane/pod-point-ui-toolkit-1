@@ -347,11 +347,7 @@ table {
     margin: 0 2.5px 5px; }
   .grid-row .grid-col--separator {
     padding-bottom: 40px;
-    margin-bottom: 40px;
-    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 3" style="enable-background:new 0 0 20 3;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#b3b3b3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:5;}</style><line class="st0" x1="19.9" y1="1.9" x2="0.1" y2="1.9"/></svg>');
-    background-repeat: repeat-x;
-    background-position: bottom center;
-    background-size: 42px; }
+    border-bottom: 1px solid #e2e2e2; }
   .grid-row .grid-col--no-space {
     margin-bottom: 0; }
   .grid-row--b-space-mobile .grid-col {
@@ -388,14 +384,8 @@ table {
       -ms-flex-order: 10;
           order: 10; }
     .grid-row .grid-col--sm-separator {
-      padding-right: 20px;
-      padding-bottom: 0;
-      margin-bottom: 20px;
-      background-image: url('data:image/svg+xml;utf8,<svg style="enable-background:new 0 0 3 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 3 20" version="1.1" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">.st0{fill:none;stroke:#b3b3b3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:5;}</style><line y1=".5" x2="1.5" x1="1.5" y2="20.2" class="st0"/></svg>');
-      background-repeat: repeat-y;
-      background-position: center right;
-      background-size: 6px;
-      border-bottom: none; }
+      border: none;
+      border-right: 1px solid #e2e2e2; }
     .grid-row .grid-col--no-space--sm {
       margin-bottom: 0; } }
   @media (min-width: 50em) {
@@ -428,14 +418,8 @@ table {
       -ms-flex-order: 10;
           order: 10; }
     .grid-row .grid-col--md-separator {
-      padding-right: 20px;
-      padding-bottom: 0;
-      margin-bottom: 20px;
-      background-image: url('data:image/svg+xml;utf8,<svg style="enable-background:new 0 0 3 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 3 20" version="1.1" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">.st0{fill:none;stroke:#b3b3b3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:5;}</style><line y1=".5" x2="1.5" x1="1.5" y2="20.2" class="st0"/></svg>');
-      background-repeat: repeat-y;
-      background-position: center right;
-      background-size: 6px;
-      border-bottom: none; }
+      border: none;
+      border-right: 1px solid #e2e2e2; }
     .grid-row .grid-col--no-space--md {
       margin-bottom: 0; } }
   @media (min-width: 68em) {
@@ -2451,11 +2435,11 @@ button {
   background-position: center center;
   background-size: cover; }
 
-.bg-img-dark-overlay {
+.bg-img-overlay {
   position: relative;
   color: white;
   z-index: 0; }
-  .bg-img-dark-overlay:after {
+  .bg-img-overlay:after {
     z-index: -1;
     content: '';
     position: absolute;
@@ -2467,6 +2451,9 @@ button {
     opacity: 0.65;
     width: 100%;
     height: 100%; }
+  .bg-img-overlay--black:after {
+    background-color: black;
+    opacity: 0.55; }
 
 .global-header-wrap {
   position: relative;

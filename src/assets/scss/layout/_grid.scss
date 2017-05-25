@@ -42,11 +42,7 @@ $-default-gutter: -20px;
 	.grid-col {
 		&--separator {
 			padding-bottom: 40px;
-			margin-bottom: 40px;
-			@include svg-bg-divider-repeater-horizontal();
-			background-repeat: repeat-x;
-			background-position: bottom center;
-			background-size: 42px;
+			border-bottom: $border-thin;
 		}
 		&--no-space {
 			margin-bottom: 0;
@@ -81,14 +77,8 @@ $-default-gutter: -20px;
 			order: 10;
 		}
 		.grid-col--sm-separator {
-			padding-right: 20px;
-			padding-bottom: 0;
-			margin-bottom: $default-gutter;
-			@include svg-bg-divider-repeater();
-			background-repeat: repeat-y;
-			background-position: center right;
-			background-size: 6px;
-			border-bottom: none;
+			border: none;
+			border-right: $border-thin;
 		}
 		.grid-col--no-space--sm {
 			margin-bottom: 0;
@@ -115,14 +105,8 @@ $-default-gutter: -20px;
 			order: 10;
 		}
 		.grid-col--md-separator {
-			padding-right: 20px;
-			padding-bottom: 0;
-			margin-bottom: $default-gutter;
-			@include svg-bg-divider-repeater();
-			background-repeat: repeat-y;
-			background-position: center right;
-			background-size: 6px;
-			border-bottom: none;
+			border: none;
+			border-right: $border-thin;
 		}
 		.grid-col--no-space--md {
 			margin-bottom: 0;
