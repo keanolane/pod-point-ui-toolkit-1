@@ -22,9 +22,10 @@ gulp.task('copyJS', () => {
 
 gulp.task('copyImages', () => {
 	return gulp.src([
-			config.src.img + '**/*.*',
+			config.src.img + '**/*.png',
+			config.src.img + '**/*.jpg'
 		])
 	.pipe(gulp.dest(config.dist.img));
 });
 
-gulp.task('copyAll', ['copyMain', 'copyJS', 'copyImages']);
+gulp.task('copyAll', ['copyMain', 'copyJS', 'copyImages', 'svg-min']);
