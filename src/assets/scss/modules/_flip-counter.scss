@@ -31,7 +31,7 @@
   &__desc {
     display: block;
     @include font-small;
-    font-family: $font-family-bold;
+    font-weight: $font-weight-bold;
     text-transform: uppercase;
     @include xsmall-and-up {
       display: inline-block;

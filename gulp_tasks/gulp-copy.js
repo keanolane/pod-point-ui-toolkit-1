@@ -7,10 +7,6 @@ gulp.task('copyMain', () => {
 			config.src.root + '*.{ico,png,txt}',
 		])
 	.pipe(gulp.dest(config.dist.root));
-	gulp.src([
-			config.src.fonts + '{,*/}*.*',
-		])
-	.pipe(gulp.dest(config.dist.fonts));
 });
 
 gulp.task('copyJS', () => {

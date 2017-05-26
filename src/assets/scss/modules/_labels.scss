@@ -8,7 +8,7 @@
 	background-color: $gray-very-dark;
 	color: white;
 	@include font-base;
-	font-family: $font-family-bold;
+	font-weight: $font-weight-bold;
 	box-sizing: border-box;
 	line-height: rem(16);
 	min-height: 35px;

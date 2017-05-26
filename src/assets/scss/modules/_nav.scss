@@ -44,7 +44,7 @@
 			a:not(.plus-minus-toggle) {
 				@include padding(15px 0);
 				color: $font-color-base;
-				font-family: $font-family-bold;
+				font-weight: $font-weight-bold;
 				display: block;
 				@include medium-and-up {
 					@include padding(39px 5px);

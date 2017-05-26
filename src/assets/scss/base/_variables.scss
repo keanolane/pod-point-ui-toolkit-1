@@ -2,6 +2,8 @@
 //	VARIABLES
 // =============================================================================
 
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
+
 @function rem($size) {
 	$remSize: $size / 16;
 	@return #{$remSize}rem;
@@ -15,11 +17,15 @@ $large-screen: 68em;
 $xlarge-screen: 100em;
 
 // Typography
-$font-family-base: "Quicksand Regular", sans-serif;
-$font-family-heading: "Quicksand Medium", sans-serif;
-$font-family-bold: "Quicksand Bold", sans-serif;
+$font-family-base: "Quicksand", sans-serif;
 
-// Font Sizes
+// font weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Font sizes
 $font-size-base: rem(12);
 
 // Line height

@@ -8,7 +8,7 @@
 	}
 	@include font-style-small;
 	dt {
-		font-family: $font-family-bold;
+		font-weight: $font-weight-bold;
 		border-bottom: $border-thin;
 		position: relative;
 		cursor: pointer;
@@ -47,7 +47,7 @@
 	&--featured {
 		@include font-style-base;
 		dt {
-			font-family: $font-family-base;
+			font-weight: $font-weight-regular;
 			@include padding(40px null 40px 60px);
 			border-bottom: none;
 			.plus-minus-toggle {
