@@ -10,6 +10,8 @@
 	background-repeat: repeat-y;
 	& + .grid-row {
 		margin-top: 0;
+		position: relative;
+		z-index: 1;
 	}
 	@include medium-and-up {
 		@include svg-bg-steps-divider-desktop($primary-color);

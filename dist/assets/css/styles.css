@@ -2107,7 +2107,9 @@ button {
   height: 60px;
   background-repeat: repeat-y; }
   .divider--steps + .grid-row {
-    margin-top: 0; }
+    margin-top: 0;
+    position: relative;
+    z-index: 1; }
   @media (min-width: 50em) {
     .divider--steps {
       background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 436 107" style="enable-background:new 0 0 436 107;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#8CC63F;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:12;}</style><path class="st0" d="M2,0v5c0,29.3,23.7,53,53,53h326c29.3,0,53,23.7,53,53v0"/></svg>');
@@ -2373,6 +2375,11 @@ button {
 .img--rounded-corners {
   border-radius: 5px; }
 
+.svg-wrap {
+  display: inline-block; }
+  .svg-wrap svg {
+    width: 100%; }
+
 .bg--white {
   background-color: white; }
   .bg--white + .bg--white {
@@ -2396,7 +2403,7 @@ button {
 
 .bg--wall {
   background-color: #f9fafa;
-  background-image: url(../img/backgrounds/wall.png);
+  background-image: url(../img/content/backgrounds/wall.png);
   background-position: center center;
   background-size: 1500px 1006px; }
 
@@ -2919,7 +2926,7 @@ button {
       display: inline-block;
       padding-right: 5px; } }
 
-.reviews-logo img {
+.reviews-logo span {
   width: 130px;
   position: relative;
   top: 6px; }
@@ -3532,12 +3539,12 @@ button {
   .tooltip__box:before {
     content: "";
     position: absolute;
-    top: -14px;
+    top: -15px;
     left: 50%;
-    margin-left: -15px;
+    margin-left: -14px;
     z-index: -1;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     display: block;
     -ms-transform: rotate(-45deg);
         transform: rotate(-45deg);

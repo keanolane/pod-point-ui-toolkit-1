@@ -21,11 +21,8 @@ gulp.task('copyJS', () => {
 });
 
 gulp.task('copyImages', () => {
-	return gulp.src([
-			config.src.img + '**/*.png',
-			config.src.img + '**/*.jpg'
-		])
-	.pipe(gulp.dest(config.dist.img));
+	return gulp.src(config.src.contentImgs + '**/**')
+	.pipe(gulp.dest(config.dist.contentImgs));
 });
 
-gulp.task('copyAll', ['copyMain', 'copyJS', 'copyImages', 'svg-min']);
+gulp.task('copyAll', ['copyMain', 'copyJS', 'copyImages']);

@@ -10,3 +10,9 @@
 		border-radius: $border-radius-base;
 	}
 }
+.svg-wrap {
+	display: inline-block;
+	svg {
+		width: 100%;
+	}
+}
