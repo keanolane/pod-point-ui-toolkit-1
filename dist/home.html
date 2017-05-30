@@ -153,19 +153,21 @@
 	<section class="bg--very-dark-gray">
 		<div class="container">
 			<div class="content-block content-block--strip text-center">
-				<div data-js-module="flipCounter">
-					<div class="tick"
-						data-value="miles:23655438, energy:5913859, co2:2365"
-						data-did-init="handleTickInit">
+				<div class="tick"
+					data-js-module="flipCounter"
+					data-value="statOne:23655438, statTwo:5913859, statThree:2365"
+					data-stat-one="23655438"
+					data-stat-two="5913859"
+					data-stat-three="2365"
+					data-did-init="handleTickInit">
 	
-						<span class="tick-group-wrap hidden inline-block-lg"><span class="tick-group" data-repeat="true" data-key="miles"><span data-view="flip"></span></span> <span class="tick-group__desc">miles of charging</span></span>
+					<span class="tick-group-wrap hidden inline-block-lg"><span class="tick-group" data-repeat="true" data-key="statOne"><span data-view="flip"></span></span> <span class="tick-group__desc">miles of charging</span></span>
 	
-	                    <span class="tick-group-wrap hidden inline-block-md"><span class="tick-group" data-repeat="true" data-key="energy"><span data-view="flip"></span></span> <span class="tick-group__desc">kwh of energy transferred</span></span>
+	                <span class="tick-group-wrap hidden inline-block-md"><span class="tick-group" data-repeat="true" data-key="statTwo"><span data-view="flip"></span></span> <span class="tick-group__desc">kwh of energy transferred</span></span>
 	
-	                    <span class="tick-group-wrap"><span class="tick-group" data-repeat="true" data-key="co2"><span data-view="flip"></span></span> <span class="tick-group__desc">tonnes of CO2 saved</span></span>
-					</div>
-			    </div>
-			</div>
+	                <span class="tick-group-wrap"><span class="tick-group" data-repeat="true" data-key="statThree"><span data-view="flip"></span></span> <span class="tick-group__desc">tonnes of CO2 saved</span></span>
+				</div>
+		    </div>
 		</div>
 	</section>
 	
@@ -297,7 +299,7 @@
 	<section class="bg--very-dark-gray block hidden-md">
 		<div class="container">
 			<div class="content-block content-block--strip text-center">
-				<div data-js-module="flipCounter">
+				<div>
 					<div class="tick"
 						data-value="miles:23655438, energy:5913859, co2:2365"
 						data-did-init="handleTickInit">
@@ -309,6 +311,7 @@
 			</div>
 		</div>
 	</section>
+
 	<section class="bg--light-gray">
 		<div class="container rel">
 			<div class="content-block">

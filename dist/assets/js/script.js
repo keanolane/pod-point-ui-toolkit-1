@@ -19264,7 +19264,7 @@
 /* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -19298,19 +19298,20 @@
 	        instances.push(new FlipCounter(element));
 	    },
 	    handleTickInit: function handleTickInit(tick) {
-	        var miles = 23655438;
-	        var energy = 5913859;
-	        var co2 = 2365;
+	        var element = document.querySelector('[data-js-module="flipCounter"]');
+	        var statOne = parseInt(element.getAttribute('data-stat-one'));
+	        var statTwo = parseInt(element.getAttribute('data-stat-two'));
+	        var statThree = parseInt(element.getAttribute('data-stat-three'));
 	        Tick.helper.interval(function () {
-	            miles += Math.round(Math.random());
-	            energy += Math.round(Math.random());
-	            co2 += Math.round(Math.random());
+	            statOne += Math.round(Math.random());
+	            statTwo += Math.round(Math.random());
+	            statThree += Math.round(Math.random());
 	            tick.value = {
-	                miles: miles,
-	                energy: energy,
-	                co2: co2
+	                statOne: statOne,
+	                statTwo: statTwo,
+	                statThree: statThree
 	            };
-	        }, 2000);
+	        }, 2500);
 	    }
 	};
 
