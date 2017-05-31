@@ -25,7 +25,7 @@
 		p {
 			display: none;
 			color: $gray;
-			font-family: $font-family-bold;
+			font-weight: $font-weight-bold;
 			@include medium-and-up {
 				display: block;
 			}

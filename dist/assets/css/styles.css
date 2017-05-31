@@ -1,4 +1,4 @@
-@import url(/assets/plugins/flip-counter/flip/tick.css);
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700");
 html,
 body {
   width: 100%; }
@@ -110,30 +110,6 @@ textarea {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
-
-@font-face {
-  font-family: "Quicksand Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/quicksand-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/quicksand-regular.woff") format("woff"), url("../fonts/quicksand-regular.ttf") format("truetype"), url("../fonts/quicksand-regular.svg#Quicksand Regular") format("svg"); }
-
-@font-face {
-  font-family: "Quicksand Medium";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/quicksand-medium.eot?#iefix") format("embedded-opentype"), url("../fonts/quicksand-medium.woff") format("woff"), url("../fonts/quicksand-medium.ttf") format("truetype"), url("../fonts/quicksand-medium.svg#Quicksand Medium") format("svg"); }
-
-@font-face {
-  font-family: "Quicksand Light";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/quicksand-light.eot?#iefix") format("embedded-opentype"), url("../fonts/quicksand-light.woff") format("woff"), url("../fonts/quicksand-light.ttf") format("truetype"), url("../fonts/quicksand-light.svg#Quicksand Light") format("svg"); }
-
-@font-face {
-  font-family: "Quicksand Bold";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/quicksand-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/quicksand-bold.woff") format("woff"), url("../fonts/quicksand-bold.ttf") format("truetype"), url("../fonts/quicksand-bold.svg#Quicksand Bold") format("svg"); }
 
 .hide {
   display: none !important; }
@@ -273,7 +249,7 @@ table {
     .content-block__legal p {
       width: 100%;
       margin: 0;
-      font-family: "Quicksand Regular", sans-serif;
+      font-weight: 400;
       font-size: 0.875rem;
       line-height: 1.5;
       font-size: 0.75rem;
@@ -460,7 +436,8 @@ body {
   font-feature-settings: "kern", "liga", "pnum";
   -webkit-font-smoothing: antialiased;
   color: #333;
-  font-family: "Quicksand Regular", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
@@ -470,7 +447,7 @@ body {
 
 p, .p {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   padding-bottom: 0.5em; }
@@ -483,9 +460,8 @@ p, .p {
 h1, .h1 {
   margin: 0;
   padding-bottom: 1em;
-  font-family: "Quicksand Medium", sans-serif;
+  font-weight: 700;
   font-size: 0.75rem;
-  font-weight: bold;
   line-height: 1.3;
   font-size: 1.25rem; }
   h1:last-child, .h1:last-child {
@@ -497,9 +473,8 @@ h1, .h1 {
 h2, .h2 {
   margin: 0;
   padding-bottom: 1em;
-  font-family: "Quicksand Medium", sans-serif;
+  font-weight: 700;
   font-size: 0.75rem;
-  font-weight: bold;
   line-height: 1.3;
   font-size: 1.125rem; }
   h2:last-child, .h2:last-child {
@@ -511,9 +486,8 @@ h2, .h2 {
 h3, .h3 {
   margin: 0;
   padding-bottom: 1em;
-  font-family: "Quicksand Medium", sans-serif;
+  font-weight: 700;
   font-size: 0.75rem;
-  font-weight: bold;
   line-height: 1.3;
   font-size: 0.875rem; }
   h3:last-child, .h3:last-child {
@@ -525,9 +499,8 @@ h3, .h3 {
 h4, .h4 {
   margin: 0;
   padding-bottom: 1em;
-  font-family: "Quicksand Medium", sans-serif;
+  font-weight: 700;
   font-size: 0.75rem;
-  font-weight: bold;
   line-height: 1.3;
   font-size: 0.875rem; }
   h4:last-child, .h4:last-child {
@@ -539,9 +512,8 @@ h4, .h4 {
 h5, .h5 {
   margin: 0;
   padding-bottom: 1em;
-  font-family: "Quicksand Medium", sans-serif;
+  font-weight: 700;
   font-size: 0.75rem;
-  font-weight: bold;
   line-height: 1.3;
   font-size: 0.875rem; }
   h5:last-child, .h5:last-child {
@@ -553,9 +525,8 @@ h5, .h5 {
 h6, .h6 {
   margin: 0;
   padding-bottom: 1em;
-  font-family: "Quicksand Medium", sans-serif;
+  font-weight: 700;
   font-size: 0.75rem;
-  font-weight: bold;
   line-height: 1.3;
   font-size: 0.875rem; }
   h6:last-child, .h6:last-child {
@@ -567,7 +538,7 @@ h6, .h6 {
 .font-style-base,
 .font-style-base p {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   padding-bottom: 0.5em; }
@@ -581,7 +552,7 @@ h6, .h6 {
 
 .font-base {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5; }
   @media (min-width: 50em) {
@@ -591,7 +562,7 @@ h6, .h6 {
 .font-style-large,
 .font-style-large p {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   font-size: 1rem;
@@ -613,7 +584,7 @@ h6, .h6 {
 .font-style-small,
 .font-style-small p {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   font-size: 0.75rem;
@@ -633,7 +604,7 @@ h6, .h6 {
 
 .font-small {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   font-size: 0.75rem;
@@ -647,7 +618,7 @@ h6, .h6 {
 
 .font-tiny {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   font-size: 0.625rem;
@@ -670,7 +641,7 @@ strong,
 .bold,
 .bold p {
   font-weight: normal;
-  font-family: "Quicksand Bold", sans-serif !important; }
+  font-weight: 700 !important; }
 
 .green,
 .primary {
@@ -709,7 +680,7 @@ a {
 
 .a {
   color: inherit;
-  font-family: "Quicksand Bold", sans-serif;
+  font-weight: 700;
   text-decoration: underline; }
 
 .color-base {
@@ -742,7 +713,7 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
 
 .list--small {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   font-size: 0.75rem;
@@ -763,7 +734,7 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
 
 .list--ticks li {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   padding-bottom: 0.5em;
@@ -839,7 +810,7 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
 
 .rich-text ul, .rich-text ol {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   padding-bottom: 0.5em;
@@ -892,12 +863,12 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
 
 .rich-text a {
   color: inherit;
-  font-family: "Quicksand Bold", sans-serif;
+  font-weight: 700;
   text-decoration: underline; }
 
 .rich-text--featured {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   font-size: 1rem;
@@ -917,7 +888,7 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
     padding-left: 0; }
     .rich-text--featured ul li {
       margin: 0;
-      font-family: "Quicksand Regular", sans-serif;
+      font-weight: 400;
       font-size: 0.875rem;
       line-height: 1.5;
       font-size: 1rem;
@@ -925,7 +896,7 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
       padding-bottom: 0.5em;
       position: relative;
       list-style: none;
-      font-family: "Quicksand Bold", sans-serif;
+      font-weight: 700;
       padding-bottom: 15px;
       padding-left: 30px; }
       @media (min-width: 50em) {
@@ -957,7 +928,7 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
   max-width: 100%;
   margin-bottom: 25px;
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   padding-bottom: 0.5em; }
@@ -1088,31 +1059,31 @@ input ::-webkit-input-placeholder {
   margin: 0;
   line-height: 1rem;
   font-size: 1rem;
-  font-family: "Quicksand Bold", sans-serif; }
+  font-weight: 700; }
 
 input :-moz-placeholder {
   margin: 0;
   line-height: 1rem;
   font-size: 1rem;
-  font-family: "Quicksand Bold", sans-serif; }
+  font-weight: 700; }
 
 input ::-moz-placeholder {
   margin: 0;
   line-height: 1rem;
   font-size: 1rem;
-  font-family: "Quicksand Bold", sans-serif; }
+  font-weight: 700; }
 
 input :-ms-input-placeholder {
   margin: 0;
   line-height: 1rem;
   font-size: 1rem;
-  font-family: "Quicksand Bold", sans-serif; }
+  font-weight: 700; }
 
 input.form-font-large ::-webkit-input-placeholder {
   margin: 0;
   line-height: 1rem;
   font-size: 1rem;
-  font-family: "Quicksand Bold", sans-serif; }
+  font-weight: 700; }
   @media (min-width: 50em) {
     input.form-font-large ::-webkit-input-placeholder {
       line-height: 1.25rem;
@@ -1122,7 +1093,7 @@ input.form-font-large :-moz-placeholder {
   margin: 0;
   line-height: 1rem;
   font-size: 1rem;
-  font-family: "Quicksand Bold", sans-serif; }
+  font-weight: 700; }
   @media (min-width: 50em) {
     input.form-font-large :-moz-placeholder {
       line-height: 1.25rem;
@@ -1132,7 +1103,7 @@ input.form-font-large ::-moz-placeholder {
   margin: 0;
   line-height: 1rem;
   font-size: 1rem;
-  font-family: "Quicksand Bold", sans-serif; }
+  font-weight: 700; }
   @media (min-width: 50em) {
     input.form-font-large ::-moz-placeholder {
       line-height: 1.25rem;
@@ -1142,7 +1113,7 @@ input.form-font-large :-ms-input-placeholder {
   margin: 0;
   line-height: 1rem;
   font-size: 1rem;
-  font-family: "Quicksand Bold", sans-serif; }
+  font-weight: 700; }
   @media (min-width: 50em) {
     input.form-font-large :-ms-input-placeholder {
       line-height: 1.25rem;
@@ -1151,7 +1122,7 @@ input.form-font-large :-ms-input-placeholder {
 label {
   display: inline-block;
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   padding-bottom: 0.5em;
@@ -1164,7 +1135,7 @@ label {
   .checkbox-wrap label,
   .radio-wrap label {
     margin: 0;
-    font-family: "Quicksand Regular", sans-serif;
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.5;
     padding-bottom: 0.5em; }
@@ -1178,14 +1149,14 @@ label {
 
 .label--block {
   width: 100%;
-  font-family: "Quicksand Bold", sans-serif; }
+  font-weight: 700; }
 
 input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"],
 textarea[type="text"] {
   margin: 0;
   line-height: 1rem;
   font-size: 1rem;
-  font-family: "Quicksand Bold", sans-serif;
+  font-weight: 700;
   line-height: 1.5rem;
   box-sizing: border-box;
   width: 100%;
@@ -1223,7 +1194,7 @@ input[type="date"].input--secondary, input[type="email"].input--secondary, input
     margin: 0;
     line-height: 1rem;
     font-size: 1rem;
-    font-family: "Quicksand Bold", sans-serif;
+    font-weight: 700;
     padding-top: 1.5625rem;
     padding-bottom: 1.5625rem; }
     @media (min-width: 50em) {
@@ -1235,7 +1206,7 @@ textarea[type="text"] {
   margin: 0;
   line-height: 1rem;
   font-size: 1rem;
-  font-family: "Quicksand Bold", sans-serif;
+  font-weight: 700;
   height: auto;
   min-height: 130px;
   resize: vertical;
@@ -1254,7 +1225,7 @@ input[type="radio"] {
     display: inline-block; }
   .radio-wrap input[type="radio"] + label {
     margin: 0;
-    font-family: "Quicksand Regular", sans-serif;
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.5;
     padding-bottom: 0.5em;
@@ -1471,13 +1442,13 @@ input[type="checkbox"] {
       padding-bottom: 0.125rem; }
   .select-dd-inline-wrap--body-text .select-dd-inline-wrap__text {
     margin: 0;
-    font-family: "Quicksand Regular", sans-serif;
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.5;
     font-size: 1rem;
     line-height: 1.5;
     padding-bottom: 0.5em;
-    font-family: "Quicksand Bold", sans-serif; }
+    font-weight: 700; }
     @media (min-width: 50em) {
       .select-dd-inline-wrap--body-text .select-dd-inline-wrap__text {
         font-size: 1rem; } }
@@ -1518,7 +1489,7 @@ input[type="checkbox"] {
     margin: 0;
     line-height: 1rem;
     font-size: 1rem;
-    font-family: "Quicksand Bold", sans-serif;
+    font-weight: 700;
     line-height: 1.5rem;
     box-sizing: border-box;
     width: 100%;
@@ -1623,7 +1594,7 @@ input[type="checkbox"] {
       padding-bottom: 0; }
   .select-dd-wrapper .dk-optgroup-label {
     padding: 0 0.5em 0.25em;
-    font-weight: bold;
+    font-weight: 700;
     width: 100%; }
   .select-dd-wrapper .dk-optgroup-options {
     list-style: none;
@@ -1665,7 +1636,7 @@ input[type="checkbox"] {
     margin: 0;
     line-height: 1rem;
     font-size: 1rem;
-    font-family: "Quicksand Bold", sans-serif;
+    font-weight: 700;
     line-height: 1.5rem;
     box-sizing: border-box;
     width: 100%;
@@ -1743,9 +1714,8 @@ input[type="checkbox"] {
 .select-dd-wrapper--alternative--h1.select-dd-wrapper--mobile select {
   margin: 0;
   padding-bottom: 1em;
-  font-family: "Quicksand Medium", sans-serif;
+  font-weight: 700;
   font-size: 0.75rem;
-  font-weight: bold;
   line-height: 1.3;
   font-size: 1.25rem;
   padding-bottom: 0.3125rem !important; }
@@ -1794,13 +1764,13 @@ input[type="checkbox"] {
 .select-dd-wrapper--alternative--font-large .mobile-select,
 .select-dd-wrapper--alternative--font-large.select-dd-wrapper--mobile select {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   font-size: 1rem;
   line-height: 1.5;
   padding-bottom: 0.5em;
-  font-family: "Quicksand Bold", sans-serif;
+  font-weight: 700;
   margin-top: -0.25rem;
   padding-bottom: 0; }
   @media (min-width: 50em) {
@@ -1835,7 +1805,7 @@ input[type="checkbox"] {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   border-top: none;
   overflow: auto;
-  font-family: "Quicksand Bold", sans-serif; }
+  font-weight: 700; }
 
 .pac-item {
   color: #333;
@@ -1913,13 +1883,13 @@ input[type="checkbox"] {
 .error-message {
   display: block;
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   font-size: 0.75rem;
   line-height: 1.2;
   padding-bottom: 0.5em;
-  font-family: "Quicksand Bold", sans-serif;
+  font-weight: 700;
   color: #C1272D;
   margin-top: 0.1875rem; }
   @media (min-width: 50em) {
@@ -1966,9 +1936,8 @@ button {
   min-height: 40px;
   color: white;
   background-color: #8CC63F;
-  font-family: "Quicksand Bold", sans-serif;
+  font-weight: 700;
   font-size: 0.9375rem;
-  font-weight: normal;
   line-height: 1.2;
   letter-spacing: 0.0625rem;
   border-radius: 30px;
@@ -2030,7 +1999,7 @@ button {
 .setback-button {
   display: inline-block;
   color: #333;
-  font-family: "Quicksand Bold", sans-serif;
+  font-weight: 700;
   text-decoration: underline; }
   .setback-button svg {
     margin-right: 5px;
@@ -2138,7 +2107,9 @@ button {
   height: 60px;
   background-repeat: repeat-y; }
   .divider--steps + .grid-row {
-    margin-top: 0; }
+    margin-top: 0;
+    position: relative;
+    z-index: 1; }
   @media (min-width: 50em) {
     .divider--steps {
       background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 436 107" style="enable-background:new 0 0 436 107;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#8CC63F;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:12;}</style><path class="st0" d="M2,0v5c0,29.3,23.7,53,53,53h326c29.3,0,53,23.7,53,53v0"/></svg>');
@@ -2404,6 +2375,11 @@ button {
 .img--rounded-corners {
   border-radius: 5px; }
 
+.svg-wrap {
+  display: inline-block; }
+  .svg-wrap svg {
+    width: 100%; }
+
 .bg--white {
   background-color: white; }
   .bg--white + .bg--white {
@@ -2427,7 +2403,7 @@ button {
 
 .bg--wall {
   background-color: #f9fafa;
-  background-image: url(../img/backgrounds/wall.png);
+  background-image: url(../img/content/backgrounds/wall.png);
   background-position: center center;
   background-size: 1500px 1006px; }
 
@@ -2577,12 +2553,12 @@ button {
   .global-footer__section-bottom p,
   .global-footer__section-bottom ul {
     margin: 0;
-    font-family: "Quicksand Regular", sans-serif;
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.5;
     font-size: 0.75rem;
     line-height: 1.2;
-    font-family: "Quicksand Bold", sans-serif; }
+    font-weight: 700; }
     @media (min-width: 50em) {
       .global-footer__section-bottom p,
       .global-footer__section-bottom ul {
@@ -2640,7 +2616,7 @@ button {
     .global-nav ul li {
       position: relative;
       margin: 0;
-      font-family: "Quicksand Regular", sans-serif;
+      font-weight: 400;
       font-size: 0.875rem;
       line-height: 1.5;
       font-size: 0.75rem;
@@ -2668,7 +2644,7 @@ button {
       .global-nav ul li a:not(.plus-minus-toggle) {
         padding: 15px 0;
         color: #333;
-        font-family: "Quicksand Bold", sans-serif;
+        font-weight: 700;
         display: block; }
         @media (min-width: 50em) {
           .global-nav ul li a:not(.plus-minus-toggle) {
@@ -2824,9 +2800,8 @@ button {
     color: white;
     margin: 0;
     padding-bottom: 1em;
-    font-family: "Quicksand Medium", sans-serif;
+    font-weight: 700;
     font-size: 0.75rem;
-    font-weight: bold;
     line-height: 1.3;
     font-size: 1.25rem; }
     .panel__title:last-child {
@@ -2860,7 +2835,7 @@ button {
 
 .accordion {
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   font-size: 0.75rem;
@@ -2878,7 +2853,7 @@ button {
   .accordion:last-child {
     padding-bottom: 0; }
   .accordion dt {
-    font-family: "Quicksand Bold", sans-serif;
+    font-weight: 700;
     border-bottom: 1px solid #e2e2e2;
     position: relative;
     cursor: pointer;
@@ -2912,7 +2887,7 @@ button {
       overflow: hidden; } }
   .accordion--featured {
     margin: 0;
-    font-family: "Quicksand Regular", sans-serif;
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.5;
     padding-bottom: 0.5em; }
@@ -2922,7 +2897,7 @@ button {
     .accordion--featured:last-child {
       padding-bottom: 0; }
     .accordion--featured dt {
-      font-family: "Quicksand Regular", sans-serif;
+      font-weight: 400;
       padding-top: 40px;
       padding-bottom: 40px;
       padding-left: 60px;
@@ -2938,134 +2913,6 @@ button {
       .accordion--featured dd .accordion__item-content {
         margin-bottom: 40px;
         padding: 0; }
-
-.carousel-section {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  overflow: hidden; }
-
-.reviews-from-text {
-  display: none; }
-  @media (min-width: 40em) {
-    .reviews-from-text {
-      display: inline-block;
-      padding-right: 5px; } }
-
-.reviews-logo img {
-  width: 130px;
-  position: relative;
-  top: 6px; }
-
-.carousel-wrap {
-  margin: 30px auto;
-  max-width: 700px;
-  padding-right: 25px;
-  padding-left: 25px;
-  width: 80%;
-  position: relative; }
-  @media (min-width: 50em) {
-    .carousel-wrap {
-      padding-right: 30px;
-      padding-left: 30px; } }
-  .carousel-wrap--reviews {
-    margin-top: 60px; }
-    .carousel-wrap--reviews .circle-icon--large-resp {
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      z-index: 1;
-      margin-left: -20px; }
-      @media (min-width: 50em) {
-        .carousel-wrap--reviews .circle-icon--large-resp {
-          top: -30px;
-          margin-left: -30px; } }
-      .carousel-wrap--reviews .circle-icon--large-resp:hover, .carousel-wrap--reviews .circle-icon--large-resp:active, .carousel-wrap--reviews .circle-icon--large-resp:focus {
-        opacity: 1; }
-    .carousel-wrap--reviews .slick-slide {
-      padding-top: 20px; }
-    .carousel-wrap--reviews .stars-list {
-      margin-top: 10px; }
-
-.slick-slider .slick-list {
-  border-radius: 5px;
-  background-color: white; }
-  .slick-slider .slick-list .slick-slide .slick-slide--content {
-    position: relative;
-    color: #333;
-    padding: 20px;
-    min-height: 20px; }
-    .slick-slider .slick-list .slick-slide .slick-slide--content h3 {
-      color: #8CC63F; }
-
-.stars-list li {
-  display: inline-block; }
-  .stars-list li:before {
-    content: '';
-    display: block;
-    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve"> <polygon fill="#8CC63F" points="250.4,16.4 325.7,169 494,193.5 372.2,312.2 400.9,479.9 250.4,400.7 99.8,479.9 128.6,312.2 6.7,193.5 175.1,169"/></svg>');
-    background-size: cover;
-    width: 20px;
-    height: 20px; }
-
-.slick-arrow {
-  text-indent: -9999px;
-  display: block;
-  width: 25px;
-  position: absolute;
-  top: 50%;
-  margin-top: -15px;
-  z-index: 2;
-  padding: 0; }
-  .slick-arrow:before, .slick-arrow:after {
-    text-indent: 0;
-    float: left;
-    width: 100%;
-    height: 100%;
-    margin: 0; }
-  .slick-arrow:before {
-    display: inline-block;
-    content: '';
-    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve"><path fill="white" d="M249,407c-8.2,0-16-3.6-21.4-9.8L14.9,151.8c-10.2-11.8-9-29.7,2.8-39.9c11.8-10.2,29.6-9,39.9,2.8L249,335.5l191.3-220.8c10.3-11.8,28.1-13.1,39.9-2.8c11.8,10.2,13.1,28.1,2.8,39.9L270.4,397.2C265,403.4,257.2,407,249,407z"/></svg>');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 25px;
-    width: 25px;
-    margin: 0 auto; }
-  .slick-arrow.slick-prev {
-    right: -30px; }
-    @media (min-width: 50em) {
-      .slick-arrow.slick-prev {
-        right: -50px; } }
-    .slick-arrow.slick-prev:before {
-      -ms-transform: rotate(-90deg);
-          transform: rotate(-90deg); }
-  .slick-arrow.slick-next {
-    left: -30px; }
-    @media (min-width: 50em) {
-      .slick-arrow.slick-next {
-        left: -50px; } }
-    .slick-arrow.slick-next:before {
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg); }
-
-.slick-dots {
-  width: 100%;
-  height: 20px;
-  position: absolute;
-  bottom: -40px;
-  left: 0; }
-  .slick-dots li {
-    display: inline-block;
-    padding-right: 5px;
-    padding-left: 5px; }
-    .slick-dots li button {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: white;
-      text-indent: -9999px; }
-    .slick-dots li.slick-active button {
-      background-color: #8CC63F; }
 
 .card {
   display: block;
@@ -3268,7 +3115,7 @@ button {
     .steps-indicator__step p {
       display: none;
       color: #b3b3b3;
-      font-family: "Quicksand Bold", sans-serif; }
+      font-weight: 700; }
       @media (min-width: 50em) {
         .steps-indicator__step p {
           display: block; } }
@@ -3358,12 +3205,12 @@ button {
     float: left; }
     .basket-content__item__title__main {
       margin: 0;
-      font-family: "Quicksand Regular", sans-serif;
+      font-weight: 400;
       font-size: 0.875rem;
       line-height: 1.5;
       font-size: 0.75rem;
       line-height: 1.2;
-      font-family: "Quicksand Bold", sans-serif;
+      font-weight: 700;
       padding-bottom: 3px; }
       @media (min-width: 50em) {
         .basket-content__item__title__main {
@@ -3373,7 +3220,7 @@ button {
           font-size: 0.875rem; } }
     .basket-content__item__title__sub {
       margin: 0;
-      font-family: "Quicksand Regular", sans-serif;
+      font-weight: 400;
       font-size: 0.875rem;
       line-height: 1.5;
       font-size: 0.625rem;
@@ -3391,12 +3238,12 @@ button {
     margin-bottom: 10px; }
     .basket-content__item__extra p {
       margin: 0;
-      font-family: "Quicksand Regular", sans-serif;
+      font-weight: 400;
       font-size: 0.875rem;
       line-height: 1.5;
       font-size: 0.75rem;
       line-height: 1.2;
-      font-family: "Quicksand Bold", sans-serif; }
+      font-weight: 700; }
       @media (min-width: 50em) {
         .basket-content__item__extra p {
           font-size: 1rem; } }
@@ -3409,12 +3256,12 @@ button {
     float: left;
     text-align: right;
     margin: 0;
-    font-family: "Quicksand Regular", sans-serif;
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.5;
     font-size: 0.75rem;
     line-height: 1.2;
-    font-family: "Quicksand Bold", sans-serif; }
+    font-weight: 700; }
     @media (min-width: 50em) {
       .basket-content__item__price {
         font-size: 1rem; } }
@@ -3429,7 +3276,7 @@ button {
     display: table;
     clear: both; }
   .basket-total p {
-    font-family: "Quicksand Bold", sans-serif;
+    font-weight: 700;
     padding-bottom: 0; }
   .basket-total__title {
     float: left; }
@@ -3483,7 +3330,7 @@ button {
     height: 1.5625rem;
     font-size: 1rem;
     line-height: 1.4375rem;
-    font-family: "Quicksand Bold", sans-serif; }
+    font-weight: 700; }
   .floating-basket .basket-content {
     border-right: 2px solid #ccc;
     border-left: 2px solid #ccc;
@@ -3564,12 +3411,12 @@ button {
   .tooltip__box:before {
     content: "";
     position: absolute;
-    top: -14px;
+    top: -15px;
     left: 50%;
-    margin-left: -15px;
+    margin-left: -14px;
     z-index: -1;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     display: block;
     -ms-transform: rotate(-45deg);
         transform: rotate(-45deg);
@@ -3593,7 +3440,7 @@ button {
     padding-left: 20px; }
   .tooltip__box .rich-text p, .tooltip__box .rich-text li {
     margin: 0;
-    font-family: "Quicksand Regular", sans-serif;
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.5;
     font-size: 0.75rem;
@@ -3610,9 +3457,8 @@ button {
   .tooltip__box .rich-text h1, .tooltip__box .rich-text h2, .tooltip__box .rich-text h3, .tooltip__box .rich-text h4, .tooltip__box .rich-text h5, .tooltip__box .rich-text h6 {
     margin: 0;
     padding-bottom: 1em;
-    font-family: "Quicksand Medium", sans-serif;
+    font-weight: 700;
     font-size: 0.75rem;
-    font-weight: bold;
     line-height: 1.3;
     font-size: 0.875rem; }
     .tooltip__box .rich-text h1:last-child, .tooltip__box .rich-text h2:last-child, .tooltip__box .rich-text h3:last-child, .tooltip__box .rich-text h4:last-child, .tooltip__box .rich-text h5:last-child, .tooltip__box .rich-text h6:last-child {
@@ -3680,7 +3526,7 @@ button {
     box-sizing: border-box;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    font-family: "Quicksand Bold", sans-serif;
+    font-weight: 700;
     font-size: 3.125rem;
     text-align: center;
     line-height: 6.875rem; }
@@ -3749,10 +3595,10 @@ button {
   background-color: #4d4d4d;
   color: white;
   margin: 0;
-  font-family: "Quicksand Regular", sans-serif;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
-  font-family: "Quicksand Bold", sans-serif;
+  font-weight: 700;
   box-sizing: border-box;
   line-height: 1rem;
   min-height: 35px;
@@ -3831,6 +3677,330 @@ button {
         right: auto;
         left: 0; } }
 
+/*
+ * Tick v1.3.2 - Counters Made Easy
+ * Copyright (c) 2017 PQINA - http://tickcounterplugin.com
+ */
+.tick-flip {
+  position: relative;
+  text-align: center; }
+
+.tick-flip * {
+  border-radius: inherit;
+  white-space: pre;
+  letter-spacing: inherit;
+  text-indent: inherit; }
+
+.tick-flip-front {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.tick-flip-back {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+.tick-flip-spacer {
+  display: block;
+  visibility: hidden; }
+
+.tick-flip-shadow {
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  color: transparent !important;
+  background: transparent !important; }
+
+.tick-flip-shadow-top {
+  bottom: calc(50% - 1px); }
+
+.tick-flip-shadow-bottom {
+  top: calc(50% + 1px); }
+
+.tick-flip-card-shadow {
+  position: absolute;
+  left: .15em;
+  right: .15em;
+  bottom: .125em;
+  height: .5em;
+  background-color: transparent;
+  border-radius: 0;
+  opacity: 0;
+  -ms-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+  box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.5), 0 0.125em 0.5em rgba(0, 0, 0, 0.75);
+  z-index: 0; }
+
+.tick-flip-card {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 4em; }
+
+.tick-flip-panel-back, .tick-flip-panel-front {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  outline: 1px solid transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+.tick-flip-panel-back-text, .tick-flip-panel-front-text {
+  position: absolute;
+  left: -1px;
+  top: 0;
+  right: -1px;
+  height: 100%;
+  overflow: hidden; }
+
+.tick-flip-panel-text-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100%; }
+
+.tick-flip-panel-back-text .tick-flip-panel-text-wrapper {
+  height: 200%;
+  top: -100%; }
+
+.tick-flip-panel-front {
+  -ms-transform-origin: center bottom;
+      transform-origin: center bottom;
+  top: 0;
+  z-index: 2;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.05); }
+
+.tick-flip-panel-back {
+  -ms-transform-origin: center top;
+      transform-origin: center top;
+  top: 50%;
+  z-index: 1;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.1); }
+
+.tick-flip-panel-back:after {
+  z-index: 1;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 1px, rgba(0, 0, 0, 0.15) 0, transparent 30%); }
+
+.tick-flip-panel-back-shadow {
+  z-index: 2; }
+
+.tick-flip-panel-back-highlight {
+  z-index: 3; }
+
+.tick-flip-panel-back-highlight, .tick-flip-panel-back-shadow {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit; }
+
+.tick-flip-panel-back-highlight, .tick-flip-panel-back-shadow, .tick-flip-panel-front-shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0; }
+
+.tick-flip-panel-front-shadow {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)); }
+
+.tick-flip-panel-back-shadow {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)); }
+
+.tick-flip-panel-back-highlight {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.3)); }
+
+.tick [data-style*="shadow:inner"], .tick [data-style*="shadow:inner"] .tick-flip-card-shadow, .tick [data-style*="shadow:none"] .tick-flip-card-shadow, .tick [data-style*="shadow:none"] .tick-flip-panel-back, .tick [data-style*="shadow:none"] .tick-flip-panel-front, .tick [data-style*="shadow:none"] .tick-flip-shadow {
+  box-shadow: none; }
+
+.tick [data-style*="shadow:none"] .tick-flip-back:after, .tick [data-style*="shadow:none"] .tick-flip-panel-back-shadow, .tick [data-style*="shadow:none"] .tick-flip-panel-back-text:after, .tick [data-style*="shadow:none"] .tick-flip-panel-front-shadow {
+  background-image: none; }
+
+.tick [data-style*="rounded:none"] {
+  border-radius: 0; }
+
+.tick [data-style*="rounded:panels"] .tick-flip-front, .tick [data-style*="rounded:panels"] .tick-flip-shadow-bottom {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit; }
+
+.tick [data-style*="rounded:panels"] .tick-flip-back, .tick [data-style*="rounded:panels"] .tick-flip-panel-back:after, .tick [data-style*="rounded:panels"] .tick-flip-shadow-top {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit; }
+
+.tick-flip {
+  margin-left: .0625em;
+  margin-right: .0625em;
+  min-width: 1.125em;
+  border-radius: .125em;
+  letter-spacing: .25em;
+  text-indent: .25em; }
+
+.tick-flip-panel {
+  color: #edebeb;
+  background-color: #333232; }
+
+.tick-flip-shadow {
+  box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.25), 0 0.0213em 0.0612em rgba(0, 0, 0, 0.25); }
+
+/*
+ * Tick v1.3.2 - Counters Made Easy
+ * Copyright (c) 2017 PQINA - http://tickcounterplugin.com
+ */
+.tick {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  position: relative;
+  z-index: 1;
+  line-height: 1.4; }
+
+.tick * {
+  box-sizing: inherit; }
+
+.tick [data-view] {
+  max-width: 100%; }
+
+.tick span[data-view] {
+  display: inline-block; }
+
+.tick [data-layout~=pad] {
+  margin: -.25em; }
+
+.tick [data-layout~=pad] > * {
+  margin: .25em; }
+
+.tick [data-layout~=horizontal] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.tick [data-layout~=horizontal][data-layout~=baseline] {
+  -ms-flex-align: baseline;
+  align-items: baseline; }
+
+.tick [data-layout~=horizontal][data-layout~=center] {
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.tick [data-layout~=horizontal][data-layout~=right] {
+  -ms-flex-pack: end;
+  justify-content: flex-end; }
+
+.tick [data-layout~=horizontal][data-layout~=left] {
+  -ms-flex-pack: start;
+  justify-content: flex-start; }
+
+.tick [data-layout~=horizontal][data-layout~=fill], .tick [data-layout~=horizontal][data-layout~=stretch] {
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap; }
+
+.tick [data-layout~=horizontal][data-layout~=fill] > *, .tick [data-layout~=horizontal][data-layout~=stretch] > * {
+  -ms-flex: 1 0 0px;
+  flex: 1 0 0;
+  width: 100%; }
+
+.tick [data-layout~=horizontal][data-layout~=multi-line] {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.tick [data-layout~=vertical] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.tick [data-layout~=vertical][data-layout~=top] {
+  -ms-flex-pack: start;
+  justify-content: flex-start; }
+
+.tick [data-layout~=vertical][data-layout~=bottom] {
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  min-height: 100%; }
+
+.tick [data-layout~=vertical][data-layout~=middle] {
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 100%; }
+
+.tick [data-layout~=vertical][data-layout~=left] {
+  -ms-flex-align: start;
+  align-items: flex-start; }
+
+.tick [data-layout~=vertical][data-layout~=right] {
+  -ms-flex-align: end;
+  align-items: flex-end; }
+
+.tick [data-layout~=vertical][data-layout~=center] {
+  text-align: center; }
+
+.tick [data-layout~=vertical][data-layout~=fill], .tick [data-layout~=vertical][data-layout~=stretch] {
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  min-height: 100%; }
+
+.tick [data-layout~=vertical][data-layout~=fill] > *, .tick [data-layout~=vertical][data-layout~=stretch] > * {
+  -ms-flex: 1 0 0px;
+  flex: 1 0 0; }
+
+.tick [data-layout~=vertical] > * + * {
+  margin-top: .5em; }
+
+.tick [data-layout~=overlay] {
+  position: relative; }
+
+.tick [data-layout~=overlay] > * {
+  margin: 0; }
+
+.tick [data-layout~=overlay][data-layout~=center] {
+  text-align: center; }
+
+.tick [data-layout~=overlay][data-layout~=left] {
+  text-align: left; }
+
+.tick [data-layout~=overlay][data-layout~=right] {
+  text-align: right; }
+
+.tick [data-layout~=overlay] > [data-overlay=fill], .tick [data-layout~=overlay] > [data-overlay=stretch] {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
+.tick [data-layout~=overlay] > [data-overlay=center] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
 .tick {
   font-size: 1.5em;
   line-height: 2;
@@ -3854,12 +4024,12 @@ button {
   .tick-group__desc {
     display: block;
     margin: 0;
-    font-family: "Quicksand Regular", sans-serif;
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.5;
     font-size: 0.75rem;
     line-height: 1.2;
-    font-family: "Quicksand Bold", sans-serif;
+    font-weight: 700;
     text-transform: uppercase; }
     @media (min-width: 50em) {
       .tick-group__desc {
@@ -3870,6 +4040,167 @@ button {
     @media (min-width: 24em) {
       .tick-group__desc {
         display: inline-block; } }
+
+/*! Flickity v2.0.7
+http://flickity.metafizzy.co
+---------------------------------------------- */
+/* ---- Wrappers ---- */
+.carousel-section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  overflow: hidden; }
+
+.carousel-wrap {
+  margin: 30px auto;
+  max-width: 700px;
+  width: 80%;
+  position: relative; }
+
+.flickity-enabled {
+  position: relative; }
+  .flickity-enabled:focus {
+    outline: none; }
+
+/* ---- The slider and slides ---- */
+.flickity-viewport {
+  border-radius: 5px;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+  height: 100%; }
+
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+
+.carousel-cell {
+  border-radius: 5px;
+  background-color: white;
+  color: #333;
+  padding: 45px 20px 20px;
+  width: 100%;
+  min-height: 300px;
+  margin-right: 10px;
+  margin-left: 10px; }
+  @media (min-width: 50em) {
+    .carousel-cell {
+      padding-top: 60px; } }
+
+/* ---- Dragging ---- */
+.flickity-enabled.is-draggable {
+  tap-highlight-color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+  .flickity-enabled.is-draggable .flickity-viewport {
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: grab; }
+    .flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+      cursor: -webkit-grabbing;
+      cursor: grabbing; }
+
+/* ---- Previous/Next buttons ---- */
+.flickity-prev-next-button {
+  display: block;
+  width: 25px;
+  position: absolute;
+  top: 50%;
+  margin-top: 0px;
+  z-index: 2;
+  padding: 0;
+  -ms-transform: translateY(-50%);
+      transform: translateY(-50%); }
+  .flickity-prev-next-button:before {
+    display: inline-block;
+    content: '';
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve"><path fill="white" d="M249,407c-8.2,0-16-3.6-21.4-9.8L14.9,151.8c-10.2-11.8-9-29.7,2.8-39.9c11.8-10.2,29.6-9,39.9,2.8L249,335.5l191.3-220.8c10.3-11.8,28.1-13.1,39.9-2.8c11.8,10.2,13.1,28.1,2.8,39.9L270.4,397.2C265,403.4,257.2,407,249,407z"/></svg>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 25px;
+    width: 25px;
+    margin: 0 auto; }
+  .flickity-prev-next-button.next {
+    right: -30px; }
+    @media (min-width: 50em) {
+      .flickity-prev-next-button.next {
+        right: -50px; } }
+    .flickity-prev-next-button.next:before {
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg); }
+  .flickity-prev-next-button.previous {
+    left: -30px; }
+    @media (min-width: 50em) {
+      .flickity-prev-next-button.previous {
+        left: -50px; } }
+    .flickity-prev-next-button.previous:before {
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg); }
+  .flickity-prev-next-button:focus {
+    outline: none; }
+  .flickity-prev-next-button:active {
+    opacity: 0.6; }
+  .flickity-prev-next-button:disabled {
+    opacity: 0.3;
+    cursor: auto; }
+  .flickity-prev-next-button svg {
+    display: none; }
+
+/* ---- Pagination ---- */
+.flickity-page-dots {
+  display: none;
+  position: absolute;
+  width: 100%;
+  bottom: -25px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1; }
+  .flickity-rtl .flickity-page-dots {
+    direction: rtl; }
+  .flickity-page-dots .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 8px;
+    background: #333;
+    border-radius: 50%;
+    opacity: 0.25;
+    cursor: pointer; }
+    .flickity-page-dots .dot.is-selected {
+      opacity: 1; }
+
+.reviews-from-text {
+  display: none; }
+  @media (min-width: 40em) {
+    .reviews-from-text {
+      display: inline-block;
+      padding-right: 5px; } }
+
+.reviews-logo span {
+  width: 130px;
+  position: relative;
+  top: 6px; }
+
+.carousel-wrap--reviews {
+  margin-top: 60px; }
+  .carousel-wrap--reviews .circle-icon--large-resp {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    z-index: 1;
+    margin-left: -20px; }
+    @media (min-width: 50em) {
+      .carousel-wrap--reviews .circle-icon--large-resp {
+        top: -30px;
+        margin-left: -30px; } }
+    .carousel-wrap--reviews .circle-icon--large-resp:hover, .carousel-wrap--reviews .circle-icon--large-resp:active, .carousel-wrap--reviews .circle-icon--large-resp:focus {
+      opacity: 1; }
+  .carousel-wrap--reviews .stars-list {
+    margin-top: 10px; }
 
 .m-none {
   margin: 0 !important; }

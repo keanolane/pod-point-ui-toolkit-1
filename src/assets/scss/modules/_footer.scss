@@ -59,7 +59,7 @@
 		p,
 		ul {
 			@include font-small;
-			font-family: $font-family-bold;
+			font-weight: $font-weight-bold;
 		}
 		.grid-row {
 		.grid-col-6 {

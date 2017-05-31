@@ -19,7 +19,7 @@ $select-dd-alternative-height: rem(25);
 	&--body-text {
 		.select-dd-inline-wrap__text {
 			@include font-style-large;
-			font-family: $font-family-bold;
+			font-weight: $font-weight-bold;
 		}
 	}
 	&__text,
@@ -174,7 +174,7 @@ $select-dd-alternative-height: rem(25);
 	}
 	.dk-optgroup-label {
 		padding: 0 0.5em 0.25em;
-		font-weight: bold;
+		font-weight: $font-weight-bold;
 		width: 100%;
 	}
 	.dk-optgroup-options {
@@ -327,7 +327,7 @@ $select-dd-alternative-height: rem(25);
 		.mobile-select,
 		&.select-dd-wrapper--mobile select {
 			@include font-style-large;
-			font-family: $font-family-bold;
+			font-weight: $font-weight-bold;
 			margin-top: rem(-4);
 			padding-bottom: 0;
 			@include medium-and-up {
@@ -349,7 +349,7 @@ $select-dd-alternative-height: rem(25);
 	box-shadow: $box-shadow-subtle;
 	border-top: none;
 	overflow: auto;
-	font-family: $font-family-bold;
+	font-weight: $font-weight-bold;
 }
 .pac-item {
 	color: $font-color-base;

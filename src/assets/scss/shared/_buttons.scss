@@ -24,9 +24,8 @@ button {
 	min-height: 40px;
 	color: white;
 	background-color: $primary-color;
-	font-family: $font-family-bold;
+	font-weight: $font-weight-bold;
 	font-size: rem(15);
-	font-weight: normal;
 	line-height: 1.2;
 	letter-spacing: rem(1);
 	border-radius: 30px;
@@ -107,7 +106,7 @@ button {
 .setback-button {
 	display: inline-block;
 	color: $font-color-base;
-	font-family: $font-family-bold;
+	font-weight: $font-weight-bold;
 	text-decoration: underline;
 
 	svg {

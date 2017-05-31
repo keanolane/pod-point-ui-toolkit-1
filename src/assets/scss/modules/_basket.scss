@@ -28,7 +28,7 @@ $floating-basket-horizontal-padding: 15px;
 			float: left;
 			&__main {
 				@include font-small;
-				font-family: $font-family-bold;
+				font-weight: $font-weight-bold;
 				padding-bottom: 3px;
 			}
 			&__sub {
@@ -42,7 +42,7 @@ $floating-basket-horizontal-padding: 15px;
 			margin-bottom: 10px;
 			p {
 				@include font-small;
-				font-family: $font-family-bold;
+				font-weight: $font-weight-bold;
 			}
 		}
 		&__price {
@@ -51,7 +51,7 @@ $floating-basket-horizontal-padding: 15px;
 			float: left;
 			text-align: right;
 			@include font-small;
-			font-family: $font-family-bold;
+			font-weight: $font-weight-bold;
 		}
 	}
 }
@@ -60,7 +60,7 @@ $floating-basket-horizontal-padding: 15px;
 	@include clearfix;
 	padding-top: 10px;
 	p {
-	 	font-family: $font-family-bold;
+	 	font-weight: $font-weight-bold;
 	 	padding-bottom: 0;
 	}
 	&__title {
@@ -122,7 +122,7 @@ $floating-basket-horizontal-padding: 15px;
 		height: rem(25);
 		font-size: rem(16);
 		line-height: rem(23);
-		font-family: $font-family-bold;
+		font-weight: $font-weight-bold;
 	}
 	.basket-content {
 		border-right: $border-base;

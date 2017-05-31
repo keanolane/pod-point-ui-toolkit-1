@@ -19,18 +19,19 @@ export default {
         instances.push(new FlipCounter(element));
     },
     handleTickInit: function(tick) {
-        var miles = 23655438;
-        var energy = 5913859;
-        var co2 = 2365;
+        const element = document.querySelector('[data-js-module="flipCounter"]');
+        let statOne = parseInt(element.getAttribute('data-stat-one'));
+        let statTwo = parseInt(element.getAttribute('data-stat-two'));
+        let statThree = parseInt(element.getAttribute('data-stat-three'));
         Tick.helper.interval(function(){
-            miles += Math.round(Math.random());
-            energy += Math.round(Math.random());
-            co2 += Math.round(Math.random());
+            statOne += Math.round(Math.random());
+            statTwo += Math.round(Math.random());
+            statThree += Math.round(Math.random());
             tick.value = {
-                miles: miles,
-                energy: energy,
-                co2: co2
+                statOne: statOne,
+                statTwo: statTwo,
+                statThree: statThree
             }
-        }, 2000);
+        }, 2500);
     }
 };

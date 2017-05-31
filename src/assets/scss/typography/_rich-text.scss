@@ -57,7 +57,7 @@ $typography-vertical-spacing: 0.5em;
 	}
 	a {
 		color: inherit;
-		font-family: $font-family-bold;
+		font-weight: $font-weight-bold;
 		text-decoration: underline;
 	}
 	&--featured {
@@ -69,7 +69,7 @@ $typography-vertical-spacing: 0.5em;
 				@include font-style-large;
 				position: relative;
 				list-style: none;
-				font-family: $font-family-bold;
+				font-weight: $font-weight-bold;
 				padding-bottom: 15px;
 				padding-left: 30px;
 				@include medium-and-up {

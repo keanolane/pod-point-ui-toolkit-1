@@ -64,7 +64,7 @@
 .error-message {
 	display: block;
 	@include font-style-small;
-	font-family: $font-family-bold;
+	font-weight: $font-weight-bold;
 	color: $error-red;
 	margin-top: rem(3);
 	.checkbox-wrap & {
