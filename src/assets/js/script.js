@@ -25,7 +25,6 @@ import claimDealerDiscount from './modules/claim-dealer-discount';
 import basket from './modules/basket';
 import flipCounter from './modules/flip-counter';
 import evMap from './modules/ev-map';
-import selectDropdown from './modules/select-dropdown';
 
 import { initAutocomplete, geolocate, fillInAddress } from './modules/address-lookup';
 
@@ -64,7 +63,6 @@ dom.whenReady(() => {
             basket,
             flipCounter,
             evMap,
-            selectDropdown,
         })
     });
 });
