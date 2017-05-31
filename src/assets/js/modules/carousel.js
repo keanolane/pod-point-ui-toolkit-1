@@ -1,5 +1,4 @@
-import Slider from "slick-carousel";
-import $ from "jquery";
+import Flickity from 'flickity/js/flickity.js';
 
 let instances = [];
 
@@ -12,21 +11,23 @@ class Carousel {
      */
     constructor(element) {
         this.element = element;
-        this.initSlick();
+        this.initFlickity();
     }
 
     /**
-     * Initialise a slick slider.
+     * Initialise a Flickity carousel.
      */
-    initSlick() {
-        $(this.element).slick();
+    initFlickity() {
+        this.carousel = new Flickity( this.element, {
+            contain: true
+        });
     }
 
     /**
-     * Destroy slick slider.
+     * Destroy Flickity carousel.
      */
     destroy() {
-        $(this.element).slick('unslick');
+        this.carousel.destroy();
     }
 }
 
