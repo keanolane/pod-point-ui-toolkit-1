@@ -33,13 +33,8 @@
 		}
 		#{$inputs},
 		textarea[type="text"],
-		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-selected,
-		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select {
+		.select-wrapper select {
 			border-color: $primary-color;
-		}
-		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
-		.select-dd-wrapper--mobile .mobile-select:after {
-			color: $primary-color;
 		}
 	}
 	&.is-invalid {
@@ -50,13 +45,8 @@
 		}
 		#{$inputs},
 		textarea[type="text"],
-		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-selected,
-		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .mobile-select {
+		.select-wrapper select {
 			border-color: $error-red;
-		}
-		.select-dd-wrapper:not(.select-dd-wrapper--alternative) .dk-select:after,
-		.select-dd-wrapper--mobile .mobile-select:after {
-			color: $error-red;
 		}
 	}
 }
