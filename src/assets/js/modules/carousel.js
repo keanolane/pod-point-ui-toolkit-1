@@ -1,4 +1,4 @@
-import Flickity from 'flickity/js/flickity.js';
+import Flickity from 'flickity';
 
 let instances = [];
 
