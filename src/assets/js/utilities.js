@@ -112,11 +112,11 @@ export function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-export function roundNumberTo(num) {
-	var resto = this%num;
-	if (resto <= (num/2)) {
-		return this-resto;
+export function roundNumberTo(num, roundTo) {
+	var resto = num%roundTo;
+	if (resto <= (roundTo/2)) {
+		return num-resto;
 	} else {
-		return this+num-resto;
+		return num+roundTo-resto;
 	}
 }
