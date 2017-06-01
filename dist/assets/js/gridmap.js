@@ -14,7 +14,9 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 // Slightly adapted from https://github.com/riccardoscalco/gridmap to work with ES6 and new version of d3.js
 
 function flat(type, arr) {
-  var flatten, m, polygon;
+  var flatten = void 0,
+      m = void 0,
+      polygon = void 0;
   flatten = function flatten(polygon) {
     return polygon.reduce(function (a, b) {
       return a.concat([[0, 0]].concat(b));
@@ -26,7 +28,9 @@ function flat(type, arr) {
       break;
     case "MultiPolygon":
       m = flatten(function () {
-        var _i, _len, _results;
+        var _i = void 0,
+            _len = void 0,
+            _results = void 0;
         _results = [];
         for (_i = 0, _len = arr.length; _i < _len; _i++) {
           polygon = arr[_i];
@@ -39,18 +43,25 @@ function flat(type, arr) {
 };
 
 function subGrid(box, side) {
-  var i, j, x, x1, y, y1;
+  var i = void 0,
+      j = void 0,
+      x = void 0,
+      x1 = void 0,
+      y = void 0,
+      y1 = void 0;
   x = 1 + Math.floor(box[0][0] / side);
   y = 1 + Math.floor(box[0][1] / side);
   x1 = Math.floor(box[1][0] / side);
   y1 = Math.floor(box[1][1] / side);
   if (x1 >= x && y1 >= y) {
     return function () {
-      var _i, _results;
+      var _i = void 0,
+          _results = void 0;
       _results = [];
       for (j = _i = y; y <= y1 ? _i <= y1 : _i >= y1; j = y <= y1 ? ++_i : --_i) {
         _results.push(function () {
-          var _j, _results1;
+          var _j = void 0,
+              _results1 = void 0;
           _results1 = [];
           for (i = _j = x; x <= x1 ? _j <= x1 : _j >= x1; i = x <= x1 ? ++_j : --_j) {
             _results1.push([i, j]);
@@ -68,7 +79,18 @@ function subGrid(box, side) {
 };
 
 function isInside(point, vs) {
-  var i, inside, intersect, j, x, xi, xj, y, yi, yj, _i, _ref;
+  var i = void 0,
+      inside = void 0,
+      intersect = void 0,
+      j = void 0,
+      x = void 0,
+      xi = void 0,
+      xj = void 0,
+      y = void 0,
+      yi = void 0,
+      yj = void 0,
+      _i = void 0,
+      _ref = void 0;
   x = point[0];
   y = point[1];
   inside = false;
