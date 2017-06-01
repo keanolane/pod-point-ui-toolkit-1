@@ -117,7 +117,7 @@ var EvMap = function () {
             this.lastHighlightedDot = [x, y];
             this.mapPoint = document.querySelector('circle[cx="' + x + '"][cy="' + y + '"]');
 
-            if (this.mapPoint.length) {
+            if (this.mapPoint) {
                 this.mapPoint.classList.add('gridmap-dot-selected');
                 var kwText = document.getElementById('kw');
                 kwText.innerHTML = kw;
@@ -142,7 +142,7 @@ var EvMap = function () {
         value: function hideMarker() {
             if (this.lastHighlightedDot[0]) {
                 this.mapPoint = document.querySelector('circle[cx="' + this.lastHighlightedDot[0] + '"][cy="' + this.lastHighlightedDot[1] + '"]');
-                if (this.mapPoint.length) {
+                if (this.mapPoint) {
                     this.mapPoint.classList.remove('gridmap-dot-selected');
                 }
             }
