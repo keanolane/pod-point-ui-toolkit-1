@@ -3600,6 +3600,20 @@ button {
   top: 15px;
   right: 15px; }
 
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes bulge-appear {
+  from {
+    -ms-transform: scale(0.1, 0.1);
+    -webkit-transform: scale(0.1, 0.1); }
+  to {
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1); } }
+
 .ev-map-wrap__markers {
   position: absolute;
   top: 50%;
@@ -3610,6 +3624,18 @@ button {
   text-align: left;
   margin-left: 10px;
   width: 250px; }
+
+.ev-map-wrap__rotate {
+  animation-name: rotate;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
+
+.ev-map-wrap__bulge-appear {
+  animation-name: bulge-appear;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear; }
 
 .ev-map-wrap__pulse {
   float: left;
@@ -3628,7 +3654,7 @@ button {
         transform-origin: 50% 50%;
     -ms-transform: scale(1, 1);
         transform: scale(1, 1); }
-  .ev-map circle.gridmap-dot:hover {
+  .ev-map circle.gridmap-dot:hover, .ev-map circle.gridmap-dot-selected {
     fill: #8cc63f !important; }
   .ev-map path.arc {
     fill-opacity: 0;
