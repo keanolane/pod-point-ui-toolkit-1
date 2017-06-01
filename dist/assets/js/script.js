@@ -42,7 +42,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -214,9 +214,9 @@
 	
 	window.addEventListener('resize', handleResize);
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 	    Module system
@@ -271,9 +271,9 @@
 	
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -332,9 +332,9 @@
 	    };
 	}
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 	    DOM module handler, compatible with @pod-point/module-loader
@@ -404,9 +404,9 @@
 	
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -596,9 +596,9 @@
 	    }
 	}
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -757,9 +757,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*jshint browser:true, node:true*/
 	
@@ -782,9 +782,9 @@
 	module.exports.Delegate = Delegate;
 
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/*jshint browser:true, node:true*/
 	
@@ -1217,9 +1217,9 @@
 	};
 
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1385,24 +1385,24 @@
 	  return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 	
-	function roundNumberTo(num) {
-	  var resto = this % num;
-	  if (resto <= num / 2) {
-	    return this - resto;
+	function roundNumberTo(num, roundTo) {
+	  var resto = num % roundTo;
+	  if (resto <= roundTo / 2) {
+	    return num - resto;
 	  } else {
-	    return this + num - resto;
+	    return num + roundTo - resto;
 	  }
 	}
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	!function(){if(!window.CustomEvent&&document.createEventObject)return void(window.CustomEvent=function(e,t){if(!arguments.length)throw new Error("Not enough arguments");var s={type:e,bubbles:!1,cancelable:!1,detail:null},i=document.createEventObject();for(var n in s)i[n]=s[n];for(var n in t)i[n]=t[n];return i});try{new CustomEvent("test")}catch(e){var t=function(e,t){if(!arguments.length)throw new Error("Not enough arguments");var s={bubbles:!1,cancelable:!1,detail:null};for(var i in t)s[i]=t[i];var n=document.createEvent("CustomEvent");return n.initCustomEvent(e,s.bubbles,s.cancelable,s.detail),n};t.prototype=(window.CustomEvent||window.Event).prototype,window.CustomEvent=t}}(),function(){if(!document.addEventListener&&window.Element&&window.Event){var e="__events",t="__immediateStopped";Event.prototype.NONE=Event.NONE=0,Event.prototype.CAPTURING_PHASE=Event.CAPTURING_PHASE=1,Event.prototype.AT_TARGET=Event.AT_TARGET=2,Event.prototype.BUBBLING_PHASE=Event.BUBBLING_PHASE=3,Event.prototype.preventDefault=function(){this.cancelable!==!1&&(this.returnValue=!1)},Event.prototype.stopPropagation=function(){this.cancelBubble=!0},Event.prototype.stopImmediatePropagation=function(){this[t]=this.cancelBubble=!0};for(var s=function(e,t){return e.timeStamp=+new Date,e.target||(e.target=e.srcElement||t),e.pageX=e.clientX+document.documentElement.scrollLeft,e.pageY=e.clientY+document.documentElement.scrollTop,"mouseover"==e.type?e.relatedTarget=e.fromElement:"mouseout"==e.type?e.relatedTarget=e.toElement:e.relatedTarget=null,e},i=function(e,t,s){for(var i=0;i<e.length;i++){var n=e[i];if(n.useCapture==s&&n.listener==t)return i}return-1},n=function(e,t,s){e.currentTarget=s,"function"==typeof t?t.call(s,e):t.handleEvent(e)},a=function(e){for(var t=[];e.parentNode;)t.unshift(e.parentNode),e=e.parentNode;return t},o=function(s,i,a){s.eventPhase=a;for(var o=0;o<i.length;o++){for(var r=i[o],l=[],d=(r[e]||{})[s.type]||[],h=0;h<d.length;h++){var c=d[h];c.useCapture&&a==Event.BUBBLING_PHASE||(c.useCapture||a!=Event.CAPTURING_PHASE)&&l.push(c.listener)}for(h=0;h<l.length;)try{for(;h<l.length;){var u=l[h++];if(n(s,u,r),s[t])return!0}}catch(p){setTimeout(function(){throw p},0)}if(s.cancelBubble)return!0}return!1},r=function(e){s(e,this);var t=a(e.target);return t.length&&o(e,t,Event.CAPTURING_PHASE)?e.returnValue:o(e,[e.target],Event.AT_TARGET)?e.returnValue:t.length&&e.bubbles!==!1&&(t.reverse(),o(e,t,Event.BUBBLING_PHASE))?e.returnValue:(e.stopPropagation(),e.returnValue)},l=({addEventListener:function(t,s,n){var a=this,o=(this[e]||{})[t]||[],l=o.length;if(!(i(o,s,n)>-1)){if(e in this)var d=this[e];else{var d={_handler:function(){r.apply(a,arguments)}};this[e]=d}t in d||(d[t]=[]),d[t].push({listener:s,useCapture:n}),l||this.attachEvent("on"+t,d._handler)}},removeEventListener:function(t,s,n){var a=(this[e]||{})[t]||[],o=i(a,s,n);-1!=o&&(a.splice(o,1),a.length||this.detachEvent("on"+t,this[e]._handler))},dispatchEvent:function(e){return e.returnValue=!0,r.call(this,e)}}),d=[Element,window.constructor,document.constructor];d.length;){var h=d.pop();for(var c in l)h.prototype[c]=l[c]}}}(),Array.prototype.forEach||(Array.prototype.forEach=function(e,t){var s,i;if(null==this)throw new TypeError(" this is null or not defined");var n=Object(this),a=n.length>>>0;if("function"!=typeof e)throw new TypeError(e+" is not a function");for(arguments.length>1&&(s=t),i=0;a>i;){var o;i in n&&(o=n[i],e.call(s,o,i,n)),i++}}),Array.prototype.indexOf||(Array.prototype.indexOf=function(e,t){var s;if(null==this)throw new TypeError('"this" is null or not defined');var i=Object(this),n=i.length>>>0;if(0===n)return-1;var a=+t||0;if(Math.abs(a)===1/0&&(a=0),a>=n)return-1;for(s=Math.max(a>=0?a:n-Math.abs(a),0);n>s;){if(s in i&&i[s]===e)return s;s++}return-1}),function(e){var t;if(true){try{t=__webpack_require__(10)}catch(s){}module.exports=e(window,document,t)}else"function"==typeof define&&define.amd?define([],function(){return e(window,document,window.jQuery)}):window.Dropkick=e(window,document,window.jQuery)}(function(e,t,s,i){var n,a=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),o=e.parent!==e.self,r=-1!==navigator.appVersion.indexOf("MSIE"),l=function(s,i){var n,a;if(this===e)return new l(s,i);for("string"==typeof s&&"#"===s[0]&&(s=t.getElementById(s.substr(1))),n=0;n<l.uid;n++)if(a=l.cache[n],a instanceof l&&a.data.select===s)return c.extend(a.data.settings,i),a;return s?s.length<1?(console.error("You must have options inside your <select>: ",s),!1):"SELECT"===s.nodeName?this.init(s,i):void 0:(console.error("You must pass a select to DropKick"),!1)},d=function(){},h={initialize:d,mobile:!1,change:d,open:d,close:d,search:"strict",bubble:!0},c={hasClass:function(e,t){var s=new RegExp("(^|\\s+)"+t+"(\\s+|$)");return e&&s.test(e.className)},addClass:function(e,t){e&&!c.hasClass(e,t)&&(e.className+=" "+t)},removeClass:function(e,t){var s=new RegExp("(^|\\s+)"+t+"(\\s+|$)");e&&(e.className=e.className.replace(s," "))},toggleClass:function(e,t){var s=c.hasClass(e,t)?"remove":"add";c[s+"Class"](e,t)},extend:function(e){return Array.prototype.slice.call(arguments,1).forEach(function(t){if(t)for(var s in t)e[s]=t[s]}),e},offset:function(s){var i=s.getBoundingClientRect()||{top:0,left:0},n=t.documentElement,a=r?n.scrollTop:e.pageYOffset,o=r?n.scrollLeft:e.pageXOffset;return{top:i.top+a-n.clientTop,left:i.left+o-n.clientLeft}},position:function(e,t){for(var s={top:0,left:0};e&&e!==t;)s.top+=e.offsetTop,s.left+=e.offsetLeft,e=e.parentNode;return s},closest:function(e,t){for(;e;){if(e===t)return e;e=e.parentNode}return!1},create:function(e,s){var i,n=t.createElement(e);s||(s={});for(i in s)s.hasOwnProperty(i)&&("innerHTML"===i?n.innerHTML=s[i]:n.setAttribute(i,s[i]));return n},deferred:function(t){return function(){var s=arguments,i=this;e.setTimeout(function(){t.apply(i,s)},1)}}};return l.cache={},l.uid=0,l.prototype={add:function(e,s){var i,n,a;"string"==typeof e&&(i=e,e=t.createElement("option"),e.text=i),"OPTION"===e.nodeName&&(n=c.create("li",{"class":"dk-option","data-value":e.value,text:e.text,innerHTML:e.innerHTML,role:"option","aria-selected":"false",id:"dk"+this.data.cacheID+"-"+(e.id||e.value.replace(" ","-"))}),c.addClass(n,e.className),this.length+=1,e.disabled&&(c.addClass(n,"dk-option-disabled"),n.setAttribute("aria-disabled","true")),e.hidden&&(c.addClass(n,"dk-option-hidden"),n.setAttribute("aria-hidden","true")),this.data.select.add(e,s),"number"==typeof s&&(s=this.item(s)),a=this.options.indexOf(s),a>-1?(s.parentNode.insertBefore(n,s),this.options.splice(a,0,n)):(this.data.elem.lastChild.appendChild(n),this.options.push(n)),n.addEventListener("mouseover",this),e.selected&&this.select(a))},item:function(e){return e=0>e?this.options.length+e:e,this.options[e]||null},remove:function(e){var t=this.item(e);t.parentNode.removeChild(t),this.options.splice(e,1),this.data.select.remove(e),this.select(this.data.select.selectedIndex),this.length-=1},init:function(e,s){var i,r=l.build(e,"dk"+l.uid);if(this.data={},this.data.select=e,this.data.elem=r.elem,this.data.settings=c.extend({},h,s),this.disabled=e.disabled,this.form=e.form,this.length=e.length,this.multiple=e.multiple,this.options=r.options.slice(0),this.selectedIndex=e.selectedIndex,this.selectedOptions=r.selected.slice(0),this.value=e.value,this.data.cacheID=l.uid,l.cache[this.data.cacheID]=this,this.data.settings.initialize.call(this),l.uid+=1,this._changeListener||(e.addEventListener("change",this),this._changeListener=!0),!a||this.data.settings.mobile){if(e.parentNode.insertBefore(this.data.elem,e),e.setAttribute("data-dkCacheId",this.data.cacheID),this.data.elem.addEventListener("click",this),this.data.elem.addEventListener("keydown",this),this.data.elem.addEventListener("keypress",this),this.form&&this.form.addEventListener("reset",this),!this.multiple)for(i=0;i<this.options.length;i++)this.options[i].addEventListener("mouseover",this);n||(t.addEventListener("click",l.onDocClick),o&&parent.document.addEventListener("click",l.onDocClick),n=!0)}return this},close:function(){var e,t=this.data.elem;if(!this.isOpen||this.multiple)return!1;for(e=0;e<this.options.length;e++)c.removeClass(this.options[e],"dk-option-highlight");t.lastChild.setAttribute("aria-expanded","false"),c.removeClass(t.lastChild,"dk-select-options-highlight"),c.removeClass(t,"dk-select-open-(up|down)"),this.isOpen=!1,this.data.settings.close.call(this)},open:c.deferred(function(){var s,n,a,o,r,l,d=this.data.elem,h=d.lastChild,u=e.pageXOffset!==i,p="CSS1Compat"===(t.compatMode||""),f=u?e.pageYOffset:p?t.documentElement.scrollTop:t.body.scrollTop;return r=c.offset(d).top-f,l=e.innerHeight-(r+d.offsetHeight),this.isOpen||this.multiple?!1:(h.style.display="block",s=h.offsetHeight,h.style.display="",n=r>s,a=l>s,o=n&&!a?"-up":"-down",this.isOpen=!0,c.addClass(d,"dk-select-open"+o),h.setAttribute("aria-expanded","true"),this._scrollTo(this.options.length-1),this._scrollTo(this.selectedIndex),void this.data.settings.open.call(this))}),disable:function(e,t){var s="dk-option-disabled";0!==arguments.length&&"boolean"!=typeof e||(t=e===i,e=this.data.elem,s="dk-select-disabled",this.disabled=t),t===i&&(t=!0),"number"==typeof e&&(e=this.item(e)),t?(e.setAttribute("aria-disabled",!0),c.addClass(e,s)):(e.setAttribute("aria-disabled",!1),c.removeClass(e,s))},hide:function(e,t){var s="dk-option-hidden";t===i&&(t=!0),e=this.item(e),t?(e.setAttribute("aria-hidden",!0),c.addClass(e,s)):(e.setAttribute("aria-hidden",!1),c.removeClass(e,s))},select:function(e,t){var s,i,n,a,o=this.data.select;if("number"==typeof e&&(e=this.item(e)),"string"==typeof e)for(s=0;s<this.length;s++)this.options[s].getAttribute("data-value")===e&&(e=this.options[s]);return!e||"string"==typeof e||!t&&c.hasClass(e,"dk-option-disabled")?!1:c.hasClass(e,"dk-option")?(i=this.options.indexOf(e),n=o.options[i],this.multiple?(c.toggleClass(e,"dk-option-selected"),n.selected=!n.selected,c.hasClass(e,"dk-option-selected")?(e.setAttribute("aria-selected","true"),this.selectedOptions.push(e)):(e.setAttribute("aria-selected","false"),i=this.selectedOptions.indexOf(e),this.selectedOptions.splice(i,1))):(a=this.data.elem.firstChild,this.selectedOptions.length&&(c.removeClass(this.selectedOptions[0],"dk-option-selected"),this.selectedOptions[0].setAttribute("aria-selected","false")),c.addClass(e,"dk-option-selected"),e.setAttribute("aria-selected","true"),a.setAttribute("aria-activedescendant",e.id),a.className="dk-selected "+n.className,a.innerHTML=n.innerHTML,this.selectedOptions[0]=e,n.selected=!0),this.selectedIndex=o.selectedIndex,this.value=o.value,t||this.data.select.dispatchEvent(new CustomEvent("change",{bubbles:this.data.settings.bubble})),e):void 0},selectOne:function(e,t){return this.reset(!0),this._scrollTo(e),this.select(e,t)},search:function(e,t){var s,i,n,a,o,r,l,d,h=this.data.select.options,c=[];if(!e)return this.options;for(t=t?t.toLowerCase():"strict",t="fuzzy"===t?2:"partial"===t?1:0,d=new RegExp((t?"":"^")+e,"i"),s=0;s<h.length;s++)if(n=h[s].text.toLowerCase(),2==t){for(i=e.toLowerCase().split(""),a=o=r=l=0;o<n.length;)n[o]===i[a]?(r+=1+r,a++):r=0,l+=r,o++;a===i.length&&c.push({e:this.options[s],s:l,i:s})}else d.test(n)&&c.push(this.options[s]);return 2===t&&(c=c.sort(function(e,t){return t.s-e.s||e.i-t.i}).reduce(function(e,t){return e[e.length]=t.e,e},[])),c},focus:function(){this.disabled||(this.multiple?this.data.elem:this.data.elem.children[0]).focus()},reset:function(e){var t,s=this.data.select;for(this.selectedOptions.length=0,t=0;t<s.options.length;t++)s.options[t].selected=!1,c.removeClass(this.options[t],"dk-option-selected"),this.options[t].setAttribute("aria-selected","false"),!e&&s.options[t].defaultSelected&&this.select(t,!0);this.selectedOptions.length||this.multiple||this.select(0,!0)},refresh:function(){Object.keys(this).length>0&&(!a||this.data.settings.mobile)&&this.dispose().init(this.data.select,this.data.settings)},dispose:function(){return Object.keys(this).length>0&&(!a||this.data.settings.mobile)&&(delete l.cache[this.data.cacheID],this.data.elem.parentNode.removeChild(this.data.elem),this.data.select.removeAttribute("data-dkCacheId")),this},handleEvent:function(e){if(!this.disabled)switch(e.type){case"click":this._delegate(e);break;case"keydown":this._keyHandler(e);break;case"keypress":this._searchOptions(e);break;case"mouseover":this._highlight(e);break;case"reset":this.reset();break;case"change":this.data.settings.change.call(this)}},_delegate:function(t){var s,i,n,a,o=t.target;if(c.hasClass(o,"dk-option-disabled"))return!1;if(this.multiple){if(c.hasClass(o,"dk-option"))if(s=e.getSelection(),"Range"===s.type&&s.collapseToStart(),t.shiftKey)if(n=this.options.indexOf(this.selectedOptions[0]),a=this.options.indexOf(this.selectedOptions[this.selectedOptions.length-1]),i=this.options.indexOf(o),i>n&&a>i&&(i=n),i>a&&a>n&&(a=n),this.reset(!0),a>i)for(;a+1>i;)this.select(i++);else for(;i>a-1;)this.select(i--);else t.ctrlKey||t.metaKey?this.select(o):(this.reset(!0),this.select(o))}else this[this.isOpen?"close":"open"](),c.hasClass(o,"dk-option")&&this.select(o)},_highlight:function(e){var t,s=e.target;if(!this.multiple){for(t=0;t<this.options.length;t++)c.removeClass(this.options[t],"dk-option-highlight");c.addClass(this.data.elem.lastChild,"dk-select-options-highlight"),c.addClass(s,"dk-option-highlight")}},_keyHandler:function(e){var t,s,i=this.selectedOptions,n=this.options,a=1,o={tab:9,enter:13,esc:27,space:32,up:38,down:40};switch(e.keyCode){case o.up:a=-1;case o.down:if(e.preventDefault(),t=i[i.length-1],c.hasClass(this.data.elem.lastChild,"dk-select-options-highlight"))for(c.removeClass(this.data.elem.lastChild,"dk-select-options-highlight"),s=0;s<n.length;s++)c.hasClass(n[s],"dk-option-highlight")&&(c.removeClass(n[s],"dk-option-highlight"),t=n[s]);a=n.indexOf(t)+a,a>n.length-1?a=n.length-1:0>a&&(a=0),this.data.select.options[a].disabled||(this.reset(!0),this.select(a),this._scrollTo(a));break;case o.space:if(!this.isOpen){e.preventDefault(),this.open();break}case o.tab:case o.enter:for(a=0;a<n.length;a++)c.hasClass(n[a],"dk-option-highlight")&&this.select(a);case o.esc:this.isOpen&&(e.preventDefault(),this.close())}},_searchOptions:function(e){var t,s=this,n=String.fromCharCode(e.keyCode||e.which),a=function(){s.data.searchTimeout&&clearTimeout(s.data.searchTimeout),s.data.searchTimeout=setTimeout(function(){s.data.searchString=""},1e3)};this.data.searchString===i&&(this.data.searchString=""),a(),this.data.searchString+=n,t=this.search(this.data.searchString,this.data.settings.search),t.length&&(c.hasClass(t[0],"dk-option-disabled")||this.selectOne(t[0]))},_scrollTo:function(e){var t,s,i,n=this.data.elem.lastChild;return-1===e||"number"!=typeof e&&!e||!this.isOpen&&!this.multiple?!1:("number"==typeof e&&(e=this.item(e)),t=c.position(e,n).top,s=t-n.scrollTop,i=s+e.offsetHeight,void(i>n.offsetHeight?(t+=e.offsetHeight,n.scrollTop=t-n.offsetHeight):0>s&&(n.scrollTop=t)))}},l.build=function(e,t){var s,i,n,a=[],o={elem:null,options:[],selected:[]},r=function(e){var s,i,n,a,l=[];switch(e.nodeName){case"OPTION":s=c.create("li",{"class":"dk-option ","data-value":e.value,text:e.text,innerHTML:e.innerHTML,role:"option","aria-selected":"false",id:t+"-"+(e.id||e.value.replace(" ","-"))}),c.addClass(s,e.className),e.disabled&&(c.addClass(s,"dk-option-disabled"),s.setAttribute("aria-disabled","true")),e.hidden&&(c.addClass(s,"dk-option-hidden"),s.setAttribute("aria-hidden","true")),e.selected&&(c.addClass(s,"dk-option-selected"),s.setAttribute("aria-selected","true"),o.selected.push(s)),o.options.push(this.appendChild(s));break;case"OPTGROUP":for(i=c.create("li",{"class":"dk-optgroup"}),e.label&&i.appendChild(c.create("div",{"class":"dk-optgroup-label",innerHTML:e.label})),n=c.create("ul",{"class":"dk-optgroup-options"}),a=e.children.length;a--;l.unshift(e.children[a]));l.forEach(r,n),this.appendChild(i).appendChild(n)}};for(o.elem=c.create("div",{"class":"dk-select"+(e.multiple?"-multi":"")}),i=c.create("ul",{"class":"dk-select-options",id:t+"-listbox",role:"listbox"}),e.disabled&&(c.addClass(o.elem,"dk-select-disabled"),o.elem.setAttribute("aria-disabled",!0)),o.elem.id=t+(e.id?"-"+e.id:""),c.addClass(o.elem,e.className),e.multiple?(o.elem.setAttribute("tabindex",e.getAttribute("tabindex")||"0"),i.setAttribute("aria-multiselectable","true")):(s=e.options[e.selectedIndex],o.elem.appendChild(c.create("div",{"class":"dk-selected "+s.className,tabindex:e.tabindex||0,innerHTML:s?s.text:"&nbsp;",id:t+"-combobox","aria-live":"assertive","aria-owns":i.id,role:"combobox"})),i.setAttribute("aria-expanded","false")),n=e.children.length;n--;a.unshift(e.children[n]));return a.forEach(r,o.elem.appendChild(i)),o},l.onDocClick=function(e){var t,s;if(1!==e.target.nodeType)return!1;null!==(t=e.target.getAttribute("data-dkcacheid"))&&l.cache[t].focus();for(s in l.cache)c.closest(e.target,l.cache[s].data.elem)||s===t||l.cache[s].disabled||l.cache[s].close()},s!==i&&(s.fn.dropkick=function(){var e=Array.prototype.slice.call(arguments);return s(this).each(function(){e[0]&&"object"!=typeof e[0]?"string"==typeof e[0]&&l.prototype[e[0]].apply(new l(this),e.slice(1)):new l(this,e[0]||{})})}),l});
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * jQuery JavaScript Library v3.2.1
@@ -11659,9 +11659,9 @@
 	} );
 
 
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -11775,9 +11775,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 12 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
@@ -12858,9 +12858,9 @@
 	};
 
 
-/***/ },
+/***/ }),
 /* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	/**
@@ -13027,9 +13027,9 @@
 	};
 
 
-/***/ },
+/***/ }),
 /* 14 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	
 	/**
@@ -13056,9 +13056,9 @@
 	  return curr;
 	};
 
-/***/ },
+/***/ }),
 /* 15 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module of mixed-in functions shared between node and client code
@@ -13228,9 +13228,9 @@
 	};
 
 
-/***/ },
+/***/ }),
 /* 16 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Check if `obj` is an object.
@@ -13247,9 +13247,9 @@
 	module.exports = isObject;
 
 
-/***/ },
+/***/ }),
 /* 17 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// The node and browser modules expose versions of this with the
 	// appropriate constructor function bound as first argument
@@ -13285,9 +13285,9 @@
 	module.exports = request;
 
 
-/***/ },
+/***/ }),
 /* 18 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -13354,9 +13354,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 19 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -13472,9 +13472,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -13572,9 +13572,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 21 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -13686,9 +13686,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 22 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -13821,9 +13821,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -13959,9 +13959,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 24 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -14135,9 +14135,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 25 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -14310,9 +14310,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -14416,9 +14416,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 27 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -14520,9 +14520,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 28 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -14693,9 +14693,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 29 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	var Sticky = __webpack_require__(30);
@@ -14703,9 +14703,9 @@
 	module.exports = Sticky;
 
 
-/***/ },
+/***/ }),
 /* 30 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -15173,9 +15173,9 @@
 	  }
 	})(this, Sticky);
 
-/***/ },
+/***/ }),
 /* 31 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
@@ -15251,9 +15251,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 32 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 	     _ _      _       _
@@ -18149,9 +18149,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 33 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -18227,9 +18227,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 34 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -18329,9 +18329,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 35 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -18478,9 +18478,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 36 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -18680,9 +18680,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -18824,9 +18824,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 38 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -19197,9 +19197,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 39 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -19253,16 +19253,16 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 40 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {!function(a,b){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b(a)), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof exports?module.exports=b(a):a.inlineSVG=b(a)}("undefined"!=typeof global?global:this.window||this.global,function(a){var b,c={},d=!!document.querySelector&&!!a.addEventListener,e={initClass:"js-inlinesvg",svgSelector:"img.svg"},f=function(a,b){return function(){return--a<1?b.apply(this,arguments):void 0}},g=function(){var a={},b=!1,c=0,d=arguments.length;"[object Boolean]"===Object.prototype.toString.call(arguments[0])&&(b=arguments[0],c++);for(var e=function(c){for(var d in c)Object.prototype.hasOwnProperty.call(c,d)&&(b&&"[object Object]"===Object.prototype.toString.call(c[d])?a[d]=g(!0,a[d],c[d]):a[d]=c[d])};d>c;c++){var f=arguments[c];e(f)}return a},h=function(){var a=document.querySelectorAll(b.svgSelector);return a},i=function(a){var c=h(),d=f(c.length,a);Array.prototype.forEach.call(c,function(a,c){var e=a.src||a.getAttribute("data-src"),f=a.attributes,g=new XMLHttpRequest;g.open("GET",e,!0),g.onload=function(){if(g.status>=200&&g.status<400){var c=new DOMParser,e=c.parseFromString(g.responseText,"text/xml"),h=e.getElementsByTagName("svg")[0];if(h.removeAttribute("xmlns:a"),h.removeAttribute("width"),h.removeAttribute("height"),h.removeAttribute("x"),h.removeAttribute("y"),h.removeAttribute("enable-background"),h.removeAttribute("xmlns:xlink"),h.removeAttribute("xml:space"),h.removeAttribute("version"),Array.prototype.slice.call(f).forEach(function(a){"src"!==a.name&&"alt"!==a.name&&h.setAttribute(a.name,a.value)}),h.classList?h.classList.add("inlined-svg"):h.className+=" inlined-svg",h.setAttribute("role","img"),f.longdesc){var i=document.createElementNS("http://www.w3.org/2000/svg","desc"),j=document.createTextNode(f.longdesc.value);i.appendChild(j),h.insertBefore(i,h.firstChild)}if(f.alt){h.setAttribute("aria-labelledby","title");var k=document.createElementNS("http://www.w3.org/2000/svg","title"),l=document.createTextNode(f.alt.value);k.appendChild(l),h.insertBefore(k,h.firstChild)}a.parentNode.replaceChild(h,a),d(b.svgSelector)}else console.error("There was an error retrieving the source of the SVG.")},g.onerror=function(){console.error("There was an error connecting to the origin server.")},g.send()})};return c.init=function(a,c){d&&(b=g(e,a||{}),i(c||function(){}),document.documentElement.className+=" "+b.initClass)},c});
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
+/***/ }),
 /* 41 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -19315,9 +19315,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 42 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -21071,9 +21071,9 @@
 		}
 	}(window, window.Tick || []);
 
-/***/ },
+/***/ }),
 /* 43 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -21124,21 +21124,23 @@
 	
 	        mapConfig = {
 	            mapID: '#gridmap',
-	            mapWidth: 460,
-	            mapHeight: 267, // these values set the physical size of the map on the page
-	            mapDotStepSize: 6, // this sets size of the map dots
-	            mapDotColour: '#CCCCCC', // sets the fill colour of the dots
-	            mapLonLeft: -10.65, // enter the longitude in degrees on left edge of map, by comparing with Google
-	            mapLonRight: 20.01, // enter the longitude in degrees on right edge of map
-	            mapLatBottom: 49.3, // enter the latitude in degrees on bottom edge of map
-	            timeDelay: 3500, // time in milliseconds between new charges appearing on the map
-	            s: 1342, // these values set scale and boundaries of the map
-	            t: [168, 1382] // these values set scale and boundaries of the map
+	            mapWidth: 700,
+	            mapHeight: 553, // size of the map on the page in pixels
+	            mapDotStepSize: 10, // size of the map dots
+	            mapDotColour: '#CCCCCC', // fill colour of the dots
+	            mapLonLeft: -12.0, // enter the longitude in degrees on left edge of map, by comparing with Google Maps
+	            mapLonRight: 16.04, // enter the longitude in degrees on right edge of map
+	            mapLatBottom: 47.1, // enter the latitude in degrees on bottom edge of map
+	            timeDelay: 6000, // time in milliseconds between new charges appearing on the map
+	            s: 2250, // scale
+	            t: [300, 2350] // boundaries
 	        };
 	
 	        this.element = element;
-	        this.mapElement = element.querySelector(mapConfig.mapID);
-	        this.markerHolder = element.querySelector('#markerHolder');
+	        this.mapElement = document.getElementById(mapConfig.mapID);
+	        this.markerHolder = document.getElementById('markerHolder');
+	        this.markerCircleHolder = document.getElementById('markerCircleHolder');
+	        this.markerCircle = document.getElementById('markerCircle');
 	
 	        this.lastHighlightedDot = [];
 	
@@ -21146,11 +21148,9 @@
 	
 	        var path = d3.geoPath().projection(mapConfig.projection);
 	
-	        this.chargesData = _chargeData2.default.charges;
-	
 	        d3.queue().defer(d3.json, "./assets/js/data/geo-data/eu.json").await(this.ready);
 	
-	        // this.ping();
+	        this.startCharges();
 	    }
 	
 	    /**
@@ -21166,17 +21166,15 @@
 	        value: function ready(error, eu) {
 	            var features = topojson.feature(eu, eu.objects.europe).features;
 	
-	            // generate some random data
-	            var data = d3.map(); // data is a d3.map !!
-	            var j;
-	            var len;
+	            var data = d3.map();
+	            var j = void 0;
+	            var len = void 0;
 	
 	            for (j = 0, len = features.length; j < len; j++) {
 	                data.set(features[j]["id"], (0, _utilities.getRandomInt)(1, 5));
 	            }
 	
-	            var chart = new _gridmap.Gridmap().data(data).width(mapConfig.mapWidth).height(mapConfig.mapHeight).key("id").side(mapConfig.mapDotStepSize) // change this to make dots larger or smaller
-	            .isDensity(true).projection(mapConfig.projection).features(features).fill(mapConfig.mapDotColour);
+	            var chart = (0, _gridmap.gridmap)().data(data).width(mapConfig.mapWidth).height(mapConfig.mapHeight).key("id").side(mapConfig.mapDotStepSize).isDensity(true).projection(mapConfig.projection).features(features).fill(mapConfig.mapDotColour);
 	
 	            d3.select(mapConfig.mapID).call(chart);
 	        }
@@ -21194,22 +21192,21 @@
 	        key: 'showMarker',
 	        value: function showMarker(x, y, kw, saving) {
 	            this.lastHighlightedDot = [x, y];
-	            var mapPoint = this.element.querySelectorAll('circle[cx="' + x + '"][cy="' + y + '"]');
+	            this.mapPoint = document.querySelector('circle[cx="' + x + '"][cy="' + y + '"]');
 	
-	            if (mapPoint.length) {
-	                mapPoint[0].classList.add('gridmap-dot-selected');
-	                var kwText = this.element.getElementById('kw');
+	            if (this.mapPoint.length) {
+	                this.mapPoint.classList.add('gridmap-dot-selected');
+	                var kwText = document.getElementById('kw');
 	                kwText.innerHTML = kw;
 	
-	                savingText = this.element.getElementById('saving');
+	                var savingText = document.getElementById('saving');
 	                savingText.innerHTML = saving;
-	
-	                this.markerHolder.style.left = x - 32 + 'px';
-	                this.markerHolder.style.top = y - 32 + 'px';
-	                this.markerHolder.style.visibility = 'visible';
-	                this.markerHolder.classList.add('bulge-appear');
+	                this.markerHolder.classList.remove('hidden');
+	                this.markerHolder.style.left = x - 50 + 'px';
+	                this.markerHolder.style.top = y - 50 + 'px';
+	                this.markerCircleHolder.classList.add('ev-map-wrap__bulge-appear');
 	            } else {
-	                nextCharge();
+	                this.nextCharge();
 	            }
 	        }
 	
@@ -21221,19 +21218,18 @@
 	        key: 'hideMarker',
 	        value: function hideMarker() {
 	            if (this.lastHighlightedDot[0]) {
-	                mapPoint = document.querySelectorAll('circle[cx="' + this.lastHighlightedDot[0] + '"][cy="' + this.lastHighlightedDot[1] + '"]');
-	                if (mapPoint.length) {
-	                    mapPoint[0].classList.remove('gridmap-dot-selected');
+	                this.mapPoint = document.querySelector('circle[cx="' + this.lastHighlightedDot[0] + '"][cy="' + this.lastHighlightedDot[1] + '"]');
+	                if (this.mapPoint.length) {
+	                    this.mapPoint.classList.remove('gridmap-dot-selected');
 	                }
 	            }
-	            this.markerHolder.classList.remove('bulge-appear');
-	            this.markerHolder.style.visibility = 'hidden';
-	            void this.markerHolder.offsetWidth; // workaround to force browser to reflow so bulge animation class works again next time
+	            this.markerCircleHolder.classList.remove('ev-map-wrap__bulge-appear');
+	            void this.markerCircleHolder.offsetWidth; // workaround to force browser to reflow so bulge animation class works again next time
 	            this.lastHighlightedDot = [];
 	        }
 	
 	        /**
-	         * convert Lat and Long to a dot on the map
+	         * Convert latitude and longitude to a dot on the map
 	         * (adapted from http://stackoverflow.com/a/27313080)
 	         *
 	         * @param latitute
@@ -21250,15 +21246,15 @@
 	            var worldMapWidth = mapConfig.mapWidth / mapLonDelta * 360 / (2 * Math.PI);
 	            var mapOffsetY = worldMapWidth / 2 * Math.log((1 + Math.sin(mapLatBottomDegree)) / (1 - Math.sin(mapLatBottomDegree)));
 	            var y = mapConfig.mapHeight - (worldMapWidth / 2 * Math.log((1 + Math.sin(latitude)) / (1 - Math.sin(latitude))) - mapOffsetY);
-	            console.log(x);
-	            // var dotX = x.roundTo(mapConfig.mapDotStepSize);
-	            // var dotY = y.roundTo(mapConfig.mapDotStepSize);
+	
+	            var dotX = (0, _utilities.roundNumberTo)(x, mapConfig.mapDotStepSize);
+	            var dotY = (0, _utilities.roundNumberTo)(y, mapConfig.mapDotStepSize);
 	
 	            return [dotX, dotY];
 	        }
 	
 	        /**
-	         * Show charge on the map
+	         * Show a charge on the map
 	         *
 	         * @param latitute
 	         * @param longitude
@@ -21270,29 +21266,30 @@
 	        key: 'showChargeOnMap',
 	        value: function showChargeOnMap(latitude, longitude, kw, saving) {
 	            var dotCoords = this.convertLatLongToDot(latitude, longitude);
-	            showMarker(dotCoords[0], dotCoords[1], kw, saving);
+	            this.showMarker(dotCoords[0], dotCoords[1], kw, saving);
 	        }
 	
 	        /**
-	         * Next charge
+	         * Get the next charge
 	         */
 	
 	    }, {
 	        key: 'nextCharge',
 	        value: function nextCharge() {
-	            hideMarker();
-	            var charge = this.chargesData[Math.floor(Math.random() * this.chargesData.length)];
-	            showChargeOnMap(charge[0], charge[1], charge[2], charge[3]);
+	            this.hideMarker();
+	            var charge = _chargeData2.default.charges[Math.floor(Math.random() * _chargeData2.default.charges.length)];
+	            this.showChargeOnMap(charge[0], charge[1], charge[2], charge[3]);
 	        }
 	
 	        /**
-	         * Ping the charges
+	         * Start showing charges on the map
 	         */
 	
 	    }, {
-	        key: 'ping',
-	        value: function ping() {
-	            setInterval(this.nextCharge, mapConfig.timeDelay);
+	        key: 'startCharges',
+	        value: function startCharges() {
+	            this.hideMarker();
+	            setInterval(this.nextCharge.bind(this), mapConfig.timeDelay);
 	        }
 	    }]);
 	
@@ -21305,9 +21302,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 44 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -21315,9 +21312,9 @@
 	    charges: [[51.18291, -0.63098, 23, 10.85], [51.00283, -2.41825, 21, 9.91], [52.30522, -2.37574, 40, 18.87], [51.8344, 0.91066, 26, 12.26], [52.17955, -2.00817, 48, 22.64], [51.78, 0.28172, 20, 9.43], [51.77815, 0.27685, 26, 12.26], [50.88896, -3.22276, 2, 0.94], [52.33104, -3.38988, 1, 0.47], [51.84615, -2.19922, 1, 0.47], [53.33603, -1.51011, 9, 4.25], [52.3117, -1.92659, 46, 21.7], [53.32291, -1.52539, 3, 1.42], [51.96946, -2.89607, 40, 18.87], [52.34412, -1.58043, 15, 7.08], [51.88336, 0.8973, 26, 12.26], [52.3449, -1.58497, 2, 0.94], [50.77278, -3.00118, 14, 6.6], [52.89393, -2.73475, 20, 9.43], [53.11713, -2.03283, 44, 20.75], [53.46514, -2.15963, 49, 23.11], [55.95738, -3.1697, 13, 6.13], [53.03506, -2.14002, 38, 17.92], [51.39692, -0.49929, 20, 9.43], [51.60084, -1.79642, 48, 22.64], [56.06989, -3.46159, 50, 23.58], [55.84934, -2.38104, 11, 5.19], [53.98364, -2.66703, 25, 11.79], [54.84466, -3.2897, 50, 23.58], [53.70007, -2.54594, 13, 6.13], [51.49083, 0.10803, 41, 19.34], [54.95903, -3.97713, 37, 17.45], [55.40936, -2.61892, 17, 8.02], [50.89745, -4.29936, 33, 15.57], [52.81719, -1.87725, 22, 10.38], [50.53296, -3.61246, 19, 8.96], [50.66559, -2.59953, 24, 11.32], [50.97296, -0.14434, 36, 16.98], [51.01613, -4.24738, 39, 18.4], [51.61351, -2.45223, 16, 7.55], [50.50767, -3.61335, 38, 17.92], [51.70577, -0.41754, 46, 21.7], [51.46071, -2.6664, 37, 17.45], [52.19323, -0.20294, 38, 17.92], [54.11594, -3.20135, 16, 7.55], [53.20672, -2.90149, 24, 11.32], [53.20112, -2.90716, 48, 22.64], [52.19399, -1.96037, 24, 11.32], [52.3872, -0.19329, 17, 8.02], [52.15082, -1.90108, 2, 0.94], [51.10725, -1.19707, 47, 22.17], [51.00926, -1.4866, 23, 10.85], [51.25201, -0.55628, 5, 2.36], [52.14157, -2.16338, 48, 22.64], [51.09132, -1.29097, 11, 5.19], [51.19068, -1.5314, 17, 8.02], [51.07494, -1.31359, 30, 14.15], [52.40201, -2.89624, 38, 17.92], [52.4734, -2.62848, 49, 23.11], [53.48143, -1.34598, 35, 16.51], [51.85366, -2.4809, 31, 14.62], [52.11315, -4.22539, 33, 15.57], [51.88376, -3.30157, 27, 12.74], [52.24226, -4.25925, 12, 5.66], [51.70173, -3.42969, 6, 2.83], [52.67812, -3.7116, 39, 18.4], [52.03596, -4.45692, 36, 16.98], [56.95353, -4.50913, 21, 9.91], [56.3269, -3.35753, 22, 10.38], [52.25011, -4.2282, 35, 16.51], [51.59331, -3.80199, 50, 23.58], [52.04967, -4.39876, 14, 6.6], [51.69369, -3.22416, 5, 2.36], [52.53735, -3.27475, 10, 4.72], [51.71028, -3.14801, 16, 7.55], [51.95603, -3.47962, 36, 16.98], [51.72359, -3.36443, 29, 13.68], [51.64734, -3.13475, 11, 5.19], [51.9582, -5.12466, 25, 11.79], [52.60032, -3.76894, 32, 15.09], [57.09339, -4.74371, 10, 4.72], [57.56028, -2.62878, 25, 11.79], [51.69447, -3.89984, 25, 11.79], [55.99415, -3.47281, 15, 7.08], [51.7998, -3.71722, 3, 1.42], [51.65629, -3.66362, 37, 17.45], [56.21573, -2.77899, 46, 21.7], [51.68971, -3.41103, 40, 18.87], [52.03871, -4.555, 34, 16.04], [51.64611, -3.32849, 15, 7.08], [52.72773, -3.67705, 26, 12.26], [56.36552, -3.49262, 15, 7.08], [51.71356, -3.44778, 17, 8.02], [52.81058, -4.70736, 35, 16.51], [57.14985, -2.09376, 43, 20.28], [53.03608, -4.34901, 45, 21.23], [56.05372, -3.30185, 9, 4.25], [52.54395, -4.04434, 11, 5.19], [51.68154, -3.77478, 9, 4.25], [52.11716, -3.34692, 31, 14.62]]
 	};
 
-/***/ },
+/***/ }),
 /* 45 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// https://d3js.org Version 4.9.1. Copyright 2017 Mike Bostock.
 	(function (global, factory) {
@@ -38187,9 +38184,9 @@
 	})));
 
 
-/***/ },
+/***/ }),
 /* 46 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-queue/ Version 3.0.7. Copyright 2017 Mike Bostock.
 	(function (global, factory) {
@@ -38327,9 +38324,9 @@
 	})));
 
 
-/***/ },
+/***/ }),
 /* 47 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// https://github.com/topojson/topojson Version 3.0.0. Copyright 2017 Mike Bostock.
 	(function (global, factory) {
@@ -40115,16 +40112,16 @@
 	})));
 
 
-/***/ },
+/***/ }),
 /* 48 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Gridmap = Gridmap;
+	exports.gridmap = gridmap;
 	
 	var _d = __webpack_require__(45);
 	
@@ -40132,265 +40129,329 @@
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
-	function Gridmap() {
-	  (function () {
-	    var flat, isInside, root, subGrid;
+	// Slightly adapted from https://github.com/riccardoscalco/gridmap to work with ES6 and new version of d3.js
 	
-	    root = typeof exports !== "undefined" && exports !== null ? exports : this;
-	
-	    flat = function flat(type, arr) {
-	      var flatten, m, polygon;
-	      flatten = function flatten(polygon) {
-	        return polygon.reduce(function (a, b) {
-	          return a.concat([[0, 0]].concat(b));
-	        });
-	      };
-	      switch (type) {
-	        case "Polygon":
-	          m = flatten(arr);
-	          break;
-	        case "MultiPolygon":
-	          m = flatten(function () {
-	            var _i, _len, _results;
-	            _results = [];
-	            for (_i = 0, _len = arr.length; _i < _len; _i++) {
-	              polygon = arr[_i];
-	              _results.push(flatten(polygon));
-	            }
-	            return _results;
-	          }());
-	      }
-	      return [[0, 0]].concat(m.concat([[0, 0]]));
-	    };
-	
-	    subGrid = function subGrid(box, side) {
-	      var i, j, x, x1, y, y1;
-	      x = 1 + Math.floor(box[0][0] / side);
-	      y = 1 + Math.floor(box[0][1] / side);
-	      x1 = Math.floor(box[1][0] / side);
-	      y1 = Math.floor(box[1][1] / side);
-	      if (x1 >= x && y1 >= y) {
-	        return function () {
-	          var _i, _results;
-	          _results = [];
-	          for (j = _i = y; y <= y1 ? _i <= y1 : _i >= y1; j = y <= y1 ? ++_i : --_i) {
-	            _results.push(function () {
-	              var _j, _results1;
-	              _results1 = [];
-	              for (i = _j = x; x <= x1 ? _j <= x1 : _j >= x1; i = x <= x1 ? ++_j : --_j) {
-	                _results1.push([i, j]);
-	              }
-	              return _results1;
-	            }());
-	          }
-	          return _results;
-	        }().reduce(function (a, b) {
-	          return a.concat(b);
-	        });
-	      } else {
-	        return [];
-	      }
-	    };
-	
-	    isInside = function isInside(point, vs) {
-	      var i, inside, intersect, j, x, xi, xj, y, yi, yj, _i, _ref;
-	      x = point[0];
-	      y = point[1];
-	      inside = false;
-	      j = vs.length - 1;
-	      for (i = _i = 0, _ref = vs.length - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
-	        xi = vs[i][0];
-	        yi = vs[i][1];
-	        xj = vs[j][0];
-	        yj = vs[j][1];
-	        intersect = yi > y !== yj > y && x < (xj - xi) * (y - yi) / (yj - yi) + xi;
-	        if (intersect) {
-	          inside = !inside;
+	function flat(type, arr) {
+	  var flatten = void 0,
+	      m = void 0,
+	      polygon = void 0;
+	  flatten = function flatten(polygon) {
+	    return polygon.reduce(function (a, b) {
+	      return a.concat([[0, 0]].concat(b));
+	    });
+	  };
+	  switch (type) {
+	    case "Polygon":
+	      m = flatten(arr);
+	      break;
+	    case "MultiPolygon":
+	      m = flatten(function () {
+	        var _i = void 0,
+	            _len = void 0,
+	            _results = void 0;
+	        _results = [];
+	        for (_i = 0, _len = arr.length; _i < _len; _i++) {
+	          polygon = arr[_i];
+	          _results.push(flatten(polygon));
 	        }
-	        j = i;
-	      }
-	      return inside;
-	    };
+	        return _results;
+	      }());
+	  }
+	  return [[0, 0]].concat(m.concat([[0, 0]]));
+	};
 	
-	    root.gridmap = function () {
-	      var chart, data, features, fill, grid, height, isDensity, key, projection, side, width;
-	      projection = void 0;
-	      data = void 0;
-	      features = void 0;
-	      isDensity = void 0;
-	      side = 10;
-	      key = "id";
-	      width = 500;
-	      height = 500;
-	      fill = "#CCCCCC";
-	      grid = d3.map();
-	      chart = function chart(selection) {
-	        var area, box, c, centroid, coords, dataGrid, density, dots, f, g, h, i, ii, j, k, map, path, points, polygon, radius, svg, value, w, x, y, _i, _j, _k, _len, _len1, _len2, _ref, _ref1;
-	        w = width;
-	        h = height;
-	        path = d3.geo.path().projection(projection);
-	        console.log('side: ' + side);
-	        radius = d3.scale.linear().range([0, side / 2 * 0.9]);
-	        console.log('radius: ' + radius);
-	        area = d3.map();
-	        centroid = d3.map();
-	        for (_i = 0, _len = features.length; _i < _len; _i++) {
-	          f = features[_i];
-	          area.set(f[key], path.area(f) / (w * h));
-	        }
-	        svg = selection.append("svg").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + w + " " + h);
-	        map = svg.append("g");
-	        map.selectAll("path").data(features).enter().append("path").style("opacity", 0).attr("d", path);
-	        for (_j = 0, _len1 = features.length; _j < _len1; _j++) {
-	          f = features[_j];
-	          g = f.geometry;
-	          if ((_ref = g.type) === "Polygon" || _ref === "MultiPolygon") {
-	            box = path.bounds(f);
-	            points = subGrid(box, side);
-	            console.log('points:' + points.length);
-	            value = [f[key]];
-	            if (points.length) {
-	              polygon = flat(g.type, g.coordinates);
-	              for (_k = 0, _len2 = points.length; _k < _len2; _k++) {
-	                _ref1 = points[_k], i = _ref1[0], j = _ref1[1];
-	                x = side * i;
-	                y = side * j;
-	                coords = projection.invert([x, y]);
-	                ii = isInside(coords, polygon);
-	                if (ii) {
-	                  grid.set(i + "," + j, {
-	                    keys: value,
-	                    x: x,
-	                    y: y
-	                  });
-	                }
-	              }
-	            } else {
-	              c = path.centroid(f);
-	              if (c) {
-	                centroid.set(f[key], c);
-	              }
-	            }
+	function subGrid(box, side) {
+	  var i = void 0,
+	      j = void 0,
+	      x = void 0,
+	      x1 = void 0,
+	      y = void 0,
+	      y1 = void 0;
+	  x = 1 + Math.floor(box[0][0] / side);
+	  y = 1 + Math.floor(box[0][1] / side);
+	  x1 = Math.floor(box[1][0] / side);
+	  y1 = Math.floor(box[1][1] / side);
+	  if (x1 >= x && y1 >= y) {
+	    return function () {
+	      var _i = void 0,
+	          _results = void 0;
+	      _results = [];
+	      for (j = _i = y; y <= y1 ? _i <= y1 : _i >= y1; j = y <= y1 ? ++_i : --_i) {
+	        _results.push(function () {
+	          var _j = void 0,
+	              _results1 = void 0;
+	          _results1 = [];
+	          for (i = _j = x; x <= x1 ? _j <= x1 : _j >= x1; i = x <= x1 ? ++_j : --_j) {
+	            _results1.push([i, j]);
 	          }
-	        }
-	        centroid.forEach(function (k, v) {
-	          i = Math.floor(v[0] / side);
-	          j = Math.floor(v[1] / side);
-	          try {
-	            return grid.get(i + "," + j).keys.push(k);
-	          } catch (_error) {}
-	        });
-	        density = function density(a) {
-	          var den, num;
-	          if (isDensity) {
-	            num = d3.sum(function () {
-	              var _l, _len3, _results;
-	              _results = [];
-	              for (_l = 0, _len3 = a.length; _l < _len3; _l++) {
-	                j = a[_l];
-	                _results.push(data.get(j) * area.get(j));
-	              }
-	              return _results;
-	            }());
-	          } else {
-	            num = d3.sum(function () {
-	              var _l, _len3, _results;
-	              _results = [];
-	              for (_l = 0, _len3 = a.length; _l < _len3; _l++) {
-	                j = a[_l];
-	                _results.push(data.get(j));
-	              }
-	              return _results;
-	            }());
-	          }
-	          den = d3.sum(function () {
-	            var _l, _len3, _results;
-	            _results = [];
-	            for (_l = 0, _len3 = a.length; _l < _len3; _l++) {
-	              j = a[_l];
-	              _results.push(area.get(j));
-	            }
-	            return _results;
-	          }());
-	          if (den) {
-	            return num / den;
-	          } else {
-	            return 0;
-	          }
-	        };
-	        dataGrid = function () {
-	          var _l, _len3, _ref2, _results;
-	          _ref2 = grid.values();
-	          _results = [];
-	          for (_l = 0, _len3 = _ref2.length; _l < _len3; _l++) {
-	            k = _ref2[_l];
-	            if (k.keys.length) {
-	              _results.push({
-	                value: 5 /*density(k.keys)*/
-	                , x: k.x,
-	                y: k.y
+	          return _results1;
+	        }());
+	      }
+	      return _results;
+	    }().reduce(function (a, b) {
+	      return a.concat(b);
+	    });
+	  } else {
+	    return [];
+	  }
+	};
+	
+	function isInside(point, vs) {
+	  var i = void 0,
+	      inside = void 0,
+	      intersect = void 0,
+	      j = void 0,
+	      x = void 0,
+	      xi = void 0,
+	      xj = void 0,
+	      y = void 0,
+	      yi = void 0,
+	      yj = void 0,
+	      _i = void 0,
+	      _ref = void 0;
+	  x = point[0];
+	  y = point[1];
+	  inside = false;
+	  j = vs.length - 1;
+	  for (i = _i = 0, _ref = vs.length - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
+	    xi = vs[i][0];
+	    yi = vs[i][1];
+	    xj = vs[j][0];
+	    yj = vs[j][1];
+	    intersect = yi > y !== yj > y && x < (xj - xi) * (y - yi) / (yj - yi) + xi;
+	    if (intersect) {
+	      inside = !inside;
+	    }
+	    j = i;
+	  }
+	  return inside;
+	};
+	
+	function gridmap() {
+	  var chart = void 0,
+	      data = void 0,
+	      features = void 0,
+	      fill = void 0,
+	      grid = void 0,
+	      height = void 0,
+	      isDensity = void 0,
+	      key = void 0,
+	      projection = void 0,
+	      side = void 0,
+	      width = void 0;
+	  projection = void 0;
+	  data = void 0;
+	  features = void 0;
+	  isDensity = void 0;
+	  side = 10;
+	  key = "id";
+	  width = 500;
+	  height = 500;
+	  fill = "#CCCCCC";
+	  grid = d3.map();
+	  chart = function chart(selection) {
+	    var area = void 0,
+	        box = void 0,
+	        c = void 0,
+	        centroid = void 0,
+	        coords = void 0,
+	        dataGrid = void 0,
+	        density = void 0,
+	        dots = void 0,
+	        f = void 0,
+	        g = void 0,
+	        h = void 0,
+	        i = void 0,
+	        ii = void 0,
+	        j = void 0,
+	        k = void 0,
+	        map = void 0,
+	        path = void 0,
+	        points = void 0,
+	        polygon = void 0,
+	        radius = void 0,
+	        svg = void 0,
+	        value = void 0,
+	        w = void 0,
+	        x = void 0,
+	        y = void 0,
+	        _i = void 0,
+	        _j = void 0,
+	        _k = void 0,
+	        _len = void 0,
+	        _len1 = void 0,
+	        _len2 = void 0,
+	        _ref = void 0,
+	        _ref1 = void 0;
+	    w = width;
+	    h = height;
+	    path = d3.geoPath().projection(projection);
+	    radius = d3.scaleLinear().range([0, side / 2 * 0.9]);
+	    area = d3.map();
+	    centroid = d3.map();
+	    for (_i = 0, _len = features.length; _i < _len; _i++) {
+	      f = features[_i];
+	      area.set(f[key], path.area(f) / (w * h));
+	    }
+	    svg = selection.append("svg").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + w + " " + h);
+	    map = svg.append("g");
+	    map.selectAll("path").data(features).enter().append("path").style("opacity", 0).attr("d", path);
+	    for (_j = 0, _len1 = features.length; _j < _len1; _j++) {
+	      f = features[_j];
+	      g = f.geometry;
+	      if ((_ref = g.type) === "Polygon" || _ref === "MultiPolygon") {
+	        box = path.bounds(f);
+	        points = subGrid(box, side);
+	        value = [f[key]];
+	        if (points.length) {
+	          polygon = flat(g.type, g.coordinates);
+	          for (_k = 0, _len2 = points.length; _k < _len2; _k++) {
+	            _ref1 = points[_k], i = _ref1[0], j = _ref1[1];
+	            x = side * i;
+	            y = side * j;
+	            coords = projection.invert([x, y]);
+	            ii = isInside(coords, polygon);
+	            if (ii) {
+	              grid.set(i + "," + j, {
+	                keys: value,
+	                x: x,
+	                y: y
 	              });
 	            }
 	          }
-	          console.log('datagrid:' + _results.length);
+	        } else {
+	          c = path.centroid(f);
+	          if (c) {
+	            centroid.set(f[key], c);
+	          }
+	        }
+	      }
+	    }
+	    Array.from(centroid).forEach(function (k, v) {
+	      i = Math.floor(v[0] / side);
+	      j = Math.floor(v[1] / side);
+	      try {
+	        return grid.get(i + "," + j).keys.push(k);
+	      } catch (_error) {}
+	    });
+	    density = function density(a) {
+	      var den = void 0,
+	          num = void 0;
+	      if (isDensity) {
+	        num = d3.sum(function () {
+	          var _l = void 0,
+	              _len3 = void 0,
+	              _results = void 0;
+	          _results = [];
+	          for (_l = 0, _len3 = a.length; _l < _len3; _l++) {
+	            j = a[_l];
+	            _results.push(data.get(j) * area.get(j));
+	          }
 	          return _results;
-	        }();
-	        dots = map.selectAll(".gridmap-dot").data(dataGrid);
-	        radius.domain([0, d3.max(dataGrid, function (d) {
-	          return Math.sqrt(d.value);
-	        })]);
-	        return dots.enter().append("circle").attr("class", "gridmap-dot").attr("cx", function (d) {
-	          return d.x;
-	        }).attr("cy", function (d) {
-	          return d.y;
-	        }).attr("r", function (d) {
-	          return radius(Math.sqrt(d.value));
-	        }).style("fill", fill);
-	      };
-	      chart.width = function (_) {
-	        width = _;
-	        return chart;
-	      };
-	      chart.height = function (_) {
-	        height = _;
-	        return chart;
-	      };
-	      chart.side = function (_) {
-	        side = _;
-	        return chart;
-	      };
-	      chart.key = function (_) {
-	        key = _;
-	        return chart;
-	      };
-	      chart.data = function (_) {
-	        data = _;
-	        return chart;
-	      };
-	      chart.isDensity = function (_) {
-	        isDensity = _;
-	        return chart;
-	      };
-	      chart.features = function (_) {
-	        features = _;
-	        return chart;
-	      };
-	      chart.projection = function (_) {
-	        projection = _;
-	        return chart;
-	      };
-	      chart.fill = function (_) {
-	        fill = _;
-	        return chart;
-	      };
-	      return chart;
+	        }());
+	      } else {
+	        num = d3.sum(function () {
+	          var _l = void 0,
+	              _len3 = void 0,
+	              _results = void 0;
+	          _results = [];
+	          for (_l = 0, _len3 = a.length; _l < _len3; _l++) {
+	            j = a[_l];
+	            _results.push(data.get(j));
+	          }
+	          return _results;
+	        }());
+	      }
+	      den = d3.sum(function () {
+	        var _l = void 0,
+	            _len3 = void 0,
+	            _results = void 0;
+	        _results = [];
+	        for (_l = 0, _len3 = a.length; _l < _len3; _l++) {
+	          j = a[_l];
+	          _results.push(area.get(j));
+	        }
+	        return _results;
+	      }());
+	      if (den) {
+	        return num / den;
+	      } else {
+	        return 0;
+	      }
 	    };
-	  }).call(this);
+	    dataGrid = function () {
+	      var _l = void 0,
+	          _len3 = void 0,
+	          _ref2 = void 0,
+	          _results = void 0;
+	      _ref2 = grid.values();
+	      _results = [];
+	      for (_l = 0, _len3 = _ref2.length; _l < _len3; _l++) {
+	        k = _ref2[_l];
+	        if (k.keys.length) {
+	          _results.push({
+	            value: 5 /*density(k.keys)*/
+	            , x: k.x,
+	            y: k.y
+	          });
+	        }
+	      }
+	      return _results;
+	    }();
+	    dots = map.selectAll(".gridmap-dot").data(dataGrid);
+	    radius.domain([0, d3.max(dataGrid, function (d) {
+	      return Math.sqrt(d.value);
+	    })]);
+	    return dots.enter().append("circle").attr("class", "gridmap-dot").attr("cx", function (d) {
+	      return d.x;
+	    }).attr("cy", function (d) {
+	      return d.y;
+	    }).attr("r", function (d) {
+	      return radius(Math.sqrt(d.value));
+	    }).style("fill", fill);
+	  };
+	  chart.width = function (_) {
+	    width = _;
+	    return chart;
+	  };
+	  chart.height = function (_) {
+	    height = _;
+	    return chart;
+	  };
+	  chart.side = function (_) {
+	    side = _;
+	    return chart;
+	  };
+	  chart.key = function (_) {
+	    key = _;
+	    return chart;
+	  };
+	  chart.data = function (_) {
+	    data = _;
+	    return chart;
+	  };
+	  chart.isDensity = function (_) {
+	    isDensity = _;
+	    return chart;
+	  };
+	  chart.features = function (_) {
+	    features = _;
+	    return chart;
+	  };
+	  chart.projection = function (_) {
+	    projection = _;
+	    return chart;
+	  };
+	  chart.fill = function (_) {
+	    fill = _;
+	    return chart;
+	  };
+	  return chart;
 	};
 
-/***/ },
+/***/ }),
 /* 49 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -40608,6 +40669,6 @@
 		}
 	}
 
-/***/ }
+/***/ })
 /******/ ]);
 //# sourceMappingURL=script.js.map
