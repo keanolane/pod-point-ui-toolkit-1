@@ -145,16 +145,13 @@
 					</div>
 					<div class="buttons-container m-t-md">
 						<button class="button button--secondary" data-js-module="modal" data-modal="videoModal">Watch video</button>
-						<a href="checkout-step1.html" class="button">Buy now</a>
+						<button class="button" data-js-module="modal" data-modal="homechargeFormModal">Buy now</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	
-	
-	
-	<!-- HIDDEN MODALS -->
+
 	<div class="modal hidden fade-in" id="videoModal">
 		<a href="#" class="circle-icon circle-icon--close circle-icon--outlined-dark circle-icon--small-resp modal-close"><svg class="icon"><use xlink:href="#general--cross"/></svg></a>
 		<div class="modal__content">
@@ -162,7 +159,7 @@
 				<img class="img--resp img--rounded-corners max-width--xxl marg-center" src="assets/img/content/video-placeholders/homecharge-video-placeholder.jpg">
 				<div class="content-block">
 					<h2 class="panel__title">Pricing</h2>
-					<div class="panel__text-content" class="font-style-large">
+					<div class="panel__text-content">
 						<p>We offer competitive pricing across our range of home charging points with a generous standard installation package.</p>
 					</div>
 				</div>
@@ -201,6 +198,54 @@
 					</div>
 				</div>
 				<a href="checkout-step1.html" class="button m-t-xl">Buy now</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hidden fade-in" id="homechargeFormModal">
+		<a href="#" class="circle-icon circle-icon--close circle-icon--outlined-dark circle-icon--small-resp modal-close"><svg class="icon"><use xlink:href="#general--cross"/></svg></a>
+		<div class="modal__content modal__content--white">
+			<div class="panel max-width-text-wider marg-center">
+				<div class="content-block">
+					<h2 class="panel__title">Homecharge enquiry form</h2>
+					<div class="panel__text-content m-b-xl">
+						<p>Please fill in the below information and a member of our team will be in touch shortly.</p>
+					</div>
+	
+					<div class="grid-wrap text-left">
+						<div class="grid-row m-t-md">
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Name</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Email</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Phone</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Postcode</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<button type="submit" class="button m-t-xl">Submit</button>
+	
+					<img class="marg-center max-width--xxl" src="assets/img/content/illustrations/thank-you/thankyou-complete-mobile.svg" alt="">
+	
+				</div>
 			</div>
 		</div>
 	</div>

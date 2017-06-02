@@ -25,18 +25,26 @@
 		@include medium-and-up {
 			@include margin(100px null);
 		}
-	}
-}
-
-.panel {
-	text-align: center;
-	color: white;
-	&__title {
-		color: white;
-		@include font-style-h1;
-	}
-	&__text-content {
-		max-width: $max-width-text;
-		@include margin(null auto);
+		.panel {
+			text-align: center;
+			color: white;
+			&__title {
+				color: white;
+				@include font-style-h1;
+			}
+			&__text-content {
+				max-width: $max-width-text;
+				@include margin(null auto);
+			}
+		}
+		&--white {
+			background-color: white;
+			.panel {
+				color: $font-color-base;
+				&__title {
+					color: $font-color-base;
+				}
+			}
+		}
 	}
 }

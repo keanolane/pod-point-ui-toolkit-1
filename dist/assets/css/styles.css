@@ -2443,27 +2443,32 @@ button {
       .modal__content {
         margin-top: 100px;
         margin-bottom: 100px; } }
-
-.panel {
-  text-align: center;
-  color: white; }
-  .panel__title {
-    color: white;
-    margin: 0;
-    padding-bottom: 1em;
-    font-weight: 700;
-    font-size: 0.75rem;
-    line-height: 1.3;
-    font-size: 1.25rem; }
-    .panel__title:last-child {
-      padding-bottom: 0; }
-    @media (min-width: 50em) {
-      .panel__title {
-        font-size: 1.75rem; } }
-  .panel__text-content {
-    max-width: 600px;
-    margin-right: auto;
-    margin-left: auto; }
+    .modal__content .panel {
+      text-align: center;
+      color: white; }
+      .modal__content .panel__title {
+        color: white;
+        margin: 0;
+        padding-bottom: 1em;
+        font-weight: 700;
+        font-size: 0.75rem;
+        line-height: 1.3;
+        font-size: 1.25rem; }
+        .modal__content .panel__title:last-child {
+          padding-bottom: 0; }
+        @media (min-width: 50em) {
+          .modal__content .panel__title {
+            font-size: 1.75rem; } }
+      .modal__content .panel__text-content {
+        max-width: 600px;
+        margin-right: auto;
+        margin-left: auto; }
+    .modal__content--white {
+      background-color: white; }
+      .modal__content--white .panel {
+        color: #333; }
+        .modal__content--white .panel__title {
+          color: #333; }
 
 .gallery-simple {
   max-width: 300px; }

@@ -102,9 +102,9 @@
 	
 	var _headerNav2 = _interopRequireDefault(_headerNav);
 	
-	var _Carousel = __webpack_require__(28);
+	var _carousel = __webpack_require__(28);
 	
-	var _Carousel2 = _interopRequireDefault(_Carousel);
+	var _carousel2 = _interopRequireDefault(_carousel);
 	
 	var _addressLookup = __webpack_require__(47);
 	
@@ -174,7 +174,7 @@
 	            gallerySimple: _gallerySimple2.default,
 	            headerNav: _headerNav2.default,
 	            accordion: _accordion2.default,
-	            carousel: _Carousel2.default,
+	            carousel: _carousel2.default,
 	            addressLookup: _addressLookup2.default,
 	            changeContent: _changeContent2.default,
 	            checkoutYourPodPoint: _checkoutYourPodPoint2.default,
