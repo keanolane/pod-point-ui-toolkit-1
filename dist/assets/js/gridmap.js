@@ -26,7 +26,7 @@ function flat(type, arr) {
             m = flatten(arr);
             break;
         case 'MultiPolygon':
-            m = flatten(function () {
+            m = flatten(function multiPolygon() {
                 var iInt = void 0;
                 var lenInt = void 0;
                 var resultsInt = [];
@@ -40,6 +40,7 @@ function flat(type, arr) {
         default:
             m = flatten(arr);
     }
+
     return [[0, 0]].concat(m.concat([[0, 0]]));
 } /* Slightly adapted from https://github.com/riccardoscalco/gridmap to work with ES6 and new version of d3.js */
 
@@ -50,22 +51,24 @@ function subGrid(box, side) {
     var y = 1 + Math.floor(box[0][1] / side);
     var x1 = Math.floor(box[1][0] / side);
     var y1 = Math.floor(box[1][1] / side);
+
     if (x1 >= x && y1 >= y) {
         return function () {
             var iInt = void 0;
             var resultsInt = [];
-            /* eslint no-multi-assign: "off" */
+
             /* eslint no-loop-func: "off" */
-            for (j = iInt = y; y <= y1 ? iInt <= y1 : iInt >= y1; j = y <= y1 ? iInt += 1 : iInt -= 1) {
-                resultsInt.push(function () {
+            for (iInt = y, j = iInt; y <= y1 ? iInt <= y1 : iInt >= y1; j = y <= y1 ? iInt += 1 : iInt -= 1) {
+                resultsInt.push(function pushToResults() {
                     var jInt = void 0;
                     var resultsInt1 = [];
-                    for (i = jInt = x; x <= x1 ? jInt <= x1 : jInt >= x1; i = x <= x1 ? jInt += 1 : jInt -= 1) {
+                    for (jInt = x, i = jInt; x <= x1 ? jInt <= x1 : jInt >= x1; i = x <= x1 ? jInt += 1 : jInt -= 1) {
                         resultsInt1.push([i, j]);
                     }
                     return resultsInt1;
                 }());
             }
+
             return resultsInt;
         }().reduce(function (a, b) {
             return a.concat(b);
@@ -90,9 +93,9 @@ function isInside(point, vs) {
     var y = point[1];
     inside = false;
     j = vs.length - 1;
-    /* eslint no-mixed-operators: "off" */
+
     /* eslint yoda: "off" */
-    for (i = iInt = 0, refInt = vs.length - 1; refInt >= 0 ? iInt <= refInt : iInt >= refInt; i = 0 <= refInt ? iInt += 1 : iInt -= 1) {
+    for (iInt = 0, i = iInt, refInt = vs.length - 1; refInt >= 0 ? iInt <= refInt : iInt >= refInt; i = 0 <= refInt ? iInt += 1 : iInt -= 1) {
         xi = vs[i][0];
         yi = vs[i][1];
         xj = vs[j][0];
@@ -103,29 +106,22 @@ function isInside(point, vs) {
         }
         j = i;
     }
+
     return inside;
 }
 
 function gridmap() {
     /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "data" }] */
-    var data = void 0;
-    var features = void 0;
-    var fill = void 0;
-    var height = void 0;
-    var key = void 0;
-    var projection = void 0;
-    var side = void 0;
-    var width = void 0;
-
-    projection = 0;
-    data = 0;
-    features = 0;
-    side = 10;
-    key = 'id';
-    width = 500;
-    height = 500;
-    fill = '#CCCCCC';
+    var data = 0;
+    var features = 0;
+    var fill = '#CCCCCC';
+    var height = 500;
+    var key = 'id';
+    var projection = 0;
+    var side = 10;
+    var width = 500;
     var grid = d3.map();
+
     var chart = function chart(selection) {
         var box = void 0;
         var c = void 0;
@@ -156,23 +152,30 @@ function gridmap() {
         var radius = d3.scaleLinear().range([0, side / 2 * 0.9]);
         var area = d3.map();
         var centroid = d3.map();
+
         for (iInt = 0, lenInt = features.length; iInt < lenInt; iInt += 1) {
             f = features[iInt];
             area.set(f[key], path.area(f) / (w * h));
         }
+
         var svg = selection.append('svg').attr('width', w).attr('height', h).attr('viewBox', '0 0 ' + w + ' ' + h);
         var map = svg.append('g');
+
         map.selectAll('path').data(features).enter().append('path').style('opacity', 0).attr('d', path);
+
         for (jInt = 0, lenInt1 = features.length; jInt < lenInt1; jInt += 1) {
             f = features[jInt];
             g = f.geometry;
             refInt = g.type;
+
             if (refInt === 'Polygon' || refInt === 'MultiPolygon') {
                 box = path.bounds(f);
                 points = subGrid(box, side);
                 value = [f[key]];
+
                 if (points.length) {
                     polygon = flat(g.type, g.coordinates);
+
                     for (kInt = 0, lenInt2 = points.length; kInt < lenInt2; kInt += 1) {
                         refInt1 = points[kInt];
                         i = refInt1[0];
@@ -181,6 +184,7 @@ function gridmap() {
                         y = side * j;
                         coords = projection.invert([x, y]);
                         ii = isInside(coords, polygon);
+
                         if (ii) {
                             grid.set(i + ',' + j, {
                                 keys: value,
@@ -209,8 +213,10 @@ function gridmap() {
             var lenInt3 = void 0;
             var refInt2 = grid.values();
             var resultsInt = [];
+
             for (lInt = 0, lenInt3 = refInt2.length; lInt < lenInt3; lInt += 1) {
                 k = refInt2[lInt];
+
                 if (k.keys.length) {
                     resultsInt.push({
                         value: 5,
@@ -219,12 +225,16 @@ function gridmap() {
                     });
                 }
             }
+
             return resultsInt;
         }();
+
         var dots = map.selectAll('.gridmap-dot').data(dataGrid);
+
         radius.domain([0, d3.max(dataGrid, function (d) {
             return Math.sqrt(d.value);
         })]);
+
         return dots.enter().append('circle').attr('class', 'gridmap-dot').attr('cx', function (d) {
             return d.x;
         }).attr('cy', function (d) {
@@ -233,6 +243,7 @@ function gridmap() {
             return radius(Math.sqrt(d.value));
         }).style('fill', fill);
     };
+
     chart.width = function (_) {
         width = _;
         return chart;
