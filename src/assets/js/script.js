@@ -16,7 +16,7 @@ import toggleElement from './modules/toggle-element';
 import gallerySimple from './modules/gallery-simple';
 import accordion from './modules/accordion';
 import headerNav from './modules/header-nav';
-import carousel from './modules/Carousel';
+import carousel from './modules/carousel';
 import addressLookup from './modules/address-lookup';
 import changeContent from './modules/change-content';
 import checkoutYourPodPoint from './modules/checkout-your-pod-point';
