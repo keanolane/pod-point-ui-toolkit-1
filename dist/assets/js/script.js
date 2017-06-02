@@ -142,7 +142,11 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+<<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
 	__webpack_require__(61);
+=======
+	__webpack_require__(48);
+>>>>>>> Fixed linting
 	
 	window.initAutocomplete = _addressLookup.initAutocomplete;
 	window.geolocate = _addressLookup.geolocate;
@@ -21896,31 +21900,49 @@
 	    value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint class-methods-use-this: ["error", { "exceptMethods": ["ready"] }] */
+	
+	var _d = __webpack_require__(44);
+	
+<<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
+	var _chargeData = __webpack_require__(56);
+=======
+	var d3 = _interopRequireWildcard(_d);
+>>>>>>> Fixed linting
+	
+	var _topojson = __webpack_require__(45);
+	
+<<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
+	var _d = __webpack_require__(57);
+=======
+	var topojson = _interopRequireWildcard(_topojson);
+>>>>>>> Fixed linting
 	
 	var _utilities = __webpack_require__(8);
 	
-	var _chargeData = __webpack_require__(56);
+<<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
+	var _d3Queue = __webpack_require__(58);
+=======
+	var _chargeData = __webpack_require__(46);
+>>>>>>> Fixed linting
 	
 	var _chargeData2 = _interopRequireDefault(_chargeData);
 	
-	var _d = __webpack_require__(57);
-	
-	var d3 = _interopRequireWildcard(_d);
-	
-	var _d3Queue = __webpack_require__(58);
-	
-	var _d3Queue2 = _interopRequireDefault(_d3Queue);
-	
+<<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
 	var _topojson = __webpack_require__(59);
+=======
+	var _gridmap = __webpack_require__(47);
+>>>>>>> Fixed linting
 	
-	var topojson = _interopRequireWildcard(_topojson);
+	var _gridmap2 = _interopRequireDefault(_gridmap);
 	
+<<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
 	var _gridmap = __webpack_require__(60);
+=======
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+>>>>>>> Fixed linting
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -21948,22 +21970,18 @@
 	            mapLatBottom: 47.1, // enter the latitude in degrees on bottom edge of map
 	            timeDelay: 6000, // time in milliseconds between new charges appearing on the map
 	            s: 2250, // scale
-	            t: [300, 2350] // boundaries
-	        };
+	            t: [300, 2350] };
 	
 	        this.element = element;
 	        this.mapElement = document.getElementById(mapConfig.mapID);
 	        this.markerHolder = document.getElementById('markerHolder');
 	        this.markerCircleHolder = document.getElementById('markerCircleHolder');
 	        this.markerCircle = document.getElementById('markerCircle');
-	
 	        this.lastHighlightedDot = [];
 	
 	        mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s).translate(mapConfig.t).clipAngle(180).precision(1);
 	
-	        var path = d3.geoPath().projection(mapConfig.projection);
-	
-	        d3.queue().defer(d3.json, "./assets/js/data/geo-data/eu.json").await(this.ready);
+	        d3.queue().defer(d3.json, './assets/js/data/geo-data/eu.json').await(this.ready);
 	
 	        this.startCharges();
 	    }
@@ -21980,16 +21998,15 @@
 	        key: 'ready',
 	        value: function ready(error, eu) {
 	            var features = topojson.feature(eu, eu.objects.europe).features;
-	
 	            var data = d3.map();
 	            var j = void 0;
 	            var len = void 0;
 	
-	            for (j = 0, len = features.length; j < len; j++) {
-	                data.set(features[j]["id"], (0, _utilities.getRandomInt)(1, 5));
+	            for (j = 0, len = features.length; j < len; j += 1) {
+	                data.set(features[j].id, (0, _utilities.getRandomInt)(1, 5));
 	            }
 	
-	            var chart = (0, _gridmap.gridmap)().data(data).width(mapConfig.mapWidth).height(mapConfig.mapHeight).key("id").side(mapConfig.mapDotStepSize).isDensity(true).projection(mapConfig.projection).features(features).fill(mapConfig.mapDotColour);
+	            var chart = (0, _gridmap2.default)().data(data).width(mapConfig.mapWidth).height(mapConfig.mapHeight).key('id').side(mapConfig.mapDotStepSize).projection(mapConfig.projection).features(features).fill(mapConfig.mapDotColour);
 	
 	            d3.select(mapConfig.mapID).call(chart);
 	        }
@@ -22016,10 +22033,13 @@
 	
 	                var savingText = document.getElementById('saving');
 	                savingText.innerHTML = saving;
-	                this.markerHolder.classList.remove('hidden');
 	                this.markerHolder.style.left = x - 50 + 'px';
 	                this.markerHolder.style.top = y - 50 + 'px';
-	                this.markerCircleHolder.classList.add('ev-map-wrap__bulge-appear');
+	                this.markerHolder.classList.remove('hidden');
+	
+	                setTimeout(function () {
+	                    document.getElementById('markerCircleHolder').classList.add('ev-map-wrap__bulge-appear');
+	                }, 10);
 	            } else {
 	                this.nextCharge();
 	            }
@@ -22038,38 +22058,16 @@
 	                    this.mapPoint.classList.remove('gridmap-dot-selected');
 	                }
 	            }
+	
+	            this.markerHolder.classList.add('hidden');
 	            this.markerCircleHolder.classList.remove('ev-map-wrap__bulge-appear');
-	            void this.markerCircleHolder.offsetWidth; // workaround to force browser to reflow so bulge animation class works again next time
+	
 	            this.lastHighlightedDot = [];
 	        }
 	
 	        /**
 	         * Convert latitude and longitude to a dot on the map
 	         * (adapted from http://stackoverflow.com/a/27313080)
-	         *
-	         * @param latitute
-	         * @param longitude
-	         */
-	
-	    }, {
-	        key: 'convertLatLongToDot',
-	        value: function convertLatLongToDot(latitude, longitude) {
-	            var mapLonDelta = mapConfig.mapLonRight - mapConfig.mapLonLeft;
-	            var mapLatBottomDegree = mapConfig.mapLatBottom * Math.PI / 180;
-	            var x = (longitude - mapConfig.mapLonLeft) * (mapConfig.mapWidth / mapLonDelta);
-	            latitude = latitude * Math.PI / 180;
-	            var worldMapWidth = mapConfig.mapWidth / mapLonDelta * 360 / (2 * Math.PI);
-	            var mapOffsetY = worldMapWidth / 2 * Math.log((1 + Math.sin(mapLatBottomDegree)) / (1 - Math.sin(mapLatBottomDegree)));
-	            var y = mapConfig.mapHeight - (worldMapWidth / 2 * Math.log((1 + Math.sin(latitude)) / (1 - Math.sin(latitude))) - mapOffsetY);
-	
-	            var dotX = (0, _utilities.roundNumberTo)(x, mapConfig.mapDotStepSize);
-	            var dotY = (0, _utilities.roundNumberTo)(y, mapConfig.mapDotStepSize);
-	
-	            return [dotX, dotY];
-	        }
-	
-	        /**
-	         * Show a charge on the map
 	         *
 	         * @param latitute
 	         * @param longitude
@@ -22080,8 +22078,18 @@
 	    }, {
 	        key: 'showChargeOnMap',
 	        value: function showChargeOnMap(latitude, longitude, kw, saving) {
-	            var dotCoords = this.convertLatLongToDot(latitude, longitude);
-	            this.showMarker(dotCoords[0], dotCoords[1], kw, saving);
+	            var mapLonDelta = mapConfig.mapLonRight - mapConfig.mapLonLeft;
+	            var mapLatBottomDegree = mapConfig.mapLatBottom * Math.PI / 180;
+	            var x = (longitude - mapConfig.mapLonLeft) * (mapConfig.mapWidth / mapLonDelta);
+	            var latitudeNew = latitude * Math.PI / 180;
+	            var worldMapWidth = mapConfig.mapWidth / mapLonDelta * 360 / (2 * Math.PI);
+	            var mapOffsetY = worldMapWidth / 2 * Math.log((1 + Math.sin(mapLatBottomDegree)) / (1 - Math.sin(mapLatBottomDegree)));
+	            var y = mapConfig.mapHeight - (worldMapWidth / 2 * Math.log((1 + Math.sin(latitudeNew)) / (1 - Math.sin(latitudeNew))) - mapOffsetY);
+	
+	            var dotX = (0, _utilities.roundNumberTo)(x, mapConfig.mapDotStepSize);
+	            var dotY = (0, _utilities.roundNumberTo)(y, mapConfig.mapDotStepSize);
+	
+	            this.showMarker(dotX, dotY, kw, saving);
 	        }
 	
 	        /**
@@ -22122,6 +22130,7 @@
 /* 56 */
 =======
 /* 44 */
+<<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
 >>>>>>> Updated code to fix errors and resize map to new size
 /***/ (function(module, exports) {
 
@@ -22137,6 +22146,8 @@
 =======
 /* 45 */
 >>>>>>> Updated code to fix errors and resize map to new size
+=======
+>>>>>>> Fixed linting
 /***/ (function(module, exports, __webpack_require__) {
 
 	// https://d3js.org Version 4.9.1. Copyright 2017 Mike Bostock.
@@ -39008,6 +39019,7 @@
 
 
 /***/ }),
+<<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
 <<<<<<< 1f356be32b35ed4618b4522b5f576fd8aef6b4b3
 /* 58 */
 =======
@@ -39157,6 +39169,9 @@
 =======
 /* 47 */
 >>>>>>> Updated code to fix errors and resize map to new size
+=======
+/* 45 */
+>>>>>>> Fixed linting
 /***/ (function(module, exports, __webpack_require__) {
 
 	// https://github.com/topojson/topojson Version 3.0.0. Copyright 2017 Mike Bostock.
@@ -40944,352 +40959,312 @@
 
 
 /***/ }),
+<<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
 <<<<<<< 1f356be32b35ed4618b4522b5f576fd8aef6b4b3
 /* 60 */
 =======
 /* 48 */
 >>>>>>> Updated code to fix errors and resize map to new size
 /***/ (function(module, exports, __webpack_require__) {
+=======
+/* 46 */
+/***/ (function(module, exports) {
+>>>>>>> Fixed linting
 
 	"use strict";
 	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.gridmap = gridmap;
+	module.exports = {
+	    charges: [[51.18291, -0.63098, 23, 10.85], [51.00283, -2.41825, 21, 9.91], [52.30522, -2.37574, 40, 18.87], [51.8344, 0.91066, 26, 12.26], [52.17955, -2.00817, 48, 22.64], [51.78, 0.28172, 20, 9.43], [51.77815, 0.27685, 26, 12.26], [50.88896, -3.22276, 2, 0.94], [52.33104, -3.38988, 1, 0.47], [51.84615, -2.19922, 1, 0.47], [53.33603, -1.51011, 9, 4.25], [52.3117, -1.92659, 46, 21.7], [53.32291, -1.52539, 3, 1.42], [51.96946, -2.89607, 40, 18.87], [52.34412, -1.58043, 15, 7.08], [51.88336, 0.8973, 26, 12.26], [52.3449, -1.58497, 2, 0.94], [50.77278, -3.00118, 14, 6.6], [52.89393, -2.73475, 20, 9.43], [53.11713, -2.03283, 44, 20.75], [53.46514, -2.15963, 49, 23.11], [55.95738, -3.1697, 13, 6.13], [53.03506, -2.14002, 38, 17.92], [51.39692, -0.49929, 20, 9.43], [51.60084, -1.79642, 48, 22.64], [56.06989, -3.46159, 50, 23.58], [55.84934, -2.38104, 11, 5.19], [53.98364, -2.66703, 25, 11.79], [54.84466, -3.2897, 50, 23.58], [53.70007, -2.54594, 13, 6.13], [51.49083, 0.10803, 41, 19.34], [54.95903, -3.97713, 37, 17.45], [55.40936, -2.61892, 17, 8.02], [50.89745, -4.29936, 33, 15.57], [52.81719, -1.87725, 22, 10.38], [50.53296, -3.61246, 19, 8.96], [50.66559, -2.59953, 24, 11.32], [50.97296, -0.14434, 36, 16.98], [51.01613, -4.24738, 39, 18.4], [51.61351, -2.45223, 16, 7.55], [50.50767, -3.61335, 38, 17.92], [51.70577, -0.41754, 46, 21.7], [51.46071, -2.6664, 37, 17.45], [52.19323, -0.20294, 38, 17.92], [54.11594, -3.20135, 16, 7.55], [53.20672, -2.90149, 24, 11.32], [53.20112, -2.90716, 48, 22.64], [52.19399, -1.96037, 24, 11.32], [52.3872, -0.19329, 17, 8.02], [52.15082, -1.90108, 2, 0.94], [51.10725, -1.19707, 47, 22.17], [51.00926, -1.4866, 23, 10.85], [51.25201, -0.55628, 5, 2.36], [52.14157, -2.16338, 48, 22.64], [51.09132, -1.29097, 11, 5.19], [51.19068, -1.5314, 17, 8.02], [51.07494, -1.31359, 30, 14.15], [52.40201, -2.89624, 38, 17.92], [52.4734, -2.62848, 49, 23.11], [53.48143, -1.34598, 35, 16.51], [51.85366, -2.4809, 31, 14.62], [52.11315, -4.22539, 33, 15.57], [51.88376, -3.30157, 27, 12.74], [52.24226, -4.25925, 12, 5.66], [51.70173, -3.42969, 6, 2.83], [52.67812, -3.7116, 39, 18.4], [52.03596, -4.45692, 36, 16.98], [56.95353, -4.50913, 21, 9.91], [56.3269, -3.35753, 22, 10.38], [52.25011, -4.2282, 35, 16.51], [51.59331, -3.80199, 50, 23.58], [52.04967, -4.39876, 14, 6.6], [51.69369, -3.22416, 5, 2.36], [52.53735, -3.27475, 10, 4.72], [51.71028, -3.14801, 16, 7.55], [51.95603, -3.47962, 36, 16.98], [51.72359, -3.36443, 29, 13.68], [51.64734, -3.13475, 11, 5.19], [51.9582, -5.12466, 25, 11.79], [52.60032, -3.76894, 32, 15.09], [57.09339, -4.74371, 10, 4.72], [57.56028, -2.62878, 25, 11.79], [51.69447, -3.89984, 25, 11.79], [55.99415, -3.47281, 15, 7.08], [51.7998, -3.71722, 3, 1.42], [51.65629, -3.66362, 37, 17.45], [56.21573, -2.77899, 46, 21.7], [51.68971, -3.41103, 40, 18.87], [52.03871, -4.555, 34, 16.04], [51.64611, -3.32849, 15, 7.08], [52.72773, -3.67705, 26, 12.26], [56.36552, -3.49262, 15, 7.08], [51.71356, -3.44778, 17, 8.02], [52.81058, -4.70736, 35, 16.51], [57.14985, -2.09376, 43, 20.28], [53.03608, -4.34901, 45, 21.23], [56.05372, -3.30185, 9, 4.25], [52.54395, -4.04434, 11, 5.19], [51.68154, -3.77478, 9, 4.25], [52.11716, -3.34692, 31, 14.62]]
+	};
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
 	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = gridmap;
+	
+<<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
 	var _d = __webpack_require__(57);
+=======
+	var _d = __webpack_require__(44);
+>>>>>>> Fixed linting
 	
 	var d3 = _interopRequireWildcard(_d);
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
-	// Slightly adapted from https://github.com/riccardoscalco/gridmap to work with ES6 and new version of d3.js
-	
 	function flat(type, arr) {
-	  var flatten = void 0,
-	      m = void 0,
-	      polygon = void 0;
-	  flatten = function flatten(polygon) {
-	    return polygon.reduce(function (a, b) {
-	      return a.concat([[0, 0]].concat(b));
-	    });
-	  };
-	  switch (type) {
-	    case "Polygon":
-	      m = flatten(arr);
-	      break;
-	    case "MultiPolygon":
-	      m = flatten(function () {
-	        var _i = void 0,
-	            _len = void 0,
-	            _results = void 0;
-	        _results = [];
-	        for (_i = 0, _len = arr.length; _i < _len; _i++) {
-	          polygon = arr[_i];
-	          _results.push(flatten(polygon));
-	        }
-	        return _results;
-	      }());
-	  }
-	  return [[0, 0]].concat(m.concat([[0, 0]]));
-	};
+	    var m = void 0;
+	    var polygon = void 0;
+	
+	    var flatten = function flatten(polygon1) {
+	        return polygon1.reduce(function (a, b) {
+	            return a.concat([[0, 0]].concat(b));
+	        });
+	    };
+	
+	    switch (type) {
+	        case 'Polygon':
+	            m = flatten(arr);
+	            break;
+	        case 'MultiPolygon':
+	            m = flatten(function () {
+	                var iInt = void 0;
+	                var lenInt = void 0;
+	                var resultsInt = [];
+	                for (iInt = 0, lenInt = arr.length; iInt < lenInt; iInt += 1) {
+	                    polygon = arr[iInt];
+	                    resultsInt.push(flatten(polygon));
+	                }
+	                return resultsInt;
+	            }());
+	            break;
+	        default:
+	            m = flatten(arr);
+	    }
+	    return [[0, 0]].concat(m.concat([[0, 0]]));
+	} /* Slightly adapted from https://github.com/riccardoscalco/gridmap to work with ES6 and new version of d3.js */
 	
 	function subGrid(box, side) {
-	  var i = void 0,
-	      j = void 0,
-	      x = void 0,
-	      x1 = void 0,
-	      y = void 0,
-	      y1 = void 0;
-	  x = 1 + Math.floor(box[0][0] / side);
-	  y = 1 + Math.floor(box[0][1] / side);
-	  x1 = Math.floor(box[1][0] / side);
-	  y1 = Math.floor(box[1][1] / side);
-	  if (x1 >= x && y1 >= y) {
-	    return function () {
-	      var _i = void 0,
-	          _results = void 0;
-	      _results = [];
-	      for (j = _i = y; y <= y1 ? _i <= y1 : _i >= y1; j = y <= y1 ? ++_i : --_i) {
-	        _results.push(function () {
-	          var _j = void 0,
-	              _results1 = void 0;
-	          _results1 = [];
-	          for (i = _j = x; x <= x1 ? _j <= x1 : _j >= x1; i = x <= x1 ? ++_j : --_j) {
-	            _results1.push([i, j]);
-	          }
-	          return _results1;
-	        }());
-	      }
-	      return _results;
-	    }().reduce(function (a, b) {
-	      return a.concat(b);
-	    });
-	  } else {
+	    var i = void 0;
+	    var j = void 0;
+	    var x = 1 + Math.floor(box[0][0] / side);
+	    var y = 1 + Math.floor(box[0][1] / side);
+	    var x1 = Math.floor(box[1][0] / side);
+	    var y1 = Math.floor(box[1][1] / side);
+	    if (x1 >= x && y1 >= y) {
+	        return function () {
+	            var iInt = void 0;
+	            var resultsInt = [];
+	            /* eslint no-multi-assign: "off" */
+	            /* eslint no-loop-func: "off" */
+	            for (j = iInt = y; y <= y1 ? iInt <= y1 : iInt >= y1; j = y <= y1 ? iInt += 1 : iInt -= 1) {
+	                resultsInt.push(function () {
+	                    var jInt = void 0;
+	                    var resultsInt1 = [];
+	                    for (i = jInt = x; x <= x1 ? jInt <= x1 : jInt >= x1; i = x <= x1 ? jInt += 1 : jInt -= 1) {
+	                        resultsInt1.push([i, j]);
+	                    }
+	                    return resultsInt1;
+	                }());
+	            }
+	            return resultsInt;
+	        }().reduce(function (a, b) {
+	            return a.concat(b);
+	        });
+	    }
+	
 	    return [];
-	  }
-	};
+	}
 	
 	function isInside(point, vs) {
-	  var i = void 0,
-	      inside = void 0,
-	      intersect = void 0,
-	      j = void 0,
-	      x = void 0,
-	      xi = void 0,
-	      xj = void 0,
-	      y = void 0,
-	      yi = void 0,
-	      yj = void 0,
-	      _i = void 0,
-	      _ref = void 0;
-	  x = point[0];
-	  y = point[1];
-	  inside = false;
-	  j = vs.length - 1;
-	  for (i = _i = 0, _ref = vs.length - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
-	    xi = vs[i][0];
-	    yi = vs[i][1];
-	    xj = vs[j][0];
-	    yj = vs[j][1];
-	    intersect = yi > y !== yj > y && x < (xj - xi) * (y - yi) / (yj - yi) + xi;
-	    if (intersect) {
-	      inside = !inside;
+	    var i = void 0;
+	    var inside = void 0;
+	    var intersect = void 0;
+	    var j = void 0;
+	    var xi = void 0;
+	    var xj = void 0;
+	    var yi = void 0;
+	    var yj = void 0;
+	    var iInt = void 0;
+	    var refInt = void 0;
+	    var x = point[0];
+	    var y = point[1];
+	    inside = false;
+	    j = vs.length - 1;
+	    /* eslint no-mixed-operators: "off" */
+	    /* eslint yoda: "off" */
+	    for (i = iInt = 0, refInt = vs.length - 1; refInt >= 0 ? iInt <= refInt : iInt >= refInt; i = 0 <= refInt ? iInt += 1 : iInt -= 1) {
+	        xi = vs[i][0];
+	        yi = vs[i][1];
+	        xj = vs[j][0];
+	        yj = vs[j][1];
+	        intersect = yi > y !== yj > y && x < (xj - xi) * (y - yi) / (yj - yi) + xi;
+	        if (intersect) {
+	            inside = !inside;
+	        }
+	        j = i;
 	    }
-	    j = i;
-	  }
-	  return inside;
-	};
+	    return inside;
+	}
 	
 	function gridmap() {
-	  var chart = void 0,
-	      data = void 0,
-	      features = void 0,
-	      fill = void 0,
-	      grid = void 0,
-	      height = void 0,
-	      isDensity = void 0,
-	      key = void 0,
-	      projection = void 0,
-	      side = void 0,
-	      width = void 0;
-	  projection = void 0;
-	  data = void 0;
-	  features = void 0;
-	  isDensity = void 0;
-	  side = 10;
-	  key = "id";
-	  width = 500;
-	  height = 500;
-	  fill = "#CCCCCC";
-	  grid = d3.map();
-	  chart = function chart(selection) {
-	    var area = void 0,
-	        box = void 0,
-	        c = void 0,
-	        centroid = void 0,
-	        coords = void 0,
-	        dataGrid = void 0,
-	        density = void 0,
-	        dots = void 0,
-	        f = void 0,
-	        g = void 0,
-	        h = void 0,
-	        i = void 0,
-	        ii = void 0,
-	        j = void 0,
-	        k = void 0,
-	        map = void 0,
-	        path = void 0,
-	        points = void 0,
-	        polygon = void 0,
-	        radius = void 0,
-	        svg = void 0,
-	        value = void 0,
-	        w = void 0,
-	        x = void 0,
-	        y = void 0,
-	        _i = void 0,
-	        _j = void 0,
-	        _k = void 0,
-	        _len = void 0,
-	        _len1 = void 0,
-	        _len2 = void 0,
-	        _ref = void 0,
-	        _ref1 = void 0;
-	    w = width;
-	    h = height;
-	    path = d3.geoPath().projection(projection);
-	    radius = d3.scaleLinear().range([0, side / 2 * 0.9]);
-	    area = d3.map();
-	    centroid = d3.map();
-	    for (_i = 0, _len = features.length; _i < _len; _i++) {
-	      f = features[_i];
-	      area.set(f[key], path.area(f) / (w * h));
-	    }
-	    svg = selection.append("svg").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + w + " " + h);
-	    map = svg.append("g");
-	    map.selectAll("path").data(features).enter().append("path").style("opacity", 0).attr("d", path);
-	    for (_j = 0, _len1 = features.length; _j < _len1; _j++) {
-	      f = features[_j];
-	      g = f.geometry;
-	      if ((_ref = g.type) === "Polygon" || _ref === "MultiPolygon") {
-	        box = path.bounds(f);
-	        points = subGrid(box, side);
-	        value = [f[key]];
-	        if (points.length) {
-	          polygon = flat(g.type, g.coordinates);
-	          for (_k = 0, _len2 = points.length; _k < _len2; _k++) {
-	            _ref1 = points[_k], i = _ref1[0], j = _ref1[1];
-	            x = side * i;
-	            y = side * j;
-	            coords = projection.invert([x, y]);
-	            ii = isInside(coords, polygon);
-	            if (ii) {
-	              grid.set(i + "," + j, {
-	                keys: value,
-	                x: x,
-	                y: y
-	              });
+	    /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "data" }] */
+	    var data = void 0;
+	    var features = void 0;
+	    var fill = void 0;
+	    var height = void 0;
+	    var key = void 0;
+	    var projection = void 0;
+	    var side = void 0;
+	    var width = void 0;
+	
+	    projection = 0;
+	    data = 0;
+	    features = 0;
+	    side = 10;
+	    key = 'id';
+	    width = 500;
+	    height = 500;
+	    fill = '#CCCCCC';
+	    var grid = d3.map();
+	    var chart = function chart(selection) {
+	        var box = void 0;
+	        var c = void 0;
+	        var coords = void 0;
+	        var f = void 0;
+	        var g = void 0;
+	        var i = void 0;
+	        var ii = void 0;
+	        var j = void 0;
+	        var k = void 0;
+	        var points = void 0;
+	        var polygon = void 0;
+	        var value = void 0;
+	        var x = void 0;
+	        var y = void 0;
+	        var iInt = void 0;
+	        var jInt = void 0;
+	        var kInt = void 0;
+	        var lenInt = void 0;
+	        var lenInt1 = void 0;
+	        var lenInt2 = void 0;
+	        var refInt = void 0;
+	        var refInt1 = void 0;
+	
+	        var w = width;
+	        var h = height;
+	        var path = d3.geoPath().projection(projection);
+	        var radius = d3.scaleLinear().range([0, side / 2 * 0.9]);
+	        var area = d3.map();
+	        var centroid = d3.map();
+	        for (iInt = 0, lenInt = features.length; iInt < lenInt; iInt += 1) {
+	            f = features[iInt];
+	            area.set(f[key], path.area(f) / (w * h));
+	        }
+	        var svg = selection.append('svg').attr('width', w).attr('height', h).attr('viewBox', '0 0 ' + w + ' ' + h);
+	        var map = svg.append('g');
+	        map.selectAll('path').data(features).enter().append('path').style('opacity', 0).attr('d', path);
+	        for (jInt = 0, lenInt1 = features.length; jInt < lenInt1; jInt += 1) {
+	            f = features[jInt];
+	            g = f.geometry;
+	            refInt = g.type;
+	            if (refInt === 'Polygon' || refInt === 'MultiPolygon') {
+	                box = path.bounds(f);
+	                points = subGrid(box, side);
+	                value = [f[key]];
+	                if (points.length) {
+	                    polygon = flat(g.type, g.coordinates);
+	                    for (kInt = 0, lenInt2 = points.length; kInt < lenInt2; kInt += 1) {
+	                        refInt1 = points[kInt];
+	                        i = refInt1[0];
+	                        j = refInt1[1];
+	                        x = side * i;
+	                        y = side * j;
+	                        coords = projection.invert([x, y]);
+	                        ii = isInside(coords, polygon);
+	                        if (ii) {
+	                            grid.set(i + ',' + j, {
+	                                keys: value,
+	                                x: x,
+	                                y: y
+	                            });
+	                        }
+	                    }
+	                } else {
+	                    c = path.centroid(f);
+	                    if (c) {
+	                        centroid.set(f[key], c);
+	                    }
+	                }
 	            }
-	          }
-	        } else {
-	          c = path.centroid(f);
-	          if (c) {
-	            centroid.set(f[key], c);
-	          }
 	        }
-	      }
-	    }
-	    Array.from(centroid).forEach(function (k, v) {
-	      i = Math.floor(v[0] / side);
-	      j = Math.floor(v[1] / side);
-	      try {
-	        return grid.get(i + "," + j).keys.push(k);
-	      } catch (_error) {}
-	    });
-	    density = function density(a) {
-	      var den = void 0,
-	          num = void 0;
-	      if (isDensity) {
-	        num = d3.sum(function () {
-	          var _l = void 0,
-	              _len3 = void 0,
-	              _results = void 0;
-	          _results = [];
-	          for (_l = 0, _len3 = a.length; _l < _len3; _l++) {
-	            j = a[_l];
-	            _results.push(data.get(j) * area.get(j));
-	          }
-	          return _results;
-	        }());
-	      } else {
-	        num = d3.sum(function () {
-	          var _l = void 0,
-	              _len3 = void 0,
-	              _results = void 0;
-	          _results = [];
-	          for (_l = 0, _len3 = a.length; _l < _len3; _l++) {
-	            j = a[_l];
-	            _results.push(data.get(j));
-	          }
-	          return _results;
-	        }());
-	      }
-	      den = d3.sum(function () {
-	        var _l = void 0,
-	            _len3 = void 0,
-	            _results = void 0;
-	        _results = [];
-	        for (_l = 0, _len3 = a.length; _l < _len3; _l++) {
-	          j = a[_l];
-	          _results.push(area.get(j));
-	        }
-	        return _results;
-	      }());
-	      if (den) {
-	        return num / den;
-	      } else {
-	        return 0;
-	      }
+	        Array.from(centroid).forEach(function (k2, v) {
+	            i = Math.floor(v[0] / side);
+	            j = Math.floor(v[1] / side);
+	
+	            return grid.get(i + ',' + j).keys.push(k2);
+	        });
+	
+	        var dataGrid = function () {
+	            var lInt = void 0;
+	            var lenInt3 = void 0;
+	            var refInt2 = grid.values();
+	            var resultsInt = [];
+	            for (lInt = 0, lenInt3 = refInt2.length; lInt < lenInt3; lInt += 1) {
+	                k = refInt2[lInt];
+	                if (k.keys.length) {
+	                    resultsInt.push({
+	                        value: 5,
+	                        x: k.x,
+	                        y: k.y
+	                    });
+	                }
+	            }
+	            return resultsInt;
+	        }();
+	        var dots = map.selectAll('.gridmap-dot').data(dataGrid);
+	        radius.domain([0, d3.max(dataGrid, function (d) {
+	            return Math.sqrt(d.value);
+	        })]);
+	        return dots.enter().append('circle').attr('class', 'gridmap-dot').attr('cx', function (d) {
+	            return d.x;
+	        }).attr('cy', function (d) {
+	            return d.y;
+	        }).attr('r', function (d) {
+	            return radius(Math.sqrt(d.value));
+	        }).style('fill', fill);
 	    };
-	    dataGrid = function () {
-	      var _l = void 0,
-	          _len3 = void 0,
-	          _ref2 = void 0,
-	          _results = void 0;
-	      _ref2 = grid.values();
-	      _results = [];
-	      for (_l = 0, _len3 = _ref2.length; _l < _len3; _l++) {
-	        k = _ref2[_l];
-	        if (k.keys.length) {
-	          _results.push({
-	            value: 5 /*density(k.keys)*/
-	            , x: k.x,
-	            y: k.y
-	          });
-	        }
-	      }
-	      return _results;
-	    }();
-	    dots = map.selectAll(".gridmap-dot").data(dataGrid);
-	    radius.domain([0, d3.max(dataGrid, function (d) {
-	      return Math.sqrt(d.value);
-	    })]);
-	    return dots.enter().append("circle").attr("class", "gridmap-dot").attr("cx", function (d) {
-	      return d.x;
-	    }).attr("cy", function (d) {
-	      return d.y;
-	    }).attr("r", function (d) {
-	      return radius(Math.sqrt(d.value));
-	    }).style("fill", fill);
-	  };
-	  chart.width = function (_) {
-	    width = _;
+	    chart.width = function (_) {
+	        width = _;
+	        return chart;
+	    };
+	    chart.height = function (_) {
+	        height = _;
+	        return chart;
+	    };
+	    chart.side = function (_) {
+	        side = _;
+	        return chart;
+	    };
+	    chart.key = function (_) {
+	        key = _;
+	        return chart;
+	    };
+	    chart.data = function (_) {
+	        data = _;
+	        return chart;
+	    };
+	    chart.features = function (_) {
+	        features = _;
+	        return chart;
+	    };
+	    chart.projection = function (_) {
+	        projection = _;
+	        return chart;
+	    };
+	    chart.fill = function (_) {
+	        fill = _;
+	        return chart;
+	    };
 	    return chart;
-	  };
-	  chart.height = function (_) {
-	    height = _;
-	    return chart;
-	  };
-	  chart.side = function (_) {
-	    side = _;
-	    return chart;
-	  };
-	  chart.key = function (_) {
-	    key = _;
-	    return chart;
-	  };
-	  chart.data = function (_) {
-	    data = _;
-	    return chart;
-	  };
-	  chart.isDensity = function (_) {
-	    isDensity = _;
-	    return chart;
-	  };
-	  chart.features = function (_) {
-	    features = _;
-	    return chart;
-	  };
-	  chart.projection = function (_) {
-	    projection = _;
-	    return chart;
-	  };
-	  chart.fill = function (_) {
-	    fill = _;
-	    return chart;
-	  };
-	  return chart;
-	};
+	}
 
 /***/ }),
+<<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
 <<<<<<< 1f356be32b35ed4618b4522b5f576fd8aef6b4b3
 /* 61 */
 =======
 /* 49 */
 >>>>>>> Updated code to fix errors and resize map to new size
+=======
+/* 48 */
+>>>>>>> Fixed linting
 /***/ (function(module, exports) {
 
 	"use strict";
