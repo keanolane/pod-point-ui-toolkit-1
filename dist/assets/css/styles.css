@@ -4303,6 +4303,10 @@ http://flickity.metafizzy.co
   .hide-medium-down {
     display: none !important; } }
 
+@media only screen and (max-width: 68em) {
+  .hide-large-down {
+    display: none !important; } }
+
 .clear:after {
   content: "";
   display: table;
