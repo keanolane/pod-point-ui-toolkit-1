@@ -36,6 +36,8 @@ class EvMap {
         this.markerHolder = document.getElementById('markerHolder');
         this.markerCircleHolder = document.getElementById('markerCircleHolder');
         this.markerCircle = document.getElementById('markerCircle');
+        this.kwText = document.getElementById('kw');
+        this.savingText = document.getElementById('saving');
         this.lastHighlightedDot = [];
 
         mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s)
@@ -92,18 +94,15 @@ class EvMap {
 
         if (this.mapPoint) {
             this.mapPoint.classList.add('gridmap-dot-selected');
-            const kwText = document.getElementById('kw');
-            kwText.innerHTML = kw;
+            
+            this.kwText.innerHTML = kw;
+            this.savingText.innerHTML = saving.toFixed(2);
 
-            const savingText = document.getElementById('saving');
-            savingText.innerHTML = saving;
             this.markerHolder.style.left = `${(x - 50)}px`;
             this.markerHolder.style.top = `${(y - 50)}px`;
             this.markerHolder.classList.remove('hidden');
-
-            setTimeout(() => {
-                document.getElementById('markerCircleHolder').classList.add('ev-map-wrap__bulge-appear');
-            }, 10);
+            
+            this.markerCircleHolder.classList.add('ev-map-wrap__bulge-appear');
         } else {
             this.nextCharge();
         }
@@ -125,6 +124,8 @@ class EvMap {
 
         this.markerHolder.classList.add('hidden');
         this.markerCircleHolder.classList.remove('ev-map-wrap__bulge-appear');
+        /* eslint no-void: "off" */
+        void this.markerHolder.offsetWidth; // force DOM reflow to result bulge class
 
         this.lastHighlightedDot = [];
     }
@@ -141,6 +142,7 @@ class EvMap {
     showChargeOnMap(latitude, longitude, kw, saving) {
         const mapLonDelta = mapConfig.mapLonRight - mapConfig.mapLonLeft;
         const mapLatBottomDegree = (mapConfig.mapLatBottom * Math.PI) / 180;
+
         const x = (longitude - mapConfig.mapLonLeft) * (mapConfig.mapWidth / mapLonDelta);
         const latitudeNew = (latitude * Math.PI) / 180;
         const worldMapWidth = ((mapConfig.mapWidth / mapLonDelta) * 360) / (2 * Math.PI);
