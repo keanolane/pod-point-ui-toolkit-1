@@ -10,21 +10,19 @@ import ajaxForm from './modules/ajax-form';
 import formFields from './modules/form-fields';
 import collapse from './modules/collapse';
 import dropdown from './modules/dropdown';
-import selectDropdown from './modules/select-dropdown';
 import toggle from './modules/toggle';
 import toggleAccordionPanel from './modules/toggle-accordion-panel';
 import toggleElement from './modules/toggle-element';
 import gallerySimple from './modules/gallery-simple';
 import accordion from './modules/accordion';
 import headerNav from './modules/header-nav';
-import carousel from './modules/Carousel';
+import carousel from './modules/carousel';
 import addressLookup from './modules/address-lookup';
 import changeContent from './modules/change-content';
 import checkoutYourPodPoint from './modules/checkout-your-pod-point';
 import claimOlev from './modules/claim-olev';
 import claimDealerDiscount from './modules/claim-dealer-discount';
 import basket from './modules/basket';
-import inlineSvg from './modules/inline-svg';
 import flipCounter from './modules/flip-counter';
 import evMap from './modules/ev-map';
 
@@ -45,7 +43,6 @@ window.isMobileSize = (winWidth < winWidthMedium) ? true : false;
 dom.whenReady(() => {
     loadModules({
         formFields,
-        inlineSvg,
         domModules: combineDomModules({
             modal,
             ajaxForm,
@@ -54,7 +51,6 @@ dom.whenReady(() => {
             toggle,
             toggleAccordionPanel,
             toggleElement,
-            selectDropdown,
             gallerySimple,
             headerNav,
             accordion,

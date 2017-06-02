@@ -1,4 +1,3 @@
-import Dropkick from 'dropkickjs';
 import { nodesToArray } from '@pod-point/dom-ops';
 
 const IS_OPEN = 'is-open';
@@ -54,22 +53,6 @@ export function disableOrEnableButton(element, disable) {
 	} else {
 		element.disabled = false;
 		element.classList.remove('is-disabled');
-	}
-}
-
-
-/**
- * Enable element
- *
- * @param element
- * @boolean disable
- */
-export function disableOrEnableDd(element, disable) {
-	var select = new Dropkick(element);
-	if (disable) {
-		select.disable();
-	} else {
-		select.disable(false);
 	}
 }
 

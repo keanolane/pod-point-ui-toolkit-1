@@ -8,7 +8,6 @@ exports.hide = hide;
 exports.isVisible = isVisible;
 exports.isHidden = isHidden;
 exports.disableOrEnableButton = disableOrEnableButton;
-exports.disableOrEnableDd = disableOrEnableDd;
 exports.addItemToCookie = addItemToCookie;
 exports.readItemFromCookie = readItemFromCookie;
 exports.deleteItemFromCookie = deleteItemFromCookie;
@@ -19,13 +18,7 @@ exports.aRadioContains = aRadioContains;
 exports.getRandomInt = getRandomInt;
 exports.roundNumberTo = roundNumberTo;
 
-var _dropkickjs = require('dropkickjs');
-
-var _dropkickjs2 = _interopRequireDefault(_dropkickjs);
-
 var _domOps = require('@pod-point/dom-ops');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var IS_OPEN = 'is-open';
 
@@ -80,21 +73,6 @@ function disableOrEnableButton(element, disable) {
   } else {
     element.disabled = false;
     element.classList.remove('is-disabled');
-  }
-}
-
-/**
- * Enable element
- *
- * @param element
- * @boolean disable
- */
-function disableOrEnableDd(element, disable) {
-  var select = new _dropkickjs2.default(element);
-  if (disable) {
-    select.disable();
-  } else {
-    select.disable(false);
   }
 }
 

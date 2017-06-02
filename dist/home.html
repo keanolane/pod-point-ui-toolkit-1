@@ -183,7 +183,7 @@
 								<p>Sleek on the outside smart on the inside chargepoints from £279*</p>
 							</div>
 							<img class="marg-center max-width--sm" src="assets/img/content/products/home-charger.png" alt="">
-							<a href="#" class="button">Buy now</a>
+							<button class="button" data-js-module="modal" data-modal="homechargeFormModal">Enquire now</button>
 							<br>
 							<a href="#" class="setback-button m-t-md font-style-base">Learn more</a>
 						</div>
@@ -193,7 +193,7 @@
 								<p>App-enables smart chargepoints to put you on the map</p>
 							</div>
 							<img class="marg-center max-width--sm" src="assets/img/content/products/commercial-charger.png" alt="">
-							<a href="#" class="button">Enquire now</a>
+							<button class="button" data-js-module="modal" data-modal="commercialFormModal">Enquire now</button>
 							<br>
 							<a href="#" class="setback-button m-t-md font-style-base">Learn more</a>
 	
@@ -204,7 +204,7 @@
 								<p>Smart charging stations for employees and visitors</p>
 							</div>
 							<img class="marg-center max-width--sm" src="assets/img/content/products/workplace-charger.png" alt="">
-							<a href="#" class="button">Enquire now</a>
+							<button class="button" data-js-module="modal" data-modal="workplaceFormModal">Enquire now</button>
 							<br>
 							<a href="#" class="setback-button m-t-md font-style-base">Learn more</a>
 						</div>
@@ -213,6 +213,230 @@
 			</div>
 		</div>
 	</section>
+
+	<div class="modal hidden fade-in" id="homechargeFormModal">
+		<a href="#" class="circle-icon circle-icon--close circle-icon--outlined-dark circle-icon--small-resp modal-close"><svg class="icon"><use xlink:href="#general--cross"/></svg></a>
+		<div class="modal__content modal__content--white">
+			<div class="panel max-width-text-wider marg-center">
+				<div class="content-block">
+					<h2 class="panel__title">Homecharge enquiry form</h2>
+					<div class="panel__text-content m-b-xl">
+						<p>Please fill in the below information and a member of our team will be in touch shortly.</p>
+					</div>
+	
+					<div class="grid-wrap text-left">
+						<div class="grid-row m-t-md">
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Name</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Email</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Phone</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Postcode</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<button type="submit" class="button m-t-xl">Submit</button>
+	
+					<img class="marg-center max-width--xxl" src="assets/img/content/illustrations/thank-you/thankyou-complete-mobile.svg" alt="">
+	
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hidden fade-in" id="commercialFormModal">
+		<a href="#" class="circle-icon circle-icon--close circle-icon--outlined-dark circle-icon--small-resp modal-close"><svg class="icon"><use xlink:href="#general--cross"/></svg></a>
+		<div class="modal__content modal__content--white">
+			<div class="panel max-width-text-wider marg-center">
+				<div class="content-block">
+					<h2 class="panel__title">Commercial enquiry form</h2>
+					<div class="panel__text-content">
+						<p>Please fill in the below information and a member of our team will be in touch shortly.</p>
+					</div>
+	
+					<div class="grid-wrap text-left">
+						<div class="grid-row m-t-md">
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">First Name</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Last Name</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Work Email</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Phone</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Industry</label>
+								<div class="form-field-wrapper">
+									<div class="select-wrapper">
+										<select>
+											<option selected value="00">-please select-</option>
+											<option value="01">01</option>
+											<option value="02">02</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Why are you interested in EV charging?</label>
+								<div class="form-field-wrapper">
+									<div class="select-wrapper">
+										<select>
+											<option selected value="00">-please select-</option>
+											<option value="01">01</option>
+											<option value="02">02</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Postcode</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">How many parking spaces do you have?</label>
+								<div class="form-field-wrapper">
+									<div class="select-wrapper">
+										<select>
+											<option selected value="00">-please select-</option>
+											<option value="01">01</option>
+											<option value="02">02</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<button type="submit" class="button m-t-xl">Submit</button>
+	
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hidden fade-in" id="workplaceFormModal">
+		<a href="#" class="circle-icon circle-icon--close circle-icon--outlined-dark circle-icon--small-resp modal-close"><svg class="icon"><use xlink:href="#general--cross"/></svg></a>
+		<div class="modal__content modal__content--white">
+			<div class="panel max-width-text-wider marg-center">
+				<div class="content-block">
+					<h2 class="panel__title">Workplace enquiry form</h2>
+					<div class="panel__text-content" class="font-style-large">
+						<p>Please fill in the below information and a member of our team will be in touch shortly.</p>
+					</div>
+	
+					<div class="grid-wrap text-left">
+						<div class="grid-row m-t-md">
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">First Name</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Last Name</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Work Email</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Phone</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Industry</label>
+								<div class="form-field-wrapper">
+									<div class="select-wrapper">
+										<select>
+											<option selected value="00">-please select-</option>
+											<option value="01">01</option>
+											<option value="02">02</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Why are you interested in EV charging?</label>
+								<div class="form-field-wrapper">
+									<div class="select-wrapper">
+										<select>
+											<option selected value="00">-please select-</option>
+											<option value="01">01</option>
+											<option value="02">02</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Postcode</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">How many parking spaces do you have?</label>
+								<div class="form-field-wrapper">
+									<div class="select-wrapper">
+										<select>
+											<option selected value="00">-please select-</option>
+											<option value="01">01</option>
+											<option value="02">02</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<button type="submit" class="button m-t-xl">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<section class="bg--white">
 		<div class="container">
 			<div class="content-block text-center">

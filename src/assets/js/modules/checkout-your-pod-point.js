@@ -1,6 +1,6 @@
 import { Delegate } from 'dom-delegate';
 import { nodesToArray, addClass } from '@pod-point/dom-ops';
-import { disableOrEnableDd, readItemFromCookie, openPanel } from './../utilities';
+import { readItemFromCookie, openPanel } from './../utilities';
 
 let instances = [];
 
@@ -32,7 +32,7 @@ class CheckoutYourPodPoint {
         this.selectEVMakeListener = new Delegate(this.selectEvMake);
 
         this.selectEVMakeListener.on('change', (event, element) => {
-            disableOrEnableDd(this.selectEvModel);
+            // needs to enable the select 'this.selectEvModel'
         });
 
         this.selectEVModelListener = new Delegate(this.selectEvModel);

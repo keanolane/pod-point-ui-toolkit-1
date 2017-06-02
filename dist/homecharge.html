@@ -145,16 +145,13 @@
 					</div>
 					<div class="buttons-container m-t-md">
 						<button class="button button--secondary" data-js-module="modal" data-modal="videoModal">Watch video</button>
-						<a href="checkout-step1.html" class="button">Buy now</a>
+						<button class="button" data-js-module="modal" data-modal="homechargeFormModal">Buy now</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	
-	
-	
-	<!-- HIDDEN MODALS -->
+
 	<div class="modal hidden fade-in" id="videoModal">
 		<a href="#" class="circle-icon circle-icon--close circle-icon--outlined-dark circle-icon--small-resp modal-close"><svg class="icon"><use xlink:href="#general--cross"/></svg></a>
 		<div class="modal__content">
@@ -162,7 +159,7 @@
 				<img class="img--resp img--rounded-corners max-width--xxl marg-center" src="assets/img/content/video-placeholders/homecharge-video-placeholder.jpg">
 				<div class="content-block">
 					<h2 class="panel__title">Pricing</h2>
-					<div class="panel__text-content" class="font-style-large">
+					<div class="panel__text-content">
 						<p>We offer competitive pricing across our range of home charging points with a generous standard installation package.</p>
 					</div>
 				</div>
@@ -201,6 +198,54 @@
 					</div>
 				</div>
 				<a href="checkout-step1.html" class="button m-t-xl">Buy now</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hidden fade-in" id="homechargeFormModal">
+		<a href="#" class="circle-icon circle-icon--close circle-icon--outlined-dark circle-icon--small-resp modal-close"><svg class="icon"><use xlink:href="#general--cross"/></svg></a>
+		<div class="modal__content modal__content--white">
+			<div class="panel max-width-text-wider marg-center">
+				<div class="content-block">
+					<h2 class="panel__title">Homecharge enquiry form</h2>
+					<div class="panel__text-content m-b-xl">
+						<p>Please fill in the below information and a member of our team will be in touch shortly.</p>
+					</div>
+	
+					<div class="grid-wrap text-left">
+						<div class="grid-row m-t-md">
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Name</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Email</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Phone</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="grid-col grid-col--md-6">
+								<label class="label--block">Postcode</label>
+								<div class="form-field-wrapper">
+									<input type="text" />
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<button type="submit" class="button m-t-xl">Submit</button>
+	
+					<img class="marg-center max-width--xxl" src="assets/img/content/illustrations/thank-you/thankyou-complete-mobile.svg" alt="">
+	
+				</div>
 			</div>
 		</div>
 	</div>
@@ -543,19 +588,26 @@
 			</div>
 			<div class="carousel-wrap carousel-wrap--reviews">
 				<a href="#" class="circle-icon circle-icon--large-resp circle-icon--white-outline"><svg><use xlink:href="#general--user"/></svg></a>
-				<div data-js-module="carousel">
-					<div>
-						<div class="slick-slide--content">
+				<div data-js-module="carousel" class="main-carousel">
+					<div class="carousel-cell">
+						<div class="rich-text">
 							<h3>John Smith</h3>
 							<p>Suspendisse potenti. Nullam lacinia urna ex, vitae maximus massa ultricies ut. Quisque cursus magna sit amet turpis tempor sodales. Ut egestas, felis quis sagittis rhoncus, purus purus congue orci, sed mollis diam metus sed orci. Duis a lacus lectus. Curabitur ante massa, consectetur luctus arcu non, vehicula elementum orci.</p>
-							<span class="svg-wrap max-width--xxs marg-center m-t-sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 23"><path fill="#8cc63f" stroke="#8cc63f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.8 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2L8 13.9 3.1 9.2l6.7-1.1 2.9-6zM44.2 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2 1.1-6.6-4.9-4.7 6.7-1.1 3-6zM72.6 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2 1.1-6.6L60 9.2l6.6-1.1 3-6zM101.1 8.1l6.7.9-4.9 4.8 1.2 6.6-6-3.1-5.9 3.2 1.1-6.6-4.9-4.7 6.7-1.1 2.9-6zM129.1 8.1l6.7.9-4.9 4.8 1.2 6.6-6-3.1-5.9 3.2 1.1-6.6-4.9-4.7 6.7-1.1 2.9-6z"/></svg></span>
+							<span class="svg-wrap max-width--xxs marg-center m-t-sm m-t-lg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 23"><path fill="#8cc63f" stroke="#8cc63f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.8 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2L8 13.9 3.1 9.2l6.7-1.1 2.9-6zM44.2 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2 1.1-6.6-4.9-4.7 6.7-1.1 3-6zM72.6 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2 1.1-6.6L60 9.2l6.6-1.1 3-6zM101.1 8.1l6.7.9-4.9 4.8 1.2 6.6-6-3.1-5.9 3.2 1.1-6.6-4.9-4.7 6.7-1.1 2.9-6zM129.1 8.1l6.7.9-4.9 4.8 1.2 6.6-6-3.1-5.9 3.2 1.1-6.6-4.9-4.7 6.7-1.1 2.9-6z"/></svg></span>
 						</div>
 					</div>
-					<div>
-						<div class="slick-slide--content">
+					<div class="carousel-cell">
+						<div class="rich-text">
 							<h3>Anna Doyle</h3>
-							<p>Curabitur lacinia volutpat elit, in consectetur felis egestas eget. Nam venenatis consectetur fringilla. Quisque id imperdiet augue, tincidunt lacinia ligula. Phasellus sit amet luctus purus.</p>
-							<span class="svg-wrap max-width--xxs marg-center m-t-sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 23"><path fill="#8cc63f" stroke="#8cc63f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.8 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2L8 13.9 3.1 9.2l6.7-1.1 2.9-6zM44.2 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2 1.1-6.6-4.9-4.7 6.7-1.1 3-6zM72.6 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2 1.1-6.6L60 9.2l6.6-1.1 3-6zM101.1 8.1l6.7.9-4.9 4.8 1.2 6.6-6-3.1-5.9 3.2 1.1-6.6-4.9-4.7 6.7-1.1 2.9-6z"/><path d="M129.7 19.4l-2.9-1.5h-.3l-5.5 3c-.2.1-.5-.1-.5-.3l1-6.2c0-.1 0-.2-.1-.3l-4.5-4.4c-.2-.2-.1-.5.2-.6l6.2-1c.1 0 .2-.1.2-.2l2.7-5.7c.1-.2.5-.2.6 0l2.9 5.8" fill="#8cc63f"/><path d="M129.7 8.1l6.4.9c.3 0 .4.4.2.6l-4.5 4.4c-.1.1-.1.2-.1.3l1.1 6.2c0 .3-.2.5-.5.3l-2.7-1.4" fill="#e6e6e6"/></svg></span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<span class="svg-wrap max-width--xxs marg-center m-t-sm m-t-lg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 23"><path fill="#8cc63f" stroke="#8cc63f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.8 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2L8 13.9 3.1 9.2l6.7-1.1 2.9-6zM44.2 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2 1.1-6.6-4.9-4.7 6.7-1.1 3-6zM72.6 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2 1.1-6.6L60 9.2l6.6-1.1 3-6zM101.1 8.1l6.7.9-4.9 4.8 1.2 6.6-6-3.1-5.9 3.2 1.1-6.6-4.9-4.7 6.7-1.1 2.9-6z"/><path d="M129.7 19.4l-2.9-1.5h-.3l-5.5 3c-.2.1-.5-.1-.5-.3l1-6.2c0-.1 0-.2-.1-.3l-4.5-4.4c-.2-.2-.1-.5.2-.6l6.2-1c.1 0 .2-.1.2-.2l2.7-5.7c.1-.2.5-.2.6 0l2.9 5.8" fill="#8cc63f"/><path d="M129.7 8.1l6.4.9c.3 0 .4.4.2.6l-4.5 4.4c-.1.1-.1.2-.1.3l1.1 6.2c0 .3-.2.5-.5.3l-2.7-1.4" fill="#e6e6e6"/></svg></span>
+						</div>
+					</div>
+					<div class="carousel-cell">
+						<div class="rich-text">
+							<h3>Carol Lorem</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<span class="svg-wrap max-width--xxs marg-center m-t-sm m-t-lg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 23"><path fill="#8cc63f" stroke="#8cc63f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.8 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2L8 13.9 3.1 9.2l6.7-1.1 2.9-6zM44.2 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2 1.1-6.6-4.9-4.7 6.7-1.1 3-6zM72.6 8.1l6.7.9-4.8 4.8 1.2 6.6-6-3.1-6 3.2 1.1-6.6L60 9.2l6.6-1.1 3-6zM101.1 8.1l6.7.9-4.9 4.8 1.2 6.6-6-3.1-5.9 3.2 1.1-6.6-4.9-4.7 6.7-1.1 2.9-6zM129.1 8.1l6.7.9-4.9 4.8 1.2 6.6-6-3.1-5.9 3.2 1.1-6.6-4.9-4.7 6.7-1.1 2.9-6z"/></svg></span>
 						</div>
 					</div>
 				</div>

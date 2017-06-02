@@ -143,6 +143,22 @@ $checked-fill-color: $primary-color;
 $checkbox-bg-color: transparent;
 $error-red: #C1272D;
 
+
+// State and Alert colours
+$state-success-bg:            #dff0d8;
+$state-success-text:          #3c763d;
+$state-success-border:        darken(adjust-hue($state-success-bg, -10), 5%);
+$state-info-bg:               #dff0d8;
+$state-info-text:             #31708f;
+$state-info-border:           darken(adjust-hue($state-info-bg, -10), 5%);
+$state-warning-bg:            #fcf8e3;
+$state-warning-text:          #8a6d3b;
+$state-warning-border:        darken(adjust-hue($state-warning-bg, -10), 5%);
+$state-danger-bg:             #f2dede;
+$state-danger-text:           #a94442;
+$state-danger-border:         darken(adjust-hue($state-danger-bg, -10), 5%);
+
+
 $disabled-color: gray;
 
 // Forms
