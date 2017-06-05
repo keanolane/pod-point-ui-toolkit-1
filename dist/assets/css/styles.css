@@ -1040,8 +1040,8 @@ table th[class*="col-"] {
           border-bottom: 0; } }
 
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px black inset;
-  -webkit-text-fill-color: white !important; }
+  -webkit-box-shadow: 0 0 0 1000px #fffaeb inset;
+  -webkit-text-fill-color: #333 !important; }
 
 ::-webkit-input-placeholder {
   color: #ccc; }
