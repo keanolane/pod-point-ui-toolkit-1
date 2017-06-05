@@ -109,12 +109,13 @@
     background-color: $background;
     border-color: $border;
     color: $text-color;
-
+    font-weight: $font-weight-bold;
     hr {
         border-top-color: darken($border, 5%);
     }
-    .alert-link {
+    .a {
         color: darken($text-color, 10%);
+        text-decoration: underline;
     }
 }
 

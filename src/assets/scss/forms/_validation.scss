@@ -51,16 +51,6 @@
 	}
 }
 
-.error-message {
-	display: block;
-	@include font-style-small;
-	font-weight: $font-weight-bold;
-	color: $error-red;
-	margin-top: rem(3);
-	.checkbox-wrap & {
-		margin-top: 0;
-	}
-}
 .checkbox-wrap:not(.is-invalid),
 .form-field-wrapper:not(.is-invalid) {
 	.error-message {
@@ -71,5 +61,38 @@
 .checkbox-wrap.is-invalid {
 	input[type="checkbox"] ~ label:before {
 		border-color: $error-red;
+	}
+}
+
+.form {
+	&__group--error {
+		#{$inputs},
+		textarea[type="text"],
+		.select-wrapper select {
+			border-color: $error-red;
+		}
+	}
+	&__group--valid {
+		#{$inputs},
+		textarea[type="text"],
+		.select-wrapper select {
+			border-color: $primary-color;
+		}
+	}
+	&__error {
+		display: block;
+		@include font-style-small;
+		font-weight: $font-weight-bold;
+		color: $error-red;
+		margin-top: rem(5);
+		.checkbox-wrap & {
+			margin-top: 0;
+		}
+	}
+}
+
+.checkbox-wrap {
+	.form__error {
+		margin-left: 35px;
 	}
 }
