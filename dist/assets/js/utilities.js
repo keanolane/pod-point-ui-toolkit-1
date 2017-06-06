@@ -17,6 +17,7 @@ exports.allRadiosSelected = allRadiosSelected;
 exports.aRadioContains = aRadioContains;
 exports.getRandomInt = getRandomInt;
 exports.roundNumberTo = roundNumberTo;
+exports.loadVideo = loadVideo;
 
 var _domOps = require('@pod-point/dom-ops');
 
@@ -147,4 +148,15 @@ function roundNumberTo(num, roundTo) {
   } else {
     return num + roundTo - resto;
   }
+}
+
+/**
+ * Load or destroy video by replacing the src from the data-src
+ *
+ * @param element
+ * @param bool
+ */
+function loadVideo(videoEl, load) {
+  var videoSrc = videoEl.getAttribute('data-src');
+  load ? videoEl.setAttribute('src', videoSrc) : videoEl.setAttribute('src', '');
 }

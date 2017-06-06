@@ -156,7 +156,11 @@
 		<a href="#" class="circle-icon circle-icon--close circle-icon--outlined-dark circle-icon--small-resp modal-close"><svg class="icon"><use xlink:href="#general--cross"/></svg></a>
 		<div class="modal__content">
 			<div class="panel">
-				<img class="img--resp img--rounded-corners max-width--xxl marg-center" src="assets/img/content/video-placeholders/homecharge-video-placeholder.jpg">
+				<div class="max-width--xxxl marg-center">
+					<div class="video-wrapper">
+						<iframe data-src="https://player.vimeo.com/video/220303997" src="" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				</div>
 				<div class="content-block">
 					<h2 class="panel__title">Pricing</h2>
 					<div class="panel__text-content">
@@ -204,9 +208,9 @@
 
 	<div class="modal hidden fade-in" id="homechargeFormModal">
 		<a href="#" class="circle-icon circle-icon--close circle-icon--outlined-dark circle-icon--small-resp modal-close"><svg class="icon"><use xlink:href="#general--cross"/></svg></a>
-		<div class="modal__content modal__content--white">
+		<div class="modal__content modal__content--white modal__content--narrow">
 			<div class="panel max-width-text-wider marg-center">
-				<div class="content-block">
+				<form class="form content-block" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
 					<h2 class="panel__title">Homecharge enquiry form</h2>
 					<div class="panel__text-content m-b-xl">
 						<p>Please fill in the below information and a member of our team will be in touch shortly.</p>
@@ -215,27 +219,35 @@
 					<div class="grid-wrap text-left">
 						<div class="grid-row m-t-md">
 							<div class="grid-col grid-col--md-6">
-								<label class="label--block">Name</label>
-								<div class="form-field-wrapper">
-									<input type="text" />
+								<div class="form__group">
+									<label class="label--block">Name</label>
+									<div class="form-field-wrapper">
+										<input type="text" />
+									</div>
 								</div>
 							</div>
 							<div class="grid-col grid-col--md-6">
-								<label class="label--block">Email</label>
-								<div class="form-field-wrapper">
-									<input type="text" />
+								<div class="form__group">
+									<label class="label--block">Email</label>
+									<div class="form-field-wrapper">
+										<input type="text" />
+									</div>
 								</div>
 							</div>
 							<div class="grid-col grid-col--md-6">
-								<label class="label--block">Phone</label>
-								<div class="form-field-wrapper">
-									<input type="text" />
+								<div class="form__group">
+									<label class="label--block">Phone</label>
+									<div class="form-field-wrapper">
+										<input type="text" />
+									</div>
 								</div>
 							</div>
 							<div class="grid-col grid-col--md-6">
-								<label class="label--block">Postcode</label>
-								<div class="form-field-wrapper">
-									<input type="text" />
+								<div class="form__group">
+									<label class="label--block">Postcode</label>
+									<div class="form-field-wrapper">
+										<input type="text" />
+									</div>
 								</div>
 							</div>
 						</div>
@@ -245,7 +257,7 @@
 	
 					<img class="marg-center max-width--xxl" src="assets/img/content/illustrations/thank-you/thankyou-complete-mobile.svg" alt="">
 	
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>

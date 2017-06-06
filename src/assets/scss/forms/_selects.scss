@@ -28,7 +28,10 @@
 		cursor: pointer;
 		background-color: transparent;
 		&:focus {
-			outline: none;
+			@include input-border--focus;
+		}
+		&:hover {
+			@include input-border--hover;
 		}
 	}
 }

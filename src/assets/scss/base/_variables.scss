@@ -148,14 +148,14 @@ $error-red: #C1272D;
 $state-success-bg:            #dff0d8;
 $state-success-text:          #3c763d;
 $state-success-border:        darken(adjust-hue($state-success-bg, -10), 5%);
-$state-info-bg:               #dff0d8;
+$state-info-bg:               #d9edf7;
 $state-info-text:             #31708f;
 $state-info-border:           darken(adjust-hue($state-info-bg, -10), 5%);
 $state-warning-bg:            #fcf8e3;
 $state-warning-text:          #8a6d3b;
 $state-warning-border:        darken(adjust-hue($state-warning-bg, -10), 5%);
 $state-danger-bg:             #f2dede;
-$state-danger-text:           #a94442;
+$state-danger-text:           #C1272D;
 $state-danger-border:         darken(adjust-hue($state-danger-bg, -10), 5%);
 
 
@@ -168,7 +168,7 @@ $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
 $form-border-radius: 5px;
 $form-border-base: $border-base;
-$input-text-color: #444;
+$input-text-color: $font-color-base;
 $input-placeholder-color: #ccc;
 $input-icon-color: #9C9C9C;
 $form-field-max-width: rem(600);
