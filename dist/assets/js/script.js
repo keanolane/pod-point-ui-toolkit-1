@@ -51451,6 +51451,10 @@ window.addEventListener('resize', handleResize);
 	    function EvMap(element) {
 	        _classCallCheck(this, EvMap);
 	
+	        if (window.isTouchDevice || window.isMobileSize) {
+	            return;
+	        };
+	
 	        mapConfig = {
 	            mapID: '#gridmap',
 	            mapWidth: 700,

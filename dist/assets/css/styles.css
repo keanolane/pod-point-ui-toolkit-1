@@ -3167,38 +3167,47 @@ button {
     -ms-transform: scale(1, 1);
     -webkit-transform: scale(1, 1); } }
 
-.ev-map-wrap__markers {
-  position: absolute;
-  top: 50%;
-  left: 61%; }
+.ev-map-section .container {
+  overflow: hidden; }
+  .ev-map-section .container .grid-wrap {
+    position: relative;
+    z-index: 1; }
 
-.ev-map-wrap__labels {
-  float: left;
-  text-align: left;
-  margin-left: 10px;
-  width: 250px; }
-
-.ev-map-wrap__rotate {
-  animation-name: rotate;
-  animation-duration: 20s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear; }
-
-.ev-map-wrap__bulge-appear {
-  animation-name: bulge-appear;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  animation-timing-function: linear; }
-
-.ev-map-wrap__pulse {
-  float: left;
-  width: 100px; }
+.ev-map-wrap {
+  display: block; }
+  .ev-map-wrap__markers {
+    position: absolute;
+    top: 50%;
+    left: 61%; }
+  .ev-map-wrap__labels {
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+    width: 250px; }
+  .ev-map-wrap__rotate {
+    animation-name: rotate;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; }
+  .ev-map-wrap__bulge-appear {
+    animation-name: bulge-appear;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear; }
+  .ev-map-wrap__pulse {
+    float: left;
+    width: 100px; }
 
 .ev-map {
   display: block;
+  z-index: 0;
   position: absolute;
   top: 0;
-  right: -20%; }
+  right: -20%;
+  left: auto; }
+  @media (min-width: 68em) {
+    .ev-map {
+      right: -10%; } }
   .ev-map svg {
     width: 700px;
     height: 553px; }
@@ -4342,14 +4351,6 @@ http://flickity.metafizzy.co
   max-height: 0;
   transition: max-height 0.8s ease-out;
   overflow: hidden; }
-
-@media only screen and (max-width: 50em) {
-  .hide-medium-down {
-    display: none !important; } }
-
-@media only screen and (max-width: 68em) {
-  .hide-large-down {
-    display: none !important; } }
 
 .clear:after {
   content: "";
