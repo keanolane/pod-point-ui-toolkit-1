@@ -82,5 +82,5 @@ const handleResize = debounce((e) => {
     loadModules();
 }, 100)
 
-window.addEventListener('resize', handleResize)
+// window.addEventListener('resize', handleResize)
 

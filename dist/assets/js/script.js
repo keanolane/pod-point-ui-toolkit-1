@@ -310,6 +310,7 @@
 	    (0, _moduleLoader2.default)();
 	}, 100);
 	
+<<<<<<< b6aa93057e48b31de63e5b068ed49b76bea2371f
 	window.addEventListener('resize', handleResize);
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 =======
@@ -317,6 +318,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 >>>>>>> Hide map when screen is too narrow to display it
 =======
 >>>>>>> Removed commented out window resize
+=======
+	// window.addEventListener('resize', handleResize)
+>>>>>>> Tickers work with mobile ones as well but needs to be refactored to initiate with javascript rather than data attributes. Doesnt seem to work using the snippet from the docs so I have submitted a support request
 
 /***/ }),
 /* 1 */
@@ -6063,8 +6067,33 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			// Fire callbacks
 			fire = function() {
 	
+<<<<<<< b6aa93057e48b31de63e5b068ed49b76bea2371f
 				// Enforce single-firing
 				locked = locked || options.once;
+=======
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.destroy();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Flickity v2.0.7
+	 * Touch, responsive, flickable carousels
+	 *
+	 * Licensed GPLv3 for open source use
+	 * or Flickity Commercial License for commercial use
+	 *
+	 * http://flickity.metafizzy.co
+	 * Copyright 2016 Metafizzy
+	 */
+>>>>>>> Tickers work with mobile ones as well but needs to be refactored to initiate with javascript rather than data attributes. Doesnt seem to work using the snippet from the docs so I have submitted a support request
 	
 				// Execute callbacks for all pending executions,
 				// respecting firingIndex overrides and runtime changes
@@ -47425,6 +47454,7 @@ window.addEventListener('resize', handleResize);
 	        _.listWidth = _.$list.width();
 	        _.listHeight = _.$list.height();
 	
+<<<<<<< b6aa93057e48b31de63e5b068ed49b76bea2371f
 	
 	        if (_.options.vertical === false && _.options.variableWidth === false) {
 	            _.slideWidth = Math.ceil(_.listWidth / _.options.slidesToShow);
@@ -47441,6 +47471,38 @@ window.addEventListener('resize', handleResize);
 	        if (_.options.variableWidth === false) _.$slideTrack.children('.slick-slide').width(_.slideWidth - offset);
 	
 	    };
+=======
+	var touchStartEvents = {
+	  touchstart: true,
+	  MSPointerDown: true
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true
+	};
+	
+	proto.pointerDownFocus = function( event ) {
+	  // focus element, if not touch, and its not an input or select
+	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
+	      focusNodes[ event.target.nodeName ] ) {
+	    return;
+	  }
+	  var prevScrollY = window.pageYOffset;
+	  this.element.focus();
+	  // hack to fix scroll jump after focus, #76
+	  if ( window.pageYOffset != prevScrollY ) {
+	    window.scrollTo( window.pageXOffset, prevScrollY );
+	  }
+	};
+	
+	proto.canPreventDefaultOnPointerDown = function( event ) {
+	  // prevent default, unless touchstart or <select>
+	  var isTouchstart = event.type == 'touchstart';
+	  var targetNodeName = event.target.nodeName;
+	  return !isTouchstart && targetNodeName != 'SELECT';
+	};
+>>>>>>> Tickers work with mobile ones as well but needs to be refactored to initiate with javascript rather than data attributes. Doesnt seem to work using the snippet from the docs so I have submitted a support request
 	
 	    Slick.prototype.setFade = function() {
 	
@@ -47539,7 +47601,22 @@ window.addEventListener('resize', handleResize);
 	
 	                _.options[opt] = val;
 	
+<<<<<<< b6aa93057e48b31de63e5b068ed49b76bea2371f
 	            });
+=======
+	}));
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Unidragger v2.2.1
+	 * Draggable base class
+	 * MIT license
+	 */
+>>>>>>> Tickers work with mobile ones as well but needs to be refactored to initiate with javascript rather than data attributes. Doesnt seem to work using the snippet from the docs so I have submitted a support request
 	
 	
 	        } else if ( type === 'responsive' ) {
@@ -47563,9 +47640,27 @@ window.addEventListener('resize', handleResize);
 	
 	                        }
 	
+<<<<<<< b6aa93057e48b31de63e5b068ed49b76bea2371f
 	                        l--;
 	
 	                    }
+=======
+	/**
+	 * works as unbinder, as you can .bindHandles( false ) to unbind
+	 * @param {Boolean} isBind - will unbind if falsey
+	 */
+	proto._bindHandles = function( isBind ) {
+	  // munge isBind, default to true
+	  isBind = isBind === undefined ? true : !!isBind;
+	  // bind each handle
+	  var bindMethod = isBind ? 'addEventListener' : 'removeEventListener';
+	  for ( var i=0; i < this.handles.length; i++ ) {
+	    var handle = this.handles[i];
+	    this._bindStartEvent( handle, isBind );
+	    handle[ bindMethod ]( 'click', this );
+	  }
+	};
+>>>>>>> Tickers work with mobile ones as well but needs to be refactored to initiate with javascript rather than data attributes. Doesnt seem to work using the snippet from the docs so I have submitted a support request
 	
 	                    _.options.responsive.push( value[item] );
 	
