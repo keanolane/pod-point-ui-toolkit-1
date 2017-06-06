@@ -21,7 +21,18 @@
 	}
 }
 
+.ev-map-section {
+	.container {
+		overflow: hidden;
+		.grid-wrap {
+			position: relative;
+			z-index: 1;
+		}
+	}
+}
+
 .ev-map-wrap {
+	display: block;
 	&__markers {
 		@include position(absolute, 50% null null 61%);
 	}
@@ -51,7 +62,11 @@
 
 .ev-map {
 	display: block;
-	@include position(absolute, 0 -20% null null);
+	z-index: 0;
+	@include position(absolute, 0 -20% null auto);
+	@include large-and-up {
+		right: -10%;
+	}
 	svg {
 		width: 700px;
 		height: 553px;

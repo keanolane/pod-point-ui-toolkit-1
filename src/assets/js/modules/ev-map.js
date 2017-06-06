@@ -17,6 +17,8 @@ class EvMap {
      * @param element
      */
     constructor(element) {
+        if (window.isTouchDevice || window.isMobileSize) {return};
+
         mapConfig = {
             mapID: '#gridmap',
             mapWidth: 700,
@@ -94,14 +96,14 @@ class EvMap {
 
         if (this.mapPoint) {
             this.mapPoint.classList.add('gridmap-dot-selected');
-            
+
             this.kwText.innerHTML = kw;
             this.savingText.innerHTML = saving.toFixed(2);
 
             this.markerHolder.style.left = `${(x - 50)}px`;
             this.markerHolder.style.top = `${(y - 50)}px`;
             this.markerHolder.classList.remove('hidden');
-            
+
             this.markerCircleHolder.classList.add('ev-map-wrap__bulge-appear');
         } else {
             this.nextCharge();
