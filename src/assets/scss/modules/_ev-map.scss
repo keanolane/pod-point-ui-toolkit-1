@@ -47,6 +47,10 @@
         animation-duration: 20s;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
+        svg {
+        	width: 100%!important;
+        	height: auto!important;
+        }
 	}
 	&__bulge-appear {
 		animation-name: bulge-appear;
@@ -65,7 +69,7 @@
 	z-index: 0;
 	@include position(absolute, 0 -20% null auto);
 	@include large-and-up {
-		right: -10%;
+		right: -9.5%;
 	}
 	svg {
 		width: 700px;

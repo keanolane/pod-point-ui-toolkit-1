@@ -3189,6 +3189,9 @@ button {
     animation-duration: 20s;
     animation-iteration-count: infinite;
     animation-timing-function: linear; }
+    .ev-map-wrap__rotate svg {
+      width: 100% !important;
+      height: auto !important; }
   .ev-map-wrap__bulge-appear {
     animation-name: bulge-appear;
     animation-duration: 0.5s;
@@ -3207,7 +3210,7 @@ button {
   left: auto; }
   @media (min-width: 68em) {
     .ev-map {
-      right: -10%; } }
+      right: -9.5%; } }
   .ev-map svg {
     width: 700px;
     height: 553px; }
