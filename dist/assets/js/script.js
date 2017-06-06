@@ -142,7 +142,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(61);
+	__webpack_require__(60);
 	
 	window.initAutocomplete = _addressLookup.initAutocomplete;
 	window.geolocate = _addressLookup.geolocate;
@@ -1363,12 +1363,12 @@
 	  return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 	
-	function roundNumberTo(num) {
-	  var resto = this % num;
-	  if (resto <= num / 2) {
-	    return this - resto;
+	function roundNumberTo(num, roundTo) {
+	  var resto = num % roundTo;
+	  if (resto <= roundTo / 2) {
+	    return num - resto;
 	  } else {
-	    return this + num - resto;
+	    return num + roundTo - resto;
 	  }
 	}
 	
@@ -4843,7 +4843,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.7
+	 * Flickity v2.0.8
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -6942,20 +6942,10 @@
 	  this.dispatchEvent( 'pointerDown', event, [ pointer ] );
 	};
 	
-	var touchStartEvents = {
-	  touchstart: true,
-	  MSPointerDown: true
-	};
-	
-	var focusNodes = {
-	  INPUT: true,
-	  SELECT: true
-	};
-	
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
-	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
-	      focusNodes[ event.target.nodeName ] ) {
+	  var canPointerDown = getCanPointerDown( event );
+	  if ( !this.options.accessibility || canPointerDown ) {
 	    return;
 	  }
 	  var prevScrollY = window.pageYOffset;
@@ -6966,11 +6956,26 @@
 	  }
 	};
 	
+	var touchStartEvents = {
+	  touchstart: true,
+	  pointerdown: true,
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true,
+	};
+	
+	function getCanPointerDown( event ) {
+	  var isTouchStart = touchStartEvents[ event.type ];
+	  var isFocusNode = focusNodes[ event.target.nodeName ];
+	  return isTouchStart || isFocusNode;
+	}
+	
 	proto.canPreventDefaultOnPointerDown = function( event ) {
-	  // prevent default, unless touchstart or <select>
-	  var isTouchstart = event.type == 'touchstart';
-	  var targetNodeName = event.target.nodeName;
-	  return !isTouchstart && targetNodeName != 'SELECT';
+	  // prevent default, unless touchstart or input
+	  var canPointerDown = getCanPointerDown( event );
+	  return !canPointerDown;
 	};
 	
 	// ----- move ----- //
@@ -7184,7 +7189,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Unidragger v2.2.1
+	 * Unidragger v2.2.2
 	 * Draggable base class
 	 * MIT license
 	 */
@@ -7250,6 +7255,11 @@
 	    var handle = this.handles[i];
 	    this._bindStartEvent( handle, isBind );
 	    handle[ bindMethod ]( 'click', this );
+	    // touch-action: none to override browser touch gestures
+	    // metafizzy/flickity#540
+	    if ( window.PointerEvent ) {
+	      handle.style.touchAction = isBind ? 'none' : '';
+	    }
 	  }
 	};
 	
@@ -11679,31 +11689,29 @@
 	    value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint class-methods-use-this: ["error", { "exceptMethods": ["ready"] }] */
 	
-	var _utilities = __webpack_require__(8);
-	
-	var _chargeData = __webpack_require__(56);
-	
-	var _chargeData2 = _interopRequireDefault(_chargeData);
-	
-	var _d = __webpack_require__(57);
+	var _d = __webpack_require__(56);
 	
 	var d3 = _interopRequireWildcard(_d);
 	
-	var _d3Queue = __webpack_require__(58);
-	
-	var _d3Queue2 = _interopRequireDefault(_d3Queue);
-	
-	var _topojson = __webpack_require__(59);
+	var _topojson = __webpack_require__(57);
 	
 	var topojson = _interopRequireWildcard(_topojson);
 	
-	var _gridmap = __webpack_require__(60);
+	var _utilities = __webpack_require__(8);
 	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	var _chargeData = __webpack_require__(58);
+	
+	var _chargeData2 = _interopRequireDefault(_chargeData);
+	
+	var _gridmap = __webpack_require__(59);
+	
+	var _gridmap2 = _interopRequireDefault(_gridmap);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -11722,33 +11730,31 @@
 	
 	        mapConfig = {
 	            mapID: '#gridmap',
-	            mapWidth: 460,
-	            mapHeight: 267, // these values set the physical size of the map on the page
-	            mapDotStepSize: 6, // this sets size of the map dots
-	            mapDotColour: '#CCCCCC', // sets the fill colour of the dots
-	            mapLonLeft: -10.65, // enter the longitude in degrees on left edge of map, by comparing with Google
-	            mapLonRight: 20.01, // enter the longitude in degrees on right edge of map
-	            mapLatBottom: 49.3, // enter the latitude in degrees on bottom edge of map
-	            timeDelay: 3500, // time in milliseconds between new charges appearing on the map
-	            s: 1342, // these values set scale and boundaries of the map
-	            t: [168, 1382] // these values set scale and boundaries of the map
-	        };
+	            mapWidth: 700,
+	            mapHeight: 553, // size of the map on the page in pixels
+	            mapDotStepSize: 10, // size of the map dots
+	            mapDotColour: '#CCCCCC', // fill colour of the dots
+	            mapLonLeft: -12.0, // enter the longitude in degrees on left edge of map, by comparing with Google Maps
+	            mapLonRight: 16.04, // enter the longitude in degrees on right edge of map
+	            mapLatBottom: 47.1, // enter the latitude in degrees on bottom edge of map
+	            timeDelay: 6000, // time in milliseconds between new charges appearing on the map
+	            s: 2250, // scale
+	            t: [300, 2350] };
 	
 	        this.element = element;
-	        this.mapElement = element.querySelector(mapConfig.mapID);
-	        this.markerHolder = element.querySelector('#markerHolder');
-	
+	        this.mapElement = document.getElementById(mapConfig.mapID);
+	        this.markerHolder = document.getElementById('markerHolder');
+	        this.markerCircleHolder = document.getElementById('markerCircleHolder');
+	        this.markerCircle = document.getElementById('markerCircle');
+	        this.kwText = document.getElementById('kw');
+	        this.savingText = document.getElementById('saving');
 	        this.lastHighlightedDot = [];
 	
 	        mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s).translate(mapConfig.t).clipAngle(180).precision(1);
 	
-	        var path = d3.geoPath().projection(mapConfig.projection);
+	        d3.queue().defer(d3.json, './assets/js/data/geo-data/eu.json').await(this.ready);
 	
-	        this.chargesData = _chargeData2.default.charges;
-	
-	        d3.queue().defer(d3.json, "./assets/js/data/geo-data/eu.json").await(this.ready);
-	
-	        // this.ping();
+	        this.startCharges();
 	    }
 	
 	    /**
@@ -11763,18 +11769,15 @@
 	        key: 'ready',
 	        value: function ready(error, eu) {
 	            var features = topojson.feature(eu, eu.objects.europe).features;
+	            var data = d3.map();
+	            var j = void 0;
+	            var len = void 0;
 	
-	            // generate some random data
-	            var data = d3.map(); // data is a d3.map !!
-	            var j;
-	            var len;
-	
-	            for (j = 0, len = features.length; j < len; j++) {
-	                data.set(features[j]["id"], (0, _utilities.getRandomInt)(1, 5));
+	            for (j = 0, len = features.length; j < len; j += 1) {
+	                data.set(features[j].id, (0, _utilities.getRandomInt)(1, 5));
 	            }
 	
-	            var chart = new _gridmap.Gridmap().data(data).width(mapConfig.mapWidth).height(mapConfig.mapHeight).key("id").side(mapConfig.mapDotStepSize) // change this to make dots larger or smaller
-	            .isDensity(true).projection(mapConfig.projection).features(features).fill(mapConfig.mapDotColour);
+	            var chart = (0, _gridmap2.default)().data(data).width(mapConfig.mapWidth).height(mapConfig.mapHeight).key('id').side(mapConfig.mapDotStepSize).projection(mapConfig.projection).features(features).fill(mapConfig.mapDotColour);
 	
 	            d3.select(mapConfig.mapID).call(chart);
 	        }
@@ -11792,22 +11795,21 @@
 	        key: 'showMarker',
 	        value: function showMarker(x, y, kw, saving) {
 	            this.lastHighlightedDot = [x, y];
-	            var mapPoint = this.element.querySelectorAll('circle[cx="' + x + '"][cy="' + y + '"]');
+	            this.mapPoint = document.querySelector('circle[cx="' + x + '"][cy="' + y + '"]');
 	
-	            if (mapPoint.length) {
-	                mapPoint[0].classList.add('gridmap-dot-selected');
-	                var kwText = this.element.getElementById('kw');
-	                kwText.innerHTML = kw;
+	            if (this.mapPoint) {
+	                this.mapPoint.classList.add('gridmap-dot-selected');
 	
-	                savingText = this.element.getElementById('saving');
-	                savingText.innerHTML = saving;
+	                this.kwText.innerHTML = kw;
+	                this.savingText.innerHTML = saving.toFixed(2);
 	
-	                this.markerHolder.style.left = x - 32 + 'px';
-	                this.markerHolder.style.top = y - 32 + 'px';
-	                this.markerHolder.style.visibility = 'visible';
-	                this.markerHolder.classList.add('bulge-appear');
+	                this.markerHolder.style.left = x - 50 + 'px';
+	                this.markerHolder.style.top = y - 50 + 'px';
+	                this.markerHolder.classList.remove('hidden');
+	
+	                this.markerCircleHolder.classList.add('ev-map-wrap__bulge-appear');
 	            } else {
-	                nextCharge();
+	                this.nextCharge();
 	            }
 	        }
 	
@@ -11819,44 +11821,23 @@
 	        key: 'hideMarker',
 	        value: function hideMarker() {
 	            if (this.lastHighlightedDot[0]) {
-	                mapPoint = document.querySelectorAll('circle[cx="' + this.lastHighlightedDot[0] + '"][cy="' + this.lastHighlightedDot[1] + '"]');
-	                if (mapPoint.length) {
-	                    mapPoint[0].classList.remove('gridmap-dot-selected');
+	                this.mapPoint = document.querySelector('circle[cx="' + this.lastHighlightedDot[0] + '"][cy="' + this.lastHighlightedDot[1] + '"]');
+	                if (this.mapPoint) {
+	                    this.mapPoint.classList.remove('gridmap-dot-selected');
 	                }
 	            }
-	            this.markerHolder.classList.remove('bulge-appear');
-	            this.markerHolder.style.visibility = 'hidden';
-	            void this.markerHolder.offsetWidth; // workaround to force browser to reflow so bulge animation class works again next time
+	
+	            this.markerHolder.classList.add('hidden');
+	            this.markerCircleHolder.classList.remove('ev-map-wrap__bulge-appear');
+	            /* eslint no-void: "off" */
+	            void this.markerHolder.offsetWidth; // force DOM reflow to result bulge class
+	
 	            this.lastHighlightedDot = [];
 	        }
 	
 	        /**
-	         * convert Lat and Long to a dot on the map
+	         * Convert latitude and longitude to a dot on the map
 	         * (adapted from http://stackoverflow.com/a/27313080)
-	         *
-	         * @param latitute
-	         * @param longitude
-	         */
-	
-	    }, {
-	        key: 'convertLatLongToDot',
-	        value: function convertLatLongToDot(latitude, longitude) {
-	            var mapLonDelta = mapConfig.mapLonRight - mapConfig.mapLonLeft;
-	            var mapLatBottomDegree = mapConfig.mapLatBottom * Math.PI / 180;
-	            var x = (longitude - mapConfig.mapLonLeft) * (mapConfig.mapWidth / mapLonDelta);
-	            latitude = latitude * Math.PI / 180;
-	            var worldMapWidth = mapConfig.mapWidth / mapLonDelta * 360 / (2 * Math.PI);
-	            var mapOffsetY = worldMapWidth / 2 * Math.log((1 + Math.sin(mapLatBottomDegree)) / (1 - Math.sin(mapLatBottomDegree)));
-	            var y = mapConfig.mapHeight - (worldMapWidth / 2 * Math.log((1 + Math.sin(latitude)) / (1 - Math.sin(latitude))) - mapOffsetY);
-	            console.log(x);
-	            // var dotX = x.roundTo(mapConfig.mapDotStepSize);
-	            // var dotY = y.roundTo(mapConfig.mapDotStepSize);
-	
-	            return [dotX, dotY];
-	        }
-	
-	        /**
-	         * Show charge on the map
 	         *
 	         * @param latitute
 	         * @param longitude
@@ -11867,30 +11848,42 @@
 	    }, {
 	        key: 'showChargeOnMap',
 	        value: function showChargeOnMap(latitude, longitude, kw, saving) {
-	            var dotCoords = this.convertLatLongToDot(latitude, longitude);
-	            showMarker(dotCoords[0], dotCoords[1], kw, saving);
+	            var mapLonDelta = mapConfig.mapLonRight - mapConfig.mapLonLeft;
+	            var mapLatBottomDegree = mapConfig.mapLatBottom * Math.PI / 180;
+	
+	            var x = (longitude - mapConfig.mapLonLeft) * (mapConfig.mapWidth / mapLonDelta);
+	            var latitudeNew = latitude * Math.PI / 180;
+	            var worldMapWidth = mapConfig.mapWidth / mapLonDelta * 360 / (2 * Math.PI);
+	            var mapOffsetY = worldMapWidth / 2 * Math.log((1 + Math.sin(mapLatBottomDegree)) / (1 - Math.sin(mapLatBottomDegree)));
+	            var y = mapConfig.mapHeight - (worldMapWidth / 2 * Math.log((1 + Math.sin(latitudeNew)) / (1 - Math.sin(latitudeNew))) - mapOffsetY);
+	
+	            var dotX = (0, _utilities.roundNumberTo)(x, mapConfig.mapDotStepSize);
+	            var dotY = (0, _utilities.roundNumberTo)(y, mapConfig.mapDotStepSize);
+	
+	            this.showMarker(dotX, dotY, kw, saving);
 	        }
 	
 	        /**
-	         * Next charge
+	         * Get the next charge
 	         */
 	
 	    }, {
 	        key: 'nextCharge',
 	        value: function nextCharge() {
-	            hideMarker();
-	            var charge = this.chargesData[Math.floor(Math.random() * this.chargesData.length)];
-	            showChargeOnMap(charge[0], charge[1], charge[2], charge[3]);
+	            this.hideMarker();
+	            var charge = _chargeData2.default.charges[Math.floor(Math.random() * _chargeData2.default.charges.length)];
+	            this.showChargeOnMap(charge[0], charge[1], charge[2], charge[3]);
 	        }
 	
 	        /**
-	         * Ping the charges
+	         * Start showing charges on the map
 	         */
 	
 	    }, {
-	        key: 'ping',
-	        value: function ping() {
-	            setInterval(this.nextCharge, mapConfig.timeDelay);
+	        key: 'startCharges',
+	        value: function startCharges() {
+	            this.hideMarker();
+	            setInterval(this.nextCharge.bind(this), mapConfig.timeDelay);
 	        }
 	    }]);
 	
@@ -11905,16 +11898,6 @@
 
 /***/ }),
 /* 56 */
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	module.exports = {
-	    charges: [[51.18291, -0.63098, 23, 10.85], [51.00283, -2.41825, 21, 9.91], [52.30522, -2.37574, 40, 18.87], [51.8344, 0.91066, 26, 12.26], [52.17955, -2.00817, 48, 22.64], [51.78, 0.28172, 20, 9.43], [51.77815, 0.27685, 26, 12.26], [50.88896, -3.22276, 2, 0.94], [52.33104, -3.38988, 1, 0.47], [51.84615, -2.19922, 1, 0.47], [53.33603, -1.51011, 9, 4.25], [52.3117, -1.92659, 46, 21.7], [53.32291, -1.52539, 3, 1.42], [51.96946, -2.89607, 40, 18.87], [52.34412, -1.58043, 15, 7.08], [51.88336, 0.8973, 26, 12.26], [52.3449, -1.58497, 2, 0.94], [50.77278, -3.00118, 14, 6.6], [52.89393, -2.73475, 20, 9.43], [53.11713, -2.03283, 44, 20.75], [53.46514, -2.15963, 49, 23.11], [55.95738, -3.1697, 13, 6.13], [53.03506, -2.14002, 38, 17.92], [51.39692, -0.49929, 20, 9.43], [51.60084, -1.79642, 48, 22.64], [56.06989, -3.46159, 50, 23.58], [55.84934, -2.38104, 11, 5.19], [53.98364, -2.66703, 25, 11.79], [54.84466, -3.2897, 50, 23.58], [53.70007, -2.54594, 13, 6.13], [51.49083, 0.10803, 41, 19.34], [54.95903, -3.97713, 37, 17.45], [55.40936, -2.61892, 17, 8.02], [50.89745, -4.29936, 33, 15.57], [52.81719, -1.87725, 22, 10.38], [50.53296, -3.61246, 19, 8.96], [50.66559, -2.59953, 24, 11.32], [50.97296, -0.14434, 36, 16.98], [51.01613, -4.24738, 39, 18.4], [51.61351, -2.45223, 16, 7.55], [50.50767, -3.61335, 38, 17.92], [51.70577, -0.41754, 46, 21.7], [51.46071, -2.6664, 37, 17.45], [52.19323, -0.20294, 38, 17.92], [54.11594, -3.20135, 16, 7.55], [53.20672, -2.90149, 24, 11.32], [53.20112, -2.90716, 48, 22.64], [52.19399, -1.96037, 24, 11.32], [52.3872, -0.19329, 17, 8.02], [52.15082, -1.90108, 2, 0.94], [51.10725, -1.19707, 47, 22.17], [51.00926, -1.4866, 23, 10.85], [51.25201, -0.55628, 5, 2.36], [52.14157, -2.16338, 48, 22.64], [51.09132, -1.29097, 11, 5.19], [51.19068, -1.5314, 17, 8.02], [51.07494, -1.31359, 30, 14.15], [52.40201, -2.89624, 38, 17.92], [52.4734, -2.62848, 49, 23.11], [53.48143, -1.34598, 35, 16.51], [51.85366, -2.4809, 31, 14.62], [52.11315, -4.22539, 33, 15.57], [51.88376, -3.30157, 27, 12.74], [52.24226, -4.25925, 12, 5.66], [51.70173, -3.42969, 6, 2.83], [52.67812, -3.7116, 39, 18.4], [52.03596, -4.45692, 36, 16.98], [56.95353, -4.50913, 21, 9.91], [56.3269, -3.35753, 22, 10.38], [52.25011, -4.2282, 35, 16.51], [51.59331, -3.80199, 50, 23.58], [52.04967, -4.39876, 14, 6.6], [51.69369, -3.22416, 5, 2.36], [52.53735, -3.27475, 10, 4.72], [51.71028, -3.14801, 16, 7.55], [51.95603, -3.47962, 36, 16.98], [51.72359, -3.36443, 29, 13.68], [51.64734, -3.13475, 11, 5.19], [51.9582, -5.12466, 25, 11.79], [52.60032, -3.76894, 32, 15.09], [57.09339, -4.74371, 10, 4.72], [57.56028, -2.62878, 25, 11.79], [51.69447, -3.89984, 25, 11.79], [55.99415, -3.47281, 15, 7.08], [51.7998, -3.71722, 3, 1.42], [51.65629, -3.66362, 37, 17.45], [56.21573, -2.77899, 46, 21.7], [51.68971, -3.41103, 40, 18.87], [52.03871, -4.555, 34, 16.04], [51.64611, -3.32849, 15, 7.08], [52.72773, -3.67705, 26, 12.26], [56.36552, -3.49262, 15, 7.08], [51.71356, -3.44778, 17, 8.02], [52.81058, -4.70736, 35, 16.51], [57.14985, -2.09376, 43, 20.28], [53.03608, -4.34901, 45, 21.23], [56.05372, -3.30185, 9, 4.25], [52.54395, -4.04434, 11, 5.19], [51.68154, -3.77478, 9, 4.25], [52.11716, -3.34692, 31, 14.62]]
-	};
-
-/***/ }),
-/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// https://d3js.org Version 4.9.1. Copyright 2017 Mike Bostock.
@@ -28786,147 +28769,7 @@
 
 
 /***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// https://d3js.org/d3-queue/ Version 3.0.7. Copyright 2017 Mike Bostock.
-	(function (global, factory) {
-		 true ? factory(exports) :
-		typeof define === 'function' && define.amd ? define(['exports'], factory) :
-		(factory((global.d3 = global.d3 || {})));
-	}(this, (function (exports) { 'use strict';
-	
-	var slice = [].slice;
-	
-	var noabort = {};
-	
-	function Queue(size) {
-	  this._size = size;
-	  this._call =
-	  this._error = null;
-	  this._tasks = [];
-	  this._data = [];
-	  this._waiting =
-	  this._active =
-	  this._ended =
-	  this._start = 0; // inside a synchronous task callback?
-	}
-	
-	Queue.prototype = queue.prototype = {
-	  constructor: Queue,
-	  defer: function(callback) {
-	    if (typeof callback !== "function") throw new Error("invalid callback");
-	    if (this._call) throw new Error("defer after await");
-	    if (this._error != null) return this;
-	    var t = slice.call(arguments, 1);
-	    t.push(callback);
-	    ++this._waiting, this._tasks.push(t);
-	    poke(this);
-	    return this;
-	  },
-	  abort: function() {
-	    if (this._error == null) abort(this, new Error("abort"));
-	    return this;
-	  },
-	  await: function(callback) {
-	    if (typeof callback !== "function") throw new Error("invalid callback");
-	    if (this._call) throw new Error("multiple await");
-	    this._call = function(error, results) { callback.apply(null, [error].concat(results)); };
-	    maybeNotify(this);
-	    return this;
-	  },
-	  awaitAll: function(callback) {
-	    if (typeof callback !== "function") throw new Error("invalid callback");
-	    if (this._call) throw new Error("multiple await");
-	    this._call = callback;
-	    maybeNotify(this);
-	    return this;
-	  }
-	};
-	
-	function poke(q) {
-	  if (!q._start) {
-	    try { start(q); } // let the current task complete
-	    catch (e) {
-	      if (q._tasks[q._ended + q._active - 1]) abort(q, e); // task errored synchronously
-	      else if (!q._data) throw e; // await callback errored synchronously
-	    }
-	  }
-	}
-	
-	function start(q) {
-	  while (q._start = q._waiting && q._active < q._size) {
-	    var i = q._ended + q._active,
-	        t = q._tasks[i],
-	        j = t.length - 1,
-	        c = t[j];
-	    t[j] = end(q, i);
-	    --q._waiting, ++q._active;
-	    t = c.apply(null, t);
-	    if (!q._tasks[i]) continue; // task finished synchronously
-	    q._tasks[i] = t || noabort;
-	  }
-	}
-	
-	function end(q, i) {
-	  return function(e, r) {
-	    if (!q._tasks[i]) return; // ignore multiple callbacks
-	    --q._active, ++q._ended;
-	    q._tasks[i] = null;
-	    if (q._error != null) return; // ignore secondary errors
-	    if (e != null) {
-	      abort(q, e);
-	    } else {
-	      q._data[i] = r;
-	      if (q._waiting) poke(q);
-	      else maybeNotify(q);
-	    }
-	  };
-	}
-	
-	function abort(q, e) {
-	  var i = q._tasks.length, t;
-	  q._error = e; // ignore active callbacks
-	  q._data = undefined; // allow gc
-	  q._waiting = NaN; // prevent starting
-	
-	  while (--i >= 0) {
-	    if (t = q._tasks[i]) {
-	      q._tasks[i] = null;
-	      if (t.abort) {
-	        try { t.abort(); }
-	        catch (e) { /* ignore */ }
-	      }
-	    }
-	  }
-	
-	  q._active = NaN; // allow notification
-	  maybeNotify(q);
-	}
-	
-	function maybeNotify(q) {
-	  if (!q._active && q._call) {
-	    var d = q._data;
-	    q._data = undefined; // allow gc
-	    q._call(q._error, d);
-	  }
-	}
-	
-	function queue(concurrency) {
-	  if (concurrency == null) concurrency = Infinity;
-	  else if (!((concurrency = +concurrency) >= 1)) throw new Error("invalid concurrency");
-	  return new Queue(concurrency);
-	}
-	
-	exports.queue = queue;
-	
-	Object.defineProperty(exports, '__esModule', { value: true });
-	
-	})));
-
-
-/***/ }),
-/* 59 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// https://github.com/topojson/topojson Version 3.0.0. Copyright 2017 Mike Bostock.
@@ -30714,280 +30557,302 @@
 
 
 /***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 58 */
+/***/ (function(module, exports) {
 
 	"use strict";
 	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Gridmap = Gridmap;
+	module.exports = {
+	    charges: [[51.18291, -0.63098, 0.3, 0.05], [51.00283, -2.41825, 0.3, 0.05], [52.30522, -2.37574, 0.9, 0.16], [51.8344, 0.91066, 0.3, 0.05], [52.17955, -2.00817, 0.2, 0.03], [51.78, 0.28172, 1.1, 0.19], [51.77815, 0.27685, 0.6, 0.1], [50.88896, -3.22276, 0.1, 0.02], [52.33104, -3.38988, 0.4, 0.07], [51.84615, -2.19922, 0.3, 0.05], [53.33603, -1.51011, 0.7, 0.12], [52.3117, -1.92659, 1.7, 0.3], [53.32291, -1.52539, 0.7, 0.12], [51.96946, -2.89607, 1.7, 0.3], [52.34412, -1.58043, 0.9, 0.16], [51.88336, 0.8973, 1.9, 0.33], [52.3449, -1.58497, 0.1, 0.02], [50.77278, -3.00118, 0.6, 0.1], [52.89393, -2.73475, 2.1, 0.37], [53.11713, -2.03283, 2.4, 0.42], [53.46514, -2.15963, 0.6, 0.1], [55.95738, -3.1697, 1.5, 0.26], [53.03506, -2.14002, 1.1, 0.19], [51.39692, -0.49929, 1.6, 0.28], [51.60084, -1.79642, 4.8, 0.84], [56.06989, -3.46159, 1.2, 0.21], [55.84934, -2.38104, 3.8, 0.66], [53.98364, -2.66703, 3.6, 0.63], [54.84466, -3.2897, 4.7, 0.82], [53.70007, -2.54594, 5.51, 0.96], [51.49083, 0.10803, 1.7, 0.3], [54.95903, -3.97713, 1.8, 0.31], [55.40936, -2.61892, 2.6, 0.45], [50.89745, -4.29936, 0.9, 0.16], [52.81719, -1.87725, 1.7, 0.3], [50.53296, -3.61246, 4.4, 0.77], [50.66559, -2.59953, 2.5, 0.44], [50.97296, -0.14434, 5.1, 0.89], [51.01613, -4.24738, 1.4, 0.24], [51.61351, -2.45223, 2.1, 0.37], [50.50767, -3.61335, 5.1, 0.89], [51.70577, -0.41754, 2.5, 0.44], [51.46071, -2.6664, 1.6, 0.28], [52.19323, -0.20294, 0.6, 0.1], [54.11594, -3.20135, 5.5, 0.96], [53.20672, -2.90149, 3.3, 0.58], [53.20112, -2.90716, 1.2, 0.21], [52.19399, -1.96037, 1.3, 0.23], [52.3872, -0.19329, 1.6, 0.28], [52.15082, -1.90108, 3.1, 0.54], [51.10725, -1.19707, 3, 0.52], [51.00926, -1.4866, 3.2, 0.56], [51.25201, -0.55628, 3.5, 0.61], [52.14157, -2.16338, 0.86, 0.15], [51.09132, -1.29097, 1.3, 0.23], [51.19068, -1.5314, 4.1, 0.72], [51.07494, -1.31359, 4, 0.7], [52.40201, -2.89624, 3.5, 0.61], [52.4734, -2.62848, 2, 0.35], [53.48143, -1.34598, 5.8, 1.01], [51.85366, -2.4809, 4.7, 0.82], [52.11315, -4.22539, 4.4, 0.77], [51.88376, -3.30157, 3.8, 0.66], [52.24226, -4.25925, 4.4, 0.77], [51.70173, -3.42969, 2.1, 0.37], [52.67812, -3.7116, 1.7, 0.3], [52.03596, -4.45692, 11.3, 1.97], [56.95353, -4.50913, 5.2, 0.91], [56.3269, -3.35753, 0.5, 0.09], [52.25011, -4.2282, 1.1, 0.19], [51.59331, -3.80199, 1.8, 0.31], [52.04967, -4.39876, 2.5, 0.44], [51.69369, -3.22416, 5.1, 0.89], [52.53735, -3.27475, 0.1, 0.02], [51.71028, -3.14801, 0.5, 0.09], [51.95603, -3.47962, 7.6, 1.33], [51.72359, -3.36443, 3.2, 0.56], [51.64734, -3.13475, 5, 0.87], [51.9582, -5.12466, 5.8, 1.01], [52.60032, -3.76894, 1.5, 0.26], [57.09339, -4.74371, 10.3, 1.8], [57.56028, -2.62878, 9.4, 1.64], [51.69447, -3.89984, 1.9, 0.33], [55.99415, -3.47281, 2.5, 0.44], [51.7998, -3.71722, 3, 0.52], [51.65629, -3.66362, 10, 1.75], [56.21573, -2.77899, 4.5, 0.79], [51.68971, -3.41103, 11.6, 2.02], [52.03871, -4.555, 0.2, 0.03], [51.64611, -3.32849, 1, 0.17], [52.72773, -3.67705, 4.8, 0.84], [56.36552, -3.49262, 2, 0.35], [51.71356, -3.44778, 6, 1.05], [52.81058, -4.70736, 2.2, 0.38], [57.14985, -2.09376, 2.1, 0.37], [53.03608, -4.34901, 0.9, 0.16], [56.05372, -3.30185, 4.4, 0.77], [52.54395, -4.04434, 6.6, 1.15], [51.68154, -3.77478, 4.4, 0.77], [52.11716, -3.34692, 1.2, 0.21]]
+	};
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
 	
-	var _d = __webpack_require__(57);
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = gridmap;
+	
+	var _d = __webpack_require__(56);
 	
 	var d3 = _interopRequireWildcard(_d);
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
-	function Gridmap() {
-	  (function () {
-	    var flat, isInside, root, subGrid;
+	function flat(type, arr) {
+	    var m = void 0;
+	    var polygon = void 0;
 	
-	    root = typeof exports !== "undefined" && exports !== null ? exports : this;
-	
-	    flat = function flat(type, arr) {
-	      var flatten, m, polygon;
-	      flatten = function flatten(polygon) {
-	        return polygon.reduce(function (a, b) {
-	          return a.concat([[0, 0]].concat(b));
+	    var flatten = function flatten(polygon1) {
+	        return polygon1.reduce(function (a, b) {
+	            return a.concat([[0, 0]].concat(b));
 	        });
-	      };
-	      switch (type) {
-	        case "Polygon":
-	          m = flatten(arr);
-	          break;
-	        case "MultiPolygon":
-	          m = flatten(function () {
-	            var _i, _len, _results;
-	            _results = [];
-	            for (_i = 0, _len = arr.length; _i < _len; _i++) {
-	              polygon = arr[_i];
-	              _results.push(flatten(polygon));
-	            }
-	            return _results;
-	          }());
-	      }
-	      return [[0, 0]].concat(m.concat([[0, 0]]));
 	    };
 	
-	    subGrid = function subGrid(box, side) {
-	      var i, j, x, x1, y, y1;
-	      x = 1 + Math.floor(box[0][0] / side);
-	      y = 1 + Math.floor(box[0][1] / side);
-	      x1 = Math.floor(box[1][0] / side);
-	      y1 = Math.floor(box[1][1] / side);
-	      if (x1 >= x && y1 >= y) {
-	        return function () {
-	          var _i, _results;
-	          _results = [];
-	          for (j = _i = y; y <= y1 ? _i <= y1 : _i >= y1; j = y <= y1 ? ++_i : --_i) {
-	            _results.push(function () {
-	              var _j, _results1;
-	              _results1 = [];
-	              for (i = _j = x; x <= x1 ? _j <= x1 : _j >= x1; i = x <= x1 ? ++_j : --_j) {
-	                _results1.push([i, j]);
-	              }
-	              return _results1;
+	    switch (type) {
+	        case 'Polygon':
+	            m = flatten(arr);
+	            break;
+	        case 'MultiPolygon':
+	            m = flatten(function multiPolygon() {
+	                var iInt = void 0;
+	                var lenInt = void 0;
+	                var resultsInt = [];
+	                for (iInt = 0, lenInt = arr.length; iInt < lenInt; iInt += 1) {
+	                    polygon = arr[iInt];
+	                    resultsInt.push(flatten(polygon));
+	                }
+	                return resultsInt;
 	            }());
-	          }
-	          return _results;
-	        }().reduce(function (a, b) {
-	          return a.concat(b);
-	        });
-	      } else {
-	        return [];
-	      }
-	    };
+	            break;
+	        default:
+	            m = flatten(arr);
+	    }
 	
-	    isInside = function isInside(point, vs) {
-	      var i, inside, intersect, j, x, xi, xj, y, yi, yj, _i, _ref;
-	      x = point[0];
-	      y = point[1];
-	      inside = false;
-	      j = vs.length - 1;
-	      for (i = _i = 0, _ref = vs.length - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
+	    return [[0, 0]].concat(m.concat([[0, 0]]));
+	} /* Slightly adapted from https://github.com/riccardoscalco/gridmap to work with ES6 and new version of d3.js */
+	
+	function subGrid(box, side) {
+	    var i = void 0;
+	    var j = void 0;
+	    var x = 1 + Math.floor(box[0][0] / side);
+	    var y = 1 + Math.floor(box[0][1] / side);
+	    var x1 = Math.floor(box[1][0] / side);
+	    var y1 = Math.floor(box[1][1] / side);
+	
+	    if (x1 >= x && y1 >= y) {
+	        return function () {
+	            var iInt = void 0;
+	            var resultsInt = [];
+	
+	            /* eslint no-loop-func: "off" */
+	            for (iInt = y, j = iInt; y <= y1 ? iInt <= y1 : iInt >= y1; j = y <= y1 ? iInt += 1 : iInt -= 1) {
+	                resultsInt.push(function pushToResults() {
+	                    var jInt = void 0;
+	                    var resultsInt1 = [];
+	                    for (jInt = x, i = jInt; x <= x1 ? jInt <= x1 : jInt >= x1; i = x <= x1 ? jInt += 1 : jInt -= 1) {
+	                        resultsInt1.push([i, j]);
+	                    }
+	                    return resultsInt1;
+	                }());
+	            }
+	
+	            return resultsInt;
+	        }().reduce(function (a, b) {
+	            return a.concat(b);
+	        });
+	    }
+	
+	    return [];
+	}
+	
+	function isInside(point, vs) {
+	    var i = void 0;
+	    var inside = void 0;
+	    var intersect = void 0;
+	    var j = void 0;
+	    var xi = void 0;
+	    var xj = void 0;
+	    var yi = void 0;
+	    var yj = void 0;
+	    var iInt = void 0;
+	    var refInt = void 0;
+	    var x = point[0];
+	    var y = point[1];
+	    inside = false;
+	    j = vs.length - 1;
+	
+	    /* eslint yoda: "off" */
+	    for (iInt = 0, i = iInt, refInt = vs.length - 1; refInt >= 0 ? iInt <= refInt : iInt >= refInt; i = 0 <= refInt ? iInt += 1 : iInt -= 1) {
 	        xi = vs[i][0];
 	        yi = vs[i][1];
 	        xj = vs[j][0];
 	        yj = vs[j][1];
 	        intersect = yi > y !== yj > y && x < (xj - xi) * (y - yi) / (yj - yi) + xi;
 	        if (intersect) {
-	          inside = !inside;
+	            inside = !inside;
 	        }
 	        j = i;
-	      }
-	      return inside;
+	    }
+	
+	    return inside;
+	}
+	
+	function gridmap() {
+	    /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "data" }] */
+	    var data = 0;
+	    var features = 0;
+	    var fill = '#CCCCCC';
+	    var height = 500;
+	    var key = 'id';
+	    var projection = 0;
+	    var side = 10;
+	    var width = 500;
+	    var grid = d3.map();
+	
+	    var chart = function chart(selection) {
+	        var box = void 0;
+	        var c = void 0;
+	        var coords = void 0;
+	        var f = void 0;
+	        var g = void 0;
+	        var i = void 0;
+	        var ii = void 0;
+	        var j = void 0;
+	        var k = void 0;
+	        var points = void 0;
+	        var polygon = void 0;
+	        var value = void 0;
+	        var x = void 0;
+	        var y = void 0;
+	        var iInt = void 0;
+	        var jInt = void 0;
+	        var kInt = void 0;
+	        var lenInt = void 0;
+	        var lenInt1 = void 0;
+	        var lenInt2 = void 0;
+	        var refInt = void 0;
+	        var refInt1 = void 0;
+	
+	        var w = width;
+	        var h = height;
+	        var path = d3.geoPath().projection(projection);
+	        var radius = d3.scaleLinear().range([0, side / 2 * 0.9]);
+	        var area = d3.map();
+	        var centroid = d3.map();
+	
+	        for (iInt = 0, lenInt = features.length; iInt < lenInt; iInt += 1) {
+	            f = features[iInt];
+	            area.set(f[key], path.area(f) / (w * h));
+	        }
+	
+	        var svg = selection.append('svg').attr('width', w).attr('height', h).attr('viewBox', '0 0 ' + w + ' ' + h);
+	        var map = svg.append('g');
+	
+	        map.selectAll('path').data(features).enter().append('path').style('opacity', 0).attr('d', path);
+	
+	        for (jInt = 0, lenInt1 = features.length; jInt < lenInt1; jInt += 1) {
+	            f = features[jInt];
+	            g = f.geometry;
+	            refInt = g.type;
+	
+	            if (refInt === 'Polygon' || refInt === 'MultiPolygon') {
+	                box = path.bounds(f);
+	                points = subGrid(box, side);
+	                value = [f[key]];
+	
+	                if (points.length) {
+	                    polygon = flat(g.type, g.coordinates);
+	
+	                    for (kInt = 0, lenInt2 = points.length; kInt < lenInt2; kInt += 1) {
+	                        refInt1 = points[kInt];
+	                        i = refInt1[0];
+	                        j = refInt1[1];
+	                        x = side * i;
+	                        y = side * j;
+	                        coords = projection.invert([x, y]);
+	                        ii = isInside(coords, polygon);
+	
+	                        if (ii) {
+	                            grid.set(i + ',' + j, {
+	                                keys: value,
+	                                x: x,
+	                                y: y
+	                            });
+	                        }
+	                    }
+	                } else {
+	                    c = path.centroid(f);
+	                    if (c) {
+	                        centroid.set(f[key], c);
+	                    }
+	                }
+	            }
+	        }
+	        Array.from(centroid).forEach(function (k2, v) {
+	            i = Math.floor(v[0] / side);
+	            j = Math.floor(v[1] / side);
+	
+	            return grid.get(i + ',' + j).keys.push(k2);
+	        });
+	
+	        var dataGrid = function () {
+	            var lInt = void 0;
+	            var lenInt3 = void 0;
+	            var refInt2 = grid.values();
+	            var resultsInt = [];
+	
+	            for (lInt = 0, lenInt3 = refInt2.length; lInt < lenInt3; lInt += 1) {
+	                k = refInt2[lInt];
+	
+	                if (k.keys.length) {
+	                    resultsInt.push({
+	                        value: 5,
+	                        x: k.x,
+	                        y: k.y
+	                    });
+	                }
+	            }
+	
+	            return resultsInt;
+	        }();
+	
+	        var dots = map.selectAll('.gridmap-dot').data(dataGrid);
+	
+	        radius.domain([0, d3.max(dataGrid, function (d) {
+	            return Math.sqrt(d.value);
+	        })]);
+	
+	        return dots.enter().append('circle').attr('class', 'gridmap-dot').attr('cx', function (d) {
+	            return d.x;
+	        }).attr('cy', function (d) {
+	            return d.y;
+	        }).attr('r', function (d) {
+	            return radius(Math.sqrt(d.value));
+	        }).style('fill', fill);
 	    };
 	
-	    root.gridmap = function () {
-	      var chart, data, features, fill, grid, height, isDensity, key, projection, side, width;
-	      projection = void 0;
-	      data = void 0;
-	      features = void 0;
-	      isDensity = void 0;
-	      side = 10;
-	      key = "id";
-	      width = 500;
-	      height = 500;
-	      fill = "#CCCCCC";
-	      grid = d3.map();
-	      chart = function chart(selection) {
-	        var area, box, c, centroid, coords, dataGrid, density, dots, f, g, h, i, ii, j, k, map, path, points, polygon, radius, svg, value, w, x, y, _i, _j, _k, _len, _len1, _len2, _ref, _ref1;
-	        w = width;
-	        h = height;
-	        path = d3.geo.path().projection(projection);
-	        console.log('side: ' + side);
-	        radius = d3.scale.linear().range([0, side / 2 * 0.9]);
-	        console.log('radius: ' + radius);
-	        area = d3.map();
-	        centroid = d3.map();
-	        for (_i = 0, _len = features.length; _i < _len; _i++) {
-	          f = features[_i];
-	          area.set(f[key], path.area(f) / (w * h));
-	        }
-	        svg = selection.append("svg").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + w + " " + h);
-	        map = svg.append("g");
-	        map.selectAll("path").data(features).enter().append("path").style("opacity", 0).attr("d", path);
-	        for (_j = 0, _len1 = features.length; _j < _len1; _j++) {
-	          f = features[_j];
-	          g = f.geometry;
-	          if ((_ref = g.type) === "Polygon" || _ref === "MultiPolygon") {
-	            box = path.bounds(f);
-	            points = subGrid(box, side);
-	            console.log('points:' + points.length);
-	            value = [f[key]];
-	            if (points.length) {
-	              polygon = flat(g.type, g.coordinates);
-	              for (_k = 0, _len2 = points.length; _k < _len2; _k++) {
-	                _ref1 = points[_k], i = _ref1[0], j = _ref1[1];
-	                x = side * i;
-	                y = side * j;
-	                coords = projection.invert([x, y]);
-	                ii = isInside(coords, polygon);
-	                if (ii) {
-	                  grid.set(i + "," + j, {
-	                    keys: value,
-	                    x: x,
-	                    y: y
-	                  });
-	                }
-	              }
-	            } else {
-	              c = path.centroid(f);
-	              if (c) {
-	                centroid.set(f[key], c);
-	              }
-	            }
-	          }
-	        }
-	        centroid.forEach(function (k, v) {
-	          i = Math.floor(v[0] / side);
-	          j = Math.floor(v[1] / side);
-	          try {
-	            return grid.get(i + "," + j).keys.push(k);
-	          } catch (_error) {}
-	        });
-	        density = function density(a) {
-	          var den, num;
-	          if (isDensity) {
-	            num = d3.sum(function () {
-	              var _l, _len3, _results;
-	              _results = [];
-	              for (_l = 0, _len3 = a.length; _l < _len3; _l++) {
-	                j = a[_l];
-	                _results.push(data.get(j) * area.get(j));
-	              }
-	              return _results;
-	            }());
-	          } else {
-	            num = d3.sum(function () {
-	              var _l, _len3, _results;
-	              _results = [];
-	              for (_l = 0, _len3 = a.length; _l < _len3; _l++) {
-	                j = a[_l];
-	                _results.push(data.get(j));
-	              }
-	              return _results;
-	            }());
-	          }
-	          den = d3.sum(function () {
-	            var _l, _len3, _results;
-	            _results = [];
-	            for (_l = 0, _len3 = a.length; _l < _len3; _l++) {
-	              j = a[_l];
-	              _results.push(area.get(j));
-	            }
-	            return _results;
-	          }());
-	          if (den) {
-	            return num / den;
-	          } else {
-	            return 0;
-	          }
-	        };
-	        dataGrid = function () {
-	          var _l, _len3, _ref2, _results;
-	          _ref2 = grid.values();
-	          _results = [];
-	          for (_l = 0, _len3 = _ref2.length; _l < _len3; _l++) {
-	            k = _ref2[_l];
-	            if (k.keys.length) {
-	              _results.push({
-	                value: 5 /*density(k.keys)*/
-	                , x: k.x,
-	                y: k.y
-	              });
-	            }
-	          }
-	          console.log('datagrid:' + _results.length);
-	          return _results;
-	        }();
-	        dots = map.selectAll(".gridmap-dot").data(dataGrid);
-	        radius.domain([0, d3.max(dataGrid, function (d) {
-	          return Math.sqrt(d.value);
-	        })]);
-	        return dots.enter().append("circle").attr("class", "gridmap-dot").attr("cx", function (d) {
-	          return d.x;
-	        }).attr("cy", function (d) {
-	          return d.y;
-	        }).attr("r", function (d) {
-	          return radius(Math.sqrt(d.value));
-	        }).style("fill", fill);
-	      };
-	      chart.width = function (_) {
+	    chart.width = function (_) {
 	        width = _;
 	        return chart;
-	      };
-	      chart.height = function (_) {
+	    };
+	    chart.height = function (_) {
 	        height = _;
 	        return chart;
-	      };
-	      chart.side = function (_) {
+	    };
+	    chart.side = function (_) {
 	        side = _;
 	        return chart;
-	      };
-	      chart.key = function (_) {
+	    };
+	    chart.key = function (_) {
 	        key = _;
 	        return chart;
-	      };
-	      chart.data = function (_) {
+	    };
+	    chart.data = function (_) {
 	        data = _;
 	        return chart;
-	      };
-	      chart.isDensity = function (_) {
-	        isDensity = _;
-	        return chart;
-	      };
-	      chart.features = function (_) {
+	    };
+	    chart.features = function (_) {
 	        features = _;
 	        return chart;
-	      };
-	      chart.projection = function (_) {
+	    };
+	    chart.projection = function (_) {
 	        projection = _;
 	        return chart;
-	      };
-	      chart.fill = function (_) {
+	    };
+	    chart.fill = function (_) {
 	        fill = _;
 	        return chart;
-	      };
-	      return chart;
 	    };
-	  }).call(this);
-	};
+	    return chart;
+	}
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports) {
 
 	"use strict";
