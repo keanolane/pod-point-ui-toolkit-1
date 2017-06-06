@@ -120,3 +120,14 @@ export function roundNumberTo(num) {
 		return this+num-resto;
 	}
 }
+
+/**
+ * Load or destroy video by replacing the src from the data-src
+ *
+ * @param element
+ * @param bool
+ */
+export function loadVideo(videoEl, load) {
+	const videoSrc = videoEl.getAttribute('data-src');
+	load ? videoEl.setAttribute('src', videoSrc) : videoEl.setAttribute('src', '');
+}

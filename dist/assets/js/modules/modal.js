@@ -29,6 +29,7 @@ var Modal = function () {
         this.openButton = element;
         this.modal = (0, _domOps.selectFirst)('#' + this.openButton.getAttribute('data-modal'));
         this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
+        this.video = this.modal.querySelector('.video-wrapper iframe');
 
         this.bindEvents();
     }
@@ -115,6 +116,10 @@ var Modal = function () {
 
             (0, _utilities.show)(this.modal);
 
+            if (this.video) {
+                (0, _utilities.loadVideo)(this.video, true);
+            };
+
             var overlay = document.createElement('div');
             overlay.className = 'modal-overlay';
             document.body.appendChild(overlay);
@@ -130,6 +135,10 @@ var Modal = function () {
             document.documentElement.classList.remove('is-modal-open');
 
             (0, _utilities.hide)(this.modal);
+
+            if (this.video) {
+                (0, _utilities.loadVideo)(this.video, false);
+            };
 
             var overlay = (0, _domOps.selectFirst)('.modal-overlay');
 

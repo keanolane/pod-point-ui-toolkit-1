@@ -621,6 +621,7 @@
 	        this.openButton = element;
 	        this.modal = (0, _domOps.selectFirst)('#' + this.openButton.getAttribute('data-modal'));
 	        this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
+	        this.video = this.modal.querySelector('.video-wrapper iframe');
 	
 	        this.bindEvents();
 	    }
@@ -707,6 +708,10 @@
 	
 	            (0, _utilities.show)(this.modal);
 	
+	            if (this.video) {
+	                (0, _utilities.loadVideo)(this.video, true);
+	            };
+	
 	            var overlay = document.createElement('div');
 	            overlay.className = 'modal-overlay';
 	            document.body.appendChild(overlay);
@@ -722,6 +727,10 @@
 	            document.documentElement.classList.remove('is-modal-open');
 	
 	            (0, _utilities.hide)(this.modal);
+	
+	            if (this.video) {
+	                (0, _utilities.loadVideo)(this.video, false);
+	            };
 	
 	            var overlay = (0, _domOps.selectFirst)('.modal-overlay');
 	
@@ -1230,6 +1239,7 @@
 	exports.aRadioContains = aRadioContains;
 	exports.getRandomInt = getRandomInt;
 	exports.roundNumberTo = roundNumberTo;
+	exports.loadVideo = loadVideo;
 	
 	var _domOps = __webpack_require__(4);
 	
@@ -1360,6 +1370,17 @@
 	  } else {
 	    return this + num - resto;
 	  }
+	}
+	
+	/**
+	 * Load or destroy video by replacing the src from the data-src
+	 *
+	 * @param element
+	 * @param bool
+	 */
+	function loadVideo(videoEl, load) {
+	  var videoSrc = videoEl.getAttribute('data-src');
+	  load ? videoEl.setAttribute('src', videoSrc) : videoEl.setAttribute('src', '');
 	}
 
 /***/ }),
