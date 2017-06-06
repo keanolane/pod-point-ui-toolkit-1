@@ -51469,6 +51469,7 @@ window.addEventListener('resize', handleResize);
 	            t: [300, 2350] };
 	
 	        this.element = element;
+	        this.jsonPath = element.getAttribute('data-json-path');
 	        this.mapElement = document.getElementById(mapConfig.mapID);
 	        this.markerHolder = document.getElementById('markerHolder');
 	        this.markerCircleHolder = document.getElementById('markerCircleHolder');
@@ -51479,7 +51480,7 @@ window.addEventListener('resize', handleResize);
 	
 	        mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s).translate(mapConfig.t).clipAngle(180).precision(1);
 	
-	        d3.queue().defer(d3.json, './assets/js/data/geo-data/eu.json').await(this.ready);
+	        d3.queue().defer(d3.json, this.jsonPath).await(this.ready);
 	
 	        this.startCharges();
 	    }

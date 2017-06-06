@@ -34,6 +34,7 @@ class EvMap {
         };
 
         this.element = element;
+        this.jsonPath = element.getAttribute('data-json-path');
         this.mapElement = document.getElementById(mapConfig.mapID);
         this.markerHolder = document.getElementById('markerHolder');
         this.markerCircleHolder = document.getElementById('markerCircleHolder');
@@ -47,7 +48,7 @@ class EvMap {
             .precision(1);
 
         d3.queue()
-            .defer(d3.json, './assets/js/data/geo-data/eu.json')
+            .defer(d3.json, this.jsonPath)
             .await(this.ready);
 
         this.startCharges();
