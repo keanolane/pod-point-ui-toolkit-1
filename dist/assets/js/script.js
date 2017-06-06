@@ -735,6 +735,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	        this.openButton = element;
 	        this.modal = (0, _domOps.selectFirst)('#' + this.openButton.getAttribute('data-modal'));
 	        this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
+	        this.video = this.modal.querySelector('.video-wrapper iframe');
 	
 	        this.bindEvents();
 	    }
@@ -821,6 +822,10 @@ var _moduleLoader = require('@pod-point/module-loader');
 	
 	            (0, _utilities.show)(this.modal);
 	
+	            if (this.video) {
+	                (0, _utilities.loadVideo)(this.video, true);
+	            };
+	
 	            var overlay = document.createElement('div');
 	            overlay.className = 'modal-overlay';
 	            document.body.appendChild(overlay);
@@ -836,6 +841,10 @@ var _moduleLoader = require('@pod-point/module-loader');
 	            document.documentElement.classList.remove('is-modal-open');
 	
 	            (0, _utilities.hide)(this.modal);
+	
+	            if (this.video) {
+	                (0, _utilities.loadVideo)(this.video, false);
+	            };
 	
 	            var overlay = (0, _domOps.selectFirst)('.modal-overlay');
 	
@@ -1352,6 +1361,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	exports.aRadioContains = aRadioContains;
 	exports.getRandomInt = getRandomInt;
 	exports.roundNumberTo = roundNumberTo;
+	exports.loadVideo = loadVideo;
 	
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 	var _domOps = __webpack_require__(4);
@@ -1512,7 +1522,21 @@ var _moduleLoader = require('@pod-point/module-loader');
 	    return num + roundTo - resto;
 	  }
 	}
+<<<<<<< 0da66f174c10f9ab3e8fc4390591be2a710aba44
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
+=======
+	
+	/**
+	 * Load or destroy video by replacing the src from the data-src
+	 *
+	 * @param element
+	 * @param bool
+	 */
+	function loadVideo(videoEl, load) {
+	  var videoSrc = videoEl.getAttribute('data-src');
+	  load ? videoEl.setAttribute('src', videoSrc) : videoEl.setAttribute('src', '');
+	}
+>>>>>>> Added responsive video to modal, which loads and destroys on modal open and close
 
 /***/ }),
 /* 9 */
