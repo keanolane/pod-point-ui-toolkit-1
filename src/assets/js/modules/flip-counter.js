@@ -11,6 +11,31 @@ class FlipCounter {
      */
     constructor(element) {
         this.element = element;
+
+        // this.createTickCounter();
+    }
+
+    createTickCounter() {
+        const element = this.element;
+        let stat = parseInt(element.getAttribute('data-stat'));
+
+        var tick = Tick.DOM.create( element, {
+            value: stat,
+            view: {
+                children: [{
+                    root: 'div',
+                    layout: 'horizontal',
+                    children: [{
+                        view: 'flip'
+                    }]
+                }]
+            }
+        });
+
+        Tick.helper.interval(function(){
+            stat += Math.round(Math.random());
+            tick.value = stat;
+        }, 2500);
     }
 }
 
