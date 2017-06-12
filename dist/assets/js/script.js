@@ -147,7 +147,6 @@
 	window.initAutocomplete = _addressLookup.initAutocomplete;
 	window.geolocate = _addressLookup.geolocate;
 	window.fillInAddress = _addressLookup.fillInAddress;
-	window.handleTickInit = _flipCounter2.default.handleTickInit;
 	
 	window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
 	isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
@@ -9891,9 +9890,13 @@
 	        _classCallCheck(this, FlipCounter);
 	
 	        this.element = element;
-	
-	        // this.createTickCounter();
+	        this.createTickCounter();
 	    }
+	
+	    /**
+	     * Creates a new flip counter element with options.
+	     */
+	
 	
 	    _createClass(FlipCounter, [{
 	        key: 'createTickCounter',
@@ -9907,6 +9910,7 @@
 	                    children: [{
 	                        root: 'div',
 	                        layout: 'horizontal',
+	                        repeat: true,
 	                        children: [{
 	                            view: 'flip'
 	                        }]
@@ -9927,22 +9931,6 @@
 	exports.default = {
 	    init: function init(element) {
 	        instances.push(new FlipCounter(element));
-	    },
-	    handleTickInit: function handleTickInit(tick) {
-	        var element = document.querySelector('[data-js-module="flipCounter"]');
-	        var statOne = parseInt(element.getAttribute('data-stat-one'));
-	        var statTwo = parseInt(element.getAttribute('data-stat-two'));
-	        var statThree = parseInt(element.getAttribute('data-stat-three'));
-	        Tick.helper.interval(function () {
-	            statOne += Math.round(Math.random());
-	            statTwo += Math.round(Math.random());
-	            statThree += Math.round(Math.random());
-	            tick.value = {
-	                statOne: statOne,
-	                statTwo: statTwo,
-	                statThree: statThree
-	            };
-	        }, 2500);
 	    }
 	};
 
@@ -10943,7 +10931,7 @@
 				},
 				    Vn = function yi(t) {
 					return t.map(function (t) {
-						return t = ve(Zn, t), "string" == typeof t.root ? t.root = document.createElement(t.root) : t.root = document.createElement("span"), t.view ? (t.root.dataset.view = t.view, t.style && (t.root.dataset.style = t.style), t.repeat = null) : (t.layout && (t.root.dataset.layout = t.layout), t.children && (t.children = yi(t.children), t.children.forEach(function (n) {
+						return t = ve(Zn, t), "string" == typeof t.root ? t.root = document.createElement(t.root) : t.root = document.createElement("span"), t.view ? (t.root.dataset.view = t.view, t.style && (t.root.dataset.style = t.style), t.repeat = null) : (t.layout && (t.root.dataset.layout = t.layout), t.repeat ? (t.root.dataset.repeat = !0, t.repeat = yi(t.children).pop()) : t.children && (t.children = yi(t.children), t.children.forEach(function (n) {
 							t.root.appendChild(n.root);
 						}))), t;
 					});

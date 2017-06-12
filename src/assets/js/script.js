@@ -31,7 +31,6 @@ import { initAutocomplete, geolocate, fillInAddress } from './modules/address-lo
 window.initAutocomplete = initAutocomplete;
 window.geolocate = geolocate;
 window.fillInAddress = fillInAddress;
-window.handleTickInit = flipCounter.handleTickInit;
 
 window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
 isTouchDevice ? addClass(document.body, 'is-touch') : addClass(document.body, 'is-desktop')

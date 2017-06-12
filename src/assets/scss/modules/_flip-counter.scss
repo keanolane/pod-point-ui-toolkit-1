@@ -20,21 +20,24 @@
     background:#fff;
 }
 
-.tick-group-wrap {
-  @include medium-and-up {
-    @include margin(null 15px);
+.tick-group {
+  @include margin(null 5px);
+}
+
+.tick-module {
+  display: inline-block;
+  @include margin(5px 5px);
+  @include small-and-up {
+    @include margin(0 5px);
   }
 }
 
-.tick-group {
-  white-space: nowrap;
-  &__desc {
-    display: block;
-    @include font-small;
-    font-weight: $font-weight-bold;
-    text-transform: uppercase;
-    @include xsmall-and-up {
-      display: inline-block;
-    }
+.tick-desc {
+  display: block;
+  @include font-small;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  @include xsmall-and-up {
+    display: inline-block;
   }
 }

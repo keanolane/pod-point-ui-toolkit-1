@@ -3733,32 +3733,36 @@ button {
   color: #333;
   background: #fff; }
 
-@media (min-width: 50em) {
-  .tick-group-wrap {
-    margin-right: 15px;
-    margin-left: 15px; } }
-
 .tick-group {
-  white-space: nowrap; }
-  .tick-group__desc {
-    display: block;
-    margin: 0;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    font-size: 0.75rem;
-    line-height: 1.2;
-    font-weight: 700;
-    text-transform: uppercase; }
-    @media (min-width: 50em) {
-      .tick-group__desc {
-        font-size: 1rem; } }
-    @media (min-width: 50em) {
-      .tick-group__desc {
-        font-size: 0.875rem; } }
-    @media (min-width: 24em) {
-      .tick-group__desc {
-        display: inline-block; } }
+  margin-right: 5px;
+  margin-left: 5px; }
+
+.tick-module {
+  display: inline-block;
+  margin: 5px; }
+  @media (min-width: 40em) {
+    .tick-module {
+      margin: 0 5px; } }
+
+.tick-desc {
+  display: block;
+  margin: 0;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: uppercase; }
+  @media (min-width: 50em) {
+    .tick-desc {
+      font-size: 1rem; } }
+  @media (min-width: 50em) {
+    .tick-desc {
+      font-size: 0.875rem; } }
+  @media (min-width: 24em) {
+    .tick-desc {
+      display: inline-block; } }
 
 /*! Flickity v2.0.7
 http://flickity.metafizzy.co
