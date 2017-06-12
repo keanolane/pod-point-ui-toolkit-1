@@ -27,9 +27,13 @@ var FlipCounter = function () {
         _classCallCheck(this, FlipCounter);
 
         this.element = element;
-
-        // this.createTickCounter();
+        this.createTickCounter();
     }
+
+    /**
+     * Creates a new flip counter element with options.
+     */
+
 
     _createClass(FlipCounter, [{
         key: 'createTickCounter',
@@ -43,6 +47,7 @@ var FlipCounter = function () {
                     children: [{
                         root: 'div',
                         layout: 'horizontal',
+                        repeat: true,
                         children: [{
                             view: 'flip'
                         }]
@@ -63,21 +68,5 @@ var FlipCounter = function () {
 exports.default = {
     init: function init(element) {
         instances.push(new FlipCounter(element));
-    },
-    handleTickInit: function handleTickInit(tick) {
-        var element = document.querySelector('[data-js-module="flipCounter"]');
-        var statOne = parseInt(element.getAttribute('data-stat-one'));
-        var statTwo = parseInt(element.getAttribute('data-stat-two'));
-        var statThree = parseInt(element.getAttribute('data-stat-three'));
-        Tick.helper.interval(function () {
-            statOne += Math.round(Math.random());
-            statTwo += Math.round(Math.random());
-            statThree += Math.round(Math.random());
-            tick.value = {
-                statOne: statOne,
-                statTwo: statTwo,
-                statThree: statThree
-            };
-        }, 2500);
     }
 };

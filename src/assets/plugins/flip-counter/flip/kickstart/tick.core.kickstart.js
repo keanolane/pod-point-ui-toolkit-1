@@ -2190,11 +2190,15 @@ var createDOMTreeForDefinition = function createDOMTreeForDefinition(definition)
 			}
 			def.repeat = null;
 		} else {
+
 			if (def.layout) {
 				def.root.dataset.layout = def.layout;
 			}
 
-			if (def.children) {
+			if (def.repeat) {
+				def.root.dataset.repeat = true;
+				def.repeat = createDOMTreeForDefinition(def.children).pop();
+			} else if (def.children) {
 				def.children = createDOMTreeForDefinition(def.children);
 				def.children.forEach(function (child) {
 					def.root.appendChild(child.root);
