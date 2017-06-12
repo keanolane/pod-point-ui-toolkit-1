@@ -81,15 +81,28 @@
 	@include aspect-ratio(9, 5);
 }
 
-.b-b-base {
-	border-bottom: $border-base;
+// Borders
+.b {
+	&-t-base {
+		border-top: $border-base;
+	}
+	&-b-base {
+		border-bottom: $border-base;
+	}
+	&-t-thin {
+		border-top: $border-thin;
+	}
+	&-b-thin {
+		border-bottom: $border-thin;
+	}
+	&-t-none {
+		border-top: none!important;
+	}
+	&-b-none {
+		border-bottom: none!important;
+	}
 }
-.b-b-thin {
-	border-bottom: $border-thin;
-}
-.b-t-none {
-	border-top: none!important;
-}
+
 
 .accordion-panel {
 	&--xs {

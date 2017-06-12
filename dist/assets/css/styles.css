@@ -4430,14 +4430,23 @@ http://flickity.metafizzy.co
     right: 0;
     bottom: 0; }
 
+.b-t-base {
+  border-top: 2px solid #ccc; }
+
 .b-b-base {
   border-bottom: 2px solid #ccc; }
+
+.b-t-thin {
+  border-top: 1px solid #e2e2e2; }
 
 .b-b-thin {
   border-bottom: 1px solid #e2e2e2; }
 
 .b-t-none {
   border-top: none !important; }
+
+.b-b-none {
+  border-bottom: none !important; }
 
 .accordion-panel--xs {
   max-height: 0;
