@@ -15,6 +15,7 @@ input[type="checkbox"] {
 	text-align: left;
 	@include font-style-base;
 	position: relative;
+	display: block;
 
 	&--inline {
 		display: inline-block;
