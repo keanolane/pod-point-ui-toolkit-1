@@ -6117,7 +6117,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.7
+	 * Flickity v2.0.8
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -47280,6 +47280,7 @@ window.addEventListener('resize', handleResize);
 	
 	        _.destroy(true);
 	
+<<<<<<< 57041119c338d201882ae5a82b77176ab4921e85
 	        $.extend(_, _.initials, { currentSlide: currentSlide });
 	
 	        _.init();
@@ -47292,6 +47293,43 @@ window.addEventListener('resize', handleResize);
 	                    index: currentSlide
 	                }
 	            }, false);
+=======
+	proto.pointerDownFocus = function( event ) {
+	  // focus element, if not touch, and its not an input or select
+	  var canPointerDown = getCanPointerDown( event );
+	  if ( !this.options.accessibility || canPointerDown ) {
+	    return;
+	  }
+	  var prevScrollY = window.pageYOffset;
+	  this.element.focus();
+	  // hack to fix scroll jump after focus, #76
+	  if ( window.pageYOffset != prevScrollY ) {
+	    window.scrollTo( window.pageXOffset, prevScrollY );
+	  }
+	};
+	
+	var touchStartEvents = {
+	  touchstart: true,
+	  pointerdown: true,
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true,
+	};
+	
+	function getCanPointerDown( event ) {
+	  var isTouchStart = touchStartEvents[ event.type ];
+	  var isFocusNode = focusNodes[ event.target.nodeName ];
+	  return isTouchStart || isFocusNode;
+	}
+	
+	proto.canPreventDefaultOnPointerDown = function( event ) {
+	  // prevent default, unless touchstart or input
+	  var canPointerDown = getCanPointerDown( event );
+	  return !canPointerDown;
+	};
+>>>>>>> Updated dist files
 	
 	        }
 	
@@ -47380,8 +47418,23 @@ window.addEventListener('resize', handleResize);
 	        _.setPosition();
 	        _.focusHandler();
 	
+<<<<<<< 57041119c338d201882ae5a82b77176ab4921e85
 	        _.paused = !_.options.autoplay;
 	        _.autoPlay();
+=======
+	}));
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Unidragger v2.2.2
+	 * Draggable base class
+	 * MIT license
+	 */
+>>>>>>> Updated dist files
 	
 	        _.$slider.trigger('reInit', [_]);
 	
@@ -47424,7 +47477,30 @@ window.addEventListener('resize', handleResize);
 	            _.$slideTrack.children(this.options.slide).eq(index).remove();
 	        }
 	
+<<<<<<< 57041119c338d201882ae5a82b77176ab4921e85
 	        _.$slides = _.$slideTrack.children(this.options.slide);
+=======
+	/**
+	 * works as unbinder, as you can .bindHandles( false ) to unbind
+	 * @param {Boolean} isBind - will unbind if falsey
+	 */
+	proto._bindHandles = function( isBind ) {
+	  // munge isBind, default to true
+	  isBind = isBind === undefined ? true : !!isBind;
+	  // bind each handle
+	  var bindMethod = isBind ? 'addEventListener' : 'removeEventListener';
+	  for ( var i=0; i < this.handles.length; i++ ) {
+	    var handle = this.handles[i];
+	    this._bindStartEvent( handle, isBind );
+	    handle[ bindMethod ]( 'click', this );
+	    // touch-action: none to override browser touch gestures
+	    // metafizzy/flickity#540
+	    if ( window.PointerEvent ) {
+	      handle.style.touchAction = isBind ? 'none' : '';
+	    }
+	  }
+	};
+>>>>>>> Updated dist files
 	
 	        _.$slideTrack.children(this.options.slide).detach();
 	
