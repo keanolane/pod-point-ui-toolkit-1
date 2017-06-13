@@ -23,6 +23,8 @@ class ToggleAccordionPanel {
         this.radioCloseButtons = nodesToArray(document.querySelectorAll('[data-radio-close-panel="'+this.panelId+'"]')) || [];
         this.inputOpenButtons = nodesToArray(document.querySelectorAll('[data-input-open-panel="'+this.panelId+'"]')) || [];
 
+        this.selectToggleButtons = nodesToArray(document.querySelectorAll('[data-select-toggle-panel="'+this.panelId+'"]')) || [];
+
         this.bindEvents();
     }
 
@@ -86,7 +88,23 @@ class ToggleAccordionPanel {
             this.inputOpenListeners.push(inputOpenListener);
             inputOpenListener.on('focus', () => openPanel(this.panel));
         });
+
+        this.selectToggleListeners = [];
+        this.selectToggleButtons.forEach(selectToggleButton => {
+            const selectToggleListener = new Delegate(selectToggleButton);
+            this.selectToggleListeners.push(selectToggleListener);
+            selectToggleListener.on('change', (event, element) => {
+                const selectedVal = element.options[element.selectedIndex].value;
+
+                if (selectedVal === 'other') {
+                    openPanel(this.panel);
+                } else {
+                    closePanel(this.panel);
+                }
+            });
+        });
     }
+
 
     /**
      * Unbinds the event listeners from the elements.
