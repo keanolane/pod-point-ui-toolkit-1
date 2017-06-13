@@ -37,6 +37,8 @@ var ToggleAccordionPanel = function () {
         this.radioCloseButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-radio-close-panel="' + this.panelId + '"]')) || [];
         this.inputOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-input-open-panel="' + this.panelId + '"]')) || [];
 
+        this.selectToggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-select-toggle-panel="' + this.panelId + '"]')) || [];
+
         this.bindEvents();
     }
 
@@ -106,6 +108,21 @@ var ToggleAccordionPanel = function () {
                 _this.inputOpenListeners.push(inputOpenListener);
                 inputOpenListener.on('focus', function () {
                     return (0, _utilities.openPanel)(_this.panel);
+                });
+            });
+
+            this.selectToggleListeners = [];
+            this.selectToggleButtons.forEach(function (selectToggleButton) {
+                var selectToggleListener = new _domDelegate.Delegate(selectToggleButton);
+                _this.selectToggleListeners.push(selectToggleListener);
+                selectToggleListener.on('change', function (event, element) {
+                    var selectedVal = element.options[element.selectedIndex].value;
+
+                    if (selectedVal === 'other') {
+                        (0, _utilities.openPanel)(_this.panel);
+                    } else {
+                        (0, _utilities.closePanel)(_this.panel);
+                    }
                 });
             });
         }

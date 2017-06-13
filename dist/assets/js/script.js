@@ -4010,10 +4010,17 @@ var _toggle2 = _interopRequireDefault(_toggle);
 						}
 					}
 	
+<<<<<<< d2abaf181968d64e0f9a0f5712329e53c6671b86
 					return tmp;
 				}
 				return results;
 			};
+=======
+	        this.selectToggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-select-toggle-panel="' + this.panelId + '"]')) || [];
+	
+	        this.bindEvents();
+	    }
+>>>>>>> Added a toggle panel on a select dd when the value is other
 	
 		// Class
 		Expr.find["CLASS"] = support.getElementsByClassName && function( className, context ) {
@@ -4094,11 +4101,38 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				input.setAttribute( "type", "hidden" );
 				el.appendChild( input ).setAttribute( "name", "D" );
 	
+<<<<<<< d2abaf181968d64e0f9a0f5712329e53c6671b86
 				// Support: IE8
 				// Enforce case-sensitivity of name attribute
 				if ( el.querySelectorAll("[name=d]").length ) {
 					rbuggyQSA.push( "name" + whitespace + "*[*^$|!~]?=" );
 				}
+=======
+	            this.inputOpenListeners = [];
+	            this.inputOpenButtons.forEach(function (inputOpenButton) {
+	                var inputOpenListener = new _domDelegate.Delegate(inputOpenButton);
+	                _this.inputOpenListeners.push(inputOpenListener);
+	                inputOpenListener.on('focus', function () {
+	                    return (0, _utilities.openPanel)(_this.panel);
+	                });
+	            });
+	
+	            this.selectToggleListeners = [];
+	            this.selectToggleButtons.forEach(function (selectToggleButton) {
+	                var selectToggleListener = new _domDelegate.Delegate(selectToggleButton);
+	                _this.selectToggleListeners.push(selectToggleListener);
+	                selectToggleListener.on('change', function (event, element) {
+	                    var selectedVal = element.options[element.selectedIndex].value;
+	
+	                    if (selectedVal === 'other') {
+	                        (0, _utilities.openPanel)(_this.panel);
+	                    } else {
+	                        (0, _utilities.closePanel)(_this.panel);
+	                    }
+	                });
+	            });
+	        }
+>>>>>>> Added a toggle panel on a select dd when the value is other
 	
 				// FF 3.5 - :enabled/:disabled and hidden elements (hidden elements are still enabled)
 				// IE8 throws error here and will not see later tests
