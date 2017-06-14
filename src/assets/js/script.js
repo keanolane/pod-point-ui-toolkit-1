@@ -5,6 +5,7 @@ import combineDomModules from '@pod-point/dom-module-loader';
 import * as dom from '@pod-point/dom-ops';
 import {addClass} from '@pod-point/dom-ops';
 
+import base from './modules/base';
 import modal from './modules/modal';
 import ajaxForm from './modules/ajax-form';
 import formFields from './modules/form-fields';
@@ -32,15 +33,9 @@ window.initAutocomplete = initAutocomplete;
 window.geolocate = geolocate;
 window.fillInAddress = fillInAddress;
 
-window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
-isTouchDevice ? addClass(document.body, 'is-touch') : addClass(document.body, 'is-desktop')
-
-const winWidthMedium = 800;
-let winWidth = window.innerWidth;
-window.isMobileSize = (winWidth < winWidthMedium) ? true : false;
-
 dom.whenReady(() => {
     loadModules({
+        base,
         formFields,
         domModules: combineDomModules({
             modal,

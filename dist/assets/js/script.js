@@ -62,83 +62,92 @@
 	
 	var dom = _interopRequireWildcard(_domOps);
 	
-	var _modal = __webpack_require__(5);
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _modal = __webpack_require__(6);
 	
 	var _modal2 = _interopRequireDefault(_modal);
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 	var _ajaxForm = __webpack_require__(9);
+=======
+	var _ajaxForm = __webpack_require__(10);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	var _ajaxForm2 = _interopRequireDefault(_ajaxForm);
 	
-	var _formFields = __webpack_require__(17);
+	var _formFields = __webpack_require__(18);
 	
 	var _formFields2 = _interopRequireDefault(_formFields);
 	
-	var _collapse = __webpack_require__(18);
+	var _collapse = __webpack_require__(19);
 	
 	var _collapse2 = _interopRequireDefault(_collapse);
 	
-	var _dropdown = __webpack_require__(19);
+	var _dropdown = __webpack_require__(20);
 	
 	var _dropdown2 = _interopRequireDefault(_dropdown);
 	
-	var _toggle = __webpack_require__(20);
+	var _toggle = __webpack_require__(21);
 	
 	var _toggle2 = _interopRequireDefault(_toggle);
 	
-	var _toggleAccordionPanel = __webpack_require__(21);
+	var _toggleAccordionPanel = __webpack_require__(22);
 	
 	var _toggleAccordionPanel2 = _interopRequireDefault(_toggleAccordionPanel);
 	
-	var _toggleElement = __webpack_require__(22);
+	var _toggleElement = __webpack_require__(23);
 	
 	var _toggleElement2 = _interopRequireDefault(_toggleElement);
 	
-	var _gallerySimple = __webpack_require__(23);
+	var _gallerySimple = __webpack_require__(24);
 	
 	var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
 	
-	var _accordion = __webpack_require__(24);
+	var _accordion = __webpack_require__(25);
 	
 	var _accordion2 = _interopRequireDefault(_accordion);
 	
-	var _headerNav = __webpack_require__(25);
+	var _headerNav = __webpack_require__(26);
 	
 	var _headerNav2 = _interopRequireDefault(_headerNav);
 	
-	var _carousel = __webpack_require__(28);
+	var _carousel = __webpack_require__(29);
 	
 	var _carousel2 = _interopRequireDefault(_carousel);
 	
-	var _addressLookup = __webpack_require__(47);
+	var _addressLookup = __webpack_require__(48);
 	
 	var _addressLookup2 = _interopRequireDefault(_addressLookup);
 	
-	var _changeContent = __webpack_require__(48);
+	var _changeContent = __webpack_require__(49);
 	
 	var _changeContent2 = _interopRequireDefault(_changeContent);
 	
-	var _checkoutYourPodPoint = __webpack_require__(49);
+	var _checkoutYourPodPoint = __webpack_require__(50);
 	
 	var _checkoutYourPodPoint2 = _interopRequireDefault(_checkoutYourPodPoint);
 	
-	var _claimOlev = __webpack_require__(50);
+	var _claimOlev = __webpack_require__(51);
 	
 	var _claimOlev2 = _interopRequireDefault(_claimOlev);
 	
-	var _claimDealerDiscount = __webpack_require__(51);
+	var _claimDealerDiscount = __webpack_require__(52);
 	
 	var _claimDealerDiscount2 = _interopRequireDefault(_claimDealerDiscount);
 	
-	var _basket = __webpack_require__(52);
+	var _basket = __webpack_require__(53);
 	
 	var _basket2 = _interopRequireDefault(_basket);
 	
-	var _flipCounter = __webpack_require__(53);
+	var _flipCounter = __webpack_require__(54);
 	
 	var _flipCounter2 = _interopRequireDefault(_flipCounter);
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _evMap = __webpack_require__(55);
 =======
 	var _ajaxForm = __webpack_require__(11);
@@ -223,6 +232,9 @@
 	
 	var _evMap = __webpack_require__(43);
 >>>>>>> Removed commented out window resize
+=======
+	var _evMap = __webpack_require__(56);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	var _evMap2 = _interopRequireDefault(_evMap);
 	
@@ -230,6 +242,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 <<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
 	__webpack_require__(61);
@@ -239,20 +252,17 @@
 =======
 	__webpack_require__(48);
 >>>>>>> Removed commented out window resize
+=======
+	__webpack_require__(61);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	window.initAutocomplete = _addressLookup.initAutocomplete;
 	window.geolocate = _addressLookup.geolocate;
 	window.fillInAddress = _addressLookup.fillInAddress;
 	
-	window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
-	isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
-	
-	var winWidthMedium = 800;
-	var winWidth = window.innerWidth;
-	window.isMobileSize = winWidth < winWidthMedium ? true : false;
-	
 	dom.whenReady(function () {
 	    (0, _moduleLoader2.default)({
+	        base: _base2.default,
 	        formFields: _formFields2.default,
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 =======
@@ -715,11 +725,58 @@ var _moduleLoader = require('@pod-point/module-loader');
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(6);
+	var _domOps = __webpack_require__(4);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Base = function () {
+	    function Base() {
+	        var root = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
+	
+	        _classCallCheck(this, Base);
+	
+	        this.defineSizeAndDevice();
+	    }
+	
+	    _createClass(Base, [{
+	        key: 'defineSizeAndDevice',
+	        value: function defineSizeAndDevice() {
+	            window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
+	            var winWidthMedium = 800;
+	            var winWidth = window.innerWidth;
+	            window.isMobileSize = winWidth < winWidthMedium ? true : false;
+	            window.onload = function () {
+	                isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
+	            };
+	        }
+	    }]);
+	
+	    return Base;
+	}();
+	
+	exports.default = {
+	    init: function init() {
+	        new Base();
+	    }
+	};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(7);
 	
 	var _domOps = __webpack_require__(4);
 	
-	var _utilities = __webpack_require__(8);
+	var _utilities = __webpack_require__(9);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -874,7 +931,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	};
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*jshint browser:true, node:true*/
@@ -889,7 +946,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	 * @copyright The Financial Times Limited [All Rights Reserved]
 	 * @license MIT License (see LICENSE.txt)
 	 */
-	var Delegate = __webpack_require__(7);
+	var Delegate = __webpack_require__(8);
 	
 	module.exports = function(root) {
 	  return new Delegate(root);
@@ -899,7 +956,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 	/*jshint browser:true, node:true*/
@@ -1334,7 +1391,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
@@ -1542,7 +1599,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 >>>>>>> Added responsive video to modal, which loads and destroys on modal open and close
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 <<<<<<< 1f356be32b35ed4618b4522b5f576fd8aef6b4b3
 
@@ -1595,13 +1652,13 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(6);
+	var _domDelegate = __webpack_require__(7);
 	
-	var _superagent = __webpack_require__(10);
+	var _superagent = __webpack_require__(11);
 	
 	var _superagent2 = _interopRequireDefault(_superagent);
 	
-	var _progressButton = __webpack_require__(16);
+	var _progressButton = __webpack_require__(17);
 	
 	var _progressButton2 = _interopRequireDefault(_progressButton);
 	
@@ -1700,17 +1757,17 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	};
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 	
-	var Emitter = __webpack_require__(11);
-	var reduce = __webpack_require__(12);
-	var requestBase = __webpack_require__(13);
-	var isObject = __webpack_require__(14);
+	var Emitter = __webpack_require__(12);
+	var reduce = __webpack_require__(13);
+	var requestBase = __webpack_require__(14);
+	var isObject = __webpack_require__(15);
 	
 	/**
 	 * Root reference for iframes.
@@ -1759,7 +1816,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	 * Expose `request`.
 	 */
 	
-	var request = module.exports = __webpack_require__(15).bind(null, Request);
+	var request = module.exports = __webpack_require__(16).bind(null, Request);
 	
 	/**
 	 * Determine XHR.
@@ -2773,6 +2830,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	 * @api public
 	 */
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 <<<<<<< 1f356be32b35ed4618b4522b5f576fd8aef6b4b3
 =======
 =======
@@ -2797,6 +2855,190 @@ var _toggle2 = _interopRequireDefault(_toggle);
 		} else {
 			factory( global );
 		}
+=======
+	request.put = function(url, data, fn){
+	  var req = request('PUT', url);
+	  if ('function' == typeof data) fn = data, data = null;
+	  if (data) req.send(data);
+	  if (fn) req.end(fn);
+	  return req;
+	};
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	
+	/**
+	 * Expose `Emitter`.
+	 */
+	
+	if (true) {
+	  module.exports = Emitter;
+	}
+	
+	/**
+	 * Initialize a new `Emitter`.
+	 *
+	 * @api public
+	 */
+	
+	function Emitter(obj) {
+	  if (obj) return mixin(obj);
+	};
+	
+	/**
+	 * Mixin the emitter properties.
+	 *
+	 * @param {Object} obj
+	 * @return {Object}
+	 * @api private
+	 */
+	
+	function mixin(obj) {
+	  for (var key in Emitter.prototype) {
+	    obj[key] = Emitter.prototype[key];
+	  }
+	  return obj;
+	}
+	
+	/**
+	 * Listen on the given `event` with `fn`.
+	 *
+	 * @param {String} event
+	 * @param {Function} fn
+	 * @return {Emitter}
+	 * @api public
+	 */
+	
+	Emitter.prototype.on =
+	Emitter.prototype.addEventListener = function(event, fn){
+	  this._callbacks = this._callbacks || {};
+	  (this._callbacks['$' + event] = this._callbacks['$' + event] || [])
+	    .push(fn);
+	  return this;
+	};
+	
+	/**
+	 * Adds an `event` listener that will be invoked a single
+	 * time then automatically removed.
+	 *
+	 * @param {String} event
+	 * @param {Function} fn
+	 * @return {Emitter}
+	 * @api public
+	 */
+	
+	Emitter.prototype.once = function(event, fn){
+	  function on() {
+	    this.off(event, on);
+	    fn.apply(this, arguments);
+	  }
+	
+	  on.fn = fn;
+	  this.on(event, on);
+	  return this;
+	};
+	
+	/**
+	 * Remove the given callback for `event` or all
+	 * registered callbacks.
+	 *
+	 * @param {String} event
+	 * @param {Function} fn
+	 * @return {Emitter}
+	 * @api public
+	 */
+	
+	Emitter.prototype.off =
+	Emitter.prototype.removeListener =
+	Emitter.prototype.removeAllListeners =
+	Emitter.prototype.removeEventListener = function(event, fn){
+	  this._callbacks = this._callbacks || {};
+	
+	  // all
+	  if (0 == arguments.length) {
+	    this._callbacks = {};
+	    return this;
+	  }
+	
+	  // specific event
+	  var callbacks = this._callbacks['$' + event];
+	  if (!callbacks) return this;
+	
+	  // remove all handlers
+	  if (1 == arguments.length) {
+	    delete this._callbacks['$' + event];
+	    return this;
+	  }
+	
+	  // remove specific handler
+	  var cb;
+	  for (var i = 0; i < callbacks.length; i++) {
+	    cb = callbacks[i];
+	    if (cb === fn || cb.fn === fn) {
+	      callbacks.splice(i, 1);
+	      break;
+	    }
+	  }
+	  return this;
+	};
+	
+	/**
+	 * Emit `event` with the given args.
+	 *
+	 * @param {String} event
+	 * @param {Mixed} ...
+	 * @return {Emitter}
+	 */
+	
+	Emitter.prototype.emit = function(event){
+	  this._callbacks = this._callbacks || {};
+	  var args = [].slice.call(arguments, 1)
+	    , callbacks = this._callbacks['$' + event];
+	
+	  if (callbacks) {
+	    callbacks = callbacks.slice(0);
+	    for (var i = 0, len = callbacks.length; i < len; ++i) {
+	      callbacks[i].apply(this, args);
+	    }
+	  }
+	
+	  return this;
+	};
+	
+	/**
+	 * Return array of callbacks for `event`.
+	 *
+	 * @param {String} event
+	 * @return {Array}
+	 * @api public
+	 */
+	
+	Emitter.prototype.listeners = function(event){
+	  this._callbacks = this._callbacks || {};
+	  return this._callbacks['$' + event] || [];
+	};
+	
+	/**
+	 * Check if this emitter has `event` handlers.
+	 *
+	 * @param {String} event
+	 * @return {Boolean}
+	 * @api public
+	 */
+	
+	Emitter.prototype.hasListeners = function(event){
+	  return !! this.listeners(event).length;
+	};
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	// Pass this if window is not defined yet
 	} )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
@@ -2807,7 +3049,25 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	// enough that all such attempts are guarded in a try block.
 	"use strict";
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var arr = [];
+=======
+	  while (idx < len) {
+	    curr = fn.call(null, curr, arr[idx], ++idx, arr);
+	  }
+	  
+	  return curr;
+	};
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/**
+	 * Module of mixed-in functions shared between node and client code
+	 */
+	var isObject = __webpack_require__(15);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	var document = window.document;
 	
@@ -2848,12 +3108,73 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	// unguarded in another place, it seems safer to define global only for this module
 	
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
+=======
+	/**
+	 * Write the field `name` and `val` for "multipart/form-data"
+	 * request bodies.
+	 *
+	 * ``` js
+	 * request.post('/upload')
+	 *   .field('foo', 'bar')
+	 *   .end(callback);
+	 * ```
+	 *
+	 * @param {String} name
+	 * @param {String|Blob|File|Buffer|fs.ReadStream} val
+	 * @return {Request} for chaining
+	 * @api public
+	 */
+	exports.field = function(name, val) {
+	  this._getFormData().append(name, val);
+	  return this;
+	};
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+	/**
+	 * Check if `obj` is an object.
+	 *
+	 * @param {Object} obj
+	 * @return {Boolean}
+	 * @api private
+	 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	var
 		version = "3.2.1",
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 		// Define a local copy of jQuery
 		jQuery = function( selector, context ) {
+=======
+	module.exports = isObject;
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+	// The node and browser modules expose versions of this with the
+	// appropriate constructor function bound as first argument
+	/**
+	 * Issue a request:
+	 *
+	 * Examples:
+	 *
+	 *    request('GET', '/users').end(callback)
+	 *    request('/users').end(callback)
+	 *    request('/users', callback)
+	 *
+	 * @param {String} method
+	 * @param {String|Function} url or callback
+	 * @return {Request}
+	 * @api public
+	 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			// The jQuery object is actually just the init constructor 'enhanced'
 			// Need init if jQuery is called (just allow error to be thrown if not included)
@@ -2868,10 +3189,21 @@ var _toggle2 = _interopRequireDefault(_toggle);
 		rmsPrefix = /^-ms-/,
 		rdashAlpha = /-([a-z])/g,
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 		// Used by jQuery.camelCase as callback to replace()
 		fcamelCase = function( all, letter ) {
 			return letter.toUpperCase();
 		};
+=======
+	module.exports = request;
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+	'use strict';
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	jQuery.fn = jQuery.prototype = {
 	
@@ -2996,9 +3328,23 @@ var _toggle2 = _interopRequireDefault(_toggle);
 						continue;
 					}
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 					// Recurse if we're merging plain objects or arrays
 					if ( deep && copy && ( jQuery.isPlainObject( copy ) ||
 						( copyIsArray = Array.isArray( copy ) ) ) ) {
+=======
+	exports.default = {
+	    create: function create(button) {
+	        return new ProgressButton(button);
+	    }
+	};
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 						if ( copyIsArray ) {
 							copyIsArray = false;
@@ -3008,8 +3354,12 @@ var _toggle2 = _interopRequireDefault(_toggle);
 							clone = src && jQuery.isPlainObject( src ) ? src : {};
 						}
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 						// Never move original objects, clone them
 						target[ name ] = jQuery.extend( deep, clone, copy );
+=======
+	var _domDelegate = __webpack_require__(7);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 					// Don't bring in undefined values
 					} else if ( copy !== undefined ) {
@@ -3080,7 +3430,21 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			return typeof Ctor === "function" && fnToString.call( Ctor ) === ObjectFunctionString;
 		},
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 		isEmptyObject: function( obj ) {
+=======
+	exports.default = {
+	    init: function init() {
+	        new FormFields();
+	    }
+	};
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			/* eslint-disable no-unused-vars */
 			// See https://github.com/eslint/eslint/issues/6125
@@ -3092,6 +3456,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			return true;
 		},
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 		type: function( obj ) {
 			if ( obj == null ) {
 				return obj + "";
@@ -3132,6 +3497,11 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					}
 				}
 			}
+=======
+	var _domDelegate = __webpack_require__(7);
+	
+	var _utilities = __webpack_require__(9);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			return obj;
 		},
@@ -3246,11 +3616,27 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				fn = tmp;
 			}
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 			// Quick check to determine if target is callable, in the spec
 			// this throws a TypeError, but we will just return undefined.
 			if ( !jQuery.isFunction( fn ) ) {
 				return undefined;
 			}
+=======
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			// Simulated bind
 			args = slice.call( arguments, 2 );
@@ -3261,8 +3647,12 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			// Set the guid of unique handler to the same of original handler, so it can be removed
 			proxy.guid = fn.guid = fn.guid || jQuery.guid++;
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 			return proxy;
 		},
+=======
+	var _domDelegate = __webpack_require__(7);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 		now: Date.now,
 	
@@ -3590,10 +3980,26 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					}
 				}
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 				// Take advantage of querySelectorAll
 				if ( support.qsa &&
 					!compilerCache[ selector + " " ] &&
 					(!rbuggyQSA || !rbuggyQSA.test( selector )) ) {
+=======
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 					if ( nodeType !== 1 ) {
 						newContext = context;
@@ -3605,12 +4011,16 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					// Exclude object elements
 					} else if ( context.nodeName.toLowerCase() !== "object" ) {
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 						// Capture the context ID, setting it first if necessary
 						if ( (nid = context.getAttribute( "id" )) ) {
 							nid = nid.replace( rcssescape, fcssescape );
 						} else {
 							context.setAttribute( "id", (nid = expando) );
 						}
+=======
+	var _domDelegate = __webpack_require__(7);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 						// Prefix every selector in the list
 						groups = tokenize( selector );
@@ -3620,10 +4030,14 @@ var _toggle2 = _interopRequireDefault(_toggle);
 						}
 						newSelector = groups.join( "," );
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 						// Expand context for sibling selectors
 						newContext = rsibling.test( selector ) && testContext( context.parentNode ) ||
 							context;
 					}
+=======
+	var _utilities = __webpack_require__(9);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 					if ( newSelector ) {
 						try {
@@ -3881,10 +4295,26 @@ var _toggle2 = _interopRequireDefault(_toggle);
 		docElem = document.documentElement;
 		documentIsHTML = !isXML( document );
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 		// Support: IE 9-11, Edge
 		// Accessing iframe documents after unload throws "permission denied" errors (jQuery #13936)
 		if ( preferredDoc !== document &&
 			(subWindow = document.defaultView) && subWindow.top !== subWindow ) {
+=======
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			// Support: IE 11, Edge
 			if ( subWindow.addEventListener ) {
@@ -3896,6 +4326,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			}
 		}
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 		/* Attributes
 		---------------------------------------------------------------------- */
 	
@@ -3951,6 +4382,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					return node && node.value === attrId;
 				};
 			};
+=======
+	var _domDelegate = __webpack_require__(7);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			// Support: IE 6 - 7 only
 			// getElementById is not reliable as a find shortcut
@@ -3959,7 +4393,11 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					var node, i, elems,
 						elem = context.getElementById( id );
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 					if ( elem ) {
+=======
+	var _utilities = __webpack_require__(9);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 						// Verify the id attribute
 						node = elem.getAttributeNode("id");
@@ -4209,11 +4647,27 @@ var _toggle2 = _interopRequireDefault(_toggle);
 		sortOrder = hasCompare ?
 		function( a, b ) {
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 			// Flag for duplicate removal
 			if ( a === b ) {
 				hasDuplicate = true;
 				return 0;
 			}
+=======
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			// Sort on method existence if only one input has compareDocumentPosition
 			var compare = !a.compareDocumentPosition - !b.compareDocumentPosition;
@@ -4225,8 +4679,12 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			compare = ( a.ownerDocument || a ) === ( b.ownerDocument || b ) ?
 				a.compareDocumentPosition( b ) :
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 				// Otherwise we know they are disconnected
 				1;
+=======
+	var _domDelegate = __webpack_require__(7);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			// Disconnected nodes
 			if ( compare & 1 ||
@@ -4443,17 +4901,34 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	
 		return ret;
 	};
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
+=======
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	Expr = Sizzle.selectors = {
 	
 		// Can be adjusted by the user
 		cacheLength: 50,
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 		createPseudo: markFunction,
+=======
+	var _domDelegate = __webpack_require__(7);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 		match: matchExpr,
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 		attrHandle: {},
+=======
+	var _utilities = __webpack_require__(9);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 		find: {},
 	
@@ -4553,12 +5028,28 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			"CLASS": function( className ) {
 				var pattern = classCache[ className + " " ];
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 				return pattern ||
 					(pattern = new RegExp( "(^|" + whitespace + ")" + className + "(" + whitespace + "|$)" )) &&
 					classCache( className, function( elem ) {
 						return pattern.test( typeof elem.className === "string" && elem.className || typeof elem.getAttribute !== "undefined" && elem.getAttribute("class") || "" );
 					});
 			},
+=======
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			"ATTR": function( name, operator, check ) {
 				return function( elem ) {
@@ -4571,7 +5062,11 @@ var _toggle2 = _interopRequireDefault(_toggle);
 						return true;
 					}
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 					result += "";
+=======
+	var _domDelegate = __webpack_require__(7);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 					return operator === "=" ? result === check :
 						operator === "!=" ? result !== check :
@@ -4873,9 +5368,25 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				return true;
 			},
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 			"parent": function( elem ) {
 				return !Expr.pseudos["empty"]( elem );
 			},
+=======
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			// Element/input types
 			"header": function( elem ) {
@@ -4886,16 +5397,21 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				return rinputs.test( elem.nodeName );
 			},
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 			"button": function( elem ) {
 				var name = elem.nodeName.toLowerCase();
 				return name === "input" && elem.type === "button" || name === "button";
 			},
+=======
+	var _domDelegate = __webpack_require__(7);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			"text": function( elem ) {
 				var attr;
 				return elem.nodeName.toLowerCase() === "input" &&
 					elem.type === "text" &&
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 					// Support: IE<8
 					// New HTML5 attribute values (e.g., "search") appear with elem.type === "text"
 					( (attr = elem.getAttribute("type")) == null || attr.toLowerCase() === "text" );
@@ -4905,6 +5421,11 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			"first": createPositionalPseudo(function() {
 				return [ 0 ];
 			}),
+=======
+	var _utilities = __webpack_require__(9);
+	
+	var _stickyJs = __webpack_require__(27);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			"last": createPositionalPseudo(function( matchIndexes, length ) {
 				return [ length - 1 ];
@@ -5319,6 +5840,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					outermostContext = context === document || context || outermost;
 				}
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 				// Add elements passing elementMatchers directly to results
 				// Support: IE<9, Safari
 				// Tolerate NodeList properties (IE: "length"; Safari: <number>) matching elements by id
@@ -5339,6 +5861,35 @@ var _toggle2 = _interopRequireDefault(_toggle);
 							dirruns = dirrunsUnique;
 						}
 					}
+=======
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new HeaderNav(element));
+	    },
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	
+	var Sticky = __webpack_require__(28);
+	
+	module.exports = Sticky;
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 					// Track unmatched elements for set filters
 					if ( bySet ) {
@@ -6013,9 +6564,27 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				selector = until;
 			}
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 			if ( selector && typeof selector === "string" ) {
 				matched = jQuery.filter( selector, matched );
 			}
+=======
+	(function (root, factory) {
+	  if (true) {
+	    module.exports = factory;
+	  } else if (typeof define === 'function' && define.amd) {
+	    define([], factory);
+	  } else {
+	    root.Sticky = factory;
+	  }
+	})(this, Sticky);
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			if ( this.length > 1 ) {
 	
@@ -6024,11 +6593,15 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					jQuery.uniqueSort( matched );
 				}
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 				// Reverse order for parents* and prev-derivatives
 				if ( rparentsprev.test( name ) ) {
 					matched.reverse();
 				}
 			}
+=======
+	var _flickity = __webpack_require__(30);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			return this.pushStack( matched );
 		};
@@ -6113,11 +6686,11 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	};
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.8
+	 * Flickity v2.0.7
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -6146,10 +6719,80 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					}
 				}
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 				// Forget the data if we're done with it
 				if ( !options.memory ) {
 					memory = false;
 				}
+=======
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(31),
+	      __webpack_require__(39),
+	      __webpack_require__(42),
+	      __webpack_require__(44),
+	      __webpack_require__(45),
+	      __webpack_require__(46),
+	      __webpack_require__(47)
+	    ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      require('./flickity'),
+	      require('./drag'),
+	      require('./prev-next-button'),
+	      require('./page-dots'),
+	      require('./player'),
+	      require('./add-remove-cell'),
+	      require('./lazyload')
+	    );
+	  }
+	
+	})( window, function factory( Flickity ) {
+	  /*jshint strict: false*/
+	  return Flickity;
+	});
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity main
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(32),
+	      __webpack_require__(33),
+	      __webpack_require__(34),
+	      __webpack_require__(36),
+	      __webpack_require__(37),
+	      __webpack_require__(38)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Cell, Slide, animatePrototype ) {
+	      return factory( window, EvEmitter, getSize, utils, Cell, Slide, animatePrototype );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('ev-emitter'),
+	      require('get-size'),
+	      require('fizzy-ui-utils'),
+	      require('./cell'),
+	      require('./slide'),
+	      require('./animate')
+	    );
+	  } else {
+	    // browser global
+	    var _Flickity = window.Flickity;
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 				firing = false;
 	
@@ -46616,7 +47259,22 @@ window.addEventListener('resize', handleResize);
 	
 	        return pagerQty - 1;
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	    };
+=======
+	}));
+
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * EvEmitter v1.1.0
+	 * Lil' event emitter
+	 * MIT License
+	 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	    Slick.prototype.getLeft = function(slideIndex) {
 	
@@ -46717,7 +47375,22 @@ window.addEventListener('resize', handleResize);
 	
 	        var _ = this;
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	        return _.options[option];
+=======
+	}));
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * getSize v2.0.2
+	 * measure size of elements
+	 * MIT license
+	 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	    };
 	
@@ -46881,17 +47554,54 @@ window.addEventListener('resize', handleResize);
 	               }, _.changeSlide);
 	        }
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	    };
+=======
+	});
+
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * Fizzy UI utils v2.0.5
+	 * MIT license
+	 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	    Slick.prototype.initDotEvents = function() {
 	
 	        var _ = this;
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
 	            $('li', _.$dots).on('click.slick', {
 	                message: 'index'
 	            }, _.changeSlide);
 	        }
+=======
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(35)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( matchesSelector ) {
+	      return factory( window, matchesSelector );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('desandro-matches-selector')
+	    );
+	  } else {
+	    // browser global
+	    window.fizzyUIUtils = factory(
+	      window,
+	      window.matchesSelector
+	    );
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	        if ( _.options.dots === true && _.options.pauseOnDotsHover === true ) {
 	
@@ -47007,7 +47717,22 @@ window.addEventListener('resize', handleResize);
 	        var _ = this,
 	            loadRange, cloneRange, rangeStart, rangeEnd;
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	        function loadImages(imagesScope) {
+=======
+	}));
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * matchesSelector v2.0.2
+	 * matchesSelector( element, '.selector' )
+	 * MIT license
+	 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	            $('img[data-lazy]', imagesScope).each(function() {
 	
@@ -47033,10 +47758,45 @@ window.addEventListener('resize', handleResize);
 	
 	                imageToLoad.onerror = function() {
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	                    image
 	                        .removeAttr( 'data-lazy' )
 	                        .removeClass( 'slick-loading' )
 	                        .addClass( 'slick-lazyload-error' );
+=======
+	}));
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity.Cell
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(33)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( getSize ) {
+	      return factory( window, getSize );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('get-size')
+	    );
+	  } else {
+	    // browser global
+	    window.Flickity = window.Flickity || {};
+	    window.Flickity.Cell = factory(
+	      window,
+	      window.getSize
+	    );
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	                    _.$slider.trigger('lazyLoadError', [ _, image, imageSource ]);
 	
@@ -47096,9 +47856,34 @@ window.addEventListener('resize', handleResize);
 	
 	        _.initUI();
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	        if (_.options.lazyLoad === 'progressive') {
 	            _.progressiveLazyLoad();
 	        }
+=======
+	}));
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;// slide
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory();
+	  } else {
+	    // browser global
+	    window.Flickity = window.Flickity || {};
+	    window.Flickity.Slide = factory();
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	    };
 	
@@ -47127,8 +47912,43 @@ window.addEventListener('resize', handleResize);
 	
 	        var _ = this;
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	        _.autoPlayClear();
 	        _.paused = true;
+=======
+	}));
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// animate
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(34)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( utils ) {
+	      return factory( window, utils );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('fizzy-ui-utils')
+	    );
+	  } else {
+	    // browser global
+	    window.Flickity = window.Flickity || {};
+	    window.Flickity.animatePrototype = factory(
+	      window,
+	      window.fizzyUIUtils
+	    );
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	    };
 	
@@ -47222,7 +48042,47 @@ window.addEventListener('resize', handleResize);
 	
 	            imageToLoad.onerror = function() {
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	                if ( tryCount < 3 ) {
+=======
+	}));
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(31),
+	      __webpack_require__(40),
+	      __webpack_require__(34)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, Unidragger, utils ) {
+	      return factory( window, Flickity, Unidragger, utils );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('./flickity'),
+	      require('unidragger'),
+	      require('fizzy-ui-utils')
+	    );
+	  } else {
+	    // browser global
+	    window.Flickity = factory(
+	      window,
+	      window.Flickity,
+	      window.Unidragger,
+	      window.fizzyUIUtils
+	    );
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	                    /**
 	                     * try to load the image 3 times,
@@ -47285,6 +48145,7 @@ window.addEventListener('resize', handleResize);
 	
 	        _.init();
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	        if( !initializing ) {
 	
 	            _.changeSlide({
@@ -47294,10 +48155,22 @@ window.addEventListener('resize', handleResize);
 	                }
 	            }, false);
 =======
+=======
+	var touchStartEvents = {
+	  touchstart: true,
+	  MSPointerDown: true
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true
+	};
+	
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
-	  var canPointerDown = getCanPointerDown( event );
-	  if ( !this.options.accessibility || canPointerDown ) {
+	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
+	      focusNodes[ event.target.nodeName ] ) {
 	    return;
 	  }
 	  var prevScrollY = window.pageYOffset;
@@ -47308,26 +48181,11 @@ window.addEventListener('resize', handleResize);
 	  }
 	};
 	
-	var touchStartEvents = {
-	  touchstart: true,
-	  pointerdown: true,
-	};
-	
-	var focusNodes = {
-	  INPUT: true,
-	  SELECT: true,
-	};
-	
-	function getCanPointerDown( event ) {
-	  var isTouchStart = touchStartEvents[ event.type ];
-	  var isFocusNode = focusNodes[ event.target.nodeName ];
-	  return isTouchStart || isFocusNode;
-	}
-	
 	proto.canPreventDefaultOnPointerDown = function( event ) {
-	  // prevent default, unless touchstart or input
-	  var canPointerDown = getCanPointerDown( event );
-	  return !canPointerDown;
+	  // prevent default, unless touchstart or <select>
+	  var isTouchstart = event.type == 'touchstart';
+	  var targetNodeName = event.target.nodeName;
+	  return !isTouchstart && targetNodeName != 'SELECT';
 	};
 >>>>>>> Updated dist files
 	
@@ -47426,11 +48284,11 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Unidragger v2.2.2
+	 * Unidragger v2.2.1
 	 * Draggable base class
 	 * MIT license
 	 */
@@ -47440,7 +48298,30 @@ window.addEventListener('resize', handleResize);
 	
 	    };
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	    Slick.prototype.resize = function() {
+=======
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(41)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
+	      return factory( window, Unipointer );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('unipointer')
+	    );
+	  } else {
+	    // browser global
+	    window.Unidragger = factory(
+	      window,
+	      window.Unipointer
+	    );
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	        var _ = this;
 	
@@ -47493,11 +48374,6 @@ window.addEventListener('resize', handleResize);
 	    var handle = this.handles[i];
 	    this._bindStartEvent( handle, isBind );
 	    handle[ bindMethod ]( 'click', this );
-	    // touch-action: none to override browser touch gestures
-	    // metafizzy/flickity#540
-	    if ( window.PointerEvent ) {
-	      handle.style.touchAction = isBind ? 'none' : '';
-	    }
 	  }
 	};
 >>>>>>> Updated dist files
@@ -47717,7 +48593,11 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 39 */
+=======
+/* 41 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -47728,7 +48608,33 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Tickers work with mobile ones as well but needs to be refactored to initiate with javascript rather than data attributes. Doesnt seem to work using the snippet from the docs so I have submitted a support request
 	
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	        } else if ( type === 'responsive' ) {
+=======
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */ /*global define, module, require */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(32)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter ) {
+	      return factory( window, EvEmitter );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('ev-emitter')
+	    );
+	  } else {
+	    // browser global
+	    window.Unipointer = factory(
+	      window,
+	      window.EvEmitter
+	    );
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	            for ( item in value ) {
 	
@@ -47919,6 +48825,7 @@ window.addEventListener('resize', handleResize);
 	                        .eq(_.options.slidesToShow)
 	                        .addClass('slick-center');
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	                }
 	
 	            }
@@ -48127,6 +49034,45 @@ window.addEventListener('resize', handleResize);
 	        } else {
 	            animSlide = targetSlide;
 	        }
+=======
+	}));
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// prev/next buttons
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(31),
+	      __webpack_require__(43),
+	      __webpack_require__(34)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
+	      return factory( window, Flickity, TapListener, utils );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('./flickity'),
+	      require('tap-listener'),
+	      require('fizzy-ui-utils')
+	    );
+	  } else {
+	    // browser global
+	    factory(
+	      window,
+	      window.Flickity,
+	      window.TapListener,
+	      window.fizzyUIUtils
+	    );
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	        _.animating = true;
 	
@@ -48232,7 +49178,22 @@ window.addEventListener('resize', handleResize);
 	
 	    };
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	    Slick.prototype.swipeEnd = function(event) {
+=======
+	}));
+
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Tap listener v2.0.0
+	 * listens to taps
+	 * MIT license
+	 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	        var _ = this,
 	            slideCount,
@@ -48242,9 +49203,32 @@ window.addEventListener('resize', handleResize);
 	        _.interrupted = false;
 	        _.shouldClick = ( _.touchObject.swipeLength > 10 ) ? false : true;
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	        if ( _.touchObject.curX === undefined ) {
 	            return false;
 	        }
+=======
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(41)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
+	      return factory( window, Unipointer );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('unipointer')
+	    );
+	  } else {
+	    // browser global
+	    window.TapListener = factory(
+	      window,
+	      window.Unipointer
+	    );
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	        if ( _.touchObject.edgeHit === true ) {
 	            _.$slider.trigger('edge', [_, _.swipeDirection() ]);
@@ -48282,6 +49266,46 @@ window.addEventListener('resize', handleResize);
 	
 	                default:
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
+=======
+	}));
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(31),
+	      __webpack_require__(43),
+	      __webpack_require__(34)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
+	      return factory( window, Flickity, TapListener, utils );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('./flickity'),
+	      require('tap-listener'),
+	      require('fizzy-ui-utils')
+	    );
+	  } else {
+	    // browser global
+	    factory(
+	      window,
+	      window.Flickity,
+	      window.TapListener,
+	      window.fizzyUIUtils
+	    );
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	            }
 	
@@ -48362,8 +49386,46 @@ window.addEventListener('resize', handleResize);
 	        _.touchObject.curX = touches !== undefined ? touches[0].pageX : event.clientX;
 	        _.touchObject.curY = touches !== undefined ? touches[0].pageY : event.clientY;
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	        _.touchObject.swipeLength = Math.round(Math.sqrt(
 	            Math.pow(_.touchObject.curX - _.touchObject.startX, 2)));
+=======
+	}));
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// player & autoPlay
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(32),
+	      __webpack_require__(34),
+	      __webpack_require__(31)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, utils, Flickity ) {
+	      return factory( EvEmitter, utils, Flickity );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      require('ev-emitter'),
+	      require('fizzy-ui-utils'),
+	      require('./flickity')
+	    );
+	  } else {
+	    // browser global
+	    factory(
+	      window.EvEmitter,
+	      window.fizzyUIUtils,
+	      window.Flickity
+	    );
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	        if (_.options.verticalSwiping === true) {
 	            _.touchObject.swipeLength = Math.round(Math.sqrt(
@@ -48470,9 +49532,46 @@ window.addEventListener('resize', handleResize);
 	            _.$dots.remove();
 	        }
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	        if (_.$prevArrow && _.htmlExpr.test(_.options.prevArrow)) {
 	            _.$prevArrow.remove();
 	        }
+=======
+	}));
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// add, remove cell
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(31),
+	      __webpack_require__(34)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
+	      return factory( window, Flickity, utils );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('./flickity'),
+	      require('fizzy-ui-utils')
+	    );
+	  } else {
+	    // browser global
+	    factory(
+	      window,
+	      window.Flickity,
+	      window.fizzyUIUtils
+	    );
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	        if (_.$nextArrow && _.htmlExpr.test(_.options.nextArrow)) {
 	            _.$nextArrow.remove();
@@ -48528,7 +49627,44 @@ window.addEventListener('resize', handleResize);
 	
 	    };
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	    Slick.prototype.updateDots = function() {
+=======
+	}));
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(31),
+	      __webpack_require__(34)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
+	      return factory( window, Flickity, utils );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('./flickity'),
+	      require('fizzy-ui-utils')
+	    );
+	  } else {
+	    // browser global
+	    factory(
+	      window,
+	      window.Flickity,
+	      window.fizzyUIUtils
+	    );
+	  }
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	        var _ = this;
 	
@@ -48590,12 +49726,16 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 33 */
+=======
+/* 48 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _utilities = __webpack_require__(8);
+	var _utilities = __webpack_require__(9);
 	
 	'use strict';
 	
@@ -48668,7 +49808,11 @@ window.addEventListener('resize', handleResize);
 	};
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 34 */
+=======
+/* 49 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48679,7 +49823,7 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(6);
+	var _domDelegate = __webpack_require__(7);
 	
 	var _domOps = __webpack_require__(4);
 	
@@ -48770,7 +49914,11 @@ window.addEventListener('resize', handleResize);
 	};
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 35 */
+=======
+/* 50 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48783,11 +49931,11 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(6);
+	var _domDelegate = __webpack_require__(7);
 	
 	var _domOps = __webpack_require__(4);
 	
-	var _utilities = __webpack_require__(8);
+	var _utilities = __webpack_require__(9);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -48919,7 +50067,11 @@ window.addEventListener('resize', handleResize);
 	};
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 36 */
+=======
+/* 51 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48930,11 +50082,11 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(6);
+	var _domDelegate = __webpack_require__(7);
 	
 	var _domOps = __webpack_require__(4);
 	
-	var _utilities = __webpack_require__(8);
+	var _utilities = __webpack_require__(9);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -49121,7 +50273,11 @@ window.addEventListener('resize', handleResize);
 	};
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 37 */
+=======
+/* 52 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49132,11 +50288,11 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(6);
+	var _domDelegate = __webpack_require__(7);
 	
 	var _domOps = __webpack_require__(4);
 	
-	var _utilities = __webpack_require__(8);
+	var _utilities = __webpack_require__(9);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -49265,7 +50421,11 @@ window.addEventListener('resize', handleResize);
 	};
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 38 */
+=======
+/* 53 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49278,13 +50438,17 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(6);
+	var _domDelegate = __webpack_require__(7);
 	
 	var _domOps = __webpack_require__(4);
 	
-	var _utilities = __webpack_require__(8);
+	var _utilities = __webpack_require__(9);
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _stickyJs = __webpack_require__(29);
+=======
+	var _stickyJs = __webpack_require__(27);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	var _stickyJs2 = _interopRequireDefault(_stickyJs);
 	
@@ -49638,7 +50802,11 @@ window.addEventListener('resize', handleResize);
 	};
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 39 */
+=======
+/* 54 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49649,6 +50817,7 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 <<<<<<< 54723efc59b515519b84a71dd015220457fd5b9c
 	var _inlineSvg = __webpack_require__(40);
 	
@@ -49715,6 +50884,9 @@ window.addEventListener('resize', handleResize);
 =======
 	var _tick = __webpack_require__(54);
 >>>>>>> Added new fixed version of the flip plugin. Still trying to implement flip counter with javascript as an es6 module but got as far as it being one card flipping as opposed to individual cards for each digit. Have comented out and raised another support ticket.
+=======
+	var _tick = __webpack_require__(55);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	var _tick2 = _interopRequireDefault(_tick);
 	
@@ -49780,7 +50952,11 @@ window.addEventListener('resize', handleResize);
 	};
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 42 */
+=======
+/* 55 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -51602,7 +52778,11 @@ window.addEventListener('resize', handleResize);
 	}(window, window.Tick || []);
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 43 */
+=======
+/* 56 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51613,21 +52793,37 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint class-methods-use-this: ["error", { "exceptMethods": ["ready"] }] */
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _d = __webpack_require__(44);
 	
 	var d3 = _interopRequireWildcard(_d);
 	
 	var _topojson = __webpack_require__(45);
+=======
+	var _d = __webpack_require__(57);
+	
+	var d3 = _interopRequireWildcard(_d);
+	
+	var _topojson = __webpack_require__(58);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	var topojson = _interopRequireWildcard(_topojson);
 	
-	var _utilities = __webpack_require__(8);
+	var _utilities = __webpack_require__(9);
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _chargeData = __webpack_require__(46);
 	
 	var _chargeData2 = _interopRequireDefault(_chargeData);
 	
 	var _gridmap = __webpack_require__(47);
+=======
+	var _chargeData = __webpack_require__(59);
+	
+	var _chargeData2 = _interopRequireDefault(_chargeData);
+	
+	var _gridmap = __webpack_require__(60);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	var _gridmap2 = _interopRequireDefault(_gridmap);
 	
@@ -51824,7 +53020,11 @@ window.addEventListener('resize', handleResize);
 	};
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 44 */
+=======
+/* 57 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports, __webpack_require__) {
 
 	// https://d3js.org Version 4.9.1. Copyright 2017 Mike Bostock.
@@ -68696,7 +69896,11 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 45 */
+=======
+/* 58 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports, __webpack_require__) {
 
 	// https://github.com/topojson/topojson Version 3.0.0. Copyright 2017 Mike Bostock.
@@ -70484,7 +71688,11 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 46 */
+=======
+/* 59 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -70494,7 +71702,11 @@ window.addEventListener('resize', handleResize);
 	};
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 47 */
+=======
+/* 60 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70504,7 +71716,11 @@ window.addEventListener('resize', handleResize);
 	});
 	exports.default = gridmap;
 	
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _d = __webpack_require__(44);
+=======
+	var _d = __webpack_require__(57);
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	var d3 = _interopRequireWildcard(_d);
 	
@@ -70779,7 +71995,11 @@ window.addEventListener('resize', handleResize);
 	}
 
 /***/ }),
+<<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 48 */
+=======
+/* 61 */
+>>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 /***/ (function(module, exports) {
 
 	"use strict";
