@@ -8,6 +8,7 @@
 		border-top: $border-thin;
 	}
 }
+.main > .bg--white:first-child,
 .global-header-wrap + .bg--white {
 	border-top: $border-thin;
 }
