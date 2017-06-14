@@ -2374,7 +2374,7 @@ button {
       height: auto;
       max-height: 400px;
       transition: 1s ease-in-out;
-      max-height: 500px;
+      max-height: 610px;
       transition: max-height 1s ease-in;
       overflow: hidden; }
       @media (min-width: 50em) {

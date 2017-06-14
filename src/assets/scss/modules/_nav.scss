@@ -103,7 +103,7 @@
 						height: auto;
 						max-height: 400px;
 						transition: 1s ease-in-out;
-						@include slideDownActive(1s, 500px);
+						@include slideDownActive(1s, 610px);
 						@include medium-and-up {
 							opacity: 1;
 						}
