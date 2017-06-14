@@ -1057,31 +1057,31 @@ input:-webkit-autofill {
 
 input ::-webkit-input-placeholder {
   margin: 0;
-  line-height: 1rem;
+  line-height: 1.125rem;
   font-size: 1rem;
   font-weight: 700; }
 
 input :-moz-placeholder {
   margin: 0;
-  line-height: 1rem;
+  line-height: 1.125rem;
   font-size: 1rem;
   font-weight: 700; }
 
 input ::-moz-placeholder {
   margin: 0;
-  line-height: 1rem;
+  line-height: 1.125rem;
   font-size: 1rem;
   font-weight: 700; }
 
 input :-ms-input-placeholder {
   margin: 0;
-  line-height: 1rem;
+  line-height: 1.125rem;
   font-size: 1rem;
   font-weight: 700; }
 
 input.form-font-large ::-webkit-input-placeholder {
   margin: 0;
-  line-height: 1rem;
+  line-height: 1.125rem;
   font-size: 1rem;
   font-weight: 700; }
   @media (min-width: 50em) {
@@ -1091,7 +1091,7 @@ input.form-font-large ::-webkit-input-placeholder {
 
 input.form-font-large :-moz-placeholder {
   margin: 0;
-  line-height: 1rem;
+  line-height: 1.125rem;
   font-size: 1rem;
   font-weight: 700; }
   @media (min-width: 50em) {
@@ -1101,7 +1101,7 @@ input.form-font-large :-moz-placeholder {
 
 input.form-font-large ::-moz-placeholder {
   margin: 0;
-  line-height: 1rem;
+  line-height: 1.125rem;
   font-size: 1rem;
   font-weight: 700; }
   @media (min-width: 50em) {
@@ -1111,7 +1111,7 @@ input.form-font-large ::-moz-placeholder {
 
 input.form-font-large :-ms-input-placeholder {
   margin: 0;
-  line-height: 1rem;
+  line-height: 1.125rem;
   font-size: 1rem;
   font-weight: 700; }
   @media (min-width: 50em) {
@@ -1162,7 +1162,7 @@ label, .form__label {
 input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"],
 textarea[type="text"] {
   margin: 0;
-  line-height: 1rem;
+  line-height: 1.125rem;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.5rem;
@@ -1200,7 +1200,7 @@ input[type="date"].input--secondary, input[type="email"].input--secondary, input
   display: inline-block; }
   input[type="date"].input--secondary.form-font-large, input[type="email"].input--secondary.form-font-large, input[type="number"].input--secondary.form-font-large, input[type="password"].input--secondary.form-font-large, input[type="search"].input--secondary.form-font-large, input[type="tel"].input--secondary.form-font-large, input[type="text"].input--secondary.form-font-large, input[type="url"].input--secondary.form-font-large {
     margin: 0;
-    line-height: 1rem;
+    line-height: 1.125rem;
     font-size: 1rem;
     font-weight: 700;
     padding-top: 1.5625rem;
@@ -1212,7 +1212,7 @@ input[type="date"].input--secondary, input[type="email"].input--secondary, input
 
 textarea[type="text"] {
   margin: 0;
-  line-height: 1rem;
+  line-height: 1.125rem;
   font-size: 1rem;
   font-weight: 700;
   height: auto;
@@ -1470,7 +1470,7 @@ input[type="checkbox"] {
     position: relative;
     z-index: 1;
     margin: 0;
-    line-height: 1rem;
+    line-height: 1.125rem;
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.5rem;
@@ -1486,7 +1486,7 @@ input[type="checkbox"] {
     border: 2px solid #ccc;
     border-radius: 5px;
     margin: 0;
-    line-height: 1rem;
+    line-height: 1.125rem;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
@@ -2071,6 +2071,7 @@ button {
   .bg--white + .bg--white {
     border-top: 1px solid #e2e2e2; }
 
+.main > .bg--white:first-child,
 .global-header-wrap + .bg--white {
   border-top: 1px solid #e2e2e2; }
 
