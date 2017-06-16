@@ -10,11 +10,14 @@ var _tick = require('../../plugins/flip-counter/flip/tick.js');
 
 var _tick2 = _interopRequireDefault(_tick);
 
+var _domOps = require('@pod-point/dom-ops');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instances = [];
+var LOADED = 'loaded';
 
 var FlipCounter = function () {
 
@@ -40,6 +43,7 @@ var FlipCounter = function () {
         value: function createTickCounter() {
             var element = this.element;
             var stat = parseInt(element.getAttribute('data-stat'));
+            var flipCounterSections = document.querySelectorAll('.flip-counter-section');
 
             var tick = Tick.DOM.create(element, {
                 value: stat,
@@ -52,6 +56,13 @@ var FlipCounter = function () {
                             view: 'flip'
                         }]
                     }]
+                },
+                didInit: function didInit() {
+                    setTimeout(function () {
+                        flipCounterSections.forEach(function (item) {
+                            return (0, _domOps.addClass)(item, LOADED);
+                        });
+                    }, 1500);
                 }
             });
 

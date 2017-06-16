@@ -1,6 +1,8 @@
 import flip from "../../plugins/flip-counter/flip/tick.js";
+import { nodesToArray, addClass } from '@pod-point/dom-ops';
 
 let instances = [];
+const LOADED = 'loaded';
 
 class FlipCounter {
 
@@ -20,6 +22,7 @@ class FlipCounter {
     createTickCounter() {
         const element = this.element;
         let stat = parseInt(element.getAttribute('data-stat'));
+        const flipCounterSections = document.querySelectorAll('.flip-counter-section');
 
         var tick = Tick.DOM.create( element, {
             value: stat,
@@ -32,6 +35,11 @@ class FlipCounter {
                         view: 'flip'
                     }]
                 }]
+            },
+            didInit: function() {
+                setTimeout(function(){
+                    flipCounterSections.forEach(item => addClass(item, LOADED));
+                }, 1500);
             }
         });
 
@@ -39,6 +47,7 @@ class FlipCounter {
             stat += Math.round(Math.random());
             tick.value = stat;
         }, 2500);
+
     }
 }
 
