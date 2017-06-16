@@ -33,6 +33,7 @@ textarea[type="text"] {
 
 textarea[type="text"] {
 	@include font-style-forms;
+	line-height: 1.5;
 	height: auto;
 	min-height: 130px;
 	resize: vertical;

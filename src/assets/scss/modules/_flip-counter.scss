@@ -4,6 +4,36 @@
 
 @import '../../plugins/flip-counter/flip/tick';
 
+.flip-counter-section {
+  min-height: 67px;
+  position: relative;
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: $gray-very-dark;
+    @include position(absolute, 0 0 0 0);
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 1s ease-in;
+  }
+  &.loaded {
+    &:after {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin slideDownCollapsed($duration) {
+   max-height: 0;
+   transition: max-height $duration ease-out;
+   overflow: hidden;
+}
+@mixin slideDownActive($duration, $approxHeight) {
+   max-height: $approxHeight;
+   transition: max-height $duration ease-in;
+   overflow: hidden;
+}
 
 .tick {
     font-size: 1.5em;

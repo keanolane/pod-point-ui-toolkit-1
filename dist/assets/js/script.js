@@ -42,7 +42,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -201,9 +201,9 @@
 	
 	// window.addEventListener('resize', handleResize)
 
-/***/ }),
+/***/ },
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/*
 	    Module system
@@ -258,9 +258,9 @@
 	
 	module.exports = exports['default'];
 
-/***/ }),
+/***/ },
 /* 2 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -319,9 +319,9 @@
 	    };
 	}
 
-/***/ }),
+/***/ },
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/*
 	    DOM module handler, compatible with @pod-point/module-loader
@@ -391,9 +391,9 @@
 	
 	module.exports = exports['default'];
 
-/***/ }),
+/***/ },
 /* 4 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -583,9 +583,9 @@
 	    }
 	}
 
-/***/ }),
+/***/ },
 /* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -630,9 +630,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 6 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -800,9 +800,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 7 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/*jshint browser:true, node:true*/
 	
@@ -825,9 +825,9 @@
 	module.exports.Delegate = Delegate;
 
 
-/***/ }),
+/***/ },
 /* 8 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/*jshint browser:true, node:true*/
 	
@@ -1260,9 +1260,9 @@
 	};
 
 
-/***/ }),
+/***/ },
 /* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1427,9 +1427,9 @@
 	  load ? videoEl.setAttribute('src', videoSrc) : videoEl.setAttribute('src', '');
 	}
 
-/***/ }),
+/***/ },
 /* 10 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1543,9 +1543,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
@@ -2626,9 +2626,9 @@
 	};
 
 
-/***/ }),
+/***/ },
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	
 	/**
@@ -2795,9 +2795,9 @@
 	};
 
 
-/***/ }),
+/***/ },
 /* 13 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	
 	/**
@@ -2824,9 +2824,9 @@
 	  return curr;
 	};
 
-/***/ }),
+/***/ },
 /* 14 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module of mixed-in functions shared between node and client code
@@ -2996,9 +2996,9 @@
 	};
 
 
-/***/ }),
+/***/ },
 /* 15 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Check if `obj` is an object.
@@ -3015,9 +3015,9 @@
 	module.exports = isObject;
 
 
-/***/ }),
+/***/ },
 /* 16 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	// The node and browser modules expose versions of this with the
 	// appropriate constructor function bound as first argument
@@ -3053,9 +3053,9 @@
 	module.exports = request;
 
 
-/***/ }),
+/***/ },
 /* 17 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -3122,9 +3122,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 18 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3240,9 +3240,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 19 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3340,9 +3340,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 20 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3454,9 +3454,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 21 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3592,9 +3592,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 22 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3785,9 +3785,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 23 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3960,9 +3960,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 24 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4066,9 +4066,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 25 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4170,9 +4170,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 26 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4343,9 +4343,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 27 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	
 	var Sticky = __webpack_require__(28);
@@ -4353,9 +4353,9 @@
 	module.exports = Sticky;
 
 
-/***/ }),
+/***/ },
 /* 28 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -4823,9 +4823,9 @@
 	  }
 	})(this, Sticky);
 
-/***/ }),
+/***/ },
 /* 29 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4899,12 +4899,12 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 30 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.7
+	 * Flickity v2.0.8
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -4947,9 +4947,9 @@
 	});
 
 
-/***/ }),
+/***/ },
 /* 31 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity main
 	( function( window, factory ) {
@@ -5808,9 +5808,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 32 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 	 * EvEmitter v1.1.0
@@ -5929,9 +5929,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 33 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * getSize v2.0.2
@@ -6144,9 +6144,9 @@
 	});
 
 
-/***/ }),
+/***/ },
 /* 34 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 	 * Fizzy UI utils v2.0.5
@@ -6388,9 +6388,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 35 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 	 * matchesSelector v2.0.2
@@ -6447,9 +6447,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 36 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity.Cell
 	( function( window, factory ) {
@@ -6543,9 +6543,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 37 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;// slide
 	( function( window, factory ) {
@@ -6625,9 +6625,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 38 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// animate
 	( function( window, factory ) {
@@ -6850,9 +6850,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 39 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
 	( function( window, factory ) {
@@ -7003,20 +7003,10 @@
 	  this.dispatchEvent( 'pointerDown', event, [ pointer ] );
 	};
 	
-	var touchStartEvents = {
-	  touchstart: true,
-	  MSPointerDown: true
-	};
-	
-	var focusNodes = {
-	  INPUT: true,
-	  SELECT: true
-	};
-	
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
-	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
-	      focusNodes[ event.target.nodeName ] ) {
+	  var canPointerDown = getCanPointerDown( event );
+	  if ( !this.options.accessibility || canPointerDown ) {
 	    return;
 	  }
 	  var prevScrollY = window.pageYOffset;
@@ -7027,11 +7017,26 @@
 	  }
 	};
 	
+	var touchStartEvents = {
+	  touchstart: true,
+	  pointerdown: true,
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true,
+	};
+	
+	function getCanPointerDown( event ) {
+	  var isTouchStart = touchStartEvents[ event.type ];
+	  var isFocusNode = focusNodes[ event.target.nodeName ];
+	  return isTouchStart || isFocusNode;
+	}
+	
 	proto.canPreventDefaultOnPointerDown = function( event ) {
-	  // prevent default, unless touchstart or <select>
-	  var isTouchstart = event.type == 'touchstart';
-	  var targetNodeName = event.target.nodeName;
-	  return !isTouchstart && targetNodeName != 'SELECT';
+	  // prevent default, unless touchstart or input
+	  var canPointerDown = getCanPointerDown( event );
+	  return !canPointerDown;
 	};
 	
 	// ----- move ----- //
@@ -7240,12 +7245,12 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 40 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Unidragger v2.2.1
+	 * Unidragger v2.2.2
 	 * Draggable base class
 	 * MIT license
 	 */
@@ -7311,6 +7316,11 @@
 	    var handle = this.handles[i];
 	    this._bindStartEvent( handle, isBind );
 	    handle[ bindMethod ]( 'click', this );
+	    // touch-action: none to override browser touch gestures
+	    // metafizzy/flickity#540
+	    if ( window.PointerEvent ) {
+	      handle.style.touchAction = isBind ? 'none' : '';
+	    }
 	  }
 	};
 	
@@ -7509,9 +7519,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 41 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * Unipointer v2.2.0
@@ -7810,9 +7820,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 42 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// prev/next buttons
 	( function( window, factory ) {
@@ -8036,9 +8046,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 43 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * Tap listener v2.0.0
@@ -8155,9 +8165,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 44 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
 	( function( window, factory ) {
@@ -8339,9 +8349,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 45 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// player & autoPlay
 	( function( window, factory ) {
@@ -8558,9 +8568,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 46 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// add, remove cell
 	( function( window, factory ) {
@@ -8746,9 +8756,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 47 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
 	( function( window, factory ) {
@@ -8871,9 +8881,9 @@
 	}));
 
 
-/***/ }),
+/***/ },
 /* 48 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -8949,9 +8959,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 49 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -9051,9 +9061,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 50 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -9200,9 +9210,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 51 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -9402,9 +9412,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 52 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -9546,9 +9556,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 53 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -9919,9 +9929,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 54 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -9935,11 +9945,14 @@
 	
 	var _tick2 = _interopRequireDefault(_tick);
 	
+	var _domOps = __webpack_require__(4);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
+	var LOADED = 'loaded';
 	
 	var FlipCounter = function () {
 	
@@ -9965,6 +9978,7 @@
 	        value: function createTickCounter() {
 	            var element = this.element;
 	            var stat = parseInt(element.getAttribute('data-stat'));
+	            var flipCounterSections = document.querySelectorAll('.flip-counter-section');
 	
 	            var tick = Tick.DOM.create(element, {
 	                value: stat,
@@ -9977,6 +9991,13 @@
 	                            view: 'flip'
 	                        }]
 	                    }]
+	                },
+	                didInit: function didInit() {
+	                    setTimeout(function () {
+	                        flipCounterSections.forEach(function (item) {
+	                            return (0, _domOps.addClass)(item, LOADED);
+	                        });
+	                    }, 1500);
 	                }
 	            });
 	
@@ -9996,9 +10017,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 55 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -11818,9 +11839,9 @@
 		}
 	}(window, window.Tick || []);
 
-/***/ }),
+/***/ },
 /* 56 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -12040,9 +12061,9 @@
 	    }
 	};
 
-/***/ }),
+/***/ },
 /* 57 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org Version 4.9.1. Copyright 2017 Mike Bostock.
 	(function (global, factory) {
@@ -28912,9 +28933,9 @@
 	})));
 
 
-/***/ }),
+/***/ },
 /* 58 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	// https://github.com/topojson/topojson Version 3.0.0. Copyright 2017 Mike Bostock.
 	(function (global, factory) {
@@ -30700,9 +30721,9 @@
 	})));
 
 
-/***/ }),
+/***/ },
 /* 59 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -30710,9 +30731,9 @@
 	    charges: [[51.18291, -0.63098, 0.3, 0.05], [51.00283, -2.41825, 0.3, 0.05], [52.30522, -2.37574, 0.9, 0.16], [51.8344, 0.91066, 0.3, 0.05], [52.17955, -2.00817, 0.2, 0.03], [51.78, 0.28172, 1.1, 0.19], [51.77815, 0.27685, 0.6, 0.1], [50.88896, -3.22276, 0.1, 0.02], [52.33104, -3.38988, 0.4, 0.07], [51.84615, -2.19922, 0.3, 0.05], [53.33603, -1.51011, 0.7, 0.12], [52.3117, -1.92659, 1.7, 0.3], [53.32291, -1.52539, 0.7, 0.12], [51.96946, -2.89607, 1.7, 0.3], [52.34412, -1.58043, 0.9, 0.16], [51.88336, 0.8973, 1.9, 0.33], [52.3449, -1.58497, 0.1, 0.02], [50.77278, -3.00118, 0.6, 0.1], [52.89393, -2.73475, 2.1, 0.37], [53.11713, -2.03283, 2.4, 0.42], [53.46514, -2.15963, 0.6, 0.1], [55.95738, -3.1697, 1.5, 0.26], [53.03506, -2.14002, 1.1, 0.19], [51.39692, -0.49929, 1.6, 0.28], [51.60084, -1.79642, 4.8, 0.84], [56.06989, -3.46159, 1.2, 0.21], [55.84934, -2.38104, 3.8, 0.66], [53.98364, -2.66703, 3.6, 0.63], [54.84466, -3.2897, 4.7, 0.82], [53.70007, -2.54594, 5.51, 0.96], [51.49083, 0.10803, 1.7, 0.3], [54.95903, -3.97713, 1.8, 0.31], [55.40936, -2.61892, 2.6, 0.45], [50.89745, -4.29936, 0.9, 0.16], [52.81719, -1.87725, 1.7, 0.3], [50.53296, -3.61246, 4.4, 0.77], [50.66559, -2.59953, 2.5, 0.44], [50.97296, -0.14434, 5.1, 0.89], [51.01613, -4.24738, 1.4, 0.24], [51.61351, -2.45223, 2.1, 0.37], [50.50767, -3.61335, 5.1, 0.89], [51.70577, -0.41754, 2.5, 0.44], [51.46071, -2.6664, 1.6, 0.28], [52.19323, -0.20294, 0.6, 0.1], [54.11594, -3.20135, 5.5, 0.96], [53.20672, -2.90149, 3.3, 0.58], [53.20112, -2.90716, 1.2, 0.21], [52.19399, -1.96037, 1.3, 0.23], [52.3872, -0.19329, 1.6, 0.28], [52.15082, -1.90108, 3.1, 0.54], [51.10725, -1.19707, 3, 0.52], [51.00926, -1.4866, 3.2, 0.56], [51.25201, -0.55628, 3.5, 0.61], [52.14157, -2.16338, 0.86, 0.15], [51.09132, -1.29097, 1.3, 0.23], [51.19068, -1.5314, 4.1, 0.72], [51.07494, -1.31359, 4, 0.7], [52.40201, -2.89624, 3.5, 0.61], [52.4734, -2.62848, 2, 0.35], [53.48143, -1.34598, 5.8, 1.01], [51.85366, -2.4809, 4.7, 0.82], [52.11315, -4.22539, 4.4, 0.77], [51.88376, -3.30157, 3.8, 0.66], [52.24226, -4.25925, 4.4, 0.77], [51.70173, -3.42969, 2.1, 0.37], [52.67812, -3.7116, 1.7, 0.3], [52.03596, -4.45692, 11.3, 1.97], [56.95353, -4.50913, 5.2, 0.91], [56.3269, -3.35753, 0.5, 0.09], [52.25011, -4.2282, 1.1, 0.19], [51.59331, -3.80199, 1.8, 0.31], [52.04967, -4.39876, 2.5, 0.44], [51.69369, -3.22416, 5.1, 0.89], [52.53735, -3.27475, 0.1, 0.02], [51.71028, -3.14801, 0.5, 0.09], [51.95603, -3.47962, 7.6, 1.33], [51.72359, -3.36443, 3.2, 0.56], [51.64734, -3.13475, 5, 0.87], [51.9582, -5.12466, 5.8, 1.01], [52.60032, -3.76894, 1.5, 0.26], [57.09339, -4.74371, 10.3, 1.8], [57.56028, -2.62878, 9.4, 1.64], [51.69447, -3.89984, 1.9, 0.33], [55.99415, -3.47281, 2.5, 0.44], [51.7998, -3.71722, 3, 0.52], [51.65629, -3.66362, 10, 1.75], [56.21573, -2.77899, 4.5, 0.79], [51.68971, -3.41103, 11.6, 2.02], [52.03871, -4.555, 0.2, 0.03], [51.64611, -3.32849, 1, 0.17], [52.72773, -3.67705, 4.8, 0.84], [56.36552, -3.49262, 2, 0.35], [51.71356, -3.44778, 6, 1.05], [52.81058, -4.70736, 2.2, 0.38], [57.14985, -2.09376, 2.1, 0.37], [53.03608, -4.34901, 0.9, 0.16], [56.05372, -3.30185, 4.4, 0.77], [52.54395, -4.04434, 6.6, 1.15], [51.68154, -3.77478, 4.4, 0.77], [52.11716, -3.34692, 1.2, 0.21]]
 	};
 
-/***/ }),
+/***/ },
 /* 60 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -30995,9 +31016,9 @@
 	    return chart;
 	}
 
-/***/ }),
+/***/ },
 /* 61 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -31215,6 +31236,6 @@
 		}
 	}
 
-/***/ })
+/***/ }
 /******/ ]);
 //# sourceMappingURL=script.js.map

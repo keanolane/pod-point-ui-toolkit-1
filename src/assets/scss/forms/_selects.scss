@@ -20,6 +20,7 @@
 		@include svg-bg-cheveron();
 	}
 	select {
+		-moz-appearance: none;
 		position: relative;
 		z-index: 1;
 		@include input-styles;
