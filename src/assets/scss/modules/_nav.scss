@@ -76,25 +76,21 @@
 			min-height: 43px;
 			&.has-sub-nav {
 				.global-nav__sub-nav {
-					.is-desktop & {
-						@include medium-and-up {
-							display: none;
-							transition: 0.1s ease-in-out;
-						}
+					@include medium-and-up {
+						display: none;
+						transition: 0.1s ease-in-out;
 					}
 				}
 				&:hover {
 					.global-nav__sub-nav {
-						.is-desktop & {
-							@include medium-and-up {
-								display: block;
-								transition: 0.8s ease-in-out;
-								height: auto;
-								max-height: 400px;
-								animation-duration: 0.3s;
-								animation-fill-mode: both;
-								animation-name: fadeIn;
-							}
+						@include medium-and-up {
+							display: block;
+							transition: 0.8s ease-in-out;
+							height: auto;
+							max-height: 400px;
+							animation-duration: 0.3s;
+							animation-fill-mode: both;
+							animation-name: fadeIn;
 						}
 					}
 				}
@@ -117,11 +113,14 @@
 					}
 				}
 			}
+			> a {
+				border-bottom: 2px solid transparent;
+			}
 			@include medium-and-up {
 				&:hover,
 				&.is-active {
 					> a {
-						border-bottom: 2px solid $primary-color;
+						border-color: $primary-color;
 					}
 				}
 			}

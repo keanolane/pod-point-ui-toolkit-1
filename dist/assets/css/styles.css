@@ -2357,11 +2357,11 @@ button {
   .global-nav > ul > li {
     min-height: 43px; }
     @media (min-width: 50em) {
-      .is-desktop .global-nav > ul > li.has-sub-nav .global-nav__sub-nav {
+      .global-nav > ul > li.has-sub-nav .global-nav__sub-nav {
         display: none;
         transition: 0.1s ease-in-out; } }
     @media (min-width: 50em) {
-      .is-desktop .global-nav > ul > li.has-sub-nav:hover .global-nav__sub-nav {
+      .global-nav > ul > li.has-sub-nav:hover .global-nav__sub-nav {
         display: block;
         transition: 0.8s ease-in-out;
         height: auto;
@@ -2387,9 +2387,11 @@ button {
       @media (min-width: 50em) {
         .global-nav > ul > li.has-sub-nav .plus-minus-toggle {
           display: none; } }
+    .global-nav > ul > li > a {
+      border-bottom: 2px solid transparent; }
     @media (min-width: 50em) {
       .global-nav > ul > li:hover > a, .global-nav > ul > li.is-active > a {
-        border-bottom: 2px solid #8CC63F; } }
+        border-color: #8CC63F; } }
   .global-nav__sub-nav {
     width: 100%;
     text-align: center;
