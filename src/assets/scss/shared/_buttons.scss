@@ -86,7 +86,7 @@ button {
 		&:focus:not(.is-disabled),
 		&:active:not(.is-disabled) {
 			&:before {
-				@include svg-bg-tick($primary-color);
+				@include svg-bg-tick($primary-color-encoded);
 			}
 		}
 	}

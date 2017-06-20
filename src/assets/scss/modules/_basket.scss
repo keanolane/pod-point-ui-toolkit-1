@@ -100,7 +100,7 @@ $floating-basket-horizontal-padding: 15px;
 		@include position(absolute, 17px 15px null null);
 		&:before {
 			content: '';
-			@include svg-bg-cheveron($primary-color);
+			@include svg-bg-cheveron($primary-color-encoded);
 			background-size: cover;
 			width: 16px;
 			height: 16px;
