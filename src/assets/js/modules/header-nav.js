@@ -28,8 +28,9 @@ class HeaderNav {
         this.navicon = this.element.querySelector('.navicon');
         this.nav = this.element.querySelector('.global-nav');
         this.headerWrap = document.querySelector('.global-header-wrap');
+        this.navOverlay = document.querySelector('.global-nav-overlay');
 
-        if (isMobileSize) { this.bindEvents() }
+        this.bindEvents();
     }
 
     /**
@@ -46,6 +47,12 @@ class HeaderNav {
 
         this.navListener.on('click', '.has-sub-nav > a', (event, clickedElement) => {
             this.toggleSubNav(event, clickedElement);
+        });
+
+        this.navOverlayListener = new Delegate(this.navOverlay);
+
+        this.navOverlayListener.on('click', (event) => {
+            this.closeSubNavs();
         });
     }
 
@@ -75,6 +82,7 @@ class HeaderNav {
             openSubNavs.forEach(openSubNav => {
                 removeClass(openSubNav, SUBNAV_OPEN);
             });
+            this.showOverlay(false);
         }
     }
 
@@ -91,8 +99,26 @@ class HeaderNav {
         if (subNavIsOpen == null) {
             this.closeSubNavs();
             addClass(subNavLi, SUBNAV_OPEN);
+            this.showOverlay(true);
         } else {
             removeClass(subNavLi, SUBNAV_OPEN);
+            this.showOverlay(false);
+        }
+    }
+
+    /**
+     * Shows the overlay if it's desktop size
+     * @param {Bool} show overlay
+     */
+    showOverlay(showOverlay) {
+        if (isMobileSize) return;
+
+        if (showOverlay) {
+            addClass(this.navOverlay, NAV_OPEN);
+            addClass(document.documentElement, 'is-nav-open');
+        } else {
+            removeClass(this.navOverlay, NAV_OPEN);
+            removeClass(document.documentElement, 'is-nav-open');
         }
     }
 

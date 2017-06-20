@@ -47,10 +47,9 @@ var HeaderNav = function () {
         this.navicon = this.element.querySelector('.navicon');
         this.nav = this.element.querySelector('.global-nav');
         this.headerWrap = document.querySelector('.global-header-wrap');
+        this.navOverlay = document.querySelector('.global-nav-overlay');
 
-        if (isMobileSize) {
-            this.bindEvents();
-        }
+        this.bindEvents();
     }
 
     /**
@@ -73,6 +72,12 @@ var HeaderNav = function () {
 
             this.navListener.on('click', '.has-sub-nav > a', function (event, clickedElement) {
                 _this.toggleSubNav(event, clickedElement);
+            });
+
+            this.navOverlayListener = new _domDelegate.Delegate(this.navOverlay);
+
+            this.navOverlayListener.on('click', function (event) {
+                _this.closeSubNavs();
             });
         }
 
@@ -108,6 +113,7 @@ var HeaderNav = function () {
                 openSubNavs.forEach(function (openSubNav) {
                     (0, _domOps.removeClass)(openSubNav, SUBNAV_OPEN);
                 });
+                this.showOverlay(false);
             }
         }
 
@@ -127,8 +133,29 @@ var HeaderNav = function () {
             if (subNavIsOpen == null) {
                 this.closeSubNavs();
                 (0, _domOps.addClass)(subNavLi, SUBNAV_OPEN);
+                this.showOverlay(true);
             } else {
                 (0, _domOps.removeClass)(subNavLi, SUBNAV_OPEN);
+                this.showOverlay(false);
+            }
+        }
+
+        /**
+         * Shows the overlay if it's desktop size
+         * @param {Bool} show overlay
+         */
+
+    }, {
+        key: 'showOverlay',
+        value: function showOverlay(_showOverlay) {
+            if (isMobileSize) return;
+
+            if (_showOverlay) {
+                (0, _domOps.addClass)(this.navOverlay, NAV_OPEN);
+                (0, _domOps.addClass)(document.documentElement, 'is-nav-open');
+            } else {
+                (0, _domOps.removeClass)(this.navOverlay, NAV_OPEN);
+                (0, _domOps.removeClass)(document.documentElement, 'is-nav-open');
             }
         }
 

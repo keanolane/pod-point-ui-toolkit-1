@@ -5492,6 +5492,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	setFilters.prototype = Expr.filters = Expr.pseudos;
 	Expr.setFilters = new setFilters();
 	
+<<<<<<< 8066f73c9009644771d6bca5ae829efe30852090
 	tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 		var matched, match, tokens, type,
 			soFar, groups, preFilters,
@@ -5505,6 +5506,15 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	        if (isMobileSize) {
 	            this.bindEvents();
 	        }
+=======
+	        this.element = element;
+	        this.navicon = this.element.querySelector('.navicon');
+	        this.nav = this.element.querySelector('.global-nav');
+	        this.headerWrap = document.querySelector('.global-header-wrap');
+	        this.navOverlay = document.querySelector('.global-nav-overlay');
+	
+	        this.bindEvents();
+>>>>>>> Made the header sub navs clickable instead of hover on desktop
 	    }
 >>>>>>> Fixing header/nav issues
 	
@@ -5658,6 +5668,12 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	            this.navListener.on('click', '.has-sub-nav > a', function (event, clickedElement) {
 	                _this.toggleSubNav(event, clickedElement);
 	            });
+	
+	            this.navOverlayListener = new _domDelegate.Delegate(this.navOverlay);
+	
+	            this.navOverlayListener.on('click', function (event) {
+	                _this.closeSubNavs();
+	            });
 	        }
 >>>>>>> Fixing header/nav issues
 	
@@ -5733,6 +5749,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				temp = condense( matcherOut, postMap );
 				postFilter( temp, [], context, xml );
 	
+<<<<<<< 8066f73c9009644771d6bca5ae829efe30852090
 				// Un-match failing elements by moving them back to matcherIn
 				i = temp.length;
 				while ( i-- ) {
@@ -5741,6 +5758,19 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					}
 				}
 			}
+=======
+	    }, {
+	        key: 'closeSubNavs',
+	        value: function closeSubNavs() {
+	            var openSubNavs = (0, _domOps.nodesToArray)((0, _domOps.select)('.has-sub-nav.sub-nav-open'));
+	            if (openSubNavs.length) {
+	                openSubNavs.forEach(function (openSubNav) {
+	                    (0, _domOps.removeClass)(openSubNav, SUBNAV_OPEN);
+	                });
+	                this.showOverlay(false);
+	            }
+	        }
+>>>>>>> Made the header sub navs clickable instead of hover on desktop
 	
 			if ( seed ) {
 				if ( postFinder || preFilter ) {
@@ -5757,11 +5787,48 @@ var _toggle2 = _interopRequireDefault(_toggle);
 						postFinder( null, (matcherOut = []), temp, xml );
 					}
 	
+<<<<<<< 8066f73c9009644771d6bca5ae829efe30852090
 					// Move matched elements from seed to results to keep them synchronized
 					i = matcherOut.length;
 					while ( i-- ) {
 						if ( (elem = matcherOut[i]) &&
 							(temp = postFinder ? indexOf( seed, elem ) : preMap[i]) > -1 ) {
+=======
+	    }, {
+	        key: 'toggleSubNav',
+	        value: function toggleSubNav(event, clickedElement) {
+	            event.preventDefault();
+	            var subNavLi = clickedElement.closest('li');
+	            var subNavIsOpen = clickedElement.closest('.has-sub-nav.sub-nav-open');
+	            if (subNavIsOpen == null) {
+	                this.closeSubNavs();
+	                (0, _domOps.addClass)(subNavLi, SUBNAV_OPEN);
+	                this.showOverlay(true);
+	            } else {
+	                (0, _domOps.removeClass)(subNavLi, SUBNAV_OPEN);
+	                this.showOverlay(false);
+	            }
+	        }
+	
+	        /**
+	         * Shows the overlay if it's desktop size
+	         * @param {Bool} show overlay
+	         */
+	
+	    }, {
+	        key: 'showOverlay',
+	        value: function showOverlay(_showOverlay) {
+	            if (isMobileSize) return;
+	
+	            if (_showOverlay) {
+	                (0, _domOps.addClass)(this.navOverlay, NAV_OPEN);
+	                (0, _domOps.addClass)(document.documentElement, 'is-nav-open');
+	            } else {
+	                (0, _domOps.removeClass)(this.navOverlay, NAV_OPEN);
+	                (0, _domOps.removeClass)(document.documentElement, 'is-nav-open');
+	            }
+	        }
+>>>>>>> Made the header sub navs clickable instead of hover on desktop
 	
 							seed[temp] = !(results[temp] = elem);
 						}
