@@ -2286,7 +2286,8 @@ button {
     clear: both; }
   @media (min-width: 50em) {
     .global-nav {
-      max-height: 97px;
+      height: 97px;
+      max-height: 100%;
       display: block;
       float: right; }
       .is-minified .global-nav {
