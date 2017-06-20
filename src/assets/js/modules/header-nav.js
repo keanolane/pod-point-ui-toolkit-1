@@ -29,7 +29,7 @@ class HeaderNav {
         this.nav = this.element.querySelector('.global-nav');
         this.headerWrap = document.querySelector('.global-header-wrap');
 
-        this.bindEvents();
+        if (isMobileSize) { this.bindEvents() }
     }
 
     /**
@@ -44,19 +44,9 @@ class HeaderNav {
 
         this.navListener = new Delegate(this.nav);
 
-        this.navListener.on('click', '.has-sub-nav a', (event, clickedElement) => {
+        this.navListener.on('click', '.has-sub-nav > a', (event, clickedElement) => {
             this.toggleSubNav(event, clickedElement);
         });
-
-        // window.addEventListener('scroll', function() {
-        //     if (document.body.scrollTop > 0) {
-        //         addClass(headerWrap, HEADER_MINFIED);
-        //         addClass(stepsIndicator, HEADER_MINFIED);
-        //     } else {
-        //         removeClass(headerWrap, HEADER_MINFIED);
-        //         removeClass(stepsIndicator, HEADER_MINFIED);
-        //     }
-        // });
     }
 
     /**

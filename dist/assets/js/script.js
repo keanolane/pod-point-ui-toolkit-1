@@ -42,7 +42,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 <<<<<<< 3eff1dd2a34dba635765e36e0fb8d2f02a4a52a4
@@ -331,9 +331,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 	// window.addEventListener('resize', handleResize)
 >>>>>>> Tickers work with mobile ones as well but needs to be refactored to initiate with javascript rather than data attributes. Doesnt seem to work using the snippet from the docs so I have submitted a support request
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 	    Module system
@@ -388,9 +388,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 	
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -449,9 +449,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 	    };
 	}
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 	    DOM module handler, compatible with @pod-point/module-loader
@@ -521,9 +521,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 	
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -713,9 +713,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 	    }
 	}
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -760,9 +760,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -930,9 +930,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*jshint browser:true, node:true*/
 	
@@ -955,9 +955,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 	module.exports.Delegate = Delegate;
 
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/*jshint browser:true, node:true*/
 	
@@ -1390,9 +1390,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 	};
 
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 <<<<<<< 3eff1dd2a34dba635765e36e0fb8d2f02a4a52a4
@@ -1598,14 +1598,18 @@ var _moduleLoader = require('@pod-point/module-loader');
 	}
 >>>>>>> Added responsive video to modal, which loads and destroys on modal open and close
 
-/***/ },
+/***/ }),
 /* 10 */
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ (function(module, exports, __webpack_require__) {
 <<<<<<< 1f356be32b35ed4618b4522b5f576fd8aef6b4b3
 =======
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	'use strict';
 =======
@@ -1760,9 +1764,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
@@ -2869,9 +2873,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	};
 
 
-/***/ },
+/***/ }),
 /* 12 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	/**
@@ -3038,9 +3042,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	};
 
 
-/***/ },
+/***/ }),
 /* 13 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
@@ -3063,9 +3067,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	  return curr;
 	};
 
-/***/ },
+/***/ }),
 /* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module of mixed-in functions shared between node and client code
@@ -3135,9 +3139,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	};
 
 
-/***/ },
+/***/ }),
 /* 15 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Check if `obj` is an object.
@@ -3158,9 +3162,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	module.exports = isObject;
 
 
-/***/ },
+/***/ }),
 /* 16 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// The node and browser modules expose versions of this with the
 	// appropriate constructor function bound as first argument
@@ -3202,9 +3206,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	module.exports = request;
 
 
-/***/ },
+/***/ }),
 /* 17 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
@@ -3343,9 +3347,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 18 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
@@ -3443,9 +3447,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 19 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
@@ -3635,9 +3639,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
@@ -3998,9 +4002,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 21 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
@@ -4313,9 +4317,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 22 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
@@ -4666,9 +4670,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
@@ -4908,9 +4912,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 =======
 
-/***/ },
+/***/ }),
 /* 24 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
@@ -5048,9 +5052,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 25 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
@@ -5385,9 +5389,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
@@ -5493,9 +5497,16 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			soFar, groups, preFilters,
 			cached = tokenCache[ selector + " " ];
 	
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 		if ( cached ) {
 			return parseOnly ? 0 : cached.slice( 0 );
 		}
+=======
+	        if (isMobileSize) {
+	            this.bindEvents();
+	        }
+	    }
+>>>>>>> Fixing header/nav issues
 	
 		soFar = selector;
 		groups = [];
@@ -5544,6 +5555,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			}
 		}
 	
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 		// Return the length of the invalid excess
 		// if we're just parsing
 		// Otherwise, throw an error or return tokens
@@ -5642,6 +5654,12 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			} :
 			matchers[0];
 	}
+=======
+	            this.navListener.on('click', '.has-sub-nav > a', function (event, clickedElement) {
+	                _this.toggleSubNav(event, clickedElement);
+	            });
+	        }
+>>>>>>> Fixing header/nav issues
 	
 	function multipleContexts( selector, contexts, results ) {
 		var i = 0,
@@ -5878,9 +5896,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 27 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	var Sticky = __webpack_require__(28);
@@ -5888,9 +5906,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	module.exports = Sticky;
 
 
-/***/ },
+/***/ }),
 /* 28 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
@@ -6583,9 +6601,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	  }
 	})(this, Sticky);
 
-/***/ },
+/***/ }),
 /* 29 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
@@ -6689,12 +6707,12 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 30 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.8
+	 * Flickity v2.0.7
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -6762,9 +6780,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	});
 
 
-/***/ },
+/***/ }),
 /* 31 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity main
 	( function( window, factory ) {
@@ -47269,9 +47287,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 32 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 	 * EvEmitter v1.1.0
@@ -47385,9 +47403,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 33 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * getSize v2.0.2
@@ -47564,9 +47582,9 @@ window.addEventListener('resize', handleResize);
 	});
 
 
-/***/ },
+/***/ }),
 /* 34 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 	 * Fizzy UI utils v2.0.5
@@ -47727,9 +47745,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 35 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 	 * matchesSelector v2.0.2
@@ -47771,9 +47789,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 36 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity.Cell
 	( function( window, factory ) {
@@ -47868,9 +47886,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;// slide
 	( function( window, factory ) {
@@ -47923,9 +47941,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 38 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// animate
 	( function( window, factory ) {
@@ -48052,9 +48070,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 39 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
 	( function( window, factory ) {
@@ -48171,13 +48189,26 @@ window.addEventListener('resize', handleResize);
 	  SELECT: true
 	};
 	
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 =======
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+	var touchStartEvents = {
+	  touchstart: true,
+	  MSPointerDown: true
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true
+	};
+	
+>>>>>>> Fixing header/nav issues
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
-	  var canPointerDown = getCanPointerDown( event );
-	  if ( !this.options.accessibility || canPointerDown ) {
+	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
+	      focusNodes[ event.target.nodeName ] ) {
 	    return;
 	  }
 	  var prevScrollY = window.pageYOffset;
@@ -48188,26 +48219,11 @@ window.addEventListener('resize', handleResize);
 	  }
 	};
 	
-	var touchStartEvents = {
-	  touchstart: true,
-	  pointerdown: true,
-	};
-	
-	var focusNodes = {
-	  INPUT: true,
-	  SELECT: true,
-	};
-	
-	function getCanPointerDown( event ) {
-	  var isTouchStart = touchStartEvents[ event.type ];
-	  var isFocusNode = focusNodes[ event.target.nodeName ];
-	  return isTouchStart || isFocusNode;
-	}
-	
 	proto.canPreventDefaultOnPointerDown = function( event ) {
-	  // prevent default, unless touchstart or input
-	  var canPointerDown = getCanPointerDown( event );
-	  return !canPointerDown;
+	  // prevent default, unless touchstart or <select>
+	  var isTouchstart = event.type == 'touchstart';
+	  var targetNodeName = event.target.nodeName;
+	  return !isTouchstart && targetNodeName != 'SELECT';
 	};
 >>>>>>> Updated dist files
 	
@@ -48305,12 +48321,12 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 40 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Unidragger v2.2.2
+	 * Unidragger v2.2.1
 	 * Draggable base class
 	 * MIT license
 	 */
@@ -48396,11 +48412,6 @@ window.addEventListener('resize', handleResize);
 	    var handle = this.handles[i];
 	    this._bindStartEvent( handle, isBind );
 	    handle[ bindMethod ]( 'click', this );
-	    // touch-action: none to override browser touch gestures
-	    // metafizzy/flickity#540
-	    if ( window.PointerEvent ) {
-	      handle.style.touchAction = isBind ? 'none' : '';
-	    }
 	  }
 	};
 >>>>>>> Updated dist files
@@ -48619,6 +48630,7 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -48632,6 +48644,11 @@ window.addEventListener('resize', handleResize);
 /* 41 */
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * Unidragger v2.2.1
@@ -49071,9 +49088,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 42 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// prev/next buttons
 	( function( window, factory ) {
@@ -49217,9 +49234,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 43 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * Tap listener v2.0.0
@@ -49304,9 +49321,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 44 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
 	( function( window, factory ) {
@@ -49426,9 +49443,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 45 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// player & autoPlay
 	( function( window, factory ) {
@@ -49573,9 +49590,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 46 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// add, remove cell
 	( function( window, factory ) {
@@ -49666,9 +49683,9 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
-/***/ },
+/***/ }),
 /* 47 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
 	( function( window, factory ) {
@@ -49758,6 +49775,7 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -49771,6 +49789,11 @@ window.addEventListener('resize', handleResize);
 /* 48 */
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	'use strict';
 	
@@ -49846,6 +49869,7 @@ window.addEventListener('resize', handleResize);
 	    }
 	};
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -49859,6 +49883,11 @@ window.addEventListener('resize', handleResize);
 /* 49 */
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	'use strict';
 	
@@ -49958,6 +49987,7 @@ window.addEventListener('resize', handleResize);
 	    }
 	};
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -49971,6 +50001,11 @@ window.addEventListener('resize', handleResize);
 /* 50 */
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	'use strict';
 	
@@ -50117,6 +50152,7 @@ window.addEventListener('resize', handleResize);
 	    }
 	};
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -50130,6 +50166,11 @@ window.addEventListener('resize', handleResize);
 /* 51 */
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	'use strict';
 	
@@ -50329,6 +50370,7 @@ window.addEventListener('resize', handleResize);
 	    }
 	};
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -50342,6 +50384,11 @@ window.addEventListener('resize', handleResize);
 /* 52 */
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	'use strict';
 	
@@ -50483,6 +50530,7 @@ window.addEventListener('resize', handleResize);
 	    }
 	};
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -50496,6 +50544,11 @@ window.addEventListener('resize', handleResize);
 /* 53 */
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	'use strict';
 	
@@ -50870,6 +50923,7 @@ window.addEventListener('resize', handleResize);
 	    }
 	};
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -50883,6 +50937,11 @@ window.addEventListener('resize', handleResize);
 /* 54 */
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	'use strict';
 	
@@ -51037,6 +51096,7 @@ window.addEventListener('resize', handleResize);
 	    }
 	};
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -51050,6 +51110,11 @@ window.addEventListener('resize', handleResize);
 /* 55 */
 /***/ function(module, exports) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 55 */
+/***/ (function(module, exports) {
+>>>>>>> Fixing header/nav issues
 
 	'use strict';
 	
@@ -52869,6 +52934,7 @@ window.addEventListener('resize', handleResize);
 		}
 	}(window, window.Tick || []);
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -52882,6 +52948,11 @@ window.addEventListener('resize', handleResize);
 /* 56 */
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	'use strict';
 	
@@ -53117,6 +53188,7 @@ window.addEventListener('resize', handleResize);
 	    }
 	};
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -53130,6 +53202,11 @@ window.addEventListener('resize', handleResize);
 /* 57 */
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	// https://d3js.org Version 4.9.1. Copyright 2017 Mike Bostock.
 	(function (global, factory) {
@@ -69999,6 +70076,7 @@ window.addEventListener('resize', handleResize);
 	})));
 
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -70012,6 +70090,11 @@ window.addEventListener('resize', handleResize);
 /* 58 */
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	// https://github.com/topojson/topojson Version 3.0.0. Copyright 2017 Mike Bostock.
 	(function (global, factory) {
@@ -71797,6 +71880,7 @@ window.addEventListener('resize', handleResize);
 	})));
 
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -71810,6 +71894,11 @@ window.addEventListener('resize', handleResize);
 /* 59 */
 /***/ function(module, exports) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 59 */
+/***/ (function(module, exports) {
+>>>>>>> Fixing header/nav issues
 
 	"use strict";
 	
@@ -71817,6 +71906,7 @@ window.addEventListener('resize', handleResize);
 	    charges: [[51.18291, -0.63098, 0.3, 0.05], [51.00283, -2.41825, 0.3, 0.05], [52.30522, -2.37574, 0.9, 0.16], [51.8344, 0.91066, 0.3, 0.05], [52.17955, -2.00817, 0.2, 0.03], [51.78, 0.28172, 1.1, 0.19], [51.77815, 0.27685, 0.6, 0.1], [50.88896, -3.22276, 0.1, 0.02], [52.33104, -3.38988, 0.4, 0.07], [51.84615, -2.19922, 0.3, 0.05], [53.33603, -1.51011, 0.7, 0.12], [52.3117, -1.92659, 1.7, 0.3], [53.32291, -1.52539, 0.7, 0.12], [51.96946, -2.89607, 1.7, 0.3], [52.34412, -1.58043, 0.9, 0.16], [51.88336, 0.8973, 1.9, 0.33], [52.3449, -1.58497, 0.1, 0.02], [50.77278, -3.00118, 0.6, 0.1], [52.89393, -2.73475, 2.1, 0.37], [53.11713, -2.03283, 2.4, 0.42], [53.46514, -2.15963, 0.6, 0.1], [55.95738, -3.1697, 1.5, 0.26], [53.03506, -2.14002, 1.1, 0.19], [51.39692, -0.49929, 1.6, 0.28], [51.60084, -1.79642, 4.8, 0.84], [56.06989, -3.46159, 1.2, 0.21], [55.84934, -2.38104, 3.8, 0.66], [53.98364, -2.66703, 3.6, 0.63], [54.84466, -3.2897, 4.7, 0.82], [53.70007, -2.54594, 5.51, 0.96], [51.49083, 0.10803, 1.7, 0.3], [54.95903, -3.97713, 1.8, 0.31], [55.40936, -2.61892, 2.6, 0.45], [50.89745, -4.29936, 0.9, 0.16], [52.81719, -1.87725, 1.7, 0.3], [50.53296, -3.61246, 4.4, 0.77], [50.66559, -2.59953, 2.5, 0.44], [50.97296, -0.14434, 5.1, 0.89], [51.01613, -4.24738, 1.4, 0.24], [51.61351, -2.45223, 2.1, 0.37], [50.50767, -3.61335, 5.1, 0.89], [51.70577, -0.41754, 2.5, 0.44], [51.46071, -2.6664, 1.6, 0.28], [52.19323, -0.20294, 0.6, 0.1], [54.11594, -3.20135, 5.5, 0.96], [53.20672, -2.90149, 3.3, 0.58], [53.20112, -2.90716, 1.2, 0.21], [52.19399, -1.96037, 1.3, 0.23], [52.3872, -0.19329, 1.6, 0.28], [52.15082, -1.90108, 3.1, 0.54], [51.10725, -1.19707, 3, 0.52], [51.00926, -1.4866, 3.2, 0.56], [51.25201, -0.55628, 3.5, 0.61], [52.14157, -2.16338, 0.86, 0.15], [51.09132, -1.29097, 1.3, 0.23], [51.19068, -1.5314, 4.1, 0.72], [51.07494, -1.31359, 4, 0.7], [52.40201, -2.89624, 3.5, 0.61], [52.4734, -2.62848, 2, 0.35], [53.48143, -1.34598, 5.8, 1.01], [51.85366, -2.4809, 4.7, 0.82], [52.11315, -4.22539, 4.4, 0.77], [51.88376, -3.30157, 3.8, 0.66], [52.24226, -4.25925, 4.4, 0.77], [51.70173, -3.42969, 2.1, 0.37], [52.67812, -3.7116, 1.7, 0.3], [52.03596, -4.45692, 11.3, 1.97], [56.95353, -4.50913, 5.2, 0.91], [56.3269, -3.35753, 0.5, 0.09], [52.25011, -4.2282, 1.1, 0.19], [51.59331, -3.80199, 1.8, 0.31], [52.04967, -4.39876, 2.5, 0.44], [51.69369, -3.22416, 5.1, 0.89], [52.53735, -3.27475, 0.1, 0.02], [51.71028, -3.14801, 0.5, 0.09], [51.95603, -3.47962, 7.6, 1.33], [51.72359, -3.36443, 3.2, 0.56], [51.64734, -3.13475, 5, 0.87], [51.9582, -5.12466, 5.8, 1.01], [52.60032, -3.76894, 1.5, 0.26], [57.09339, -4.74371, 10.3, 1.8], [57.56028, -2.62878, 9.4, 1.64], [51.69447, -3.89984, 1.9, 0.33], [55.99415, -3.47281, 2.5, 0.44], [51.7998, -3.71722, 3, 0.52], [51.65629, -3.66362, 10, 1.75], [56.21573, -2.77899, 4.5, 0.79], [51.68971, -3.41103, 11.6, 2.02], [52.03871, -4.555, 0.2, 0.03], [51.64611, -3.32849, 1, 0.17], [52.72773, -3.67705, 4.8, 0.84], [56.36552, -3.49262, 2, 0.35], [51.71356, -3.44778, 6, 1.05], [52.81058, -4.70736, 2.2, 0.38], [57.14985, -2.09376, 2.1, 0.37], [53.03608, -4.34901, 0.9, 0.16], [56.05372, -3.30185, 4.4, 0.77], [52.54395, -4.04434, 6.6, 1.15], [51.68154, -3.77478, 4.4, 0.77], [52.11716, -3.34692, 1.2, 0.21]]
 	};
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -71830,6 +71920,11 @@ window.addEventListener('resize', handleResize);
 /* 60 */
 /***/ function(module, exports, __webpack_require__) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixing header/nav issues
 
 	'use strict';
 	
@@ -72116,6 +72211,7 @@ window.addEventListener('resize', handleResize);
 	    return chart;
 	}
 
+<<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -72129,6 +72225,11 @@ window.addEventListener('resize', handleResize);
 /* 61 */
 /***/ function(module, exports) {
 >>>>>>> Fixed lots of layout bugs in QA
+=======
+/***/ }),
+/* 61 */
+/***/ (function(module, exports) {
+>>>>>>> Fixing header/nav issues
 
 	"use strict";
 	
@@ -72346,7 +72447,7 @@ window.addEventListener('resize', handleResize);
 		}
 	}
 
-/***/ }
+/***/ })
 /******/ ]);
 //# sourceMappingURL=script.js.map
 >>>>>>> Removed commented out window resize

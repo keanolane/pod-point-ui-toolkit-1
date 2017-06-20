@@ -48,7 +48,9 @@ var HeaderNav = function () {
         this.nav = this.element.querySelector('.global-nav');
         this.headerWrap = document.querySelector('.global-header-wrap');
 
-        this.bindEvents();
+        if (isMobileSize) {
+            this.bindEvents();
+        }
     }
 
     /**
@@ -69,19 +71,9 @@ var HeaderNav = function () {
 
             this.navListener = new _domDelegate.Delegate(this.nav);
 
-            this.navListener.on('click', '.has-sub-nav a', function (event, clickedElement) {
+            this.navListener.on('click', '.has-sub-nav > a', function (event, clickedElement) {
                 _this.toggleSubNav(event, clickedElement);
             });
-
-            // window.addEventListener('scroll', function() {
-            //     if (document.body.scrollTop > 0) {
-            //         addClass(headerWrap, HEADER_MINFIED);
-            //         addClass(stepsIndicator, HEADER_MINFIED);
-            //     } else {
-            //         removeClass(headerWrap, HEADER_MINFIED);
-            //         removeClass(stepsIndicator, HEADER_MINFIED);
-            //     }
-            // });
         }
 
         /**
