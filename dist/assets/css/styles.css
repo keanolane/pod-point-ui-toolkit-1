@@ -1162,7 +1162,7 @@ label,
   font-weight: 700; }
 
 input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"],
-textarea[type="text"] {
+textarea {
   margin: 0;
   line-height: 1.125rem;
   font-size: 1rem;
@@ -1179,16 +1179,16 @@ textarea[type="text"] {
   border: 2px solid #ccc;
   border-radius: 5px; }
   input[type="date"]:focus:not(disabled), input[type="email"]:focus:not(disabled), input[type="number"]:focus:not(disabled), input[type="password"]:focus:not(disabled), input[type="search"]:focus:not(disabled), input[type="tel"]:focus:not(disabled), input[type="text"]:focus:not(disabled), input[type="url"]:focus:not(disabled),
-  textarea[type="text"]:focus:not(disabled) {
+  textarea:focus:not(disabled) {
     color: #333 !important;
     border-color: #333;
     outline: none; }
   input[type="date"]:hover:not(:disabled), input[type="email"]:hover:not(:disabled), input[type="number"]:hover:not(:disabled), input[type="password"]:hover:not(:disabled), input[type="search"]:hover:not(:disabled), input[type="tel"]:hover:not(:disabled), input[type="text"]:hover:not(:disabled), input[type="url"]:hover:not(:disabled),
-  textarea[type="text"]:hover:not(:disabled) {
+  textarea:hover:not(:disabled) {
     color: #333 !important;
     border-color: #333; }
   input[type="date"]:disabled, input[type="email"]:disabled, input[type="number"]:disabled, input[type="password"]:disabled, input[type="search"]:disabled, input[type="tel"]:disabled, input[type="text"]:disabled, input[type="url"]:disabled,
-  textarea[type="text"]:disabled {
+  textarea:disabled {
     opacity: 0.4;
     cursor: not-allowed;
     background-color: #f9fafa; }
@@ -1210,7 +1210,7 @@ input[type="date"].input--secondary, input[type="email"].input--secondary, input
         line-height: 1.25rem;
         font-size: 1.25rem; } }
 
-textarea[type="text"] {
+textarea {
   margin: 0;
   line-height: 1.125rem;
   font-size: 1rem;
