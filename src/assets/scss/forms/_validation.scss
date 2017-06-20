@@ -28,7 +28,7 @@
 	&.is-valid {
 		&:before {
 			@include small-and-up {
-				@include svg-bg-tick($color: $primary-color);
+				@include svg-bg-tick($primary-color-encoded);
 			}
 		}
 		#{$inputs},
@@ -40,7 +40,7 @@
 	&.is-invalid {
 		&:before {
 			@include small-and-up {
-				@include svg-bg-cross($color: $error-red);
+				@include svg-bg-cross($error-red-encoded);
 			}
 		}
 		#{$inputs},

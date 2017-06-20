@@ -3,7 +3,7 @@
 // =============================================================================
 
 .divider--steps {
-	@include svg-bg-divider-repeater($primary-color);
+	@include svg-bg-divider-repeater($primary-color-encoded);
 	@include margin(20px auto 0 auto);
 	width: 6px;
 	height: 60px;
@@ -14,7 +14,7 @@
 		z-index: 1;
 	}
 	@include medium-and-up {
-		@include svg-bg-steps-divider-desktop($primary-color);
+		@include svg-bg-steps-divider-desktop($primary-color-encoded);
 		@include margin(0 auto);
 		width: 70%;
 		height: 110px;

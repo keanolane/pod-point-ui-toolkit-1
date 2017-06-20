@@ -105,6 +105,12 @@ $facebook-color: #4b6ead;
 $twitter-color: #00b7f0;
 $pinterest-color: #bd081c;
 
+// Because of firefox, svg background image strings need to be character encoded
+$gray-encoded: '%23b3b3b3';
+$font-color-base-encoded: '%23333';
+$primary-color-encoded: '%238CC63F';
+$error-red-encoded: '%23C1272D';
+
 // Border
 $border-radius-base: 5px;
 $border-color-base: $gray-keyline;
