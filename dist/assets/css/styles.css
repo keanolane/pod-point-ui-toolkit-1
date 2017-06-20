@@ -2270,18 +2270,23 @@ button {
         margin-top: 0;
         text-align: right; } }
 
+.is-nav-open body {
+  overflow: hidden; }
+
 .global-nav {
-  display: none;
   margin-right: auto;
   margin-left: auto;
-  transition: 0.1s ease-in-out; }
+  transition: 0.1s ease-in-out;
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
+  overflow: hidden; }
   .global-nav:after {
     content: "";
     display: table;
     clear: both; }
   @media (min-width: 50em) {
     .global-nav {
-      height: 95px;
+      max-height: 97px;
       display: block;
       float: right; }
       .is-minified .global-nav {
@@ -2289,11 +2294,11 @@ button {
   .checkout-flow .global-nav {
     display: none; }
   .nav-open .global-nav {
-    display: block;
-    transition: 0.5s ease-in-out;
-    animation-duration: 0.8s;
-    animation-fill-mode: both;
-    animation-name: fadeIn; }
+    height: auto;
+    transition: 1s ease-in-out;
+    max-height: 800px;
+    transition: max-height 1s ease-in;
+    overflow: hidden; }
   .global-nav ul {
     padding: 0;
     margin: 0; }
@@ -2353,22 +2358,9 @@ button {
   @media (min-width: 50em) {
     .global-nav > ul {
       float: right;
-      margin-right: -20px; } }
+      margin-right: -10px; } }
   .global-nav > ul > li {
     min-height: 43px; }
-    @media (min-width: 50em) {
-      .global-nav > ul > li.has-sub-nav .global-nav__sub-nav {
-        display: none;
-        transition: 0.1s ease-in-out; } }
-    @media (min-width: 50em) {
-      .global-nav > ul > li.has-sub-nav:hover .global-nav__sub-nav {
-        display: block;
-        transition: 0.8s ease-in-out;
-        height: auto;
-        max-height: 400px;
-        animation-duration: 0.3s;
-        animation-fill-mode: both;
-        animation-name: fadeIn; } }
     .global-nav > ul > li.has-sub-nav.sub-nav-open .global-nav__sub-nav {
       height: auto;
       max-height: 400px;
@@ -2378,7 +2370,11 @@ button {
       overflow: hidden; }
       @media (min-width: 50em) {
         .global-nav > ul > li.has-sub-nav.sub-nav-open .global-nav__sub-nav {
-          opacity: 1; } }
+          transition: none;
+          opacity: 1;
+          animation-duration: 0.3s;
+          animation-fill-mode: both;
+          animation-name: fadeIn; } }
     .global-nav > ul > li.has-sub-nav .plus-minus-toggle {
       z-index: -1;
       position: absolute;
@@ -2390,7 +2386,7 @@ button {
     .global-nav > ul > li > a {
       border-bottom: 2px solid transparent; }
     @media (min-width: 50em) {
-      .global-nav > ul > li:hover > a, .global-nav > ul > li.is-active > a {
+      .global-nav > ul > li.sub-nav-open > a, .global-nav > ul > li:hover > a {
         border-color: #8CC63F; } }
   .global-nav__sub-nav {
     width: 100%;
@@ -2405,8 +2401,7 @@ button {
         opacity: 0;
         position: absolute;
         top: 96px;
-        right: 0;
-        box-shadow: 0px 11px 16px -10px rgba(0, 0, 0, 0.1); }
+        right: 0; }
         .is-minified .global-nav__sub-nav {
           top: 50px; } }
     .global-nav__sub-nav ul {
@@ -2440,6 +2435,32 @@ button {
             @media (min-width: 50em) {
               .global-nav__sub-nav ul li a img {
                 width: 100px; } }
+
+.global-nav-overlay {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transition: 0.1s ease-in-out; }
+  .global-nav-overlay.nav-open {
+    display: block;
+    transition: 0.8s ease-in-out;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-name: fadeIn; }
+  .global-nav-overlay:before {
+    content: '';
+    width: 100%;
+    height: 320px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 11px 16px -10px rgba(0, 0, 0, 0.1); }
 
 .is-modal-open body {
   overflow: hidden; }
