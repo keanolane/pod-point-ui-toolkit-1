@@ -43,7 +43,7 @@ var Accordion = function () {
 
             this.listener = new _domDelegate.Delegate(this.element);
 
-            if ((0, _domOps.hasClass)(this.element, MOBILE_ONLY) && isMobileSize || (0, _domOps.hasClass)(this.element, MOBILE_ONLY) != true) {
+            if ((0, _domOps.hasClass)(this.element, MOBILE_ONLY) && window.isMobileSize || (0, _domOps.hasClass)(this.element, MOBILE_ONLY) != true) {
                 this.listener.on('click', 'dt', function (event, element) {
                     _this.toggleAccordion(event, element);
                 });
