@@ -3,14 +3,14 @@ import { addClass, removeClass, nodesToArray } from '@pod-point/dom-ops';
 
 let instances = [];
 
-let HIDDEN = 'hidden';
+const HIDDEN = 'hidden';
 
 class ChangeContent {
 
     /**
-     * Creates a new content change wrapper.
+     * Creates a new content change wrapper
      *
-     * @param element
+     * @param {element}
      */
     constructor(element) {
         this.wrapper = element;
@@ -19,7 +19,7 @@ class ChangeContent {
     }
 
     /**
-     * Binds the event listeners from the elements.
+     * Binds the event listeners from the elements
      */
     bindEvents() {
         this.selectListener = new Delegate(this.selectDD);
@@ -30,20 +30,20 @@ class ChangeContent {
     }
 
     /**
-     * Unbinds the event listeners from the elements.
+     * Unbinds the event listeners from the elements
      */
     unbindEvents() {
         this.selectListener.destroy();
     }
 
     /**
-     * Hide/Show content.
+     * Hide/Show content
      *
-     * @param {Event} event
+     * @param {event}
      */
     changeContent(element) {
         const selected = element.value;
-        const allContentToShow = nodesToArray(this.wrapper.querySelectorAll('[data-content="'+selected+'"]'));
+        const allContentToShow = nodesToArray(this.wrapper.querySelectorAll(`[data-content="${selected}"]`));
         const allContentToHide = nodesToArray(this.wrapper.querySelectorAll('[data-content]'));
 
         allContentToHide.forEach(item => addClass(item, HIDDEN));
@@ -52,12 +52,12 @@ class ChangeContent {
 }
 
 export default {
-    init: function(element) {
+    init: element => {
         instances.push(new ChangeContent(element));
     },
 
-    destroy: function() {
-        instances.forEach((instance) => instance.unbindEvents());
+    destroy: () => {
+        instances.forEach(instance => instance.unbindEvents());
         instances = [];
-    }
+    },
 };
