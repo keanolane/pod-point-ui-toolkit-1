@@ -6,13 +6,14 @@ const HAS_ERROR = 'has-error';
 const HAS_FOCUS = 'has-focus';
 
 class FormFields {
+
     constructor(root = document.body) {
         this.bindEvents(root);
         this.checkAllFieldsForContent();
     }
 
     checkAllFieldsForContent() {
-        var inputs = nodesToArray(select('input'));
+        const inputs = nodesToArray(select('input'));
 
         if (inputs.length) {
             inputs.forEach(input => this.checkForContent(input));
@@ -20,8 +21,8 @@ class FormFields {
     }
 
     checkForContent(element) {
-        var container = this.getInputContainer(element),
-            callback = (element.value) ? addClass : removeClass;
+        const container = this.getInputContainer(element);
+        const callback = (element.value) ? addClass : removeClass;
 
         callback(container, HAS_CONTENT);
     }
@@ -31,7 +32,7 @@ class FormFields {
     }
 
     bindEvents(root) {
-        var listener = new Delegate(root);
+        const listener = new Delegate(root);
 
         // Listen to change because of password managers etc
         listener.on('change', 'input, textarea', (event, element) => {
@@ -51,15 +52,16 @@ class FormFields {
         });
 
         listener.on('input', 'textarea', (event, element) => {
-            var scrollHeight = element.scrollHeight;
+            const scrollHeight = element.scrollHeight;
+            const formEl = element;
 
-            if (scrollHeight > parseInt(window.getComputedStyle(element, null).height)) {
-                element.style.height = scrollHeight + 'px';
+            if (scrollHeight > parseInt(window.getComputedStyle(formEl, null).height, 0)) {
+                formEl.style.height = `${scrollHeight}px`;
             }
         });
     }
 
-    getInputContainer(element) {
+    static getInputContainer(element) {
         return element.parentNode;
     }
 
@@ -73,7 +75,7 @@ class FormFields {
 }
 
 export default {
-    init: function() {
+    init: () => {
         new FormFields();
-    }
+    },
 };
