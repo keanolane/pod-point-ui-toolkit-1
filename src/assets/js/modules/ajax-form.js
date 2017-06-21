@@ -7,7 +7,7 @@ let instances = [];
 class AjaxForm {
 
     /**
-     * Create a new AJAX form.
+     * Create a new AJAX form
      *
      * @param {element} form
      */
@@ -20,7 +20,7 @@ class AjaxForm {
     }
 
     /**
-     * Handle the form submission.
+     * Handle the form submission
      */
     submitForm() {
         this.requestInProgress = true;
@@ -41,7 +41,7 @@ class AjaxForm {
     }
 
     /**
-     * Bind any event listeners to the elements.
+     * Bind any event listeners to the elements
      */
     bindEvents() {
         this.listener = new Delegate(this.form);
@@ -56,7 +56,7 @@ class AjaxForm {
     }
 
     /**
-     * Unbinds the event listeners from the elements.
+     * Unbinds the event listeners from the elements
      */
     unbindEvents() {
         this.listener.destroy();
