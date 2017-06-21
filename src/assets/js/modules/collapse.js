@@ -27,13 +27,6 @@ class Collapse {
     }
 
     /**
-     * Unbinds the event listeners from the elements
-     */
-    unbindEvents() {
-        this.listener.destroy();
-    }
-
-    /**
      * Collapses the element
      *
      * @param {event}
@@ -50,6 +43,13 @@ class Collapse {
         } else {
             show(element, trigger);
         }
+    }
+
+    /**
+     * Unbinds the event listeners from the elements
+     */
+    unbindEvents() {
+        this.listener.destroy();
     }
 
 }
