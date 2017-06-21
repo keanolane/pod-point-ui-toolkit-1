@@ -5393,9 +5393,18 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				return hash && hash.slice( 1 ) === elem.id;
 			},
 	
+<<<<<<< 6be4f1e3332aee5c99ede49087ea3139af7f5c19
 			"root": function( elem ) {
 				return elem === docElem;
 			},
+=======
+	            if ((0, _domOps.hasClass)(this.element, MOBILE_ONLY) && window.isMobileSize || (0, _domOps.hasClass)(this.element, MOBILE_ONLY) != true) {
+	                this.listener.on('click', 'dt', function (event, element) {
+	                    _this.toggleAccordion(event, element);
+	                });
+	            }
+	        }
+>>>>>>> eslint accordion.js
 	
 			"focus": function( elem ) {
 				return elem === document.activeElement && (!document.hasFocus || document.hasFocus()) && !!(elem.type || elem.href || ~elem.tabIndex);
