@@ -1,25 +1,17 @@
+import { select, addClass, removeClass, nodesToArray } from '@pod-point/dom-ops';
 import { Delegate } from 'dom-delegate';
-import { select, addClass, removeClass, nextElement, nodesToArray } from '@pod-point/dom-ops';
-import { isVisible, hide, show } from './../utilities';
-import Sticky from 'sticky-js';
 
 let instances = [];
 
 const NAV_OPEN = 'nav-open';
 const SUBNAV_OPEN = 'sub-nav-open';
-const HEADER_MINFIED = 'is-minified';
 
 let navIsOpen = false;
-let subNavIsOpen = false;
-
-let scrollPos = 0;
-const headerWrap = document.querySelector('.global-header-wrap');
-const stepsIndicator = document.querySelector('#stepsIndicator');
 
 class HeaderNav {
 
     /**
-     * Creates a new header nav element.
+     * Creates a new header nav element
      *
      * @param element
      */
@@ -27,19 +19,18 @@ class HeaderNav {
         this.element = element;
         this.navicon = this.element.querySelector('.navicon');
         this.nav = this.element.querySelector('.global-nav');
-        this.headerWrap = document.querySelector('.global-header-wrap');
         this.navOverlay = document.querySelector('.global-nav-overlay');
 
         this.bindEvents();
     }
 
     /**
-     * Binds the event listeners from the elements.
+     * Binds the event listeners from the elements
      */
     bindEvents() {
         this.naviconListener = new Delegate(this.navicon);
 
-        this.naviconListener.on('click', (event) => {
+        this.naviconListener.on('click', event => {
             this.toggleNav(event);
         });
 
@@ -51,15 +42,15 @@ class HeaderNav {
 
         this.navOverlayListener = new Delegate(this.navOverlay);
 
-        this.navOverlayListener.on('click', (event) => {
+        this.navOverlayListener.on('click', () => {
             this.closeSubNavs();
         });
     }
 
     /**
-     * Toggles the nav.
+     * Toggles the nav
      *
-     * @param {Event} event
+     * @param {event}
      */
     toggleNav(event) {
         event.preventDefault();
@@ -74,10 +65,10 @@ class HeaderNav {
     }
 
     /**
-     * Closes all sub navs.
+     * Closes all sub navs
      */
     closeSubNavs() {
-        var openSubNavs = nodesToArray(select('.has-sub-nav.sub-nav-open'));
+        const openSubNavs = nodesToArray(select('.has-sub-nav.sub-nav-open'));
         if (openSubNavs.length) {
             openSubNavs.forEach(openSubNav => {
                 removeClass(openSubNav, SUBNAV_OPEN);
@@ -87,10 +78,10 @@ class HeaderNav {
     }
 
     /**
-     * Toggles the sub nav.
+     * Toggles the sub nav
      *
-     * @param {Event} event
-     * @param {Element} element
+     * @param {event} the click
+     * @param {element} the clicked element
      */
     toggleSubNav(event, clickedElement) {
         event.preventDefault();
@@ -108,10 +99,11 @@ class HeaderNav {
 
     /**
      * Shows the overlay if it's desktop size
-     * @param {Bool} show overlay
+     *
+     * @param {boolean} show overlay
      */
     showOverlay(showOverlay) {
-        if (isMobileSize) return;
+        if (window.isMobileSize) return;
 
         if (showOverlay) {
             addClass(this.navOverlay, NAV_OPEN);
@@ -123,7 +115,7 @@ class HeaderNav {
     }
 
     /**
-     * Unbinds the event listeners from the elements.
+     * Unbinds the event listeners from the elements
      */
     unbindEvents() {
         this.naviconListener.destroy();
@@ -132,11 +124,12 @@ class HeaderNav {
 }
 
 export default {
-    init: function(element) {
+    init: element => {
         instances.push(new HeaderNav(element));
     },
-    destroy: function() {
-        instances.forEach((instance) => instance.unbindEvents());
+
+    destroy: () => {
+        instances.forEach(instance => instance.unbindEvents());
         instances = [];
-    }
+    },
 };
