@@ -12,12 +12,12 @@ const instances = [];
 class EvMap {
 
     /**
-     * Create a new Map.
+     * Create a new Map
      *
-     * @param element
+     * @param {element}
      */
     constructor(element) {
-        if (window.isTouchDevice || window.isMobileSize) {return};
+        if (window.isTouchDevice || window.isMobileSize) { return; }
 
         mapConfig = {
             mapID: '#gridmap',
@@ -179,7 +179,7 @@ class EvMap {
 }
 
 export default {
-    init(element) {
+    init: element => {
         instances.push(new EvMap(element));
     },
 };
