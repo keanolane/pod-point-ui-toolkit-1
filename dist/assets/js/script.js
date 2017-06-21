@@ -119,34 +119,31 @@
 	
 	var _carousel2 = _interopRequireDefault(_carousel);
 	
-	var _addressLookup = __webpack_require__(48);
-	
-	var _addressLookup2 = _interopRequireDefault(_addressLookup);
-	
-	var _changeContent = __webpack_require__(49);
+	var _changeContent = __webpack_require__(48);
 	
 	var _changeContent2 = _interopRequireDefault(_changeContent);
 	
-	var _checkoutYourPodPoint = __webpack_require__(50);
+	var _checkoutYourPodPoint = __webpack_require__(49);
 	
 	var _checkoutYourPodPoint2 = _interopRequireDefault(_checkoutYourPodPoint);
 	
-	var _claimOlev = __webpack_require__(51);
+	var _claimOlev = __webpack_require__(50);
 	
 	var _claimOlev2 = _interopRequireDefault(_claimOlev);
 	
-	var _claimDealerDiscount = __webpack_require__(52);
+	var _claimDealerDiscount = __webpack_require__(51);
 	
 	var _claimDealerDiscount2 = _interopRequireDefault(_claimDealerDiscount);
 	
-	var _basket = __webpack_require__(53);
+	var _basket = __webpack_require__(52);
 	
 	var _basket2 = _interopRequireDefault(_basket);
 	
-	var _flipCounter = __webpack_require__(54);
+	var _flipCounter = __webpack_require__(53);
 	
 	var _flipCounter2 = _interopRequireDefault(_flipCounter);
 	
+<<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _evMap = __webpack_require__(55);
 =======
@@ -235,8 +232,15 @@
 =======
 	var _evMap = __webpack_require__(56);
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
+=======
+	var _evMap = __webpack_require__(55);
+>>>>>>> eslint most of utilities.js and also docBlocked all export functions
 	
 	var _evMap2 = _interopRequireDefault(_evMap);
+	
+	var _addressLookup = __webpack_require__(60);
+	
+	var addressLookup = _interopRequireWildcard(_addressLookup);
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
@@ -256,9 +260,9 @@
 	__webpack_require__(61);
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
-	window.initAutocomplete = _addressLookup.initAutocomplete;
-	window.geolocate = _addressLookup.geolocate;
-	window.fillInAddress = _addressLookup.fillInAddress;
+	window.initAutocomplete = addressLookup.initAutocomplete;
+	window.geolocate = addressLookup.geolocate;
+	window.fillInAddress = addressLookup.fillInAddress;
 	
 	dom.whenReady(function () {
 	    (0, _moduleLoader2.default)({
@@ -281,6 +285,7 @@
 	            headerNav: _headerNav2.default,
 	            accordion: _accordion2.default,
 	            carousel: _carousel2.default,
+<<<<<<< d3f929474068409ec49d745fce6673139937ae00
 =======
 	            selectDropdown: _selectDropdown2.default,
 	            gallerySimple: _gallerySimple2.default,
@@ -289,6 +294,9 @@
 	            carousel: _Carousel2.default,
 >>>>>>> Removed commented out window resize
 	            addressLookup: _addressLookup2.default,
+=======
+	            addressLookup: addressLookup,
+>>>>>>> eslint most of utilities.js and also docBlocked all export functions
 	            changeContent: _changeContent2.default,
 	            checkoutYourPodPoint: _checkoutYourPodPoint2.default,
 	            claimOlev: _claimOlev2.default,
@@ -300,24 +308,20 @@
 	    });
 	});
 	
-	function debounce(callback, wait) {
-	    var context = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this;
+	// function debounce(callback, wait, context = this) {
+	//     let timeout = null;
+	//     let callbackArgs = null;
+	//     const later = () => callback.apply(context, callbackArgs);
 	
-	    var timeout = null;
-	    var callbackArgs = null;
-	    var later = function later() {
-	        return callback.apply(context, callbackArgs);
-	    };
-	
-	    return function () {
-	        callbackArgs = arguments;
-	        clearTimeout(timeout);
-	        timeout = setTimeout(later, wait);
-	    };
-	}
-	var handleResize = debounce(function (e) {
-	    (0, _moduleLoader2.default)();
-	}, 100);
+	//     return () => {
+	//         callbackArgs = arguments;
+	//         clearTimeout(timeout);
+	//         timeout = setTimeout(later, wait);
+	//     };
+	// }
+	// const handleResize = debounce((e) => {
+	//     loadModules();
+	// }, 100);
 	
 <<<<<<< b6aa93057e48b31de63e5b068ed49b76bea2371f
 	window.addEventListener('resize', handleResize);
@@ -1401,12 +1405,12 @@ var _moduleLoader = require('@pod-point/module-loader');
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.show = show;
 	exports.hide = hide;
-	exports.isVisible = isVisible;
 	exports.isHidden = isHidden;
+	exports.isVisible = isVisible;
 	exports.disableOrEnableButton = disableOrEnableButton;
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 =======
@@ -1439,59 +1443,61 @@ var _moduleLoader = require('@pod-point/module-loader');
 	var IS_OPEN = 'is-open';
 	
 	/**
-	 * Remove hidden class from element, showing it via CSS.
+	 * Remove hidden class from element, showing it via CSS
 	 *
-	 * @param element
+	 * @param {element}
 	 */
 	function show(element) {
-	  element.classList.remove('hidden');
+	    element.classList.remove('hidden');
 	}
 	
 	/**
-	 * Apply hidden class to element, hiding it via CSS.
+	 * Apply hidden class to element, hiding it via CSS
 	 *
-	 * @param element
+	 * @param {element}
 	 */
 	function hide(element) {
-	  element.classList.add('hidden');
+	    element.classList.add('hidden');
 	}
 	
 	/**
-	 * Check if an element is visible (isn't hidden by CSS).
+	 * Check if an element is hidden (by CSS)
 	 *
-	 * @param element
-	 * @returns {boolean}
-	 */
-	function isVisible(element) {
-	  return !isHidden(element);
-	}
-	
-	/**
-	 * Check if an element is hidden (by CSS).
-	 *
-	 * @param element
-	 * @returns {boolean}
+	 * @param {element}
+	 * @returns {boolean} is hidden
 	 */
 	function isHidden(element) {
-	  return element.classList.contains('hidden');
+	    return element.classList.contains('hidden');
 	}
 	
 	/**
-	 * Enable element
+	 * Check if an element is visible (isn't hidden by CSS)
 	 *
-	 * @param element
-	 * @boolean disable
+	 * @param {element}
+	 * @returns {boolean} is visible
 	 */
-	function disableOrEnableButton(element, disable) {
-	  if (disable) {
-	    element.disabled = true;
-	    element.classList.add('is-disabled');
-	  } else {
-	    element.disabled = false;
-	    element.classList.remove('is-disabled');
-	  }
+	function isVisible(element) {
+	    return !isHidden(element);
 	}
 	
+	/**
+	 * Disable or enable button element
+	 *
+	 * @param {element} button
+	 * @param {boolean} disable
+	 */
+	function disableOrEnableButton(element, disable) {
+	    var button = element;
+	    if (disable) {
+	        button.disabled = true;
+	        button.classList.add('is-disabled');
+	    } else {
+	        button.disabled = false;
+	        button.classList.remove('is-disabled');
+	    }
+	}
+	
+<<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 =======
 	/**
@@ -1510,77 +1516,131 @@ var _moduleLoader = require('@pod-point/module-loader');
 	}
 	
 >>>>>>> Removed commented out window resize
+=======
+	/**
+	 * Add item to cookie
+	 *
+	 * @param {string} name of cookie
+	 * @param {obj} value of cookie
+	 */
+>>>>>>> eslint most of utilities.js and also docBlocked all export functions
 	function addItemToCookie(name, value) {
-	  var cookie = [name + '=' + JSON.stringify(value)];
-	  document.cookie = cookie;
+	    var cookie = [name + '=' + JSON.stringify(value)];
+	    document.cookie = cookie;
 	}
 	
+	/**
+	 * Read item from cookie
+	 *
+	 * @param {string} name of cookie
+	 * @returns {obj} result
+	 */
 	function readItemFromCookie(name) {
-	  var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
-	  result && (result = JSON.parse(result[1]));
-	  return result;
+	    var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+	    result && (result = JSON.parse(result[1]));
+	    return result;
 	}
 	
+	/**
+	 * Delete item from cookie
+	 *
+	 * @param {string} name of cookie
+	 */
 	function deleteItemFromCookie(name) {
-	  document.cookie = [name, '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', window.location.host.toString()].join('');
+	    var domain = window.location.host.toString();
+	    var expiry = '01-Jan-1970 00:00:01 GMT';
+	    document.cookie = name + '=; expires=' + expiry + '; path=/; domain=.' + domain;
 	}
 	
+	/**
+	 * Open panel
+	 *
+	 * @param {element} panel
+	 */
 	function openPanel(panel) {
-	  var panelId = panel.getAttribute('id');
-	  var toggleIcon = document.querySelector('[data-toggle-icon="' + panelId + '"]');
+	    var panelId = panel.getAttribute('id');
+	    var toggleIcon = document.querySelector('[data-toggle-icon="' + panelId + '"]');
 	
-	  panel.classList.add(IS_OPEN);
-	  if (toggleIcon) {
-	    toggleIcon.classList.add('rotate');
-	  }
+	    panel.classList.add(IS_OPEN);
+	    if (toggleIcon) {
+	        toggleIcon.classList.add('rotate');
+	    }
 	}
 	
+	/**
+	 * Close panel
+	 *
+	 * @param {element} panel
+	 */
 	function closePanel(panel) {
-	  var panelId = panel.getAttribute('id');
-	  var toggleIcon = document.querySelector('[data-toggle-icon="' + panelId + '"]');
+	    var panelId = panel.getAttribute('id');
+	    var toggleIcon = document.querySelector('[data-toggle-icon="' + panelId + '"]');
 	
-	  panel.classList.remove(IS_OPEN);
-	  if (toggleIcon) {
-	    toggleIcon.classList.remove('rotate');
-	  }
+	    panel.classList.remove(IS_OPEN);
+	    if (toggleIcon) {
+	        toggleIcon.classList.remove('rotate');
+	    }
 	}
 	
+	/**
+	 * All radios selected
+	 *
+	 * @param {nodeList} radio wrap elements
+	 * @return {boolean} all radios have been selected
+	 */
 	function allRadiosSelected(radiosWraps) {
-	  var numberOfRadioGroups = (0, _domOps.nodesToArray)(radiosWraps).length;
-	  var numberOfRadiosSelected = 0;
+	    var numberOfRadioGroups = (0, _domOps.nodesToArray)(radiosWraps).length;
+	    var numberOfRadiosSelected = 0;
 	
-	  radiosWraps.forEach(function (radiosWrap) {
-	    var checkedRadios = (0, _domOps.nodesToArray)(radiosWrap.querySelectorAll('input[type="radio"]:checked'));
-	    if (checkedRadios.length === 1) {
-	      numberOfRadiosSelected += 1;
-	    }
-	  });
-	  return numberOfRadioGroups === numberOfRadiosSelected ? true : false;
+	    radiosWraps.forEach(function (radiosWrap) {
+	        var checkedRadios = (0, _domOps.nodesToArray)(radiosWrap.querySelectorAll('input[type="radio"]:checked'));
+	        if (checkedRadios.length === 1) {
+	            numberOfRadiosSelected += 1;
+	        }
+	    });
+	    return numberOfRadioGroups === numberOfRadiosSelected;
 	}
 	
+	/**
+	 * A radio contains a class
+	 *
+	 * @param {nodeList} radios
+	 * @param {string} the class
+	 * @return {boolean} a radio contains the specified class
+	 */
 	function aRadioContains(radios, specifiedClass) {
-	  var containsClass = false;
-	  radios.forEach(function (radio) {
-	    if (radio.checked) {
-	      if (radio.classList.contains(specifiedClass)) {
-	        containsClass = true;
-	      }
-	    }
-	  });
-	  return containsClass;
+	    var containsClass = false;
+	    radios.forEach(function (radio) {
+	        if (radio.checked) {
+	            if (radio.classList.contains(specifiedClass)) {
+	                containsClass = true;
+	            }
+	        }
+	    });
+	    return containsClass;
 	}
 	
+	/**
+	 * Get random integar
+	 *
+	 * @param {integar} min
+	 * @param {integar} max
+	 * @return {integar} a random integar between the specified min and max
+	 */
 	function getRandomInt(min, max) {
-	  return Math.floor(Math.random() * (max - min + 1)) + min;
+	    return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 	
+	/**
+	 * Round number to
+	 *
+	 * @param {integar} number
+	 * @param {integar} number to round to
+	 * @return {integar} a number rounded to the specified number
+	 */
 	function roundNumberTo(num, roundTo) {
-	  var resto = num % roundTo;
-	  if (resto <= roundTo / 2) {
-	    return num - resto;
-	  } else {
-	    return num + roundTo - resto;
-	  }
+	    var resto = num % roundTo;
+	    return resto <= roundTo / 2 ? num - resto : num + roundTo - resto;
 	}
 <<<<<<< 0da66f174c10f9ab3e8fc4390591be2a710aba44
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
@@ -1589,12 +1649,12 @@ var _moduleLoader = require('@pod-point/module-loader');
 	/**
 	 * Load or destroy video by replacing the src from the data-src
 	 *
-	 * @param element
-	 * @param bool
+	 * @param {element} video
+	 * @param {boolean} load video
 	 */
 	function loadVideo(videoEl, load) {
-	  var videoSrc = videoEl.getAttribute('data-src');
-	  load ? videoEl.setAttribute('src', videoSrc) : videoEl.setAttribute('src', '');
+	    var videoSrc = videoEl.getAttribute('data-src');
+	    load ? videoEl.setAttribute('src', videoSrc) : videoEl.setAttribute('src', '');
 	}
 >>>>>>> Added responsive video to modal, which loads and destroys on modal open and close
 
@@ -49864,6 +49924,7 @@ window.addEventListener('resize', handleResize);
 
 	'use strict';
 	
+<<<<<<< d3f929474068409ec49d745fce6673139937ae00
 	var _utilities = __webpack_require__(9);
 	
 	'use strict';
@@ -49958,6 +50019,8 @@ window.addEventListener('resize', handleResize);
 
 	'use strict';
 	
+=======
+>>>>>>> eslint most of utilities.js and also docBlocked all export functions
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
@@ -50070,7 +50133,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -50235,7 +50298,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -50440,11 +50503,15 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
+<<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 37 */
 =======
 /* 52 */
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
+=======
+/* 51 */
+>>>>>>> eslint most of utilities.js and also docBlocked all export functions
 /***/ (function(module, exports, __webpack_require__) {
 =======
 /***/ },
@@ -50613,7 +50680,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -51006,7 +51073,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -51018,6 +51085,7 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
+<<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 <<<<<<< 54723efc59b515519b84a71dd015220457fd5b9c
 	var _inlineSvg = __webpack_require__(40);
@@ -51088,6 +51156,9 @@ window.addEventListener('resize', handleResize);
 =======
 	var _tick = __webpack_require__(55);
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
+=======
+	var _tick = __webpack_require__(54);
+>>>>>>> eslint most of utilities.js and also docBlocked all export functions
 	
 	var _tick2 = _interopRequireDefault(_tick);
 	
@@ -51179,7 +51250,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports) {
 >>>>>>> Fixing header/nav issues
 
@@ -53004,11 +53075,15 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
+<<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 43 */
 =======
 /* 56 */
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
+=======
+/* 55 */
+>>>>>>> eslint most of utilities.js and also docBlocked all export functions
 /***/ (function(module, exports, __webpack_require__) {
 =======
 /***/ },
@@ -53029,6 +53104,7 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint class-methods-use-this: ["error", { "exceptMethods": ["ready"] }] */
 	
+<<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _d = __webpack_require__(44);
 	
@@ -53042,11 +53118,19 @@ window.addEventListener('resize', handleResize);
 	
 	var _topojson = __webpack_require__(58);
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
+=======
+	var _d = __webpack_require__(56);
+	
+	var d3 = _interopRequireWildcard(_d);
+	
+	var _topojson = __webpack_require__(57);
+>>>>>>> eslint most of utilities.js and also docBlocked all export functions
 	
 	var topojson = _interopRequireWildcard(_topojson);
 	
 	var _utilities = __webpack_require__(9);
 	
+<<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _chargeData = __webpack_require__(46);
 	
@@ -53060,6 +53144,13 @@ window.addEventListener('resize', handleResize);
 	
 	var _gridmap = __webpack_require__(60);
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
+=======
+	var _chargeData = __webpack_require__(58);
+	
+	var _chargeData2 = _interopRequireDefault(_chargeData);
+	
+	var _gridmap = __webpack_require__(59);
+>>>>>>> eslint most of utilities.js and also docBlocked all export functions
 	
 	var _gridmap2 = _interopRequireDefault(_gridmap);
 	
@@ -53271,7 +53362,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -70159,7 +70250,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -71963,7 +72054,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports) {
 >>>>>>> Fixing header/nav issues
 
@@ -71989,7 +72080,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -72000,11 +72091,15 @@ window.addEventListener('resize', handleResize);
 	});
 	exports.default = gridmap;
 	
+<<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _d = __webpack_require__(44);
 =======
 	var _d = __webpack_require__(57);
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
+=======
+	var _d = __webpack_require__(56);
+>>>>>>> eslint most of utilities.js and also docBlocked all export functions
 	
 	var d3 = _interopRequireWildcard(_d);
 	
@@ -72293,6 +72388,84 @@ window.addEventListener('resize', handleResize);
 /***/ function(module, exports) {
 >>>>>>> Fixed lots of layout bugs in QA
 =======
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _utilities = __webpack_require__(9);
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.initAutocomplete = initAutocomplete;
+	exports.fillInAddress = fillInAddress;
+	exports.geolocate = geolocate;
+	
+	var placeSearch, autocomplete;
+	var componentForm = {
+	    street_number: 'short_name',
+	    route: 'long_name',
+	    locality: 'long_name',
+	    administrative_area_level_1: 'short_name',
+	    country: 'long_name',
+	    postal_code: 'short_name'
+	};
+	
+	function initAutocomplete() {
+	    // Create the autocomplete object, restricting the search to geographical
+	    // location types.
+	    autocomplete = new google.maps.places.Autocomplete(
+	    /** @type {!HTMLInputElement} */document.getElementById('autocomplete'), { types: ['geocode'] });
+	
+	    // When the user selects an address from the dropdown, populate the address
+	    // fields in the form.
+	    autocomplete.addListener('place_changed', fillInAddress);
+	};
+	
+	function fillInAddress() {
+	    // Get the place details from the autocomplete object.
+	    var place = autocomplete.getPlace();
+	
+	    for (var component in componentForm) {
+	        document.getElementById(component).value = '';
+	        document.getElementById(component).disabled = false;
+	    }
+	
+	    // Get each component of the address from the place details
+	    // and fill the corresponding field on the form.
+	    for (var i = 0; i < place.address_components.length; i++) {
+	        var addressType = place.address_components[i].types[0];
+	        if (componentForm[addressType]) {
+	            var val = place.address_components[i][componentForm[addressType]];
+	            document.getElementById(addressType).value = val;
+	        }
+	    }
+	
+	    (0, _utilities.openPanel)(document.querySelector('#address'));
+	};
+	
+	// Bias the autocomplete object to the user's geographical location,
+	// as supplied by the browser's 'navigator.geolocation' object.
+	function geolocate() {
+	    if (navigator.geolocation) {
+	        navigator.geolocation.getCurrentPosition(function (position) {
+	            var geolocation = {
+	                lat: position.coords.latitude,
+	                lng: position.coords.longitude
+	            };
+	            var circle = new google.maps.Circle({
+	                center: geolocation,
+	                radius: position.coords.accuracy
+	            });
+	            autocomplete.setBounds(circle.getBounds());
+	        });
+	    }
+	};
+
 /***/ }),
 /* 61 */
 /***/ (function(module, exports) {
