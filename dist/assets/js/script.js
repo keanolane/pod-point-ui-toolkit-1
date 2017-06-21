@@ -4141,19 +4141,20 @@
 	var Accordion = function () {
 	
 	    /**
-	     * Creates a new accordion element.
+	     * Creates a new accordion element
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function Accordion(element) {
 	        _classCallCheck(this, Accordion);
 	
 	        this.element = element;
+	        this.accordionIsMobileOnly = (0, _domOps.hasClass)(this.element, MOBILE_ONLY);
 	        this.bindEvents();
 	    }
 	
 	    /**
-	     * Binds the event listeners from the elements.
+	     * Binds the event listeners from the elements
 	     */
 	
 	
@@ -4164,15 +4165,15 @@
 	
 	            this.listener = new _domDelegate.Delegate(this.element);
 	
-	            if ((0, _domOps.hasClass)(this.element, MOBILE_ONLY) && window.isMobileSize || (0, _domOps.hasClass)(this.element, MOBILE_ONLY) != true) {
+	            if (this.accordionIsMobileOnly && window.isMobileSize || this.accordionIsMobileOnly !== true) {
 	                this.listener.on('click', 'dt', function (event, element) {
-	                    _this.toggleAccordion(event, element);
+	                    _this.toggleAccordion(element);
 	                });
 	            }
 	        }
 	
 	        /**
-	         * Unbinds the event listeners from the elements.
+	         * Unbinds the event listeners from the elements
 	         */
 	
 	    }, {
@@ -4184,13 +4185,12 @@
 	        /**
 	         * Toggles the accordion.
 	         *
-	         * @param {Event} event
-	         * @param {Element} element
+	         * @param {element} element to toggle
 	         */
 	
 	    }, {
 	        key: 'toggleAccordion',
-	        value: function toggleAccordion(event, element) {
+	        value: function toggleAccordion(element) {
 	            if ((0, _domOps.hasClass)(element, IS_OPEN)) {
 	                (0, _domOps.removeClass)(element, IS_OPEN);
 	            } else {
@@ -31002,18 +31002,17 @@
 
 	'use strict';
 	
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+	
 	var _utilities = __webpack_require__(9);
 	
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
+	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
-	exports.initAutocomplete = initAutocomplete;
-	exports.fillInAddress = fillInAddress;
-	exports.geolocate = geolocate;
 	
-	var placeSearch, autocomplete;
+	var autocomplete = void 0;
 	var componentForm = {
 	    street_number: 'short_name',
 	    route: 'long_name',
@@ -31023,7 +31022,52 @@
 	    postal_code: 'short_name'
 	};
 	
-	function initAutocomplete() {
+	var fillInAddress = function fillInAddress() {
+	    // Get the place details from the autocomplete object.
+	    var place = autocomplete.getPlace();
+	
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+	
+	    try {
+	        for (var _iterator = Object.entries(componentForm)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	            var _step$value = _slicedToArray(_step.value, 1),
+	                key = _step$value[0];
+	
+	            document.getElementById(key).value = '';
+	            document.getElementById(key).disabled = false;
+	        }
+	
+	        // Get each component of the address from the place details
+	        // and fill the corresponding field on the form.
+	    } catch (err) {
+	        _didIteratorError = true;
+	        _iteratorError = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion && _iterator.return) {
+	                _iterator.return();
+	            }
+	        } finally {
+	            if (_didIteratorError) {
+	                throw _iteratorError;
+	            }
+	        }
+	    }
+	
+	    place.address_components.forEach(function (value) {
+	        var addressType = value.types[0];
+	        if (componentForm[addressType]) {
+	            var val = value[componentForm[addressType]];
+	            document.getElementById(addressType).value = val;
+	        }
+	    });
+	
+	    (0, _utilities.openPanel)(document.querySelector('#address'));
+	};
+	
+	var initAutocomplete = function initAutocomplete() {
 	    // Create the autocomplete object, restricting the search to geographical
 	    // location types.
 	    autocomplete = new google.maps.places.Autocomplete(
@@ -31034,31 +31078,9 @@
 	    autocomplete.addListener('place_changed', fillInAddress);
 	};
 	
-	function fillInAddress() {
-	    // Get the place details from the autocomplete object.
-	    var place = autocomplete.getPlace();
-	
-	    for (var component in componentForm) {
-	        document.getElementById(component).value = '';
-	        document.getElementById(component).disabled = false;
-	    }
-	
-	    // Get each component of the address from the place details
-	    // and fill the corresponding field on the form.
-	    for (var i = 0; i < place.address_components.length; i++) {
-	        var addressType = place.address_components[i].types[0];
-	        if (componentForm[addressType]) {
-	            var val = place.address_components[i][componentForm[addressType]];
-	            document.getElementById(addressType).value = val;
-	        }
-	    }
-	
-	    (0, _utilities.openPanel)(document.querySelector('#address'));
-	};
-	
 	// Bias the autocomplete object to the user's geographical location,
 	// as supplied by the browser's 'navigator.geolocation' object.
-	function geolocate() {
+	var geolocate = function geolocate() {
 	    if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(function (position) {
 	            var geolocation = {
@@ -31073,6 +31095,10 @@
 	        });
 	    }
 	};
+	
+	exports.initAutocomplete = initAutocomplete;
+	exports.fillInAddress = fillInAddress;
+	exports.geolocate = geolocate;
 
 /***/ }),
 /* 61 */
