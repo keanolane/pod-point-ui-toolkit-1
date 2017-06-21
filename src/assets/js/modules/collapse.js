@@ -6,18 +6,17 @@ let instances = [];
 class Collapse {
 
     /**
-     * Creates a new collapsible element.
+     * Creates a new collapsible element
      *
-     * @param element
+     * @param {element}
      */
     constructor(element) {
         this.element = element;
-
         this.bindEvents();
     }
 
     /**
-     * Bind any event listeners to the elements.
+     * Bind any event listeners to the elements
      */
     bindEvents() {
         this.listener = new Delegate(this.element);
@@ -28,7 +27,7 @@ class Collapse {
     }
 
     /**
-     * Unbinds the event listeners from the elements.
+     * Unbinds the event listeners from the elements
      */
     unbindEvents() {
         this.listener.destroy();
@@ -36,14 +35,15 @@ class Collapse {
 
     /**
      * Collapses the element
-     * @param {Event} event
-     * @param {Element} trigger
+     *
+     * @param {event}
+     * @param {element} trigger
      */
-    doCollapse(event, trigger) {
+    static doCollapse(event, trigger) {
         event.preventDefault();
 
-        let target = trigger.getAttribute('data-target');
-        let element = trigger.parentNode.querySelector(target);
+        const target = trigger.getAttribute('data-target');
+        const element = trigger.parentNode.querySelector(target);
 
         if (isVisible(element)) {
             hide(element, trigger);
@@ -55,12 +55,12 @@ class Collapse {
 }
 
 export default {
-    init: function(element) {
+    init: element => {
         instances.push(new Collapse(element));
     },
 
-    destroy: function() {
-        instances.forEach((instance) => instance.unbindEvents());
+    destroy: () => {
+        instances.forEach(instance => instance.unbindEvents());
         instances = [];
-    }
+    },
 };
