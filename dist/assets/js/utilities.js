@@ -97,7 +97,7 @@ function addItemToCookie(name, value) {
  */
 function readItemFromCookie(name) {
     var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
-    result && (result = JSON.parse(result[1]));
+    if (result) result = JSON.parse(result[1]);
     return result;
 }
 
@@ -211,5 +211,10 @@ function roundNumberTo(num, roundTo) {
  */
 function loadVideo(videoEl, load) {
     var videoSrc = videoEl.getAttribute('data-src');
-    load ? videoEl.setAttribute('src', videoSrc) : videoEl.setAttribute('src', '');
+
+    if (load) {
+        videoEl.setAttribute('src', videoSrc);
+    } else {
+        videoEl.setAttribute('src', '');
+    }
 }

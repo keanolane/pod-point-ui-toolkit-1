@@ -1,7 +1,9 @@
 import { Delegate } from 'dom-delegate';
-import { isVisible, show, hide, loadVideo, addClass, removeClass } from './../utilities';
+import { addClass, removeClass } from '@pod-point/dom-ops';
+import { isVisible, show, hide, loadVideo } from './../utilities';
 
 let instances = [];
+const MODAL_OPEN = 'is-modal-open';
 
 class Modal {
 
@@ -73,7 +75,7 @@ class Modal {
      * Handle the modal opening
      */
     openModal() {
-        addClass(document.documentElement, 'is-modal-open');
+        addClass(document.documentElement, MODAL_OPEN);
         show(this.modal);
 
         if (this.video) { loadVideo(this.video, true); }
@@ -87,7 +89,7 @@ class Modal {
      * Handle the modal closing
      */
     closeModal() {
-        removeClass(document.documentElement, 'is-modal-open');
+        removeClass(document.documentElement, MODAL_OPEN);
         hide(this.modal);
 
         if (this.video) { loadVideo(this.video, false); }

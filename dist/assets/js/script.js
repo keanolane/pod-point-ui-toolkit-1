@@ -80,63 +80,43 @@
 	
 	var _dropdown2 = _interopRequireDefault(_dropdown);
 	
-	var _toggle = __webpack_require__(21);
-	
-	var _toggle2 = _interopRequireDefault(_toggle);
-	
-	var _toggleAccordionPanel = __webpack_require__(22);
+	var _toggleAccordionPanel = __webpack_require__(21);
 	
 	var _toggleAccordionPanel2 = _interopRequireDefault(_toggleAccordionPanel);
 	
-	var _toggleElement = __webpack_require__(23);
+	var _toggleElement = __webpack_require__(22);
 	
 	var _toggleElement2 = _interopRequireDefault(_toggleElement);
 	
-	var _gallerySimple = __webpack_require__(24);
+	var _gallerySimple = __webpack_require__(23);
 	
 	var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
 	
-	var _accordion = __webpack_require__(25);
+	var _accordion = __webpack_require__(24);
 	
 	var _accordion2 = _interopRequireDefault(_accordion);
 	
-	var _headerNav = __webpack_require__(26);
+	var _headerNav = __webpack_require__(25);
 	
 	var _headerNav2 = _interopRequireDefault(_headerNav);
 	
-	var _carousel = __webpack_require__(29);
+	var _carousel = __webpack_require__(26);
 	
 	var _carousel2 = _interopRequireDefault(_carousel);
 	
-	var _changeContent = __webpack_require__(48);
+	var _changeContent = __webpack_require__(45);
 	
 	var _changeContent2 = _interopRequireDefault(_changeContent);
 	
-	var _checkoutYourPodPoint = __webpack_require__(49);
-	
-	var _checkoutYourPodPoint2 = _interopRequireDefault(_checkoutYourPodPoint);
-	
-	var _claimOlev = __webpack_require__(50);
-	
-	var _claimOlev2 = _interopRequireDefault(_claimOlev);
-	
-	var _claimDealerDiscount = __webpack_require__(51);
-	
-	var _claimDealerDiscount2 = _interopRequireDefault(_claimDealerDiscount);
-	
-	var _basket = __webpack_require__(52);
-	
-	var _basket2 = _interopRequireDefault(_basket);
-	
-	var _flipCounter = __webpack_require__(53);
+	var _flipCounter = __webpack_require__(46);
 	
 	var _flipCounter2 = _interopRequireDefault(_flipCounter);
 	
-	var _evMap = __webpack_require__(55);
+	var _evMap = __webpack_require__(48);
 	
 	var _evMap2 = _interopRequireDefault(_evMap);
 	
-	var _addressLookup = __webpack_require__(60);
+	var _addressLookup = __webpack_require__(53);
 	
 	var addressLookup = _interopRequireWildcard(_addressLookup);
 	
@@ -144,7 +124,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(61);
+	__webpack_require__(54);
 	
 	window.initAutocomplete = addressLookup.initAutocomplete;
 	window.geolocate = addressLookup.geolocate;
@@ -158,7 +138,6 @@
 	            ajaxForm: _ajaxForm2.default,
 	            collapse: _collapse2.default,
 	            dropdown: _dropdown2.default,
-	            toggle: _toggle2.default,
 	            toggleAccordionPanel: _toggleAccordionPanel2.default,
 	            toggleElement: _toggleElement2.default,
 	            gallerySimple: _gallerySimple2.default,
@@ -167,10 +146,6 @@
 	            carousel: _carousel2.default,
 	            addressLookup: addressLookup,
 	            changeContent: _changeContent2.default,
-	            checkoutYourPodPoint: _checkoutYourPodPoint2.default,
-	            claimOlev: _claimOlev2.default,
-	            claimDealerDiscount: _claimDealerDiscount2.default,
-	            basket: _basket2.default,
 	            flipCounter: _flipCounter2.default,
 	            evMap: _evMap2.default
 	        })
@@ -585,12 +560,12 @@
 	var _domOps = __webpack_require__(4);
 	
 	var defineSizeAndDevice = function defineSizeAndDevice() {
-	    window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
+	    window.isTouchDevice = 'ontouchstart' in document.documentElement;
 	    var winWidthMedium = 800;
 	    var winWidth = window.innerWidth;
-	    window.isMobileSize = winWidth < winWidthMedium ? true : false;
+	    window.isMobileSize = winWidth < winWidthMedium;
 	    window.onload = function () {
-	        isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
+	        window.isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
 	    };
 	};
 	
@@ -617,27 +592,29 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
+	var MODAL_OPEN = 'is-modal-open';
 	
 	var Modal = function () {
 	
 	    /**
-	     * Creates a new modal window.
+	     * Creates a new modal window
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function Modal(element) {
 	        _classCallCheck(this, Modal);
 	
 	        this.openButton = element;
-	        this.modal = (0, _domOps.selectFirst)('#' + this.openButton.getAttribute('data-modal'));
-	        this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
+	        var modalID = this.openButton.getAttribute('data-modal');
+	        this.modal = document.querySelector('#' + modalID);
+	        this.closeButton = this.modal.querySelector('.modal-close');
 	        this.video = this.modal.querySelector('.video-wrapper iframe');
 	
 	        this.bindEvents();
 	    }
 	
 	    /**
-	     * Binds the event listeners from the elements.
+	     * Binds the event listeners from the elements
 	     */
 	
 	
@@ -648,7 +625,7 @@
 	
 	            this.openListener = new _domDelegate.Delegate(this.openButton);
 	
-	            this.openListener.on('click', function (event) {
+	            this.openListener.on('click', function () {
 	                _this.openModal();
 	            });
 	
@@ -677,22 +654,9 @@
 	        }
 	
 	        /**
-	         * Unbinds the event listeners from the elements.
-	         */
-	
-	    }, {
-	        key: 'unbindEvents',
-	        value: function unbindEvents() {
-	            this.openListener.destroy();
-	            this.closeListener.destroy();
-	            this.overlayListener.destroy();
-	            this.windowListener.destroy();
-	        }
-	
-	        /**
-	         * Handle the modal opening.
+	         * Handle the modal opening
 	         *
-	         * @param {Event} event
+	         * @param {event}
 	         */
 	
 	    }, {
@@ -708,19 +672,18 @@
 	        }
 	
 	        /**
-	         * Handle the modal opening.
+	         * Handle the modal opening
 	         */
 	
 	    }, {
 	        key: 'openModal',
 	        value: function openModal() {
-	            document.documentElement.classList.add('is-modal-open');
-	
+	            (0, _domOps.addClass)(document.documentElement, MODAL_OPEN);
 	            (0, _utilities.show)(this.modal);
 	
 	            if (this.video) {
 	                (0, _utilities.loadVideo)(this.video, true);
-	            };
+	            }
 	
 	            var overlay = document.createElement('div');
 	            overlay.className = 'modal-overlay';
@@ -728,25 +691,36 @@
 	        }
 	
 	        /**
-	         * Handle the modal closing.
+	         * Handle the modal closing
 	         */
 	
 	    }, {
 	        key: 'closeModal',
 	        value: function closeModal() {
-	            document.documentElement.classList.remove('is-modal-open');
-	
+	            (0, _domOps.removeClass)(document.documentElement, MODAL_OPEN);
 	            (0, _utilities.hide)(this.modal);
 	
 	            if (this.video) {
 	                (0, _utilities.loadVideo)(this.video, false);
-	            };
+	            }
 	
-	            var overlay = (0, _domOps.selectFirst)('.modal-overlay');
-	
+	            var overlay = document.querySelector('.modal-overlay');
 	            if (overlay !== null) {
 	                document.body.removeChild(overlay);
 	            }
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.openListener.destroy();
+	            this.closeListener.destroy();
+	            this.overlayListener.destroy();
+	            this.windowListener.destroy();
 	        }
 	    }]);
 	
@@ -1329,7 +1303,7 @@
 	 */
 	function readItemFromCookie(name) {
 	    var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
-	    result && (result = JSON.parse(result[1]));
+	    if (result) result = JSON.parse(result[1]);
 	    return result;
 	}
 	
@@ -1443,7 +1417,12 @@
 	 */
 	function loadVideo(videoEl, load) {
 	    var videoSrc = videoEl.getAttribute('data-src');
-	    load ? videoEl.setAttribute('src', videoSrc) : videoEl.setAttribute('src', '');
+	
+	    if (load) {
+	        videoEl.setAttribute('src', videoSrc);
+	    } else {
+	        videoEl.setAttribute('src', '');
+	    }
 	}
 
 /***/ }),
@@ -3092,9 +3071,9 @@
 	var ProgressButton = function () {
 	
 	    /**
-	     * Create a new progress button.
+	     * Create a new progress button
 	     *
-	     * @param button
+	     * @param {element} button
 	     */
 	    function ProgressButton(button) {
 	        _classCallCheck(this, ProgressButton);
@@ -3103,7 +3082,7 @@
 	    }
 	
 	    /**
-	     * Handle the button in a loading state.
+	     * Handle the button in a loading state
 	     */
 	
 	
@@ -3115,9 +3094,9 @@
 	        }
 	
 	        /**
-	         * Handle the button on success.
+	         * Handle the button on success
 	         *
-	         * @param success
+	         * @param {boolean} success
 	         */
 	
 	    }, {
@@ -3189,8 +3168,8 @@
 	    }, {
 	        key: 'checkForContent',
 	        value: function checkForContent(element) {
-	            var container = this.getInputContainer(element),
-	                callback = element.value ? _domOps.addClass : _domOps.removeClass;
+	            var container = this.getInputContainer(element);
+	            var callback = element.value ? _domOps.addClass : _domOps.removeClass;
 	
 	            callback(container, HAS_CONTENT);
 	        }
@@ -3227,9 +3206,10 @@
 	
 	            listener.on('input', 'textarea', function (event, element) {
 	                var scrollHeight = element.scrollHeight;
+	                var formEl = element;
 	
-	                if (scrollHeight > parseInt(window.getComputedStyle(element, null).height)) {
-	                    element.style.height = scrollHeight + 'px';
+	                if (scrollHeight > parseInt(window.getComputedStyle(formEl, null).height, 0)) {
+	                    formEl.style.height = scrollHeight + 'px';
 	                }
 	            });
 	        }
@@ -3282,20 +3262,19 @@
 	var Collapse = function () {
 	
 	    /**
-	     * Creates a new collapsible element.
+	     * Creates a new collapsible element
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function Collapse(element) {
 	        _classCallCheck(this, Collapse);
 	
 	        this.element = element;
-	
 	        this.bindEvents();
 	    }
 	
 	    /**
-	     * Bind any event listeners to the elements.
+	     * Bind any event listeners to the elements
 	     */
 	
 	
@@ -3312,22 +3291,23 @@
 	        }
 	
 	        /**
-	         * Unbinds the event listeners from the elements.
+	         * Collapses the element
+	         *
+	         * @param {event}
+	         * @param {element} trigger
 	         */
 	
 	    }, {
 	        key: 'unbindEvents',
+	
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
 	        value: function unbindEvents() {
 	            this.listener.destroy();
 	        }
-	
-	        /**
-	         * Collapses the element
-	         * @param {Event} event
-	         * @param {Element} trigger
-	         */
-	
-	    }, {
+	    }], [{
 	        key: 'doCollapse',
 	        value: function doCollapse(event, trigger) {
 	            event.preventDefault();
@@ -3380,20 +3360,19 @@
 	var DropDown = function () {
 	
 	    /**
-	     * Creates a new drop down element.
+	     * Creates a new drop down element
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function DropDown(element) {
 	        _classCallCheck(this, DropDown);
 	
 	        this.element = element;
-	
 	        this.bindEvents();
 	    }
 	
 	    /**
-	     * Bind any event listeners to the elements.
+	     * Bind any event listeners to the elements
 	     */
 	
 	
@@ -3406,43 +3385,41 @@
 	
 	            this.listener.on('click', function (event, input) {
 	                event.preventDefault();
-	
 	                _this.doDropDown(input);
 	            });
 	
 	            this.listener.on('blur', function (event, input) {
 	                event.preventDefault();
-	
 	                _this.closeDropDown(input);
 	            });
 	        }
 	
 	        /**
-	         * Unbinds the event listeners from the elements.
+	         * Handle drop down opening
+	         *
+	         * @param {element} input
 	         */
 	
 	    }, {
 	        key: 'unbindEvents',
+	
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
 	        value: function unbindEvents() {
 	            this.listener.destroy();
 	        }
-	
-	        /**
-	         * Handle drop down opening.
-	         *
-	         * @param {Element} input
-	         */
-	
-	    }, {
+	    }], [{
 	        key: 'doDropDown',
 	        value: function doDropDown(input) {
 	            input.parentElement.classList.toggle('open');
 	        }
 	
 	        /**
-	         * Handle drop down closing.
+	         * Handle drop down closing
 	         *
-	         * @param {Element} input
+	         * @param {element} input
 	         */
 	
 	    }, {
@@ -3494,173 +3471,45 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
-	
-	var LOCAL_KEY = 'toggle-state-';
-	var HIDDEN = 'hidden';
-	var VISIBLE = 'visible';
-	
-	var Toggle = function () {
-	
-	    /**
-	     * Creates a new toggle element.
-	     *
-	     * @param element
-	     */
-	    function Toggle(element) {
-	        _classCallCheck(this, Toggle);
-	
-	        this.element = element;
-	        this.action = element.dataset.hasOwnProperty('action') ? element.dataset.action : 'click';
-	
-	        this.shouldHide = element.getAttribute('data-hide');
-	        this.shouldShow = element.getAttribute('data-show') ? element.dataset.show : null;
-	
-	        this.storageKey = null;
-	
-	        if (element.getAttribute('data-persist')) {
-	            this.storageKey = LOCAL_KEY + element.getAttribute('id');
-	
-	            this.initialVisibility = localStorage.getItem(this.storageKey);
-	
-	            if (this.initialVisibility === HIDDEN) {
-	                (0, _utilities.hide)((0, _domOps.selectFirst)(this.shouldHide));
-	            } else {
-	                (0, _utilities.show)((0, _domOps.selectFirst)(this.shouldHide));
-	            }
-	        }
-	
-	        this.bindEvents();
-	    }
-	
-	    /**
-	     * Binds the event listeners from the elements.
-	     */
-	
-	
-	    _createClass(Toggle, [{
-	        key: 'bindEvents',
-	        value: function bindEvents() {
-	            var _this = this;
-	
-	            this.listener = new _domDelegate.Delegate(this.element);
-	
-	            this.listener.on(this.action, function (event) {
-	                _this.doToggle(event);
-	            });
-	        }
-	
-	        /**
-	         * Unbinds the event listeners from the elements.
-	         */
-	
-	    }, {
-	        key: 'unbindEvents',
-	        value: function unbindEvents() {
-	            this.listener.destroy();
-	        }
-	
-	        /**
-	         * Toggles the elements.
-	         *
-	         * @param {Event} event
-	         */
-	
-	    }, {
-	        key: 'doToggle',
-	        value: function doToggle(event) {
-	            event.preventDefault();
-	
-	            var hideElement = this.shouldHide ? (0, _domOps.selectFirst)(this.shouldHide) : null;
-	            var showElement = this.shouldShow ? (0, _domOps.selectFirst)(this.shouldShow) : null;
-	
-	            if (this.storageKey) {
-	                localStorage.setItem(this.storageKey, (0, _utilities.isVisible)(hideElement) ? HIDDEN : VISIBLE);
-	            }
-	
-	            if (this.shouldShow) {
-	                if ((0, _utilities.isVisible)(showElement)) {
-	                    (0, _utilities.hide)(showElement);
-	                } else {
-	                    (0, _utilities.show)(showElement);
-	                }
-	            }
-	
-	            if (this.shouldHide) {
-	                if ((0, _utilities.isVisible)(hideElement)) {
-	                    (0, _utilities.hide)(hideElement);
-	                } else {
-	                    (0, _utilities.show)(hideElement);
-	                }
-	            }
-	        }
-	    }]);
-	
-	    return Toggle;
-	}();
-	
-	exports.default = {
-	    init: function init(element) {
-	        instances.push(new Toggle(element));
-	    },
-	
-	    destroy: function destroy() {
-	        instances.forEach(function (instance) {
-	            return instance.unbindEvents();
-	        });
-	        instances = [];
-	    }
-	};
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _domDelegate = __webpack_require__(7);
-	
-	var _domOps = __webpack_require__(4);
-	
-	var _utilities = __webpack_require__(9);
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var instances = [];
 	var IS_OPEN = 'is-open';
 	
 	var ToggleAccordionPanel = function () {
 	
 	    /**
-	     * Creates a new toggle panel.
+	     * Creates a new toggle panel
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function ToggleAccordionPanel(element) {
 	        _classCallCheck(this, ToggleAccordionPanel);
 	
+	        // Selectors
+	        var toggleIconSelector = '[data-toggle-icon="' + this.panelId + '"]';
+	        var toggleButtonsSelector = '[data-toggle-panel="' + this.panelId + '"]';
+	        var openButtonsSelector = '[data-open-panel="' + this.panelId + '"]';
+	        var closeButtonsSelector = '[data-close-panel="' + this.panelId + '"]';
+	        var radioOpenButtonsSelector = '[data-radio-open-panel="' + this.panelId + '"]';
+	        var radioCloseButtonsSelector = '[data-radio-close-panel="' + this.panelId + '"]';
+	        var inputOpenButtonsSelector = '[data-input-open-panel="' + this.panelId + '"]';
+	        var selectToggleButtonsSelector = '[data-select-toggle-panel="' + this.panelId + '"]';
+	
 	        this.panel = element;
 	        this.panelId = element.getAttribute('id');
-	        this.toggleIcon = document.querySelector('[data-toggle-icon="' + this.panelId + '"]');
-	        this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-toggle-panel="' + this.panelId + '"]')) || [];
-	        this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-open-panel="' + this.panelId + '"]')) || [];
-	        this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-close-panel="' + this.panelId + '"]')) || [];
-	        this.radioOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-radio-open-panel="' + this.panelId + '"]')) || [];
-	        this.radioCloseButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-radio-close-panel="' + this.panelId + '"]')) || [];
-	        this.inputOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-input-open-panel="' + this.panelId + '"]')) || [];
+	        this.toggleIcon = document.querySelector(toggleIconSelector);
+	        this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(toggleButtonsSelector)) || [];
+	        this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(openButtonsSelector)) || [];
+	        this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(closeButtonsSelector)) || [];
+	        this.radioOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(radioOpenButtonsSelector)) || [];
+	        this.radioCloseButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(radioCloseButtonsSelector)) || [];
+	        this.inputOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(inputOpenButtonsSelector)) || [];
 	
-	        this.selectToggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-select-toggle-panel="' + this.panelId + '"]')) || [];
+	        this.selectToggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(selectToggleButtonsSelector)) || [];
 	
 	        this.bindEvents();
 	    }
 	
 	    /**
-	     * Binds the event listeners from the elements.
+	     * Binds the event listeners from the elements
 	     */
 	
 	
@@ -3745,7 +3594,23 @@
 	        }
 	
 	        /**
-	         * Unbinds the event listeners from the elements.
+	         * Toggle panel depending if already open or not
+	         */
+	
+	    }, {
+	        key: 'togglePanel',
+	        value: function togglePanel() {
+	            var panelIsVisible = (0, _domOps.hasClass)(this.panel, IS_OPEN);
+	
+	            if (panelIsVisible) {
+	                (0, _utilities.closePanel)(this.panel);
+	            } else {
+	                (0, _utilities.openPanel)(this.panel);
+	            }
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements
 	         */
 	
 	    }, {
@@ -3770,22 +3635,6 @@
 	                return inputOpenListener.destroy();
 	            });
 	        }
-	
-	        /**
-	         * Toggle panel depending if already open or not.
-	         */
-	
-	    }, {
-	        key: 'togglePanel',
-	        value: function togglePanel() {
-	            var panelIsVisible = (0, _domOps.hasClass)(this.panel, IS_OPEN);
-	
-	            if (panelIsVisible) {
-	                (0, _utilities.closePanel)(this.panel);
-	            } else {
-	                (0, _utilities.openPanel)(this.panel);
-	            }
-	        }
 	    }]);
 	
 	    return ToggleAccordionPanel;
@@ -3805,7 +3654,7 @@
 	};
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3823,26 +3672,30 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
-	var anElementIsOpen = false;
 	var IS_OPEN = 'fade-in';
 	
 	var ToggleElement = function () {
 	
 	    /**
-	     * Creates a new toggle element.
+	     * Creates a new toggle element
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function ToggleElement(element) {
 	        _classCallCheck(this, ToggleElement);
 	
+	        var toggleButtonsSelector = '[data-toggle-el="' + this.elementId + '"]';
+	        var openButtonsSelector = '[data-open-el="' + this.elementId + '"]';
+	        var closeButtonsSelector = '[data-close-el="' + this.elementId + '"]';
+	        var allElementsSelector = '[data-js-module="toggleElement"]';
+	
 	        this.element = element;
 	        this.elementId = element.getAttribute('id');
-	        this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-toggle-el="' + this.elementId + '"]')) || [];
-	        this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-open-el="' + this.elementId + '"]')) || [];
-	        this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-close-el="' + this.elementId + '"]')) || [];
+	        this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(toggleButtonsSelector)) || [];
+	        this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(openButtonsSelector)) || [];
+	        this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(closeButtonsSelector)) || [];
 	
-	        this.allElements = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-js-module="toggleElement"]'));
+	        this.allElements = (0, _domOps.nodesToArray)(document.querySelectorAll(allElementsSelector));
 	
 	        this.elementIsVisible = false;
 	
@@ -3850,7 +3703,7 @@
 	    }
 	
 	    /**
-	     * Binds the event listeners from the elements.
+	     * Binds the event listeners from the elements
 	     */
 	
 	
@@ -3891,7 +3744,7 @@
 	        }
 	
 	        /**
-	         * Unbinds the event listeners from the elements.
+	         * Unbinds the event listeners from the elements
 	         */
 	
 	    }, {
@@ -3909,7 +3762,7 @@
 	        }
 	
 	        /**
-	         * Toggle element depending if already open or not.
+	         * Toggle element depending if already open or not
 	         */
 	
 	    }, {
@@ -3923,21 +3776,20 @@
 	        }
 	
 	        /**
-	         * Handle the element opening.
+	         * Handle the element opening
 	         */
 	
 	    }, {
 	        key: 'openElement',
 	        value: function openElement() {
 	            this.closeAllElements();
-	            anElementIsOpen = true;
 	            this.elementIsVisible = true;
 	            this.element.classList.remove('hidden');
 	            this.element.classList.add(IS_OPEN);
 	        }
 	
 	        /**
-	         * Handle the element closing.
+	         * Handle the element closing
 	         */
 	
 	    }, {
@@ -3949,7 +3801,7 @@
 	        }
 	
 	        /**
-	         * Handle the closing of all other elements.
+	         * Handle the closing of all other elements
 	         */
 	
 	    }, {
@@ -3980,7 +3832,7 @@
 	};
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3993,10 +3845,6 @@
 	
 	var _domDelegate = __webpack_require__(7);
 	
-	var _domOps = __webpack_require__(4);
-	
-	var _utilities = __webpack_require__(9);
-	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
@@ -4004,9 +3852,9 @@
 	var GallerySimple = function () {
 	
 	    /**
-	     * Creates a gallery element.
+	     * Creates a gallery element
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function GallerySimple(element) {
 	        _classCallCheck(this, GallerySimple);
@@ -4017,7 +3865,7 @@
 	    }
 	
 	    /**
-	     * Get first thumbnail and pass to function to display as the main image.
+	     * Get first thumbnail and pass to function to display as the main image
 	     */
 	
 	
@@ -4046,7 +3894,7 @@
 	        }
 	
 	        /**
-	         * Unbinds the event listeners from the elements.
+	         * Unbinds the event listeners from the elements
 	         */
 	
 	    }, {
@@ -4056,7 +3904,8 @@
 	        }
 	
 	        /**
-	         * Display thumbnail as main image.
+	         * Display thumbnail as main image
+	         * @param {element} thumbnail
 	         */
 	
 	    }, {
@@ -4086,7 +3935,7 @@
 	};
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4190,7 +4039,7 @@
 	};
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4201,17 +4050,9 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(7);
-	
 	var _domOps = __webpack_require__(4);
 	
-	var _utilities = __webpack_require__(9);
-	
-	var _stickyJs = __webpack_require__(27);
-	
-	var _stickyJs2 = _interopRequireDefault(_stickyJs);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var _domDelegate = __webpack_require__(7);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -4219,19 +4060,13 @@
 	
 	var NAV_OPEN = 'nav-open';
 	var SUBNAV_OPEN = 'sub-nav-open';
-	var HEADER_MINFIED = 'is-minified';
 	
 	var navIsOpen = false;
-	var subNavIsOpen = false;
-	
-	var scrollPos = 0;
-	var headerWrap = document.querySelector('.global-header-wrap');
-	var stepsIndicator = document.querySelector('#stepsIndicator');
 	
 	var HeaderNav = function () {
 	
 	    /**
-	     * Creates a new header nav element.
+	     * Creates a new header nav element
 	     *
 	     * @param element
 	     */
@@ -4241,14 +4076,13 @@
 	        this.element = element;
 	        this.navicon = this.element.querySelector('.navicon');
 	        this.nav = this.element.querySelector('.global-nav');
-	        this.headerWrap = document.querySelector('.global-header-wrap');
 	        this.navOverlay = document.querySelector('.global-nav-overlay');
 	
 	        this.bindEvents();
 	    }
 	
 	    /**
-	     * Binds the event listeners from the elements.
+	     * Binds the event listeners from the elements
 	     */
 	
 	
@@ -4271,15 +4105,15 @@
 	
 	            this.navOverlayListener = new _domDelegate.Delegate(this.navOverlay);
 	
-	            this.navOverlayListener.on('click', function (event) {
+	            this.navOverlayListener.on('click', function () {
 	                _this.closeSubNavs();
 	            });
 	        }
 	
 	        /**
-	         * Toggles the nav.
+	         * Toggles the nav
 	         *
-	         * @param {Event} event
+	         * @param {event}
 	         */
 	
 	    }, {
@@ -4297,7 +4131,7 @@
 	        }
 	
 	        /**
-	         * Closes all sub navs.
+	         * Closes all sub navs
 	         */
 	
 	    }, {
@@ -4313,10 +4147,10 @@
 	        }
 	
 	        /**
-	         * Toggles the sub nav.
+	         * Toggles the sub nav
 	         *
-	         * @param {Event} event
-	         * @param {Element} element
+	         * @param {event} the click
+	         * @param {element} the clicked element
 	         */
 	
 	    }, {
@@ -4337,13 +4171,14 @@
 	
 	        /**
 	         * Shows the overlay if it's desktop size
-	         * @param {Bool} show overlay
+	         *
+	         * @param {boolean} show overlay
 	         */
 	
 	    }, {
 	        key: 'showOverlay',
 	        value: function showOverlay(_showOverlay) {
-	            if (isMobileSize) return;
+	            if (window.isMobileSize) return;
 	
 	            if (_showOverlay) {
 	                (0, _domOps.addClass)(this.navOverlay, NAV_OPEN);
@@ -4355,7 +4190,7 @@
 	        }
 	
 	        /**
-	         * Unbinds the event listeners from the elements.
+	         * Unbinds the event listeners from the elements
 	         */
 	
 	    }, {
@@ -4373,6 +4208,7 @@
 	    init: function init(element) {
 	        instances.push(new HeaderNav(element));
 	    },
+	
 	    destroy: function destroy() {
 	        instances.forEach(function (instance) {
 	            return instance.unbindEvents();
@@ -4382,487 +4218,7 @@
 	};
 
 /***/ }),
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	
-	var Sticky = __webpack_require__(28);
-	
-	module.exports = Sticky;
-
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	/**
-	 * Sticky.js
-	 * Library for sticky elements written in vanilla javascript. With this library you can easily set sticky elements on your website. It's also responsive.
-	 *
-	 * @version 1.2.0
-	 * @author Rafal Galus <biuro@rafalgalus.pl>
-	 * @website https://rgalus.github.io/sticky-js/
-	 * @repo https://github.com/rgalus/sticky-js
-	 * @license https://github.com/rgalus/sticky-js/blob/master/LICENSE
-	 */
-	
-	var Sticky = function () {
-	  /**
-	   * Sticky instance constructor
-	   * @constructor
-	   * @param {string} selector - Selector which we can find elements
-	   * @param {string} options - Global options for sticky elements (could be overwritten by data-{option}="" attributes)
-	   */
-	  function Sticky() {
-	    var selector = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-	    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-	
-	    _classCallCheck(this, Sticky);
-	
-	    this.selector = selector;
-	    this.elements = [];
-	
-	    this.version = '1.2.0';
-	
-	    this.vp = this.getViewportSize();
-	    this.body = document.querySelector('body');
-	
-	    this.options = {
-	      wrap: options.wrap || false,
-	      marginTop: options.marginTop || 0,
-	      stickyFor: options.stickyFor || 0,
-	      stickyClass: options.stickyClass || null,
-	      stickyContainer: options.stickyContainer || 'body'
-	    };
-	
-	    this.updateScrollTopPosition = this.updateScrollTopPosition.bind(this);
-	
-	    this.updateScrollTopPosition();
-	    window.addEventListener('load', this.updateScrollTopPosition);
-	    window.addEventListener('scroll', this.updateScrollTopPosition);
-	
-	    this.run();
-	  }
-	
-	  /**
-	   * Function that waits for page to be fully loaded and then renders & activates every sticky element found with specified selector
-	   * @function
-	   */
-	
-	
-	  Sticky.prototype.run = function run() {
-	    var _this = this;
-	
-	    // wait for page to be fully loaded
-	    var pageLoaded = setInterval(function () {
-	      if (document.readyState === 'complete') {
-	        clearInterval(pageLoaded);
-	
-	        var elements = document.querySelectorAll(_this.selector);
-	        _this.forEach(elements, function (element) {
-	          return _this.renderElement(element);
-	        });
-	      }
-	    }, 10);
-	  };
-	
-	  /**
-	   * Function that assign needed variables for sticky element, that are used in future for calculations and other
-	   * @function
-	   * @param {node} element - Element to be rendered
-	   */
-	
-	
-	  Sticky.prototype.renderElement = function renderElement(element) {
-	    var _this2 = this;
-	
-	    // create container for variables needed in future
-	    element.sticky = {};
-	
-	    // set default variables
-	    element.sticky.active = false;
-	
-	    element.sticky.marginTop = parseInt(element.getAttribute('data-margin-top')) || this.options.marginTop;
-	    element.sticky.stickyFor = parseInt(element.getAttribute('data-sticky-for')) || this.options.stickyFor;
-	    element.sticky.stickyClass = element.getAttribute('data-sticky-class') || this.options.stickyClass;
-	    element.sticky.wrap = element.hasAttribute('data-sticky-wrap') ? true : this.options.wrap;
-	    // @todo attribute for stickyContainer
-	    // element.sticky.stickyContainer = element.getAttribute('data-sticky-container') || this.options.stickyContainer;
-	    element.sticky.stickyContainer = this.options.stickyContainer;
-	
-	    element.sticky.container = this.getStickyContainer(element);
-	    element.sticky.container.rect = this.getRectangle(element.sticky.container);
-	
-	    element.sticky.rect = this.getRectangle(element);
-	
-	    // fix when element is image that has not yet loaded and width, height = 0
-	    if (element.tagName.toLowerCase() === 'img') {
-	      element.onload = function () {
-	        return element.sticky.rect = _this2.getRectangle(element);
-	      };
-	    }
-	
-	    if (element.sticky.wrap) {
-	      this.wrapElement(element);
-	    }
-	
-	    // activate rendered element
-	    this.activate(element);
-	  };
-	
-	  /**
-	   * Wraps element into placeholder element
-	   * @function
-	   * @param {node} element - Element to be wrapped
-	   */
-	
-	
-	  Sticky.prototype.wrapElement = function wrapElement(element) {
-	    element.insertAdjacentHTML('beforebegin', '<span></span>');
-	    element.previousSibling.appendChild(element);
-	  };
-	
-	  /**
-	   * Function that activates element when specified conditions are met and then initalise events
-	   * @function
-	   * @param {node} element - Element to be activated
-	   */
-	
-	
-	  Sticky.prototype.activate = function activate(element) {
-	    if (element.sticky.rect.top + element.sticky.rect.height < element.sticky.container.rect.top + element.sticky.container.rect.height && element.sticky.stickyFor < this.vp.width && !element.sticky.active) {
-	      element.sticky.active = true;
-	    }
-	
-	    if (this.elements.indexOf(element) < 0) {
-	      this.elements.push(element);
-	    }
-	
-	    if (!element.sticky.resizeEvent) {
-	      this.initResizeEvents(element);
-	      element.sticky.resizeEvent = true;
-	    }
-	
-	    if (!element.sticky.scrollEvent) {
-	      this.initScrollEvents(element);
-	      element.sticky.scrollEvent = true;
-	    }
-	
-	    this.setPosition(element);
-	  };
-	
-	  /**
-	   * Function which is adding onResizeEvents to window listener and assigns function to element as resizeListener
-	   * @function
-	   * @param {node} element - Element for which resize events are initialised
-	   */
-	
-	
-	  Sticky.prototype.initResizeEvents = function initResizeEvents(element) {
-	    var _this3 = this;
-	
-	    element.sticky.resizeListener = function () {
-	      return _this3.onResizeEvents(element);
-	    };
-	    window.addEventListener('resize', element.sticky.resizeListener);
-	  };
-	
-	  /**
-	   * Removes element listener from resize event
-	   * @function
-	   * @param {node} element - Element from which listener is deleted
-	   */
-	
-	
-	  Sticky.prototype.destroyResizeEvents = function destroyResizeEvents(element) {
-	    window.removeEventListener('resize', element.sticky.resizeListener);
-	  };
-	
-	  /**
-	   * Function which is fired when user resize window. It checks if element should be activated or deactivated and then run setPosition function
-	   * @function
-	   * @param {node} element - Element for which event function is fired
-	   */
-	
-	
-	  Sticky.prototype.onResizeEvents = function onResizeEvents(element) {
-	    this.vp = this.getViewportSize();
-	
-	    element.sticky.rect = this.getRectangle(element);
-	    element.sticky.container.rect = this.getRectangle(element.sticky.container);
-	
-	    if (element.sticky.rect.top + element.sticky.rect.height < element.sticky.container.rect.top + element.sticky.container.rect.height && element.sticky.stickyFor < this.vp.width && !element.sticky.active) {
-	      element.sticky.active = true;
-	    } else if (element.sticky.rect.top + element.sticky.rect.height >= element.sticky.container.rect.top + element.sticky.container.rect.height || element.sticky.stickyFor >= this.vp.width && element.sticky.active) {
-	      element.sticky.active = false;
-	    }
-	
-	    this.setPosition(element);
-	  };
-	
-	  /**
-	   * Function which is adding onScrollEvents to window listener and assigns function to element as scrollListener
-	   * @function
-	   * @param {node} element - Element for which scroll events are initialised
-	   */
-	
-	
-	  Sticky.prototype.initScrollEvents = function initScrollEvents(element) {
-	    var _this4 = this;
-	
-	    element.sticky.scrollListener = function () {
-	      return _this4.onScrollEvents(element);
-	    };
-	    window.addEventListener('scroll', element.sticky.scrollListener);
-	  };
-	
-	  /**
-	   * Removes element listener from scroll event
-	   * @function
-	   * @param {node} element - Element from which listener is deleted
-	   */
-	
-	
-	  Sticky.prototype.destroyScrollEvents = function destroyScrollEvents(element) {
-	    window.removeEventListener('scroll', element.sticky.scrollListener);
-	  };
-	
-	  /**
-	   * Function which is fired when user scroll window. If element is active, function is invoking setPosition function
-	   * @function
-	   * @param {node} element - Element for which event function is fired
-	   */
-	
-	
-	  Sticky.prototype.onScrollEvents = function onScrollEvents(element) {
-	    if (element.sticky.active) {
-	      this.setPosition(element);
-	    }
-	  };
-	
-	  /**
-	   * Main function for the library. Here are some condition calculations and css appending for sticky element when user scroll window
-	   * @function
-	   * @param {node} element - Element that will be positioned if it's active
-	   */
-	
-	
-	  Sticky.prototype.setPosition = function setPosition(element) {
-	    this.css(element, { position: '', width: '', top: '', left: '' });
-	
-	    if (this.vp.height < element.sticky.rect.height || !element.sticky.active) {
-	      return;
-	    }
-	
-	    if (!element.sticky.rect.width) {
-	      element.sticky.rect = this.getRectangle(element);
-	    }
-	
-	    if (element.sticky.wrap) {
-	      this.css(element.parentNode, {
-	        display: 'block',
-	        width: element.sticky.rect.width + 'px',
-	        height: element.sticky.rect.height + 'px'
-	      });
-	    }
-	
-	    if (element.sticky.rect.top === 0 && element.sticky.container === this.body) {
-	      this.css(element, {
-	        position: 'fixed',
-	        top: element.sticky.rect.top + 'px',
-	        left: element.sticky.rect.left + 'px',
-	        width: element.sticky.rect.width + 'px'
-	      });
-	    } else if (this.scrollTop > element.sticky.rect.top - element.sticky.marginTop) {
-	      this.css(element, {
-	        position: 'fixed',
-	        width: element.sticky.rect.width + 'px',
-	        left: element.sticky.rect.left + 'px'
-	      });
-	
-	      if (this.scrollTop + element.sticky.rect.height + element.sticky.marginTop > element.sticky.container.rect.top + element.sticky.container.offsetHeight) {
-	
-	        if (element.sticky.stickyClass) {
-	          element.classList.remove(element.sticky.stickyClass);
-	        }
-	
-	        this.css(element, {
-	          top: element.sticky.container.rect.top + element.sticky.container.offsetHeight - (this.scrollTop + element.sticky.rect.height) + 'px' });
-	      } else {
-	        if (element.sticky.stickyClass) {
-	          element.classList.add(element.sticky.stickyClass);
-	        }
-	
-	        this.css(element, { top: element.sticky.marginTop + 'px' });
-	      }
-	    } else {
-	      if (element.sticky.stickyClass) {
-	        element.classList.remove(element.sticky.stickyClass);
-	      }
-	
-	      this.css(element, { position: '', width: '', top: '', left: '' });
-	
-	      if (element.sticky.wrap) {
-	        this.css(element.parentNode, { display: '', width: '', height: '' });
-	      }
-	    }
-	  };
-	
-	  /**
-	   * Function that updates element sticky rectangle (with sticky container), then activate or deactivate element, then update position if it's active
-	   * @function
-	   */
-	
-	
-	  Sticky.prototype.update = function update() {
-	    var _this5 = this;
-	
-	    this.forEach(this.elements, function (element) {
-	      element.sticky.rect = _this5.getRectangle(element);
-	      element.sticky.container.rect = _this5.getRectangle(element.sticky.container);
-	
-	      _this5.activate(element);
-	      _this5.setPosition(element);
-	    });
-	  };
-	
-	  /**
-	   * Destroys sticky element, remove listeners
-	   * @function
-	   */
-	
-	
-	  Sticky.prototype.destroy = function destroy() {
-	    var _this6 = this;
-	
-	    this.forEach(this.elements, function (element) {
-	      _this6.destroyResizeEvents(element);
-	      _this6.destroyScrollEvents(element);
-	      delete element.sticky;
-	    });
-	  };
-	
-	  /**
-	   * Function that returns container element in which sticky element is stuck (if is not specified, then it's stuck to body)
-	   * @function
-	   * @param {node} element - Element which sticky container are looked for
-	   * @return {node} element - Sticky container
-	   */
-	
-	
-	  Sticky.prototype.getStickyContainer = function getStickyContainer(element) {
-	    var container = element.parentNode;
-	
-	    while (!container.hasAttribute('data-sticky-container') && !container.parentNode.querySelector(element.sticky.stickyContainer) && container !== this.body) {
-	      container = container.parentNode;
-	    }
-	
-	    return container;
-	  };
-	
-	  /**
-	   * Function that returns element rectangle & position (width, height, top, left)
-	   * @function
-	   * @param {node} element - Element which position & rectangle are returned
-	   * @return {object}
-	   */
-	
-	
-	  Sticky.prototype.getRectangle = function getRectangle(element) {
-	    this.css(element, { position: '', width: '', top: '', left: '' });
-	
-	    var width = Math.max(element.offsetWidth, element.clientWidth, element.scrollWidth);
-	    var height = Math.max(element.offsetHeight, element.clientHeight, element.scrollHeight);
-	
-	    var top = 0;
-	    var left = 0;
-	
-	    do {
-	      top += element.offsetTop || 0;
-	      left += element.offsetLeft || 0;
-	      element = element.offsetParent;
-	    } while (element);
-	
-	    return { top: top, left: left, width: width, height: height };
-	  };
-	
-	  /**
-	   * Function that returns viewport dimensions
-	   * @function
-	   * @return {object}
-	   */
-	
-	
-	  Sticky.prototype.getViewportSize = function getViewportSize() {
-	    return {
-	      width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
-	      height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-	    };
-	  };
-	
-	  /**
-	   * Function that updates window scroll position
-	   * @function
-	   * @return {number}
-	   */
-	
-	
-	  Sticky.prototype.updateScrollTopPosition = function updateScrollTopPosition() {
-	    this.scrollTop = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0;
-	  };
-	
-	  /**
-	   * Helper function for loops
-	   * @helper
-	   * @param {array}
-	   * @param {function} callback - Callback function (no need for explanation)
-	   */
-	
-	
-	  Sticky.prototype.forEach = function forEach(array, callback) {
-	    for (var i = 0, len = array.length; i < len; i++) {
-	      callback(array[i]);
-	    }
-	  };
-	
-	  /**
-	   * Helper function to add/remove css properties for specified element.
-	   * @helper
-	   * @param {node} element - DOM element
-	   * @param {object} properties - CSS properties that will be added/removed from specified element
-	   */
-	
-	
-	  Sticky.prototype.css = function css(element, properties) {
-	    for (var property in properties) {
-	      if (properties.hasOwnProperty(property)) {
-	        element.style[property] = properties[property];
-	      }
-	    }
-	  };
-	
-	  return Sticky;
-	}();
-	
-	/**
-	 * Export function that supports AMD, CommonJS and Plain Browser.
-	 */
-	
-	
-	(function (root, factory) {
-	  if (true) {
-	    module.exports = factory;
-	  } else if (typeof define === 'function' && define.amd) {
-	    define([], factory);
-	  } else {
-	    root.Sticky = factory;
-	  }
-	})(this, Sticky);
-
-/***/ }),
-/* 29 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4873,7 +4229,7 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _flickity = __webpack_require__(30);
+	var _flickity = __webpack_require__(27);
 	
 	var _flickity2 = _interopRequireDefault(_flickity);
 	
@@ -4886,9 +4242,9 @@
 	var Carousel = function () {
 	
 	    /**
-	     * Create a new carousel element.
+	     * Create a new carousel element
 	     *
-	     * @param select wrapper
+	     * @param {element} select wrapper
 	     */
 	    function Carousel(element) {
 	        _classCallCheck(this, Carousel);
@@ -4898,7 +4254,7 @@
 	    }
 	
 	    /**
-	     * Initialise a Flickity carousel.
+	     * Initialise a Flickity carousel
 	     */
 	
 	
@@ -4911,7 +4267,7 @@
 	        }
 	
 	        /**
-	         * Destroy Flickity carousel.
+	         * Destroy Flickity carousel
 	         */
 	
 	    }, {
@@ -4938,7 +4294,7 @@
 	};
 
 /***/ }),
-/* 30 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4958,13 +4314,13 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(31),
+	      __webpack_require__(28),
+	      __webpack_require__(36),
 	      __webpack_require__(39),
+	      __webpack_require__(41),
 	      __webpack_require__(42),
-	      __webpack_require__(44),
-	      __webpack_require__(45),
-	      __webpack_require__(46),
-	      __webpack_require__(47)
+	      __webpack_require__(43),
+	      __webpack_require__(44)
 	    ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
@@ -4986,7 +4342,7 @@
 
 
 /***/ }),
-/* 31 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity main
@@ -4996,12 +4352,12 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(32),
+	      __webpack_require__(29),
+	      __webpack_require__(30),
+	      __webpack_require__(31),
 	      __webpack_require__(33),
 	      __webpack_require__(34),
-	      __webpack_require__(36),
-	      __webpack_require__(37),
-	      __webpack_require__(38)
+	      __webpack_require__(35)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Cell, Slide, animatePrototype ) {
 	      return factory( window, EvEmitter, getSize, utils, Cell, Slide, animatePrototype );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -5847,7 +5203,7 @@
 
 
 /***/ }),
-/* 32 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -5968,7 +5324,7 @@
 
 
 /***/ }),
-/* 33 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -6183,7 +5539,7 @@
 
 
 /***/ }),
-/* 34 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -6200,7 +5556,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(35)
+	      __webpack_require__(32)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( matchesSelector ) {
 	      return factory( window, matchesSelector );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -6427,7 +5783,7 @@
 
 
 /***/ }),
-/* 35 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -6486,7 +5842,7 @@
 
 
 /***/ }),
-/* 36 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity.Cell
@@ -6496,7 +5852,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(33)
+	      __webpack_require__(30)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( getSize ) {
 	      return factory( window, getSize );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -6582,7 +5938,7 @@
 
 
 /***/ }),
-/* 37 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;// slide
@@ -6664,7 +6020,7 @@
 
 
 /***/ }),
-/* 38 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// animate
@@ -6674,7 +6030,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(34)
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( utils ) {
 	      return factory( window, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -6889,7 +6245,7 @@
 
 
 /***/ }),
-/* 39 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
@@ -6899,9 +6255,9 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(31),
-	      __webpack_require__(40),
-	      __webpack_require__(34)
+	      __webpack_require__(28),
+	      __webpack_require__(37),
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, Unidragger, utils ) {
 	      return factory( window, Flickity, Unidragger, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -7279,7 +6635,7 @@
 
 
 /***/ }),
-/* 40 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -7297,7 +6653,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(41)
+	      __webpack_require__(38)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
 	      return factory( window, Unipointer );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -7548,7 +6904,7 @@
 
 
 /***/ }),
-/* 41 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -7565,7 +6921,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(32)
+	      __webpack_require__(29)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter ) {
 	      return factory( window, EvEmitter );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -7849,7 +7205,7 @@
 
 
 /***/ }),
-/* 42 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// prev/next buttons
@@ -7859,9 +7215,9 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(31),
-	      __webpack_require__(43),
-	      __webpack_require__(34)
+	      __webpack_require__(28),
+	      __webpack_require__(40),
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
 	      return factory( window, Flickity, TapListener, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -8075,7 +7431,7 @@
 
 
 /***/ }),
-/* 43 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -8093,7 +7449,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(41)
+	      __webpack_require__(38)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
 	      return factory( window, Unipointer );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -8194,7 +7550,7 @@
 
 
 /***/ }),
-/* 44 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
@@ -8204,9 +7560,9 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(31),
-	      __webpack_require__(43),
-	      __webpack_require__(34)
+	      __webpack_require__(28),
+	      __webpack_require__(40),
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
 	      return factory( window, Flickity, TapListener, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -8378,7 +7734,7 @@
 
 
 /***/ }),
-/* 45 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// player & autoPlay
@@ -8388,9 +7744,9 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(32),
-	      __webpack_require__(34),
-	      __webpack_require__(31)
+	      __webpack_require__(29),
+	      __webpack_require__(31),
+	      __webpack_require__(28)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, utils, Flickity ) {
 	      return factory( EvEmitter, utils, Flickity );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -8597,7 +7953,7 @@
 
 
 /***/ }),
-/* 46 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// add, remove cell
@@ -8607,8 +7963,8 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(31),
-	      __webpack_require__(34)
+	      __webpack_require__(28),
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
 	      return factory( window, Flickity, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -8785,7 +8141,7 @@
 
 
 /***/ }),
-/* 47 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
@@ -8795,8 +8151,8 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(31),
-	      __webpack_require__(34)
+	      __webpack_require__(28),
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
 	      return factory( window, Flickity, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -8910,7 +8266,7 @@
 
 
 /***/ }),
-/* 48 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8934,9 +8290,9 @@
 	var ChangeContent = function () {
 	
 	    /**
-	     * Creates a new content change wrapper.
+	     * Creates a new content change wrapper
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function ChangeContent(element) {
 	        _classCallCheck(this, ChangeContent);
@@ -8947,7 +8303,7 @@
 	    }
 	
 	    /**
-	     * Binds the event listeners from the elements.
+	     * Binds the event listeners from the elements
 	     */
 	
 	
@@ -8964,7 +8320,7 @@
 	        }
 	
 	        /**
-	         * Unbinds the event listeners from the elements.
+	         * Unbinds the event listeners from the elements
 	         */
 	
 	    }, {
@@ -8974,9 +8330,9 @@
 	        }
 	
 	        /**
-	         * Hide/Show content.
+	         * Hide/Show content
 	         *
-	         * @param {Event} event
+	         * @param {event}
 	         */
 	
 	    }, {
@@ -9012,156 +8368,7 @@
 	};
 
 /***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _domDelegate = __webpack_require__(7);
-	
-	var _domOps = __webpack_require__(4);
-	
-	var _utilities = __webpack_require__(9);
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var instances = [];
-	
-	var CheckoutYourPodPoint = function () {
-	
-	    /**
-	     * Creates a new form element.
-	     *
-	     * @param element
-	     */
-	    function CheckoutYourPodPoint(element) {
-	        _classCallCheck(this, CheckoutYourPodPoint);
-	
-	        this.element = element;
-	
-	        this.selectEvMake = this.element.querySelector('#selectEvMake');
-	        this.selectEvModel = this.element.querySelector('#selectEvModel');
-	        this.carImage = this.element.querySelector('#carImage');
-	
-	        this.productEls = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
-	        this.basketObj = (0, _utilities.readItemFromCookie)('basketObj');
-	        if (this.basketObj) {
-	            this.preselectFields();
-	        }
-	
-	        this.bindEvents();
-	    }
-	
-	    /**
-	     * Binds the event listeners from the elements.
-	     */
-	
-	
-	    _createClass(CheckoutYourPodPoint, [{
-	        key: 'bindEvents',
-	        value: function bindEvents() {
-	            var _this = this;
-	
-	            this.selectEVMakeListener = new _domDelegate.Delegate(this.selectEvMake);
-	
-	            this.selectEVMakeListener.on('change', function (event, element) {
-	                // needs to enable the select 'this.selectEvModel'
-	            });
-	
-	            this.selectEVModelListener = new _domDelegate.Delegate(this.selectEvModel);
-	
-	            this.selectEVModelListener.on('change', function (event, element) {
-	                _this.carImage.src = "assets/img/content/cars/nissan.png";
-	            });
-	        }
-	
-	        /**
-	         * Dynamically checks product checkboxes and rados, based on basket object in cookie.
-	         */
-	
-	    }, {
-	        key: 'preselectFields',
-	        value: function preselectFields() {
-	            var podPointUnitId = this.basketObj.podPoint.id;
-	            var connector = this.basketObj.podPoint.connector;
-	            var accessories = this.basketObj.accessories;
-	
-	            if (podPointUnitId) {
-	                this.element.querySelector('[value="' + podPointUnitId + '"]').checked = true;
-	                (0, _utilities.openPanel)(this.element.querySelector('#connectors'));
-	            };
-	            if (connector) {
-	                this.element.querySelector('[value="' + connector.id + '"]').checked = true;
-	            };
-	
-	            if (Object.keys(accessories).length > 0) {
-	                var _iteratorNormalCompletion = true;
-	                var _didIteratorError = false;
-	                var _iteratorError = undefined;
-	
-	                try {
-	                    for (var _iterator = Object.entries(this.basketObj.accessories)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                        var _step$value = _slicedToArray(_step.value, 2),
-	                            key = _step$value[0],
-	                            value = _step$value[1];
-	
-	                        this.element.querySelector('[value="' + key + '"]').checked = true;
-	                    }
-	                } catch (err) {
-	                    _didIteratorError = true;
-	                    _iteratorError = err;
-	                } finally {
-	                    try {
-	                        if (!_iteratorNormalCompletion && _iterator.return) {
-	                            _iterator.return();
-	                        }
-	                    } finally {
-	                        if (_didIteratorError) {
-	                            throw _iteratorError;
-	                        }
-	                    }
-	                }
-	            }
-	        }
-	
-	        /**
-	         * Unbinds the event listeners from the elements.
-	         */
-	
-	    }, {
-	        key: 'unbindEvents',
-	        value: function unbindEvents() {
-	            this.selectEVMakeListener.destroy();
-	            this.selectEVModelListener.destroy();
-	        }
-	    }]);
-	
-	    return CheckoutYourPodPoint;
-	}();
-	
-	exports.default = {
-	    init: function init(element) {
-	        instances.push(new CheckoutYourPodPoint(element));
-	    },
-	
-	    destroy: function destroy() {
-	        instances.forEach(function (instance) {
-	            return instance.unbindEvents();
-	        });
-	        instances = [];
-	    }
-	};
-
-/***/ }),
-/* 50 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9172,732 +8379,9 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(7);
-	
 	var _domOps = __webpack_require__(4);
 	
-	var _utilities = __webpack_require__(9);
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var instances = [];
-	var IS_OPEN = 'is-open';
-	var CLAIMED_OLEV = 'claimed-olev';
-	
-	var ClaimOlev = function () {
-	
-	    /**
-	     * Creates a claim olev element.
-	     *
-	     * @param element
-	     */
-	    function ClaimOlev(element) {
-	        _classCallCheck(this, ClaimOlev);
-	
-	        this.element = element;
-	
-	        this.olevPanel = this.element.querySelector('#olevPanel');
-	        this.claimButton = this.olevPanel.querySelector('#claimOlevButton');
-	
-	        this.radios = this.olevPanel.querySelectorAll('input[type="radio"]');
-	        this.radiosWraps = this.olevPanel.querySelectorAll('.radios-wrap');
-	
-	        this.confirmNotEligible = this.element.querySelector('#confirmNotOlevEligible');
-	        this.confirmUnsureClaim = this.element.querySelector('#confirmUnsureClaimOlev');
-	        this.claimUnsureButton = this.element.querySelector('#claimUnsureOlevButton');
-	
-	        this.basket = document.querySelector('#basketFinal');
-	        this.podPointProduct = this.basket.querySelector('[data-item="unit"]');
-	        this.claimOlevBasketCta = this.basket.querySelector('#claimOlevBasketCta');
-	        this.claimedOlevBasketText = this.basket.querySelector('#claimedOlevBasket');
-	        this.podPointPriceEl = this.podPointProduct.querySelector('[data-price]');
-	        this.totalPriceEl = this.basket.querySelector('[data-total-price]');
-	        this.claimedDiscountText = this.basket.querySelector('#claimedDealerDiscountBasket');
-	
-	        this.bindEvents();
-	    }
-	
-	    /**
-	     * Binds the event listeners from the elements.
-	     */
-	
-	
-	    _createClass(ClaimOlev, [{
-	        key: 'bindEvents',
-	        value: function bindEvents() {
-	            var _this = this;
-	
-	            this.radioListeners = [];
-	            this.radios.forEach(function (radio) {
-	                var radioListener = new _domDelegate.Delegate(radio);
-	                _this.radioListeners.push(radioListener);
-	                radioListener.on('change', function (event, element) {
-	                    _this.checkAllRadios();
-	                });
-	            });
-	
-	            var claimListener = new _domDelegate.Delegate(this.claimButton);
-	            claimListener.on('click', function (event, element) {
-	                event.preventDefault();
-	                _this.checkForUnsure();
-	            });
-	
-	            var claimUnsureListener = new _domDelegate.Delegate(this.claimUnsureButton);
-	            claimUnsureListener.on('click', function (event, element) {
-	                event.preventDefault();
-	                _this.claimOlev();
-	            });
-	        }
-	
-	        /**
-	         * Check all radios for any selected as 'no' and if all have been selected
-	         */
-	
-	    }, {
-	        key: 'checkAllRadios',
-	        value: function checkAllRadios() {
-	            var allRadiosAreSelected = (0, _utilities.allRadiosSelected)(this.radiosWraps);
-	            var aRadioContainsNo = (0, _utilities.aRadioContains)(this.radios, 'no');
-	
-	            if (aRadioContainsNo) {
-	                this.notEligible();
-	            } else if (allRadiosAreSelected) {
-	                (0, _utilities.disableOrEnableButton)(this.claimButton, false);
-	            }
-	        }
-	
-	        /**
-	         * If user is not eligible
-	         */
-	
-	    }, {
-	        key: 'notEligible',
-	        value: function notEligible() {
-	            (0, _utilities.disableOrEnableButton)(this.claimButton, true);
-	            (0, _utilities.show)(this.confirmNotEligible);
-	            (0, _utilities.closePanel)(this.olevPanel);
-	
-	            (0, _domOps.removeClass)(this.podPointProduct, CLAIMED_OLEV);
-	            (0, _utilities.hide)(this.claimedOlevBasketText);
-	            (0, _utilities.show)(this.claimOlevBasketCta);
-	
-	            this.applyCalculations(0);
-	        }
-	
-	        /**
-	         * Apply calculations to basket in the DOM
-	         */
-	
-	    }, {
-	        key: 'applyCalculations',
-	        value: function applyCalculations(olevGrant) {
-	            // Current numbers
-	            var currentOlevDiscount = parseInt(this.basket.getAttribute('data-olev-discount'));
-	            var currentDealerDiscount = parseInt(this.basket.getAttribute('data-dealer-discount'));
-	            var currentPodPointPrice = parseInt(this.podPointPriceEl.getAttribute('data-price'));
-	            var currentTotalPrice = parseInt(this.totalPriceEl.getAttribute('data-total-price'));
-	            // Calculations
-	            var newPodPointPrice = currentPodPointPrice - currentDealerDiscount - olevGrant;
-	            var newTotalPrice = currentTotalPrice - currentDealerDiscount - olevGrant;
-	            // DOM
-	            this.basket.setAttribute('data-olev-discount', olevGrant);
-	            this.podPointPriceEl.innerHTML = '£' + newPodPointPrice;
-	            this.totalPriceEl.innerHTML = '£' + newTotalPrice;
-	        }
-	
-	        /**
-	         * Check if any radios are selected as 'unsure'
-	         */
-	
-	    }, {
-	        key: 'checkForUnsure',
-	        value: function checkForUnsure() {
-	            var aRadioContainsUnsure = (0, _utilities.aRadioContains)(this.radios, 'unsure');
-	            aRadioContainsUnsure ? (0, _utilities.show)(this.confirmUnsureClaim) : this.claimOlev();
-	        }
-	
-	        /**
-	         * Apply OLEV claim
-	         */
-	
-	    }, {
-	        key: 'claimOlev',
-	        value: function claimOlev() {
-	            (0, _utilities.disableOrEnableButton)(this.claimButton, true);
-	            (0, _utilities.closePanel)(this.olevPanel);
-	
-	            (0, _domOps.addClass)(this.podPointProduct, CLAIMED_OLEV);
-	            (0, _utilities.hide)(this.claimOlevBasketCta);
-	            (0, _utilities.show)(this.claimedOlevBasketText);
-	
-	            this.applyCalculations(500);
-	        }
-	
-	        /**
-	         * Unbinds the event listeners from the elements.
-	         */
-	
-	    }, {
-	        key: 'unbindEvents',
-	        value: function unbindEvents() {
-	            this.radioListeners.forEach(function (radioListener) {
-	                return radioListener.destroy();
-	            });
-	        }
-	    }]);
-	
-	    return ClaimOlev;
-	}();
-	
-	exports.default = {
-	    init: function init(element) {
-	        instances.push(new ClaimOlev(element));
-	    },
-	
-	    destroy: function destroy() {
-	        instances.forEach(function (instance) {
-	            return instance.unbindEvents();
-	        });
-	        instances = [];
-	    }
-	};
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _domDelegate = __webpack_require__(7);
-	
-	var _domOps = __webpack_require__(4);
-	
-	var _utilities = __webpack_require__(9);
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var instances = [];
-	var IS_OPEN = 'is-open';
-	
-	var ClaimDealerDiscount = function () {
-	
-	    /**
-	     * Creates a new dealership claim element.
-	     *
-	     * @param element
-	     */
-	    function ClaimDealerDiscount(element) {
-	        _classCallCheck(this, ClaimDealerDiscount);
-	
-	        this.element = element;
-	
-	        this.dealershipPanel = this.element.querySelector('#dealershipPanel');
-	        this.dealershipInput = this.dealershipPanel.querySelector('#dealershipInput');
-	        this.claimButton = this.dealershipPanel.querySelector('#claimDealershipButton');
-	        this.confirmEligible = this.element.querySelector('#confirmDealershipEligible');
-	
-	        this.eligibleText = this.element.querySelector('#dealerDiscountEligibleText');
-	        this.notEligibleText = this.element.querySelector('#dealerDiscountNotEligibleText');
-	
-	        this.basket = document.querySelector('#basketFinal');
-	        this.podPointProduct = this.basket.querySelector('[data-item="unit"]');
-	        this.claimedDealerDiscountBasketText = this.basket.querySelector('#claimedDealerDiscountBasket');
-	        this.podPointPriceEl = this.podPointProduct.querySelector('[data-price]');
-	        this.totalPriceEl = this.basket.querySelector('[data-total-price]');
-	        this.claimedDiscountText = this.basket.querySelector('#claimedDealerDiscountBasket');
-	
-	        this.bindEvents();
-	    }
-	
-	    /**
-	     * Binds the event listeners from the elements.
-	     */
-	
-	
-	    _createClass(ClaimDealerDiscount, [{
-	        key: 'bindEvents',
-	        value: function bindEvents() {
-	            var _this = this;
-	
-	            var dealershipInputListener = new _domDelegate.Delegate(this.dealershipInput);
-	            dealershipInputListener.on('keyup', function (event, element) {
-	                _this.checkForEligibility(element.value);
-	            });
-	
-	            var claimDealershipListener = new _domDelegate.Delegate(this.claimButton);
-	            claimDealershipListener.on('click', function (event, element) {
-	                event.preventDefault();
-	                _this.claimDiscount();
-	            });
-	        }
-	
-	        /**
-	         * User clicks to claim dealership discount
-	         */
-	
-	    }, {
-	        key: 'claimDiscount',
-	        value: function claimDiscount() {
-	            (0, _utilities.disableOrEnableButton)(this.claimButton, true);
-	            (0, _utilities.closePanel)(this.dealershipPanel);
-	
-	            // Current numbers
-	            var currentOlevDiscount = parseInt(this.basket.getAttribute('data-olev-discount'));
-	            var currentDealerDiscount = parseInt(this.basket.getAttribute('data-dealer-discount'));
-	            var currentPodPointPrice = parseInt(this.podPointPriceEl.getAttribute('data-price'));
-	            var currentTotalPrice = parseInt(this.totalPriceEl.getAttribute('data-total-price'));
-	            // Calculations
-	            var dealerDiscount = 150;
-	            var newPodPointPrice = currentPodPointPrice - currentOlevDiscount - dealerDiscount;
-	            var newTotalPrice = currentTotalPrice - currentOlevDiscount - dealerDiscount;
-	            // DOM
-	            this.basket.setAttribute('data-dealer-discount', dealerDiscount);
-	            this.podPointPriceEl.innerHTML = '£' + newPodPointPrice;
-	            this.totalPriceEl.innerHTML = '£' + newTotalPrice;
-	            (0, _utilities.show)(this.claimedDiscountText);
-	        }
-	
-	        /**
-	         * Check if user types an eligible dealership
-	         */
-	
-	    }, {
-	        key: 'checkForEligibility',
-	        value: function checkForEligibility(value) {
-	            var eligibleDealership = 'nissan';
-	            if (eligibleDealership === value) {
-	                (0, _utilities.disableOrEnableButton)(this.claimButton, false);
-	                (0, _utilities.hide)(this.notEligibleText);
-	                (0, _utilities.show)(this.eligibleText);
-	            } else {
-	                (0, _utilities.disableOrEnableButton)(this.claimButton, true);
-	                (0, _utilities.hide)(this.eligibleText);
-	            }
-	        }
-	
-	        /**
-	         * Unbinds the event listeners from the elements.
-	         */
-	
-	    }, {
-	        key: 'unbindEvents',
-	        value: function unbindEvents() {}
-	    }]);
-	
-	    return ClaimDealerDiscount;
-	}();
-	
-	exports.default = {
-	    init: function init(element) {
-	        instances.push(new ClaimDealerDiscount(element));
-	    },
-	
-	    destroy: function destroy() {
-	        instances.forEach(function (instance) {
-	            return instance.unbindEvents();
-	        });
-	        instances = [];
-	    }
-	};
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _domDelegate = __webpack_require__(7);
-	
-	var _domOps = __webpack_require__(4);
-	
-	var _utilities = __webpack_require__(9);
-	
-	var _stickyJs = __webpack_require__(27);
-	
-	var _stickyJs2 = _interopRequireDefault(_stickyJs);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var instances = [];
-	
-	var Basket = function () {
-	
-	    /**
-	     * Creates a new basket element.
-	     *
-	     * @param element
-	     */
-	    function Basket(element) {
-	        _classCallCheck(this, Basket);
-	
-	        this.element = element;
-	
-	        // Getting elements, element text and img src on the page to populate
-	        this.imgPath = element.getAttribute('data-img-path');
-	        this.itemListEl = element.querySelector('[data-items]');
-	        this.itemListEls = this.itemListEl.querySelectorAll('[data-item]');
-	        this.numberOfItemsEl = element.querySelector('[data-number-of-items]');
-	        this.totalPriceEl = element.querySelector('[data-total-price]');
-	
-	        // Pod Point unit and connector
-	        this.unitEl = element.querySelector('[data-item="unit"]');
-	        this.unitNameEl = this.unitEl.querySelector('[data-unit="name"]');
-	        this.unitConnectorNameEl = this.unitEl.querySelector('[data-unit="connector-name"]');
-	        this.unitPriceEl = this.unitEl.querySelector('[data-unit="price"]');
-	        this.unitImgEl = this.unitEl.querySelector('[data-unit="img"]');
-	
-	        // Accesories
-	        this.accessoryExampleContentEl = element.querySelector('[data-item="example-accessory-content"]');
-	        this.accessoryExampleNameEl = this.accessoryExampleContentEl.querySelector('[data-accessory="name"]');
-	        this.accessoryExamplePriceEl = this.accessoryExampleContentEl.querySelector('[data-accessory="price"]');
-	        this.accessoryExampleImgEl = this.accessoryExampleContentEl.querySelector('[data-accessory="img"]');
-	
-	        // Creating empty basket object
-	        var emptyBasketObj = {
-	            podPoint: {},
-	            accessories: {},
-	            totalItems: '',
-	            totalPrice: ''
-	        };
-	
-	        var basketObjInCookie = (0, _utilities.readItemFromCookie)('basketObj');
-	
-	        if (basketObjInCookie) {
-	            this.basketObj = basketObjInCookie;
-	            this.updateDomFromCookie();
-	        } else {
-	            this.basketObj = emptyBasketObj;
-	        }
-	
-	        var basketType = this.element.getAttribute('id');
-	
-	        this.productEls = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
-	        this.bindEvents();
-	        this.makeSticky();
-	    }
-	
-	    /**
-	     * Binds the event listeners from the elements.
-	     */
-	
-	
-	    _createClass(Basket, [{
-	        key: 'bindEvents',
-	        value: function bindEvents() {
-	            var _this = this;
-	
-	            this.productListeners = [];
-	            this.productEls.forEach(function (productEl) {
-	                var productListener = new _domDelegate.Delegate(productEl);
-	                _this.productListeners.push(productListener);
-	                productListener.on('change', function (event, element) {
-	                    element.checked ? _this.addItemToBasketObj(element) : _this.deleteAccessoryFromBasketObj(element);
-	                });
-	            });
-	        }
-	
-	        /**
-	         * Make basket stick to top of window when scrolled.
-	         */
-	
-	    }, {
-	        key: 'makeSticky',
-	        value: function makeSticky() {
-	            var sticky = new _stickyJs2.default('#basketOpen');
-	        }
-	
-	        /**
-	         * Update Basket in the DOM from the object in the cookie.
-	         */
-	
-	    }, {
-	        key: 'updateDomFromCookie',
-	        value: function updateDomFromCookie() {
-	            this.updatePodPointToDOM();
-	            if (Object.keys(this.basketObj.accessories).length > 0) {
-	                var _iteratorNormalCompletion = true;
-	                var _didIteratorError = false;
-	                var _iteratorError = undefined;
-	
-	                try {
-	                    for (var _iterator = Object.entries(this.basketObj.accessories)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                        var _step$value = _slicedToArray(_step.value, 2),
-	                            key = _step$value[0],
-	                            value = _step$value[1];
-	
-	                        this.addAccessoryToDOM(value);
-	                    }
-	                } catch (err) {
-	                    _didIteratorError = true;
-	                    _iteratorError = err;
-	                } finally {
-	                    try {
-	                        if (!_iteratorNormalCompletion && _iterator.return) {
-	                            _iterator.return();
-	                        }
-	                    } finally {
-	                        if (_didIteratorError) {
-	                            throw _iteratorError;
-	                        }
-	                    }
-	                }
-	            }
-	        }
-	
-	        /**
-	         * Add item to basket object.
-	         * @param {element} selected element
-	         */
-	
-	    }, {
-	        key: 'addItemToBasketObj',
-	        value: function addItemToBasketObj(element) {
-	            var category = (0, _domOps.hasClass)(element, 'accessory') ? 'accessory' : element.getAttribute("name");
-	            var podPointExists = Object.keys(this.basketObj.accessories).length > 0 ? true : false;
-	
-	            switch (category) {
-	                case 'podPointUnit':
-	                    if (podPointExists) {
-	                        this.basketObj.podPoint.id = element.getAttribute("id");
-	                        this.basketObj.podPoint.name = element.getAttribute("data-name");
-	                        this.basketObj.podPoint.price = element.getAttribute("data-price");
-	                    } else {
-	                        this.basketObj.podPoint = {
-	                            id: element.getAttribute("id"),
-	                            name: element.getAttribute("data-name"),
-	                            price: element.getAttribute("data-price"),
-	                            imgName: 'connectorUniversal'
-	                        };
-	                    }
-	                    this.updatePodPointToDOM();
-	                    break;
-	                case 'podPointConnector':
-	                    this.basketObj.podPoint['connector'] = {
-	                        id: element.getAttribute("id"),
-	                        name: element.getAttribute("data-name")
-	                    };
-	                    this.basketObj.podPoint.imgName = element.getAttribute("id");
-	                    this.updatePodPointToDOM();
-	                    break;
-	                case 'accessory':
-	                    var accessoryObj = {
-	                        id: element.getAttribute("id"),
-	                        name: element.getAttribute("data-name"),
-	                        price: element.getAttribute("data-price")
-	                    };
-	                    this.basketObj.accessories[element.getAttribute("id")] = accessoryObj;
-	                    this.addAccessoryToDOM(accessoryObj);
-	                    break;
-	            }
-	
-	            this.updateTotals();
-	            this.updateCookie();
-	        }
-	
-	        /**
-	         * Delete item from basket object.
-	         * @param element
-	         */
-	
-	    }, {
-	        key: 'deleteAccessoryFromBasketObj',
-	        value: function deleteAccessoryFromBasketObj(element) {
-	            var itemId = element.getAttribute("id");
-	            delete this.basketObj.accessories[itemId];
-	            this.removeAccessoryFromDOM(itemId);
-	            this.updateTotals();
-	            this.updateCookie();
-	        }
-	
-	        /**
-	         * Update basket object in the cookie.
-	         */
-	
-	    }, {
-	        key: 'updateCookie',
-	        value: function updateCookie() {
-	            (0, _utilities.addItemToCookie)('basketObj', this.basketObj);
-	            var basketObjCookie = (0, _utilities.readItemFromCookie)('basketObj');
-	        }
-	
-	        /**
-	         * Add POD Point to the basket in the DOM.
-	         */
-	
-	    }, {
-	        key: 'updatePodPointToDOM',
-	        value: function updatePodPointToDOM() {
-	            var podPoint = this.basketObj.podPoint || {};
-	            var connector = this.basketObj.podPoint.connector || {};
-	
-	            if (podPoint) {
-	                (0, _utilities.show)(this.unitEl);
-	            }
-	            if (connector) {
-	                this.unitImgEl.src = this.imgPath + podPoint.imgName + '.png';
-	            }
-	
-	            this.unitNameEl.innerHTML = podPoint.name || '';
-	            this.unitConnectorNameEl.innerHTML = connector.name || '';
-	            this.unitPriceEl.innerHTML = '£' + podPoint.price || '';
-	            this.unitPriceEl.setAttribute('data-price', podPoint.price);
-	
-	            this.updateTotals();
-	        }
-	
-	        /**
-	         * Add an accessory to the basket in the DOM.
-	         * @param {object} accessoryObj
-	         */
-	
-	    }, {
-	        key: 'addAccessoryToDOM',
-	        value: function addAccessoryToDOM(accessoryObj) {
-	            var itemElement = this.element.querySelector('[data-item="' + accessoryObj.id + '"]');
-	            if (itemElement.hasChildNodes()) {
-	                return;
-	            }
-	
-	            this.accessoryExampleImgEl.src = this.imgPath + accessoryObj.id + '.png';
-	            this.accessoryExampleNameEl.innerHTML = accessoryObj.name;
-	            this.accessoryExamplePriceEl.innerHTML = '£' + accessoryObj.price;
-	
-	            var accessoryItemContentClone = this.accessoryExampleContentEl.cloneNode(true);
-	            itemElement.appendChild(accessoryItemContentClone);
-	            (0, _utilities.show)(itemElement);
-	        }
-	
-	        /**
-	         * Remove accessory from the basket in the DOM.
-	         * @param accessory ID
-	         */
-	
-	    }, {
-	        key: 'removeAccessoryFromDOM',
-	        value: function removeAccessoryFromDOM(itemId) {
-	            var itemElement = this.element.querySelector('[data-item="' + itemId + '"]');
-	            itemElement.innerHTML = '';
-	            (0, _utilities.hide)(itemElement);
-	        }
-	
-	        /**
-	         * Update the totals of the basket in the DOM.
-	         */
-	
-	    }, {
-	        key: 'updateTotals',
-	        value: function updateTotals() {
-	            // Updating total items
-	            var numberOfAccessories = Object.keys(this.basketObj.accessories).length;
-	            var numberOfPodPoint = this.basketObj.podPoint.name ? 1 : 0;
-	            var numberOfItems = numberOfAccessories + numberOfPodPoint;
-	            this.basketObj.totalItems = numberOfItems;
-	
-	            // Updating total price
-	            var totalPrice = 0;
-	            totalPrice = parseInt(this.basketObj.podPoint.price) || 0;
-	
-	            var _iteratorNormalCompletion2 = true;
-	            var _didIteratorError2 = false;
-	            var _iteratorError2 = undefined;
-	
-	            try {
-	                for (var _iterator2 = Object.entries(this.basketObj.accessories)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                    var _step2$value = _slicedToArray(_step2.value, 2),
-	                        key = _step2$value[0],
-	                        value = _step2$value[1];
-	
-	                    totalPrice = totalPrice + parseInt(value.price);
-	                }
-	            } catch (err) {
-	                _didIteratorError2 = true;
-	                _iteratorError2 = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                        _iterator2.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError2) {
-	                        throw _iteratorError2;
-	                    }
-	                }
-	            }
-	
-	            this.basketObj.totalPrice = totalPrice;
-	
-	            // Update the totals of the basket in the DOM
-	            if (this.numberOfItemsEl) {
-	                this.numberOfItemsEl.innerHTML = numberOfItems;
-	            }
-	            this.totalPriceEl.innerHTML = '£' + totalPrice;
-	            this.totalPriceEl.setAttribute('data-total-price', totalPrice);
-	        }
-	
-	        /**
-	         * Unbinds the event listeners from the elements.
-	         */
-	
-	    }, {
-	        key: 'unbindEvents',
-	        value: function unbindEvents() {
-	            this.productListeners.forEach(function (productListener) {
-	                return productListener.destroy();
-	            });
-	        }
-	    }]);
-	
-	    return Basket;
-	}();
-	
-	exports.default = {
-	    init: function init(element) {
-	        instances.push(new Basket(element));
-	    },
-	
-	    destroy: function destroy() {
-	        instances.forEach(function (instance) {
-	            return instance.unbindEvents();
-	        });
-	        instances = [];
-	    }
-	};
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _tick = __webpack_require__(54);
-	
-	var _tick2 = _interopRequireDefault(_tick);
-	
-	var _domOps = __webpack_require__(4);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	__webpack_require__(47);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -9907,9 +8391,9 @@
 	var FlipCounter = function () {
 	
 	    /**
-	     * Creates a new flip counter element.
+	     * Creates a new flip counter element
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function FlipCounter(element) {
 	        _classCallCheck(this, FlipCounter);
@@ -9919,7 +8403,7 @@
 	    }
 	
 	    /**
-	     * Creates a new flip counter element with options.
+	     * Creates a new flip counter element with options
 	     */
 	
 	
@@ -9927,7 +8411,7 @@
 	        key: 'createTickCounter',
 	        value: function createTickCounter() {
 	            var element = this.element;
-	            var stat = parseInt(element.getAttribute('data-stat'));
+	            var stat = parseInt(element.getAttribute('data-stat'), 0);
 	            var flipCounterSections = document.querySelectorAll('.flip-counter-section');
 	
 	            var tick = Tick.DOM.create(element, {
@@ -9968,7 +8452,7 @@
 	};
 
 /***/ }),
-/* 54 */
+/* 47 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -11790,7 +10274,7 @@
 	}(window, window.Tick || []);
 
 /***/ }),
-/* 55 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11801,21 +10285,21 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint class-methods-use-this: ["error", { "exceptMethods": ["ready"] }] */
 	
-	var _d = __webpack_require__(56);
+	var _d = __webpack_require__(49);
 	
 	var d3 = _interopRequireWildcard(_d);
 	
-	var _topojson = __webpack_require__(57);
+	var _topojson = __webpack_require__(50);
 	
 	var topojson = _interopRequireWildcard(_topojson);
 	
 	var _utilities = __webpack_require__(9);
 	
-	var _chargeData = __webpack_require__(58);
+	var _chargeData = __webpack_require__(51);
 	
 	var _chargeData2 = _interopRequireDefault(_chargeData);
 	
-	var _gridmap = __webpack_require__(59);
+	var _gridmap = __webpack_require__(52);
 	
 	var _gridmap2 = _interopRequireDefault(_gridmap);
 	
@@ -11831,16 +10315,16 @@
 	var EvMap = function () {
 	
 	    /**
-	     * Create a new Map.
+	     * Create a new Map
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function EvMap(element) {
 	        _classCallCheck(this, EvMap);
 	
 	        if (window.isTouchDevice || window.isMobileSize) {
 	            return;
-	        };
+	        }
 	
 	        mapConfig = {
 	            mapID: '#gridmap',
@@ -12012,7 +10496,7 @@
 	};
 
 /***/ }),
-/* 56 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// https://d3js.org Version 4.9.1. Copyright 2017 Mike Bostock.
@@ -28884,7 +27368,7 @@
 
 
 /***/ }),
-/* 57 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// https://github.com/topojson/topojson Version 3.0.0. Copyright 2017 Mike Bostock.
@@ -30672,7 +29156,7 @@
 
 
 /***/ }),
-/* 58 */
+/* 51 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -30682,7 +29166,7 @@
 	};
 
 /***/ }),
-/* 59 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30692,7 +29176,7 @@
 	});
 	exports.default = gridmap;
 	
-	var _d = __webpack_require__(56);
+	var _d = __webpack_require__(49);
 	
 	var d3 = _interopRequireWildcard(_d);
 	
@@ -30967,7 +29451,7 @@
 	}
 
 /***/ }),
-/* 60 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31071,7 +29555,7 @@
 	exports.geolocate = geolocate;
 
 /***/ }),
-/* 61 */
+/* 54 */
 /***/ (function(module, exports) {
 
 	"use strict";

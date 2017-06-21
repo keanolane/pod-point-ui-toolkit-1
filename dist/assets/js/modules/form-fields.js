@@ -42,8 +42,8 @@ var FormFields = function () {
     }, {
         key: 'checkForContent',
         value: function checkForContent(element) {
-            var container = this.getInputContainer(element),
-                callback = element.value ? _domOps.addClass : _domOps.removeClass;
+            var container = this.getInputContainer(element);
+            var callback = element.value ? _domOps.addClass : _domOps.removeClass;
 
             callback(container, HAS_CONTENT);
         }
@@ -80,9 +80,10 @@ var FormFields = function () {
 
             listener.on('input', 'textarea', function (event, element) {
                 var scrollHeight = element.scrollHeight;
+                var formEl = element;
 
-                if (scrollHeight > parseInt(window.getComputedStyle(element, null).height)) {
-                    element.style.height = scrollHeight + 'px';
+                if (scrollHeight > parseInt(window.getComputedStyle(formEl, null).height, 0)) {
+                    formEl.style.height = scrollHeight + 'px';
                 }
             });
         }

@@ -6,17 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _domDelegate = require('dom-delegate');
-
 var _domOps = require('@pod-point/dom-ops');
 
-var _utilities = require('./../utilities');
-
-var _stickyJs = require('sticky-js');
-
-var _stickyJs2 = _interopRequireDefault(_stickyJs);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _domDelegate = require('dom-delegate');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -24,19 +16,13 @@ var instances = [];
 
 var NAV_OPEN = 'nav-open';
 var SUBNAV_OPEN = 'sub-nav-open';
-var HEADER_MINFIED = 'is-minified';
 
 var navIsOpen = false;
-var subNavIsOpen = false;
-
-var scrollPos = 0;
-var headerWrap = document.querySelector('.global-header-wrap');
-var stepsIndicator = document.querySelector('#stepsIndicator');
 
 var HeaderNav = function () {
 
     /**
-     * Creates a new header nav element.
+     * Creates a new header nav element
      *
      * @param element
      */
@@ -46,14 +32,13 @@ var HeaderNav = function () {
         this.element = element;
         this.navicon = this.element.querySelector('.navicon');
         this.nav = this.element.querySelector('.global-nav');
-        this.headerWrap = document.querySelector('.global-header-wrap');
         this.navOverlay = document.querySelector('.global-nav-overlay');
 
         this.bindEvents();
     }
 
     /**
-     * Binds the event listeners from the elements.
+     * Binds the event listeners from the elements
      */
 
 
@@ -76,15 +61,15 @@ var HeaderNav = function () {
 
             this.navOverlayListener = new _domDelegate.Delegate(this.navOverlay);
 
-            this.navOverlayListener.on('click', function (event) {
+            this.navOverlayListener.on('click', function () {
                 _this.closeSubNavs();
             });
         }
 
         /**
-         * Toggles the nav.
+         * Toggles the nav
          *
-         * @param {Event} event
+         * @param {event}
          */
 
     }, {
@@ -102,7 +87,7 @@ var HeaderNav = function () {
         }
 
         /**
-         * Closes all sub navs.
+         * Closes all sub navs
          */
 
     }, {
@@ -118,10 +103,10 @@ var HeaderNav = function () {
         }
 
         /**
-         * Toggles the sub nav.
+         * Toggles the sub nav
          *
-         * @param {Event} event
-         * @param {Element} element
+         * @param {event} the click
+         * @param {element} the clicked element
          */
 
     }, {
@@ -142,13 +127,14 @@ var HeaderNav = function () {
 
         /**
          * Shows the overlay if it's desktop size
-         * @param {Bool} show overlay
+         *
+         * @param {boolean} show overlay
          */
 
     }, {
         key: 'showOverlay',
         value: function showOverlay(_showOverlay) {
-            if (isMobileSize) return;
+            if (window.isMobileSize) return;
 
             if (_showOverlay) {
                 (0, _domOps.addClass)(this.navOverlay, NAV_OPEN);
@@ -160,7 +146,7 @@ var HeaderNav = function () {
         }
 
         /**
-         * Unbinds the event listeners from the elements.
+         * Unbinds the event listeners from the elements
          */
 
     }, {
@@ -178,6 +164,7 @@ exports.default = {
     init: function init(element) {
         instances.push(new HeaderNav(element));
     },
+
     destroy: function destroy() {
         instances.forEach(function (instance) {
             return instance.unbindEvents();

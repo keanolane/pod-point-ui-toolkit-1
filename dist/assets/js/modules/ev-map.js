@@ -36,16 +36,16 @@ var instances = [];
 var EvMap = function () {
 
     /**
-     * Create a new Map.
+     * Create a new Map
      *
-     * @param element
+     * @param {element}
      */
     function EvMap(element) {
         _classCallCheck(this, EvMap);
 
         if (window.isTouchDevice || window.isMobileSize) {
             return;
-        };
+        }
 
         mapConfig = {
             mapID: '#gridmap',
