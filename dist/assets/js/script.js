@@ -62,9 +62,7 @@
 	
 	var dom = _interopRequireWildcard(_domOps);
 	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
+	__webpack_require__(5);
 	
 	var _modal = __webpack_require__(6);
 	
@@ -266,7 +264,6 @@
 	
 	dom.whenReady(function () {
 	    (0, _moduleLoader2.default)({
-	        base: _base2.default,
 	        formFields: _formFields2.default,
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 =======
@@ -723,46 +720,19 @@ var _moduleLoader = require('@pod-point/module-loader');
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
 	var _domOps = __webpack_require__(4);
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var Base = function () {
-	    function Base() {
-	        var root = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
-	
-	        _classCallCheck(this, Base);
-	
-	        this.defineSizeAndDevice();
-	    }
-	
-	    _createClass(Base, [{
-	        key: 'defineSizeAndDevice',
-	        value: function defineSizeAndDevice() {
-	            window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
-	            var winWidthMedium = 800;
-	            var winWidth = window.innerWidth;
-	            window.isMobileSize = winWidth < winWidthMedium ? true : false;
-	            window.onload = function () {
-	                isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
-	            };
-	        }
-	    }]);
-	
-	    return Base;
-	}();
-	
-	exports.default = {
-	    init: function init() {
-	        new Base();
-	    }
+	var defineSizeAndDevice = function defineSizeAndDevice() {
+	    window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
+	    var winWidthMedium = 800;
+	    var winWidth = window.innerWidth;
+	    window.isMobileSize = winWidth < winWidthMedium ? true : false;
+	    window.onload = function () {
+	        isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
+	    };
 	};
+	
+	defineSizeAndDevice();
 
 /***/ }),
 /* 6 */
@@ -1739,9 +1709,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	var AjaxForm = function () {
 	
 	    /**
-	     * Create a new AJAX form.
+	     * Create a new AJAX form
 	     *
-	     * @param form
+	     * @param {element} form
 	     */
 	    function AjaxForm(form) {
 	        _classCallCheck(this, AjaxForm);
@@ -1754,7 +1724,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 	
 	    /**
-	     * Handle the form submission.
+	     * Handle the form submission
 	     */
 	
 	
@@ -1778,7 +1748,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	        }
 	
 	        /**
-	         * Bind any event listeners to the elements.
+	         * Bind any event listeners to the elements
 	         */
 	
 	    }, {
@@ -1798,7 +1768,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	        }
 	
 	        /**
-	         * Unbinds the event listeners from the elements.
+	         * Unbinds the event listeners from the elements
 	         */
 	
 	    }, {
