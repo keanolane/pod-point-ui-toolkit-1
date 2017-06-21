@@ -6,7 +6,11 @@ const defineSizeAndDevice = () => {
     const winWidth = window.innerWidth;
     window.isMobileSize = (winWidth < winWidthMedium);
     window.onload = () => {
-        window.isTouchDevice ? addClass(document.body, 'is-touch') : addClass(document.body, 'is-desktop');
+        if (window.isTouchDevice) {
+            addClass(document.body, 'is-touch');
+        } else {
+            addClass(document.body, 'is-desktop');
+        }
     };
 };
 

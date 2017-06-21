@@ -32,7 +32,7 @@ class Collapse {
      * @param {event}
      * @param {element} trigger
      */
-    static doCollapse(event, trigger) {
+    doCollapse(event, trigger) {
         event.preventDefault();
 
         const target = trigger.getAttribute('data-target');

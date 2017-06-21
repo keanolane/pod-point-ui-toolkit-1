@@ -36,7 +36,7 @@ class DropDown {
      *
      * @param {element} input
      */
-    static doDropDown(input) {
+    doDropDown(input) {
         input.parentElement.classList.toggle('open');
     }
 
@@ -45,7 +45,7 @@ class DropDown {
      *
      * @param {element} input
      */
-    static closeDropDown(input) {
+    closeDropDown(input) {
         input.parentElement.classList.remove('open');
 
         // Trigger the click event on the target if it not opening another menu
