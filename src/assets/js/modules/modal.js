@@ -62,7 +62,11 @@ class Modal {
     doModal(event) {
         event.preventDefault();
 
-        isVisible(this.modal) ? this.closeModal() : this.openModal();
+        if (isVisible(this.modal)) {
+            this.closeModal();
+        } else {
+            this.openModal();
+        }
     }
 
     /**
