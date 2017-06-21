@@ -76,7 +76,7 @@ export function addItemToCookie(name, value) {
  */
 export function readItemFromCookie(name) {
     let result = document.cookie.match(new RegExp(`${name}=([^;]+)`));
-    result && (result = JSON.parse(result[1]));
+    if (result) result = JSON.parse(result[1]);
     return result;
 }
 
@@ -182,5 +182,10 @@ export function roundNumberTo(num, roundTo) {
  */
 export function loadVideo(videoEl, load) {
     const videoSrc = videoEl.getAttribute('data-src');
-    load ? videoEl.setAttribute('src', videoSrc) : videoEl.setAttribute('src', '');
+
+    if (load) {
+        videoEl.setAttribute('src', videoSrc);
+    } else {
+        videoEl.setAttribute('src', '');
+    }
 }
