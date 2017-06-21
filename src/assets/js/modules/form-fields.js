@@ -61,7 +61,7 @@ class FormFields {
         });
     }
 
-    static getInputContainer(element) {
+    getInputContainer(element) {
         return element.parentNode;
     }
 

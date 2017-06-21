@@ -15,20 +15,19 @@ var instances = [];
 var DropDown = function () {
 
     /**
-     * Creates a new drop down element.
+     * Creates a new drop down element
      *
-     * @param element
+     * @param {element}
      */
     function DropDown(element) {
         _classCallCheck(this, DropDown);
 
         this.element = element;
-
         this.bindEvents();
     }
 
     /**
-     * Bind any event listeners to the elements.
+     * Bind any event listeners to the elements
      */
 
 
@@ -41,43 +40,41 @@ var DropDown = function () {
 
             this.listener.on('click', function (event, input) {
                 event.preventDefault();
-
                 _this.doDropDown(input);
             });
 
             this.listener.on('blur', function (event, input) {
                 event.preventDefault();
-
                 _this.closeDropDown(input);
             });
         }
 
         /**
-         * Unbinds the event listeners from the elements.
+         * Handle drop down opening
+         *
+         * @param {element} input
          */
 
     }, {
         key: 'unbindEvents',
+
+
+        /**
+         * Unbinds the event listeners from the elements
+         */
         value: function unbindEvents() {
             this.listener.destroy();
         }
-
-        /**
-         * Handle drop down opening.
-         *
-         * @param {Element} input
-         */
-
-    }, {
+    }], [{
         key: 'doDropDown',
         value: function doDropDown(input) {
             input.parentElement.classList.toggle('open');
         }
 
         /**
-         * Handle drop down closing.
+         * Handle drop down closing
          *
-         * @param {Element} input
+         * @param {element} input
          */
 
     }, {

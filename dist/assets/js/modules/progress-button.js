@@ -14,9 +14,9 @@ var IS_COMPLETE = 'is-complete';
 var ProgressButton = function () {
 
     /**
-     * Create a new progress button.
+     * Create a new progress button
      *
-     * @param button
+     * @param {element} button
      */
     function ProgressButton(button) {
         _classCallCheck(this, ProgressButton);
@@ -25,7 +25,7 @@ var ProgressButton = function () {
     }
 
     /**
-     * Handle the button in a loading state.
+     * Handle the button in a loading state
      */
 
 
@@ -37,9 +37,9 @@ var ProgressButton = function () {
         }
 
         /**
-         * Handle the button on success.
+         * Handle the button on success
          *
-         * @param success
+         * @param {boolean} success
          */
 
     }, {

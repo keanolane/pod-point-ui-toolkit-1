@@ -19,9 +19,9 @@ var instances = [];
 var Carousel = function () {
 
     /**
-     * Create a new carousel element.
+     * Create a new carousel element
      *
-     * @param select wrapper
+     * @param {element} select wrapper
      */
     function Carousel(element) {
         _classCallCheck(this, Carousel);
@@ -31,7 +31,7 @@ var Carousel = function () {
     }
 
     /**
-     * Initialise a Flickity carousel.
+     * Initialise a Flickity carousel
      */
 
 
@@ -44,7 +44,7 @@ var Carousel = function () {
         }
 
         /**
-         * Destroy Flickity carousel.
+         * Destroy Flickity carousel
          */
 
     }, {

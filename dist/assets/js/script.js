@@ -89,58 +89,39 @@
 	
 	var _dropdown2 = _interopRequireDefault(_dropdown);
 	
-	var _toggle = __webpack_require__(21);
-	
-	var _toggle2 = _interopRequireDefault(_toggle);
-	
-	var _toggleAccordionPanel = __webpack_require__(22);
+	var _toggleAccordionPanel = __webpack_require__(21);
 	
 	var _toggleAccordionPanel2 = _interopRequireDefault(_toggleAccordionPanel);
 	
-	var _toggleElement = __webpack_require__(23);
+	var _toggleElement = __webpack_require__(22);
 	
 	var _toggleElement2 = _interopRequireDefault(_toggleElement);
 	
-	var _gallerySimple = __webpack_require__(24);
+	var _gallerySimple = __webpack_require__(23);
 	
 	var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
 	
-	var _accordion = __webpack_require__(25);
+	var _accordion = __webpack_require__(24);
 	
 	var _accordion2 = _interopRequireDefault(_accordion);
 	
-	var _headerNav = __webpack_require__(26);
+	var _headerNav = __webpack_require__(25);
 	
 	var _headerNav2 = _interopRequireDefault(_headerNav);
 	
-	var _carousel = __webpack_require__(29);
+	var _carousel = __webpack_require__(26);
 	
 	var _carousel2 = _interopRequireDefault(_carousel);
 	
-	var _changeContent = __webpack_require__(48);
+	var _changeContent = __webpack_require__(45);
 	
 	var _changeContent2 = _interopRequireDefault(_changeContent);
 	
-	var _checkoutYourPodPoint = __webpack_require__(49);
-	
-	var _checkoutYourPodPoint2 = _interopRequireDefault(_checkoutYourPodPoint);
-	
-	var _claimOlev = __webpack_require__(50);
-	
-	var _claimOlev2 = _interopRequireDefault(_claimOlev);
-	
-	var _claimDealerDiscount = __webpack_require__(51);
-	
-	var _claimDealerDiscount2 = _interopRequireDefault(_claimDealerDiscount);
-	
-	var _basket = __webpack_require__(52);
-	
-	var _basket2 = _interopRequireDefault(_basket);
-	
-	var _flipCounter = __webpack_require__(53);
+	var _flipCounter = __webpack_require__(46);
 	
 	var _flipCounter2 = _interopRequireDefault(_flipCounter);
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _evMap = __webpack_require__(55);
@@ -233,10 +214,13 @@
 =======
 	var _evMap = __webpack_require__(55);
 >>>>>>> eslint most of utilities.js and also docBlocked all export functions
+=======
+	var _evMap = __webpack_require__(48);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 	var _evMap2 = _interopRequireDefault(_evMap);
 	
-	var _addressLookup = __webpack_require__(60);
+	var _addressLookup = __webpack_require__(53);
 	
 	var addressLookup = _interopRequireWildcard(_addressLookup);
 	
@@ -244,6 +228,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 <<<<<<< f1e1f50743ee4ddb95f72d05bf5c792b6be2e5c3
@@ -257,6 +242,9 @@
 =======
 	__webpack_require__(61);
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
+=======
+	__webpack_require__(54);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 	window.initAutocomplete = addressLookup.initAutocomplete;
 	window.geolocate = addressLookup.geolocate;
@@ -274,7 +262,6 @@
 	            ajaxForm: _ajaxForm2.default,
 	            collapse: _collapse2.default,
 	            dropdown: _dropdown2.default,
-	            toggle: _toggle2.default,
 	            toggleAccordionPanel: _toggleAccordionPanel2.default,
 	            toggleElement: _toggleElement2.default,
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
@@ -295,10 +282,6 @@
 	            addressLookup: addressLookup,
 >>>>>>> eslint most of utilities.js and also docBlocked all export functions
 	            changeContent: _changeContent2.default,
-	            checkoutYourPodPoint: _checkoutYourPodPoint2.default,
-	            claimOlev: _claimOlev2.default,
-	            claimDealerDiscount: _claimDealerDiscount2.default,
-	            basket: _basket2.default,
 	            flipCounter: _flipCounter2.default,
 	            evMap: _evMap2.default
 	        })
@@ -723,12 +706,12 @@ var _moduleLoader = require('@pod-point/module-loader');
 	var _domOps = __webpack_require__(4);
 	
 	var defineSizeAndDevice = function defineSizeAndDevice() {
-	    window.isTouchDevice = 'ontouchstart' in document.documentElement ? true : false;
+	    window.isTouchDevice = 'ontouchstart' in document.documentElement;
 	    var winWidthMedium = 800;
 	    var winWidth = window.innerWidth;
-	    window.isMobileSize = winWidth < winWidthMedium ? true : false;
+	    window.isMobileSize = winWidth < winWidthMedium;
 	    window.onload = function () {
-	        isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
+	        window.isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
 	    };
 	};
 	
@@ -755,27 +738,29 @@ var _moduleLoader = require('@pod-point/module-loader');
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
+	var MODAL_OPEN = 'is-modal-open';
 	
 	var Modal = function () {
 	
 	    /**
-	     * Creates a new modal window.
+	     * Creates a new modal window
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function Modal(element) {
 	        _classCallCheck(this, Modal);
 	
 	        this.openButton = element;
-	        this.modal = (0, _domOps.selectFirst)('#' + this.openButton.getAttribute('data-modal'));
-	        this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
+	        var modalID = this.openButton.getAttribute('data-modal');
+	        this.modal = document.querySelector('#' + modalID);
+	        this.closeButton = this.modal.querySelector('.modal-close');
 	        this.video = this.modal.querySelector('.video-wrapper iframe');
 	
 	        this.bindEvents();
 	    }
 	
 	    /**
-	     * Binds the event listeners from the elements.
+	     * Binds the event listeners from the elements
 	     */
 	
 	
@@ -786,7 +771,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	
 	            this.openListener = new _domDelegate.Delegate(this.openButton);
 	
-	            this.openListener.on('click', function (event) {
+	            this.openListener.on('click', function () {
 	                _this.openModal();
 	            });
 	
@@ -815,22 +800,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 	        }
 	
 	        /**
-	         * Unbinds the event listeners from the elements.
-	         */
-	
-	    }, {
-	        key: 'unbindEvents',
-	        value: function unbindEvents() {
-	            this.openListener.destroy();
-	            this.closeListener.destroy();
-	            this.overlayListener.destroy();
-	            this.windowListener.destroy();
-	        }
-	
-	        /**
-	         * Handle the modal opening.
+	         * Handle the modal opening
 	         *
-	         * @param {Event} event
+	         * @param {event}
 	         */
 	
 	    }, {
@@ -846,19 +818,18 @@ var _moduleLoader = require('@pod-point/module-loader');
 	        }
 	
 	        /**
-	         * Handle the modal opening.
+	         * Handle the modal opening
 	         */
 	
 	    }, {
 	        key: 'openModal',
 	        value: function openModal() {
-	            document.documentElement.classList.add('is-modal-open');
-	
+	            (0, _domOps.addClass)(document.documentElement, MODAL_OPEN);
 	            (0, _utilities.show)(this.modal);
 	
 	            if (this.video) {
 	                (0, _utilities.loadVideo)(this.video, true);
-	            };
+	            }
 	
 	            var overlay = document.createElement('div');
 	            overlay.className = 'modal-overlay';
@@ -866,25 +837,36 @@ var _moduleLoader = require('@pod-point/module-loader');
 	        }
 	
 	        /**
-	         * Handle the modal closing.
+	         * Handle the modal closing
 	         */
 	
 	    }, {
 	        key: 'closeModal',
 	        value: function closeModal() {
-	            document.documentElement.classList.remove('is-modal-open');
-	
+	            (0, _domOps.removeClass)(document.documentElement, MODAL_OPEN);
 	            (0, _utilities.hide)(this.modal);
 	
 	            if (this.video) {
 	                (0, _utilities.loadVideo)(this.video, false);
-	            };
+	            }
 	
-	            var overlay = (0, _domOps.selectFirst)('.modal-overlay');
-	
+	            var overlay = document.querySelector('.modal-overlay');
 	            if (overlay !== null) {
 	                document.body.removeChild(overlay);
 	            }
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.openListener.destroy();
+	            this.closeListener.destroy();
+	            this.overlayListener.destroy();
+	            this.windowListener.destroy();
 	        }
 	    }]);
 	
@@ -1507,7 +1489,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	 */
 	function readItemFromCookie(name) {
 	    var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
-	    result && (result = JSON.parse(result[1]));
+	    if (result) result = JSON.parse(result[1]);
 	    return result;
 	}
 	
@@ -1624,7 +1606,12 @@ var _moduleLoader = require('@pod-point/module-loader');
 	 */
 	function loadVideo(videoEl, load) {
 	    var videoSrc = videoEl.getAttribute('data-src');
-	    load ? videoEl.setAttribute('src', videoSrc) : videoEl.setAttribute('src', '');
+	
+	    if (load) {
+	        videoEl.setAttribute('src', videoSrc);
+	    } else {
+	        videoEl.setAttribute('src', '');
+	    }
 	}
 >>>>>>> Added responsive video to modal, which loads and destroys on modal open and close
 
@@ -3257,15 +3244,26 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			return slice.call( this );
 		},
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		// Get the Nth element in the matched element set OR
 		// Get the whole matched element set as a clean array
 		get: function( num ) {
+=======
+	    /**
+	     * Create a new progress button
+	     *
+	     * @param {element} button
+	     */
+	    function ProgressButton(button) {
+	        _classCallCheck(this, ProgressButton);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			// Return all the elements in a clean array
 			if ( num == null ) {
 				return slice.call( this );
 			}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 			// Return just the one element from the set
 			return num < 0 ? this[ num + this.length ] : this[ num ];
 		},
@@ -3339,6 +3337,11 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			target = arguments[ i ] || {};
 			i++;
 		}
+=======
+	    /**
+	     * Handle the button in a loading state
+	     */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 		// Handle case when target is a string or something (possible in deep copy)
 		if ( typeof target !== "object" && !jQuery.isFunction( target ) ) {
@@ -3351,7 +3354,15 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			i--;
 		}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		for ( ; i < length; i++ ) {
+=======
+	        /**
+	         * Handle the button on success
+	         *
+	         * @param {boolean} success
+	         */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			// Only deal with non-null/undefined values
 			if ( ( options = arguments[ i ] ) != null ) {
@@ -3429,9 +3440,23 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			return jQuery.type( obj ) === "function";
 		},
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		isWindow: function( obj ) {
 			return obj != null && obj === obj.window;
 		},
+=======
+	            if (inputs.length) {
+	                inputs.forEach(function (input) {
+	                    return _this.checkForContent(input);
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'checkForContent',
+	        value: function checkForContent(element) {
+	            var container = this.getInputContainer(element);
+	            var callback = element.value ? _domOps.addClass : _domOps.removeClass;
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 		isNumeric: function( obj ) {
 	
@@ -3456,12 +3481,40 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				return false;
 			}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 			proto = getProto( obj );
 	
 			// Objects with no prototype (e.g., `Object.create( null )`) are plain
 			if ( !proto ) {
 				return true;
 			}
+=======
+	            listener.on('input', 'textarea', function (event, element) {
+	                var scrollHeight = element.scrollHeight;
+	                var formEl = element;
+	
+	                if (scrollHeight > parseInt(window.getComputedStyle(formEl, null).height, 0)) {
+	                    formEl.style.height = scrollHeight + 'px';
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'getInputContainer',
+	        value: function getInputContainer(element) {
+	            return element.parentNode;
+	        }
+	    }, {
+	        key: 'removeFocus',
+	        value: function removeFocus(element) {
+	            (0, _domOps.removeClass)(this.getInputContainer(element), HAS_FOCUS);
+	        }
+	    }, {
+	        key: 'giveFocus',
+	        value: function giveFocus(element) {
+	            (0, _domOps.addClass)(this.getInputContainer(element), HAS_FOCUS);
+	        }
+	    }]);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			// Objects with prototype are plain iff they were constructed by a global Object function
 			Ctor = hasOwn.call( proto, "constructor" ) && proto.constructor;
@@ -3573,6 +3626,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			return arr == null ? -1 : indexOf.call( arr, elem, i );
 		},
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		// Support: Android <=4.0 only, PhantomJS 1 only
 		// push.apply(_, arraylike) throws on ancient WebKit
 		merge: function( first, second ) {
@@ -3588,6 +3642,23 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	
 			return first;
 		},
+=======
+	    /**
+	     * Creates a new collapsible element
+	     *
+	     * @param {element}
+	     */
+	    function Collapse(element) {
+	        _classCallCheck(this, Collapse);
+	
+	        this.element = element;
+	        this.bindEvents();
+	    }
+	
+	    /**
+	     * Bind any event listeners to the elements
+	     */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 		grep: function( elems, callback, invert ) {
 			var callbackInverse,
@@ -3614,6 +3685,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				i = 0,
 				ret = [];
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 			// Go through the array, translating each of the items to their new values
 			if ( isArrayLike( elems ) ) {
 				length = elems.length;
@@ -3635,6 +3707,29 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					}
 				}
 			}
+=======
+	        /**
+	         * Collapses the element
+	         *
+	         * @param {event}
+	         * @param {element} trigger
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+	        value: function unbindEvents() {
+	            this.listener.destroy();
+	        }
+	    }], [{
+	        key: 'doCollapse',
+	        value: function doCollapse(event, trigger) {
+	            event.preventDefault();
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			// Flatten any nested arrays
 			return concat.apply( [], ret );
@@ -3694,6 +3789,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	
 		now: Date.now,
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		// jQuery.support is not used in Core but other projects attach their
 		// properties to it so it needs to exist.
 		support: support
@@ -3710,6 +3806,23 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	} );
 	
 	function isArrayLike( obj ) {
+=======
+	    /**
+	     * Creates a new drop down element
+	     *
+	     * @param {element}
+	     */
+	    function DropDown(element) {
+	        _classCallCheck(this, DropDown);
+	
+	        this.element = element;
+	        this.bindEvents();
+	    }
+	
+	    /**
+	     * Bind any event listeners to the elements
+	     */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 		// Support: real iOS 8.2 only (not reproducible in simulator)
 		// `in` check used to prevent JIT error (gh-2145)
@@ -3889,6 +4002,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					return "\uFFFD";
 				}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 				// Control characters and (dependent upon position) numbers get escaped as code points
 				return ch.slice( 0, -1 ) + "\\" + ch.charCodeAt( ch.length - 1 ).toString( 16 ) + " ";
 			}
@@ -3988,6 +4102,46 @@ var _toggle2 = _interopRequireDefault(_toggle);
 							} else {
 								return results;
 							}
+=======
+	            this.listener.on('click', function (event, input) {
+	                event.preventDefault();
+	                _this.doDropDown(input);
+	            });
+	
+	            this.listener.on('blur', function (event, input) {
+	                event.preventDefault();
+	                _this.closeDropDown(input);
+	            });
+	        }
+	
+	        /**
+	         * Handle drop down opening
+	         *
+	         * @param {element} input
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+	        value: function unbindEvents() {
+	            this.listener.destroy();
+	        }
+	    }], [{
+	        key: 'doDropDown',
+	        value: function doDropDown(input) {
+	            input.parentElement.classList.toggle('open');
+	        }
+	
+	        /**
+	         * Handle drop down closing
+	         *
+	         * @param {element} input
+	         */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 						// Element context
 						} else {
@@ -4094,6 +4248,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			}
 		}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		// All others
 		return select( selector.replace( rtrim, "$1" ), context, results, seed );
 	}
@@ -4453,12 +4608,19 @@ var _toggle2 = _interopRequireDefault(_toggle);
 							}
 						}
 					}
+=======
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	var IS_OPEN = 'is-open';
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 					return [];
 				}
 			};
 		}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		// Tag
 		Expr.find["TAG"] = support.getElementsByTagName ?
 			function( tag, context ) {
@@ -4493,17 +4655,60 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			};
 =======
 	        this.selectToggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll('[data-select-toggle-panel="' + this.panelId + '"]')) || [];
+=======
+	    /**
+	     * Creates a new toggle panel
+	     *
+	     * @param {element}
+	     */
+	    function ToggleAccordionPanel(element) {
+	        _classCallCheck(this, ToggleAccordionPanel);
+	
+	        // Selectors
+	        var toggleIconSelector = '[data-toggle-icon="' + this.panelId + '"]';
+	        var toggleButtonsSelector = '[data-toggle-panel="' + this.panelId + '"]';
+	        var openButtonsSelector = '[data-open-panel="' + this.panelId + '"]';
+	        var closeButtonsSelector = '[data-close-panel="' + this.panelId + '"]';
+	        var radioOpenButtonsSelector = '[data-radio-open-panel="' + this.panelId + '"]';
+	        var radioCloseButtonsSelector = '[data-radio-close-panel="' + this.panelId + '"]';
+	        var inputOpenButtonsSelector = '[data-input-open-panel="' + this.panelId + '"]';
+	        var selectToggleButtonsSelector = '[data-select-toggle-panel="' + this.panelId + '"]';
+	
+	        this.panel = element;
+	        this.panelId = element.getAttribute('id');
+	        this.toggleIcon = document.querySelector(toggleIconSelector);
+	        this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(toggleButtonsSelector)) || [];
+	        this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(openButtonsSelector)) || [];
+	        this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(closeButtonsSelector)) || [];
+	        this.radioOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(radioOpenButtonsSelector)) || [];
+	        this.radioCloseButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(radioCloseButtonsSelector)) || [];
+	        this.inputOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(inputOpenButtonsSelector)) || [];
+	
+	        this.selectToggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(selectToggleButtonsSelector)) || [];
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 	        this.bindEvents();
 	    }
 >>>>>>> Added a toggle panel on a select dd when the value is other
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		// Class
 		Expr.find["CLASS"] = support.getElementsByClassName && function( className, context ) {
 			if ( typeof context.getElementsByClassName !== "undefined" && documentIsHTML ) {
 				return context.getElementsByClassName( className );
 			}
 		};
+=======
+	    /**
+	     * Binds the event listeners from the elements
+	     */
+	
+	
+	    _createClass(ToggleAccordionPanel, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 		/* QSA/matchesSelector
 		---------------------------------------------------------------------- */
@@ -4610,6 +4815,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	        }
 >>>>>>> Added a toggle panel on a select dd when the value is other
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 				// FF 3.5 - :enabled/:disabled and hidden elements (hidden elements are still enabled)
 				// IE8 throws error here and will not see later tests
 				if ( el.querySelectorAll(":enabled").length !== 2 ) {
@@ -4677,6 +4883,51 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				}
 				return false;
 			};
+=======
+	        /**
+	         * Toggle panel depending if already open or not
+	         */
+	
+	    }, {
+	        key: 'togglePanel',
+	        value: function togglePanel() {
+	            var panelIsVisible = (0, _domOps.hasClass)(this.panel, IS_OPEN);
+	
+	            if (panelIsVisible) {
+	                (0, _utilities.closePanel)(this.panel);
+	            } else {
+	                (0, _utilities.openPanel)(this.panel);
+	            }
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.toggleListeners.forEach(function (toggleListener) {
+	                return toggleListener.destroy();
+	            });
+	            this.openListeners.forEach(function (openListener) {
+	                return openListener.destroy();
+	            });
+	            this.closeListeners.forEach(function (closeListener) {
+	                return closeListener.destroy();
+	            });
+	            this.radioOpenListeners.forEach(function (radioOpenListener) {
+	                return radioOpenListener.destroy();
+	            });
+	            this.radioCloseListeners.forEach(function (radioCloseListener) {
+	                return radioCloseListener.destroy();
+	            });
+	            this.inputOpenListeners.forEach(function (inputOpenListener) {
+	                return inputOpenListener.destroy();
+	            });
+	        }
+	    }]);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 		/* Sorting
 		---------------------------------------------------------------------- */
@@ -4701,7 +4952,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	};
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4736,11 +4987,16 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					return 1;
 				}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 				// Maintain original order
 				return sortInput ?
 					( indexOf( sortInput, a ) - indexOf( sortInput, b ) ) :
 					0;
 			}
+=======
+	var instances = [];
+	var IS_OPEN = 'fade-in';
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			return compare & 4 ? -1 : 1;
 		} :
@@ -4751,6 +5007,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				return 0;
 			}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 			var cur,
 				i = 0,
 				aup = a.parentNode,
@@ -4787,6 +5044,28 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			while ( ap[i] === bp[i] ) {
 				i++;
 			}
+=======
+	    /**
+	     * Creates a new toggle element
+	     *
+	     * @param {element}
+	     */
+	    function ToggleElement(element) {
+	        _classCallCheck(this, ToggleElement);
+	
+	        var toggleButtonsSelector = '[data-toggle-el="' + this.elementId + '"]';
+	        var openButtonsSelector = '[data-open-el="' + this.elementId + '"]';
+	        var closeButtonsSelector = '[data-close-el="' + this.elementId + '"]';
+	        var allElementsSelector = '[data-js-module="toggleElement"]';
+	
+	        this.element = element;
+	        this.elementId = element.getAttribute('id');
+	        this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(toggleButtonsSelector)) || [];
+	        this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(openButtonsSelector)) || [];
+	        this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(closeButtonsSelector)) || [];
+	
+	        this.allElements = (0, _domOps.nodesToArray)(document.querySelectorAll(allElementsSelector));
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			return i ?
 				// Do a sibling check if the nodes have a common ancestor
@@ -4798,8 +5077,14 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				0;
 		};
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		return document;
 	};
+=======
+	    /**
+	     * Binds the event listeners from the elements
+	     */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 	Sizzle.matches = function( expr, elements ) {
 		return Sizzle( expr, null, null, elements );
@@ -4822,6 +5107,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			try {
 				var ret = matches.call( elem, expr );
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 				// IE 9's matchesSelector returns false on disconnected nodes
 				if ( ret || support.disconnectedMatch ||
 						// As well, disconnected nodes are said to be in a document
@@ -4831,10 +5117,16 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				}
 			} catch (e) {}
 		}
+=======
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 		return Sizzle( expr, document, null, [ elem ] ).length > 0;
 	};
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 	Sizzle.contains = function( context, elem ) {
 		// Set document vars if needed
 		if ( ( context.ownerDocument || context ) !== document ) {
@@ -4842,6 +5134,11 @@ var _toggle2 = _interopRequireDefault(_toggle);
 		}
 		return contains( context, elem );
 	};
+=======
+	        /**
+	         * Toggle element depending if already open or not
+	         */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 	Sizzle.attr = function( elem, name ) {
 		// Set document vars if needed
@@ -4849,6 +5146,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			setDocument( elem );
 		}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		var fn = Expr.attrHandle[ name.toLowerCase() ],
 			// Don't get fooled by Object.prototype properties (jQuery #13807)
 			val = fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() ) ?
@@ -4867,11 +5165,30 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	Sizzle.escape = function( sel ) {
 		return (sel + "").replace( rcssescape, fcssescape );
 	};
+=======
+	        /**
+	         * Handle the element opening
+	         */
+	
+	    }, {
+	        key: 'openElement',
+	        value: function openElement() {
+	            this.closeAllElements();
+	            this.elementIsVisible = true;
+	            this.element.classList.remove('hidden');
+	            this.element.classList.add(IS_OPEN);
+	        }
+	
+	        /**
+	         * Handle the element closing
+	         */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 	Sizzle.error = function( msg ) {
 		throw new Error( "Syntax error, unrecognized expression: " + msg );
 	};
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 	/**
 	 * Document sorting and removing duplicates
 	 * @param {ArrayLike} results
@@ -4897,6 +5214,11 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				results.splice( duplicates[ j ], 1 );
 			}
 		}
+=======
+	        /**
+	         * Handle the closing of all other elements
+	         */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 		// Clear input after sorting to release objects
 		// See https://github.com/jquery/sizzle/pull/225
@@ -4943,7 +5265,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 =======
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4960,6 +5282,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	var _domDelegate = __webpack_require__(7);
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		match: matchExpr,
 	
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -4969,6 +5292,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 		find: {},
+=======
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 		relative: {
 			">": { dir: "parentNode", first: true },
@@ -4981,15 +5307,31 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			"ATTR": function( match ) {
 				match[1] = match[1].replace( runescape, funescape );
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 				// Move the given value to match[3] whether quoted or unquoted
 				match[3] = ( match[3] || match[4] || match[5] || "" ).replace( runescape, funescape );
+=======
+	    /**
+	     * Creates a gallery element
+	     *
+	     * @param {element}
+	     */
+	    function GallerySimple(element) {
+	        _classCallCheck(this, GallerySimple);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 				if ( match[2] === "~=" ) {
 					match[3] = " " + match[3] + " ";
 				}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 				return match.slice( 0, 4 );
 			},
+=======
+	    /**
+	     * Get first thumbnail and pass to function to display as the main image
+	     */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			"CHILD": function( match ) {
 				/* matches from matchExpr["CHILD"]
@@ -5031,9 +5373,15 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					return null;
 				}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 				// Accept quoted arguments as-is
 				if ( match[3] ) {
 					match[2] = match[4] || match[5] || "";
+=======
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 				// Strip excess characters from unquoted arguments
 				} else if ( unquoted && rpseudo.test( unquoted ) &&
@@ -5042,10 +5390,17 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					// advance to the next closing parenthesis
 					(excess = unquoted.indexOf( ")", unquoted.length - excess ) - unquoted.length) ) {
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 					// excess is a negative index
 					match[0] = match[0].slice( 0, excess );
 					match[2] = unquoted.slice( 0, excess );
 				}
+=======
+	        /**
+	         * Display thumbnail as main image
+	         * @param {element} thumbnail
+	         */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 				// Return only captures needed by the pseudo filter method (type and argument)
 				return match.slice( 0, 3 );
@@ -5083,7 +5438,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	};
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5481,7 +5836,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	};
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5496,6 +5851,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				return rinputs.test( elem.nodeName );
 			},
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 			"button": function( elem ) {
 				var name = elem.nodeName.toLowerCase();
@@ -5533,6 +5889,11 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			"eq": createPositionalPseudo(function( matchIndexes, length, argument ) {
 				return [ argument < 0 ? argument + length : argument ];
 			}),
+=======
+	var _domOps = __webpack_require__(4);
+	
+	var _domDelegate = __webpack_require__(7);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			"even": createPositionalPseudo(function( matchIndexes, length ) {
 				var i = 0;
@@ -5550,6 +5911,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				return matchIndexes;
 			}),
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 			"lt": createPositionalPseudo(function( matchIndexes, length, argument ) {
 				var i = argument < 0 ? argument + length : argument;
 				for ( ; --i >= 0; ) {
@@ -5569,6 +5931,12 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	};
 	
 	Expr.pseudos["nth"] = Expr.pseudos["eq"];
+=======
+	var NAV_OPEN = 'nav-open';
+	var SUBNAV_OPEN = 'sub-nav-open';
+	
+	var navIsOpen = false;
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 	// Add button/input type pseudos
 	for ( i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
@@ -5578,10 +5946,20 @@ var _toggle2 = _interopRequireDefault(_toggle);
 		Expr.pseudos[ i ] = createButtonPseudo( i );
 	}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 	// Easy API for creating new setFilters
 	function setFilters() {}
 	setFilters.prototype = Expr.filters = Expr.pseudos;
 	Expr.setFilters = new setFilters();
+=======
+	    /**
+	     * Creates a new header nav element
+	     *
+	     * @param element
+	     */
+	    function HeaderNav(element) {
+	        _classCallCheck(this, HeaderNav);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 <<<<<<< 8066f73c9009644771d6bca5ae829efe30852090
 	tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
@@ -5601,7 +5979,6 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	        this.element = element;
 	        this.navicon = this.element.querySelector('.navicon');
 	        this.nav = this.element.querySelector('.global-nav');
-	        this.headerWrap = document.querySelector('.global-header-wrap');
 	        this.navOverlay = document.querySelector('.global-nav-overlay');
 	
 	        this.bindEvents();
@@ -5609,9 +5986,15 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    }
 >>>>>>> Fixing header/nav issues
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		soFar = selector;
 		groups = [];
 		preFilters = Expr.preFilter;
+=======
+	    /**
+	     * Binds the event listeners from the elements
+	     */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 		while ( soFar ) {
 	
@@ -5762,12 +6145,13 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	
 	            this.navOverlayListener = new _domDelegate.Delegate(this.navOverlay);
 	
-	            this.navOverlayListener.on('click', function (event) {
+	            this.navOverlayListener.on('click', function () {
 	                _this.closeSubNavs();
 	            });
 	        }
 >>>>>>> Fixing header/nav issues
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 	function multipleContexts( selector, contexts, results ) {
 		var i = 0,
 			len = contexts.length;
@@ -5794,10 +6178,23 @@ var _toggle2 = _interopRequireDefault(_toggle);
 				}
 			}
 		}
+=======
+	        /**
+	         * Toggles the nav
+	         *
+	         * @param {event}
+	         */
+	
+	    }, {
+	        key: 'toggleNav',
+	        value: function toggleNav(event) {
+	            event.preventDefault();
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 		return newUnmatched;
 	}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 	function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postSelector ) {
 		if ( postFilter && !postFilter[ expando ] ) {
 			postFilter = setMatcher( postFilter );
@@ -5834,6 +6231,11 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			if ( matcher ) {
 				matcher( matcherIn, matcherOut, context, xml );
 			}
+=======
+	        /**
+	         * Closes all sub navs
+	         */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			// Apply postFilter
 			if ( postFilter ) {
@@ -5878,6 +6280,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 						postFinder( null, (matcherOut = []), temp, xml );
 					}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< 8066f73c9009644771d6bca5ae829efe30852090
 					// Move matched elements from seed to results to keep them synchronized
 					i = matcherOut.length;
@@ -5885,6 +6288,15 @@ var _toggle2 = _interopRequireDefault(_toggle);
 						if ( (elem = matcherOut[i]) &&
 							(temp = postFinder ? indexOf( seed, elem ) : preMap[i]) > -1 ) {
 =======
+=======
+	        /**
+	         * Toggles the sub nav
+	         *
+	         * @param {event} the click
+	         * @param {element} the clicked element
+	         */
+	
+>>>>>>> Removed all checkout flow specific code - templates and js
 	    }, {
 	        key: 'toggleSubNav',
 	        value: function toggleSubNav(event, clickedElement) {
@@ -5903,13 +6315,14 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	
 	        /**
 	         * Shows the overlay if it's desktop size
-	         * @param {Bool} show overlay
+	         *
+	         * @param {boolean} show overlay
 	         */
 	
 	    }, {
 	        key: 'showOverlay',
 	        value: function showOverlay(_showOverlay) {
-	            if (isMobileSize) return;
+	            if (window.isMobileSize) return;
 	
 	            if (_showOverlay) {
 	                (0, _domOps.addClass)(this.navOverlay, NAV_OPEN);
@@ -5921,10 +6334,16 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	        }
 >>>>>>> Made the header sub navs clickable instead of hover on desktop
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 							seed[temp] = !(results[temp] = elem);
 						}
 					}
 				}
+=======
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			// Add elements to results, through postFinder if defined
 			} else {
@@ -6046,6 +6465,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	    init: function init(element) {
 	        instances.push(new HeaderNav(element));
 	    },
+	
 	    destroy: function destroy() {
 	        instances.forEach(function (instance) {
 	            return instance.unbindEvents();
@@ -6055,6 +6475,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	};
 
 /***/ }),
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 /* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6761,6 +7182,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 
 /***/ }),
 /* 29 */
+=======
+/* 26 */
+>>>>>>> Removed all checkout flow specific code - templates and js
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6773,6 +7197,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 					jQuery.uniqueSort( matched );
 				}
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 				// Reverse order for parents* and prev-derivatives
 				if ( rparentsprev.test( name ) ) {
@@ -6782,6 +7207,9 @@ var _toggle2 = _interopRequireDefault(_toggle);
 =======
 	var _flickity = __webpack_require__(30);
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
+=======
+	var _flickity = __webpack_require__(27);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			return this.pushStack( matched );
 		};
@@ -6823,17 +7251,33 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	 */
 	jQuery.Callbacks = function( options ) {
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		// Convert options from String-formatted to Object-formatted if needed
 		// (we check in cache first)
 		options = typeof options === "string" ?
 			createOptions( options ) :
 			jQuery.extend( {}, options );
+=======
+	    /**
+	     * Create a new carousel element
+	     *
+	     * @param {element} select wrapper
+	     */
+	    function Carousel(element) {
+	        _classCallCheck(this, Carousel);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 		var // Flag to know if list is currently firing
 			firing,
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 			// Last fire value for non-forgettable lists
 			memory,
+=======
+	    /**
+	     * Initialise a Flickity carousel
+	     */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			// Flag to know if list was already fired
 			fired,
@@ -6841,8 +7285,14 @@ var _toggle2 = _interopRequireDefault(_toggle);
 			// Flag to prevent firing
 			locked,
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 			// Actual callback list
 			list = [],
+=======
+	        /**
+	         * Destroy Flickity carousel
+	         */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 			// Queue of execution data for repeatable lists
 			queue = [],
@@ -6866,7 +7316,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	};
 
 /***/ }),
-/* 30 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -6911,13 +7361,13 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(31),
+	      __webpack_require__(28),
+	      __webpack_require__(36),
 	      __webpack_require__(39),
+	      __webpack_require__(41),
 	      __webpack_require__(42),
-	      __webpack_require__(44),
-	      __webpack_require__(45),
-	      __webpack_require__(46),
-	      __webpack_require__(47)
+	      __webpack_require__(43),
+	      __webpack_require__(44)
 	    ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
@@ -6939,7 +7389,7 @@ var _toggle2 = _interopRequireDefault(_toggle);
 
 
 /***/ }),
-/* 31 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity main
@@ -6949,12 +7399,12 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(32),
+	      __webpack_require__(29),
+	      __webpack_require__(30),
+	      __webpack_require__(31),
 	      __webpack_require__(33),
 	      __webpack_require__(34),
-	      __webpack_require__(36),
-	      __webpack_require__(37),
-	      __webpack_require__(38)
+	      __webpack_require__(35)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Cell, Slide, animatePrototype ) {
 	      return factory( window, EvEmitter, getSize, utils, Cell, Slide, animatePrototype );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -47446,7 +47896,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 32 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -47562,7 +48012,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 33 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -47741,7 +48191,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 34 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -47764,7 +48214,7 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(35)
+	      __webpack_require__(32)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( matchesSelector ) {
 	      return factory( window, matchesSelector );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -47904,7 +48354,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 35 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -47948,7 +48398,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 36 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity.Cell
@@ -47958,7 +48408,7 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(33)
+	      __webpack_require__(30)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( getSize ) {
 	      return factory( window, getSize );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -48045,7 +48495,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 37 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;// slide
@@ -48100,7 +48550,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 38 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// animate
@@ -48110,7 +48560,7 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(34)
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( utils ) {
 	      return factory( window, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -48229,7 +48679,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 39 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
@@ -48239,9 +48689,9 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(31),
-	      __webpack_require__(40),
-	      __webpack_require__(34)
+	      __webpack_require__(28),
+	      __webpack_require__(37),
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, Unidragger, utils ) {
 	      return factory( window, Flickity, Unidragger, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -48791,6 +49241,7 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 39 */
 =======
@@ -48805,6 +49256,9 @@ window.addEventListener('resize', handleResize);
 =======
 /***/ }),
 /* 41 */
+=======
+/* 37 */
+>>>>>>> Removed all checkout flow specific code - templates and js
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -48825,9 +49279,15 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 	      __webpack_require__(32)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter ) {
 	      return factory( window, EvEmitter );
+=======
+	      __webpack_require__(38)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
+	      return factory( window, Unipointer );
+>>>>>>> Removed all checkout flow specific code - templates and js
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
@@ -49036,13 +49496,54 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	                }
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 	            }
+=======
+	}));
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Unipointer v2.2.0
+	 * base class for doing one thing with pointer event
+	 * MIT license
+	 */
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 	            _.$slides
 	                .eq(index)
 	                .addClass('slick-center');
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 	        } else {
+=======
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */ /*global define, module, require */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(29)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter ) {
+	      return factory( window, EvEmitter );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('ev-emitter')
+	    );
+	  } else {
+	    // browser global
+	    window.Unipointer = factory(
+	      window,
+	      window.EvEmitter
+	    );
+	  }
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 	            if (index >= 0 && index <= (_.slideCount - _.options.slidesToShow)) {
 	
@@ -49247,7 +49748,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 42 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// prev/next buttons
@@ -49257,9 +49758,9 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(31),
-	      __webpack_require__(43),
-	      __webpack_require__(34)
+	      __webpack_require__(28),
+	      __webpack_require__(40),
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
 	      return factory( window, Flickity, TapListener, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -49393,7 +49894,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 43 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -49419,7 +49920,7 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(41)
+	      __webpack_require__(38)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
 	      return factory( window, Unipointer );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -49480,7 +49981,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 44 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
@@ -49490,9 +49991,9 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(31),
-	      __webpack_require__(43),
-	      __webpack_require__(34)
+	      __webpack_require__(28),
+	      __webpack_require__(40),
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
 	      return factory( window, Flickity, TapListener, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -49602,7 +50103,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 45 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// player & autoPlay
@@ -49612,9 +50113,9 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(32),
-	      __webpack_require__(34),
-	      __webpack_require__(31)
+	      __webpack_require__(29),
+	      __webpack_require__(31),
+	      __webpack_require__(28)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, utils, Flickity ) {
 	      return factory( EvEmitter, utils, Flickity );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -49749,7 +50250,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 46 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// add, remove cell
@@ -49759,8 +50260,8 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(31),
-	      __webpack_require__(34)
+	      __webpack_require__(28),
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
 	      return factory( window, Flickity, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -49842,7 +50343,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 47 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
@@ -49852,8 +50353,8 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(31),
-	      __webpack_require__(34)
+	      __webpack_require__(28),
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
 	      return factory( window, Flickity, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -49876,6 +50377,7 @@ window.addEventListener('resize', handleResize);
 	
 	        var _ = this;
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 	        if (_.$dots !== null) {
 	
 	            _.$dots
@@ -50593,107 +51095,97 @@ window.addEventListener('resize', handleResize);
 	
 	        this.eligibleText = this.element.querySelector('#dealerDiscountEligibleText');
 	        this.notEligibleText = this.element.querySelector('#dealerDiscountNotEligibleText');
+=======
+	Flickity.createMethods.push('_createLazyload');
+	var proto = Flickity.prototype;
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
-	        this.basket = document.querySelector('#basketFinal');
-	        this.podPointProduct = this.basket.querySelector('[data-item="unit"]');
-	        this.claimedDealerDiscountBasketText = this.basket.querySelector('#claimedDealerDiscountBasket');
-	        this.podPointPriceEl = this.podPointProduct.querySelector('[data-price]');
-	        this.totalPriceEl = this.basket.querySelector('[data-total-price]');
-	        this.claimedDiscountText = this.basket.querySelector('#claimedDealerDiscountBasket');
-	
-	        this.bindEvents();
-	    }
-	
-	    /**
-	     * Binds the event listeners from the elements.
-	     */
-	
-	
-	    _createClass(ClaimDealerDiscount, [{
-	        key: 'bindEvents',
-	        value: function bindEvents() {
-	            var _this = this;
-	
-	            var dealershipInputListener = new _domDelegate.Delegate(this.dealershipInput);
-	            dealershipInputListener.on('keyup', function (event, element) {
-	                _this.checkForEligibility(element.value);
-	            });
-	
-	            var claimDealershipListener = new _domDelegate.Delegate(this.claimButton);
-	            claimDealershipListener.on('click', function (event, element) {
-	                event.preventDefault();
-	                _this.claimDiscount();
-	            });
-	        }
-	
-	        /**
-	         * User clicks to claim dealership discount
-	         */
-	
-	    }, {
-	        key: 'claimDiscount',
-	        value: function claimDiscount() {
-	            (0, _utilities.disableOrEnableButton)(this.claimButton, true);
-	            (0, _utilities.closePanel)(this.dealershipPanel);
-	
-	            // Current numbers
-	            var currentOlevDiscount = parseInt(this.basket.getAttribute('data-olev-discount'));
-	            var currentDealerDiscount = parseInt(this.basket.getAttribute('data-dealer-discount'));
-	            var currentPodPointPrice = parseInt(this.podPointPriceEl.getAttribute('data-price'));
-	            var currentTotalPrice = parseInt(this.totalPriceEl.getAttribute('data-total-price'));
-	            // Calculations
-	            var dealerDiscount = 150;
-	            var newPodPointPrice = currentPodPointPrice - currentOlevDiscount - dealerDiscount;
-	            var newTotalPrice = currentTotalPrice - currentOlevDiscount - dealerDiscount;
-	            // DOM
-	            this.basket.setAttribute('data-dealer-discount', dealerDiscount);
-	            this.podPointPriceEl.innerHTML = '£' + newPodPointPrice;
-	            this.totalPriceEl.innerHTML = '£' + newTotalPrice;
-	            (0, _utilities.show)(this.claimedDiscountText);
-	        }
-	
-	        /**
-	         * Check if user types an eligible dealership
-	         */
-	
-	    }, {
-	        key: 'checkForEligibility',
-	        value: function checkForEligibility(value) {
-	            var eligibleDealership = 'nissan';
-	            if (eligibleDealership === value) {
-	                (0, _utilities.disableOrEnableButton)(this.claimButton, false);
-	                (0, _utilities.hide)(this.notEligibleText);
-	                (0, _utilities.show)(this.eligibleText);
-	            } else {
-	                (0, _utilities.disableOrEnableButton)(this.claimButton, true);
-	                (0, _utilities.hide)(this.eligibleText);
-	            }
-	        }
-	
-	        /**
-	         * Unbinds the event listeners from the elements.
-	         */
-	
-	    }, {
-	        key: 'unbindEvents',
-	        value: function unbindEvents() {}
-	    }]);
-	
-	    return ClaimDealerDiscount;
-	}();
-	
-	exports.default = {
-	    init: function init(element) {
-	        instances.push(new ClaimDealerDiscount(element));
-	    },
-	
-	    destroy: function destroy() {
-	        instances.forEach(function (instance) {
-	            return instance.unbindEvents();
-	        });
-	        instances = [];
-	    }
+	proto._createLazyload = function() {
+	  this.on( 'select', this.lazyLoad );
 	};
+	
+	proto.lazyLoad = function() {
+	  var lazyLoad = this.options.lazyLoad;
+	  if ( !lazyLoad ) {
+	    return;
+	  }
+	  // get adjacent cells, use lazyLoad option for adjacent count
+	  var adjCount = typeof lazyLoad == 'number' ? lazyLoad : 0;
+	  var cellElems = this.getAdjacentCellElements( adjCount );
+	  // get lazy images in those cells
+	  var lazyImages = [];
+	  cellElems.forEach( function( cellElem ) {
+	    var lazyCellImages = getCellLazyImages( cellElem );
+	    lazyImages = lazyImages.concat( lazyCellImages );
+	  });
+	  // load lazy images
+	  lazyImages.forEach( function( img ) {
+	    new LazyLoader( img, this );
+	  }, this );
+	};
+	
+	function getCellLazyImages( cellElem ) {
+	  // check if cell element is lazy image
+	  if ( cellElem.nodeName == 'IMG' &&
+	    cellElem.getAttribute('data-flickity-lazyload') ) {
+	    return [ cellElem ];
+	  }
+	  // select lazy images in cell
+	  var imgs = cellElem.querySelectorAll('img[data-flickity-lazyload]');
+	  return utils.makeArray( imgs );
+	}
+	
+	// -------------------------- LazyLoader -------------------------- //
+	
+	/**
+	 * class to handle loading images
+	 */
+	function LazyLoader( img, flickity ) {
+	  this.img = img;
+	  this.flickity = flickity;
+	  this.load();
+	}
+	
+	LazyLoader.prototype.handleEvent = utils.handleEvent;
+	
+	LazyLoader.prototype.load = function() {
+	  this.img.addEventListener( 'load', this );
+	  this.img.addEventListener( 'error', this );
+	  // load image
+	  this.img.src = this.img.getAttribute('data-flickity-lazyload');
+	  // remove attr
+	  this.img.removeAttribute('data-flickity-lazyload');
+	};
+	
+	LazyLoader.prototype.onload = function( event ) {
+	  this.complete( event, 'flickity-lazyloaded' );
+	};
+	
+	LazyLoader.prototype.onerror = function( event ) {
+	  this.complete( event, 'flickity-lazyerror' );
+	};
+	
+	LazyLoader.prototype.complete = function( event, className ) {
+	  // unbind events
+	  this.img.removeEventListener( 'load', this );
+	  this.img.removeEventListener( 'error', this );
+	
+	  var cell = this.flickity.getParentCell( this.img );
+	  var cellElem = cell && cell.element;
+	  this.flickity.cellSizeChange( cellElem );
+	
+	  this.img.classList.add( className );
+	  this.flickity.dispatchEvent( 'lazyLoad', event, cellElem );
+	};
+	
+	// -----  ----- //
+	
+	Flickity.LazyLoader = LazyLoader;
+	
+	return Flickity;
+	
+	}));
+
 
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
@@ -50711,7 +51203,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 52 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -50721,14 +51213,13 @@ window.addEventListener('resize', handleResize);
 	    value: true
 	});
 	
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _domDelegate = __webpack_require__(7);
 	
 	var _domOps = __webpack_require__(4);
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 	var _utilities = __webpack_require__(9);
 	
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -50741,343 +51232,84 @@ window.addEventListener('resize', handleResize);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+=======
+>>>>>>> Removed all checkout flow specific code - templates and js
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
 	
-	var Basket = function () {
+	var HIDDEN = 'hidden';
+	
+	var ChangeContent = function () {
 	
 	    /**
-	     * Creates a new basket element.
+	     * Creates a new content change wrapper
 	     *
-	     * @param element
+	     * @param {element}
 	     */
-	    function Basket(element) {
-	        _classCallCheck(this, Basket);
+	    function ChangeContent(element) {
+	        _classCallCheck(this, ChangeContent);
 	
-	        this.element = element;
-	
-	        // Getting elements, element text and img src on the page to populate
-	        this.imgPath = element.getAttribute('data-img-path');
-	        this.itemListEl = element.querySelector('[data-items]');
-	        this.itemListEls = this.itemListEl.querySelectorAll('[data-item]');
-	        this.numberOfItemsEl = element.querySelector('[data-number-of-items]');
-	        this.totalPriceEl = element.querySelector('[data-total-price]');
-	
-	        // Pod Point unit and connector
-	        this.unitEl = element.querySelector('[data-item="unit"]');
-	        this.unitNameEl = this.unitEl.querySelector('[data-unit="name"]');
-	        this.unitConnectorNameEl = this.unitEl.querySelector('[data-unit="connector-name"]');
-	        this.unitPriceEl = this.unitEl.querySelector('[data-unit="price"]');
-	        this.unitImgEl = this.unitEl.querySelector('[data-unit="img"]');
-	
-	        // Accesories
-	        this.accessoryExampleContentEl = element.querySelector('[data-item="example-accessory-content"]');
-	        this.accessoryExampleNameEl = this.accessoryExampleContentEl.querySelector('[data-accessory="name"]');
-	        this.accessoryExamplePriceEl = this.accessoryExampleContentEl.querySelector('[data-accessory="price"]');
-	        this.accessoryExampleImgEl = this.accessoryExampleContentEl.querySelector('[data-accessory="img"]');
-	
-	        // Creating empty basket object
-	        var emptyBasketObj = {
-	            podPoint: {},
-	            accessories: {},
-	            totalItems: '',
-	            totalPrice: ''
-	        };
-	
-	        var basketObjInCookie = (0, _utilities.readItemFromCookie)('basketObj');
-	
-	        if (basketObjInCookie) {
-	            this.basketObj = basketObjInCookie;
-	            this.updateDomFromCookie();
-	        } else {
-	            this.basketObj = emptyBasketObj;
-	        }
-	
-	        var basketType = this.element.getAttribute('id');
-	
-	        this.productEls = (0, _domOps.nodesToArray)(document.querySelectorAll('.product'));
+	        this.wrapper = element;
+	        this.selectDD = this.wrapper.querySelector('select');
 	        this.bindEvents();
-	        this.makeSticky();
 	    }
 	
 	    /**
-	     * Binds the event listeners from the elements.
+	     * Binds the event listeners from the elements
 	     */
 	
 	
-	    _createClass(Basket, [{
+	    _createClass(ChangeContent, [{
 	        key: 'bindEvents',
 	        value: function bindEvents() {
 	            var _this = this;
 	
-	            this.productListeners = [];
-	            this.productEls.forEach(function (productEl) {
-	                var productListener = new _domDelegate.Delegate(productEl);
-	                _this.productListeners.push(productListener);
-	                productListener.on('change', function (event, element) {
-	                    element.checked ? _this.addItemToBasketObj(element) : _this.deleteAccessoryFromBasketObj(element);
-	                });
+	            this.selectListener = new _domDelegate.Delegate(this.selectDD);
+	
+	            this.selectListener.on('change', function (event, element) {
+	                _this.changeContent(element);
 	            });
 	        }
 	
 	        /**
-	         * Make basket stick to top of window when scrolled.
-	         */
-	
-	    }, {
-	        key: 'makeSticky',
-	        value: function makeSticky() {
-	            var sticky = new _stickyJs2.default('#basketOpen');
-	        }
-	
-	        /**
-	         * Update Basket in the DOM from the object in the cookie.
-	         */
-	
-	    }, {
-	        key: 'updateDomFromCookie',
-	        value: function updateDomFromCookie() {
-	            this.updatePodPointToDOM();
-	            if (Object.keys(this.basketObj.accessories).length > 0) {
-	                var _iteratorNormalCompletion = true;
-	                var _didIteratorError = false;
-	                var _iteratorError = undefined;
-	
-	                try {
-	                    for (var _iterator = Object.entries(this.basketObj.accessories)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                        var _step$value = _slicedToArray(_step.value, 2),
-	                            key = _step$value[0],
-	                            value = _step$value[1];
-	
-	                        this.addAccessoryToDOM(value);
-	                    }
-	                } catch (err) {
-	                    _didIteratorError = true;
-	                    _iteratorError = err;
-	                } finally {
-	                    try {
-	                        if (!_iteratorNormalCompletion && _iterator.return) {
-	                            _iterator.return();
-	                        }
-	                    } finally {
-	                        if (_didIteratorError) {
-	                            throw _iteratorError;
-	                        }
-	                    }
-	                }
-	            }
-	        }
-	
-	        /**
-	         * Add item to basket object.
-	         * @param {element} selected element
-	         */
-	
-	    }, {
-	        key: 'addItemToBasketObj',
-	        value: function addItemToBasketObj(element) {
-	            var category = (0, _domOps.hasClass)(element, 'accessory') ? 'accessory' : element.getAttribute("name");
-	            var podPointExists = Object.keys(this.basketObj.accessories).length > 0 ? true : false;
-	
-	            switch (category) {
-	                case 'podPointUnit':
-	                    if (podPointExists) {
-	                        this.basketObj.podPoint.id = element.getAttribute("id");
-	                        this.basketObj.podPoint.name = element.getAttribute("data-name");
-	                        this.basketObj.podPoint.price = element.getAttribute("data-price");
-	                    } else {
-	                        this.basketObj.podPoint = {
-	                            id: element.getAttribute("id"),
-	                            name: element.getAttribute("data-name"),
-	                            price: element.getAttribute("data-price"),
-	                            imgName: 'connectorUniversal'
-	                        };
-	                    }
-	                    this.updatePodPointToDOM();
-	                    break;
-	                case 'podPointConnector':
-	                    this.basketObj.podPoint['connector'] = {
-	                        id: element.getAttribute("id"),
-	                        name: element.getAttribute("data-name")
-	                    };
-	                    this.basketObj.podPoint.imgName = element.getAttribute("id");
-	                    this.updatePodPointToDOM();
-	                    break;
-	                case 'accessory':
-	                    var accessoryObj = {
-	                        id: element.getAttribute("id"),
-	                        name: element.getAttribute("data-name"),
-	                        price: element.getAttribute("data-price")
-	                    };
-	                    this.basketObj.accessories[element.getAttribute("id")] = accessoryObj;
-	                    this.addAccessoryToDOM(accessoryObj);
-	                    break;
-	            }
-	
-	            this.updateTotals();
-	            this.updateCookie();
-	        }
-	
-	        /**
-	         * Delete item from basket object.
-	         * @param element
-	         */
-	
-	    }, {
-	        key: 'deleteAccessoryFromBasketObj',
-	        value: function deleteAccessoryFromBasketObj(element) {
-	            var itemId = element.getAttribute("id");
-	            delete this.basketObj.accessories[itemId];
-	            this.removeAccessoryFromDOM(itemId);
-	            this.updateTotals();
-	            this.updateCookie();
-	        }
-	
-	        /**
-	         * Update basket object in the cookie.
-	         */
-	
-	    }, {
-	        key: 'updateCookie',
-	        value: function updateCookie() {
-	            (0, _utilities.addItemToCookie)('basketObj', this.basketObj);
-	            var basketObjCookie = (0, _utilities.readItemFromCookie)('basketObj');
-	        }
-	
-	        /**
-	         * Add POD Point to the basket in the DOM.
-	         */
-	
-	    }, {
-	        key: 'updatePodPointToDOM',
-	        value: function updatePodPointToDOM() {
-	            var podPoint = this.basketObj.podPoint || {};
-	            var connector = this.basketObj.podPoint.connector || {};
-	
-	            if (podPoint) {
-	                (0, _utilities.show)(this.unitEl);
-	            }
-	            if (connector) {
-	                this.unitImgEl.src = this.imgPath + podPoint.imgName + '.png';
-	            }
-	
-	            this.unitNameEl.innerHTML = podPoint.name || '';
-	            this.unitConnectorNameEl.innerHTML = connector.name || '';
-	            this.unitPriceEl.innerHTML = '£' + podPoint.price || '';
-	            this.unitPriceEl.setAttribute('data-price', podPoint.price);
-	
-	            this.updateTotals();
-	        }
-	
-	        /**
-	         * Add an accessory to the basket in the DOM.
-	         * @param {object} accessoryObj
-	         */
-	
-	    }, {
-	        key: 'addAccessoryToDOM',
-	        value: function addAccessoryToDOM(accessoryObj) {
-	            var itemElement = this.element.querySelector('[data-item="' + accessoryObj.id + '"]');
-	            if (itemElement.hasChildNodes()) {
-	                return;
-	            }
-	
-	            this.accessoryExampleImgEl.src = this.imgPath + accessoryObj.id + '.png';
-	            this.accessoryExampleNameEl.innerHTML = accessoryObj.name;
-	            this.accessoryExamplePriceEl.innerHTML = '£' + accessoryObj.price;
-	
-	            var accessoryItemContentClone = this.accessoryExampleContentEl.cloneNode(true);
-	            itemElement.appendChild(accessoryItemContentClone);
-	            (0, _utilities.show)(itemElement);
-	        }
-	
-	        /**
-	         * Remove accessory from the basket in the DOM.
-	         * @param accessory ID
-	         */
-	
-	    }, {
-	        key: 'removeAccessoryFromDOM',
-	        value: function removeAccessoryFromDOM(itemId) {
-	            var itemElement = this.element.querySelector('[data-item="' + itemId + '"]');
-	            itemElement.innerHTML = '';
-	            (0, _utilities.hide)(itemElement);
-	        }
-	
-	        /**
-	         * Update the totals of the basket in the DOM.
-	         */
-	
-	    }, {
-	        key: 'updateTotals',
-	        value: function updateTotals() {
-	            // Updating total items
-	            var numberOfAccessories = Object.keys(this.basketObj.accessories).length;
-	            var numberOfPodPoint = this.basketObj.podPoint.name ? 1 : 0;
-	            var numberOfItems = numberOfAccessories + numberOfPodPoint;
-	            this.basketObj.totalItems = numberOfItems;
-	
-	            // Updating total price
-	            var totalPrice = 0;
-	            totalPrice = parseInt(this.basketObj.podPoint.price) || 0;
-	
-	            var _iteratorNormalCompletion2 = true;
-	            var _didIteratorError2 = false;
-	            var _iteratorError2 = undefined;
-	
-	            try {
-	                for (var _iterator2 = Object.entries(this.basketObj.accessories)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                    var _step2$value = _slicedToArray(_step2.value, 2),
-	                        key = _step2$value[0],
-	                        value = _step2$value[1];
-	
-	                    totalPrice = totalPrice + parseInt(value.price);
-	                }
-	            } catch (err) {
-	                _didIteratorError2 = true;
-	                _iteratorError2 = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                        _iterator2.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError2) {
-	                        throw _iteratorError2;
-	                    }
-	                }
-	            }
-	
-	            this.basketObj.totalPrice = totalPrice;
-	
-	            // Update the totals of the basket in the DOM
-	            if (this.numberOfItemsEl) {
-	                this.numberOfItemsEl.innerHTML = numberOfItems;
-	            }
-	            this.totalPriceEl.innerHTML = '£' + totalPrice;
-	            this.totalPriceEl.setAttribute('data-total-price', totalPrice);
-	        }
-	
-	        /**
-	         * Unbinds the event listeners from the elements.
+	         * Unbinds the event listeners from the elements
 	         */
 	
 	    }, {
 	        key: 'unbindEvents',
 	        value: function unbindEvents() {
-	            this.productListeners.forEach(function (productListener) {
-	                return productListener.destroy();
+	            this.selectListener.destroy();
+	        }
+	
+	        /**
+	         * Hide/Show content
+	         *
+	         * @param {event}
+	         */
+	
+	    }, {
+	        key: 'changeContent',
+	        value: function changeContent(element) {
+	            var selected = element.value;
+	            var allContentToShow = (0, _domOps.nodesToArray)(this.wrapper.querySelectorAll('[data-content="' + selected + '"]'));
+	            var allContentToHide = (0, _domOps.nodesToArray)(this.wrapper.querySelectorAll('[data-content]'));
+	
+	            allContentToHide.forEach(function (item) {
+	                return (0, _domOps.addClass)(item, HIDDEN);
+	            });
+	            allContentToShow.forEach(function (item) {
+	                return (0, _domOps.removeClass)(item, HIDDEN);
 	            });
 	        }
 	    }]);
 	
-	    return Basket;
+	    return ChangeContent;
 	}();
 	
 	exports.default = {
 	    init: function init(element) {
-	        instances.push(new Basket(element));
+	        instances.push(new ChangeContent(element));
 	    },
 	
 	    destroy: function destroy() {
@@ -51104,7 +51336,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 53 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -51116,6 +51348,7 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 <<<<<<< 54723efc59b515519b84a71dd015220457fd5b9c
@@ -51193,9 +51426,11 @@ window.addEventListener('resize', handleResize);
 	
 	var _tick2 = _interopRequireDefault(_tick);
 	
+=======
+>>>>>>> Removed all checkout flow specific code - templates and js
 	var _domOps = __webpack_require__(4);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	__webpack_require__(47);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -51205,9 +51440,9 @@ window.addEventListener('resize', handleResize);
 	var FlipCounter = function () {
 	
 	    /**
-	     * Creates a new flip counter element.
+	     * Creates a new flip counter element
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function FlipCounter(element) {
 	        _classCallCheck(this, FlipCounter);
@@ -51217,7 +51452,7 @@ window.addEventListener('resize', handleResize);
 	    }
 	
 	    /**
-	     * Creates a new flip counter element with options.
+	     * Creates a new flip counter element with options
 	     */
 	
 	
@@ -51225,7 +51460,7 @@ window.addEventListener('resize', handleResize);
 	        key: 'createTickCounter',
 	        value: function createTickCounter() {
 	            var element = this.element;
-	            var stat = parseInt(element.getAttribute('data-stat'));
+	            var stat = parseInt(element.getAttribute('data-stat'), 0);
 	            var flipCounterSections = document.querySelectorAll('.flip-counter-section');
 	
 	            var tick = Tick.DOM.create(element, {
@@ -51281,7 +51516,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 54 */
+/* 47 */
 /***/ (function(module, exports) {
 >>>>>>> Fixing header/nav issues
 
@@ -53106,6 +53341,7 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 43 */
@@ -53124,6 +53360,9 @@ window.addEventListener('resize', handleResize);
 =======
 /***/ }),
 /* 56 */
+=======
+/* 48 */
+>>>>>>> Removed all checkout flow specific code - templates and js
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -53135,6 +53374,7 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint class-methods-use-this: ["error", { "exceptMethods": ["ready"] }] */
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _d = __webpack_require__(44);
@@ -53156,11 +53396,19 @@ window.addEventListener('resize', handleResize);
 	
 	var _topojson = __webpack_require__(57);
 >>>>>>> eslint most of utilities.js and also docBlocked all export functions
+=======
+	var _d = __webpack_require__(49);
+	
+	var d3 = _interopRequireWildcard(_d);
+	
+	var _topojson = __webpack_require__(50);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 	var topojson = _interopRequireWildcard(_topojson);
 	
 	var _utilities = __webpack_require__(9);
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _chargeData = __webpack_require__(46);
@@ -53182,6 +53430,13 @@ window.addEventListener('resize', handleResize);
 	
 	var _gridmap = __webpack_require__(59);
 >>>>>>> eslint most of utilities.js and also docBlocked all export functions
+=======
+	var _chargeData = __webpack_require__(51);
+	
+	var _chargeData2 = _interopRequireDefault(_chargeData);
+	
+	var _gridmap = __webpack_require__(52);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 	var _gridmap2 = _interopRequireDefault(_gridmap);
 	
@@ -53197,16 +53452,16 @@ window.addEventListener('resize', handleResize);
 	var EvMap = function () {
 	
 	    /**
-	     * Create a new Map.
+	     * Create a new Map
 	     *
-	     * @param element
+	     * @param {element}
 	     */
 	    function EvMap(element) {
 	        _classCallCheck(this, EvMap);
 	
 	        if (window.isTouchDevice || window.isMobileSize) {
 	            return;
-	        };
+	        }
 	
 	        mapConfig = {
 	            mapID: '#gridmap',
@@ -53393,7 +53648,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 56 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -70281,7 +70536,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 57 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -72085,7 +72340,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 58 */
+/* 51 */
 /***/ (function(module, exports) {
 >>>>>>> Fixing header/nav issues
 
@@ -72111,7 +72366,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 59 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
@@ -72122,6 +72377,7 @@ window.addEventListener('resize', handleResize);
 	});
 	exports.default = gridmap;
 	
+<<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var _d = __webpack_require__(44);
@@ -72131,6 +72387,9 @@ window.addEventListener('resize', handleResize);
 =======
 	var _d = __webpack_require__(56);
 >>>>>>> eslint most of utilities.js and also docBlocked all export functions
+=======
+	var _d = __webpack_require__(49);
+>>>>>>> Removed all checkout flow specific code - templates and js
 	
 	var d3 = _interopRequireWildcard(_d);
 	
@@ -72420,7 +72679,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed lots of layout bugs in QA
 =======
 /***/ }),
-/* 60 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72524,7 +72783,7 @@ window.addEventListener('resize', handleResize);
 	exports.geolocate = geolocate;
 
 /***/ }),
-/* 61 */
+/* 54 */
 /***/ (function(module, exports) {
 >>>>>>> Fixing header/nav issues
 
