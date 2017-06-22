@@ -13,7 +13,9 @@ class ToggleAccordionPanel {
      * @param {element}
      */
     constructor(element) {
-        // Selectors
+        this.panel = element;
+        this.panelId = element.getAttribute('id');
+
         const toggleIconSelector = `[data-toggle-icon="${this.panelId}"]`;
         const toggleButtonsSelector = `[data-toggle-panel="${this.panelId}"]`;
         const openButtonsSelector = `[data-open-panel="${this.panelId}"]`;
@@ -23,8 +25,6 @@ class ToggleAccordionPanel {
         const inputOpenButtonsSelector = `[data-input-open-panel="${this.panelId}"]`;
         const selectToggleButtonsSelector = `[data-select-toggle-panel="${this.panelId}"]`;
 
-        this.panel = element;
-        this.panelId = element.getAttribute('id');
         this.toggleIcon = document.querySelector(toggleIconSelector);
         this.toggleButtons = nodesToArray(document.querySelectorAll(toggleButtonsSelector)) || [];
         this.openButtons = nodesToArray(document.querySelectorAll(openButtonsSelector)) || [];
