@@ -40,9 +40,7 @@ h1 {
   font-size: 2rem; }
 
 img {
-  border: 0;
-  width: 100%;
-  display: block; }
+  border: 0; }
 
 svg:not(:root) {
   overflow: hidden; }
@@ -1791,14 +1789,15 @@ button {
   width: 6px;
   height: 60px;
   background-repeat: repeat-y; }
+  .divider--steps:after {
+    content: "";
+    display: table;
+    clear: both; }
   .divider--steps + .grid-row {
-    margin-top: 0;
-    position: relative;
-    z-index: 1; }
+    margin-top: 0; }
   @media (min-width: 50em) {
     .divider--steps {
       background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 436 107" style="enable-background:new 0 0 436 107;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:%238CC63F;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:12;}</style><path class="st0" d="M2,0v5c0,29.3,23.7,53,53,53h326c29.3,0,53,23.7,53,53v0"/></svg>');
-      margin: 0 auto;
       width: 70%;
       height: 110px;
       background-repeat: no-repeat; }
@@ -1806,6 +1805,11 @@ button {
         -ms-transform: scaleX(-1);
             transform: scaleX(-1);
         filter: FlipH; } }
+
+.grid-row:after {
+  content: "";
+  display: table;
+  clear: both; }
 
 .icon {
   height: 25px;
@@ -2053,6 +2057,9 @@ button {
     transition: transform 0.7s ease-in-out;
     -ms-transform: rotate(-180deg);
         transform: rotate(-180deg); }
+
+img {
+  display: block; }
 
 .img--resp {
   max-width: 100%; }
@@ -2896,175 +2903,6 @@ button {
 [data-page="checkout-step4"] .steps-indicator .steps-indicator__step:nth-child(4) p {
   color: #8CC63F; }
 
-.basket-content__items {
-  padding: 0;
-  margin: 0;
-  padding-top: 8px;
-  padding-bottom: 8px; }
-  .basket-content__items li {
-    list-style: none; }
-
-.basket-content__item {
-  margin-bottom: 10px; }
-  .basket-content__item:after {
-    content: "";
-    display: table;
-    clear: both; }
-  .basket-content__item:last-child {
-    margin-bottom: 0; }
-  .basket-content__item__thumb {
-    float: left;
-    width: 40px;
-    margin-right: 5px; }
-  .basket-content__item__title {
-    padding-top: 8px;
-    width: calc(100% - 90px);
-    margin-right: 5px;
-    float: left; }
-    .basket-content__item__title__main {
-      margin: 0;
-      font-weight: 400;
-      font-size: 0.875rem;
-      line-height: 1.5;
-      font-size: 0.75rem;
-      line-height: 1.2;
-      font-weight: 700;
-      padding-bottom: 3px; }
-      @media (min-width: 50em) {
-        .basket-content__item__title__main {
-          font-size: 1rem; } }
-      @media (min-width: 50em) {
-        .basket-content__item__title__main {
-          font-size: 0.875rem; } }
-    .basket-content__item__title__sub {
-      margin: 0;
-      font-weight: 400;
-      font-size: 0.875rem;
-      line-height: 1.5;
-      font-size: 0.625rem;
-      line-height: 1.2;
-      font-size: 10px; }
-      @media (min-width: 50em) {
-        .basket-content__item__title__sub {
-          font-size: 1rem; } }
-      @media (min-width: 50em) {
-        .basket-content__item__title__sub {
-          font-size: 0.75rem; } }
-  .basket-content__item__extra {
-    clear: both;
-    padding-top: 10px;
-    margin-bottom: 10px; }
-    .basket-content__item__extra p {
-      margin: 0;
-      font-weight: 400;
-      font-size: 0.875rem;
-      line-height: 1.5;
-      font-size: 0.75rem;
-      line-height: 1.2;
-      font-weight: 700; }
-      @media (min-width: 50em) {
-        .basket-content__item__extra p {
-          font-size: 1rem; } }
-      @media (min-width: 50em) {
-        .basket-content__item__extra p {
-          font-size: 0.875rem; } }
-  .basket-content__item__price {
-    padding-top: 8px;
-    width: 40px;
-    float: left;
-    text-align: right;
-    margin: 0;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    font-size: 0.75rem;
-    line-height: 1.2;
-    font-weight: 700; }
-    @media (min-width: 50em) {
-      .basket-content__item__price {
-        font-size: 1rem; } }
-    @media (min-width: 50em) {
-      .basket-content__item__price {
-        font-size: 0.875rem; } }
-
-.basket-total {
-  padding-top: 10px; }
-  .basket-total:after {
-    content: "";
-    display: table;
-    clear: both; }
-  .basket-total p {
-    font-weight: 700;
-    padding-bottom: 0; }
-  .basket-total__title {
-    float: left; }
-  .basket-total__value {
-    float: right; }
-
-.floating-basket-wrapper {
-  position: relative;
-  z-index: 100; }
-
-.floating-basket {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: white;
-  width: 250px; }
-  .floating-basket__header {
-    position: relative;
-    display: block;
-    background-color: #4d4d4d;
-    min-height: 45px;
-    padding: 0 15px; }
-    .floating-basket__header:hover, .floating-basket__header:active, .floating-basket__header:focus {
-      opacity: 1; }
-  .floating-basket__toggle-icon {
-    display: block;
-    height: 16px;
-    position: absolute;
-    top: 17px;
-    right: 15px; }
-    .floating-basket__toggle-icon:before {
-      content: '';
-      background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve"><path fill="%238CC63F" d="M249,407c-8.2,0-16-3.6-21.4-9.8L14.9,151.8c-10.2-11.8-9-29.7,2.8-39.9c11.8-10.2,29.6-9,39.9,2.8L249,335.5l191.3-220.8c10.3-11.8,28.1-13.1,39.9-2.8c11.8,10.2,13.1,28.1,2.8,39.9L270.4,397.2C265,403.4,257.2,407,249,407z"/></svg>');
-      background-size: cover;
-      width: 16px;
-      height: 16px; }
-  .floating-basket__title {
-    color: white;
-    padding-top: 14px;
-    padding-bottom: 0; }
-  .floating-basket__items-num {
-    position: absolute;
-    top: 10px;
-    right: 50px;
-    color: white;
-    display: inline-block;
-    background-color: #8CC63F;
-    border-radius: 50%;
-    text-align: center;
-    width: 1.5625rem;
-    height: 1.5625rem;
-    font-size: 1rem;
-    line-height: 1.4375rem;
-    font-weight: 700; }
-  .floating-basket .basket-content {
-    border-right: 2px solid #ccc;
-    border-left: 2px solid #ccc;
-    padding-right: 15px;
-    padding-left: 15px; }
-    .floating-basket .basket-content__items {
-      padding-top: 20px;
-      padding-bottom: 20px; }
-  .floating-basket .basket-total {
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-right: 2px solid #ccc;
-    border-bottom: 2px solid #ccc;
-    border-left: 2px solid #ccc;
-    padding: 10px 15px; }
-
 .tooltip-icon {
   text-align: center;
   display: block;
@@ -3263,55 +3101,6 @@ button {
     stroke: #8cc63f;
     stroke-width: 7;
     stroke-linecap: "round"; }
-
-.electricity-meter {
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  background-color: #ccc;
-  box-sizing: border-box; }
-  .electricity-meter:after {
-    content: "";
-    display: table;
-    clear: both; }
-  .electricity-meter__s {
-    float: left;
-    width: 20%;
-    height: 7.5rem;
-    background-color: white;
-    border: 2px solid #ccc;
-    box-sizing: border-box;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    font-weight: 700;
-    font-size: 3.125rem;
-    text-align: center;
-    line-height: 6.875rem; }
-  .electricity-meter__inputs {
-    float: left;
-    width: 80%;
-    box-sizing: border-box; }
-  .electricity-meter__row {
-    box-sizing: border-box; }
-    .electricity-meter__row:after {
-      content: "";
-      display: table;
-      clear: both; }
-    .electricity-meter__row input {
-      height: 3.75rem;
-      line-height: 3.75rem;
-      font-size: 1.25rem;
-      border-radius: 0;
-      float: left;
-      text-align: center;
-      width: calc(100% / 3); }
-      .electricity-meter__row input[readonly]:hover, .electricity-meter__row input[readonly]:focus, .electricity-meter__row input[readonly]:active {
-        border-color: #ccc; }
-    .electricity-meter__row:last-child input:nth-child(1) {
-      width: calc(100% / 4); }
-    .electricity-meter__row:last-child input:nth-child(2) {
-      width: calc(100% / 2); }
-    .electricity-meter__row:last-child input:nth-child(3) {
-      width: calc(100% / 4); }
 
 .confirm-popup {
   z-index: 101;

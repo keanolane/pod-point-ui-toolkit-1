@@ -12,13 +12,14 @@ class ToggleElement {
      * @param {element}
      */
     constructor(element) {
+        this.element = element;
+        this.elementId = element.getAttribute('id');
+
         const toggleButtonsSelector = `[data-toggle-el="${this.elementId}"]`;
         const openButtonsSelector = `[data-open-el="${this.elementId}"]`;
         const closeButtonsSelector = `[data-close-el="${this.elementId}"]`;
         const allElementsSelector = '[data-js-module="toggleElement"]';
 
-        this.element = element;
-        this.elementId = element.getAttribute('id');
         this.toggleButtons = nodesToArray(document.querySelectorAll(toggleButtonsSelector)) || [];
         this.openButtons = nodesToArray(document.querySelectorAll(openButtonsSelector)) || [];
         this.closeButtons = nodesToArray(document.querySelectorAll(closeButtonsSelector)) || [];

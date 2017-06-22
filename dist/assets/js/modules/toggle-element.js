@@ -25,13 +25,14 @@ var ToggleElement = function () {
     function ToggleElement(element) {
         _classCallCheck(this, ToggleElement);
 
+        this.element = element;
+        this.elementId = element.getAttribute('id');
+
         var toggleButtonsSelector = '[data-toggle-el="' + this.elementId + '"]';
         var openButtonsSelector = '[data-open-el="' + this.elementId + '"]';
         var closeButtonsSelector = '[data-close-el="' + this.elementId + '"]';
         var allElementsSelector = '[data-js-module="toggleElement"]';
 
-        this.element = element;
-        this.elementId = element.getAttribute('id');
         this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(toggleButtonsSelector)) || [];
         this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(openButtonsSelector)) || [];
         this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(closeButtonsSelector)) || [];

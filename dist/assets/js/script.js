@@ -3259,7 +3259,9 @@
 	    function ToggleAccordionPanel(element) {
 	        _classCallCheck(this, ToggleAccordionPanel);
 	
-	        // Selectors
+	        this.panel = element;
+	        this.panelId = element.getAttribute('id');
+	
 	        var toggleIconSelector = '[data-toggle-icon="' + this.panelId + '"]';
 	        var toggleButtonsSelector = '[data-toggle-panel="' + this.panelId + '"]';
 	        var openButtonsSelector = '[data-open-panel="' + this.panelId + '"]';
@@ -3269,8 +3271,6 @@
 	        var inputOpenButtonsSelector = '[data-input-open-panel="' + this.panelId + '"]';
 	        var selectToggleButtonsSelector = '[data-select-toggle-panel="' + this.panelId + '"]';
 	
-	        this.panel = element;
-	        this.panelId = element.getAttribute('id');
 	        this.toggleIcon = document.querySelector(toggleIconSelector);
 	        this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(toggleButtonsSelector)) || [];
 	        this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(openButtonsSelector)) || [];
@@ -3460,13 +3460,14 @@
 	    function ToggleElement(element) {
 	        _classCallCheck(this, ToggleElement);
 	
+	        this.element = element;
+	        this.elementId = element.getAttribute('id');
+	
 	        var toggleButtonsSelector = '[data-toggle-el="' + this.elementId + '"]';
 	        var openButtonsSelector = '[data-open-el="' + this.elementId + '"]';
 	        var closeButtonsSelector = '[data-close-el="' + this.elementId + '"]';
 	        var allElementsSelector = '[data-js-module="toggleElement"]';
 	
-	        this.element = element;
-	        this.elementId = element.getAttribute('id');
 	        this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(toggleButtonsSelector)) || [];
 	        this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(openButtonsSelector)) || [];
 	        this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(closeButtonsSelector)) || [];
