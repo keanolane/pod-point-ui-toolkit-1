@@ -4044,11 +4044,35 @@ dom.whenReady(function () {
 	
 	        _classCallCheck(this, FormFields);
 	
-	        this.bindEvents(root);
+	        FormFields.bindEvents(root);
 	        FormFields.checkAllFieldsForContent();
 	    }
 	
-	    _createClass(FormFields, [{
+	    _createClass(FormFields, null, [{
+	        key: 'checkAllFieldsForContent',
+	        value: function checkAllFieldsForContent() {
+	            var inputs = (0, _domOps.nodesToArray)((0, _domOps.select)('input'));
+	
+	            if (inputs.length) {
+	                inputs.forEach(function (input) {
+	                    return FormFields.checkForContent(input);
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'checkForContent',
+	        value: function checkForContent(element) {
+	            var container = FormFields.getInputContainer(element);
+	            var callback = element.value ? _domOps.addClass : _domOps.removeClass;
+	
+	            callback(container, HAS_CONTENT);
+	        }
+	    }, {
+	        key: 'checkForErrors',
+	        value: function checkForErrors(element) {
+	            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_ERROR);
+	        }
+	    }, {
 	        key: 'bindEvents',
 	        value: function bindEvents(root) {
 	            var listener = new _domDelegate.Delegate(root);
@@ -4082,6 +4106,7 @@ dom.whenReady(function () {
 	                }
 	            });
 	        }
+<<<<<<< 954f7a5f15b6dec841fcbe171a8074edcdacf812
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 =======
 	    }], [{
@@ -4109,6 +4134,8 @@ dom.whenReady(function () {
 	            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_ERROR);
 	        }
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+>>>>>>> Got rid of unused modal trigger. Got rid of normalize image styling
 	    }, {
 	        key: 'getInputContainer',
 	        value: function getInputContainer(element) {
@@ -4151,7 +4178,7 @@ dom.whenReady(function () {
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	exports.default = {
 	    init: function init() {
-	        new FormFields();
+	        new FormFields(); // eslint-disable-line no-new
 	    }
 	};
 
@@ -77926,6 +77953,7 @@ window.addEventListener('resize', handleResize);
 	    var placeAddressComponents = autocomplete.getPlace().address_components;
 	
 	    Object.entries(componentForm).map(function (key) {
+	        // eslint-disable-line array-callback-return
 	        var formFieldName = key[0];
 	        document.getElementById(formFieldName).value = '';
 	        document.getElementById(formFieldName).disabled = false;
@@ -77934,6 +77962,7 @@ window.addEventListener('resize', handleResize);
 	    // Get each component of the address from the place details
 	    // and fill the corresponding field on the form.
 	    placeAddressComponents.map(function (key) {
+	        // eslint-disable-line array-callback-return
 	        var addressType = key.types[0];
 	        if (componentForm[addressType]) {
 	            var val = key[componentForm[addressType]];

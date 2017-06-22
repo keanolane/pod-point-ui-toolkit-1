@@ -22,11 +22,35 @@ var FormFields = function () {
 
         _classCallCheck(this, FormFields);
 
-        this.bindEvents(root);
+        FormFields.bindEvents(root);
         FormFields.checkAllFieldsForContent();
     }
 
-    _createClass(FormFields, [{
+    _createClass(FormFields, null, [{
+        key: 'checkAllFieldsForContent',
+        value: function checkAllFieldsForContent() {
+            var inputs = (0, _domOps.nodesToArray)((0, _domOps.select)('input'));
+
+            if (inputs.length) {
+                inputs.forEach(function (input) {
+                    return FormFields.checkForContent(input);
+                });
+            }
+        }
+    }, {
+        key: 'checkForContent',
+        value: function checkForContent(element) {
+            var container = FormFields.getInputContainer(element);
+            var callback = element.value ? _domOps.addClass : _domOps.removeClass;
+
+            callback(container, HAS_CONTENT);
+        }
+    }, {
+        key: 'checkForErrors',
+        value: function checkForErrors(element) {
+            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_ERROR);
+        }
+    }, {
         key: 'bindEvents',
         value: function bindEvents(root) {
             var listener = new _domDelegate.Delegate(root);
@@ -59,30 +83,6 @@ var FormFields = function () {
                 }
             });
         }
-    }], [{
-        key: 'checkAllFieldsForContent',
-        value: function checkAllFieldsForContent() {
-            var inputs = (0, _domOps.nodesToArray)((0, _domOps.select)('input'));
-
-            if (inputs.length) {
-                inputs.forEach(function (input) {
-                    return FormFields.checkForContent(input);
-                });
-            }
-        }
-    }, {
-        key: 'checkForContent',
-        value: function checkForContent(element) {
-            var container = FormFields.getInputContainer(element);
-            var callback = element.value ? _domOps.addClass : _domOps.removeClass;
-
-            callback(container, HAS_CONTENT);
-        }
-    }, {
-        key: 'checkForErrors',
-        value: function checkForErrors(element) {
-            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_ERROR);
-        }
     }, {
         key: 'getInputContainer',
         value: function getInputContainer(element) {
@@ -105,6 +105,6 @@ var FormFields = function () {
 
 exports.default = {
     init: function init() {
-        new FormFields();
+        new FormFields(); // eslint-disable-line no-new
     }
 };

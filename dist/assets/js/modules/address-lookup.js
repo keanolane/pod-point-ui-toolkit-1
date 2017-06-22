@@ -22,6 +22,7 @@ var fillInAddress = function fillInAddress() {
     var placeAddressComponents = autocomplete.getPlace().address_components;
 
     Object.entries(componentForm).map(function (key) {
+        // eslint-disable-line array-callback-return
         var formFieldName = key[0];
         document.getElementById(formFieldName).value = '';
         document.getElementById(formFieldName).disabled = false;
@@ -30,6 +31,7 @@ var fillInAddress = function fillInAddress() {
     // Get each component of the address from the place details
     // and fill the corresponding field on the form.
     placeAddressComponents.map(function (key) {
+        // eslint-disable-line array-callback-return
         var addressType = key.types[0];
         if (componentForm[addressType]) {
             var val = key[componentForm[addressType]];
