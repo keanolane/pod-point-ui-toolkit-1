@@ -6,15 +6,12 @@ import './modules/base';
 import modal from './modules/modal';
 import ajaxForm from './modules/ajax-form';
 import formFields from './modules/form-fields';
-import collapse from './modules/collapse';
-import dropdown from './modules/dropdown';
 import toggleAccordionPanel from './modules/toggle-accordion-panel';
 import toggleElement from './modules/toggle-element';
 import gallerySimple from './modules/gallery-simple';
 import accordion from './modules/accordion';
 import headerNav from './modules/header-nav';
 import carousel from './modules/carousel';
-import changeContent from './modules/change-content';
 import flipCounter from './modules/flip-counter';
 import evMap from './modules/ev-map';
 import * as addressLookup from './modules/address-lookup';
@@ -31,8 +28,6 @@ dom.whenReady(() => {
         domModules: combineDomModules({
             modal,
             ajaxForm,
-            collapse,
-            dropdown,
             toggleAccordionPanel,
             toggleElement,
             gallerySimple,
@@ -40,7 +35,6 @@ dom.whenReady(() => {
             accordion,
             carousel,
             addressLookup,
-            changeContent,
             flipCounter,
             evMap,
         }),

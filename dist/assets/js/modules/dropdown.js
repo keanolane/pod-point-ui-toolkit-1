@@ -56,18 +56,9 @@ var DropDown = function () {
          */
 
     }, {
-        key: 'unbindEvents',
-
-
-        /**
-         * Unbinds the event listeners from the elements
-         */
-        value: function unbindEvents() {
-            this.listener.destroy();
-        }
-    }], [{
         key: 'doDropDown',
         value: function doDropDown(input) {
+            console.log(input);
             input.parentElement.classList.toggle('open');
         }
 
@@ -86,6 +77,16 @@ var DropDown = function () {
             if (event.relatedTarget && event.relatedTarget.getAttribute('data-js-module') !== 'dropdown') {
                 event.relatedTarget.click();
             }
+        }
+
+        /**
+         * Unbinds the event listeners from the elements
+         */
+
+    }, {
+        key: 'unbindEvents',
+        value: function unbindEvents() {
+            this.listener.destroy();
         }
     }]);
 

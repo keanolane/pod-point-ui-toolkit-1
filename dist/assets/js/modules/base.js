@@ -8,7 +8,11 @@ var defineSizeAndDevice = function defineSizeAndDevice() {
     var winWidth = window.innerWidth;
     window.isMobileSize = winWidth < winWidthMedium;
     window.onload = function () {
-        window.isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
+        if (window.isTouchDevice) {
+            (0, _domOps.addClass)(document.body, 'is-touch');
+        } else {
+            (0, _domOps.addClass)(document.body, 'is-desktop');
+        }
     };
 };
 

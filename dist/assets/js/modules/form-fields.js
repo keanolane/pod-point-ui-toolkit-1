@@ -42,7 +42,7 @@ var FormFields = function () {
     }, {
         key: 'checkForContent',
         value: function checkForContent(element) {
-            var container = this.getInputContainer(element);
+            var container = FormFields.getInputContainer(element);
             var callback = element.value ? _domOps.addClass : _domOps.removeClass;
 
             callback(container, HAS_CONTENT);
@@ -50,7 +50,7 @@ var FormFields = function () {
     }, {
         key: 'checkForErrors',
         value: function checkForErrors(element) {
-            (0, _domOps.removeClass)(this.getInputContainer(element), HAS_ERROR);
+            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_ERROR);
         }
     }, {
         key: 'bindEvents',
@@ -88,19 +88,19 @@ var FormFields = function () {
             });
         }
     }, {
-        key: 'getInputContainer',
-        value: function getInputContainer(element) {
-            return element.parentNode;
-        }
-    }, {
         key: 'removeFocus',
         value: function removeFocus(element) {
-            (0, _domOps.removeClass)(this.getInputContainer(element), HAS_FOCUS);
+            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_FOCUS);
         }
     }, {
         key: 'giveFocus',
         value: function giveFocus(element) {
-            (0, _domOps.addClass)(this.getInputContainer(element), HAS_FOCUS);
+            (0, _domOps.addClass)(FormFields.getInputContainer(element), HAS_FOCUS);
+        }
+    }], [{
+        key: 'getInputContainer',
+        value: function getInputContainer(element) {
+            return element.parentNode;
         }
     }]);
 
