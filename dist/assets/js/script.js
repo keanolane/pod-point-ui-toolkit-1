@@ -3139,11 +3139,35 @@
 	
 	        _classCallCheck(this, FormFields);
 	
-	        this.bindEvents(root);
+	        FormFields.bindEvents(root);
 	        FormFields.checkAllFieldsForContent();
 	    }
 	
-	    _createClass(FormFields, [{
+	    _createClass(FormFields, null, [{
+	        key: 'checkAllFieldsForContent',
+	        value: function checkAllFieldsForContent() {
+	            var inputs = (0, _domOps.nodesToArray)((0, _domOps.select)('input'));
+	
+	            if (inputs.length) {
+	                inputs.forEach(function (input) {
+	                    return FormFields.checkForContent(input);
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'checkForContent',
+	        value: function checkForContent(element) {
+	            var container = FormFields.getInputContainer(element);
+	            var callback = element.value ? _domOps.addClass : _domOps.removeClass;
+	
+	            callback(container, HAS_CONTENT);
+	        }
+	    }, {
+	        key: 'checkForErrors',
+	        value: function checkForErrors(element) {
+	            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_ERROR);
+	        }
+	    }, {
 	        key: 'bindEvents',
 	        value: function bindEvents(root) {
 	            var listener = new _domDelegate.Delegate(root);
@@ -3176,30 +3200,6 @@
 	                }
 	            });
 	        }
-	    }], [{
-	        key: 'checkAllFieldsForContent',
-	        value: function checkAllFieldsForContent() {
-	            var inputs = (0, _domOps.nodesToArray)((0, _domOps.select)('input'));
-	
-	            if (inputs.length) {
-	                inputs.forEach(function (input) {
-	                    return FormFields.checkForContent(input);
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'checkForContent',
-	        value: function checkForContent(element) {
-	            var container = FormFields.getInputContainer(element);
-	            var callback = element.value ? _domOps.addClass : _domOps.removeClass;
-	
-	            callback(container, HAS_CONTENT);
-	        }
-	    }, {
-	        key: 'checkForErrors',
-	        value: function checkForErrors(element) {
-	            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_ERROR);
-	        }
 	    }, {
 	        key: 'getInputContainer',
 	        value: function getInputContainer(element) {
@@ -3222,7 +3222,7 @@
 	
 	exports.default = {
 	    init: function init() {
-	        new FormFields();
+	        new FormFields(); // eslint-disable-line no-new
 	    }
 	};
 
@@ -29153,6 +29153,7 @@
 	    var placeAddressComponents = autocomplete.getPlace().address_components;
 	
 	    Object.entries(componentForm).map(function (key) {
+	        // eslint-disable-line array-callback-return
 	        var formFieldName = key[0];
 	        document.getElementById(formFieldName).value = '';
 	        document.getElementById(formFieldName).disabled = false;
@@ -29161,6 +29162,7 @@
 	    // Get each component of the address from the place details
 	    // and fill the corresponding field on the form.
 	    placeAddressComponents.map(function (key) {
+	        // eslint-disable-line array-callback-return
 	        var addressType = key.types[0];
 	        if (componentForm[addressType]) {
 	            var val = key[componentForm[addressType]];
