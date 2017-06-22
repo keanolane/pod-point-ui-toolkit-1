@@ -18,24 +18,25 @@ const componentForm = {
 
 const fillInAddress = () => {
     // Get the place details from the autocomplete object.
-    const place = autocomplete.getPlace();
+    const placeAddressComponents = autocomplete.getPlace().address_components;
 
-    for (const [key] of Object.entries(componentForm)) {
-        document.getElementById(key).value = '';
-        document.getElementById(key).disabled = false;
-    }
+    Object.entries(componentForm).map(key => { // eslint-disable-line array-callback-return
+        const formFieldName = key[0];
+        document.getElementById(formFieldName).value = '';
+        document.getElementById(formFieldName).disabled = false;
+    });
 
     // Get each component of the address from the place details
     // and fill the corresponding field on the form.
-    place.address_components.forEach(value => {
-        const addressType = value.types[0];
+    placeAddressComponents.map(key => { // eslint-disable-line array-callback-return
+        const addressType = key.types[0];
         if (componentForm[addressType]) {
-            const val = value[componentForm[addressType]];
+            const val = key[componentForm[addressType]];
             document.getElementById(addressType).value = val;
         }
     });
 
-    openPanel(document.querySelector('#address'));
+    openPanel(document.getElementById('address'));
 };
 
 const initAutocomplete = () => {

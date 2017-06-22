@@ -23,19 +23,50 @@ var FormFields = function () {
         _classCallCheck(this, FormFields);
 
         this.bindEvents(root);
-        this.checkAllFieldsForContent();
+        FormFields.checkAllFieldsForContent();
     }
 
     _createClass(FormFields, [{
+        key: 'bindEvents',
+        value: function bindEvents(root) {
+            var listener = new _domDelegate.Delegate(root);
+
+            // Listen to change because of password managers etc
+            listener.on('change', 'input, textarea', function (event, element) {
+                FormFields.checkForContent(element);
+                FormFields.checkForErrors(element);
+                FormFields.giveFocus(element);
+            });
+
+            // Text input focus handler
+            listener.on('focus', 'input, textarea', function (event, element) {
+                return FormFields.giveFocus(element);
+            });
+
+            // Text input focusout handler
+            listener.on('focusout', 'input, textarea', function (event, element) {
+                FormFields.checkForContent(element);
+                FormFields.checkForErrors(element);
+                FormFields.removeFocus(element);
+            });
+
+            listener.on('input', 'textarea', function (event, element) {
+                var scrollHeight = element.scrollHeight;
+                var formEl = element;
+
+                if (scrollHeight > parseInt(window.getComputedStyle(formEl, null).height, 0)) {
+                    formEl.style.height = scrollHeight + 'px';
+                }
+            });
+        }
+    }], [{
         key: 'checkAllFieldsForContent',
         value: function checkAllFieldsForContent() {
-            var _this = this;
-
             var inputs = (0, _domOps.nodesToArray)((0, _domOps.select)('input'));
 
             if (inputs.length) {
                 inputs.forEach(function (input) {
-                    return _this.checkForContent(input);
+                    return FormFields.checkForContent(input);
                 });
             }
         }
@@ -53,39 +84,9 @@ var FormFields = function () {
             (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_ERROR);
         }
     }, {
-        key: 'bindEvents',
-        value: function bindEvents(root) {
-            var _this2 = this;
-
-            var listener = new _domDelegate.Delegate(root);
-
-            // Listen to change because of password managers etc
-            listener.on('change', 'input, textarea', function (event, element) {
-                _this2.checkForContent(element);
-                _this2.checkForErrors(element);
-                _this2.giveFocus(element);
-            });
-
-            // Text input focus handler
-            listener.on('focus', 'input, textarea', function (event, element) {
-                return _this2.giveFocus(element);
-            });
-
-            // Text input focusout handler
-            listener.on('focusout', 'input, textarea', function (event, element) {
-                _this2.checkForContent(element);
-                _this2.checkForErrors(element);
-                _this2.removeFocus(element);
-            });
-
-            listener.on('input', 'textarea', function (event, element) {
-                var scrollHeight = element.scrollHeight;
-                var formEl = element;
-
-                if (scrollHeight > parseInt(window.getComputedStyle(formEl, null).height, 0)) {
-                    formEl.style.height = scrollHeight + 'px';
-                }
-            });
+        key: 'getInputContainer',
+        value: function getInputContainer(element) {
+            return element.parentNode;
         }
     }, {
         key: 'removeFocus',
@@ -96,11 +97,6 @@ var FormFields = function () {
         key: 'giveFocus',
         value: function giveFocus(element) {
             (0, _domOps.addClass)(FormFields.getInputContainer(element), HAS_FOCUS);
-        }
-    }], [{
-        key: 'getInputContainer',
-        value: function getInputContainer(element) {
-            return element.parentNode;
         }
     }]);
 
