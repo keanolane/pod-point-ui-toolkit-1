@@ -1,10 +1,57 @@
-'use strict';
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 <<<<<<< 3eff1dd2a34dba635765e36e0fb8d2f02a4a52a4
 =======
 >>>>>>> Removed commented out window resize
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	'use strict';
 	
 	var _moduleLoader = __webpack_require__(1);
@@ -25,12 +72,16 @@
 	
 	var _modal2 = _interopRequireDefault(_modal);
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 	var _ajaxForm = __webpack_require__(9);
 =======
 	var _ajaxForm = __webpack_require__(10);
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
+=======
+	var _ajaxForm = __webpack_require__(10);
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	
 	var _ajaxForm2 = _interopRequireDefault(_ajaxForm);
 	
@@ -38,6 +89,7 @@
 	
 	var _formFields2 = _interopRequireDefault(_formFields);
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	var _collapse = __webpack_require__(19);
 	
 	var _collapse2 = _interopRequireDefault(_collapse);
@@ -178,6 +230,41 @@
 	var _evMap2 = _interopRequireDefault(_evMap);
 	
 	var _addressLookup = __webpack_require__(53);
+=======
+	var _toggleAccordionPanel = __webpack_require__(19);
+	
+	var _toggleAccordionPanel2 = _interopRequireDefault(_toggleAccordionPanel);
+	
+	var _toggleElement = __webpack_require__(20);
+	
+	var _toggleElement2 = _interopRequireDefault(_toggleElement);
+	
+	var _gallerySimple = __webpack_require__(21);
+	
+	var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
+	
+	var _accordion = __webpack_require__(22);
+	
+	var _accordion2 = _interopRequireDefault(_accordion);
+	
+	var _headerNav = __webpack_require__(23);
+	
+	var _headerNav2 = _interopRequireDefault(_headerNav);
+	
+	var _carousel = __webpack_require__(24);
+	
+	var _carousel2 = _interopRequireDefault(_carousel);
+	
+	var _flipCounter = __webpack_require__(43);
+	
+	var _flipCounter2 = _interopRequireDefault(_flipCounter);
+	
+	var _evMap = __webpack_require__(45);
+	
+	var _evMap2 = _interopRequireDefault(_evMap);
+	
+	var _addressLookup = __webpack_require__(50);
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	
 	var addressLookup = _interopRequireWildcard(_addressLookup);
 	
@@ -185,6 +272,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
@@ -202,6 +290,9 @@
 =======
 	__webpack_require__(54);
 >>>>>>> Removed all checkout flow specific code - templates and js
+=======
+	__webpack_require__(51);
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	
 	window.initAutocomplete = addressLookup.initAutocomplete;
 	window.geolocate = addressLookup.geolocate;
@@ -210,6 +301,7 @@
 	dom.whenReady(function () {
 	    (0, _moduleLoader2.default)({
 	        formFields: _formFields2.default,
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 =======
 	        inlineSvg: _inlineSvg2.default,
@@ -222,10 +314,18 @@
 	            toggleAccordionPanel: _toggleAccordionPanel2.default,
 	            toggleElement: _toggleElement2.default,
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
+=======
+	        domModules: (0, _domModuleLoader2.default)({
+	            modal: _modal2.default,
+	            ajaxForm: _ajaxForm2.default,
+	            toggleAccordionPanel: _toggleAccordionPanel2.default,
+	            toggleElement: _toggleElement2.default,
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	            gallerySimple: _gallerySimple2.default,
 	            headerNav: _headerNav2.default,
 	            accordion: _accordion2.default,
 	            carousel: _carousel2.default,
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 =======
 	            selectDropdown: _selectDropdown2.default,
@@ -239,6 +339,9 @@
 	            addressLookup: addressLookup,
 >>>>>>> eslint most of utilities.js and also docBlocked all export functions
 	            changeContent: _changeContent2.default,
+=======
+	            addressLookup: addressLookup,
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	            flipCounter: _flipCounter2.default,
 	            evMap: _evMap2.default
 	        })
@@ -260,6 +363,7 @@
 	//     loadModules();
 	// }, 100);
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< b6aa93057e48b31de63e5b068ed49b76bea2371f
 	window.addEventListener('resize', handleResize);
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
@@ -274,50 +378,1057 @@ var _moduleLoader = require('@pod-point/module-loader');
 =======
 var _moduleLoader = require('@pod-point/module-loader');
 >>>>>>> Removed unused js modules and fixed some linting errors
+=======
+	// window.addEventListener('resize', handleResize)
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
-var _moduleLoader2 = _interopRequireDefault(_moduleLoader);
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var _domModuleLoader = require('@pod-point/dom-module-loader');
+	/*
+	    Module system
+	
+	    All modules export `init` methods.
+	
+	    Persistent modules:
+	        - Can be initialised once per page.
+	        - Can optionally export a `refresh` method.
+	        - Are maintained between page transitions.
+	*/
+	
+	// Other imports
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	var _podPointUtils = __webpack_require__(2);
+	
+	var pageActive = false;
+	var modules = {};
+	
+	function init(newModules) {
+	    modules = newModules;
+	
+	    (0, _podPointUtils.each)(modules, function (module) {
+	        if (module.init) {
+	            module.init();
+	        }
+	    });
+	
+	    pageActive = true;
+	}
+	
+	function reload() {
+	    (0, _podPointUtils.each)(modules, function (module) {
+	        if (module.hasOwnProperty('refresh')) {
+	            module.refresh();
+	        }
+	    });
+	}
+	
+	exports['default'] = function (newModules) {
+	    if (pageActive) {
+	        reload();
+	    } else {
+	        init(newModules);
+	    }
+	};
+	
+	module.exports = exports['default'];
 
-var _domModuleLoader2 = _interopRequireDefault(_domModuleLoader);
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
 
-var _domOps = require('@pod-point/dom-ops');
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.each = each;
+	exports.throttle = throttle;
+	exports.whenCalm = whenCalm;
+	function each(props, callback) {
+	    if (!props) {
+	        return;
+	    }
+	
+	    var keys = Object.keys(props),
+	        numKeys = keys.length;
+	
+	    for (var i = 0; i < numKeys; i++) {
+	        var key = keys[i],
+	            prop = props[key];
+	
+	        if (callback(prop, key, props) === false) {
+	            break;
+	        }
+	    }
+	}
+	
+	function throttle(callback) {
+	    var limit = arguments.length <= 1 || arguments[1] === undefined ? 35 : arguments[1];
+	
+	    var wait = false;
+	
+	    return function () {
+	        if (!wait) {
+	            callback();
+	            wait = true;
+	
+	            setTimeout(function () {
+	                wait = false;
+	            }, limit);
+	        }
+	    };
+	}
+	
+	function whenCalm(callback) {
+	    var timeout = arguments.length <= 1 || arguments[1] === undefined ? 250 : arguments[1];
+	
+	    var timer = undefined;
+	
+	    return function () {
+	        clearTimeout(timer);
+	
+	        timer = setTimeout(function () {
+	            callback();
+	        }, timeout);
+	    };
+	}
 
-var dom = _interopRequireWildcard(_domOps);
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
 
-require('./modules/base');
+	/*
+	    DOM module handler, compatible with @pod-point/module-loader
+	
+	    All modules export `init` methods.
+	
+	    DOM modules:
+	        - Can be initialised multiple times per page.
+	        - Can optionally export a `destory` method.
+	        - Are destroyed between page transitions.
+	        - Initialised by adding the imported module name to an element's
+	            `data-js-module` attribute. Multiple names can be added and are
+	            space-delimited.
+	*/
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	var _podPointDomOps = __webpack_require__(4);
+	
+	var DATA_TAG = 'data-js-module';
+	
+	var activeModules = [];
+	var domModules = {};
+	var definedDataTag = '';
+	
+	function init() {
+	    var moduleElements = (0, _podPointDomOps.nodesToArray)((0, _podPointDomOps.select)('[' + definedDataTag + ']'));
+	
+	    activeModules = [];
+	
+	    if (moduleElements) {
+	        moduleElements.forEach(function (element) {
+	            var modulesToLoad = element.getAttribute(definedDataTag).split(' ');
+	
+	            modulesToLoad.forEach(function (name) {
+	                var module = domModules[name];
+	
+	                if (module && module.init) {
+	                    module.init(element);
+	                    activeModules.push(module);
+	                }
+	            });
+	        });
+	    }
+	}
+	
+	function refresh() {
+	    activeModules.forEach(function (module) {
+	        if (module.hasOwnProperty('destroy')) {
+	            module.destroy();
+	        }
+	    });
+	
+	    init();
+	}
+	
+	exports['default'] = function (modules) {
+	    var dataTag = arguments.length <= 1 || arguments[1] === undefined ? DATA_TAG : arguments[1];
+	
+	    domModules = modules;
+	    definedDataTag = dataTag;
+	    return { init: init, refresh: refresh };
+	};
+	
+	module.exports = exports['default'];
 
-var _modal = require('./modules/modal');
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
 
-var _modal2 = _interopRequireDefault(_modal);
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.select = select;
+	exports.selectFirst = selectFirst;
+	exports.selectById = selectById;
+	exports.closest = closest;
+	exports.nextElement = nextElement;
+	exports.parent = parent;
+	exports.child = child;
+	exports.create = create;
+	exports.addClass = addClass;
+	exports.removeClass = removeClass;
+	exports.appendChild = appendChild;
+	exports.removeChild = removeChild;
+	exports.clone = clone;
+	exports.insertBefore = insertBefore;
+	exports.insertAfter = insertAfter;
+	exports.insertStart = insertStart;
+	exports.insertEnd = insertEnd;
+	exports.empty = empty;
+	exports.hasClass = hasClass;
+	exports.matches = matches;
+	exports.nodesToArray = nodesToArray;
+	exports.whenReady = whenReady;
+	/*
+	    ==============================================================
+	    SELECTION
+	    ==============================================================
+	*/
+	function select(selector) {
+	    var root = arguments.length <= 1 || arguments[1] === undefined ? document : arguments[1];
+	
+	    var selection = root.querySelectorAll(selector);
+	
+	    return selection.length ? selection : null;
+	}
+	
+	function selectFirst(selector) {
+	    var root = arguments.length <= 1 || arguments[1] === undefined ? document : arguments[1];
+	
+	    return root.querySelector(selector);
+	}
+	
+	function selectById(id) {
+	    return document.getElementById(id);
+	}
+	
+	/*
+	    ==============================================================
+	    TRAVERSAL
+	    ==============================================================
+	*/
+	
+	function closest(element, selector) {
+	    var closest;
+	
+	    while (!closest) {
+	        if (matches(element, selector)) {
+	            closest = element;
+	        }
+	
+	        element = parent(element);
+	
+	        if (!element || element === document) {
+	            break;
+	        }
+	    }
+	
+	    return closest;
+	}
+	
+	function nextElement(element) {
+	    return element.nextElementSibling;
+	}
+	
+	function parent(element) {
+	    return element.parentNode;
+	}
+	
+	// Currently undocumented - `select` performs this operation
+	function child(element, selector) {
+	    return element.querySelectorAll(selector);
+	}
+	
+	/*
+	    ==============================================================
+	    MANIPULATION
+	    ==============================================================
+	*/
+	function create() {
+	    var tag = arguments.length <= 0 || arguments[0] === undefined ? 'div' : arguments[0];
+	
+	    return document.createElement(tag);
+	}
+	
+	function addClass(element, className) {
+	    nodesToArray(element).forEach(function (node) {
+	        return node.classList.add(className);
+	    });
+	}
+	
+	function removeClass(element, className) {
+	    nodesToArray(element).forEach(function (node) {
+	        return node.classList.remove(className);
+	    });
+	}
+	
+	function appendChild(host, element) {
+	    host.appendChild(element);
+	}
+	
+	function removeChild(host, element) {
+	    host.removeChild(element);
+	}
+	
+	function clone(element) {
+	    return element.cloneNode(true);
+	}
+	
+	function insertBefore(element, html) {
+	    element.insertAdjacentHTML('beforebegin', html);
+	}
+	
+	function insertAfter(element, html) {
+	    element.insertAdjacentHTML('afterend', html);
+	}
+	
+	function insertStart(element, html) {
+	    element.insertAdjacentHTML('afterbegin', html);
+	}
+	
+	function insertEnd(element, html) {
+	    element.insertAdjacentHTML('beforeend', html);
+	}
+	
+	function empty(element) {
+	    nodesToArray(element).forEach(function (node) {
+	        while (node.firstChild) {
+	            node.removeChild(node.firstChild);
+	        }
+	    });
+	}
+	
+	/*
+	    ==============================================================
+	    IDENTIFICATION
+	    ==============================================================
+	*/
+	
+	function hasClass(element, className) {
+	    var hasClass = true;
+	    nodesToArray(element).forEach(function (node) {
+	        if (!node.classList.contains(className)) {
+	            hasClass = false;
+	        }
+	    });
+	    return hasClass;
+	}
+	
+	function matches(element, selector) {
+	    return (element.matches || element.matchesSelector || element.msMatchesSelector).call(element, selector);
+	}
+	
+	/*
+	    ==============================================================
+	    HELPERS
+	    ==============================================================
+	*/
+	
+	function nodesToArray(nodes) {
+	    if (!nodes || nodes.length === 0) {
+	        return false;
+	    } else {
+	        return nodes.length ? [].slice.call(nodes) : [nodes];
+	    }
+	}
+	
+	function whenReady(callback) {
+	    if (document.readyState != 'loading') {
+	        callback();
+	    } else {
+	        document.addEventListener('DOMContentLoaded', callback);
+	    }
+	}
 
-var _ajaxForm = require('./modules/ajax-form');
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var _ajaxForm2 = _interopRequireDefault(_ajaxForm);
+	'use strict';
+	
+	var _domOps = __webpack_require__(4);
+	
+	var defineSizeAndDevice = function defineSizeAndDevice() {
+	    window.isTouchDevice = 'ontouchstart' in document.documentElement;
+	    var winWidthMedium = 800;
+	    var winWidth = window.innerWidth;
+	    window.isMobileSize = winWidth < winWidthMedium;
+	    window.onload = function () {
+	        if (window.isTouchDevice) {
+	            (0, _domOps.addClass)(document.body, 'is-touch');
+	        } else {
+	            (0, _domOps.addClass)(document.body, 'is-desktop');
+	        }
+	    };
+	};
+	
+	defineSizeAndDevice();
 
-var _formFields = require('./modules/form-fields');
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var _formFields2 = _interopRequireDefault(_formFields);
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(7);
+	
+	var _domOps = __webpack_require__(4);
+	
+	var _utilities = __webpack_require__(9);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	var MODAL_OPEN = 'is-modal-open';
+	
+	var Modal = function () {
+	
+	    /**
+	     * Creates a new modal window
+	     *
+	     * @param {element}
+	     */
+	    function Modal(element) {
+	        _classCallCheck(this, Modal);
+	
+	        this.openButton = element;
+	        var modalID = this.openButton.getAttribute('data-modal');
+	        this.modal = document.querySelector('#' + modalID);
+	        this.closeButton = this.modal.querySelector('.modal-close');
+	        this.video = this.modal.querySelector('.video-wrapper iframe');
+	
+	        this.bindEvents();
+	    }
+	
+	    /**
+	     * Binds the event listeners from the elements
+	     */
+	
+	
+	    _createClass(Modal, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+	
+	            this.openListener = new _domDelegate.Delegate(this.openButton);
+	
+	            this.openListener.on('click', function () {
+	                _this.openModal();
+	            });
+	
+	            this.closeListener = new _domDelegate.Delegate(this.closeButton);
+	
+	            this.closeListener.on('click', function (event) {
+	                event.preventDefault();
+	                _this.closeModal();
+	            });
+	
+	            this.overlayListener = new _domDelegate.Delegate(this.modal);
+	
+	            this.overlayListener.on('click', function (event) {
+	                if (event.target === _this.modal) {
+	                    _this.closeModal();
+	                }
+	            });
+	
+	            this.windowListener = new _domDelegate.Delegate(document.body);
+	
+	            this.windowListener.on('keyup', function (event) {
+	                if (event.keyCode === 27) {
+	                    _this.closeModal();
+	                }
+	            });
+	        }
+	
+	        /**
+	         * Handle the modal opening
+	         *
+	         * @param {event}
+	         */
+	
+	    }, {
+	        key: 'doModal',
+	        value: function doModal(event) {
+	            event.preventDefault();
+	
+	            if ((0, _utilities.isVisible)(this.modal)) {
+	                this.closeModal();
+	            } else {
+	                this.openModal();
+	            }
+	        }
+	
+	        /**
+	         * Handle the modal opening
+	         */
+	
+	    }, {
+	        key: 'openModal',
+	        value: function openModal() {
+	            (0, _domOps.addClass)(document.documentElement, MODAL_OPEN);
+	            (0, _utilities.show)(this.modal);
+	
+	            if (this.video) {
+	                (0, _utilities.loadVideo)(this.video, true);
+	            }
+	
+	            var overlay = document.createElement('div');
+	            overlay.className = 'modal-overlay';
+	            document.body.appendChild(overlay);
+	        }
+	
+	        /**
+	         * Handle the modal closing
+	         */
+	
+	    }, {
+	        key: 'closeModal',
+	        value: function closeModal() {
+	            (0, _domOps.removeClass)(document.documentElement, MODAL_OPEN);
+	            (0, _utilities.hide)(this.modal);
+	
+	            if (this.video) {
+	                (0, _utilities.loadVideo)(this.video, false);
+	            }
+	
+	            var overlay = document.querySelector('.modal-overlay');
+	            if (overlay !== null) {
+	                document.body.removeChild(overlay);
+	            }
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.openListener.destroy();
+	            this.closeListener.destroy();
+	            this.overlayListener.destroy();
+	            this.windowListener.destroy();
+	        }
+	    }]);
+	
+	    return Modal;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new Modal(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
 
-var _toggleAccordionPanel = require('./modules/toggle-accordion-panel');
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var _toggleAccordionPanel2 = _interopRequireDefault(_toggleAccordionPanel);
+	/*jshint browser:true, node:true*/
+	
+	'use strict';
+	
+	/**
+	 * @preserve Create and manage a DOM event delegator.
+	 *
+	 * @version 0.3.0
+	 * @codingstandard ftlabs-jsv2
+	 * @copyright The Financial Times Limited [All Rights Reserved]
+	 * @license MIT License (see LICENSE.txt)
+	 */
+	var Delegate = __webpack_require__(8);
+	
+	module.exports = function(root) {
+	  return new Delegate(root);
+	};
+	
+	module.exports.Delegate = Delegate;
 
-var _toggleElement = require('./modules/toggle-element');
 
-var _toggleElement2 = _interopRequireDefault(_toggleElement);
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
 
-var _gallerySimple = require('./modules/gallery-simple');
+	/*jshint browser:true, node:true*/
+	
+	'use strict';
+	
+	module.exports = Delegate;
+	
+	/**
+	 * DOM event delegator
+	 *
+	 * The delegator will listen
+	 * for events that bubble up
+	 * to the root node.
+	 *
+	 * @constructor
+	 * @param {Node|string} [root] The root node or a selector string matching the root node
+	 */
+	function Delegate(root) {
+	
+	  /**
+	   * Maintain a map of listener
+	   * lists, keyed by event name.
+	   *
+	   * @type Object
+	   */
+	  this.listenerMap = [{}, {}];
+	  if (root) {
+	    this.root(root);
+	  }
+	
+	  /** @type function() */
+	  this.handle = Delegate.prototype.handle.bind(this);
+	}
+	
+	/**
+	 * Start listening for events
+	 * on the provided DOM element
+	 *
+	 * @param  {Node|string} [root] The root node or a selector string matching the root node
+	 * @returns {Delegate} This method is chainable
+	 */
+	Delegate.prototype.root = function(root) {
+	  var listenerMap = this.listenerMap;
+	  var eventType;
+	
+	  // Remove master event listeners
+	  if (this.rootElement) {
+	    for (eventType in listenerMap[1]) {
+	      if (listenerMap[1].hasOwnProperty(eventType)) {
+	        this.rootElement.removeEventListener(eventType, this.handle, true);
+	      }
+	    }
+	    for (eventType in listenerMap[0]) {
+	      if (listenerMap[0].hasOwnProperty(eventType)) {
+	        this.rootElement.removeEventListener(eventType, this.handle, false);
+	      }
+	    }
+	  }
+	
+	  // If no root or root is not
+	  // a dom node, then remove internal
+	  // root reference and exit here
+	  if (!root || !root.addEventListener) {
+	    if (this.rootElement) {
+	      delete this.rootElement;
+	    }
+	    return this;
+	  }
+	
+	  /**
+	   * The root node at which
+	   * listeners are attached.
+	   *
+	   * @type Node
+	   */
+	  this.rootElement = root;
+	
+	  // Set up master event listeners
+	  for (eventType in listenerMap[1]) {
+	    if (listenerMap[1].hasOwnProperty(eventType)) {
+	      this.rootElement.addEventListener(eventType, this.handle, true);
+	    }
+	  }
+	  for (eventType in listenerMap[0]) {
+	    if (listenerMap[0].hasOwnProperty(eventType)) {
+	      this.rootElement.addEventListener(eventType, this.handle, false);
+	    }
+	  }
+	
+	  return this;
+	};
+	
+	/**
+	 * @param {string} eventType
+	 * @returns boolean
+	 */
+	Delegate.prototype.captureForType = function(eventType) {
+	  return ['blur', 'error', 'focus', 'load', 'resize', 'scroll'].indexOf(eventType) !== -1;
+	};
+	
+	/**
+	 * Attach a handler to one
+	 * event for all elements
+	 * that match the selector,
+	 * now or in the future
+	 *
+	 * The handler function receives
+	 * three arguments: the DOM event
+	 * object, the node that matched
+	 * the selector while the event
+	 * was bubbling and a reference
+	 * to itself. Within the handler,
+	 * 'this' is equal to the second
+	 * argument.
+	 *
+	 * The node that actually received
+	 * the event can be accessed via
+	 * 'event.target'.
+	 *
+	 * @param {string} eventType Listen for these events
+	 * @param {string|undefined} selector Only handle events on elements matching this selector, if undefined match root element
+	 * @param {function()} handler Handler function - event data passed here will be in event.data
+	 * @param {Object} [eventData] Data to pass in event.data
+	 * @returns {Delegate} This method is chainable
+	 */
+	Delegate.prototype.on = function(eventType, selector, handler, useCapture) {
+	  var root, listenerMap, matcher, matcherParam;
+	
+	  if (!eventType) {
+	    throw new TypeError('Invalid event type: ' + eventType);
+	  }
+	
+	  // handler can be passed as
+	  // the second or third argument
+	  if (typeof selector === 'function') {
+	    useCapture = handler;
+	    handler = selector;
+	    selector = null;
+	  }
+	
+	  // Fallback to sensible defaults
+	  // if useCapture not set
+	  if (useCapture === undefined) {
+	    useCapture = this.captureForType(eventType);
+	  }
+	
+	  if (typeof handler !== 'function') {
+	    throw new TypeError('Handler must be a type of Function');
+	  }
+	
+	  root = this.rootElement;
+	  listenerMap = this.listenerMap[useCapture ? 1 : 0];
+	
+	  // Add master handler for type if not created yet
+	  if (!listenerMap[eventType]) {
+	    if (root) {
+	      root.addEventListener(eventType, this.handle, useCapture);
+	    }
+	    listenerMap[eventType] = [];
+	  }
+	
+	  if (!selector) {
+	    matcherParam = null;
+	
+	    // COMPLEX - matchesRoot needs to have access to
+	    // this.rootElement, so bind the function to this.
+	    matcher = matchesRoot.bind(this);
+	
+	  // Compile a matcher for the given selector
+	  } else if (/^[a-z]+$/i.test(selector)) {
+	    matcherParam = selector;
+	    matcher = matchesTag;
+	  } else if (/^#[a-z0-9\-_]+$/i.test(selector)) {
+	    matcherParam = selector.slice(1);
+	    matcher = matchesId;
+	  } else {
+	    matcherParam = selector;
+	    matcher = matches;
+	  }
+	
+	  // Add to the list of listeners
+	  listenerMap[eventType].push({
+	    selector: selector,
+	    handler: handler,
+	    matcher: matcher,
+	    matcherParam: matcherParam
+	  });
+	
+	  return this;
+	};
+	
+	/**
+	 * Remove an event handler
+	 * for elements that match
+	 * the selector, forever
+	 *
+	 * @param {string} [eventType] Remove handlers for events matching this type, considering the other parameters
+	 * @param {string} [selector] If this parameter is omitted, only handlers which match the other two will be removed
+	 * @param {function()} [handler] If this parameter is omitted, only handlers which match the previous two will be removed
+	 * @returns {Delegate} This method is chainable
+	 */
+	Delegate.prototype.off = function(eventType, selector, handler, useCapture) {
+	  var i, listener, listenerMap, listenerList, singleEventType;
+	
+	  // Handler can be passed as
+	  // the second or third argument
+	  if (typeof selector === 'function') {
+	    useCapture = handler;
+	    handler = selector;
+	    selector = null;
+	  }
+	
+	  // If useCapture not set, remove
+	  // all event listeners
+	  if (useCapture === undefined) {
+	    this.off(eventType, selector, handler, true);
+	    this.off(eventType, selector, handler, false);
+	    return this;
+	  }
+	
+	  listenerMap = this.listenerMap[useCapture ? 1 : 0];
+	  if (!eventType) {
+	    for (singleEventType in listenerMap) {
+	      if (listenerMap.hasOwnProperty(singleEventType)) {
+	        this.off(singleEventType, selector, handler);
+	      }
+	    }
+	
+	    return this;
+	  }
+	
+	  listenerList = listenerMap[eventType];
+	  if (!listenerList || !listenerList.length) {
+	    return this;
+	  }
+	
+	  // Remove only parameter matches
+	  // if specified
+	  for (i = listenerList.length - 1; i >= 0; i--) {
+	    listener = listenerList[i];
+	
+	    if ((!selector || selector === listener.selector) && (!handler || handler === listener.handler)) {
+	      listenerList.splice(i, 1);
+	    }
+	  }
+	
+	  // All listeners removed
+	  if (!listenerList.length) {
+	    delete listenerMap[eventType];
+	
+	    // Remove the main handler
+	    if (this.rootElement) {
+	      this.rootElement.removeEventListener(eventType, this.handle, useCapture);
+	    }
+	  }
+	
+	  return this;
+	};
+	
+	
+	/**
+	 * Handle an arbitrary event.
+	 *
+	 * @param {Event} event
+	 */
+	Delegate.prototype.handle = function(event) {
+	  var i, l, type = event.type, root, phase, listener, returned, listenerList = [], target, /** @const */ EVENTIGNORE = 'ftLabsDelegateIgnore';
+	
+	  if (event[EVENTIGNORE] === true) {
+	    return;
+	  }
+	
+	  target = event.target;
+	
+	  // Hardcode value of Node.TEXT_NODE
+	  // as not defined in IE8
+	  if (target.nodeType === 3) {
+	    target = target.parentNode;
+	  }
+	
+	  root = this.rootElement;
+	
+	  phase = event.eventPhase || ( event.target !== event.currentTarget ? 3 : 2 );
+	  
+	  switch (phase) {
+	    case 1: //Event.CAPTURING_PHASE:
+	      listenerList = this.listenerMap[1][type];
+	    break;
+	    case 2: //Event.AT_TARGET:
+	      if (this.listenerMap[0] && this.listenerMap[0][type]) listenerList = listenerList.concat(this.listenerMap[0][type]);
+	      if (this.listenerMap[1] && this.listenerMap[1][type]) listenerList = listenerList.concat(this.listenerMap[1][type]);
+	    break;
+	    case 3: //Event.BUBBLING_PHASE:
+	      listenerList = this.listenerMap[0][type];
+	    break;
+	  }
+	
+	  // Need to continuously check
+	  // that the specific list is
+	  // still populated in case one
+	  // of the callbacks actually
+	  // causes the list to be destroyed.
+	  l = listenerList.length;
+	  while (target && l) {
+	    for (i = 0; i < l; i++) {
+	      listener = listenerList[i];
+	
+	      // Bail from this loop if
+	      // the length changed and
+	      // no more listeners are
+	      // defined between i and l.
+	      if (!listener) {
+	        break;
+	      }
+	
+	      // Check for match and fire
+	      // the event if there's one
+	      //
+	      // TODO:MCG:20120117: Need a way
+	      // to check if event#stopImmediatePropagation
+	      // was called. If so, break both loops.
+	      if (listener.matcher.call(target, listener.matcherParam, target)) {
+	        returned = this.fire(event, target, listener);
+	      }
+	
+	      // Stop propagation to subsequent
+	      // callbacks if the callback returned
+	      // false
+	      if (returned === false) {
+	        event[EVENTIGNORE] = true;
+	        event.preventDefault();
+	        return;
+	      }
+	    }
+	
+	    // TODO:MCG:20120117: Need a way to
+	    // check if event#stopPropagation
+	    // was called. If so, break looping
+	    // through the DOM. Stop if the
+	    // delegation root has been reached
+	    if (target === root) {
+	      break;
+	    }
+	
+	    l = listenerList.length;
+	    target = target.parentElement;
+	  }
+	};
+	
+	/**
+	 * Fire a listener on a target.
+	 *
+	 * @param {Event} event
+	 * @param {Node} target
+	 * @param {Object} listener
+	 * @returns {boolean}
+	 */
+	Delegate.prototype.fire = function(event, target, listener) {
+	  return listener.handler.call(target, event, target);
+	};
+	
+	/**
+	 * Check whether an element
+	 * matches a generic selector.
+	 *
+	 * @type function()
+	 * @param {string} selector A CSS selector
+	 */
+	var matches = (function(el) {
+	  if (!el) return;
+	  var p = el.prototype;
+	  return (p.matches || p.matchesSelector || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector || p.oMatchesSelector);
+	}(Element));
+	
+	/**
+	 * Check whether an element
+	 * matches a tag selector.
+	 *
+	 * Tags are NOT case-sensitive,
+	 * except in XML (and XML-based
+	 * languages such as XHTML).
+	 *
+	 * @param {string} tagName The tag name to test against
+	 * @param {Element} element The element to test with
+	 * @returns boolean
+	 */
+	function matchesTag(tagName, element) {
+	  return tagName.toLowerCase() === element.tagName.toLowerCase();
+	}
+	
+	/**
+	 * Check whether an element
+	 * matches the root.
+	 *
+	 * @param {?String} selector In this case this is always passed through as null and not used
+	 * @param {Element} element The element to test with
+	 * @returns boolean
+	 */
+	function matchesRoot(selector, element) {
+	  /*jshint validthis:true*/
+	  if (this.rootElement === window) return element === document;
+	  return this.rootElement === element;
+	}
+	
+	/**
+	 * Check whether the ID of
+	 * the element in 'this'
+	 * matches the given ID.
+	 *
+	 * IDs are case-sensitive.
+	 *
+	 * @param {string} id The ID to test against
+	 * @param {Element} element The element to test with
+	 * @returns boolean
+	 */
+	function matchesId(id, element) {
+	  return id === element.id;
+	}
+	
+	/**
+	 * Short hand for off()
+	 * and root(), ie both
+	 * with no parameters
+	 *
+	 * @return void
+	 */
+	Delegate.prototype.destroy = function() {
+	  this.off();
+	  this.root();
+	};
 
-var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
 
-var _accordion = require('./modules/accordion');
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 <<<<<<< 3eff1dd2a34dba635765e36e0fb8d2f02a4a52a4
 =======
 >>>>>>> Removed commented out window resize
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -328,10 +1439,13 @@ var _accordion = require('./modules/accordion');
 	exports.isHidden = isHidden;
 	exports.isVisible = isVisible;
 	exports.disableOrEnableButton = disableOrEnableButton;
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 =======
 	exports.disableOrEnableDd = disableOrEnableDd;
 >>>>>>> Removed commented out window resize
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	exports.addItemToCookie = addItemToCookie;
 	exports.readItemFromCookie = readItemFromCookie;
 	exports.deleteItemFromCookie = deleteItemFromCookie;
@@ -343,6 +1457,7 @@ var _accordion = require('./modules/accordion');
 	exports.roundNumberTo = roundNumberTo;
 	exports.loadVideo = loadVideo;
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 	var _domOps = __webpack_require__(4);
 	
@@ -356,6 +1471,10 @@ var _accordion = require('./modules/accordion');
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 >>>>>>> Removed commented out window resize
+=======
+	var _domOps = __webpack_require__(4);
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	var IS_OPEN = 'is-open';
 	
 	/**
@@ -413,6 +1532,7 @@ var _accordion = require('./modules/accordion');
 	    }
 	}
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 =======
@@ -433,13 +1553,18 @@ var _accordion = require('./modules/accordion');
 	
 >>>>>>> Removed commented out window resize
 =======
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	/**
 	 * Add item to cookie
 	 *
 	 * @param {string} name of cookie
 	 * @param {obj} value of cookie
 	 */
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> eslint most of utilities.js and also docBlocked all export functions
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	function addItemToCookie(name, value) {
 	    var cookie = [name + '=' + JSON.stringify(value)];
 	    document.cookie = cookie;
@@ -558,9 +1683,12 @@ var _accordion = require('./modules/accordion');
 	    var resto = num % roundTo;
 	    return resto <= roundTo / 2 ? num - resto : num + roundTo - resto;
 	}
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 0da66f174c10f9ab3e8fc4390591be2a710aba44
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 =======
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	
 	/**
 	 * Load or destroy video by replacing the src from the data-src
@@ -577,6 +1705,7 @@ var _accordion = require('./modules/accordion');
 	        videoEl.setAttribute('src', '');
 	    }
 	}
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Added responsive video to modal, which loads and destroys on modal open and close
 
 /***/ }),
@@ -746,15 +1875,138 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	};
 =======
 var _accordion2 = _interopRequireDefault(_accordion);
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
-var _headerNav = require('./modules/header-nav');
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 var _headerNav2 = _interopRequireDefault(_headerNav);
 >>>>>>> Removed unused js modules and fixed some linting errors
+=======
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(7);
+	
+	var _superagent = __webpack_require__(11);
+	
+	var _superagent2 = _interopRequireDefault(_superagent);
+	
+	var _progressButton = __webpack_require__(17);
+	
+	var _progressButton2 = _interopRequireDefault(_progressButton);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var AjaxForm = function () {
+	
+	    /**
+	     * Create a new AJAX form
+	     *
+	     * @param {element} form
+	     */
+	    function AjaxForm(form) {
+	        _classCallCheck(this, AjaxForm);
+	
+	        this.form = form;
+	        this.button = _progressButton2.default.create(form.querySelector('button[type="submit"]'));
+	        this.requestInProgress = false;
+	
+	        this.bindEvents();
+	    }
+	
+	    /**
+	     * Handle the form submission
+	     */
+	
+	
+	    _createClass(AjaxForm, [{
+	        key: 'submitForm',
+	        value: function submitForm() {
+	            var _this = this;
+	
+	            this.requestInProgress = true;
+	            this.button.handleLoading();
+	
+	            _superagent2.default.post(this.form.action).type('form').send(this.form).end(function (error, response) {
+	                _this.requestInProgress = false;
+	
+	                if (response && response.ok) {
+	                    _this.button.handleComplete(true);
+	                } else {
+	                    _this.button.handleComplete(false);
+	                }
+	            });
+	        }
+	
+	        /**
+	         * Bind any event listeners to the elements
+	         */
+	
+	    }, {
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this2 = this;
+	
+	            this.listener = new _domDelegate.Delegate(this.form);
+	
+	            this.listener.on('submit', function (event) {
+	                event.preventDefault();
+	
+	                if (!_this2.requestInProgress) {
+	                    _this2.submitForm();
+	                }
+	            });
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.listener.destroy();
+	        }
+	    }]);
+	
+	    return AjaxForm;
+	}();
+	
+	exports.default = {
+	    init: function init(form) {
+	        instances.push(new AjaxForm(form));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
-var _carousel = require('./modules/carousel');
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	/**
 	 * Module dependencies.
 	 */
@@ -1825,6 +3077,7 @@ var _carousel = require('./modules/carousel');
 	 * @api public
 	 */
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 <<<<<<< 1f356be32b35ed4618b4522b5f576fd8aef6b4b3
 =======
@@ -1851,6 +3104,8 @@ var _carousel = require('./modules/carousel');
 			factory( global );
 		}
 =======
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	request.put = function(url, data, fn){
 	  var req = request('PUT', url);
 	  if ('function' == typeof data) fn = data, data = null;
@@ -1858,20 +3113,188 @@ var _carousel = require('./modules/carousel');
 	  if (fn) req.end(fn);
 	  return req;
 	};
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 =======
 var _carousel2 = _interopRequireDefault(_carousel);
 >>>>>>> Removed unused js modules and fixed some linting errors
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
-var _flipCounter = require('./modules/flip-counter');
 
-var _flipCounter2 = _interopRequireDefault(_flipCounter);
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var _evMap = require('./modules/ev-map');
+	
+	/**
+	 * Expose `Emitter`.
+	 */
+	
+	if (true) {
+	  module.exports = Emitter;
+	}
+	
+	/**
+	 * Initialize a new `Emitter`.
+	 *
+	 * @api public
+	 */
+	
+	function Emitter(obj) {
+	  if (obj) return mixin(obj);
+	};
+	
+	/**
+	 * Mixin the emitter properties.
+	 *
+	 * @param {Object} obj
+	 * @return {Object}
+	 * @api private
+	 */
+	
+	function mixin(obj) {
+	  for (var key in Emitter.prototype) {
+	    obj[key] = Emitter.prototype[key];
+	  }
+	  return obj;
+	}
+	
+	/**
+	 * Listen on the given `event` with `fn`.
+	 *
+	 * @param {String} event
+	 * @param {Function} fn
+	 * @return {Emitter}
+	 * @api public
+	 */
+	
+	Emitter.prototype.on =
+	Emitter.prototype.addEventListener = function(event, fn){
+	  this._callbacks = this._callbacks || {};
+	  (this._callbacks['$' + event] = this._callbacks['$' + event] || [])
+	    .push(fn);
+	  return this;
+	};
+	
+	/**
+	 * Adds an `event` listener that will be invoked a single
+	 * time then automatically removed.
+	 *
+	 * @param {String} event
+	 * @param {Function} fn
+	 * @return {Emitter}
+	 * @api public
+	 */
+	
+	Emitter.prototype.once = function(event, fn){
+	  function on() {
+	    this.off(event, on);
+	    fn.apply(this, arguments);
+	  }
+	
+	  on.fn = fn;
+	  this.on(event, on);
+	  return this;
+	};
+	
+	/**
+	 * Remove the given callback for `event` or all
+	 * registered callbacks.
+	 *
+	 * @param {String} event
+	 * @param {Function} fn
+	 * @return {Emitter}
+	 * @api public
+	 */
+	
+	Emitter.prototype.off =
+	Emitter.prototype.removeListener =
+	Emitter.prototype.removeAllListeners =
+	Emitter.prototype.removeEventListener = function(event, fn){
+	  this._callbacks = this._callbacks || {};
+	
+	  // all
+	  if (0 == arguments.length) {
+	    this._callbacks = {};
+	    return this;
+	  }
+	
+	  // specific event
+	  var callbacks = this._callbacks['$' + event];
+	  if (!callbacks) return this;
+	
+	  // remove all handlers
+	  if (1 == arguments.length) {
+	    delete this._callbacks['$' + event];
+	    return this;
+	  }
+	
+	  // remove specific handler
+	  var cb;
+	  for (var i = 0; i < callbacks.length; i++) {
+	    cb = callbacks[i];
+	    if (cb === fn || cb.fn === fn) {
+	      callbacks.splice(i, 1);
+	      break;
+	    }
+	  }
+	  return this;
+	};
+	
+	/**
+	 * Emit `event` with the given args.
+	 *
+	 * @param {String} event
+	 * @param {Mixed} ...
+	 * @return {Emitter}
+	 */
+	
+	Emitter.prototype.emit = function(event){
+	  this._callbacks = this._callbacks || {};
+	  var args = [].slice.call(arguments, 1)
+	    , callbacks = this._callbacks['$' + event];
+	
+	  if (callbacks) {
+	    callbacks = callbacks.slice(0);
+	    for (var i = 0, len = callbacks.length; i < len; ++i) {
+	      callbacks[i].apply(this, args);
+	    }
+	  }
+	
+	  return this;
+	};
+	
+	/**
+	 * Return array of callbacks for `event`.
+	 *
+	 * @param {String} event
+	 * @return {Array}
+	 * @api public
+	 */
+	
+	Emitter.prototype.listeners = function(event){
+	  this._callbacks = this._callbacks || {};
+	  return this._callbacks['$' + event] || [];
+	};
+	
+	/**
+	 * Check if this emitter has `event` handlers.
+	 *
+	 * @param {String} event
+	 * @return {Boolean}
+	 * @api public
+	 */
+	
+	Emitter.prototype.hasListeners = function(event){
+	  return !! this.listeners(event).length;
+	};
 
-var _evMap2 = _interopRequireDefault(_evMap);
 
-var _addressLookup = require('./modules/address-lookup');
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
@@ -1887,23 +3310,52 @@ var _addressLookup = require('./modules/address-lookup');
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	var arr = [];
 =======
+=======
+	
+	/**
+	 * Reduce `arr` with `fn`.
+	 *
+	 * @param {Array} arr
+	 * @param {Function} fn
+	 * @param {Mixed} initial
+	 *
+	 * TODO: combatible error handling?
+	 */
+	
+	module.exports = function(arr, fn, initial){  
+	  var idx = 0;
+	  var len = arr.length;
+	  var curr = arguments.length == 3
+	    ? initial
+	    : arr[idx++];
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	  while (idx < len) {
 	    curr = fn.call(null, curr, arr[idx], ++idx, arr);
 	  }
 	  
 	  return curr;
 	};
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 =======
 var addressLookup = _interopRequireWildcard(_addressLookup);
 >>>>>>> Removed unused js modules and fixed some linting errors
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
 	var isObject = __webpack_require__(15);
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	var document = window.document;
@@ -1947,6 +3399,151 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 	
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 =======
+=======
+	
+	/**
+	 * Clear previous timeout.
+	 *
+	 * @return {Request} for chaining
+	 * @api public
+	 */
+	
+	exports.clearTimeout = function _clearTimeout(){
+	  this._timeout = 0;
+	  clearTimeout(this._timer);
+	  return this;
+	};
+	
+	/**
+	 * Force given parser
+	 *
+	 * Sets the body parser no matter type.
+	 *
+	 * @param {Function}
+	 * @api public
+	 */
+	
+	exports.parse = function parse(fn){
+	  this._parser = fn;
+	  return this;
+	};
+	
+	/**
+	 * Set timeout to `ms`.
+	 *
+	 * @param {Number} ms
+	 * @return {Request} for chaining
+	 * @api public
+	 */
+	
+	exports.timeout = function timeout(ms){
+	  this._timeout = ms;
+	  return this;
+	};
+	
+	/**
+	 * Faux promise support
+	 *
+	 * @param {Function} fulfill
+	 * @param {Function} reject
+	 * @return {Request}
+	 */
+	
+	exports.then = function then(fulfill, reject) {
+	  return this.end(function(err, res) {
+	    err ? reject(err) : fulfill(res);
+	  });
+	}
+	
+	/**
+	 * Allow for extension
+	 */
+	
+	exports.use = function use(fn) {
+	  fn(this);
+	  return this;
+	}
+	
+	
+	/**
+	 * Get request header `field`.
+	 * Case-insensitive.
+	 *
+	 * @param {String} field
+	 * @return {String}
+	 * @api public
+	 */
+	
+	exports.get = function(field){
+	  return this._header[field.toLowerCase()];
+	};
+	
+	/**
+	 * Get case-insensitive header `field` value.
+	 * This is a deprecated internal API. Use `.get(field)` instead.
+	 *
+	 * (getHeader is no longer used internally by the superagent code base)
+	 *
+	 * @param {String} field
+	 * @return {String}
+	 * @api private
+	 * @deprecated
+	 */
+	
+	exports.getHeader = exports.get;
+	
+	/**
+	 * Set header `field` to `val`, or multiple fields with one object.
+	 * Case-insensitive.
+	 *
+	 * Examples:
+	 *
+	 *      req.get('/')
+	 *        .set('Accept', 'application/json')
+	 *        .set('X-API-Key', 'foobar')
+	 *        .end(callback);
+	 *
+	 *      req.get('/')
+	 *        .set({ Accept: 'application/json', 'X-API-Key': 'foobar' })
+	 *        .end(callback);
+	 *
+	 * @param {String|Object} field
+	 * @param {String} val
+	 * @return {Request} for chaining
+	 * @api public
+	 */
+	
+	exports.set = function(field, val){
+	  if (isObject(field)) {
+	    for (var key in field) {
+	      this.set(key, field[key]);
+	    }
+	    return this;
+	  }
+	  this._header[field.toLowerCase()] = val;
+	  this.header[field] = val;
+	  return this;
+	};
+	
+	/**
+	 * Remove header `field`.
+	 * Case-insensitive.
+	 *
+	 * Example:
+	 *
+	 *      req.get('/')
+	 *        .unset('User-Agent')
+	 *        .end(callback);
+	 *
+	 * @param {String} field
+	 */
+	exports.unset = function(field){
+	  delete this._header[field.toLowerCase()];
+	  delete this.header[field];
+	  return this;
+	};
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	/**
 	 * Write the field `name` and `val` for "multipart/form-data"
 	 * request bodies.
@@ -1966,17 +3563,22 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 	  this._getFormData().append(name, val);
 	  return this;
 	};
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 =======
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 >>>>>>> Removed unused js modules and fixed some linting errors
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
-require('./shims/classList.js');
 
-window.initAutocomplete = addressLookup.initAutocomplete;
-window.geolocate = addressLookup.geolocate;
-window.fillInAddress = addressLookup.fillInAddress;
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	/**
 	 * Check if `obj` is an object.
 	 *
@@ -1984,6 +3586,7 @@ window.fillInAddress = addressLookup.fillInAddress;
 	 * @return {Boolean}
 	 * @api private
 	 */
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	var
@@ -2014,23 +3617,24 @@ dom.whenReady(function () {
     });
 });
 >>>>>>> Removed unused js modules and fixed some linting errors
+=======
+	
+	function isObject(obj) {
+	  return null != obj && 'object' == typeof obj;
+	}
+	
+	module.exports = isObject;
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
-// function debounce(callback, wait, context = this) {
-//     let timeout = null;
-//     let callbackArgs = null;
-//     const later = () => callback.apply(context, callbackArgs);
 
-//     return () => {
-//         callbackArgs = arguments;
-//         clearTimeout(timeout);
-//         timeout = setTimeout(later, wait);
-//     };
-// }
-// const handleResize = debounce((e) => {
-//     loadModules();
-// }, 100);
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	// The node and browser modules expose versions of this with the
 	// appropriate constructor function bound as first argument
 	/**
@@ -2047,6 +3651,7 @@ dom.whenReady(function () {
 	 * @return {Request}
 	 * @api public
 	 */
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			// The jQuery object is actually just the init constructor 'enhanced'
@@ -2068,11 +3673,29 @@ dom.whenReady(function () {
 			return letter.toUpperCase();
 		};
 =======
+=======
+	
+	function request(RequestConstructor, method, url) {
+	  // callback
+	  if ('function' == typeof url) {
+	    return new RequestConstructor('GET', method).end(url);
+	  }
+	
+	  // url first
+	  if (2 == arguments.length) {
+	    return new RequestConstructor('GET', method);
+	  }
+	
+	  return new RequestConstructor(method, url);
+	}
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	module.exports = request;
 
 
 /***/ }),
 /* 17 */
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -2097,6 +3720,27 @@ dom.whenReady(function () {
 		// Get the whole matched element set as a clean array
 		get: function( num ) {
 =======
+=======
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domOps = __webpack_require__(4);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var IS_LOADING = 'is-loading';
+	var IS_COMPLETE = 'is-complete';
+	
+	var ProgressButton = function () {
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    /**
 	     * Create a new progress button
 	     *
@@ -2104,6 +3748,7 @@ dom.whenReady(function () {
 	     */
 	    function ProgressButton(button) {
 	        _classCallCheck(this, ProgressButton);
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Removed all checkout flow specific code - templates and js
 	
 			// Return all the elements in a clean array
@@ -2205,11 +3850,30 @@ dom.whenReady(function () {
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 		for ( ; i < length; i++ ) {
 =======
+=======
+	
+	        this.button = button;
+	    }
+	
+	    /**
+	     * Handle the button in a loading state
+	     */
+	
+	
+	    _createClass(ProgressButton, [{
+	        key: 'handleLoading',
+	        value: function handleLoading() {
+	            this.button.setAttribute('disabled', true);
+	            (0, _domOps.addClass)(this.button, IS_LOADING);
+	        }
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	        /**
 	         * Handle the button on success
 	         *
 	         * @param {boolean} success
 	         */
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Removed all checkout flow specific code - templates and js
 	
 			// Only deal with non-null/undefined values
@@ -2230,6 +3894,24 @@ dom.whenReady(function () {
 					if ( deep && copy && ( jQuery.isPlainObject( copy ) ||
 						( copyIsArray = Array.isArray( copy ) ) ) ) {
 =======
+=======
+	
+	    }, {
+	        key: 'handleComplete',
+	        value: function handleComplete(success) {
+	            (0, _domOps.removeClass)(this.button, IS_LOADING);
+	
+	            if (success) {
+	                this.button.removeAttribute('disabled');
+	                (0, _domOps.addClass)(this.button, IS_COMPLETE);
+	            }
+	        }
+	    }]);
+	
+	    return ProgressButton;
+	}();
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	exports.default = {
 	    create: function create(button) {
 	        return new ProgressButton(button);
@@ -2241,6 +3923,7 @@ dom.whenReady(function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 						if ( copyIsArray ) {
@@ -2337,6 +4020,59 @@ dom.whenReady(function () {
 				return true;
 			}
 =======
+=======
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(7);
+	
+	var _domOps = __webpack_require__(4);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var HAS_CONTENT = 'has-content';
+	var HAS_ERROR = 'has-error';
+	var HAS_FOCUS = 'has-focus';
+	
+	var FormFields = function () {
+	    function FormFields() {
+	        var root = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
+	
+	        _classCallCheck(this, FormFields);
+	
+	        this.bindEvents(root);
+	        FormFields.checkAllFieldsForContent();
+	    }
+	
+	    _createClass(FormFields, [{
+	        key: 'bindEvents',
+	        value: function bindEvents(root) {
+	            var listener = new _domDelegate.Delegate(root);
+	
+	            // Listen to change because of password managers etc
+	            listener.on('change', 'input, textarea', function (event, element) {
+	                FormFields.checkForContent(element);
+	                FormFields.checkForErrors(element);
+	                FormFields.giveFocus(element);
+	            });
+	
+	            // Text input focus handler
+	            listener.on('focus', 'input, textarea', function (event, element) {
+	                return FormFields.giveFocus(element);
+	            });
+	
+	            // Text input focusout handler
+	            listener.on('focusout', 'input, textarea', function (event, element) {
+	                FormFields.checkForContent(element);
+	                FormFields.checkForErrors(element);
+	                FormFields.removeFocus(element);
+	            });
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	            listener.on('input', 'textarea', function (event, element) {
 	                var scrollHeight = element.scrollHeight;
 	                var formEl = element;
@@ -2346,6 +4082,33 @@ dom.whenReady(function () {
 	                }
 	            });
 	        }
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
+=======
+	    }], [{
+	        key: 'checkAllFieldsForContent',
+	        value: function checkAllFieldsForContent() {
+	            var inputs = (0, _domOps.nodesToArray)((0, _domOps.select)('input'));
+	
+	            if (inputs.length) {
+	                inputs.forEach(function (input) {
+	                    return FormFields.checkForContent(input);
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'checkForContent',
+	        value: function checkForContent(element) {
+	            var container = FormFields.getInputContainer(element);
+	            var callback = element.value ? _domOps.addClass : _domOps.removeClass;
+	
+	            callback(container, HAS_CONTENT);
+	        }
+	    }, {
+	        key: 'checkForErrors',
+	        value: function checkForErrors(element) {
+	            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_ERROR);
+	        }
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    }, {
 	        key: 'getInputContainer',
 	        value: function getInputContainer(element) {
@@ -2354,11 +4117,16 @@ dom.whenReady(function () {
 	    }, {
 	        key: 'removeFocus',
 	        value: function removeFocus(element) {
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	            (0, _domOps.removeClass)(this.getInputContainer(element), HAS_FOCUS);
+=======
+	            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_FOCUS);
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	        }
 	    }, {
 	        key: 'giveFocus',
 	        value: function giveFocus(element) {
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	            (0, _domOps.addClass)(this.getInputContainer(element), HAS_FOCUS);
 	        }
 	    }]);
@@ -2372,6 +4140,15 @@ dom.whenReady(function () {
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 		isEmptyObject: function( obj ) {
 =======
+=======
+	            (0, _domOps.addClass)(FormFields.getInputContainer(element), HAS_FOCUS);
+	        }
+	    }]);
+	
+	    return FormFields;
+	}();
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	exports.default = {
 	    init: function init() {
 	        new FormFields();
@@ -2383,6 +4160,7 @@ dom.whenReady(function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			/* eslint-disable no-unused-vars */
@@ -2500,10 +4278,63 @@ dom.whenReady(function () {
 	        _classCallCheck(this, Collapse);
 	
 	        this.element = element;
+=======
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(7);
+	
+	var _domOps = __webpack_require__(4);
+	
+	var _utilities = __webpack_require__(9);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	var IS_OPEN = 'is-open';
+	
+	var ToggleAccordionPanel = function () {
+	
+	    /**
+	     * Creates a new toggle panel
+	     *
+	     * @param {element}
+	     */
+	    function ToggleAccordionPanel(element) {
+	        _classCallCheck(this, ToggleAccordionPanel);
+	
+	        // Selectors
+	        var toggleIconSelector = '[data-toggle-icon="' + this.panelId + '"]';
+	        var toggleButtonsSelector = '[data-toggle-panel="' + this.panelId + '"]';
+	        var openButtonsSelector = '[data-open-panel="' + this.panelId + '"]';
+	        var closeButtonsSelector = '[data-close-panel="' + this.panelId + '"]';
+	        var radioOpenButtonsSelector = '[data-radio-open-panel="' + this.panelId + '"]';
+	        var radioCloseButtonsSelector = '[data-radio-close-panel="' + this.panelId + '"]';
+	        var inputOpenButtonsSelector = '[data-input-open-panel="' + this.panelId + '"]';
+	        var selectToggleButtonsSelector = '[data-select-toggle-panel="' + this.panelId + '"]';
+	
+	        this.panel = element;
+	        this.panelId = element.getAttribute('id');
+	        this.toggleIcon = document.querySelector(toggleIconSelector);
+	        this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(toggleButtonsSelector)) || [];
+	        this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(openButtonsSelector)) || [];
+	        this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(closeButtonsSelector)) || [];
+	        this.radioOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(radioOpenButtonsSelector)) || [];
+	        this.radioCloseButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(radioCloseButtonsSelector)) || [];
+	        this.inputOpenButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(inputOpenButtonsSelector)) || [];
+	
+	        this.selectToggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(selectToggleButtonsSelector)) || [];
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	        this.bindEvents();
 	    }
 	
 	    /**
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	     * Bind any event listeners to the elements
 	     */
 >>>>>>> Removed all checkout flow specific code - templates and js
@@ -2566,10 +4397,112 @@ dom.whenReady(function () {
 	    }, {
 	        key: 'unbindEvents',
 	
+=======
+	     * Binds the event listeners from the elements
+	     */
+	
+	
+	    _createClass(ToggleAccordionPanel, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+	
+	            this.toggleListeners = [];
+	            this.toggleButtons.forEach(function (toggleButton) {
+	                var toggleListener = new _domDelegate.Delegate(toggleButton);
+	                _this.toggleListeners.push(toggleListener);
+	                toggleListener.on('click', function (event) {
+	                    event.preventDefault();
+	                    _this.togglePanel();
+	                });
+	            });
+	
+	            this.openListeners = [];
+	            this.openButtons.forEach(function (openButton) {
+	                var openListener = new _domDelegate.Delegate(openButton);
+	                _this.openListeners.push(openListener);
+	                openListener.on('click', function (event) {
+	                    event.preventDefault();
+	                    (0, _utilities.openPanel)(_this.panel);
+	                });
+	            });
+	
+	            this.closeListeners = [];
+	            this.closeButtons.forEach(function (closeButton) {
+	                var closeListener = new _domDelegate.Delegate(closeButton);
+	                _this.closeListeners.push(closeListener);
+	                closeListener.on('click', function (event) {
+	                    event.preventDefault();
+	                    (0, _utilities.closePanel)(_this.panel);
+	                });
+	            });
+	
+	            this.radioOpenListeners = [];
+	            this.radioOpenButtons.forEach(function (radioOpenButton) {
+	                var radioOpenListener = new _domDelegate.Delegate(radioOpenButton);
+	                _this.radioOpenListeners.push(radioOpenListener);
+	                radioOpenListener.on('change', function (event) {
+	                    event.preventDefault();
+	                    (0, _utilities.openPanel)(_this.panel);
+	                });
+	            });
+	
+	            this.radioCloseListeners = [];
+	            this.radioCloseButtons.forEach(function (radioCloseButton) {
+	                var radioCloseListener = new _domDelegate.Delegate(radioCloseButton);
+	                _this.radioCloseListeners.push(radioCloseListener);
+	                radioCloseListener.on('change', function (event) {
+	                    event.preventDefault();
+	                    (0, _utilities.closePanel)(_this.panel);
+	                });
+	            });
+	
+	            this.inputOpenListeners = [];
+	            this.inputOpenButtons.forEach(function (inputOpenButton) {
+	                var inputOpenListener = new _domDelegate.Delegate(inputOpenButton);
+	                _this.inputOpenListeners.push(inputOpenListener);
+	                inputOpenListener.on('focus', function () {
+	                    return (0, _utilities.openPanel)(_this.panel);
+	                });
+	            });
+	
+	            this.selectToggleListeners = [];
+	            this.selectToggleButtons.forEach(function (selectToggleButton) {
+	                var selectToggleListener = new _domDelegate.Delegate(selectToggleButton);
+	                _this.selectToggleListeners.push(selectToggleListener);
+	                selectToggleListener.on('change', function (event, element) {
+	                    var selectedVal = element.options[element.selectedIndex].value;
+	
+	                    if (selectedVal === 'other') {
+	                        (0, _utilities.openPanel)(_this.panel);
+	                    } else {
+	                        (0, _utilities.closePanel)(_this.panel);
+	                    }
+	                });
+	            });
+	        }
+	
+	        /**
+	         * Toggle panel depending if already open or not
+	         */
+	
+	    }, {
+	        key: 'togglePanel',
+	        value: function togglePanel() {
+	            var panelIsVisible = (0, _domOps.hasClass)(this.panel, IS_OPEN);
+	
+	            if (panelIsVisible) {
+	                (0, _utilities.closePanel)(this.panel);
+	            } else {
+	                (0, _utilities.openPanel)(this.panel);
+	            }
+	        }
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	
 	        /**
 	         * Unbinds the event listeners from the elements
 	         */
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	        value: function unbindEvents() {
 	            this.listener.destroy();
 	        }
@@ -2604,6 +4537,41 @@ dom.whenReady(function () {
 				return undefined;
 			}
 =======
+=======
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.toggleListeners.forEach(function (toggleListener) {
+	                return toggleListener.destroy();
+	            });
+	            this.openListeners.forEach(function (openListener) {
+	                return openListener.destroy();
+	            });
+	            this.closeListeners.forEach(function (closeListener) {
+	                return closeListener.destroy();
+	            });
+	            this.radioOpenListeners.forEach(function (radioOpenListener) {
+	                return radioOpenListener.destroy();
+	            });
+	            this.radioCloseListeners.forEach(function (radioCloseListener) {
+	                return radioCloseListener.destroy();
+	            });
+	            this.inputOpenListeners.forEach(function (inputOpenListener) {
+	                return inputOpenListener.destroy();
+	            });
+	        }
+	    }]);
+	
+	    return ToggleAccordionPanel;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new ToggleAccordionPanel(element));
+	    },
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    destroy: function destroy() {
 	        instances.forEach(function (instance) {
 	            return instance.unbindEvents();
@@ -2617,6 +4585,7 @@ dom.whenReady(function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			// Simulated bind
@@ -2664,10 +4633,54 @@ dom.whenReady(function () {
 	        _classCallCheck(this, DropDown);
 	
 	        this.element = element;
+=======
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(7);
+	
+	var _domOps = __webpack_require__(4);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	var IS_OPEN = 'fade-in';
+	
+	var ToggleElement = function () {
+	
+	    /**
+	     * Creates a new toggle element
+	     *
+	     * @param {element}
+	     */
+	    function ToggleElement(element) {
+	        _classCallCheck(this, ToggleElement);
+	
+	        var toggleButtonsSelector = '[data-toggle-el="' + this.elementId + '"]';
+	        var openButtonsSelector = '[data-open-el="' + this.elementId + '"]';
+	        var closeButtonsSelector = '[data-close-el="' + this.elementId + '"]';
+	        var allElementsSelector = '[data-js-module="toggleElement"]';
+	
+	        this.element = element;
+	        this.elementId = element.getAttribute('id');
+	        this.toggleButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(toggleButtonsSelector)) || [];
+	        this.openButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(openButtonsSelector)) || [];
+	        this.closeButtons = (0, _domOps.nodesToArray)(document.querySelectorAll(closeButtonsSelector)) || [];
+	
+	        this.allElements = (0, _domOps.nodesToArray)(document.querySelectorAll(allElementsSelector));
+	
+	        this.elementIsVisible = false;
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	        this.bindEvents();
 	    }
 	
 	    /**
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	     * Bind any event listeners to the elements
 	     */
 >>>>>>> Removed all checkout flow specific code - templates and js
@@ -2959,17 +4972,61 @@ dom.whenReady(function () {
 	            this.listener.on('blur', function (event, input) {
 	                event.preventDefault();
 	                _this.closeDropDown(input);
+=======
+	     * Binds the event listeners from the elements
+	     */
+	
+	
+	    _createClass(ToggleElement, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+	
+	            this.toggleListeners = [];
+	            this.toggleButtons.forEach(function (toggleButton) {
+	                var toggleListener = new _domDelegate.Delegate(toggleButton);
+	                _this.toggleListeners.push(toggleListener);
+	                toggleListener.on('click', function (event) {
+	                    event.preventDefault();
+	                    _this.toggleElement();
+	                });
+	            });
+	
+	            this.openListeners = [];
+	            this.openButtons.forEach(function (openButton) {
+	                var openListener = new _domDelegate.Delegate(openButton);
+	                _this.openListeners.push(openListener);
+	                openListener.on('click', function (event) {
+	                    event.preventDefault();
+	                    _this.openElement();
+	                });
+	            });
+	
+	            this.closeListeners = [];
+	            this.closeButtons.forEach(function (closeButton) {
+	                var closeListener = new _domDelegate.Delegate(closeButton);
+	                _this.closeListeners.push(closeListener);
+	                closeListener.on('click', function (event) {
+	                    event.preventDefault();
+	                    _this.closeElement();
+	                });
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	            });
 	        }
 	
 	        /**
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	         * Handle drop down opening
 	         *
 	         * @param {element} input
+=======
+	         * Unbinds the event listeners from the elements
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	         */
 	
 	    }, {
 	        key: 'unbindEvents',
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	
 	
 	        /**
@@ -3026,6 +5083,82 @@ dom.whenReady(function () {
 					!compilerCache[ selector + " " ] &&
 					(!rbuggyQSA || !rbuggyQSA.test( selector )) ) {
 =======
+=======
+	        value: function unbindEvents() {
+	            this.toggleListeners.forEach(function (toggleListener) {
+	                return toggleListener.destroy();
+	            });
+	            this.openListeners.forEach(function (openListener) {
+	                return openListener.destroy();
+	            });
+	            this.closeListeners.forEach(function (closeListener) {
+	                return closeListener.destroy();
+	            });
+	        }
+	
+	        /**
+	         * Toggle element depending if already open or not
+	         */
+	
+	    }, {
+	        key: 'toggleElement',
+	        value: function toggleElement() {
+	            if (this.elementIsVisible) {
+	                this.closeElement();
+	            } else {
+	                this.openElement();
+	            }
+	        }
+	
+	        /**
+	         * Handle the element opening
+	         */
+	
+	    }, {
+	        key: 'openElement',
+	        value: function openElement() {
+	            this.closeAllElements();
+	            this.elementIsVisible = true;
+	            this.element.classList.remove('hidden');
+	            this.element.classList.add(IS_OPEN);
+	        }
+	
+	        /**
+	         * Handle the element closing
+	         */
+	
+	    }, {
+	        key: 'closeElement',
+	        value: function closeElement() {
+	            this.element.classList.add('hidden');
+	            this.element.classList.remove(IS_OPEN);
+	            this.elementIsVisible = false;
+	        }
+	
+	        /**
+	         * Handle the closing of all other elements
+	         */
+	
+	    }, {
+	        key: 'closeAllElements',
+	        value: function closeAllElements() {
+	            this.allElements.forEach(function (el) {
+	                el.classList.add('hidden');
+	                el.classList.remove(IS_OPEN);
+	            });
+	            this.elementIsVisible = false;
+	        }
+	    }]);
+	
+	    return ToggleElement;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new ToggleElement(element));
+	    },
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    destroy: function destroy() {
 	        instances.forEach(function (instance) {
 	            return instance.unbindEvents();
@@ -3039,6 +5172,7 @@ dom.whenReady(function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 					if ( nodeType !== 1 ) {
@@ -3342,6 +5476,98 @@ dom.whenReady(function () {
 		if ( preferredDoc !== document &&
 			(subWindow = document.defaultView) && subWindow.top !== subWindow ) {
 =======
+=======
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(7);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var GallerySimple = function () {
+	
+	    /**
+	     * Creates a gallery element
+	     *
+	     * @param {element}
+	     */
+	    function GallerySimple(element) {
+	        _classCallCheck(this, GallerySimple);
+	
+	        this.element = element;
+	        this.getFirstThumbnail();
+	        this.bindEvents();
+	    }
+	
+	    /**
+	     * Get first thumbnail and pass to function to display as the main image
+	     */
+	
+	
+	    _createClass(GallerySimple, [{
+	        key: 'getFirstThumbnail',
+	        value: function getFirstThumbnail() {
+	            var firstThumbnail = this.element.querySelector('.gallery-simple__thumbnails li a');
+	            this.displayThumbnailAsImage(firstThumbnail);
+	        }
+	
+	        /**
+	         * Bind any event listeners to the elements.
+	         */
+	
+	    }, {
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+	
+	            this.listener = new _domDelegate.Delegate(this.element);
+	
+	            this.listener.on('click', 'li a', function (event, thumbnail) {
+	                event.preventDefault();
+	                _this.displayThumbnailAsImage(thumbnail);
+	            });
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.listener.destroy();
+	        }
+	
+	        /**
+	         * Display thumbnail as main image
+	         * @param {element} thumbnail
+	         */
+	
+	    }, {
+	        key: 'displayThumbnailAsImage',
+	        value: function displayThumbnailAsImage(thumbnail) {
+	            var thumbnailSrc = thumbnail.querySelector('img').src;
+	            var mainImage = this.element.querySelector('.gallery-simple__image');
+	
+	            mainImage.src = thumbnailSrc;
+	        }
+	    }]);
+	
+	    return GallerySimple;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new GallerySimple(element));
+	    },
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    destroy: function destroy() {
 	        instances.forEach(function (instance) {
 	            return instance.unbindEvents();
@@ -3355,6 +5581,7 @@ dom.whenReady(function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 			// Support: IE 11, Edge
@@ -3547,11 +5774,47 @@ dom.whenReady(function () {
 			}
 		};
 =======
+=======
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(7);
+	
+	var _domOps = __webpack_require__(4);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var IS_OPEN = 'is-open';
+	var MOBILE_ONLY = 'accordion--only-mobile';
+	
+	var Accordion = function () {
+	
+	    /**
+	     * Creates a new accordion element
+	     *
+	     * @param {element}
+	     */
+	    function Accordion(element) {
+	        _classCallCheck(this, Accordion);
+	
+	        this.element = element;
+	        this.accordionIsMobileOnly = (0, _domOps.hasClass)(this.element, MOBILE_ONLY);
+	        this.bindEvents();
+	    }
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    /**
 	     * Binds the event listeners from the elements
 	     */
 	
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	    _createClass(ToggleAccordionPanel, [{
 	        key: 'bindEvents',
 	        value: function bindEvents() {
@@ -3791,6 +6054,61 @@ dom.whenReady(function () {
 				return 0;
 			}
 =======
+=======
+	    _createClass(Accordion, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+	
+	            this.listener = new _domDelegate.Delegate(this.element);
+	
+	            if (this.accordionIsMobileOnly && window.isMobileSize || this.accordionIsMobileOnly !== true) {
+	                this.listener.on('click', 'dt', function (event, element) {
+	                    _this.toggleAccordion(element);
+	                });
+	            }
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.listener.destroy();
+	        }
+	
+	        /**
+	         * Toggles the accordion.
+	         *
+	         * @param {element} element to toggle
+	         */
+	
+	    }, {
+	        key: 'toggleAccordion',
+	        value: function toggleAccordion(element) {
+	            if ((0, _domOps.hasClass)(element, IS_OPEN)) {
+	                (0, _domOps.removeClass)(element, IS_OPEN);
+	            } else {
+	                var allDtEls = (0, _domOps.nodesToArray)(this.element.querySelectorAll('dt'));
+	                allDtEls.forEach(function (dt) {
+	                    return (0, _domOps.removeClass)(dt, IS_OPEN);
+	                });
+	                (0, _domOps.addClass)(element.closest('dt'), IS_OPEN);
+	            }
+	        }
+	    }]);
+	
+	    return Accordion;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new Accordion(element));
+	    },
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    destroy: function destroy() {
 	        instances.forEach(function (instance) {
 	            return instance.unbindEvents();
@@ -3800,6 +6118,7 @@ dom.whenReady(function () {
 	};
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4280,12 +6599,264 @@ dom.whenReady(function () {
 	    destroy: function destroy() {
 	        instances.forEach(function (instance) {
 	            return instance.unbindEvents();
+=======
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domOps = __webpack_require__(4);
+	
+	var _domDelegate = __webpack_require__(7);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var NAV_OPEN = 'nav-open';
+	var SUBNAV_OPEN = 'sub-nav-open';
+	
+	var navIsOpen = false;
+	
+	var HeaderNav = function () {
+	
+	    /**
+	     * Creates a new header nav element
+	     *
+	     * @param element
+	     */
+	    function HeaderNav(element) {
+	        _classCallCheck(this, HeaderNav);
+	
+	        this.element = element;
+	        this.navicon = this.element.querySelector('.navicon');
+	        this.nav = this.element.querySelector('.global-nav');
+	        this.navOverlay = document.querySelector('.global-nav-overlay');
+	
+	        this.bindEvents();
+	    }
+	
+	    /**
+	     * Binds the event listeners from the elements
+	     */
+	
+	
+	    _createClass(HeaderNav, [{
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this = this;
+	
+	            this.naviconListener = new _domDelegate.Delegate(this.navicon);
+	
+	            this.naviconListener.on('click', function (event) {
+	                _this.toggleNav(event);
+	            });
+	
+	            this.navListener = new _domDelegate.Delegate(this.nav);
+	
+	            this.navListener.on('click', '.has-sub-nav > a', function (event, clickedElement) {
+	                _this.toggleSubNav(event, clickedElement);
+	            });
+	
+	            this.navOverlayListener = new _domDelegate.Delegate(this.navOverlay);
+	
+	            this.navOverlayListener.on('click', function () {
+	                _this.closeSubNavs();
+	            });
+	        }
+	
+	        /**
+	         * Toggles the nav
+	         *
+	         * @param {event}
+	         */
+	
+	    }, {
+	        key: 'toggleNav',
+	        value: function toggleNav(event) {
+	            event.preventDefault();
+	
+	            if (navIsOpen) {
+	                navIsOpen = false;
+	                (0, _domOps.removeClass)(this.element, NAV_OPEN);
+	            } else {
+	                navIsOpen = true;
+	                (0, _domOps.addClass)(this.element, NAV_OPEN);
+	            }
+	        }
+	
+	        /**
+	         * Closes all sub navs
+	         */
+	
+	    }, {
+	        key: 'closeSubNavs',
+	        value: function closeSubNavs() {
+	            var openSubNavs = (0, _domOps.nodesToArray)((0, _domOps.select)('.has-sub-nav.sub-nav-open'));
+	            if (openSubNavs.length) {
+	                openSubNavs.forEach(function (openSubNav) {
+	                    (0, _domOps.removeClass)(openSubNav, SUBNAV_OPEN);
+	                });
+	                this.showOverlay(false);
+	            }
+	        }
+	
+	        /**
+	         * Toggles the sub nav
+	         *
+	         * @param {event} the click
+	         * @param {element} the clicked element
+	         */
+	
+	    }, {
+	        key: 'toggleSubNav',
+	        value: function toggleSubNav(event, clickedElement) {
+	            event.preventDefault();
+	            var subNavLi = clickedElement.closest('li');
+	            var subNavIsOpen = clickedElement.closest('.has-sub-nav.sub-nav-open');
+	            if (subNavIsOpen == null) {
+	                this.closeSubNavs();
+	                (0, _domOps.addClass)(subNavLi, SUBNAV_OPEN);
+	                this.showOverlay(true);
+	            } else {
+	                (0, _domOps.removeClass)(subNavLi, SUBNAV_OPEN);
+	                this.showOverlay(false);
+	            }
+	        }
+	
+	        /**
+	         * Shows the overlay if it's desktop size
+	         *
+	         * @param {boolean} show overlay
+	         */
+	
+	    }, {
+	        key: 'showOverlay',
+	        value: function showOverlay(_showOverlay) {
+	            if (window.isMobileSize) return;
+	
+	            if (_showOverlay) {
+	                (0, _domOps.addClass)(this.navOverlay, NAV_OPEN);
+	                (0, _domOps.addClass)(document.documentElement, 'is-nav-open');
+	            } else {
+	                (0, _domOps.removeClass)(this.navOverlay, NAV_OPEN);
+	                (0, _domOps.removeClass)(document.documentElement, 'is-nav-open');
+	            }
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.naviconListener.destroy();
+	            this.navListener.destroy();
+	        }
+	    }]);
+	
+	    return HeaderNav;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new HeaderNav(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
 	        });
 	        instances = [];
 	    }
 	};
 
 /***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _flickity = __webpack_require__(25);
+	
+	var _flickity2 = _interopRequireDefault(_flickity);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var Carousel = function () {
+	
+	    /**
+	     * Create a new carousel element
+	     *
+	     * @param {element} select wrapper
+	     */
+	    function Carousel(element) {
+	        _classCallCheck(this, Carousel);
+	
+	        this.element = element;
+	        this.initFlickity();
+	    }
+	
+	    /**
+	     * Initialise a Flickity carousel
+	     */
+	
+	
+	    _createClass(Carousel, [{
+	        key: 'initFlickity',
+	        value: function initFlickity() {
+	            this.carousel = new _flickity2.default(this.element, {
+	                contain: true
+	            });
+	        }
+	
+	        /**
+	         * Destroy Flickity carousel
+	         */
+	
+	    }, {
+	        key: 'destroy',
+	        value: function destroy() {
+	            this.carousel.destroy();
+	        }
+	    }]);
+	
+	    return Carousel;
+	}();
+	
+	exports.default = {
+	    init: function init(element) {
+	        instances.push(new Carousel(element));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.destroy();
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -46740,11 +49311,922 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	    };
 =======
+=======
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Flickity v2.0.7
+	 * Touch, responsive, flickable carousels
+	 *
+	 * Licensed GPLv3 for open source use
+	 * or Flickity Commercial License for commercial use
+	 *
+	 * http://flickity.metafizzy.co
+	 * Copyright 2016 Metafizzy
+	 */
+	
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(26),
+	      __webpack_require__(34),
+	      __webpack_require__(37),
+	      __webpack_require__(39),
+	      __webpack_require__(40),
+	      __webpack_require__(41),
+	      __webpack_require__(42)
+	    ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      require('./flickity'),
+	      require('./drag'),
+	      require('./prev-next-button'),
+	      require('./page-dots'),
+	      require('./player'),
+	      require('./add-remove-cell'),
+	      require('./lazyload')
+	    );
+	  }
+	
+	})( window, function factory( Flickity ) {
+	  /*jshint strict: false*/
+	  return Flickity;
+	});
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity main
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(27),
+	      __webpack_require__(28),
+	      __webpack_require__(29),
+	      __webpack_require__(31),
+	      __webpack_require__(32),
+	      __webpack_require__(33)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Cell, Slide, animatePrototype ) {
+	      return factory( window, EvEmitter, getSize, utils, Cell, Slide, animatePrototype );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('ev-emitter'),
+	      require('get-size'),
+	      require('fizzy-ui-utils'),
+	      require('./cell'),
+	      require('./slide'),
+	      require('./animate')
+	    );
+	  } else {
+	    // browser global
+	    var _Flickity = window.Flickity;
+	
+	    window.Flickity = factory(
+	      window,
+	      window.EvEmitter,
+	      window.getSize,
+	      window.fizzyUIUtils,
+	      _Flickity.Cell,
+	      _Flickity.Slide,
+	      _Flickity.animatePrototype
+	    );
+	  }
+	
+	}( window, function factory( window, EvEmitter, getSize,
+	  utils, Cell, Slide, animatePrototype ) {
+	
+	'use strict';
+	
+	// vars
+	var jQuery = window.jQuery;
+	var getComputedStyle = window.getComputedStyle;
+	var console = window.console;
+	
+	function moveElements( elems, toElem ) {
+	  elems = utils.makeArray( elems );
+	  while ( elems.length ) {
+	    toElem.appendChild( elems.shift() );
+	  }
+	}
+	
+	// -------------------------- Flickity -------------------------- //
+	
+	// globally unique identifiers
+	var GUID = 0;
+	// internal store of all Flickity intances
+	var instances = {};
+	
+	function Flickity( element, options ) {
+	  var queryElement = utils.getQueryElement( element );
+	  if ( !queryElement ) {
+	    if ( console ) {
+	      console.error( 'Bad element for Flickity: ' + ( queryElement || element ) );
+	    }
+	    return;
+	  }
+	  this.element = queryElement;
+	  // do not initialize twice on same element
+	  if ( this.element.flickityGUID ) {
+	    var instance = instances[ this.element.flickityGUID ];
+	    instance.option( options );
+	    return instance;
+	  }
+	
+	  // add jQuery
+	  if ( jQuery ) {
+	    this.$element = jQuery( this.element );
+	  }
+	  // options
+	  this.options = utils.extend( {}, this.constructor.defaults );
+	  this.option( options );
+	
+	  // kick things off
+	  this._create();
+	}
+	
+	Flickity.defaults = {
+	  accessibility: true,
+	  // adaptiveHeight: false,
+	  cellAlign: 'center',
+	  // cellSelector: undefined,
+	  // contain: false,
+	  freeScrollFriction: 0.075, // friction when free-scrolling
+	  friction: 0.28, // friction when selecting
+	  namespaceJQueryEvents: true,
+	  // initialIndex: 0,
+	  percentPosition: true,
+	  resize: true,
+	  selectedAttraction: 0.025,
+	  setGallerySize: true
+	  // watchCSS: false,
+	  // wrapAround: false
+	};
+	
+	// hash of methods triggered on _create()
+	Flickity.createMethods = [];
+	
+	var proto = Flickity.prototype;
+	// inherit EventEmitter
+	utils.extend( proto, EvEmitter.prototype );
+	
+	proto._create = function() {
+	  // add id for Flickity.data
+	  var id = this.guid = ++GUID;
+	  this.element.flickityGUID = id; // expando
+	  instances[ id ] = this; // associate via id
+	  // initial properties
+	  this.selectedIndex = 0;
+	  // how many frames slider has been in same position
+	  this.restingFrames = 0;
+	  // initial physics properties
+	  this.x = 0;
+	  this.velocity = 0;
+	  this.originSide = this.options.rightToLeft ? 'right' : 'left';
+	  // create viewport & slider
+	  this.viewport = document.createElement('div');
+	  this.viewport.className = 'flickity-viewport';
+	  this._createSlider();
+	
+	  if ( this.options.resize || this.options.watchCSS ) {
+	    window.addEventListener( 'resize', this );
+	  }
+	
+	  Flickity.createMethods.forEach( function( method ) {
+	    this[ method ]();
+	  }, this );
+	
+	  if ( this.options.watchCSS ) {
+	    this.watchCSS();
+	  } else {
+	    this.activate();
+	  }
+	
+	};
+	
+	/**
+	 * set options
+	 * @param {Object} opts
+	 */
+	proto.option = function( opts ) {
+	  utils.extend( this.options, opts );
+	};
+	
+	proto.activate = function() {
+	  if ( this.isActive ) {
+	    return;
+	  }
+	  this.isActive = true;
+	  this.element.classList.add('flickity-enabled');
+	  if ( this.options.rightToLeft ) {
+	    this.element.classList.add('flickity-rtl');
+	  }
+	
+	  this.getSize();
+	  // move initial cell elements so they can be loaded as cells
+	  var cellElems = this._filterFindCellElements( this.element.children );
+	  moveElements( cellElems, this.slider );
+	  this.viewport.appendChild( this.slider );
+	  this.element.appendChild( this.viewport );
+	  // get cells from children
+	  this.reloadCells();
+	
+	  if ( this.options.accessibility ) {
+	    // allow element to focusable
+	    this.element.tabIndex = 0;
+	    // listen for key presses
+	    this.element.addEventListener( 'keydown', this );
+	  }
+	
+	  this.emitEvent('activate');
+	
+	  var index;
+	  var initialIndex = this.options.initialIndex;
+	  if ( this.isInitActivated ) {
+	    index = this.selectedIndex;
+	  } else if ( initialIndex !== undefined ) {
+	    index = this.cells[ initialIndex ] ? initialIndex : 0;
+	  } else {
+	    index = 0;
+	  }
+	  // select instantly
+	  this.select( index, false, true );
+	  // flag for initial activation, for using initialIndex
+	  this.isInitActivated = true;
+	};
+	
+	// slider positions the cells
+	proto._createSlider = function() {
+	  // slider element does all the positioning
+	  var slider = document.createElement('div');
+	  slider.className = 'flickity-slider';
+	  slider.style[ this.originSide ] = 0;
+	  this.slider = slider;
+	};
+	
+	proto._filterFindCellElements = function( elems ) {
+	  return utils.filterFindElements( elems, this.options.cellSelector );
+	};
+	
+	// goes through all children
+	proto.reloadCells = function() {
+	  // collection of item elements
+	  this.cells = this._makeCells( this.slider.children );
+	  this.positionCells();
+	  this._getWrapShiftCells();
+	  this.setGallerySize();
+	};
+	
+	/**
+	 * turn elements into Flickity.Cells
+	 * @param {Array or NodeList or HTMLElement} elems
+	 * @returns {Array} items - collection of new Flickity Cells
+	 */
+	proto._makeCells = function( elems ) {
+	  var cellElems = this._filterFindCellElements( elems );
+	
+	  // create new Flickity for collection
+	  var cells = cellElems.map( function( cellElem ) {
+	    return new Cell( cellElem, this );
+	  }, this );
+	
+	  return cells;
+	};
+	
+	proto.getLastCell = function() {
+	  return this.cells[ this.cells.length - 1 ];
+	};
+	
+	proto.getLastSlide = function() {
+	  return this.slides[ this.slides.length - 1 ];
+	};
+	
+	// positions all cells
+	proto.positionCells = function() {
+	  // size all cells
+	  this._sizeCells( this.cells );
+	  // position all cells
+	  this._positionCells( 0 );
+	};
+	
+	/**
+	 * position certain cells
+	 * @param {Integer} index - which cell to start with
+	 */
+	proto._positionCells = function( index ) {
+	  index = index || 0;
+	  // also measure maxCellHeight
+	  // start 0 if positioning all cells
+	  this.maxCellHeight = index ? this.maxCellHeight || 0 : 0;
+	  var cellX = 0;
+	  // get cellX
+	  if ( index > 0 ) {
+	    var startCell = this.cells[ index - 1 ];
+	    cellX = startCell.x + startCell.size.outerWidth;
+	  }
+	  var len = this.cells.length;
+	  for ( var i=index; i < len; i++ ) {
+	    var cell = this.cells[i];
+	    cell.setPosition( cellX );
+	    cellX += cell.size.outerWidth;
+	    this.maxCellHeight = Math.max( cell.size.outerHeight, this.maxCellHeight );
+	  }
+	  // keep track of cellX for wrap-around
+	  this.slideableWidth = cellX;
+	  // slides
+	  this.updateSlides();
+	  // contain slides target
+	  this._containSlides();
+	  // update slidesWidth
+	  this.slidesWidth = len ? this.getLastSlide().target - this.slides[0].target : 0;
+	};
+	
+	/**
+	 * cell.getSize() on multiple cells
+	 * @param {Array} cells
+	 */
+	proto._sizeCells = function( cells ) {
+	  cells.forEach( function( cell ) {
+	    cell.getSize();
+	  });
+	};
+	
+	// --------------------------  -------------------------- //
+	
+	proto.updateSlides = function() {
+	  this.slides = [];
+	  if ( !this.cells.length ) {
+	    return;
+	  }
+	
+	  var slide = new Slide( this );
+	  this.slides.push( slide );
+	  var isOriginLeft = this.originSide == 'left';
+	  var nextMargin = isOriginLeft ? 'marginRight' : 'marginLeft';
+	
+	  var canCellFit = this._getCanCellFit();
+	
+	  this.cells.forEach( function( cell, i ) {
+	    // just add cell if first cell in slide
+	    if ( !slide.cells.length ) {
+	      slide.addCell( cell );
+	      return;
+	    }
+	
+	    var slideWidth = ( slide.outerWidth - slide.firstMargin ) +
+	      ( cell.size.outerWidth - cell.size[ nextMargin ] );
+	
+	    if ( canCellFit.call( this, i, slideWidth ) ) {
+	      slide.addCell( cell );
+	    } else {
+	      // doesn't fit, new slide
+	      slide.updateTarget();
+	
+	      slide = new Slide( this );
+	      this.slides.push( slide );
+	      slide.addCell( cell );
+	    }
+	  }, this );
+	  // last slide
+	  slide.updateTarget();
+	  // update .selectedSlide
+	  this.updateSelectedSlide();
+	};
+	
+	proto._getCanCellFit = function() {
+	  var groupCells = this.options.groupCells;
+	  if ( !groupCells ) {
+	    return function() {
+	      return false;
+	    };
+	  } else if ( typeof groupCells == 'number' ) {
+	    // group by number. 3 -> [0,1,2], [3,4,5], ...
+	    var number = parseInt( groupCells, 10 );
+	    return function( i ) {
+	      return ( i % number ) !== 0;
+	    };
+	  }
+	  // default, group by width of slide
+	  // parse '75%
+	  var percentMatch = typeof groupCells == 'string' &&
+	    groupCells.match(/^(\d+)%$/);
+	  var percent = percentMatch ? parseInt( percentMatch[1], 10 ) / 100 : 1;
+	  return function( i, slideWidth ) {
+	    return slideWidth <= ( this.size.innerWidth + 1 ) * percent;
+	  };
+	};
+	
+	// alias _init for jQuery plugin .flickity()
+	proto._init =
+	proto.reposition = function() {
+	  this.positionCells();
+	  this.positionSliderAtSelected();
+	};
+	
+	proto.getSize = function() {
+	  this.size = getSize( this.element );
+	  this.setCellAlign();
+	  this.cursorPosition = this.size.innerWidth * this.cellAlign;
+	};
+	
+	var cellAlignShorthands = {
+	  // cell align, then based on origin side
+	  center: {
+	    left: 0.5,
+	    right: 0.5
+	  },
+	  left: {
+	    left: 0,
+	    right: 1
+	  },
+	  right: {
+	    right: 0,
+	    left: 1
+	  }
+	};
+	
+	proto.setCellAlign = function() {
+	  var shorthand = cellAlignShorthands[ this.options.cellAlign ];
+	  this.cellAlign = shorthand ? shorthand[ this.originSide ] : this.options.cellAlign;
+	};
+	
+	proto.setGallerySize = function() {
+	  if ( this.options.setGallerySize ) {
+	    var height = this.options.adaptiveHeight && this.selectedSlide ?
+	      this.selectedSlide.height : this.maxCellHeight;
+	    this.viewport.style.height = height + 'px';
+	  }
+	};
+	
+	proto._getWrapShiftCells = function() {
+	  // only for wrap-around
+	  if ( !this.options.wrapAround ) {
+	    return;
+	  }
+	  // unshift previous cells
+	  this._unshiftCells( this.beforeShiftCells );
+	  this._unshiftCells( this.afterShiftCells );
+	  // get before cells
+	  // initial gap
+	  var gapX = this.cursorPosition;
+	  var cellIndex = this.cells.length - 1;
+	  this.beforeShiftCells = this._getGapCells( gapX, cellIndex, -1 );
+	  // get after cells
+	  // ending gap between last cell and end of gallery viewport
+	  gapX = this.size.innerWidth - this.cursorPosition;
+	  // start cloning at first cell, working forwards
+	  this.afterShiftCells = this._getGapCells( gapX, 0, 1 );
+	};
+	
+	proto._getGapCells = function( gapX, cellIndex, increment ) {
+	  // keep adding cells until the cover the initial gap
+	  var cells = [];
+	  while ( gapX > 0 ) {
+	    var cell = this.cells[ cellIndex ];
+	    if ( !cell ) {
+	      break;
+	    }
+	    cells.push( cell );
+	    cellIndex += increment;
+	    gapX -= cell.size.outerWidth;
+	  }
+	  return cells;
+	};
+	
+	// ----- contain ----- //
+	
+	// contain cell targets so no excess sliding
+	proto._containSlides = function() {
+	  if ( !this.options.contain || this.options.wrapAround || !this.cells.length ) {
+	    return;
+	  }
+	  var isRightToLeft = this.options.rightToLeft;
+	  var beginMargin = isRightToLeft ? 'marginRight' : 'marginLeft';
+	  var endMargin = isRightToLeft ? 'marginLeft' : 'marginRight';
+	  var contentWidth = this.slideableWidth - this.getLastCell().size[ endMargin ];
+	  // content is less than gallery size
+	  var isContentSmaller = contentWidth < this.size.innerWidth;
+	  // bounds
+	  var beginBound = this.cursorPosition + this.cells[0].size[ beginMargin ];
+	  var endBound = contentWidth - this.size.innerWidth * ( 1 - this.cellAlign );
+	  // contain each cell target
+	  this.slides.forEach( function( slide ) {
+	    if ( isContentSmaller ) {
+	      // all cells fit inside gallery
+	      slide.target = contentWidth * this.cellAlign;
+	    } else {
+	      // contain to bounds
+	      slide.target = Math.max( slide.target, beginBound );
+	      slide.target = Math.min( slide.target, endBound );
+	    }
+	  }, this );
+	};
+	
+	// -----  ----- //
+	
+	/**
+	 * emits events via eventEmitter and jQuery events
+	 * @param {String} type - name of event
+	 * @param {Event} event - original event
+	 * @param {Array} args - extra arguments
+	 */
+	proto.dispatchEvent = function( type, event, args ) {
+	  var emitArgs = event ? [ event ].concat( args ) : args;
+	  this.emitEvent( type, emitArgs );
+	
+	  if ( jQuery && this.$element ) {
+	    // default trigger with type if no event
+	    type += this.options.namespaceJQueryEvents ? '.flickity' : '';
+	    var $event = type;
+	    if ( event ) {
+	      // create jQuery event
+	      var jQEvent = jQuery.Event( event );
+	      jQEvent.type = type;
+	      $event = jQEvent;
+	    }
+	    this.$element.trigger( $event, args );
+	  }
+	};
+	
+	// -------------------------- select -------------------------- //
+	
+	/**
+	 * @param {Integer} index - index of the slide
+	 * @param {Boolean} isWrap - will wrap-around to last/first if at the end
+	 * @param {Boolean} isInstant - will immediately set position at selected cell
+	 */
+	proto.select = function( index, isWrap, isInstant ) {
+	  if ( !this.isActive ) {
+	    return;
+	  }
+	  index = parseInt( index, 10 );
+	  this._wrapSelect( index );
+	
+	  if ( this.options.wrapAround || isWrap ) {
+	    index = utils.modulo( index, this.slides.length );
+	  }
+	  // bail if invalid index
+	  if ( !this.slides[ index ] ) {
+	    return;
+	  }
+	  this.selectedIndex = index;
+	  this.updateSelectedSlide();
+	  if ( isInstant ) {
+	    this.positionSliderAtSelected();
+	  } else {
+	    this.startAnimation();
+	  }
+	  if ( this.options.adaptiveHeight ) {
+	    this.setGallerySize();
+	  }
+	
+	  this.dispatchEvent('select');
+	  // old v1 event name, remove in v3
+	  this.dispatchEvent('cellSelect');
+	};
+	
+	// wraps position for wrapAround, to move to closest slide. #113
+	proto._wrapSelect = function( index ) {
+	  var len = this.slides.length;
+	  var isWrapping = this.options.wrapAround && len > 1;
+	  if ( !isWrapping ) {
+	    return index;
+	  }
+	  var wrapIndex = utils.modulo( index, len );
+	  // go to shortest
+	  var delta = Math.abs( wrapIndex - this.selectedIndex );
+	  var backWrapDelta = Math.abs( ( wrapIndex + len ) - this.selectedIndex );
+	  var forewardWrapDelta = Math.abs( ( wrapIndex - len ) - this.selectedIndex );
+	  if ( !this.isDragSelect && backWrapDelta < delta ) {
+	    index += len;
+	  } else if ( !this.isDragSelect && forewardWrapDelta < delta ) {
+	    index -= len;
+	  }
+	  // wrap position so slider is within normal area
+	  if ( index < 0 ) {
+	    this.x -= this.slideableWidth;
+	  } else if ( index >= len ) {
+	    this.x += this.slideableWidth;
+	  }
+	};
+	
+	proto.previous = function( isWrap, isInstant ) {
+	  this.select( this.selectedIndex - 1, isWrap, isInstant );
+	};
+	
+	proto.next = function( isWrap, isInstant ) {
+	  this.select( this.selectedIndex + 1, isWrap, isInstant );
+	};
+	
+	proto.updateSelectedSlide = function() {
+	  var slide = this.slides[ this.selectedIndex ];
+	  // selectedIndex could be outside of slides, if triggered before resize()
+	  if ( !slide ) {
+	    return;
+	  }
+	  // unselect previous selected slide
+	  this.unselectSelectedSlide();
+	  // update new selected slide
+	  this.selectedSlide = slide;
+	  slide.select();
+	  this.selectedCells = slide.cells;
+	  this.selectedElements = slide.getCellElements();
+	  // HACK: selectedCell & selectedElement is first cell in slide, backwards compatibility
+	  // Remove in v3?
+	  this.selectedCell = slide.cells[0];
+	  this.selectedElement = this.selectedElements[0];
+	};
+	
+	proto.unselectSelectedSlide = function() {
+	  if ( this.selectedSlide ) {
+	    this.selectedSlide.unselect();
+	  }
+	};
+	
+	/**
+	 * select slide from number or cell element
+	 * @param {Element or Number} elem
+	 */
+	proto.selectCell = function( value, isWrap, isInstant ) {
+	  // get cell
+	  var cell;
+	  if ( typeof value == 'number' ) {
+	    cell = this.cells[ value ];
+	  } else {
+	    // use string as selector
+	    if ( typeof value == 'string' ) {
+	      value = this.element.querySelector( value );
+	    }
+	    // get cell from element
+	    cell = this.getCell( value );
+	  }
+	  // select slide that has cell
+	  for ( var i=0; cell && i < this.slides.length; i++ ) {
+	    var slide = this.slides[i];
+	    var index = slide.cells.indexOf( cell );
+	    if ( index != -1 ) {
+	      this.select( i, isWrap, isInstant );
+	      return;
+	    }
+	  }
+	};
+	
+	// -------------------------- get cells -------------------------- //
+	
+	/**
+	 * get Flickity.Cell, given an Element
+	 * @param {Element} elem
+	 * @returns {Flickity.Cell} item
+	 */
+	proto.getCell = function( elem ) {
+	  // loop through cells to get the one that matches
+	  for ( var i=0; i < this.cells.length; i++ ) {
+	    var cell = this.cells[i];
+	    if ( cell.element == elem ) {
+	      return cell;
+	    }
+	  }
+	};
+	
+	/**
+	 * get collection of Flickity.Cells, given Elements
+	 * @param {Element, Array, NodeList} elems
+	 * @returns {Array} cells - Flickity.Cells
+	 */
+	proto.getCells = function( elems ) {
+	  elems = utils.makeArray( elems );
+	  var cells = [];
+	  elems.forEach( function( elem ) {
+	    var cell = this.getCell( elem );
+	    if ( cell ) {
+	      cells.push( cell );
+	    }
+	  }, this );
+	  return cells;
+	};
+	
+	/**
+	 * get cell elements
+	 * @returns {Array} cellElems
+	 */
+	proto.getCellElements = function() {
+	  return this.cells.map( function( cell ) {
+	    return cell.element;
+	  });
+	};
+	
+	/**
+	 * get parent cell from an element
+	 * @param {Element} elem
+	 * @returns {Flickit.Cell} cell
+	 */
+	proto.getParentCell = function( elem ) {
+	  // first check if elem is cell
+	  var cell = this.getCell( elem );
+	  if ( cell ) {
+	    return cell;
+	  }
+	  // try to get parent cell elem
+	  elem = utils.getParent( elem, '.flickity-slider > *' );
+	  return this.getCell( elem );
+	};
+	
+	/**
+	 * get cells adjacent to a slide
+	 * @param {Integer} adjCount - number of adjacent slides
+	 * @param {Integer} index - index of slide to start
+	 * @returns {Array} cells - array of Flickity.Cells
+	 */
+	proto.getAdjacentCellElements = function( adjCount, index ) {
+	  if ( !adjCount ) {
+	    return this.selectedSlide.getCellElements();
+	  }
+	  index = index === undefined ? this.selectedIndex : index;
+	
+	  var len = this.slides.length;
+	  if ( 1 + ( adjCount * 2 ) >= len ) {
+	    return this.getCellElements();
+	  }
+	
+	  var cellElems = [];
+	  for ( var i = index - adjCount; i <= index + adjCount ; i++ ) {
+	    var slideIndex = this.options.wrapAround ? utils.modulo( i, len ) : i;
+	    var slide = this.slides[ slideIndex ];
+	    if ( slide ) {
+	      cellElems = cellElems.concat( slide.getCellElements() );
+	    }
+	  }
+	  return cellElems;
+	};
+	
+	// -------------------------- events -------------------------- //
+	
+	proto.uiChange = function() {
+	  this.emitEvent('uiChange');
+	};
+	
+	proto.childUIPointerDown = function( event ) {
+	  this.emitEvent( 'childUIPointerDown', [ event ] );
+	};
+	
+	// ----- resize ----- //
+	
+	proto.onresize = function() {
+	  this.watchCSS();
+	  this.resize();
+	};
+	
+	utils.debounceMethod( Flickity, 'onresize', 150 );
+	
+	proto.resize = function() {
+	  if ( !this.isActive ) {
+	    return;
+	  }
+	  this.getSize();
+	  // wrap values
+	  if ( this.options.wrapAround ) {
+	    this.x = utils.modulo( this.x, this.slideableWidth );
+	  }
+	  this.positionCells();
+	  this._getWrapShiftCells();
+	  this.setGallerySize();
+	  this.emitEvent('resize');
+	  // update selected index for group slides, instant
+	  // TODO: position can be lost between groups of various numbers
+	  var selectedElement = this.selectedElements && this.selectedElements[0];
+	  this.selectCell( selectedElement, false, true );
+	};
+	
+	// watches the :after property, activates/deactivates
+	proto.watchCSS = function() {
+	  var watchOption = this.options.watchCSS;
+	  if ( !watchOption ) {
+	    return;
+	  }
+	
+	  var afterContent = getComputedStyle( this.element, ':after' ).content;
+	  // activate if :after { content: 'flickity' }
+	  if ( afterContent.indexOf('flickity') != -1 ) {
+	    this.activate();
+	  } else {
+	    this.deactivate();
+	  }
+	};
+	
+	// ----- keydown ----- //
+	
+	// go previous/next if left/right keys pressed
+	proto.onkeydown = function( event ) {
+	  // only work if element is in focus
+	  if ( !this.options.accessibility ||
+	    ( document.activeElement && document.activeElement != this.element ) ) {
+	    return;
+	  }
+	
+	  if ( event.keyCode == 37 ) {
+	    // go left
+	    var leftMethod = this.options.rightToLeft ? 'next' : 'previous';
+	    this.uiChange();
+	    this[ leftMethod ]();
+	  } else if ( event.keyCode == 39 ) {
+	    // go right
+	    var rightMethod = this.options.rightToLeft ? 'previous' : 'next';
+	    this.uiChange();
+	    this[ rightMethod ]();
+	  }
+	};
+	
+	// -------------------------- destroy -------------------------- //
+	
+	// deactivate all Flickity functionality, but keep stuff available
+	proto.deactivate = function() {
+	  if ( !this.isActive ) {
+	    return;
+	  }
+	  this.element.classList.remove('flickity-enabled');
+	  this.element.classList.remove('flickity-rtl');
+	  // destroy cells
+	  this.cells.forEach( function( cell ) {
+	    cell.destroy();
+	  });
+	  this.unselectSelectedSlide();
+	  this.element.removeChild( this.viewport );
+	  // move child elements back into element
+	  moveElements( this.slider.children, this.element );
+	  if ( this.options.accessibility ) {
+	    this.element.removeAttribute('tabIndex');
+	    this.element.removeEventListener( 'keydown', this );
+	  }
+	  // set flags
+	  this.isActive = false;
+	  this.emitEvent('deactivate');
+	};
+	
+	proto.destroy = function() {
+	  this.deactivate();
+	  window.removeEventListener( 'resize', this );
+	  this.emitEvent('destroy');
+	  if ( jQuery && this.$element ) {
+	    jQuery.removeData( this.element, 'flickity' );
+	  }
+	  delete this.element.flickityGUID;
+	  delete instances[ this.guid ];
+	};
+	
+	// -------------------------- prototype -------------------------- //
+	
+	utils.extend( proto, animatePrototype );
+	
+	// -------------------------- extras -------------------------- //
+	
+	/**
+	 * get Flickity instance from element
+	 * @param {Element} elem
+	 * @returns {Flickity}
+	 */
+	Flickity.data = function( elem ) {
+	  elem = utils.getQueryElement( elem );
+	  var id = elem && elem.flickityGUID;
+	  return id && instances[ id ];
+	};
+	
+	utils.htmlInit( Flickity, 'flickity' );
+	
+	if ( jQuery && jQuery.bridget ) {
+	  jQuery.bridget( 'flickity', Flickity );
+	}
+	
+	// set internal jQuery, for Webpack + jQuery v3, #478
+	Flickity.setJQuery = function( jq ) {
+	  jQuery = jq;
+	};
+	
+	Flickity.Cell = Cell;
+	
+	return Flickity;
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	}));
 
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 29 */
+=======
+/* 27 */
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -46752,6 +50234,7 @@ window.addEventListener('resize', handleResize);
 	 * Lil' event emitter
 	 * MIT License
 	 */
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	    Slick.prototype.getLeft = function(slideIndex) {
@@ -46856,11 +50339,126 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	        return _.options[option];
 =======
+=======
+	
+	/* jshint unused: true, undef: true, strict: true */
+	
+	( function( global, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */ /* globals define, module, window */
+	  if ( true ) {
+	    // AMD - RequireJS
+	    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS - Browserify, Webpack
+	    module.exports = factory();
+	  } else {
+	    // Browser globals
+	    global.EvEmitter = factory();
+	  }
+	
+	}( typeof window != 'undefined' ? window : this, function() {
+	
+	"use strict";
+	
+	function EvEmitter() {}
+	
+	var proto = EvEmitter.prototype;
+	
+	proto.on = function( eventName, listener ) {
+	  if ( !eventName || !listener ) {
+	    return;
+	  }
+	  // set events hash
+	  var events = this._events = this._events || {};
+	  // set listeners array
+	  var listeners = events[ eventName ] = events[ eventName ] || [];
+	  // only add once
+	  if ( listeners.indexOf( listener ) == -1 ) {
+	    listeners.push( listener );
+	  }
+	
+	  return this;
+	};
+	
+	proto.once = function( eventName, listener ) {
+	  if ( !eventName || !listener ) {
+	    return;
+	  }
+	  // add event
+	  this.on( eventName, listener );
+	  // set once flag
+	  // set onceEvents hash
+	  var onceEvents = this._onceEvents = this._onceEvents || {};
+	  // set onceListeners object
+	  var onceListeners = onceEvents[ eventName ] = onceEvents[ eventName ] || {};
+	  // set flag
+	  onceListeners[ listener ] = true;
+	
+	  return this;
+	};
+	
+	proto.off = function( eventName, listener ) {
+	  var listeners = this._events && this._events[ eventName ];
+	  if ( !listeners || !listeners.length ) {
+	    return;
+	  }
+	  var index = listeners.indexOf( listener );
+	  if ( index != -1 ) {
+	    listeners.splice( index, 1 );
+	  }
+	
+	  return this;
+	};
+	
+	proto.emitEvent = function( eventName, args ) {
+	  var listeners = this._events && this._events[ eventName ];
+	  if ( !listeners || !listeners.length ) {
+	    return;
+	  }
+	  var i = 0;
+	  var listener = listeners[i];
+	  args = args || [];
+	  // once stuff
+	  var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
+	
+	  while ( listener ) {
+	    var isOnce = onceListeners && onceListeners[ listener ];
+	    if ( isOnce ) {
+	      // remove listener
+	      // remove before trigger to prevent recursion
+	      this.off( eventName, listener );
+	      // unset once flag
+	      delete onceListeners[ listener ];
+	    }
+	    // trigger listener
+	    listener.apply( this, args );
+	    // get next listener
+	    i += isOnce ? 0 : 1;
+	    listener = listeners[i];
+	  }
+	
+	  return this;
+	};
+	
+	proto.allOff =
+	proto.removeAllListeners = function() {
+	  delete this._events;
+	  delete this._onceEvents;
+	};
+	
+	return EvEmitter;
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	}));
 
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 30 */
+=======
+/* 28 */
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -46868,6 +50466,7 @@ window.addEventListener('resize', handleResize);
 	 * measure size of elements
 	 * MIT license
 	 */
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	    };
@@ -47035,17 +50634,227 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	    };
 =======
+=======
+	
+	/*jshint browser: true, strict: true, undef: true, unused: true */
+	/*global define: false, module: false, console: false */
+	
+	( function( window, factory ) {
+	  'use strict';
+	
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
+	      return factory();
+	    }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory();
+	  } else {
+	    // browser global
+	    window.getSize = factory();
+	  }
+	
+	})( window, function factory() {
+	'use strict';
+	
+	// -------------------------- helpers -------------------------- //
+	
+	// get a number from a string, not a percentage
+	function getStyleSize( value ) {
+	  var num = parseFloat( value );
+	  // not a percent like '100%', and a number
+	  var isValid = value.indexOf('%') == -1 && !isNaN( num );
+	  return isValid && num;
+	}
+	
+	function noop() {}
+	
+	var logError = typeof console == 'undefined' ? noop :
+	  function( message ) {
+	    console.error( message );
+	  };
+	
+	// -------------------------- measurements -------------------------- //
+	
+	var measurements = [
+	  'paddingLeft',
+	  'paddingRight',
+	  'paddingTop',
+	  'paddingBottom',
+	  'marginLeft',
+	  'marginRight',
+	  'marginTop',
+	  'marginBottom',
+	  'borderLeftWidth',
+	  'borderRightWidth',
+	  'borderTopWidth',
+	  'borderBottomWidth'
+	];
+	
+	var measurementsLength = measurements.length;
+	
+	function getZeroSize() {
+	  var size = {
+	    width: 0,
+	    height: 0,
+	    innerWidth: 0,
+	    innerHeight: 0,
+	    outerWidth: 0,
+	    outerHeight: 0
+	  };
+	  for ( var i=0; i < measurementsLength; i++ ) {
+	    var measurement = measurements[i];
+	    size[ measurement ] = 0;
+	  }
+	  return size;
+	}
+	
+	// -------------------------- getStyle -------------------------- //
+	
+	/**
+	 * getStyle, get style of element, check for Firefox bug
+	 * https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+	 */
+	function getStyle( elem ) {
+	  var style = getComputedStyle( elem );
+	  if ( !style ) {
+	    logError( 'Style returned ' + style +
+	      '. Are you running this code in a hidden iframe on Firefox? ' +
+	      'See http://bit.ly/getsizebug1' );
+	  }
+	  return style;
+	}
+	
+	// -------------------------- setup -------------------------- //
+	
+	var isSetup = false;
+	
+	var isBoxSizeOuter;
+	
+	/**
+	 * setup
+	 * check isBoxSizerOuter
+	 * do on first getSize() rather than on page load for Firefox bug
+	 */
+	function setup() {
+	  // setup once
+	  if ( isSetup ) {
+	    return;
+	  }
+	  isSetup = true;
+	
+	  // -------------------------- box sizing -------------------------- //
+	
+	  /**
+	   * WebKit measures the outer-width on style.width on border-box elems
+	   * IE & Firefox<29 measures the inner-width
+	   */
+	  var div = document.createElement('div');
+	  div.style.width = '200px';
+	  div.style.padding = '1px 2px 3px 4px';
+	  div.style.borderStyle = 'solid';
+	  div.style.borderWidth = '1px 2px 3px 4px';
+	  div.style.boxSizing = 'border-box';
+	
+	  var body = document.body || document.documentElement;
+	  body.appendChild( div );
+	  var style = getStyle( div );
+	
+	  getSize.isBoxSizeOuter = isBoxSizeOuter = getStyleSize( style.width ) == 200;
+	  body.removeChild( div );
+	
+	}
+	
+	// -------------------------- getSize -------------------------- //
+	
+	function getSize( elem ) {
+	  setup();
+	
+	  // use querySeletor if elem is string
+	  if ( typeof elem == 'string' ) {
+	    elem = document.querySelector( elem );
+	  }
+	
+	  // do not proceed on non-objects
+	  if ( !elem || typeof elem != 'object' || !elem.nodeType ) {
+	    return;
+	  }
+	
+	  var style = getStyle( elem );
+	
+	  // if hidden, everything is 0
+	  if ( style.display == 'none' ) {
+	    return getZeroSize();
+	  }
+	
+	  var size = {};
+	  size.width = elem.offsetWidth;
+	  size.height = elem.offsetHeight;
+	
+	  var isBorderBox = size.isBorderBox = style.boxSizing == 'border-box';
+	
+	  // get all measurements
+	  for ( var i=0; i < measurementsLength; i++ ) {
+	    var measurement = measurements[i];
+	    var value = style[ measurement ];
+	    var num = parseFloat( value );
+	    // any 'auto', 'medium' value will be 0
+	    size[ measurement ] = !isNaN( num ) ? num : 0;
+	  }
+	
+	  var paddingWidth = size.paddingLeft + size.paddingRight;
+	  var paddingHeight = size.paddingTop + size.paddingBottom;
+	  var marginWidth = size.marginLeft + size.marginRight;
+	  var marginHeight = size.marginTop + size.marginBottom;
+	  var borderWidth = size.borderLeftWidth + size.borderRightWidth;
+	  var borderHeight = size.borderTopWidth + size.borderBottomWidth;
+	
+	  var isBorderBoxSizeOuter = isBorderBox && isBoxSizeOuter;
+	
+	  // overwrite width and height if we can get it from style
+	  var styleWidth = getStyleSize( style.width );
+	  if ( styleWidth !== false ) {
+	    size.width = styleWidth +
+	      // add padding and border unless it's already including it
+	      ( isBorderBoxSizeOuter ? 0 : paddingWidth + borderWidth );
+	  }
+	
+	  var styleHeight = getStyleSize( style.height );
+	  if ( styleHeight !== false ) {
+	    size.height = styleHeight +
+	      // add padding and border unless it's already including it
+	      ( isBorderBoxSizeOuter ? 0 : paddingHeight + borderHeight );
+	  }
+	
+	  size.innerWidth = size.width - ( paddingWidth + borderWidth );
+	  size.innerHeight = size.height - ( paddingHeight + borderHeight );
+	
+	  size.outerWidth = size.width + marginWidth;
+	  size.outerHeight = size.height + marginHeight;
+	
+	  return size;
+	}
+	
+	return getSize;
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	});
 
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 31 */
+=======
+/* 29 */
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 	 * Fizzy UI utils v2.0.5
 	 * MIT license
 	 */
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	    Slick.prototype.initDotEvents = function() {
@@ -47063,6 +50872,19 @@ window.addEventListener('resize', handleResize);
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	      __webpack_require__(32)
+=======
+	
+	/*jshint browser: true, undef: true, unused: true, strict: true */
+	
+	( function( window, factory ) {
+	  // universal module definition
+	  /*jshint strict: false */ /*globals define, module, require */
+	
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(30)
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( matchesSelector ) {
 	      return factory( window, matchesSelector );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -47079,6 +50901,7 @@ window.addEventListener('resize', handleResize);
 	      window.matchesSelector
 	    );
 	  }
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	        if ( _.options.dots === true && _.options.pauseOnDotsHover === true ) {
@@ -47198,11 +51021,223 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	        function loadImages(imagesScope) {
 =======
+=======
+	
+	}( window, function factory( window, matchesSelector ) {
+	
+	'use strict';
+	
+	var utils = {};
+	
+	// ----- extend ----- //
+	
+	// extends objects
+	utils.extend = function( a, b ) {
+	  for ( var prop in b ) {
+	    a[ prop ] = b[ prop ];
+	  }
+	  return a;
+	};
+	
+	// ----- modulo ----- //
+	
+	utils.modulo = function( num, div ) {
+	  return ( ( num % div ) + div ) % div;
+	};
+	
+	// ----- makeArray ----- //
+	
+	// turn element or nodeList into an array
+	utils.makeArray = function( obj ) {
+	  var ary = [];
+	  if ( Array.isArray( obj ) ) {
+	    // use object if already an array
+	    ary = obj;
+	  } else if ( obj && typeof obj == 'object' &&
+	    typeof obj.length == 'number' ) {
+	    // convert nodeList to array
+	    for ( var i=0; i < obj.length; i++ ) {
+	      ary.push( obj[i] );
+	    }
+	  } else {
+	    // array of single index
+	    ary.push( obj );
+	  }
+	  return ary;
+	};
+	
+	// ----- removeFrom ----- //
+	
+	utils.removeFrom = function( ary, obj ) {
+	  var index = ary.indexOf( obj );
+	  if ( index != -1 ) {
+	    ary.splice( index, 1 );
+	  }
+	};
+	
+	// ----- getParent ----- //
+	
+	utils.getParent = function( elem, selector ) {
+	  while ( elem.parentNode && elem != document.body ) {
+	    elem = elem.parentNode;
+	    if ( matchesSelector( elem, selector ) ) {
+	      return elem;
+	    }
+	  }
+	};
+	
+	// ----- getQueryElement ----- //
+	
+	// use element as selector string
+	utils.getQueryElement = function( elem ) {
+	  if ( typeof elem == 'string' ) {
+	    return document.querySelector( elem );
+	  }
+	  return elem;
+	};
+	
+	// ----- handleEvent ----- //
+	
+	// enable .ontype to trigger from .addEventListener( elem, 'type' )
+	utils.handleEvent = function( event ) {
+	  var method = 'on' + event.type;
+	  if ( this[ method ] ) {
+	    this[ method ]( event );
+	  }
+	};
+	
+	// ----- filterFindElements ----- //
+	
+	utils.filterFindElements = function( elems, selector ) {
+	  // make array of elems
+	  elems = utils.makeArray( elems );
+	  var ffElems = [];
+	
+	  elems.forEach( function( elem ) {
+	    // check that elem is an actual element
+	    if ( !( elem instanceof HTMLElement ) ) {
+	      return;
+	    }
+	    // add elem if no selector
+	    if ( !selector ) {
+	      ffElems.push( elem );
+	      return;
+	    }
+	    // filter & find items if we have a selector
+	    // filter
+	    if ( matchesSelector( elem, selector ) ) {
+	      ffElems.push( elem );
+	    }
+	    // find children
+	    var childElems = elem.querySelectorAll( selector );
+	    // concat childElems to filterFound array
+	    for ( var i=0; i < childElems.length; i++ ) {
+	      ffElems.push( childElems[i] );
+	    }
+	  });
+	
+	  return ffElems;
+	};
+	
+	// ----- debounceMethod ----- //
+	
+	utils.debounceMethod = function( _class, methodName, threshold ) {
+	  // original method
+	  var method = _class.prototype[ methodName ];
+	  var timeoutName = methodName + 'Timeout';
+	
+	  _class.prototype[ methodName ] = function() {
+	    var timeout = this[ timeoutName ];
+	    if ( timeout ) {
+	      clearTimeout( timeout );
+	    }
+	    var args = arguments;
+	
+	    var _this = this;
+	    this[ timeoutName ] = setTimeout( function() {
+	      method.apply( _this, args );
+	      delete _this[ timeoutName ];
+	    }, threshold || 100 );
+	  };
+	};
+	
+	// ----- docReady ----- //
+	
+	utils.docReady = function( callback ) {
+	  var readyState = document.readyState;
+	  if ( readyState == 'complete' || readyState == 'interactive' ) {
+	    // do async to allow for other scripts to run. metafizzy/flickity#441
+	    setTimeout( callback );
+	  } else {
+	    document.addEventListener( 'DOMContentLoaded', callback );
+	  }
+	};
+	
+	// ----- htmlInit ----- //
+	
+	// http://jamesroberts.name/blog/2010/02/22/string-functions-for-javascript-trim-to-camel-case-to-dashed-and-to-underscore/
+	utils.toDashed = function( str ) {
+	  return str.replace( /(.)([A-Z])/g, function( match, $1, $2 ) {
+	    return $1 + '-' + $2;
+	  }).toLowerCase();
+	};
+	
+	var console = window.console;
+	/**
+	 * allow user to initialize classes via [data-namespace] or .js-namespace class
+	 * htmlInit( Widget, 'widgetName' )
+	 * options are parsed from data-namespace-options
+	 */
+	utils.htmlInit = function( WidgetClass, namespace ) {
+	  utils.docReady( function() {
+	    var dashedNamespace = utils.toDashed( namespace );
+	    var dataAttr = 'data-' + dashedNamespace;
+	    var dataAttrElems = document.querySelectorAll( '[' + dataAttr + ']' );
+	    var jsDashElems = document.querySelectorAll( '.js-' + dashedNamespace );
+	    var elems = utils.makeArray( dataAttrElems )
+	      .concat( utils.makeArray( jsDashElems ) );
+	    var dataOptionsAttr = dataAttr + '-options';
+	    var jQuery = window.jQuery;
+	
+	    elems.forEach( function( elem ) {
+	      var attr = elem.getAttribute( dataAttr ) ||
+	        elem.getAttribute( dataOptionsAttr );
+	      var options;
+	      try {
+	        options = attr && JSON.parse( attr );
+	      } catch ( error ) {
+	        // log error, do not initialize
+	        if ( console ) {
+	          console.error( 'Error parsing ' + dataAttr + ' on ' + elem.className +
+	          ': ' + error );
+	        }
+	        return;
+	      }
+	      // initialize
+	      var instance = new WidgetClass( elem, options );
+	      // make available via $().data('namespace')
+	      if ( jQuery ) {
+	        jQuery.data( elem, namespace, instance );
+	      }
+	    });
+	
+	  });
+	};
+	
+	// -----  ----- //
+	
+	return utils;
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	}));
 
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 32 */
+=======
+/* 30 */
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -47210,6 +51245,7 @@ window.addEventListener('resize', handleResize);
 	 * matchesSelector( element, '.selector' )
 	 * MIT license
 	 */
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	            $('img[data-lazy]', imagesScope).each(function() {
@@ -47242,11 +51278,64 @@ window.addEventListener('resize', handleResize);
 	                        .removeClass( 'slick-loading' )
 	                        .addClass( 'slick-lazyload-error' );
 =======
+=======
+	
+	/*jshint browser: true, strict: true, undef: true, unused: true */
+	
+	( function( window, factory ) {
+	  /*global define: false, module: false */
+	  'use strict';
+	  // universal module definition
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory();
+	  } else {
+	    // browser global
+	    window.matchesSelector = factory();
+	  }
+	
+	}( window, function factory() {
+	  'use strict';
+	
+	  var matchesMethod = ( function() {
+	    var ElemProto = window.Element.prototype;
+	    // check for the standard method name first
+	    if ( ElemProto.matches ) {
+	      return 'matches';
+	    }
+	    // check un-prefixed
+	    if ( ElemProto.matchesSelector ) {
+	      return 'matchesSelector';
+	    }
+	    // check vendor prefixes
+	    var prefixes = [ 'webkit', 'moz', 'ms', 'o' ];
+	
+	    for ( var i=0; i < prefixes.length; i++ ) {
+	      var prefix = prefixes[i];
+	      var method = prefix + 'MatchesSelector';
+	      if ( ElemProto[ method ] ) {
+	        return method;
+	      }
+	    }
+	  })();
+	
+	  return function matchesSelector( elem, selector ) {
+	    return elem[ matchesMethod ]( selector );
+	  };
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	}));
 
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 33 */
+=======
+/* 31 */
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity.Cell
@@ -47256,7 +51345,11 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	      __webpack_require__(30)
+=======
+	      __webpack_require__(28)
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( getSize ) {
 	      return factory( window, getSize );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -47274,6 +51367,7 @@ window.addEventListener('resize', handleResize);
 	      window.getSize
 	    );
 	  }
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	                    _.$slider.trigger('lazyLoadError', [ _, image, imageSource ]);
@@ -47339,11 +51433,81 @@ window.addEventListener('resize', handleResize);
 	            _.progressiveLazyLoad();
 	        }
 =======
+=======
+	
+	}( window, function factory( window, getSize ) {
+	
+	'use strict';
+	
+	function Cell( elem, parent ) {
+	  this.element = elem;
+	  this.parent = parent;
+	
+	  this.create();
+	}
+	
+	var proto = Cell.prototype;
+	
+	proto.create = function() {
+	  this.element.style.position = 'absolute';
+	  this.x = 0;
+	  this.shift = 0;
+	};
+	
+	proto.destroy = function() {
+	  // reset style
+	  this.element.style.position = '';
+	  var side = this.parent.originSide;
+	  this.element.style[ side ] = '';
+	};
+	
+	proto.getSize = function() {
+	  this.size = getSize( this.element );
+	};
+	
+	proto.setPosition = function( x ) {
+	  this.x = x;
+	  this.updateTarget();
+	  this.renderPosition( x );
+	};
+	
+	// setDefaultTarget v1 method, backwards compatibility, remove in v3
+	proto.updateTarget = proto.setDefaultTarget = function() {
+	  var marginProperty = this.parent.originSide == 'left' ? 'marginLeft' : 'marginRight';
+	  this.target = this.x + this.size[ marginProperty ] +
+	    this.size.width * this.parent.cellAlign;
+	};
+	
+	proto.renderPosition = function( x ) {
+	  // render position of cell with in slider
+	  var side = this.parent.originSide;
+	  this.element.style[ side ] = this.parent.getPositionValue( x );
+	};
+	
+	/**
+	 * @param {Integer} factor - 0, 1, or -1
+	**/
+	proto.wrapShift = function( shift ) {
+	  this.shift = shift;
+	  this.renderPosition( this.x + this.parent.slideableWidth * shift );
+	};
+	
+	proto.remove = function() {
+	  this.element.parentNode.removeChild( this.element );
+	};
+	
+	return Cell;
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	}));
 
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 34 */
+=======
+/* 32 */
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;// slide
@@ -47361,6 +51525,7 @@ window.addEventListener('resize', handleResize);
 	    window.Flickity = window.Flickity || {};
 	    window.Flickity.Slide = factory();
 	  }
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	    };
@@ -47394,11 +51559,77 @@ window.addEventListener('resize', handleResize);
 	        _.autoPlayClear();
 	        _.paused = true;
 =======
+=======
+	
+	}( window, function factory() {
+	'use strict';
+	
+	function Slide( parent ) {
+	  this.parent = parent;
+	  this.isOriginLeft = parent.originSide == 'left';
+	  this.cells = [];
+	  this.outerWidth = 0;
+	  this.height = 0;
+	}
+	
+	var proto = Slide.prototype;
+	
+	proto.addCell = function( cell ) {
+	  this.cells.push( cell );
+	  this.outerWidth += cell.size.outerWidth;
+	  this.height = Math.max( cell.size.outerHeight, this.height );
+	  // first cell stuff
+	  if ( this.cells.length == 1 ) {
+	    this.x = cell.x; // x comes from first cell
+	    var beginMargin = this.isOriginLeft ? 'marginLeft' : 'marginRight';
+	    this.firstMargin = cell.size[ beginMargin ];
+	  }
+	};
+	
+	proto.updateTarget = function() {
+	  var endMargin = this.isOriginLeft ? 'marginRight' : 'marginLeft';
+	  var lastCell = this.getLastCell();
+	  var lastMargin = lastCell ? lastCell.size[ endMargin ] : 0;
+	  var slideWidth = this.outerWidth - ( this.firstMargin + lastMargin );
+	  this.target = this.x + this.firstMargin + slideWidth * this.parent.cellAlign;
+	};
+	
+	proto.getLastCell = function() {
+	  return this.cells[ this.cells.length - 1 ];
+	};
+	
+	proto.select = function() {
+	  this.changeSelectedClass('add');
+	};
+	
+	proto.unselect = function() {
+	  this.changeSelectedClass('remove');
+	};
+	
+	proto.changeSelectedClass = function( method ) {
+	  this.cells.forEach( function( cell ) {
+	    cell.element.classList[ method ]('is-selected');
+	  });
+	};
+	
+	proto.getCellElements = function() {
+	  return this.cells.map( function( cell ) {
+	    return cell.element;
+	  });
+	};
+	
+	return Slide;
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	}));
 
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 35 */
+=======
+/* 33 */
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// animate
@@ -47408,7 +51639,11 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	      __webpack_require__(31)
+=======
+	      __webpack_require__(29)
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( utils ) {
 	      return factory( window, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -47426,6 +51661,7 @@ window.addEventListener('resize', handleResize);
 	      window.fizzyUIUtils
 	    );
 	  }
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	    };
@@ -47523,11 +51759,210 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	                if ( tryCount < 3 ) {
 =======
+=======
+	
+	}( window, function factory( window, utils ) {
+	
+	'use strict';
+	
+	// -------------------------- requestAnimationFrame -------------------------- //
+	
+	// get rAF, prefixed, if present
+	var requestAnimationFrame = window.requestAnimationFrame ||
+	  window.webkitRequestAnimationFrame;
+	
+	// fallback to setTimeout
+	var lastTime = 0;
+	if ( !requestAnimationFrame )  {
+	  requestAnimationFrame = function( callback ) {
+	    var currTime = new Date().getTime();
+	    var timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) );
+	    var id = setTimeout( callback, timeToCall );
+	    lastTime = currTime + timeToCall;
+	    return id;
+	  };
+	}
+	
+	// -------------------------- animate -------------------------- //
+	
+	var proto = {};
+	
+	proto.startAnimation = function() {
+	  if ( this.isAnimating ) {
+	    return;
+	  }
+	
+	  this.isAnimating = true;
+	  this.restingFrames = 0;
+	  this.animate();
+	};
+	
+	proto.animate = function() {
+	  this.applyDragForce();
+	  this.applySelectedAttraction();
+	
+	  var previousX = this.x;
+	
+	  this.integratePhysics();
+	  this.positionSlider();
+	  this.settle( previousX );
+	  // animate next frame
+	  if ( this.isAnimating ) {
+	    var _this = this;
+	    requestAnimationFrame( function animateFrame() {
+	      _this.animate();
+	    });
+	  }
+	};
+	
+	
+	var transformProperty = ( function () {
+	  var style = document.documentElement.style;
+	  if ( typeof style.transform == 'string' ) {
+	    return 'transform';
+	  }
+	  return 'WebkitTransform';
+	})();
+	
+	proto.positionSlider = function() {
+	  var x = this.x;
+	  // wrap position around
+	  if ( this.options.wrapAround && this.cells.length > 1 ) {
+	    x = utils.modulo( x, this.slideableWidth );
+	    x = x - this.slideableWidth;
+	    this.shiftWrapCells( x );
+	  }
+	
+	  x = x + this.cursorPosition;
+	  // reverse if right-to-left and using transform
+	  x = this.options.rightToLeft && transformProperty ? -x : x;
+	  var value = this.getPositionValue( x );
+	  // use 3D tranforms for hardware acceleration on iOS
+	  // but use 2D when settled, for better font-rendering
+	  this.slider.style[ transformProperty ] = this.isAnimating ?
+	    'translate3d(' + value + ',0,0)' : 'translateX(' + value + ')';
+	
+	  // scroll event
+	  var firstSlide = this.slides[0];
+	  if ( firstSlide ) {
+	    var positionX = -this.x - firstSlide.target;
+	    var progress = positionX / this.slidesWidth;
+	    this.dispatchEvent( 'scroll', null, [ progress, positionX ] );
+	  }
+	};
+	
+	proto.positionSliderAtSelected = function() {
+	  if ( !this.cells.length ) {
+	    return;
+	  }
+	  this.x = -this.selectedSlide.target;
+	  this.positionSlider();
+	};
+	
+	proto.getPositionValue = function( position ) {
+	  if ( this.options.percentPosition ) {
+	    // percent position, round to 2 digits, like 12.34%
+	    return ( Math.round( ( position / this.size.innerWidth ) * 10000 ) * 0.01 )+ '%';
+	  } else {
+	    // pixel positioning
+	    return Math.round( position ) + 'px';
+	  }
+	};
+	
+	proto.settle = function( previousX ) {
+	  // keep track of frames where x hasn't moved
+	  if ( !this.isPointerDown && Math.round( this.x * 100 ) == Math.round( previousX * 100 ) ) {
+	    this.restingFrames++;
+	  }
+	  // stop animating if resting for 3 or more frames
+	  if ( this.restingFrames > 2 ) {
+	    this.isAnimating = false;
+	    delete this.isFreeScrolling;
+	    // render position with translateX when settled
+	    this.positionSlider();
+	    this.dispatchEvent('settle');
+	  }
+	};
+	
+	proto.shiftWrapCells = function( x ) {
+	  // shift before cells
+	  var beforeGap = this.cursorPosition + x;
+	  this._shiftCells( this.beforeShiftCells, beforeGap, -1 );
+	  // shift after cells
+	  var afterGap = this.size.innerWidth - ( x + this.slideableWidth + this.cursorPosition );
+	  this._shiftCells( this.afterShiftCells, afterGap, 1 );
+	};
+	
+	proto._shiftCells = function( cells, gap, shift ) {
+	  for ( var i=0; i < cells.length; i++ ) {
+	    var cell = cells[i];
+	    var cellShift = gap > 0 ? shift : 0;
+	    cell.wrapShift( cellShift );
+	    gap -= cell.size.outerWidth;
+	  }
+	};
+	
+	proto._unshiftCells = function( cells ) {
+	  if ( !cells || !cells.length ) {
+	    return;
+	  }
+	  for ( var i=0; i < cells.length; i++ ) {
+	    cells[i].wrapShift( 0 );
+	  }
+	};
+	
+	// -------------------------- physics -------------------------- //
+	
+	proto.integratePhysics = function() {
+	  this.x += this.velocity;
+	  this.velocity *= this.getFrictionFactor();
+	};
+	
+	proto.applyForce = function( force ) {
+	  this.velocity += force;
+	};
+	
+	proto.getFrictionFactor = function() {
+	  return 1 - this.options[ this.isFreeScrolling ? 'freeScrollFriction' : 'friction' ];
+	};
+	
+	proto.getRestingPosition = function() {
+	  // my thanks to Steven Wittens, who simplified this math greatly
+	  return this.x + this.velocity / ( 1 - this.getFrictionFactor() );
+	};
+	
+	proto.applyDragForce = function() {
+	  if ( !this.isPointerDown ) {
+	    return;
+	  }
+	  // change the position to drag position by applying force
+	  var dragVelocity = this.dragX - this.x;
+	  var dragForce = dragVelocity - this.velocity;
+	  this.applyForce( dragForce );
+	};
+	
+	proto.applySelectedAttraction = function() {
+	  // do not attract if pointer down or no cells
+	  if ( this.isPointerDown || this.isFreeScrolling || !this.cells.length ) {
+	    return;
+	  }
+	  var distance = this.selectedSlide.target * -1 - this.x;
+	  var force = distance * this.options.selectedAttraction;
+	  this.applyForce( force );
+	};
+	
+	return proto;
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	}));
 
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 36 */
+=======
+/* 34 */
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
@@ -47537,9 +51972,15 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	      __webpack_require__(28),
 	      __webpack_require__(37),
 	      __webpack_require__(31)
+=======
+	      __webpack_require__(26),
+	      __webpack_require__(35),
+	      __webpack_require__(29)
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, Unidragger, utils ) {
 	      return factory( window, Flickity, Unidragger, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -47560,6 +52001,7 @@ window.addEventListener('resize', handleResize);
 	      window.fizzyUIUtils
 	    );
 	  }
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	                    /**
@@ -47650,6 +52092,127 @@ window.addEventListener('resize', handleResize);
 =======
 >>>>>>> Fixed lots of layout bugs in QA
 =======
+=======
+	
+	}( window, function factory( window, Flickity, Unidragger, utils ) {
+	
+	'use strict';
+	
+	// ----- defaults ----- //
+	
+	utils.extend( Flickity.defaults, {
+	  draggable: true,
+	  dragThreshold: 3,
+	});
+	
+	// ----- create ----- //
+	
+	Flickity.createMethods.push('_createDrag');
+	
+	// -------------------------- drag prototype -------------------------- //
+	
+	var proto = Flickity.prototype;
+	utils.extend( proto, Unidragger.prototype );
+	
+	// --------------------------  -------------------------- //
+	
+	var isTouch = 'createTouch' in document;
+	var isTouchmoveScrollCanceled = false;
+	
+	proto._createDrag = function() {
+	  this.on( 'activate', this.bindDrag );
+	  this.on( 'uiChange', this._uiChangeDrag );
+	  this.on( 'childUIPointerDown', this._childUIPointerDownDrag );
+	  this.on( 'deactivate', this.unbindDrag );
+	  // HACK - add seemingly innocuous handler to fix iOS 10 scroll behavior
+	  // #457, RubaXa/Sortable#973
+	  if ( isTouch && !isTouchmoveScrollCanceled ) {
+	    window.addEventListener( 'touchmove', function() {});
+	    isTouchmoveScrollCanceled = true;
+	  }
+	};
+	
+	proto.bindDrag = function() {
+	  if ( !this.options.draggable || this.isDragBound ) {
+	    return;
+	  }
+	  this.element.classList.add('is-draggable');
+	  this.handles = [ this.viewport ];
+	  this.bindHandles();
+	  this.isDragBound = true;
+	};
+	
+	proto.unbindDrag = function() {
+	  if ( !this.isDragBound ) {
+	    return;
+	  }
+	  this.element.classList.remove('is-draggable');
+	  this.unbindHandles();
+	  delete this.isDragBound;
+	};
+	
+	proto._uiChangeDrag = function() {
+	  delete this.isFreeScrolling;
+	};
+	
+	proto._childUIPointerDownDrag = function( event ) {
+	  event.preventDefault();
+	  this.pointerDownFocus( event );
+	};
+	
+	// -------------------------- pointer events -------------------------- //
+	
+	// nodes that have text fields
+	var cursorNodes = {
+	  TEXTAREA: true,
+	  INPUT: true,
+	  OPTION: true,
+	};
+	
+	// input types that do not have text fields
+	var clickTypes = {
+	  radio: true,
+	  checkbox: true,
+	  button: true,
+	  submit: true,
+	  image: true,
+	  file: true,
+	};
+	
+	proto.pointerDown = function( event, pointer ) {
+	  // dismiss inputs with text fields. #403, #404
+	  var isCursorInput = cursorNodes[ event.target.nodeName ] &&
+	    !clickTypes[ event.target.type ];
+	  if ( isCursorInput ) {
+	    // reset pointerDown logic
+	    this.isPointerDown = false;
+	    delete this.pointerIdentifier;
+	    return;
+	  }
+	
+	  this._dragPointerDown( event, pointer );
+	
+	  // kludge to blur focused inputs in dragger
+	  var focused = document.activeElement;
+	  if ( focused && focused.blur && focused != this.element &&
+	    // do not blur body for IE9 & 10, #117
+	    focused != document.body ) {
+	    focused.blur();
+	  }
+	  this.pointerDownFocus( event );
+	  // stop if it was moving
+	  this.dragX = this.x;
+	  this.viewport.classList.add('is-pointer-down');
+	  // bind move and end events
+	  this._bindPostStartEvents( event );
+	  // track scrolling
+	  this.pointerDownScroll = getScrollPosition();
+	  window.addEventListener( 'scroll', this );
+	
+	  this.dispatchEvent( 'pointerDown', event, [ pointer ] );
+	};
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	var touchStartEvents = {
 	  touchstart: true,
 	  MSPointerDown: true
@@ -47660,7 +52223,10 @@ window.addEventListener('resize', handleResize);
 	  SELECT: true
 	};
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Fixing header/nav issues
+=======
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
 	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
@@ -47681,6 +52247,7 @@ window.addEventListener('resize', handleResize);
 	  var targetNodeName = event.target.nodeName;
 	  return !isTouchstart && targetNodeName != 'SELECT';
 	};
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Updated dist files
 	
 	        }
@@ -48109,12 +52676,225 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Removed all checkout flow specific code - templates and js
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
+=======
+	
+	// ----- move ----- //
+	
+	proto.hasDragStarted = function( moveVector ) {
+	  return Math.abs( moveVector.x ) > this.options.dragThreshold;
+	};
+	
+	// ----- up ----- //
+	
+	proto.pointerUp = function( event, pointer ) {
+	  delete this.isTouchScrolling;
+	  this.viewport.classList.remove('is-pointer-down');
+	  this.dispatchEvent( 'pointerUp', event, [ pointer ] );
+	  this._dragPointerUp( event, pointer );
+	};
+	
+	proto.pointerDone = function() {
+	  window.removeEventListener( 'scroll', this );
+	  delete this.pointerDownScroll;
+	};
+	
+	// -------------------------- dragging -------------------------- //
+	
+	proto.dragStart = function( event, pointer ) {
+	  this.dragStartPosition = this.x;
+	  this.startAnimation();
+	  window.removeEventListener( 'scroll', this );
+	  this.dispatchEvent( 'dragStart', event, [ pointer ] );
+	};
+	
+	proto.pointerMove = function( event, pointer ) {
+	  var moveVector = this._dragPointerMove( event, pointer );
+	  this.dispatchEvent( 'pointerMove', event, [ pointer, moveVector ] );
+	  this._dragMove( event, pointer, moveVector );
+	};
+	
+	proto.dragMove = function( event, pointer, moveVector ) {
+	  event.preventDefault();
+	
+	  this.previousDragX = this.dragX;
+	  // reverse if right-to-left
+	  var direction = this.options.rightToLeft ? -1 : 1;
+	  var dragX = this.dragStartPosition + moveVector.x * direction;
+	
+	  if ( !this.options.wrapAround && this.slides.length ) {
+	    // slow drag
+	    var originBound = Math.max( -this.slides[0].target, this.dragStartPosition );
+	    dragX = dragX > originBound ? ( dragX + originBound ) * 0.5 : dragX;
+	    var endBound = Math.min( -this.getLastSlide().target, this.dragStartPosition );
+	    dragX = dragX < endBound ? ( dragX + endBound ) * 0.5 : dragX;
+	  }
+	
+	  this.dragX = dragX;
+	
+	  this.dragMoveTime = new Date();
+	  this.dispatchEvent( 'dragMove', event, [ pointer, moveVector ] );
+	};
+	
+	proto.dragEnd = function( event, pointer ) {
+	  if ( this.options.freeScroll ) {
+	    this.isFreeScrolling = true;
+	  }
+	  // set selectedIndex based on where flick will end up
+	  var index = this.dragEndRestingSelect();
+	
+	  if ( this.options.freeScroll && !this.options.wrapAround ) {
+	    // if free-scroll & not wrap around
+	    // do not free-scroll if going outside of bounding slides
+	    // so bounding slides can attract slider, and keep it in bounds
+	    var restingX = this.getRestingPosition();
+	    this.isFreeScrolling = -restingX > this.slides[0].target &&
+	      -restingX < this.getLastSlide().target;
+	  } else if ( !this.options.freeScroll && index == this.selectedIndex ) {
+	    // boost selection if selected index has not changed
+	    index += this.dragEndBoostSelect();
+	  }
+	  delete this.previousDragX;
+	  // apply selection
+	  // TODO refactor this, selecting here feels weird
+	  // HACK, set flag so dragging stays in correct direction
+	  this.isDragSelect = this.options.wrapAround;
+	  this.select( index );
+	  delete this.isDragSelect;
+	  this.dispatchEvent( 'dragEnd', event, [ pointer ] );
+	};
+	
+	proto.dragEndRestingSelect = function() {
+	  var restingX = this.getRestingPosition();
+	  // how far away from selected slide
+	  var distance = Math.abs( this.getSlideDistance( -restingX, this.selectedIndex ) );
+	  // get closet resting going up and going down
+	  var positiveResting = this._getClosestResting( restingX, distance, 1 );
+	  var negativeResting = this._getClosestResting( restingX, distance, -1 );
+	  // use closer resting for wrap-around
+	  var index = positiveResting.distance < negativeResting.distance ?
+	    positiveResting.index : negativeResting.index;
+	  return index;
+	};
+	
+	/**
+	 * given resting X and distance to selected cell
+	 * get the distance and index of the closest cell
+	 * @param {Number} restingX - estimated post-flick resting position
+	 * @param {Number} distance - distance to selected cell
+	 * @param {Integer} increment - +1 or -1, going up or down
+	 * @returns {Object} - { distance: {Number}, index: {Integer} }
+	 */
+	proto._getClosestResting = function( restingX, distance, increment ) {
+	  var index = this.selectedIndex;
+	  var minDistance = Infinity;
+	  var condition = this.options.contain && !this.options.wrapAround ?
+	    // if contain, keep going if distance is equal to minDistance
+	    function( d, md ) { return d <= md; } : function( d, md ) { return d < md; };
+	  while ( condition( distance, minDistance ) ) {
+	    // measure distance to next cell
+	    index += increment;
+	    minDistance = distance;
+	    distance = this.getSlideDistance( -restingX, index );
+	    if ( distance === null ) {
+	      break;
+	    }
+	    distance = Math.abs( distance );
+	  }
+	  return {
+	    distance: minDistance,
+	    // selected was previous index
+	    index: index - increment
+	  };
+	};
+	
+	/**
+	 * measure distance between x and a slide target
+	 * @param {Number} x
+	 * @param {Integer} index - slide index
+	 */
+	proto.getSlideDistance = function( x, index ) {
+	  var len = this.slides.length;
+	  // wrap around if at least 2 slides
+	  var isWrapAround = this.options.wrapAround && len > 1;
+	  var slideIndex = isWrapAround ? utils.modulo( index, len ) : index;
+	  var slide = this.slides[ slideIndex ];
+	  if ( !slide ) {
+	    return null;
+	  }
+	  // add distance for wrap-around slides
+	  var wrap = isWrapAround ? this.slideableWidth * Math.floor( index / len ) : 0;
+	  return x - ( slide.target + wrap );
+	};
+	
+	proto.dragEndBoostSelect = function() {
+	  // do not boost if no previousDragX or dragMoveTime
+	  if ( this.previousDragX === undefined || !this.dragMoveTime ||
+	    // or if drag was held for 100 ms
+	    new Date() - this.dragMoveTime > 100 ) {
+	    return 0;
+	  }
+	
+	  var distance = this.getSlideDistance( -this.dragX, this.selectedIndex );
+	  var delta = this.previousDragX - this.dragX;
+	  if ( distance > 0 && delta > 0 ) {
+	    // boost to next if moving towards the right, and positive velocity
+	    return 1;
+	  } else if ( distance < 0 && delta < 0 ) {
+	    // boost to previous if moving towards the left, and negative velocity
+	    return -1;
+	  }
+	  return 0;
+	};
+	
+	// ----- staticClick ----- //
+	
+	proto.staticClick = function( event, pointer ) {
+	  // get clickedCell, if cell was clicked
+	  var clickedCell = this.getParentCell( event.target );
+	  var cellElem = clickedCell && clickedCell.element;
+	  var cellIndex = clickedCell && this.cells.indexOf( clickedCell );
+	  this.dispatchEvent( 'staticClick', event, [ pointer, cellElem, cellIndex ] );
+	};
+	
+	// ----- scroll ----- //
+	
+	proto.onscroll = function() {
+	  var scroll = getScrollPosition();
+	  var scrollMoveX = this.pointerDownScroll.x - scroll.x;
+	  var scrollMoveY = this.pointerDownScroll.y - scroll.y;
+	  // cancel click/tap if scroll is too much
+	  if ( Math.abs( scrollMoveX ) > 3 || Math.abs( scrollMoveY ) > 3 ) {
+	    this._pointerDone();
+	  }
+	};
+	
+	// ----- utils ----- //
+	
+	function getScrollPosition() {
+	  return {
+	    x: window.pageXOffset,
+	    y: window.pageYOffset
+	  };
+	}
+	
+	// -----  ----- //
+	
+	return Flickity;
+	
+	}));
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * Unidragger v2.2.1
 	 * Draggable base class
 	 * MIT license
 	 */
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Tickers work with mobile ones as well but needs to be refactored to initiate with javascript rather than data attributes. Doesnt seem to work using the snippet from the docs so I have submitted a support request
 	
 	
@@ -48136,11 +52916,27 @@ window.addEventListener('resize', handleResize);
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
 	      return factory( window, Unipointer );
 >>>>>>> Removed all checkout flow specific code - templates and js
+=======
+	
+	/*jshint browser: true, unused: true, undef: true, strict: true */
+	
+	( function( window, factory ) {
+	  // universal module definition
+	  /*jshint strict: false */ /*globals define, module, require */
+	
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(36)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
+	      return factory( window, Unipointer );
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
 	    module.exports = factory(
 	      window,
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	      require('ev-emitter')
 	    );
 	  } else {
@@ -48176,6 +52972,39 @@ window.addEventListener('resize', handleResize);
 	
 	                    }
 =======
+=======
+	      require('unipointer')
+	    );
+	  } else {
+	    // browser global
+	    window.Unidragger = factory(
+	      window,
+	      window.Unipointer
+	    );
+	  }
+	
+	}( window, function factory( window, Unipointer ) {
+	
+	'use strict';
+	
+	// -------------------------- Unidragger -------------------------- //
+	
+	function Unidragger() {}
+	
+	// inherit Unipointer & EvEmitter
+	var proto = Unidragger.prototype = Object.create( Unipointer.prototype );
+	
+	// ----- bind start ----- //
+	
+	proto.bindHandles = function() {
+	  this._bindHandles( true );
+	};
+	
+	proto.unbindHandles = function() {
+	  this._bindHandles( false );
+	};
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	/**
 	 * works as unbinder, as you can .bindHandles( false ) to unbind
 	 * @param {Boolean} isBind - will unbind if falsey
@@ -48191,6 +53020,7 @@ window.addEventListener('resize', handleResize);
 	    handle[ bindMethod ]( 'click', this );
 	  }
 	};
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Tickers work with mobile ones as well but needs to be refactored to initiate with javascript rather than data attributes. Doesnt seem to work using the snippet from the docs so I have submitted a support request
 	
 	                    _.options.responsive.push( value[item] );
@@ -48347,11 +53177,210 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 	            }
 =======
+=======
+	
+	// ----- start event ----- //
+	
+	/**
+	 * pointer start
+	 * @param {Event} event
+	 * @param {Event or Touch} pointer
+	 */
+	proto.pointerDown = function( event, pointer ) {
+	  // dismiss range sliders
+	  if ( event.target.nodeName == 'INPUT' && event.target.type == 'range' ) {
+	    // reset pointerDown logic
+	    this.isPointerDown = false;
+	    delete this.pointerIdentifier;
+	    return;
+	  }
+	
+	  this._dragPointerDown( event, pointer );
+	  // kludge to blur focused inputs in dragger
+	  var focused = document.activeElement;
+	  if ( focused && focused.blur ) {
+	    focused.blur();
+	  }
+	  // bind move and end events
+	  this._bindPostStartEvents( event );
+	  this.emitEvent( 'pointerDown', [ event, pointer ] );
+	};
+	
+	// base pointer down logic
+	proto._dragPointerDown = function( event, pointer ) {
+	  // track to see when dragging starts
+	  this.pointerDownPoint = Unipointer.getPointerPoint( pointer );
+	
+	  var canPreventDefault = this.canPreventDefaultOnPointerDown( event, pointer );
+	  if ( canPreventDefault ) {
+	    event.preventDefault();
+	  }
+	};
+	
+	// overwriteable method so Flickity can prevent for scrolling
+	proto.canPreventDefaultOnPointerDown = function( event ) {
+	  // prevent default, unless touchstart or <select>
+	  return event.target.nodeName != 'SELECT';
+	};
+	
+	// ----- move event ----- //
+	
+	/**
+	 * drag move
+	 * @param {Event} event
+	 * @param {Event or Touch} pointer
+	 */
+	proto.pointerMove = function( event, pointer ) {
+	  var moveVector = this._dragPointerMove( event, pointer );
+	  this.emitEvent( 'pointerMove', [ event, pointer, moveVector ] );
+	  this._dragMove( event, pointer, moveVector );
+	};
+	
+	// base pointer move logic
+	proto._dragPointerMove = function( event, pointer ) {
+	  var movePoint = Unipointer.getPointerPoint( pointer );
+	  var moveVector = {
+	    x: movePoint.x - this.pointerDownPoint.x,
+	    y: movePoint.y - this.pointerDownPoint.y
+	  };
+	  // start drag if pointer has moved far enough to start drag
+	  if ( !this.isDragging && this.hasDragStarted( moveVector ) ) {
+	    this._dragStart( event, pointer );
+	  }
+	  return moveVector;
+	};
+	
+	// condition if pointer has moved far enough to start drag
+	proto.hasDragStarted = function( moveVector ) {
+	  return Math.abs( moveVector.x ) > 3 || Math.abs( moveVector.y ) > 3;
+	};
+	
+	
+	// ----- end event ----- //
+	
+	/**
+	 * pointer up
+	 * @param {Event} event
+	 * @param {Event or Touch} pointer
+	 */
+	proto.pointerUp = function( event, pointer ) {
+	  this.emitEvent( 'pointerUp', [ event, pointer ] );
+	  this._dragPointerUp( event, pointer );
+	};
+	
+	proto._dragPointerUp = function( event, pointer ) {
+	  if ( this.isDragging ) {
+	    this._dragEnd( event, pointer );
+	  } else {
+	    // pointer didn't move enough for drag to start
+	    this._staticClick( event, pointer );
+	  }
+	};
+	
+	// -------------------------- drag -------------------------- //
+	
+	// dragStart
+	proto._dragStart = function( event, pointer ) {
+	  this.isDragging = true;
+	  this.dragStartPoint = Unipointer.getPointerPoint( pointer );
+	  // prevent clicks
+	  this.isPreventingClicks = true;
+	
+	  this.dragStart( event, pointer );
+	};
+	
+	proto.dragStart = function( event, pointer ) {
+	  this.emitEvent( 'dragStart', [ event, pointer ] );
+	};
+	
+	// dragMove
+	proto._dragMove = function( event, pointer, moveVector ) {
+	  // do not drag if not dragging yet
+	  if ( !this.isDragging ) {
+	    return;
+	  }
+	
+	  this.dragMove( event, pointer, moveVector );
+	};
+	
+	proto.dragMove = function( event, pointer, moveVector ) {
+	  event.preventDefault();
+	  this.emitEvent( 'dragMove', [ event, pointer, moveVector ] );
+	};
+	
+	// dragEnd
+	proto._dragEnd = function( event, pointer ) {
+	  // set flags
+	  this.isDragging = false;
+	  // re-enable clicking async
+	  setTimeout( function() {
+	    delete this.isPreventingClicks;
+	  }.bind( this ) );
+	
+	  this.dragEnd( event, pointer );
+	};
+	
+	proto.dragEnd = function( event, pointer ) {
+	  this.emitEvent( 'dragEnd', [ event, pointer ] );
+	};
+	
+	// ----- onclick ----- //
+	
+	// handle all clicks and prevent clicks when dragging
+	proto.onclick = function( event ) {
+	  if ( this.isPreventingClicks ) {
+	    event.preventDefault();
+	  }
+	};
+	
+	// ----- staticClick ----- //
+	
+	// triggered after pointer down & up with no/tiny movement
+	proto._staticClick = function( event, pointer ) {
+	  // ignore emulated mouse up clicks
+	  if ( this.isIgnoringMouseUp && event.type == 'mouseup' ) {
+	    return;
+	  }
+	
+	  // allow click in <input>s and <textarea>s
+	  var nodeName = event.target.nodeName;
+	  if ( nodeName == 'INPUT' || nodeName == 'TEXTAREA' ) {
+	    event.target.focus();
+	  }
+	  this.staticClick( event, pointer );
+	
+	  // set flag for emulated clicks 300ms after touchend
+	  if ( event.type != 'mouseup' ) {
+	    this.isIgnoringMouseUp = true;
+	    // reset flag after 300ms
+	    setTimeout( function() {
+	      delete this.isIgnoringMouseUp;
+	    }.bind( this ), 400 );
+	  }
+	};
+	
+	proto.staticClick = function( event, pointer ) {
+	  this.emitEvent( 'staticClick', [ event, pointer ] );
+	};
+	
+	// ----- utils ----- //
+	
+	Unidragger.getPointerPoint = Unipointer.getPointerPoint;
+	
+	// -----  ----- //
+	
+	return Unidragger;
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	}));
 
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 38 */
+=======
+/* 36 */
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -48359,6 +53388,7 @@ window.addEventListener('resize', handleResize);
 	 * base class for doing one thing with pointer event
 	 * MIT license
 	 */
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Removed all checkout flow specific code - templates and js
 	
 	            _.$slides
@@ -48368,13 +53398,22 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 	        } else {
 =======
+=======
+	
+	/*jshint browser: true, undef: true, unused: true, strict: true */
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	( function( window, factory ) {
 	  // universal module definition
 	  /* jshint strict: false */ /*global define, module, require */
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	      __webpack_require__(29)
+=======
+	      __webpack_require__(27)
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter ) {
 	      return factory( window, EvEmitter );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -48391,6 +53430,7 @@ window.addEventListener('resize', handleResize);
 	      window.EvEmitter
 	    );
 	  }
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Removed all checkout flow specific code - templates and js
 	
 	            if (index >= 0 && index <= (_.slideCount - _.options.slidesToShow)) {
@@ -48825,23 +53865,301 @@ window.addEventListener('resize', handleResize);
 	
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 =======
+=======
+	
+	}( window, function factory( window, EvEmitter ) {
+	
+	'use strict';
+	
+	function noop() {}
+	
+	function Unipointer() {}
+	
+	// inherit EvEmitter
+	var proto = Unipointer.prototype = Object.create( EvEmitter.prototype );
+	
+	proto.bindStartEvent = function( elem ) {
+	  this._bindStartEvent( elem, true );
+	};
+	
+	proto.unbindStartEvent = function( elem ) {
+	  this._bindStartEvent( elem, false );
+	};
+	
+	/**
+	 * works as unbinder, as you can ._bindStart( false ) to unbind
+	 * @param {Boolean} isBind - will unbind if falsey
+	 */
+	proto._bindStartEvent = function( elem, isBind ) {
+	  // munge isBind, default to true
+	  isBind = isBind === undefined ? true : !!isBind;
+	  var bindMethod = isBind ? 'addEventListener' : 'removeEventListener';
+	
+	  if ( window.PointerEvent ) {
+	    // Pointer Events. Chrome 55, IE11, Edge 14
+	    elem[ bindMethod ]( 'pointerdown', this );
+	  } else {
+	    // listen for both, for devices like Chrome Pixel
+	    elem[ bindMethod ]( 'mousedown', this );
+	    elem[ bindMethod ]( 'touchstart', this );
+	  }
+	};
+	
+	// trigger handler methods for events
+	proto.handleEvent = function( event ) {
+	  var method = 'on' + event.type;
+	  if ( this[ method ] ) {
+	    this[ method ]( event );
+	  }
+	};
+	
+	// returns the touch that we're keeping track of
+	proto.getTouch = function( touches ) {
+	  for ( var i=0; i < touches.length; i++ ) {
+	    var touch = touches[i];
+	    if ( touch.identifier == this.pointerIdentifier ) {
+	      return touch;
+	    }
+	  }
+	};
+	
+	// ----- start event ----- //
+	
+	proto.onmousedown = function( event ) {
+	  // dismiss clicks from right or middle buttons
+	  var button = event.button;
+	  if ( button && ( button !== 0 && button !== 1 ) ) {
+	    return;
+	  }
+	  this._pointerDown( event, event );
+	};
+	
+	proto.ontouchstart = function( event ) {
+	  this._pointerDown( event, event.changedTouches[0] );
+	};
+	
+	proto.onpointerdown = function( event ) {
+	  this._pointerDown( event, event );
+	};
+	
+	/**
+	 * pointer start
+	 * @param {Event} event
+	 * @param {Event or Touch} pointer
+	 */
+	proto._pointerDown = function( event, pointer ) {
+	  // dismiss other pointers
+	  if ( this.isPointerDown ) {
+	    return;
+	  }
+	
+	  this.isPointerDown = true;
+	  // save pointer identifier to match up touch events
+	  this.pointerIdentifier = pointer.pointerId !== undefined ?
+	    // pointerId for pointer events, touch.indentifier for touch events
+	    pointer.pointerId : pointer.identifier;
+	
+	  this.pointerDown( event, pointer );
+	};
+	
+	proto.pointerDown = function( event, pointer ) {
+	  this._bindPostStartEvents( event );
+	  this.emitEvent( 'pointerDown', [ event, pointer ] );
+	};
+	
+	// hash of events to be bound after start event
+	var postStartEvents = {
+	  mousedown: [ 'mousemove', 'mouseup' ],
+	  touchstart: [ 'touchmove', 'touchend', 'touchcancel' ],
+	  pointerdown: [ 'pointermove', 'pointerup', 'pointercancel' ],
+	};
+	
+	proto._bindPostStartEvents = function( event ) {
+	  if ( !event ) {
+	    return;
+	  }
+	  // get proper events to match start event
+	  var events = postStartEvents[ event.type ];
+	  // bind events to node
+	  events.forEach( function( eventName ) {
+	    window.addEventListener( eventName, this );
+	  }, this );
+	  // save these arguments
+	  this._boundPointerEvents = events;
+	};
+	
+	proto._unbindPostStartEvents = function() {
+	  // check for _boundEvents, in case dragEnd triggered twice (old IE8 bug)
+	  if ( !this._boundPointerEvents ) {
+	    return;
+	  }
+	  this._boundPointerEvents.forEach( function( eventName ) {
+	    window.removeEventListener( eventName, this );
+	  }, this );
+	
+	  delete this._boundPointerEvents;
+	};
+	
+	// ----- move event ----- //
+	
+	proto.onmousemove = function( event ) {
+	  this._pointerMove( event, event );
+	};
+	
+	proto.onpointermove = function( event ) {
+	  if ( event.pointerId == this.pointerIdentifier ) {
+	    this._pointerMove( event, event );
+	  }
+	};
+	
+	proto.ontouchmove = function( event ) {
+	  var touch = this.getTouch( event.changedTouches );
+	  if ( touch ) {
+	    this._pointerMove( event, touch );
+	  }
+	};
+	
+	/**
+	 * pointer move
+	 * @param {Event} event
+	 * @param {Event or Touch} pointer
+	 * @private
+	 */
+	proto._pointerMove = function( event, pointer ) {
+	  this.pointerMove( event, pointer );
+	};
+	
+	// public
+	proto.pointerMove = function( event, pointer ) {
+	  this.emitEvent( 'pointerMove', [ event, pointer ] );
+	};
+	
+	// ----- end event ----- //
+	
+	
+	proto.onmouseup = function( event ) {
+	  this._pointerUp( event, event );
+	};
+	
+	proto.onpointerup = function( event ) {
+	  if ( event.pointerId == this.pointerIdentifier ) {
+	    this._pointerUp( event, event );
+	  }
+	};
+	
+	proto.ontouchend = function( event ) {
+	  var touch = this.getTouch( event.changedTouches );
+	  if ( touch ) {
+	    this._pointerUp( event, touch );
+	  }
+	};
+	
+	/**
+	 * pointer up
+	 * @param {Event} event
+	 * @param {Event or Touch} pointer
+	 * @private
+	 */
+	proto._pointerUp = function( event, pointer ) {
+	  this._pointerDone();
+	  this.pointerUp( event, pointer );
+	};
+	
+	// public
+	proto.pointerUp = function( event, pointer ) {
+	  this.emitEvent( 'pointerUp', [ event, pointer ] );
+	};
+	
+	// ----- pointer done ----- //
+	
+	// triggered on pointer up & pointer cancel
+	proto._pointerDone = function() {
+	  // reset properties
+	  this.isPointerDown = false;
+	  delete this.pointerIdentifier;
+	  // remove events
+	  this._unbindPostStartEvents();
+	  this.pointerDone();
+	};
+	
+	proto.pointerDone = noop;
+	
+	// ----- pointer cancel ----- //
+	
+	proto.onpointercancel = function( event ) {
+	  if ( event.pointerId == this.pointerIdentifier ) {
+	    this._pointerCancel( event, event );
+	  }
+	};
+	
+	proto.ontouchcancel = function( event ) {
+	  var touch = this.getTouch( event.changedTouches );
+	  if ( touch ) {
+	    this._pointerCancel( event, touch );
+	  }
+	};
+	
+	/**
+	 * pointer cancel
+	 * @param {Event} event
+	 * @param {Event or Touch} pointer
+	 * @private
+	 */
+	proto._pointerCancel = function( event, pointer ) {
+	  this._pointerDone();
+	  this.pointerCancel( event, pointer );
+	};
+	
+	// public
+	proto.pointerCancel = function( event, pointer ) {
+	  this.emitEvent( 'pointerCancel', [ event, pointer ] );
+	};
+	
+	// -----  ----- //
+	
+	// utility function for getting x/y coords from event
+	Unipointer.getPointerPoint = function( pointer ) {
+	  return {
+	    x: pointer.pageX,
+	    y: pointer.pageY
+	  };
+	};
+	
+	// -----  ----- //
+	
+	return Unipointer;
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	}));
 
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
+=======
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// prev/next buttons
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	( function( window, factory ) {
 	  // universal module definition
 	  /* jshint strict: false */
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	      __webpack_require__(28),
 	      __webpack_require__(40),
 	      __webpack_require__(31)
+=======
+	      __webpack_require__(26),
+	      __webpack_require__(38),
+	      __webpack_require__(29)
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
 	      return factory( window, Flickity, TapListener, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -48862,6 +54180,7 @@ window.addEventListener('resize', handleResize);
 	      window.fizzyUIUtils
 	    );
 	  }
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	            }
@@ -49094,10 +54413,202 @@ window.addEventListener('resize', handleResize);
 	            _.$prevArrow.remove();
 	        }
 =======
+=======
+	
+	}( window, function factory( window, Flickity, TapListener, utils ) {
+	'use strict';
+	
+	var svgURI = 'http://www.w3.org/2000/svg';
+	
+	// -------------------------- PrevNextButton -------------------------- //
+	
+	function PrevNextButton( direction, parent ) {
+	  this.direction = direction;
+	  this.parent = parent;
+	  this._create();
+	}
+	
+	PrevNextButton.prototype = new TapListener();
+	
+	PrevNextButton.prototype._create = function() {
+	  // properties
+	  this.isEnabled = true;
+	  this.isPrevious = this.direction == -1;
+	  var leftDirection = this.parent.options.rightToLeft ? 1 : -1;
+	  this.isLeft = this.direction == leftDirection;
+	
+	  var element = this.element = document.createElement('button');
+	  element.className = 'flickity-prev-next-button';
+	  element.className += this.isPrevious ? ' previous' : ' next';
+	  // prevent button from submitting form http://stackoverflow.com/a/10836076/182183
+	  element.setAttribute( 'type', 'button' );
+	  // init as disabled
+	  this.disable();
+	
+	  element.setAttribute( 'aria-label', this.isPrevious ? 'previous' : 'next' );
+	
+	  // create arrow
+	  var svg = this.createSVG();
+	  element.appendChild( svg );
+	  // events
+	  this.on( 'tap', this.onTap );
+	  this.parent.on( 'select', this.update.bind( this ) );
+	  this.on( 'pointerDown', this.parent.childUIPointerDown.bind( this.parent ) );
+	};
+	
+	PrevNextButton.prototype.activate = function() {
+	  this.bindTap( this.element );
+	  // click events from keyboard
+	  this.element.addEventListener( 'click', this );
+	  // add to DOM
+	  this.parent.element.appendChild( this.element );
+	};
+	
+	PrevNextButton.prototype.deactivate = function() {
+	  // remove from DOM
+	  this.parent.element.removeChild( this.element );
+	  // do regular TapListener destroy
+	  TapListener.prototype.destroy.call( this );
+	  // click events from keyboard
+	  this.element.removeEventListener( 'click', this );
+	};
+	
+	PrevNextButton.prototype.createSVG = function() {
+	  var svg = document.createElementNS( svgURI, 'svg');
+	  svg.setAttribute( 'viewBox', '0 0 100 100' );
+	  var path = document.createElementNS( svgURI, 'path');
+	  var pathMovements = getArrowMovements( this.parent.options.arrowShape );
+	  path.setAttribute( 'd', pathMovements );
+	  path.setAttribute( 'class', 'arrow' );
+	  // rotate arrow
+	  if ( !this.isLeft ) {
+	    path.setAttribute( 'transform', 'translate(100, 100) rotate(180) ' );
+	  }
+	  svg.appendChild( path );
+	  return svg;
+	};
+	
+	// get SVG path movmement
+	function getArrowMovements( shape ) {
+	  // use shape as movement if string
+	  if ( typeof shape == 'string' ) {
+	    return shape;
+	  }
+	  // create movement string
+	  return 'M ' + shape.x0 + ',50' +
+	    ' L ' + shape.x1 + ',' + ( shape.y1 + 50 ) +
+	    ' L ' + shape.x2 + ',' + ( shape.y2 + 50 ) +
+	    ' L ' + shape.x3 + ',50 ' +
+	    ' L ' + shape.x2 + ',' + ( 50 - shape.y2 ) +
+	    ' L ' + shape.x1 + ',' + ( 50 - shape.y1 ) +
+	    ' Z';
+	}
+	
+	PrevNextButton.prototype.onTap = function() {
+	  if ( !this.isEnabled ) {
+	    return;
+	  }
+	  this.parent.uiChange();
+	  var method = this.isPrevious ? 'previous' : 'next';
+	  this.parent[ method ]();
+	};
+	
+	PrevNextButton.prototype.handleEvent = utils.handleEvent;
+	
+	PrevNextButton.prototype.onclick = function() {
+	  // only allow clicks from keyboard
+	  var focused = document.activeElement;
+	  if ( focused && focused == this.element ) {
+	    this.onTap();
+	  }
+	};
+	
+	// -----  ----- //
+	
+	PrevNextButton.prototype.enable = function() {
+	  if ( this.isEnabled ) {
+	    return;
+	  }
+	  this.element.disabled = false;
+	  this.isEnabled = true;
+	};
+	
+	PrevNextButton.prototype.disable = function() {
+	  if ( !this.isEnabled ) {
+	    return;
+	  }
+	  this.element.disabled = true;
+	  this.isEnabled = false;
+	};
+	
+	PrevNextButton.prototype.update = function() {
+	  // index of first or last slide, if previous or next
+	  var slides = this.parent.slides;
+	  // enable is wrapAround and at least 2 slides
+	  if ( this.parent.options.wrapAround && slides.length > 1 ) {
+	    this.enable();
+	    return;
+	  }
+	  var lastIndex = slides.length ? slides.length - 1 : 0;
+	  var boundIndex = this.isPrevious ? 0 : lastIndex;
+	  var method = this.parent.selectedIndex == boundIndex ? 'disable' : 'enable';
+	  this[ method ]();
+	};
+	
+	PrevNextButton.prototype.destroy = function() {
+	  this.deactivate();
+	};
+	
+	// -------------------------- Flickity prototype -------------------------- //
+	
+	utils.extend( Flickity.defaults, {
+	  prevNextButtons: true,
+	  arrowShape: {
+	    x0: 10,
+	    x1: 60, y1: 50,
+	    x2: 70, y2: 40,
+	    x3: 30
+	  }
+	});
+	
+	Flickity.createMethods.push('_createPrevNextButtons');
+	var proto = Flickity.prototype;
+	
+	proto._createPrevNextButtons = function() {
+	  if ( !this.options.prevNextButtons ) {
+	    return;
+	  }
+	
+	  this.prevButton = new PrevNextButton( -1, this );
+	  this.nextButton = new PrevNextButton( 1, this );
+	
+	  this.on( 'activate', this.activatePrevNextButtons );
+	};
+	
+	proto.activatePrevNextButtons = function() {
+	  this.prevButton.activate();
+	  this.nextButton.activate();
+	  this.on( 'deactivate', this.deactivatePrevNextButtons );
+	};
+	
+	proto.deactivatePrevNextButtons = function() {
+	  this.prevButton.deactivate();
+	  this.nextButton.deactivate();
+	  this.off( 'deactivate', this.deactivatePrevNextButtons );
+	};
+	
+	// --------------------------  -------------------------- //
+	
+	Flickity.PrevNextButton = PrevNextButton;
+	
+	return Flickity;
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	}));
 
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -49112,11 +54623,35 @@ window.addEventListener('resize', handleResize);
 	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
 	      return factory( window, Flickity, utils );
+=======
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Tap listener v2.0.0
+	 * listens to taps
+	 * MIT license
+	 */
+	
+	/*jshint browser: true, unused: true, undef: true, strict: true */
+	
+	( function( window, factory ) {
+	  // universal module definition
+	  /*jshint strict: false*/ /*globals define, module, require */
+	
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(36)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
+	      return factory( window, Unipointer );
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
 	    module.exports = factory(
 	      window,
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	      require('./flickity'),
 	      require('fizzy-ui-utils')
 	    );
@@ -49187,30 +54722,140 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 	    Slick.prototype.updateDots = function() {
 =======
+=======
+	      require('unipointer')
+	    );
+	  } else {
+	    // browser global
+	    window.TapListener = factory(
+	      window,
+	      window.Unipointer
+	    );
+	  }
+	
+	}( window, function factory( window, Unipointer ) {
+	
+	'use strict';
+	
+	// --------------------------  TapListener -------------------------- //
+	
+	function TapListener( elem ) {
+	  this.bindTap( elem );
+	}
+	
+	// inherit Unipointer & EventEmitter
+	var proto = TapListener.prototype = Object.create( Unipointer.prototype );
+	
+	/**
+	 * bind tap event to element
+	 * @param {Element} elem
+	 */
+	proto.bindTap = function( elem ) {
+	  if ( !elem ) {
+	    return;
+	  }
+	  this.unbindTap();
+	  this.tapElement = elem;
+	  this._bindStartEvent( elem, true );
+	};
+	
+	proto.unbindTap = function() {
+	  if ( !this.tapElement ) {
+	    return;
+	  }
+	  this._bindStartEvent( this.tapElement, true );
+	  delete this.tapElement;
+	};
+	
+	/**
+	 * pointer up
+	 * @param {Event} event
+	 * @param {Event or Touch} pointer
+	 */
+	proto.pointerUp = function( event, pointer ) {
+	  // ignore emulated mouse up clicks
+	  if ( this.isIgnoringMouseUp && event.type == 'mouseup' ) {
+	    return;
+	  }
+	
+	  var pointerPoint = Unipointer.getPointerPoint( pointer );
+	  var boundingRect = this.tapElement.getBoundingClientRect();
+	  var scrollX = window.pageXOffset;
+	  var scrollY = window.pageYOffset;
+	  // calculate if pointer is inside tapElement
+	  var isInside = pointerPoint.x >= boundingRect.left + scrollX &&
+	    pointerPoint.x <= boundingRect.right + scrollX &&
+	    pointerPoint.y >= boundingRect.top + scrollY &&
+	    pointerPoint.y <= boundingRect.bottom + scrollY;
+	  // trigger callback if pointer is inside element
+	  if ( isInside ) {
+	    this.emitEvent( 'tap', [ event, pointer ] );
+	  }
+	
+	  // set flag for emulated clicks 300ms after touchend
+	  if ( event.type != 'mouseup' ) {
+	    this.isIgnoringMouseUp = true;
+	    // reset flag after 300ms
+	    var _this = this;
+	    setTimeout( function() {
+	      delete _this.isIgnoringMouseUp;
+	    }, 400 );
+	  }
+	};
+	
+	proto.destroy = function() {
+	  this.pointerDone();
+	  this.unbindTap();
+	};
+	
+	// -----  ----- //
+	
+	return TapListener;
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	}));
 
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
+=======
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	( function( window, factory ) {
 	  // universal module definition
 	  /* jshint strict: false */
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	      __webpack_require__(28),
 	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
 	      return factory( window, Flickity, utils );
+=======
+	      __webpack_require__(26),
+	      __webpack_require__(38),
+	      __webpack_require__(29)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
+	      return factory( window, Flickity, TapListener, utils );
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
 	    module.exports = factory(
 	      window,
 	      require('./flickity'),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
+=======
+	      require('tap-listener'),
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	      require('fizzy-ui-utils')
 	    );
 	  } else {
@@ -49218,6 +54863,7 @@ window.addEventListener('resize', handleResize);
 	    factory(
 	      window,
 	      window.Flickity,
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	      window.fizzyUIUtils
 	    );
 	  }
@@ -49947,6 +55593,606 @@ window.addEventListener('resize', handleResize);
 	Flickity.createMethods.push('_createLazyload');
 	var proto = Flickity.prototype;
 >>>>>>> Removed all checkout flow specific code - templates and js
+=======
+	      window.TapListener,
+	      window.fizzyUIUtils
+	    );
+	  }
+	
+	}( window, function factory( window, Flickity, TapListener, utils ) {
+	
+	// -------------------------- PageDots -------------------------- //
+	
+	'use strict';
+	
+	function PageDots( parent ) {
+	  this.parent = parent;
+	  this._create();
+	}
+	
+	PageDots.prototype = new TapListener();
+	
+	PageDots.prototype._create = function() {
+	  // create holder element
+	  this.holder = document.createElement('ol');
+	  this.holder.className = 'flickity-page-dots';
+	  // create dots, array of elements
+	  this.dots = [];
+	  // events
+	  this.on( 'tap', this.onTap );
+	  this.on( 'pointerDown', this.parent.childUIPointerDown.bind( this.parent ) );
+	};
+	
+	PageDots.prototype.activate = function() {
+	  this.setDots();
+	  this.bindTap( this.holder );
+	  // add to DOM
+	  this.parent.element.appendChild( this.holder );
+	};
+	
+	PageDots.prototype.deactivate = function() {
+	  // remove from DOM
+	  this.parent.element.removeChild( this.holder );
+	  TapListener.prototype.destroy.call( this );
+	};
+	
+	PageDots.prototype.setDots = function() {
+	  // get difference between number of slides and number of dots
+	  var delta = this.parent.slides.length - this.dots.length;
+	  if ( delta > 0 ) {
+	    this.addDots( delta );
+	  } else if ( delta < 0 ) {
+	    this.removeDots( -delta );
+	  }
+	};
+	
+	PageDots.prototype.addDots = function( count ) {
+	  var fragment = document.createDocumentFragment();
+	  var newDots = [];
+	  while ( count ) {
+	    var dot = document.createElement('li');
+	    dot.className = 'dot';
+	    fragment.appendChild( dot );
+	    newDots.push( dot );
+	    count--;
+	  }
+	  this.holder.appendChild( fragment );
+	  this.dots = this.dots.concat( newDots );
+	};
+	
+	PageDots.prototype.removeDots = function( count ) {
+	  // remove from this.dots collection
+	  var removeDots = this.dots.splice( this.dots.length - count, count );
+	  // remove from DOM
+	  removeDots.forEach( function( dot ) {
+	    this.holder.removeChild( dot );
+	  }, this );
+	};
+	
+	PageDots.prototype.updateSelected = function() {
+	  // remove selected class on previous
+	  if ( this.selectedDot ) {
+	    this.selectedDot.className = 'dot';
+	  }
+	  // don't proceed if no dots
+	  if ( !this.dots.length ) {
+	    return;
+	  }
+	  this.selectedDot = this.dots[ this.parent.selectedIndex ];
+	  this.selectedDot.className = 'dot is-selected';
+	};
+	
+	PageDots.prototype.onTap = function( event ) {
+	  var target = event.target;
+	  // only care about dot clicks
+	  if ( target.nodeName != 'LI' ) {
+	    return;
+	  }
+	
+	  this.parent.uiChange();
+	  var index = this.dots.indexOf( target );
+	  this.parent.select( index );
+	};
+	
+	PageDots.prototype.destroy = function() {
+	  this.deactivate();
+	};
+	
+	Flickity.PageDots = PageDots;
+	
+	// -------------------------- Flickity -------------------------- //
+	
+	utils.extend( Flickity.defaults, {
+	  pageDots: true
+	});
+	
+	Flickity.createMethods.push('_createPageDots');
+	
+	var proto = Flickity.prototype;
+	
+	proto._createPageDots = function() {
+	  if ( !this.options.pageDots ) {
+	    return;
+	  }
+	  this.pageDots = new PageDots( this );
+	  // events
+	  this.on( 'activate', this.activatePageDots );
+	  this.on( 'select', this.updateSelectedPageDots );
+	  this.on( 'cellChange', this.updatePageDots );
+	  this.on( 'resize', this.updatePageDots );
+	  this.on( 'deactivate', this.deactivatePageDots );
+	};
+	
+	proto.activatePageDots = function() {
+	  this.pageDots.activate();
+	};
+	
+	proto.updateSelectedPageDots = function() {
+	  this.pageDots.updateSelected();
+	};
+	
+	proto.updatePageDots = function() {
+	  this.pageDots.setDots();
+	};
+	
+	proto.deactivatePageDots = function() {
+	  this.pageDots.deactivate();
+	};
+	
+	// -----  ----- //
+	
+	Flickity.PageDots = PageDots;
+	
+	return Flickity;
+	
+	}));
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// player & autoPlay
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(27),
+	      __webpack_require__(29),
+	      __webpack_require__(26)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, utils, Flickity ) {
+	      return factory( EvEmitter, utils, Flickity );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      require('ev-emitter'),
+	      require('fizzy-ui-utils'),
+	      require('./flickity')
+	    );
+	  } else {
+	    // browser global
+	    factory(
+	      window.EvEmitter,
+	      window.fizzyUIUtils,
+	      window.Flickity
+	    );
+	  }
+	
+	}( window, function factory( EvEmitter, utils, Flickity ) {
+	
+	'use strict';
+	
+	// -------------------------- Page Visibility -------------------------- //
+	// https://developer.mozilla.org/en-US/docs/Web/Guide/User_experience/Using_the_Page_Visibility_API
+	
+	var hiddenProperty, visibilityEvent;
+	if ( 'hidden' in document ) {
+	  hiddenProperty = 'hidden';
+	  visibilityEvent = 'visibilitychange';
+	} else if ( 'webkitHidden' in document ) {
+	  hiddenProperty = 'webkitHidden';
+	  visibilityEvent = 'webkitvisibilitychange';
+	}
+	
+	// -------------------------- Player -------------------------- //
+	
+	function Player( parent ) {
+	  this.parent = parent;
+	  this.state = 'stopped';
+	  // visibility change event handler
+	  if ( visibilityEvent ) {
+	    this.onVisibilityChange = function() {
+	      this.visibilityChange();
+	    }.bind( this );
+	    this.onVisibilityPlay = function() {
+	      this.visibilityPlay();
+	    }.bind( this );
+	  }
+	}
+	
+	Player.prototype = Object.create( EvEmitter.prototype );
+	
+	// start play
+	Player.prototype.play = function() {
+	  if ( this.state == 'playing' ) {
+	    return;
+	  }
+	  // do not play if page is hidden, start playing when page is visible
+	  var isPageHidden = document[ hiddenProperty ];
+	  if ( visibilityEvent && isPageHidden ) {
+	    document.addEventListener( visibilityEvent, this.onVisibilityPlay );
+	    return;
+	  }
+	
+	  this.state = 'playing';
+	  // listen to visibility change
+	  if ( visibilityEvent ) {
+	    document.addEventListener( visibilityEvent, this.onVisibilityChange );
+	  }
+	  // start ticking
+	  this.tick();
+	};
+	
+	Player.prototype.tick = function() {
+	  // do not tick if not playing
+	  if ( this.state != 'playing' ) {
+	    return;
+	  }
+	
+	  var time = this.parent.options.autoPlay;
+	  // default to 3 seconds
+	  time = typeof time == 'number' ? time : 3000;
+	  var _this = this;
+	  // HACK: reset ticks if stopped and started within interval
+	  this.clear();
+	  this.timeout = setTimeout( function() {
+	    _this.parent.next( true );
+	    _this.tick();
+	  }, time );
+	};
+	
+	Player.prototype.stop = function() {
+	  this.state = 'stopped';
+	  this.clear();
+	  // remove visibility change event
+	  if ( visibilityEvent ) {
+	    document.removeEventListener( visibilityEvent, this.onVisibilityChange );
+	  }
+	};
+	
+	Player.prototype.clear = function() {
+	  clearTimeout( this.timeout );
+	};
+	
+	Player.prototype.pause = function() {
+	  if ( this.state == 'playing' ) {
+	    this.state = 'paused';
+	    this.clear();
+	  }
+	};
+	
+	Player.prototype.unpause = function() {
+	  // re-start play if paused
+	  if ( this.state == 'paused' ) {
+	    this.play();
+	  }
+	};
+	
+	// pause if page visibility is hidden, unpause if visible
+	Player.prototype.visibilityChange = function() {
+	  var isPageHidden = document[ hiddenProperty ];
+	  this[ isPageHidden ? 'pause' : 'unpause' ]();
+	};
+	
+	Player.prototype.visibilityPlay = function() {
+	  this.play();
+	  document.removeEventListener( visibilityEvent, this.onVisibilityPlay );
+	};
+	
+	// -------------------------- Flickity -------------------------- //
+	
+	utils.extend( Flickity.defaults, {
+	  pauseAutoPlayOnHover: true
+	});
+	
+	Flickity.createMethods.push('_createPlayer');
+	var proto = Flickity.prototype;
+	
+	proto._createPlayer = function() {
+	  this.player = new Player( this );
+	
+	  this.on( 'activate', this.activatePlayer );
+	  this.on( 'uiChange', this.stopPlayer );
+	  this.on( 'pointerDown', this.stopPlayer );
+	  this.on( 'deactivate', this.deactivatePlayer );
+	};
+	
+	proto.activatePlayer = function() {
+	  if ( !this.options.autoPlay ) {
+	    return;
+	  }
+	  this.player.play();
+	  this.element.addEventListener( 'mouseenter', this );
+	};
+	
+	// Player API, don't hate the ... thanks I know where the door is
+	
+	proto.playPlayer = function() {
+	  this.player.play();
+	};
+	
+	proto.stopPlayer = function() {
+	  this.player.stop();
+	};
+	
+	proto.pausePlayer = function() {
+	  this.player.pause();
+	};
+	
+	proto.unpausePlayer = function() {
+	  this.player.unpause();
+	};
+	
+	proto.deactivatePlayer = function() {
+	  this.player.stop();
+	  this.element.removeEventListener( 'mouseenter', this );
+	};
+	
+	// ----- mouseenter/leave ----- //
+	
+	// pause auto-play on hover
+	proto.onmouseenter = function() {
+	  if ( !this.options.pauseAutoPlayOnHover ) {
+	    return;
+	  }
+	  this.player.pause();
+	  this.element.addEventListener( 'mouseleave', this );
+	};
+	
+	// resume auto-play on hover off
+	proto.onmouseleave = function() {
+	  this.player.unpause();
+	  this.element.removeEventListener( 'mouseleave', this );
+	};
+	
+	// -----  ----- //
+	
+	Flickity.Player = Player;
+	
+	return Flickity;
+	
+	}));
+
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// add, remove cell
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(26),
+	      __webpack_require__(29)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
+	      return factory( window, Flickity, utils );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('./flickity'),
+	      require('fizzy-ui-utils')
+	    );
+	  } else {
+	    // browser global
+	    factory(
+	      window,
+	      window.Flickity,
+	      window.fizzyUIUtils
+	    );
+	  }
+	
+	}( window, function factory( window, Flickity, utils ) {
+	
+	'use strict';
+	
+	// append cells to a document fragment
+	function getCellsFragment( cells ) {
+	  var fragment = document.createDocumentFragment();
+	  cells.forEach( function( cell ) {
+	    fragment.appendChild( cell.element );
+	  });
+	  return fragment;
+	}
+	
+	// -------------------------- add/remove cell prototype -------------------------- //
+	
+	var proto = Flickity.prototype;
+	
+	/**
+	 * Insert, prepend, or append cells
+	 * @param {Element, Array, NodeList} elems
+	 * @param {Integer} index
+	 */
+	proto.insert = function( elems, index ) {
+	  var cells = this._makeCells( elems );
+	  if ( !cells || !cells.length ) {
+	    return;
+	  }
+	  var len = this.cells.length;
+	  // default to append
+	  index = index === undefined ? len : index;
+	  // add cells with document fragment
+	  var fragment = getCellsFragment( cells );
+	  // append to slider
+	  var isAppend = index == len;
+	  if ( isAppend ) {
+	    this.slider.appendChild( fragment );
+	  } else {
+	    var insertCellElement = this.cells[ index ].element;
+	    this.slider.insertBefore( fragment, insertCellElement );
+	  }
+	  // add to this.cells
+	  if ( index === 0 ) {
+	    // prepend, add to start
+	    this.cells = cells.concat( this.cells );
+	  } else if ( isAppend ) {
+	    // append, add to end
+	    this.cells = this.cells.concat( cells );
+	  } else {
+	    // insert in this.cells
+	    var endCells = this.cells.splice( index, len - index );
+	    this.cells = this.cells.concat( cells ).concat( endCells );
+	  }
+	
+	  this._sizeCells( cells );
+	
+	  var selectedIndexDelta = index > this.selectedIndex ? 0 : cells.length;
+	  this._cellAddedRemoved( index, selectedIndexDelta );
+	};
+	
+	proto.append = function( elems ) {
+	  this.insert( elems, this.cells.length );
+	};
+	
+	proto.prepend = function( elems ) {
+	  this.insert( elems, 0 );
+	};
+	
+	/**
+	 * Remove cells
+	 * @param {Element, Array, NodeList} elems
+	 */
+	proto.remove = function( elems ) {
+	  var cells = this.getCells( elems );
+	  var selectedIndexDelta = 0;
+	  var len = cells.length;
+	  var i, cell;
+	  // calculate selectedIndexDelta, easier if done in seperate loop
+	  for ( i=0; i < len; i++ ) {
+	    cell = cells[i];
+	    var wasBefore = this.cells.indexOf( cell ) < this.selectedIndex;
+	    selectedIndexDelta -= wasBefore ? 1 : 0;
+	  }
+	
+	  for ( i=0; i < len; i++ ) {
+	    cell = cells[i];
+	    cell.remove();
+	    // remove item from collection
+	    utils.removeFrom( this.cells, cell );
+	  }
+	
+	  if ( cells.length ) {
+	    // update stuff
+	    this._cellAddedRemoved( 0, selectedIndexDelta );
+	  }
+	};
+	
+	// updates when cells are added or removed
+	proto._cellAddedRemoved = function( changedCellIndex, selectedIndexDelta ) {
+	  // TODO this math isn't perfect with grouped slides
+	  selectedIndexDelta = selectedIndexDelta || 0;
+	  this.selectedIndex += selectedIndexDelta;
+	  this.selectedIndex = Math.max( 0, Math.min( this.slides.length - 1, this.selectedIndex ) );
+	
+	  this.cellChange( changedCellIndex, true );
+	  // backwards compatibility
+	  this.emitEvent( 'cellAddedRemoved', [ changedCellIndex, selectedIndexDelta ] );
+	};
+	
+	/**
+	 * logic to be run after a cell's size changes
+	 * @param {Element} elem - cell's element
+	 */
+	proto.cellSizeChange = function( elem ) {
+	  var cell = this.getCell( elem );
+	  if ( !cell ) {
+	    return;
+	  }
+	  cell.getSize();
+	
+	  var index = this.cells.indexOf( cell );
+	  this.cellChange( index );
+	};
+	
+	/**
+	 * logic any time a cell is changed: added, removed, or size changed
+	 * @param {Integer} changedCellIndex - index of the changed cell, optional
+	 */
+	proto.cellChange = function( changedCellIndex, isPositioningSlider ) {
+	  var prevSlideableWidth = this.slideableWidth;
+	  this._positionCells( changedCellIndex );
+	  this._getWrapShiftCells();
+	  this.setGallerySize();
+	  this.emitEvent( 'cellChange', [ changedCellIndex ] );
+	  // position slider
+	  if ( this.options.freeScroll ) {
+	    // shift x by change in slideableWidth
+	    // TODO fix position shifts when prepending w/ freeScroll
+	    var deltaX = prevSlideableWidth - this.slideableWidth;
+	    this.x += deltaX * this.cellAlign;
+	    this.positionSlider();
+	  } else {
+	    // do not position slider after lazy load
+	    if ( isPositioningSlider ) {
+	      this.positionSliderAtSelected();
+	    }
+	    this.select( this.selectedIndex );
+	  }
+	};
+	
+	// -----  ----- //
+	
+	return Flickity;
+	
+	}));
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(26),
+	      __webpack_require__(29)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
+	      return factory( window, Flickity, utils );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('./flickity'),
+	      require('fizzy-ui-utils')
+	    );
+	  } else {
+	    // browser global
+	    factory(
+	      window,
+	      window.Flickity,
+	      window.fizzyUIUtils
+	    );
+	  }
+	
+	}( window, function factory( window, Flickity, utils ) {
+	'use strict';
+	
+	Flickity.createMethods.push('_createLazyload');
+	var proto = Flickity.prototype;
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	
 	proto._createLazyload = function() {
 	  this.on( 'select', this.lazyLoad );
@@ -50035,6 +56281,7 @@ window.addEventListener('resize', handleResize);
 	}));
 
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
@@ -50187,6 +56434,11 @@ window.addEventListener('resize', handleResize);
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
+=======
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
 	'use strict';
 	
@@ -50194,6 +56446,7 @@ window.addEventListener('resize', handleResize);
 	    value: true
 	});
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
@@ -50279,6 +56532,14 @@ window.addEventListener('resize', handleResize);
 	var _domOps = __webpack_require__(4);
 	
 	__webpack_require__(47);
+=======
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* global Tick */
+	
+	
+	var _domOps = __webpack_require__(4);
+	
+	__webpack_require__(44);
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -50348,6 +56609,7 @@ window.addEventListener('resize', handleResize);
 	    }
 	};
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
@@ -50367,6 +56629,11 @@ window.addEventListener('resize', handleResize);
 /* 47 */
 /***/ (function(module, exports) {
 >>>>>>> Fixing header/nav issues
+=======
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
 	'use strict';
 	
@@ -52186,6 +58453,7 @@ window.addEventListener('resize', handleResize);
 		}
 	}(window, window.Tick || []);
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
@@ -52213,6 +58481,11 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Removed all checkout flow specific code - templates and js
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
+=======
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
 	'use strict';
 	
@@ -52222,6 +58495,7 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint class-methods-use-this: ["error", { "exceptMethods": ["ready"] }] */
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -52251,11 +58525,19 @@ window.addEventListener('resize', handleResize);
 	
 	var _topojson = __webpack_require__(50);
 >>>>>>> Removed all checkout flow specific code - templates and js
+=======
+	var _d = __webpack_require__(46);
+	
+	var d3 = _interopRequireWildcard(_d);
+	
+	var _topojson = __webpack_require__(47);
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	
 	var topojson = _interopRequireWildcard(_topojson);
 	
 	var _utilities = __webpack_require__(9);
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -52285,6 +58567,13 @@ window.addEventListener('resize', handleResize);
 	
 	var _gridmap = __webpack_require__(52);
 >>>>>>> Removed all checkout flow specific code - templates and js
+=======
+	var _chargeData = __webpack_require__(48);
+	
+	var _chargeData2 = _interopRequireDefault(_chargeData);
+	
+	var _gridmap = __webpack_require__(49);
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	
 	var _gridmap2 = _interopRequireDefault(_gridmap);
 	
@@ -52480,6 +58769,7 @@ window.addEventListener('resize', handleResize);
 	    }
 	};
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
@@ -52499,6 +58789,11 @@ window.addEventListener('resize', handleResize);
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
+=======
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
 	// https://d3js.org Version 4.9.1. Copyright 2017 Mike Bostock.
 	(function (global, factory) {
@@ -69368,6 +75663,7 @@ window.addEventListener('resize', handleResize);
 	})));
 
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
@@ -69387,6 +75683,11 @@ window.addEventListener('resize', handleResize);
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
+=======
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
 	// https://github.com/topojson/topojson Version 3.0.0. Copyright 2017 Mike Bostock.
 	(function (global, factory) {
@@ -71172,6 +77473,7 @@ window.addEventListener('resize', handleResize);
 	})));
 
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
@@ -71191,6 +77493,11 @@ window.addEventListener('resize', handleResize);
 /* 51 */
 /***/ (function(module, exports) {
 >>>>>>> Fixing header/nav issues
+=======
+/***/ }),
+/* 48 */
+/***/ (function(module, exports) {
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
 	"use strict";
 	
@@ -71198,6 +77505,7 @@ window.addEventListener('resize', handleResize);
 	    charges: [[51.18291, -0.63098, 0.3, 0.05], [51.00283, -2.41825, 0.3, 0.05], [52.30522, -2.37574, 0.9, 0.16], [51.8344, 0.91066, 0.3, 0.05], [52.17955, -2.00817, 0.2, 0.03], [51.78, 0.28172, 1.1, 0.19], [51.77815, 0.27685, 0.6, 0.1], [50.88896, -3.22276, 0.1, 0.02], [52.33104, -3.38988, 0.4, 0.07], [51.84615, -2.19922, 0.3, 0.05], [53.33603, -1.51011, 0.7, 0.12], [52.3117, -1.92659, 1.7, 0.3], [53.32291, -1.52539, 0.7, 0.12], [51.96946, -2.89607, 1.7, 0.3], [52.34412, -1.58043, 0.9, 0.16], [51.88336, 0.8973, 1.9, 0.33], [52.3449, -1.58497, 0.1, 0.02], [50.77278, -3.00118, 0.6, 0.1], [52.89393, -2.73475, 2.1, 0.37], [53.11713, -2.03283, 2.4, 0.42], [53.46514, -2.15963, 0.6, 0.1], [55.95738, -3.1697, 1.5, 0.26], [53.03506, -2.14002, 1.1, 0.19], [51.39692, -0.49929, 1.6, 0.28], [51.60084, -1.79642, 4.8, 0.84], [56.06989, -3.46159, 1.2, 0.21], [55.84934, -2.38104, 3.8, 0.66], [53.98364, -2.66703, 3.6, 0.63], [54.84466, -3.2897, 4.7, 0.82], [53.70007, -2.54594, 5.51, 0.96], [51.49083, 0.10803, 1.7, 0.3], [54.95903, -3.97713, 1.8, 0.31], [55.40936, -2.61892, 2.6, 0.45], [50.89745, -4.29936, 0.9, 0.16], [52.81719, -1.87725, 1.7, 0.3], [50.53296, -3.61246, 4.4, 0.77], [50.66559, -2.59953, 2.5, 0.44], [50.97296, -0.14434, 5.1, 0.89], [51.01613, -4.24738, 1.4, 0.24], [51.61351, -2.45223, 2.1, 0.37], [50.50767, -3.61335, 5.1, 0.89], [51.70577, -0.41754, 2.5, 0.44], [51.46071, -2.6664, 1.6, 0.28], [52.19323, -0.20294, 0.6, 0.1], [54.11594, -3.20135, 5.5, 0.96], [53.20672, -2.90149, 3.3, 0.58], [53.20112, -2.90716, 1.2, 0.21], [52.19399, -1.96037, 1.3, 0.23], [52.3872, -0.19329, 1.6, 0.28], [52.15082, -1.90108, 3.1, 0.54], [51.10725, -1.19707, 3, 0.52], [51.00926, -1.4866, 3.2, 0.56], [51.25201, -0.55628, 3.5, 0.61], [52.14157, -2.16338, 0.86, 0.15], [51.09132, -1.29097, 1.3, 0.23], [51.19068, -1.5314, 4.1, 0.72], [51.07494, -1.31359, 4, 0.7], [52.40201, -2.89624, 3.5, 0.61], [52.4734, -2.62848, 2, 0.35], [53.48143, -1.34598, 5.8, 1.01], [51.85366, -2.4809, 4.7, 0.82], [52.11315, -4.22539, 4.4, 0.77], [51.88376, -3.30157, 3.8, 0.66], [52.24226, -4.25925, 4.4, 0.77], [51.70173, -3.42969, 2.1, 0.37], [52.67812, -3.7116, 1.7, 0.3], [52.03596, -4.45692, 11.3, 1.97], [56.95353, -4.50913, 5.2, 0.91], [56.3269, -3.35753, 0.5, 0.09], [52.25011, -4.2282, 1.1, 0.19], [51.59331, -3.80199, 1.8, 0.31], [52.04967, -4.39876, 2.5, 0.44], [51.69369, -3.22416, 5.1, 0.89], [52.53735, -3.27475, 0.1, 0.02], [51.71028, -3.14801, 0.5, 0.09], [51.95603, -3.47962, 7.6, 1.33], [51.72359, -3.36443, 3.2, 0.56], [51.64734, -3.13475, 5, 0.87], [51.9582, -5.12466, 5.8, 1.01], [52.60032, -3.76894, 1.5, 0.26], [57.09339, -4.74371, 10.3, 1.8], [57.56028, -2.62878, 9.4, 1.64], [51.69447, -3.89984, 1.9, 0.33], [55.99415, -3.47281, 2.5, 0.44], [51.7998, -3.71722, 3, 0.52], [51.65629, -3.66362, 10, 1.75], [56.21573, -2.77899, 4.5, 0.79], [51.68971, -3.41103, 11.6, 2.02], [52.03871, -4.555, 0.2, 0.03], [51.64611, -3.32849, 1, 0.17], [52.72773, -3.67705, 4.8, 0.84], [56.36552, -3.49262, 2, 0.35], [51.71356, -3.44778, 6, 1.05], [52.81058, -4.70736, 2.2, 0.38], [57.14985, -2.09376, 2.1, 0.37], [53.03608, -4.34901, 0.9, 0.16], [56.05372, -3.30185, 4.4, 0.77], [52.54395, -4.04434, 6.6, 1.15], [51.68154, -3.77478, 4.4, 0.77], [52.11716, -3.34692, 1.2, 0.21]]
 	};
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
@@ -71217,6 +77525,11 @@ window.addEventListener('resize', handleResize);
 /* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
+=======
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
 	'use strict';
 	
@@ -71225,6 +77538,7 @@ window.addEventListener('resize', handleResize);
 	});
 	exports.default = gridmap;
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -71238,6 +77552,9 @@ window.addEventListener('resize', handleResize);
 =======
 	var _d = __webpack_require__(49);
 >>>>>>> Removed all checkout flow specific code - templates and js
+=======
+	var _d = __webpack_require__(46);
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	
 	var d3 = _interopRequireWildcard(_d);
 	
@@ -71511,6 +77828,7 @@ window.addEventListener('resize', handleResize);
 	    return chart;
 	}
 
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
@@ -71528,10 +77846,15 @@ window.addEventListener('resize', handleResize);
 =======
 /***/ }),
 /* 53 */
+=======
+/***/ }),
+/* 50 */
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 	
 	var _utilities = __webpack_require__(9);
@@ -71541,6 +77864,14 @@ window.addEventListener('resize', handleResize);
 	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
+=======
+	var _utilities = __webpack_require__(9);
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	}); /* global google */
+	
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	
 	var autocomplete = void 0;
 	var componentForm = {
@@ -71554,6 +77885,7 @@ window.addEventListener('resize', handleResize);
 	
 	var fillInAddress = function fillInAddress() {
 	    // Get the place details from the autocomplete object.
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	    var place = autocomplete.getPlace();
 	
 	    var _iteratorNormalCompletion = true;
@@ -71590,11 +77922,31 @@ window.addEventListener('resize', handleResize);
 	        var addressType = value.types[0];
 	        if (componentForm[addressType]) {
 	            var val = value[componentForm[addressType]];
+=======
+	    var placeAddressComponents = autocomplete.getPlace().address_components;
+	
+	    Object.entries(componentForm).map(function (key) {
+	        var formFieldName = key[0];
+	        document.getElementById(formFieldName).value = '';
+	        document.getElementById(formFieldName).disabled = false;
+	    });
+	
+	    // Get each component of the address from the place details
+	    // and fill the corresponding field on the form.
+	    placeAddressComponents.map(function (key) {
+	        var addressType = key.types[0];
+	        if (componentForm[addressType]) {
+	            var val = key[componentForm[addressType]];
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	            document.getElementById(addressType).value = val;
 	        }
 	    });
 	
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	    (0, _utilities.openPanel)(document.querySelector('#address'));
+=======
+	    (0, _utilities.openPanel)(document.getElementById('address'));
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	};
 	
 	var initAutocomplete = function initAutocomplete() {
@@ -71631,9 +77983,14 @@ window.addEventListener('resize', handleResize);
 	exports.geolocate = geolocate;
 
 /***/ }),
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 54 */
 /***/ (function(module, exports) {
 >>>>>>> Fixing header/nav issues
+=======
+/* 51 */
+/***/ (function(module, exports) {
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
 	"use strict";
 	
@@ -71853,8 +78210,12 @@ window.addEventListener('resize', handleResize);
 
 /***/ })
 /******/ ]);
+<<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 //# sourceMappingURL=script.js.map
 >>>>>>> Removed commented out window resize
 =======
 // window.addEventListener('resize', handleResize)
 >>>>>>> Removed unused js modules and fixed some linting errors
+=======
+//# sourceMappingURL=script.js.map
+>>>>>>> Fixed eslint errors and added a couple eslint disable rules
