@@ -21,14 +21,14 @@ class FormFields {
     }
 
     checkForContent(element) {
-        const container = this.getInputContainer(element);
+        const container = FormFields.getInputContainer(element);
         const callback = (element.value) ? addClass : removeClass;
 
         callback(container, HAS_CONTENT);
     }
 
     checkForErrors(element) {
-        removeClass(this.getInputContainer(element), HAS_ERROR);
+        removeClass(FormFields.getInputContainer(element), HAS_ERROR);
     }
 
     bindEvents(root) {
@@ -61,16 +61,16 @@ class FormFields {
         });
     }
 
-    getInputContainer(element) {
+    static getInputContainer(element) {
         return element.parentNode;
     }
 
     removeFocus(element) {
-        removeClass(this.getInputContainer(element), HAS_FOCUS);
+        removeClass(FormFields.getInputContainer(element), HAS_FOCUS);
     }
 
     giveFocus(element) {
-        addClass(this.getInputContainer(element), HAS_FOCUS);
+        addClass(FormFields.getInputContainer(element), HAS_FOCUS);
     }
 }
 

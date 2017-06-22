@@ -53,16 +53,6 @@ var Collapse = function () {
          */
 
     }, {
-        key: 'unbindEvents',
-
-
-        /**
-         * Unbinds the event listeners from the elements
-         */
-        value: function unbindEvents() {
-            this.listener.destroy();
-        }
-    }], [{
         key: 'doCollapse',
         value: function doCollapse(event, trigger) {
             event.preventDefault();
@@ -75,6 +65,16 @@ var Collapse = function () {
             } else {
                 (0, _utilities.show)(element, trigger);
             }
+        }
+
+        /**
+         * Unbinds the event listeners from the elements
+         */
+
+    }, {
+        key: 'unbindEvents',
+        value: function unbindEvents() {
+            this.listener.destroy();
         }
     }]);
 

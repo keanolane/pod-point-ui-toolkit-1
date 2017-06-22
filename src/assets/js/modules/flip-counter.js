@@ -1,3 +1,4 @@
+/* global Tick */
 import { addClass } from '@pod-point/dom-ops';
 import '../../plugins/flip-counter/flip/tick';
 

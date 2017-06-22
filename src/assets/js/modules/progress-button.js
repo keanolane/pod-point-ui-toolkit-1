@@ -1,3 +1,5 @@
+import { addClass, removeClass } from '@pod-point/dom-ops';
+
 const IS_LOADING = 'is-loading';
 const IS_COMPLETE = 'is-complete';
 
@@ -17,7 +19,7 @@ class ProgressButton {
      */
     handleLoading() {
         this.button.setAttribute('disabled', true);
-        this.button.classList.add(IS_LOADING);
+        addClass(this.button, IS_LOADING);
     }
 
     /**
@@ -26,11 +28,11 @@ class ProgressButton {
      * @param {boolean} success
      */
     handleComplete(success) {
-        this.button.classList.remove(IS_LOADING);
+        removeClass(this.button, IS_LOADING);
 
         if (success) {
             this.button.removeAttribute('disabled');
-            this.button.classList.add(IS_COMPLETE);
+            addClass(this.button, IS_COMPLETE);
         }
     }
 }

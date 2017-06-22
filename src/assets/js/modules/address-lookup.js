@@ -1,3 +1,4 @@
+/* global google */
 import { openPanel } from './../utilities';
 
 Object.defineProperty(exports, '__esModule', {

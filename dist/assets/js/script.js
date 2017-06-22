@@ -1,49 +1,6 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+'use strict';
 
+<<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 <<<<<<< 3eff1dd2a34dba635765e36e0fb8d2f02a4a52a4
 =======
@@ -314,1042 +271,49 @@ var _moduleLoader = require('@pod-point/module-loader');
 =======
 	// window.addEventListener('resize', handleResize)
 >>>>>>> Tickers work with mobile ones as well but needs to be refactored to initiate with javascript rather than data attributes. Doesnt seem to work using the snippet from the docs so I have submitted a support request
+=======
+var _moduleLoader = require('@pod-point/module-loader');
+>>>>>>> Removed unused js modules and fixed some linting errors
 
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+var _moduleLoader2 = _interopRequireDefault(_moduleLoader);
 
-	/*
-	    Module system
-	
-	    All modules export `init` methods.
-	
-	    Persistent modules:
-	        - Can be initialised once per page.
-	        - Can optionally export a `refresh` method.
-	        - Are maintained between page transitions.
-	*/
-	
-	// Other imports
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	
-	var _podPointUtils = __webpack_require__(2);
-	
-	var pageActive = false;
-	var modules = {};
-	
-	function init(newModules) {
-	    modules = newModules;
-	
-	    (0, _podPointUtils.each)(modules, function (module) {
-	        if (module.init) {
-	            module.init();
-	        }
-	    });
-	
-	    pageActive = true;
-	}
-	
-	function reload() {
-	    (0, _podPointUtils.each)(modules, function (module) {
-	        if (module.hasOwnProperty('refresh')) {
-	            module.refresh();
-	        }
-	    });
-	}
-	
-	exports['default'] = function (newModules) {
-	    if (pageActive) {
-	        reload();
-	    } else {
-	        init(newModules);
-	    }
-	};
-	
-	module.exports = exports['default'];
+var _domModuleLoader = require('@pod-point/dom-module-loader');
 
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
+var _domModuleLoader2 = _interopRequireDefault(_domModuleLoader);
 
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.each = each;
-	exports.throttle = throttle;
-	exports.whenCalm = whenCalm;
-	function each(props, callback) {
-	    if (!props) {
-	        return;
-	    }
-	
-	    var keys = Object.keys(props),
-	        numKeys = keys.length;
-	
-	    for (var i = 0; i < numKeys; i++) {
-	        var key = keys[i],
-	            prop = props[key];
-	
-	        if (callback(prop, key, props) === false) {
-	            break;
-	        }
-	    }
-	}
-	
-	function throttle(callback) {
-	    var limit = arguments.length <= 1 || arguments[1] === undefined ? 35 : arguments[1];
-	
-	    var wait = false;
-	
-	    return function () {
-	        if (!wait) {
-	            callback();
-	            wait = true;
-	
-	            setTimeout(function () {
-	                wait = false;
-	            }, limit);
-	        }
-	    };
-	}
-	
-	function whenCalm(callback) {
-	    var timeout = arguments.length <= 1 || arguments[1] === undefined ? 250 : arguments[1];
-	
-	    var timer = undefined;
-	
-	    return function () {
-	        clearTimeout(timer);
-	
-	        timer = setTimeout(function () {
-	            callback();
-	        }, timeout);
-	    };
-	}
+var _domOps = require('@pod-point/dom-ops');
 
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
+var dom = _interopRequireWildcard(_domOps);
 
-	/*
-	    DOM module handler, compatible with @pod-point/module-loader
-	
-	    All modules export `init` methods.
-	
-	    DOM modules:
-	        - Can be initialised multiple times per page.
-	        - Can optionally export a `destory` method.
-	        - Are destroyed between page transitions.
-	        - Initialised by adding the imported module name to an element's
-	            `data-js-module` attribute. Multiple names can be added and are
-	            space-delimited.
-	*/
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	
-	var _podPointDomOps = __webpack_require__(4);
-	
-	var DATA_TAG = 'data-js-module';
-	
-	var activeModules = [];
-	var domModules = {};
-	var definedDataTag = '';
-	
-	function init() {
-	    var moduleElements = (0, _podPointDomOps.nodesToArray)((0, _podPointDomOps.select)('[' + definedDataTag + ']'));
-	
-	    activeModules = [];
-	
-	    if (moduleElements) {
-	        moduleElements.forEach(function (element) {
-	            var modulesToLoad = element.getAttribute(definedDataTag).split(' ');
-	
-	            modulesToLoad.forEach(function (name) {
-	                var module = domModules[name];
-	
-	                if (module && module.init) {
-	                    module.init(element);
-	                    activeModules.push(module);
-	                }
-	            });
-	        });
-	    }
-	}
-	
-	function refresh() {
-	    activeModules.forEach(function (module) {
-	        if (module.hasOwnProperty('destroy')) {
-	            module.destroy();
-	        }
-	    });
-	
-	    init();
-	}
-	
-	exports['default'] = function (modules) {
-	    var dataTag = arguments.length <= 1 || arguments[1] === undefined ? DATA_TAG : arguments[1];
-	
-	    domModules = modules;
-	    definedDataTag = dataTag;
-	    return { init: init, refresh: refresh };
-	};
-	
-	module.exports = exports['default'];
+require('./modules/base');
 
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
+var _modal = require('./modules/modal');
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.select = select;
-	exports.selectFirst = selectFirst;
-	exports.selectById = selectById;
-	exports.closest = closest;
-	exports.nextElement = nextElement;
-	exports.parent = parent;
-	exports.child = child;
-	exports.create = create;
-	exports.addClass = addClass;
-	exports.removeClass = removeClass;
-	exports.appendChild = appendChild;
-	exports.removeChild = removeChild;
-	exports.clone = clone;
-	exports.insertBefore = insertBefore;
-	exports.insertAfter = insertAfter;
-	exports.insertStart = insertStart;
-	exports.insertEnd = insertEnd;
-	exports.empty = empty;
-	exports.hasClass = hasClass;
-	exports.matches = matches;
-	exports.nodesToArray = nodesToArray;
-	exports.whenReady = whenReady;
-	/*
-	    ==============================================================
-	    SELECTION
-	    ==============================================================
-	*/
-	function select(selector) {
-	    var root = arguments.length <= 1 || arguments[1] === undefined ? document : arguments[1];
-	
-	    var selection = root.querySelectorAll(selector);
-	
-	    return selection.length ? selection : null;
-	}
-	
-	function selectFirst(selector) {
-	    var root = arguments.length <= 1 || arguments[1] === undefined ? document : arguments[1];
-	
-	    return root.querySelector(selector);
-	}
-	
-	function selectById(id) {
-	    return document.getElementById(id);
-	}
-	
-	/*
-	    ==============================================================
-	    TRAVERSAL
-	    ==============================================================
-	*/
-	
-	function closest(element, selector) {
-	    var closest;
-	
-	    while (!closest) {
-	        if (matches(element, selector)) {
-	            closest = element;
-	        }
-	
-	        element = parent(element);
-	
-	        if (!element || element === document) {
-	            break;
-	        }
-	    }
-	
-	    return closest;
-	}
-	
-	function nextElement(element) {
-	    return element.nextElementSibling;
-	}
-	
-	function parent(element) {
-	    return element.parentNode;
-	}
-	
-	// Currently undocumented - `select` performs this operation
-	function child(element, selector) {
-	    return element.querySelectorAll(selector);
-	}
-	
-	/*
-	    ==============================================================
-	    MANIPULATION
-	    ==============================================================
-	*/
-	function create() {
-	    var tag = arguments.length <= 0 || arguments[0] === undefined ? 'div' : arguments[0];
-	
-	    return document.createElement(tag);
-	}
-	
-	function addClass(element, className) {
-	    nodesToArray(element).forEach(function (node) {
-	        return node.classList.add(className);
-	    });
-	}
-	
-	function removeClass(element, className) {
-	    nodesToArray(element).forEach(function (node) {
-	        return node.classList.remove(className);
-	    });
-	}
-	
-	function appendChild(host, element) {
-	    host.appendChild(element);
-	}
-	
-	function removeChild(host, element) {
-	    host.removeChild(element);
-	}
-	
-	function clone(element) {
-	    return element.cloneNode(true);
-	}
-	
-	function insertBefore(element, html) {
-	    element.insertAdjacentHTML('beforebegin', html);
-	}
-	
-	function insertAfter(element, html) {
-	    element.insertAdjacentHTML('afterend', html);
-	}
-	
-	function insertStart(element, html) {
-	    element.insertAdjacentHTML('afterbegin', html);
-	}
-	
-	function insertEnd(element, html) {
-	    element.insertAdjacentHTML('beforeend', html);
-	}
-	
-	function empty(element) {
-	    nodesToArray(element).forEach(function (node) {
-	        while (node.firstChild) {
-	            node.removeChild(node.firstChild);
-	        }
-	    });
-	}
-	
-	/*
-	    ==============================================================
-	    IDENTIFICATION
-	    ==============================================================
-	*/
-	
-	function hasClass(element, className) {
-	    var hasClass = true;
-	    nodesToArray(element).forEach(function (node) {
-	        if (!node.classList.contains(className)) {
-	            hasClass = false;
-	        }
-	    });
-	    return hasClass;
-	}
-	
-	function matches(element, selector) {
-	    return (element.matches || element.matchesSelector || element.msMatchesSelector).call(element, selector);
-	}
-	
-	/*
-	    ==============================================================
-	    HELPERS
-	    ==============================================================
-	*/
-	
-	function nodesToArray(nodes) {
-	    if (!nodes || nodes.length === 0) {
-	        return false;
-	    } else {
-	        return nodes.length ? [].slice.call(nodes) : [nodes];
-	    }
-	}
-	
-	function whenReady(callback) {
-	    if (document.readyState != 'loading') {
-	        callback();
-	    } else {
-	        document.addEventListener('DOMContentLoaded', callback);
-	    }
-	}
+var _modal2 = _interopRequireDefault(_modal);
 
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+var _ajaxForm = require('./modules/ajax-form');
 
-	'use strict';
-	
-	var _domOps = __webpack_require__(4);
-	
-	var defineSizeAndDevice = function defineSizeAndDevice() {
-	    window.isTouchDevice = 'ontouchstart' in document.documentElement;
-	    var winWidthMedium = 800;
-	    var winWidth = window.innerWidth;
-	    window.isMobileSize = winWidth < winWidthMedium;
-	    window.onload = function () {
-	        window.isTouchDevice ? (0, _domOps.addClass)(document.body, 'is-touch') : (0, _domOps.addClass)(document.body, 'is-desktop');
-	    };
-	};
-	
-	defineSizeAndDevice();
+var _ajaxForm2 = _interopRequireDefault(_ajaxForm);
 
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
+var _formFields = require('./modules/form-fields');
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _domDelegate = __webpack_require__(7);
-	
-	var _domOps = __webpack_require__(4);
-	
-	var _utilities = __webpack_require__(9);
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var instances = [];
-	var MODAL_OPEN = 'is-modal-open';
-	
-	var Modal = function () {
-	
-	    /**
-	     * Creates a new modal window
-	     *
-	     * @param {element}
-	     */
-	    function Modal(element) {
-	        _classCallCheck(this, Modal);
-	
-	        this.openButton = element;
-	        var modalID = this.openButton.getAttribute('data-modal');
-	        this.modal = document.querySelector('#' + modalID);
-	        this.closeButton = this.modal.querySelector('.modal-close');
-	        this.video = this.modal.querySelector('.video-wrapper iframe');
-	
-	        this.bindEvents();
-	    }
-	
-	    /**
-	     * Binds the event listeners from the elements
-	     */
-	
-	
-	    _createClass(Modal, [{
-	        key: 'bindEvents',
-	        value: function bindEvents() {
-	            var _this = this;
-	
-	            this.openListener = new _domDelegate.Delegate(this.openButton);
-	
-	            this.openListener.on('click', function () {
-	                _this.openModal();
-	            });
-	
-	            this.closeListener = new _domDelegate.Delegate(this.closeButton);
-	
-	            this.closeListener.on('click', function (event) {
-	                event.preventDefault();
-	                _this.closeModal();
-	            });
-	
-	            this.overlayListener = new _domDelegate.Delegate(this.modal);
-	
-	            this.overlayListener.on('click', function (event) {
-	                if (event.target === _this.modal) {
-	                    _this.closeModal();
-	                }
-	            });
-	
-	            this.windowListener = new _domDelegate.Delegate(document.body);
-	
-	            this.windowListener.on('keyup', function (event) {
-	                if (event.keyCode === 27) {
-	                    _this.closeModal();
-	                }
-	            });
-	        }
-	
-	        /**
-	         * Handle the modal opening
-	         *
-	         * @param {event}
-	         */
-	
-	    }, {
-	        key: 'doModal',
-	        value: function doModal(event) {
-	            event.preventDefault();
-	
-	            if ((0, _utilities.isVisible)(this.modal)) {
-	                this.closeModal();
-	            } else {
-	                this.openModal();
-	            }
-	        }
-	
-	        /**
-	         * Handle the modal opening
-	         */
-	
-	    }, {
-	        key: 'openModal',
-	        value: function openModal() {
-	            (0, _domOps.addClass)(document.documentElement, MODAL_OPEN);
-	            (0, _utilities.show)(this.modal);
-	
-	            if (this.video) {
-	                (0, _utilities.loadVideo)(this.video, true);
-	            }
-	
-	            var overlay = document.createElement('div');
-	            overlay.className = 'modal-overlay';
-	            document.body.appendChild(overlay);
-	        }
-	
-	        /**
-	         * Handle the modal closing
-	         */
-	
-	    }, {
-	        key: 'closeModal',
-	        value: function closeModal() {
-	            (0, _domOps.removeClass)(document.documentElement, MODAL_OPEN);
-	            (0, _utilities.hide)(this.modal);
-	
-	            if (this.video) {
-	                (0, _utilities.loadVideo)(this.video, false);
-	            }
-	
-	            var overlay = document.querySelector('.modal-overlay');
-	            if (overlay !== null) {
-	                document.body.removeChild(overlay);
-	            }
-	        }
-	
-	        /**
-	         * Unbinds the event listeners from the elements
-	         */
-	
-	    }, {
-	        key: 'unbindEvents',
-	        value: function unbindEvents() {
-	            this.openListener.destroy();
-	            this.closeListener.destroy();
-	            this.overlayListener.destroy();
-	            this.windowListener.destroy();
-	        }
-	    }]);
-	
-	    return Modal;
-	}();
-	
-	exports.default = {
-	    init: function init(element) {
-	        instances.push(new Modal(element));
-	    },
-	
-	    destroy: function destroy() {
-	        instances.forEach(function (instance) {
-	            return instance.unbindEvents();
-	        });
-	        instances = [];
-	    }
-	};
+var _formFields2 = _interopRequireDefault(_formFields);
 
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
+var _toggleAccordionPanel = require('./modules/toggle-accordion-panel');
 
-	/*jshint browser:true, node:true*/
-	
-	'use strict';
-	
-	/**
-	 * @preserve Create and manage a DOM event delegator.
-	 *
-	 * @version 0.3.0
-	 * @codingstandard ftlabs-jsv2
-	 * @copyright The Financial Times Limited [All Rights Reserved]
-	 * @license MIT License (see LICENSE.txt)
-	 */
-	var Delegate = __webpack_require__(8);
-	
-	module.exports = function(root) {
-	  return new Delegate(root);
-	};
-	
-	module.exports.Delegate = Delegate;
+var _toggleAccordionPanel2 = _interopRequireDefault(_toggleAccordionPanel);
 
+var _toggleElement = require('./modules/toggle-element');
 
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
+var _toggleElement2 = _interopRequireDefault(_toggleElement);
 
-	/*jshint browser:true, node:true*/
-	
-	'use strict';
-	
-	module.exports = Delegate;
-	
-	/**
-	 * DOM event delegator
-	 *
-	 * The delegator will listen
-	 * for events that bubble up
-	 * to the root node.
-	 *
-	 * @constructor
-	 * @param {Node|string} [root] The root node or a selector string matching the root node
-	 */
-	function Delegate(root) {
-	
-	  /**
-	   * Maintain a map of listener
-	   * lists, keyed by event name.
-	   *
-	   * @type Object
-	   */
-	  this.listenerMap = [{}, {}];
-	  if (root) {
-	    this.root(root);
-	  }
-	
-	  /** @type function() */
-	  this.handle = Delegate.prototype.handle.bind(this);
-	}
-	
-	/**
-	 * Start listening for events
-	 * on the provided DOM element
-	 *
-	 * @param  {Node|string} [root] The root node or a selector string matching the root node
-	 * @returns {Delegate} This method is chainable
-	 */
-	Delegate.prototype.root = function(root) {
-	  var listenerMap = this.listenerMap;
-	  var eventType;
-	
-	  // Remove master event listeners
-	  if (this.rootElement) {
-	    for (eventType in listenerMap[1]) {
-	      if (listenerMap[1].hasOwnProperty(eventType)) {
-	        this.rootElement.removeEventListener(eventType, this.handle, true);
-	      }
-	    }
-	    for (eventType in listenerMap[0]) {
-	      if (listenerMap[0].hasOwnProperty(eventType)) {
-	        this.rootElement.removeEventListener(eventType, this.handle, false);
-	      }
-	    }
-	  }
-	
-	  // If no root or root is not
-	  // a dom node, then remove internal
-	  // root reference and exit here
-	  if (!root || !root.addEventListener) {
-	    if (this.rootElement) {
-	      delete this.rootElement;
-	    }
-	    return this;
-	  }
-	
-	  /**
-	   * The root node at which
-	   * listeners are attached.
-	   *
-	   * @type Node
-	   */
-	  this.rootElement = root;
-	
-	  // Set up master event listeners
-	  for (eventType in listenerMap[1]) {
-	    if (listenerMap[1].hasOwnProperty(eventType)) {
-	      this.rootElement.addEventListener(eventType, this.handle, true);
-	    }
-	  }
-	  for (eventType in listenerMap[0]) {
-	    if (listenerMap[0].hasOwnProperty(eventType)) {
-	      this.rootElement.addEventListener(eventType, this.handle, false);
-	    }
-	  }
-	
-	  return this;
-	};
-	
-	/**
-	 * @param {string} eventType
-	 * @returns boolean
-	 */
-	Delegate.prototype.captureForType = function(eventType) {
-	  return ['blur', 'error', 'focus', 'load', 'resize', 'scroll'].indexOf(eventType) !== -1;
-	};
-	
-	/**
-	 * Attach a handler to one
-	 * event for all elements
-	 * that match the selector,
-	 * now or in the future
-	 *
-	 * The handler function receives
-	 * three arguments: the DOM event
-	 * object, the node that matched
-	 * the selector while the event
-	 * was bubbling and a reference
-	 * to itself. Within the handler,
-	 * 'this' is equal to the second
-	 * argument.
-	 *
-	 * The node that actually received
-	 * the event can be accessed via
-	 * 'event.target'.
-	 *
-	 * @param {string} eventType Listen for these events
-	 * @param {string|undefined} selector Only handle events on elements matching this selector, if undefined match root element
-	 * @param {function()} handler Handler function - event data passed here will be in event.data
-	 * @param {Object} [eventData] Data to pass in event.data
-	 * @returns {Delegate} This method is chainable
-	 */
-	Delegate.prototype.on = function(eventType, selector, handler, useCapture) {
-	  var root, listenerMap, matcher, matcherParam;
-	
-	  if (!eventType) {
-	    throw new TypeError('Invalid event type: ' + eventType);
-	  }
-	
-	  // handler can be passed as
-	  // the second or third argument
-	  if (typeof selector === 'function') {
-	    useCapture = handler;
-	    handler = selector;
-	    selector = null;
-	  }
-	
-	  // Fallback to sensible defaults
-	  // if useCapture not set
-	  if (useCapture === undefined) {
-	    useCapture = this.captureForType(eventType);
-	  }
-	
-	  if (typeof handler !== 'function') {
-	    throw new TypeError('Handler must be a type of Function');
-	  }
-	
-	  root = this.rootElement;
-	  listenerMap = this.listenerMap[useCapture ? 1 : 0];
-	
-	  // Add master handler for type if not created yet
-	  if (!listenerMap[eventType]) {
-	    if (root) {
-	      root.addEventListener(eventType, this.handle, useCapture);
-	    }
-	    listenerMap[eventType] = [];
-	  }
-	
-	  if (!selector) {
-	    matcherParam = null;
-	
-	    // COMPLEX - matchesRoot needs to have access to
-	    // this.rootElement, so bind the function to this.
-	    matcher = matchesRoot.bind(this);
-	
-	  // Compile a matcher for the given selector
-	  } else if (/^[a-z]+$/i.test(selector)) {
-	    matcherParam = selector;
-	    matcher = matchesTag;
-	  } else if (/^#[a-z0-9\-_]+$/i.test(selector)) {
-	    matcherParam = selector.slice(1);
-	    matcher = matchesId;
-	  } else {
-	    matcherParam = selector;
-	    matcher = matches;
-	  }
-	
-	  // Add to the list of listeners
-	  listenerMap[eventType].push({
-	    selector: selector,
-	    handler: handler,
-	    matcher: matcher,
-	    matcherParam: matcherParam
-	  });
-	
-	  return this;
-	};
-	
-	/**
-	 * Remove an event handler
-	 * for elements that match
-	 * the selector, forever
-	 *
-	 * @param {string} [eventType] Remove handlers for events matching this type, considering the other parameters
-	 * @param {string} [selector] If this parameter is omitted, only handlers which match the other two will be removed
-	 * @param {function()} [handler] If this parameter is omitted, only handlers which match the previous two will be removed
-	 * @returns {Delegate} This method is chainable
-	 */
-	Delegate.prototype.off = function(eventType, selector, handler, useCapture) {
-	  var i, listener, listenerMap, listenerList, singleEventType;
-	
-	  // Handler can be passed as
-	  // the second or third argument
-	  if (typeof selector === 'function') {
-	    useCapture = handler;
-	    handler = selector;
-	    selector = null;
-	  }
-	
-	  // If useCapture not set, remove
-	  // all event listeners
-	  if (useCapture === undefined) {
-	    this.off(eventType, selector, handler, true);
-	    this.off(eventType, selector, handler, false);
-	    return this;
-	  }
-	
-	  listenerMap = this.listenerMap[useCapture ? 1 : 0];
-	  if (!eventType) {
-	    for (singleEventType in listenerMap) {
-	      if (listenerMap.hasOwnProperty(singleEventType)) {
-	        this.off(singleEventType, selector, handler);
-	      }
-	    }
-	
-	    return this;
-	  }
-	
-	  listenerList = listenerMap[eventType];
-	  if (!listenerList || !listenerList.length) {
-	    return this;
-	  }
-	
-	  // Remove only parameter matches
-	  // if specified
-	  for (i = listenerList.length - 1; i >= 0; i--) {
-	    listener = listenerList[i];
-	
-	    if ((!selector || selector === listener.selector) && (!handler || handler === listener.handler)) {
-	      listenerList.splice(i, 1);
-	    }
-	  }
-	
-	  // All listeners removed
-	  if (!listenerList.length) {
-	    delete listenerMap[eventType];
-	
-	    // Remove the main handler
-	    if (this.rootElement) {
-	      this.rootElement.removeEventListener(eventType, this.handle, useCapture);
-	    }
-	  }
-	
-	  return this;
-	};
-	
-	
-	/**
-	 * Handle an arbitrary event.
-	 *
-	 * @param {Event} event
-	 */
-	Delegate.prototype.handle = function(event) {
-	  var i, l, type = event.type, root, phase, listener, returned, listenerList = [], target, /** @const */ EVENTIGNORE = 'ftLabsDelegateIgnore';
-	
-	  if (event[EVENTIGNORE] === true) {
-	    return;
-	  }
-	
-	  target = event.target;
-	
-	  // Hardcode value of Node.TEXT_NODE
-	  // as not defined in IE8
-	  if (target.nodeType === 3) {
-	    target = target.parentNode;
-	  }
-	
-	  root = this.rootElement;
-	
-	  phase = event.eventPhase || ( event.target !== event.currentTarget ? 3 : 2 );
-	  
-	  switch (phase) {
-	    case 1: //Event.CAPTURING_PHASE:
-	      listenerList = this.listenerMap[1][type];
-	    break;
-	    case 2: //Event.AT_TARGET:
-	      if (this.listenerMap[0] && this.listenerMap[0][type]) listenerList = listenerList.concat(this.listenerMap[0][type]);
-	      if (this.listenerMap[1] && this.listenerMap[1][type]) listenerList = listenerList.concat(this.listenerMap[1][type]);
-	    break;
-	    case 3: //Event.BUBBLING_PHASE:
-	      listenerList = this.listenerMap[0][type];
-	    break;
-	  }
-	
-	  // Need to continuously check
-	  // that the specific list is
-	  // still populated in case one
-	  // of the callbacks actually
-	  // causes the list to be destroyed.
-	  l = listenerList.length;
-	  while (target && l) {
-	    for (i = 0; i < l; i++) {
-	      listener = listenerList[i];
-	
-	      // Bail from this loop if
-	      // the length changed and
-	      // no more listeners are
-	      // defined between i and l.
-	      if (!listener) {
-	        break;
-	      }
-	
-	      // Check for match and fire
-	      // the event if there's one
-	      //
-	      // TODO:MCG:20120117: Need a way
-	      // to check if event#stopImmediatePropagation
-	      // was called. If so, break both loops.
-	      if (listener.matcher.call(target, listener.matcherParam, target)) {
-	        returned = this.fire(event, target, listener);
-	      }
-	
-	      // Stop propagation to subsequent
-	      // callbacks if the callback returned
-	      // false
-	      if (returned === false) {
-	        event[EVENTIGNORE] = true;
-	        event.preventDefault();
-	        return;
-	      }
-	    }
-	
-	    // TODO:MCG:20120117: Need a way to
-	    // check if event#stopPropagation
-	    // was called. If so, break looping
-	    // through the DOM. Stop if the
-	    // delegation root has been reached
-	    if (target === root) {
-	      break;
-	    }
-	
-	    l = listenerList.length;
-	    target = target.parentElement;
-	  }
-	};
-	
-	/**
-	 * Fire a listener on a target.
-	 *
-	 * @param {Event} event
-	 * @param {Node} target
-	 * @param {Object} listener
-	 * @returns {boolean}
-	 */
-	Delegate.prototype.fire = function(event, target, listener) {
-	  return listener.handler.call(target, event, target);
-	};
-	
-	/**
-	 * Check whether an element
-	 * matches a generic selector.
-	 *
-	 * @type function()
-	 * @param {string} selector A CSS selector
-	 */
-	var matches = (function(el) {
-	  if (!el) return;
-	  var p = el.prototype;
-	  return (p.matches || p.matchesSelector || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector || p.oMatchesSelector);
-	}(Element));
-	
-	/**
-	 * Check whether an element
-	 * matches a tag selector.
-	 *
-	 * Tags are NOT case-sensitive,
-	 * except in XML (and XML-based
-	 * languages such as XHTML).
-	 *
-	 * @param {string} tagName The tag name to test against
-	 * @param {Element} element The element to test with
-	 * @returns boolean
-	 */
-	function matchesTag(tagName, element) {
-	  return tagName.toLowerCase() === element.tagName.toLowerCase();
-	}
-	
-	/**
-	 * Check whether an element
-	 * matches the root.
-	 *
-	 * @param {?String} selector In this case this is always passed through as null and not used
-	 * @param {Element} element The element to test with
-	 * @returns boolean
-	 */
-	function matchesRoot(selector, element) {
-	  /*jshint validthis:true*/
-	  if (this.rootElement === window) return element === document;
-	  return this.rootElement === element;
-	}
-	
-	/**
-	 * Check whether the ID of
-	 * the element in 'this'
-	 * matches the given ID.
-	 *
-	 * IDs are case-sensitive.
-	 *
-	 * @param {string} id The ID to test against
-	 * @param {Element} element The element to test with
-	 * @returns boolean
-	 */
-	function matchesId(id, element) {
-	  return id === element.id;
-	}
-	
-	/**
-	 * Short hand for off()
-	 * and root(), ie both
-	 * with no parameters
-	 *
-	 * @return void
-	 */
-	Delegate.prototype.destroy = function() {
-	  this.off();
-	  this.root();
-	};
+var _gallerySimple = require('./modules/gallery-simple');
 
+var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
 
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+var _accordion = require('./modules/accordion');
 
+<<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
 <<<<<<< 3eff1dd2a34dba635765e36e0fb8d2f02a4a52a4
 =======
@@ -1780,11 +744,17 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	        instances = [];
 	    }
 	};
+=======
+var _accordion2 = _interopRequireDefault(_accordion);
 
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+var _headerNav = require('./modules/header-nav');
 
+var _headerNav2 = _interopRequireDefault(_headerNav);
+>>>>>>> Removed unused js modules and fixed some linting errors
+
+var _carousel = require('./modules/carousel');
+
+<<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
 	/**
 	 * Module dependencies.
 	 */
@@ -2888,181 +1858,21 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	  if (fn) req.end(fn);
 	  return req;
 	};
+=======
+var _carousel2 = _interopRequireDefault(_carousel);
+>>>>>>> Removed unused js modules and fixed some linting errors
 
+var _flipCounter = require('./modules/flip-counter');
 
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
+var _flipCounter2 = _interopRequireDefault(_flipCounter);
 
-	
-	/**
-	 * Expose `Emitter`.
-	 */
-	
-	if (true) {
-	  module.exports = Emitter;
-	}
-	
-	/**
-	 * Initialize a new `Emitter`.
-	 *
-	 * @api public
-	 */
-	
-	function Emitter(obj) {
-	  if (obj) return mixin(obj);
-	};
-	
-	/**
-	 * Mixin the emitter properties.
-	 *
-	 * @param {Object} obj
-	 * @return {Object}
-	 * @api private
-	 */
-	
-	function mixin(obj) {
-	  for (var key in Emitter.prototype) {
-	    obj[key] = Emitter.prototype[key];
-	  }
-	  return obj;
-	}
-	
-	/**
-	 * Listen on the given `event` with `fn`.
-	 *
-	 * @param {String} event
-	 * @param {Function} fn
-	 * @return {Emitter}
-	 * @api public
-	 */
-	
-	Emitter.prototype.on =
-	Emitter.prototype.addEventListener = function(event, fn){
-	  this._callbacks = this._callbacks || {};
-	  (this._callbacks['$' + event] = this._callbacks['$' + event] || [])
-	    .push(fn);
-	  return this;
-	};
-	
-	/**
-	 * Adds an `event` listener that will be invoked a single
-	 * time then automatically removed.
-	 *
-	 * @param {String} event
-	 * @param {Function} fn
-	 * @return {Emitter}
-	 * @api public
-	 */
-	
-	Emitter.prototype.once = function(event, fn){
-	  function on() {
-	    this.off(event, on);
-	    fn.apply(this, arguments);
-	  }
-	
-	  on.fn = fn;
-	  this.on(event, on);
-	  return this;
-	};
-	
-	/**
-	 * Remove the given callback for `event` or all
-	 * registered callbacks.
-	 *
-	 * @param {String} event
-	 * @param {Function} fn
-	 * @return {Emitter}
-	 * @api public
-	 */
-	
-	Emitter.prototype.off =
-	Emitter.prototype.removeListener =
-	Emitter.prototype.removeAllListeners =
-	Emitter.prototype.removeEventListener = function(event, fn){
-	  this._callbacks = this._callbacks || {};
-	
-	  // all
-	  if (0 == arguments.length) {
-	    this._callbacks = {};
-	    return this;
-	  }
-	
-	  // specific event
-	  var callbacks = this._callbacks['$' + event];
-	  if (!callbacks) return this;
-	
-	  // remove all handlers
-	  if (1 == arguments.length) {
-	    delete this._callbacks['$' + event];
-	    return this;
-	  }
-	
-	  // remove specific handler
-	  var cb;
-	  for (var i = 0; i < callbacks.length; i++) {
-	    cb = callbacks[i];
-	    if (cb === fn || cb.fn === fn) {
-	      callbacks.splice(i, 1);
-	      break;
-	    }
-	  }
-	  return this;
-	};
-	
-	/**
-	 * Emit `event` with the given args.
-	 *
-	 * @param {String} event
-	 * @param {Mixed} ...
-	 * @return {Emitter}
-	 */
-	
-	Emitter.prototype.emit = function(event){
-	  this._callbacks = this._callbacks || {};
-	  var args = [].slice.call(arguments, 1)
-	    , callbacks = this._callbacks['$' + event];
-	
-	  if (callbacks) {
-	    callbacks = callbacks.slice(0);
-	    for (var i = 0, len = callbacks.length; i < len; ++i) {
-	      callbacks[i].apply(this, args);
-	    }
-	  }
-	
-	  return this;
-	};
-	
-	/**
-	 * Return array of callbacks for `event`.
-	 *
-	 * @param {String} event
-	 * @return {Array}
-	 * @api public
-	 */
-	
-	Emitter.prototype.listeners = function(event){
-	  this._callbacks = this._callbacks || {};
-	  return this._callbacks['$' + event] || [];
-	};
-	
-	/**
-	 * Check if this emitter has `event` handlers.
-	 *
-	 * @param {String} event
-	 * @return {Boolean}
-	 * @api public
-	 */
-	
-	Emitter.prototype.hasListeners = function(event){
-	  return !! this.listeners(event).length;
-	};
+var _evMap = require('./modules/ev-map');
 
+var _evMap2 = _interopRequireDefault(_evMap);
 
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
+var _addressLookup = require('./modules/address-lookup');
 
+<<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
 	// Pass this if window is not defined yet
@@ -3083,11 +1893,13 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	  
 	  return curr;
 	};
+=======
+var addressLookup = _interopRequireWildcard(_addressLookup);
+>>>>>>> Removed unused js modules and fixed some linting errors
 
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+<<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
@@ -3154,12 +1966,17 @@ var _toggle2 = _interopRequireDefault(_toggle);
 	  this._getFormData().append(name, val);
 	  return this;
 	};
+=======
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+>>>>>>> Removed unused js modules and fixed some linting errors
 
+require('./shims/classList.js');
 
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
+window.initAutocomplete = addressLookup.initAutocomplete;
+window.geolocate = addressLookup.geolocate;
+window.fillInAddress = addressLookup.fillInAddress;
 
+<<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
 	/**
 	 * Check if `obj` is an object.
 	 *
@@ -3177,12 +1994,43 @@ var _toggle2 = _interopRequireDefault(_toggle);
 		jQuery = function( selector, context ) {
 =======
 	module.exports = isObject;
+=======
+dom.whenReady(function () {
+    (0, _moduleLoader2.default)({
+        formFields: _formFields2.default,
+        domModules: (0, _domModuleLoader2.default)({
+            modal: _modal2.default,
+            ajaxForm: _ajaxForm2.default,
+            toggleAccordionPanel: _toggleAccordionPanel2.default,
+            toggleElement: _toggleElement2.default,
+            gallerySimple: _gallerySimple2.default,
+            headerNav: _headerNav2.default,
+            accordion: _accordion2.default,
+            carousel: _carousel2.default,
+            addressLookup: addressLookup,
+            flipCounter: _flipCounter2.default,
+            evMap: _evMap2.default
+        })
+    });
+});
+>>>>>>> Removed unused js modules and fixed some linting errors
 
+// function debounce(callback, wait, context = this) {
+//     let timeout = null;
+//     let callbackArgs = null;
+//     const later = () => callback.apply(context, callbackArgs);
 
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
+//     return () => {
+//         callbackArgs = arguments;
+//         clearTimeout(timeout);
+//         timeout = setTimeout(later, wait);
+//     };
+// }
+// const handleResize = debounce((e) => {
+//     loadModules();
+// }, 100);
 
+<<<<<<< cfc3a8ab687543e137e9c7b64f70a55417fb04a3
 	// The node and browser modules expose versions of this with the
 	// appropriate constructor function bound as first argument
 	/**
@@ -73007,3 +71855,6 @@ window.addEventListener('resize', handleResize);
 /******/ ]);
 //# sourceMappingURL=script.js.map
 >>>>>>> Removed commented out window resize
+=======
+// window.addEventListener('resize', handleResize)
+>>>>>>> Removed unused js modules and fixed some linting errors
