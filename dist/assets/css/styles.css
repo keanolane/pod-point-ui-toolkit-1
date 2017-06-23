@@ -199,6 +199,16 @@ table {
   100% {
     opacity: 0; } }
 
+@keyframes popUpFadeIn {
+  0% {
+    top: 100px;
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  100% {
+    top: 0px;
+    opacity: 1; } }
+
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -2081,12 +2091,16 @@ img {
 .global-header-wrap + .bg--white {
   border-top: 1px solid #e2e2e2; }
 
-.bg--very-dark-gray {
+.bg--dark-gray {
   background-color: #4d4d4d;
   color: white; }
 
+.bg--very-dark-gray {
+  background-color: #2a2a2a;
+  color: white; }
+
 .bg--very-light-gray {
-  background-color: #f9fafa; }
+  background-color: #f2f2f2; }
 
 .bg--light-gray {
   background-color: #f2f2f2; }
@@ -3165,17 +3179,38 @@ img {
     background-color: #b3b3b3; }
 
 .hero {
+  position: relative;
   overflow: hidden; }
+  .hero .container {
+    position: relative;
+    z-index: 3; }
   .hero .content-block {
     min-height: 300px; }
     @media (min-width: 50em) {
       .hero .content-block {
         min-height: 420px; } }
   .hero__content {
+    position: relative;
+    animation: popUpFadeIn 2s;
     max-width: 300px; }
     @media (min-width: 50em) {
       .hero__content {
         max-width: 500px; } }
+  .hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4d4d4d;
+    opacity: 1;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+    animation-name: fadeOut;
+    animation-delay: 1s; }
   .hero--home .network-right,
   .hero--home .network-left {
     display: none;
@@ -3551,14 +3586,14 @@ img {
   position: relative; }
   .flip-counter-section:after {
     content: '';
-    width: 100%;
-    height: 100%;
-    background-color: #4d4d4d;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2a2a2a;
     z-index: 1;
     opacity: 1;
     transition: opacity 1s ease-in; }
