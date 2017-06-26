@@ -78336,6 +78336,7 @@ window.addEventListener('resize', handleResize);
 
 /***/ })
 /******/ ]);
+<<<<<<< fab84818faf9162ba86750571974552018aca549
 <<<<<<< 58134c93bf563f17251b7da846b345d424f5e7fb
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 //# sourceMappingURL=script.js.map
@@ -78349,3 +78350,6 @@ window.addEventListener('resize', handleResize);
 =======
 //# sourceMappingURL=script.js.map
 >>>>>>> Added fade out on map marker
+=======
+//# sourceMappingURL=script.js.map
+>>>>>>> Removed console logging
