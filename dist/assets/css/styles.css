@@ -3098,6 +3098,9 @@ img {
   top: 0;
   right: -20%;
   left: auto; }
+  @media (max-width: 68em) {
+    .ev-map {
+      display: none; } }
   @media (min-width: 68em) {
     .ev-map {
       right: -9.5%; } }
