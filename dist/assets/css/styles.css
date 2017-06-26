@@ -884,63 +884,6 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
   font-weight: 700;
   text-decoration: underline; }
 
-.rich-text--featured {
-  margin: 0;
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  font-size: 1rem;
-  line-height: 1.5;
-  padding-bottom: 0.5em; }
-  @media (min-width: 50em) {
-    .rich-text--featured {
-      font-size: 1rem; } }
-  @media (min-width: 50em) {
-    .rich-text--featured {
-      line-height: 1.2;
-      font-size: 1.25rem; } }
-  .rich-text--featured:last-child {
-    padding-bottom: 0; }
-  .rich-text--featured ul {
-    margin-top: 20px;
-    padding-left: 0; }
-    .rich-text--featured ul li {
-      margin: 0;
-      font-weight: 400;
-      font-size: 0.875rem;
-      line-height: 1.5;
-      font-size: 1rem;
-      line-height: 1.5;
-      padding-bottom: 0.5em;
-      position: relative;
-      list-style: none;
-      font-weight: 700;
-      padding-bottom: 15px;
-      padding-left: 30px; }
-      @media (min-width: 50em) {
-        .rich-text--featured ul li {
-          font-size: 1rem; } }
-      @media (min-width: 50em) {
-        .rich-text--featured ul li {
-          line-height: 1.2;
-          font-size: 1.25rem; } }
-      .rich-text--featured ul li:last-child {
-        padding-bottom: 0; }
-      @media (min-width: 50em) {
-        .rich-text--featured ul li {
-          padding-bottom: 30px; } }
-      .rich-text--featured ul li:last-child {
-        padding-bottom: 0; }
-      .rich-text--featured ul li:before {
-        content: '';
-        position: absolute;
-        top: 4px;
-        left: 0;
-        background-image: url("../img/toolkit/css-bg/icons/tick-green.svg");
-        background-size: cover;
-        width: 18px;
-        height: 18px; }
-
 .table {
   width: 100%;
   max-width: 100%;

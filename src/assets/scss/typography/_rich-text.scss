@@ -60,33 +60,4 @@ $typography-vertical-spacing: 0.5em;
 		font-weight: $font-weight-bold;
 		text-decoration: underline;
 	}
-	&--featured {
-		@include font-style-large;
-		ul {
-			margin-top: 20px;
-			padding-left: 0;
-			li {
-				@include font-style-large;
-				position: relative;
-				list-style: none;
-				font-weight: $font-weight-bold;
-				padding-bottom: 15px;
-				padding-left: 30px;
-				@include medium-and-up {
-					padding-bottom: 30px;
-				}
-				&:last-child {
-					padding-bottom: 0;
-				}
-				&:before {
-					content: '';
-					@include position(absolute, 4px null null 0);
-					background-image: url($css-bg-path+'icons/tick-green.svg');
-					background-size: cover;
-					width: 18px;
-					height: 18px;
-				}
-			}
-		}
-	}
 }
