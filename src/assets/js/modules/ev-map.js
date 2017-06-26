@@ -52,7 +52,7 @@ class EvMap {
             .defer(d3.json, this.jsonPath)
             .await(this.ready);
 
-        this.startCharges();
+        window.evMap = this;
     }
 
     /**
@@ -82,6 +82,9 @@ class EvMap {
             .fill(mapConfig.mapDotColour);
 
         d3.select(mapConfig.mapID).call(chart);
+
+        window.evMap.nextCharge();
+        window.evMap.startCharges();
     }
 
     /**
@@ -175,7 +178,6 @@ class EvMap {
      * Start showing charges on the map
      */
     startCharges() {
-        this.hideMarker();
         setInterval(this.nextCharge.bind(this), mapConfig.timeDelay);
     }
 }

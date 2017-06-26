@@ -75,7 +75,7 @@ var EvMap = function () {
 
         d3.queue().defer(d3.json, this.jsonPath).await(this.ready);
 
-        this.startCharges();
+        window.evMap = this;
     }
 
     /**
@@ -101,6 +101,9 @@ var EvMap = function () {
             var chart = (0, _gridmap2.default)().data(data).width(mapConfig.mapWidth).height(mapConfig.mapHeight).key('id').side(mapConfig.mapDotStepSize).projection(mapConfig.projection).features(features).fill(mapConfig.mapDotColour);
 
             d3.select(mapConfig.mapID).call(chart);
+
+            window.evMap.nextCharge();
+            window.evMap.startCharges();
         }
 
         /**
@@ -204,7 +207,6 @@ var EvMap = function () {
     }, {
         key: 'startCharges',
         value: function startCharges() {
-            this.hideMarker();
             setInterval(this.nextCharge.bind(this), mapConfig.timeDelay);
         }
     }]);
