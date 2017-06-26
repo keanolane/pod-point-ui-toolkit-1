@@ -80,14 +80,14 @@ var EvMap = function () {
      * Create the map
      *
      * @param error
-     * @param eu
+     * @param uk
      */
 
 
     _createClass(EvMap, [{
         key: 'ready',
-        value: function ready(error, eu) {
-            var features = topojson.feature(eu, eu.objects.europe).features;
+        value: function ready(error, uk) {
+            var features = topojson.feature(uk, uk.objects.subunits).features;
             var data = d3.map();
             var j = void 0;
             var len = void 0;

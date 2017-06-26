@@ -57,10 +57,10 @@ class EvMap {
      * Create the map
      *
      * @param error
-     * @param eu
+     * @param uk
      */
-    ready(error, eu) {
-        const features = topojson.feature(eu, eu.objects.europe).features;
+    ready(error, uk) {
+        const features = topojson.feature(uk, uk.objects.subunits).features;
         const data = d3.map();
         let j;
         let len;
