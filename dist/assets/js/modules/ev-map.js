@@ -49,17 +49,17 @@ var EvMap = function () {
 
         mapConfig = {
             mapID: '#gridmap',
-            mapWidth: 700,
-            mapHeight: 553, // size of the map on the page in pixels
+            mapWidth: 330,
+            mapHeight: 450, // size of the map on the page in pixels
             mapDotStepSize: 10, // size of the map dots
             mapDotColour: '#CCCCCC', // fill colour of the dots
-            mapLonLeft: -12.0, // enter the longitude in degrees on left edge of map, by comparing with Google Maps
-            mapLonRight: 16.04, // enter the longitude in degrees on right edge of map
-            mapLatBottom: 47.1, // enter the latitude in degrees on bottom edge of map
+            mapLonLeft: -10.7, // enter the longitude in degrees on left edge of map, by comparing with Google Maps
+            mapLonRight: 2.2, // enter the longitude in degrees on right edge of map
+            mapLatBottom: 49.8, // enter the latitude in degrees on bottom edge of map
             timeDelay: 6000, // time in milliseconds between new charges appearing on the map
             // note that length of fade_out animation must be set to same duration
             s: 2250, // scale
-            t: [300, 2350] };
+            t: [270, 2350] };
 
         this.element = element;
         this.jsonPath = element.getAttribute('data-json-path');
