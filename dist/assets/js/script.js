@@ -27137,8 +27137,6 @@
 	};
 	
 	var feature = function(topology, o) {
-	  console.log(topology);
-	  console.log(o);
 	  return o.type === "GeometryCollection"
 	      ? {type: "FeatureCollection", features: o.geometries.map(function(o) { return feature$1(topology, o); })}
 	      : feature$1(topology, o);
