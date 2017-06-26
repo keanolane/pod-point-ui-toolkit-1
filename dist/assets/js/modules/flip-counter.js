@@ -40,7 +40,7 @@ var FlipCounter = function () {
         value: function createTickCounter() {
             var element = this.element;
             var stat = parseInt(element.getAttribute('data-stat'), 0);
-            var flipCounterSections = document.querySelectorAll('.flip-counter-section');
+            var flipCounterSections = (0, _domOps.nodesToArray)(document.querySelectorAll('.flip-counter-section'));
 
             var tick = Tick.DOM.create(element, {
                 value: stat,

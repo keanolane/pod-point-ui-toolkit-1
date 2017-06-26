@@ -17,7 +17,8 @@
 		@include position(absolute, 35% $input-padding null null);
 		width: rem(15);
 		height: rem(15);
-		@include svg-bg-cheveron();
+		background-image: url('../img/toolkit/css-bg/icons/cheveron.svg');
+		background-size: cover;
 	}
 	select {
 		-moz-appearance: none;
@@ -34,5 +35,8 @@
 		&:hover {
 			@include input-border--hover;
 		}
+	}
+	select::-ms-expand {
+		display: none;
 	}
 }

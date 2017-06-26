@@ -12,7 +12,7 @@
 			position: relative;
 			&:before {
 				content: '';
-				@include svg-bg-tick(white);
+				background-image: url('../img/toolkit/css-bg/icons/tick-white.svg');
 				background-size: cover;
 				opacity: 0;
 				width: rem(20);

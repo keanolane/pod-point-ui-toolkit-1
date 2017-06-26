@@ -1,5 +1,6 @@
 /* global Tick */
 import { addClass } from '@pod-point/dom-ops';
+import { nodesToArray } from '@pod-point/dom-ops';
 import '../../plugins/flip-counter/flip/tick';
 
 const instances = [];
@@ -23,7 +24,7 @@ class FlipCounter {
     createTickCounter() {
         const element = this.element;
         let stat = parseInt(element.getAttribute('data-stat'), 0);
-        const flipCounterSections = document.querySelectorAll('.flip-counter-section');
+        const flipCounterSections = nodesToArray(document.querySelectorAll('.flip-counter-section'));
 
         const tick = Tick.DOM.create(element, {
             value: stat,

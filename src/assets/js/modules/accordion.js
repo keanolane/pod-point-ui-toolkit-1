@@ -1,5 +1,5 @@
 import { Delegate } from 'dom-delegate';
-import { addClass, removeClass, nodesToArray, hasClass } from '@pod-point/dom-ops';
+import { addClass, removeClass, nodesToArray, hasClass, closest } from '@pod-point/dom-ops';
 
 let instances = [];
 
@@ -50,7 +50,8 @@ class Accordion {
         } else {
             const allDtEls = nodesToArray(this.element.querySelectorAll('dt'));
             allDtEls.forEach(dt => removeClass(dt, IS_OPEN));
-            addClass(element.closest('dt'), IS_OPEN);
+            const closestDt = closest(element, 'dt');
+            addClass(closestDt, IS_OPEN);
         }
     }
 }
