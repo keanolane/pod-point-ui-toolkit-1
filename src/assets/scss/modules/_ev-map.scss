@@ -21,6 +21,12 @@
 	}
 }
 
+@keyframes fade-out {
+	0%   { opacity: 1; }
+	92%  { opacity: 1; }
+	100% { opacity: 0; }
+}
+
 .ev-map-section {
 	.container {
 		overflow: hidden;
@@ -57,6 +63,12 @@
         animation-duration: 0.5s;
         animation-iteration-count: 1;
         animation-timing-function: linear;
+	}
+	&__fade-out {
+		animation-name: fade-out;
+		animation-duration: 6s;
+		animation-iteration-count: 1;
+		animation-timing-function: linear;
 	}
 	&__pulse {
 		float: left;

@@ -58727,6 +58727,7 @@ window.addEventListener('resize', handleResize);
 	            mapLonRight: 16.04, // enter the longitude in degrees on right edge of map
 	            mapLatBottom: 47.1, // enter the latitude in degrees on bottom edge of map
 	            timeDelay: 6000, // time in milliseconds between new charges appearing on the map
+	            // note that length of fade_out animation must be set to same duration
 	            s: 2250, // scale
 	            t: [300, 2350] };
 	
@@ -58734,6 +58735,7 @@ window.addEventListener('resize', handleResize);
 	        this.jsonPath = element.getAttribute('data-json-path');
 	        this.mapElement = document.getElementById(mapConfig.mapID);
 	        this.markerHolder = document.getElementById('markerHolder');
+	        this.markerText = document.getElementById('markerText');
 	        this.markerCircleHolder = document.getElementById('markerCircleHolder');
 	        this.markerCircle = document.getElementById('markerCircle');
 	        this.kwText = document.getElementById('kw');
@@ -58793,7 +58795,9 @@ window.addEventListener('resize', handleResize);
 	                this.markerHolder.style.left = x - 50 + 'px';
 	                this.markerHolder.style.top = y - 50 + 'px';
 	                this.markerHolder.classList.remove('hidden');
+	                this.markerHolder.classList.add('ev-map-wrap__fade-out');
 	
+	                this.markerText.classList.add('ev-map-wrap__bulge-appear');
 	                this.markerCircleHolder.classList.add('ev-map-wrap__bulge-appear');
 	            } else {
 	                this.nextCharge();
@@ -58814,7 +58818,9 @@ window.addEventListener('resize', handleResize);
 	                }
 	            }
 	
+	            this.markerHolder.classList.remove('ev-map-wrap__fade-out');
 	            this.markerHolder.classList.add('hidden');
+	            this.markerText.classList.remove('ev-map-wrap__bulge-appear');
 	            this.markerCircleHolder.classList.remove('ev-map-wrap__bulge-appear');
 	            /* eslint no-void: "off" */
 	            void this.markerHolder.offsetWidth; // force DOM reflow to result bulge class
@@ -75875,8 +75881,6 @@ window.addEventListener('resize', handleResize);
 	};
 	
 	var feature = function(topology, o) {
-	  console.log(topology);
-	  console.log(o);
 	  return o.type === "GeometryCollection"
 	      ? {type: "FeatureCollection", features: o.geometries.map(function(o) { return feature$1(topology, o); })}
 	      : feature$1(topology, o);
@@ -78327,6 +78331,7 @@ window.addEventListener('resize', handleResize);
 
 /***/ })
 /******/ ]);
+<<<<<<< 58134c93bf563f17251b7da846b345d424f5e7fb
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 //# sourceMappingURL=script.js.map
 >>>>>>> Removed commented out window resize
@@ -78336,3 +78341,6 @@ window.addEventListener('resize', handleResize);
 =======
 //# sourceMappingURL=script.js.map
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+//# sourceMappingURL=script.js.map
+>>>>>>> Added fade out on map marker
