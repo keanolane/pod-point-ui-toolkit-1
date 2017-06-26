@@ -3098,15 +3098,18 @@ img {
   top: 0;
   right: -20%;
   left: auto; }
-  @media (max-width: 68em) {
+  @media (max-width: 50em) {
     .ev-map {
       display: none; } }
+  @media (min-width: 50em) {
+    .ev-map {
+      right: 10%; } }
   @media (min-width: 68em) {
     .ev-map {
-      right: -9.5%; } }
+      right: 20%; } }
   .ev-map svg {
-    width: 700px;
-    height: 553px; }
+    width: 330px;
+    height: 450px; }
   .ev-map circle {
     -ms-transform-origin: 50% 50%;
         transform-origin: 50% 50%;
