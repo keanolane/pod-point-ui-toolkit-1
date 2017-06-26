@@ -80,15 +80,18 @@
 	display: block;
 	z-index: 0;
 	@include position(absolute, 0 -20% null auto);
-	@include large-and-down {
+	@include medium-and-down {
 		display: none;
 	}
+	@include medium-and-up {
+		right: 10%;
+	}
 	@include large-and-up {
-		right: -9.5%;
+		right: 20%;
 	}
 	svg {
-		width: 700px;
-		height: 553px;
+		width: 330px;
+		height: 450px;
 	}
 	circle {
 		transform-origin: 50% 50%;
