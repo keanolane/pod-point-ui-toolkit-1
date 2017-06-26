@@ -7,6 +7,8 @@ module.exports = {
         plugins: './src/assets/plugins/',
         img: './src/assets/img/',
         toolkitImgs: './src/assets/img/toolkit/',
+        toolkitInlineSvgs: './src/assets/img/toolkit/inline-svg/',
+        toolkitCssBg: './src/assets/img/toolkit/css-bg/',
         contentImgs: './src/assets/img/content/',
         fonts: './src/assets/fonts/',
         icons: './src/assets/icons/',

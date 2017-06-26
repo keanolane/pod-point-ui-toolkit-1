@@ -39,13 +39,12 @@ gulp.task('toolkit-svgs', () => {
         .pipe(svgmin())
         .pipe(gulp.dest(config.dist.toolkitImgs));
 
-    gulp.src(config.src.toolkitImgs + '**/*.svg')
+    gulp.src(config.src.toolkitInlineSvgs + '**/*.svg')
         .pipe(svgmin())
         .pipe(rename(function (path) {
                 path.extname = ".hbs"
             }))
         .pipe(gulp.dest(config.src.svgPartials));
 });
-
 
 gulp.task('svgs', ['svg-sprite', 'toolkit-svgs']);

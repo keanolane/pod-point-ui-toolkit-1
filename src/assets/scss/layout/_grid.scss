@@ -84,7 +84,7 @@ $bottom-space: 4%;
 		}
 		.grid-col--sm-separator {
 			border: none;
-			border-right: $border-thin;
+			box-shadow: 1px 0px 0px 0px $gray-keyline-very-light;
 		}
 		.grid-col--no-space--sm {
 			margin-bottom: 0;
@@ -112,7 +112,7 @@ $bottom-space: 4%;
 		}
 		.grid-col--md-separator {
 			border: none;
-			border-right: $border-thin;
+			box-shadow: 1px 0px 0px 0px $gray-keyline-very-light;
 		}
 		.grid-col--no-space--md {
 			margin-bottom: 0;

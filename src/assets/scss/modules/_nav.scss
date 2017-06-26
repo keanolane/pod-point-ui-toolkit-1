@@ -141,15 +141,17 @@
 				}
 				@include padding(null 20px);
 					a  {
-					text-align: center;
-					img {
-						@include margin(5px auto 20px auto);
-						display: block;
-						width: 80px;
-						@include medium-and-up {
-							width: 100px;
+						text-align: center;
+						.nav-item-img {
+							@include margin(5px auto 20px auto);
+							display: block;
+							width: 80px;
+							height: 80px;
+							@include medium-and-up {
+								width: 100px;
+								height: 100px;
+							}
 						}
-					}
 				}
 			}
 		}

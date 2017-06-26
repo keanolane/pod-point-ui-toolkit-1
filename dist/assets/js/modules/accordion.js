@@ -77,7 +77,8 @@ var Accordion = function () {
                 allDtEls.forEach(function (dt) {
                     return (0, _domOps.removeClass)(dt, IS_OPEN);
                 });
-                (0, _domOps.addClass)(element.closest('dt'), IS_OPEN);
+                var closestDt = (0, _domOps.closest)(element, 'dt');
+                (0, _domOps.addClass)(closestDt, IS_OPEN);
             }
         }
     }]);

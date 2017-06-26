@@ -113,8 +113,8 @@ var HeaderNav = function () {
         key: 'toggleSubNav',
         value: function toggleSubNav(event, clickedElement) {
             event.preventDefault();
-            var subNavLi = clickedElement.closest('li');
-            var subNavIsOpen = clickedElement.closest('.has-sub-nav.sub-nav-open');
+            var subNavLi = (0, _domOps.closest)(clickedElement, 'li');
+            var subNavIsOpen = (0, _domOps.closest)(clickedElement, '.has-sub-nav.sub-nav-open');
             if (subNavIsOpen == null) {
                 this.closeSubNavs();
                 (0, _domOps.addClass)(subNavLi, SUBNAV_OPEN);

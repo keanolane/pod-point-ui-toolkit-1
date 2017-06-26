@@ -1,4 +1,4 @@
-import { select, addClass, removeClass, nodesToArray } from '@pod-point/dom-ops';
+import { select, addClass, removeClass, nodesToArray, closest } from '@pod-point/dom-ops';
 import { Delegate } from 'dom-delegate';
 
 let instances = [];
@@ -85,8 +85,8 @@ class HeaderNav {
      */
     toggleSubNav(event, clickedElement) {
         event.preventDefault();
-        const subNavLi = clickedElement.closest('li');
-        const subNavIsOpen = clickedElement.closest('.has-sub-nav.sub-nav-open');
+        const subNavLi = closest(clickedElement, 'li');
+        const subNavIsOpen = closest(clickedElement, '.has-sub-nav.sub-nav-open');
         if (subNavIsOpen == null) {
             this.closeSubNavs();
             addClass(subNavLi, SUBNAV_OPEN);

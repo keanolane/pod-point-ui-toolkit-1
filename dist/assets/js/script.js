@@ -6128,7 +6128,8 @@ dom.whenReady(function () {
 	                allDtEls.forEach(function (dt) {
 	                    return (0, _domOps.removeClass)(dt, IS_OPEN);
 	                });
-	                (0, _domOps.addClass)(element.closest('dt'), IS_OPEN);
+	                var closestDt = (0, _domOps.closest)(element, 'dt');
+	                (0, _domOps.addClass)(closestDt, IS_OPEN);
 	            }
 	        }
 	    }]);
@@ -6751,8 +6752,8 @@ dom.whenReady(function () {
 	        key: 'toggleSubNav',
 	        value: function toggleSubNav(event, clickedElement) {
 	            event.preventDefault();
-	            var subNavLi = clickedElement.closest('li');
-	            var subNavIsOpen = clickedElement.closest('.has-sub-nav.sub-nav-open');
+	            var subNavLi = (0, _domOps.closest)(clickedElement, 'li');
+	            var subNavIsOpen = (0, _domOps.closest)(clickedElement, '.has-sub-nav.sub-nav-open');
 	            if (subNavIsOpen == null) {
 	                this.closeSubNavs();
 	                (0, _domOps.addClass)(subNavLi, SUBNAV_OPEN);
@@ -6898,7 +6899,7 @@ dom.whenReady(function () {
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 =======
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.8
+	 * Flickity v2.0.7
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -54276,14 +54277,27 @@ window.addEventListener('resize', handleResize);
 	
 	        switch (event.data.action) {
 	
+<<<<<<< 4b5c473db9a6682380894155922cceb3cdc9f293
 	            case 'start':
 	                _.swipeStart(event);
 	                break;
 =======
+=======
+	var touchStartEvents = {
+	  touchstart: true,
+	  MSPointerDown: true
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true
+	};
+	
+>>>>>>> Lots of IE fixes
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
-	  var canPointerDown = getCanPointerDown( event );
-	  if ( !this.options.accessibility || canPointerDown ) {
+	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
+	      focusNodes[ event.target.nodeName ] ) {
 	    return;
 	  }
 	  var prevScrollY = window.pageYOffset;
@@ -54294,26 +54308,11 @@ window.addEventListener('resize', handleResize);
 	  }
 	};
 	
-	var touchStartEvents = {
-	  touchstart: true,
-	  pointerdown: true,
-	};
-	
-	var focusNodes = {
-	  INPUT: true,
-	  SELECT: true,
-	};
-	
-	function getCanPointerDown( event ) {
-	  var isTouchStart = touchStartEvents[ event.type ];
-	  var isFocusNode = focusNodes[ event.target.nodeName ];
-	  return isTouchStart || isFocusNode;
-	}
-	
 	proto.canPreventDefaultOnPointerDown = function( event ) {
-	  // prevent default, unless touchstart or input
-	  var canPointerDown = getCanPointerDown( event );
-	  return !canPointerDown;
+	  // prevent default, unless touchstart or <select>
+	  var isTouchstart = event.type == 'touchstart';
+	  var targetNodeName = event.target.nodeName;
+	  return !isTouchstart && targetNodeName != 'SELECT';
 	};
 >>>>>>> Removed saved bubble
 	
@@ -54462,11 +54461,45 @@ window.addEventListener('resize', handleResize);
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+<<<<<<< 4b5c473db9a6682380894155922cceb3cdc9f293
 	 * Unidragger v2.2.2
 	 * Draggable base class
 	 * MIT license
 	 */
 >>>>>>> Removed saved bubble
+=======
+	 * Unidragger v2.2.1
+	 * Draggable base class
+	 * MIT license
+	 */
+	
+	/*jshint browser: true, unused: true, undef: true, strict: true */
+	
+	( function( window, factory ) {
+	  // universal module definition
+	  /*jshint strict: false */ /*globals define, module, require */
+	
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(36)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
+	      return factory( window, Unipointer );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('unipointer')
+	    );
+	  } else {
+	    // browser global
+	    window.Unidragger = factory(
+	      window,
+	      window.Unipointer
+	    );
+	  }
+>>>>>>> Lots of IE fixes
 	
 	        if (event.originalEvent !== undefined && event.originalEvent.touches !== undefined) {
 	            touches = event.originalEvent.touches[0];
@@ -54511,11 +54544,6 @@ window.addEventListener('resize', handleResize);
 	    var handle = this.handles[i];
 	    this._bindStartEvent( handle, isBind );
 	    handle[ bindMethod ]( 'click', this );
-	    // touch-action: none to override browser touch gestures
-	    // metafizzy/flickity#540
-	    if ( window.PointerEvent ) {
-	      handle.style.touchAction = isBind ? 'none' : '';
-	    }
 	  }
 	};
 >>>>>>> Removed saved bubble
@@ -56692,7 +56720,7 @@ window.addEventListener('resize', handleResize);
 	        value: function createTickCounter() {
 	            var element = this.element;
 	            var stat = parseInt(element.getAttribute('data-stat'), 0);
-	            var flipCounterSections = document.querySelectorAll('.flip-counter-section');
+	            var flipCounterSections = (0, _domOps.nodesToArray)(document.querySelectorAll('.flip-counter-section'));
 	
 	            var tick = Tick.DOM.create(element, {
 	                value: stat,

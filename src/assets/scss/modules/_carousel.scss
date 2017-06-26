@@ -78,13 +78,12 @@ http://flickity.metafizzy.co
 	&:before {
 		display: inline-block;
 		content: '';
-		@include svg-bg-cheveron(white);
+		background-image: url('../img/toolkit/css-bg/icons/cheveron-white.svg');
 		background-repeat: no-repeat;
 		background-size: cover;
 		height: 25px;
 		width: 25px;
 		margin: 0 auto;
-		background-color: characterEncodeColor(#000);
     }
 	&.next {
 		right: -30px;
