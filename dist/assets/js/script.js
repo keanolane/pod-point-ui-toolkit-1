@@ -6888,8 +6888,21 @@ dom.whenReady(function () {
 /* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< 86f236218690adf8753fddce97049a0869680f9c
 	'use strict';
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
+=======
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Flickity v2.0.8
+	 * Touch, responsive, flickable carousels
+	 *
+	 * Licensed GPLv3 for open source use
+	 * or Flickity Commercial License for commercial use
+	 *
+	 * http://flickity.metafizzy.co
+	 * Copyright 2016 Metafizzy
+	 */
+>>>>>>> Removed saved bubble
 	
 			"ATTR": function( name, operator, check ) {
 				return function( elem ) {
@@ -54247,6 +54260,7 @@ window.addEventListener('resize', handleResize);
 	        _.touchObject.fingerCount = event.originalEvent && event.originalEvent.touches !== undefined ?
 	            event.originalEvent.touches.length : 1;
 	
+<<<<<<< 86f236218690adf8753fddce97049a0869680f9c
 	        _.touchObject.minSwipe = _.listWidth / _.options
 	            .touchThreshold;
 	
@@ -54260,6 +54274,43 @@ window.addEventListener('resize', handleResize);
 	            case 'start':
 	                _.swipeStart(event);
 	                break;
+=======
+	proto.pointerDownFocus = function( event ) {
+	  // focus element, if not touch, and its not an input or select
+	  var canPointerDown = getCanPointerDown( event );
+	  if ( !this.options.accessibility || canPointerDown ) {
+	    return;
+	  }
+	  var prevScrollY = window.pageYOffset;
+	  this.element.focus();
+	  // hack to fix scroll jump after focus, #76
+	  if ( window.pageYOffset != prevScrollY ) {
+	    window.scrollTo( window.pageXOffset, prevScrollY );
+	  }
+	};
+	
+	var touchStartEvents = {
+	  touchstart: true,
+	  pointerdown: true,
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true,
+	};
+	
+	function getCanPointerDown( event ) {
+	  var isTouchStart = touchStartEvents[ event.type ];
+	  var isFocusNode = focusNodes[ event.target.nodeName ];
+	  return isTouchStart || isFocusNode;
+	}
+	
+	proto.canPreventDefaultOnPointerDown = function( event ) {
+	  // prevent default, unless touchstart or input
+	  var canPointerDown = getCanPointerDown( event );
+	  return !canPointerDown;
+	};
+>>>>>>> Removed saved bubble
 	
 	            case 'move':
 	                _.swipeMove(event);
@@ -54392,10 +54443,25 @@ window.addEventListener('resize', handleResize);
 	
 	        _.interrupted = true;
 	
+<<<<<<< 86f236218690adf8753fddce97049a0869680f9c
 	        if (_.touchObject.fingerCount !== 1 || _.slideCount <= _.options.slidesToShow) {
 	            _.touchObject = {};
 	            return false;
 	        }
+=======
+	}));
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Unidragger v2.2.2
+	 * Draggable base class
+	 * MIT license
+	 */
+>>>>>>> Removed saved bubble
 	
 	        if (event.originalEvent !== undefined && event.originalEvent.touches !== undefined) {
 	            touches = event.originalEvent.touches[0];
@@ -54424,7 +54490,30 @@ window.addEventListener('resize', handleResize);
 	
 	        }
 	
+<<<<<<< 86f236218690adf8753fddce97049a0869680f9c
 	    };
+=======
+	/**
+	 * works as unbinder, as you can .bindHandles( false ) to unbind
+	 * @param {Boolean} isBind - will unbind if falsey
+	 */
+	proto._bindHandles = function( isBind ) {
+	  // munge isBind, default to true
+	  isBind = isBind === undefined ? true : !!isBind;
+	  // bind each handle
+	  var bindMethod = isBind ? 'addEventListener' : 'removeEventListener';
+	  for ( var i=0; i < this.handles.length; i++ ) {
+	    var handle = this.handles[i];
+	    this._bindStartEvent( handle, isBind );
+	    handle[ bindMethod ]( 'click', this );
+	    // touch-action: none to override browser touch gestures
+	    // metafizzy/flickity#540
+	    if ( window.PointerEvent ) {
+	      handle.style.touchAction = isBind ? 'none' : '';
+	    }
+	  }
+	};
+>>>>>>> Removed saved bubble
 	
 	    Slick.prototype.unload = function() {
 	
@@ -58648,7 +58737,6 @@ window.addEventListener('resize', handleResize);
 	        this.markerCircleHolder = document.getElementById('markerCircleHolder');
 	        this.markerCircle = document.getElementById('markerCircle');
 	        this.kwText = document.getElementById('kw');
-	        this.savingText = document.getElementById('saving');
 	        this.lastHighlightedDot = [];
 	
 	        mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s).translate(mapConfig.t).clipAngle(180).precision(1);
@@ -58689,12 +58777,11 @@ window.addEventListener('resize', handleResize);
 	         * @param x
 	         * @param y
 	         * @param kw
-	         * @param saving
 	         */
 	
 	    }, {
 	        key: 'showMarker',
-	        value: function showMarker(x, y, kw, saving) {
+	        value: function showMarker(x, y, kw) {
 	            this.lastHighlightedDot = [x, y];
 	            this.mapPoint = document.querySelector('circle[cx="' + x + '"][cy="' + y + '"]');
 	
@@ -58702,7 +58789,6 @@ window.addEventListener('resize', handleResize);
 	                this.mapPoint.classList.add('gridmap-dot-selected');
 	
 	                this.kwText.innerHTML = kw;
-	                this.savingText.innerHTML = saving.toFixed(2);
 	
 	                this.markerHolder.style.left = x - 50 + 'px';
 	                this.markerHolder.style.top = y - 50 + 'px';
@@ -58743,12 +58829,11 @@ window.addEventListener('resize', handleResize);
 	         * @param latitute
 	         * @param longitude
 	         * @param kw
-	         * @param saving
 	         */
 	
 	    }, {
 	        key: 'showChargeOnMap',
-	        value: function showChargeOnMap(latitude, longitude, kw, saving) {
+	        value: function showChargeOnMap(latitude, longitude, kw) {
 	            var mapLonDelta = mapConfig.mapLonRight - mapConfig.mapLonLeft;
 	            var mapLatBottomDegree = mapConfig.mapLatBottom * Math.PI / 180;
 	
@@ -58761,7 +58846,7 @@ window.addEventListener('resize', handleResize);
 	            var dotX = (0, _utilities.roundNumberTo)(x, mapConfig.mapDotStepSize);
 	            var dotY = (0, _utilities.roundNumberTo)(y, mapConfig.mapDotStepSize);
 	
-	            this.showMarker(dotX, dotY, kw, saving);
+	            this.showMarker(dotX, dotY, kw);
 	        }
 	
 	        /**
