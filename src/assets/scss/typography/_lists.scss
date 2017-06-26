@@ -40,7 +40,7 @@
 		&:before {
 			content: '';
 			@include position(absolute, 4px null null 0);
-			background-image: url('../img/toolkit/css-bg/icons/tick-green.svg');
+			background-image: url($css-bg-path+'icons/tick-green.svg');
 			background-size: cover;
 			width: 18px;
 			height: 18px;

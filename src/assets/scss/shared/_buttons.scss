@@ -77,7 +77,7 @@ button {
 		@include hide-text-not-pseudo;
 		&:before {
 			content: '';
-			background-image: url('../img/toolkit/css-bg/icons/tick-white.svg');
+			background-image: url($css-bg-path+'icons/tick-white.svg');
 			background-size: cover;
 			width: 20px;
 			height: 20px;
@@ -86,7 +86,7 @@ button {
 		&:focus:not(.is-disabled),
 		&:active:not(.is-disabled) {
 			&:before {
-				background-image: url('../img/toolkit/css-bg/icons/tick-green.svg');
+				background-image: url($css-bg-path+'icons/tick-green.svg');
 			}
 		}
 	}

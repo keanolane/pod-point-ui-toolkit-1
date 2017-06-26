@@ -78,7 +78,7 @@ http://flickity.metafizzy.co
 	&:before {
 		display: inline-block;
 		content: '';
-		background-image: url('../img/toolkit/css-bg/icons/cheveron-white.svg');
+		background-image: url($css-bg-path+'icons/cheveron-white.svg');
 		background-repeat: no-repeat;
 		background-size: cover;
 		height: 25px;
