@@ -10045,14 +10045,14 @@
 	     * Create the map
 	     *
 	     * @param error
-	     * @param eu
+	     * @param uk
 	     */
 	
 	
 	    _createClass(EvMap, [{
 	        key: 'ready',
-	        value: function ready(error, eu) {
-	            var features = topojson.feature(eu, eu.objects.europe).features;
+	        value: function ready(error, uk) {
+	            var features = topojson.feature(uk, uk.objects.subunits).features;
 	            var data = d3.map();
 	            var j = void 0;
 	            var len = void 0;
@@ -27126,6 +27126,8 @@
 	};
 	
 	var feature = function(topology, o) {
+	  console.log(topology);
+	  console.log(o);
 	  return o.type === "GeometryCollection"
 	      ? {type: "FeatureCollection", features: o.geometries.map(function(o) { return feature$1(topology, o); })}
 	      : feature$1(topology, o);
