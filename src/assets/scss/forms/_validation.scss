@@ -26,11 +26,6 @@
 		}
 	}
 	&.is-valid {
-		&:before {
-			@include small-and-up {
-				@include svg-bg-tick($primary-color-encoded);
-			}
-		}
 		#{$inputs},
 		textarea[type="text"],
 		.select-wrapper select {
@@ -38,11 +33,6 @@
 		}
 	}
 	&.is-invalid {
-		&:before {
-			@include small-and-up {
-				@include svg-bg-cross($error-red-encoded);
-			}
-		}
 		#{$inputs},
 		textarea[type="text"],
 		.select-wrapper select {
