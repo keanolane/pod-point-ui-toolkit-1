@@ -17,7 +17,7 @@
 		@include position(absolute, 35% $input-padding null null);
 		width: rem(15);
 		height: rem(15);
-		background-image: url('../img/toolkit/css-bg/icons/cheveron.svg');
+		background-image: url($css-bg-path+'icons/cheveron.svg');
 		background-size: cover;
 	}
 	select {

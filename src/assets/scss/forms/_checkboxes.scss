@@ -44,7 +44,7 @@ input[type="checkbox"] {
 
 		&:checked ~ span {
 			&:before {
-				background-image: url('../img/toolkit/css-bg/icons/tick-white.svg');
+				background-image: url($css-bg-path+'icons/tick-white.svg');
 				background-size: rem(15) rem(15);
 				background-repeat: no-repeat;
 				background-position: center;

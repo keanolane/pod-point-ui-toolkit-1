@@ -7,14 +7,14 @@
 	@include margin(20px auto);
 	width: 6px;
 	height: 60px;
-	background-image: url('../img/toolkit/css-bg/dividers/steps-divider-mobile.svg');
+	background-image: url($css-bg-path+'dividers/steps-divider-mobile.svg');
 	background-position: center center;
 	background-repeat: no-repeat;
 	& + .grid-row {
 		margin-top: 0;
 	}
 	@include medium-and-up {
-		background-image: url('../img/toolkit/css-bg/dividers/steps-divider.svg');
+		background-image: url($css-bg-path+'dividers/steps-divider.svg');
 		@include margin(0 auto);
 		width: 70%;
 		height: 110px;
