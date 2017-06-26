@@ -29,6 +29,7 @@ class EvMap {
             mapLonRight: 16.04, // enter the longitude in degrees on right edge of map
             mapLatBottom: 47.1, // enter the latitude in degrees on bottom edge of map
             timeDelay: 6000, // time in milliseconds between new charges appearing on the map
+            // note that length of fade_out animation must be set to same duration
             s: 2250, // scale
             t: [300, 2350], // boundaries
         };
@@ -37,10 +38,10 @@ class EvMap {
         this.jsonPath = element.getAttribute('data-json-path');
         this.mapElement = document.getElementById(mapConfig.mapID);
         this.markerHolder = document.getElementById('markerHolder');
+        this.markerText = document.getElementById('markerText');
         this.markerCircleHolder = document.getElementById('markerCircleHolder');
         this.markerCircle = document.getElementById('markerCircle');
         this.kwText = document.getElementById('kw');
-        this.savingText = document.getElementById('saving');
         this.lastHighlightedDot = [];
 
         mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s)
@@ -58,10 +59,10 @@ class EvMap {
      * Create the map
      *
      * @param error
-     * @param eu
+     * @param uk
      */
-    ready(error, eu) {
-        const features = topojson.feature(eu, eu.objects.europe).features;
+    ready(error, uk) {
+        const features = topojson.feature(uk, uk.objects.subunits).features;
         const data = d3.map();
         let j;
         let len;
@@ -89,9 +90,8 @@ class EvMap {
      * @param x
      * @param y
      * @param kw
-     * @param saving
      */
-    showMarker(x, y, kw, saving) {
+    showMarker(x, y, kw) {
         this.lastHighlightedDot = [x, y];
         this.mapPoint = document.querySelector(`circle[cx="${x}"][cy="${y}"]`);
 
@@ -99,12 +99,13 @@ class EvMap {
             this.mapPoint.classList.add('gridmap-dot-selected');
 
             this.kwText.innerHTML = kw;
-            this.savingText.innerHTML = saving.toFixed(2);
 
             this.markerHolder.style.left = `${(x - 50)}px`;
             this.markerHolder.style.top = `${(y - 50)}px`;
             this.markerHolder.classList.remove('hidden');
+            this.markerHolder.classList.add('ev-map-wrap__fade-out');
 
+            this.markerText.classList.add('ev-map-wrap__bulge-appear');
             this.markerCircleHolder.classList.add('ev-map-wrap__bulge-appear');
         } else {
             this.nextCharge();
@@ -125,7 +126,9 @@ class EvMap {
             }
         }
 
+        this.markerHolder.classList.remove('ev-map-wrap__fade-out');
         this.markerHolder.classList.add('hidden');
+        this.markerText.classList.remove('ev-map-wrap__bulge-appear');
         this.markerCircleHolder.classList.remove('ev-map-wrap__bulge-appear');
         /* eslint no-void: "off" */
         void this.markerHolder.offsetWidth; // force DOM reflow to result bulge class
@@ -140,9 +143,8 @@ class EvMap {
      * @param latitute
      * @param longitude
      * @param kw
-     * @param saving
      */
-    showChargeOnMap(latitude, longitude, kw, saving) {
+    showChargeOnMap(latitude, longitude, kw) {
         const mapLonDelta = mapConfig.mapLonRight - mapConfig.mapLonLeft;
         const mapLatBottomDegree = (mapConfig.mapLatBottom * Math.PI) / 180;
 
@@ -157,7 +159,7 @@ class EvMap {
         const dotX = roundNumberTo(x, mapConfig.mapDotStepSize);
         const dotY = roundNumberTo(y, mapConfig.mapDotStepSize);
 
-        this.showMarker(dotX, dotY, kw, saving);
+        this.showMarker(dotX, dotY, kw);
     }
 
     /**

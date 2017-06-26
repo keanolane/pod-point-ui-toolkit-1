@@ -3044,6 +3044,14 @@ img {
     -ms-transform: scale(1, 1);
     -webkit-transform: scale(1, 1); } }
 
+@keyframes fade-out {
+  0% {
+    opacity: 1; }
+  92% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 .ev-map-section .container {
   overflow: hidden; }
   .ev-map-section .container .grid-wrap {
@@ -3072,6 +3080,11 @@ img {
   .ev-map-wrap__bulge-appear {
     animation-name: bulge-appear;
     animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear; }
+  .ev-map-wrap__fade-out {
+    animation-name: fade-out;
+    animation-duration: 6s;
     animation-iteration-count: 1;
     animation-timing-function: linear; }
   .ev-map-wrap__pulse {

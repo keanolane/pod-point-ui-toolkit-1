@@ -26,8 +26,8 @@
 				</div>
 			</div>
 			<div class="ev-map-wrap">
-				<div class="ev-map inline-block" id="gridmap" data-js-module="evMap" data-json-path="./assets/js/data/geo-data/eu.json">
-					<div class="ev-map-wrap__markers hidden" id="markerHolder">
+				<div class="ev-map inline-block" id="gridmap" data-js-module="evMap" data-json-path="./assets/js/data/geo-data/uk.json">
+					<div class="ev-map-wrap__markers ev-map-wrap__fade-out" id="markerHolder">
 						<div id="markerCircleHolder" class="ev-map-wrap__pulse">
 							<span id="markerCircle" class="svg-wrap ev-map-wrap__rotate">
 								{{> map-pulse }}
@@ -35,7 +35,6 @@
 						</div>
 						<div id="markerText" class="ev-map-wrap__labels">
 							<div id="kwBubble" class="label label--gray"><svg><use xlink:href="#general--charge"/></svg>Just charged <span id="kw"></span>kW</div>
-							<div id="savingBubble" class="label"><svg><use xlink:href="#general--money"/></svg>Saved &pound;<span id="saving"></span></div>
 						</div>
 					</div>
 				</div>
