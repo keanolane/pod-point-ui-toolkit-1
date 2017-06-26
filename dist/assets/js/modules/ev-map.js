@@ -67,7 +67,6 @@ var EvMap = function () {
         this.markerCircleHolder = document.getElementById('markerCircleHolder');
         this.markerCircle = document.getElementById('markerCircle');
         this.kwText = document.getElementById('kw');
-        this.savingText = document.getElementById('saving');
         this.lastHighlightedDot = [];
 
         mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s).translate(mapConfig.t).clipAngle(180).precision(1);
@@ -108,12 +107,11 @@ var EvMap = function () {
          * @param x
          * @param y
          * @param kw
-         * @param saving
          */
 
     }, {
         key: 'showMarker',
-        value: function showMarker(x, y, kw, saving) {
+        value: function showMarker(x, y, kw) {
             this.lastHighlightedDot = [x, y];
             this.mapPoint = document.querySelector('circle[cx="' + x + '"][cy="' + y + '"]');
 
@@ -121,7 +119,6 @@ var EvMap = function () {
                 this.mapPoint.classList.add('gridmap-dot-selected');
 
                 this.kwText.innerHTML = kw;
-                this.savingText.innerHTML = saving.toFixed(2);
 
                 this.markerHolder.style.left = x - 50 + 'px';
                 this.markerHolder.style.top = y - 50 + 'px';
@@ -162,12 +159,11 @@ var EvMap = function () {
          * @param latitute
          * @param longitude
          * @param kw
-         * @param saving
          */
 
     }, {
         key: 'showChargeOnMap',
-        value: function showChargeOnMap(latitude, longitude, kw, saving) {
+        value: function showChargeOnMap(latitude, longitude, kw) {
             var mapLonDelta = mapConfig.mapLonRight - mapConfig.mapLonLeft;
             var mapLatBottomDegree = mapConfig.mapLatBottom * Math.PI / 180;
 
@@ -180,7 +176,7 @@ var EvMap = function () {
             var dotX = (0, _utilities.roundNumberTo)(x, mapConfig.mapDotStepSize);
             var dotY = (0, _utilities.roundNumberTo)(y, mapConfig.mapDotStepSize);
 
-            this.showMarker(dotX, dotY, kw, saving);
+            this.showMarker(dotX, dotY, kw);
         }
 
         /**

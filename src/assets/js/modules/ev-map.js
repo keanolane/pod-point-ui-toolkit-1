@@ -40,7 +40,6 @@ class EvMap {
         this.markerCircleHolder = document.getElementById('markerCircleHolder');
         this.markerCircle = document.getElementById('markerCircle');
         this.kwText = document.getElementById('kw');
-        this.savingText = document.getElementById('saving');
         this.lastHighlightedDot = [];
 
         mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s)
@@ -89,9 +88,8 @@ class EvMap {
      * @param x
      * @param y
      * @param kw
-     * @param saving
      */
-    showMarker(x, y, kw, saving) {
+    showMarker(x, y, kw) {
         this.lastHighlightedDot = [x, y];
         this.mapPoint = document.querySelector(`circle[cx="${x}"][cy="${y}"]`);
 
@@ -99,7 +97,6 @@ class EvMap {
             this.mapPoint.classList.add('gridmap-dot-selected');
 
             this.kwText.innerHTML = kw;
-            this.savingText.innerHTML = saving.toFixed(2);
 
             this.markerHolder.style.left = `${(x - 50)}px`;
             this.markerHolder.style.top = `${(y - 50)}px`;
@@ -140,9 +137,8 @@ class EvMap {
      * @param latitute
      * @param longitude
      * @param kw
-     * @param saving
      */
-    showChargeOnMap(latitude, longitude, kw, saving) {
+    showChargeOnMap(latitude, longitude, kw) {
         const mapLonDelta = mapConfig.mapLonRight - mapConfig.mapLonLeft;
         const mapLatBottomDegree = (mapConfig.mapLatBottom * Math.PI) / 180;
 
@@ -157,7 +153,7 @@ class EvMap {
         const dotX = roundNumberTo(x, mapConfig.mapDotStepSize);
         const dotY = roundNumberTo(y, mapConfig.mapDotStepSize);
 
-        this.showMarker(dotX, dotY, kw, saving);
+        this.showMarker(dotX, dotY, kw);
     }
 
     /**

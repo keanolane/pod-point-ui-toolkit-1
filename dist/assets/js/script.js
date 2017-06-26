@@ -4075,7 +4075,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.7
+	 * Flickity v2.0.8
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -6174,20 +6174,10 @@
 	  this.dispatchEvent( 'pointerDown', event, [ pointer ] );
 	};
 	
-	var touchStartEvents = {
-	  touchstart: true,
-	  MSPointerDown: true
-	};
-	
-	var focusNodes = {
-	  INPUT: true,
-	  SELECT: true
-	};
-	
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
-	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
-	      focusNodes[ event.target.nodeName ] ) {
+	  var canPointerDown = getCanPointerDown( event );
+	  if ( !this.options.accessibility || canPointerDown ) {
 	    return;
 	  }
 	  var prevScrollY = window.pageYOffset;
@@ -6198,11 +6188,26 @@
 	  }
 	};
 	
+	var touchStartEvents = {
+	  touchstart: true,
+	  pointerdown: true,
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true,
+	};
+	
+	function getCanPointerDown( event ) {
+	  var isTouchStart = touchStartEvents[ event.type ];
+	  var isFocusNode = focusNodes[ event.target.nodeName ];
+	  return isTouchStart || isFocusNode;
+	}
+	
 	proto.canPreventDefaultOnPointerDown = function( event ) {
-	  // prevent default, unless touchstart or <select>
-	  var isTouchstart = event.type == 'touchstart';
-	  var targetNodeName = event.target.nodeName;
-	  return !isTouchstart && targetNodeName != 'SELECT';
+	  // prevent default, unless touchstart or input
+	  var canPointerDown = getCanPointerDown( event );
+	  return !canPointerDown;
 	};
 	
 	// ----- move ----- //
@@ -6416,7 +6421,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Unidragger v2.2.1
+	 * Unidragger v2.2.2
 	 * Draggable base class
 	 * MIT license
 	 */
@@ -6482,6 +6487,11 @@
 	    var handle = this.handles[i];
 	    this._bindStartEvent( handle, isBind );
 	    handle[ bindMethod ]( 'click', this );
+	    // touch-action: none to override browser touch gestures
+	    // metafizzy/flickity#540
+	    if ( window.PointerEvent ) {
+	      handle.style.touchAction = isBind ? 'none' : '';
+	    }
 	  }
 	};
 	
@@ -10022,7 +10032,6 @@
 	        this.markerCircleHolder = document.getElementById('markerCircleHolder');
 	        this.markerCircle = document.getElementById('markerCircle');
 	        this.kwText = document.getElementById('kw');
-	        this.savingText = document.getElementById('saving');
 	        this.lastHighlightedDot = [];
 	
 	        mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s).translate(mapConfig.t).clipAngle(180).precision(1);
@@ -10063,12 +10072,11 @@
 	         * @param x
 	         * @param y
 	         * @param kw
-	         * @param saving
 	         */
 	
 	    }, {
 	        key: 'showMarker',
-	        value: function showMarker(x, y, kw, saving) {
+	        value: function showMarker(x, y, kw) {
 	            this.lastHighlightedDot = [x, y];
 	            this.mapPoint = document.querySelector('circle[cx="' + x + '"][cy="' + y + '"]');
 	
@@ -10076,7 +10084,6 @@
 	                this.mapPoint.classList.add('gridmap-dot-selected');
 	
 	                this.kwText.innerHTML = kw;
-	                this.savingText.innerHTML = saving.toFixed(2);
 	
 	                this.markerHolder.style.left = x - 50 + 'px';
 	                this.markerHolder.style.top = y - 50 + 'px';
@@ -10117,12 +10124,11 @@
 	         * @param latitute
 	         * @param longitude
 	         * @param kw
-	         * @param saving
 	         */
 	
 	    }, {
 	        key: 'showChargeOnMap',
-	        value: function showChargeOnMap(latitude, longitude, kw, saving) {
+	        value: function showChargeOnMap(latitude, longitude, kw) {
 	            var mapLonDelta = mapConfig.mapLonRight - mapConfig.mapLonLeft;
 	            var mapLatBottomDegree = mapConfig.mapLatBottom * Math.PI / 180;
 	
@@ -10135,7 +10141,7 @@
 	            var dotX = (0, _utilities.roundNumberTo)(x, mapConfig.mapDotStepSize);
 	            var dotY = (0, _utilities.roundNumberTo)(y, mapConfig.mapDotStepSize);
 	
-	            this.showMarker(dotX, dotY, kw, saving);
+	            this.showMarker(dotX, dotY, kw);
 	        }
 	
 	        /**
