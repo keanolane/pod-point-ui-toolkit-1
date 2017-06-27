@@ -41,20 +41,17 @@ dom.whenReady(() => {
     });
 });
 
-// function debounce(callback, wait, context = this) {
-//     let timeout = null;
-//     let callbackArgs = null;
-//     const later = () => callback.apply(context, callbackArgs);
+let resizeId;
+const evMapElement = document.querySelector('[data-js-module="evMap"]');
 
-//     return () => {
-//         callbackArgs = arguments;
-//         clearTimeout(timeout);
-//         timeout = setTimeout(later, wait);
-//     };
-// }
-// const handleResize = debounce((e) => {
-//     loadModules();
-// }, 100);
+function doneResize() {
+    evMap.init(evMapElement);
+}
 
-// window.addEventListener('resize', handleResize)
+function startResize() {
+    clearTimeout(resizeId);
+    resizeId = setTimeout(doneResize, 500);
+}
+
+window.addEventListener('resize', startResize);
 

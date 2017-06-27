@@ -17,8 +17,6 @@ class EvMap {
      * @param {element}
      */
     constructor(element) {
-        if (window.isTouchDevice || window.isMobileSize) { return; }
-
         mapConfig = {
             mapID: '#gridmap',
             mapWidth: 330,
@@ -184,6 +182,9 @@ class EvMap {
 
 export default {
     init: element => {
-        instances.push(new EvMap(element));
+        window.defineSizeAndDevice();
+        if (!window.isTouchDevice && !window.isMobileSize && !window.evMap) {
+            instances.push(new EvMap(element));
+        }
     },
 };

@@ -44,11 +44,11 @@ var Accordion = function () {
 
             this.listener = new _domDelegate.Delegate(this.element);
 
-            if (this.accordionIsMobileOnly && window.isMobileSize || this.accordionIsMobileOnly !== true) {
-                this.listener.on('click', 'dt', function (event, element) {
+            this.listener.on('click', 'dt', function (event, element) {
+                if (_this.accordionIsMobileOnly && window.isMobileSize || _this.accordionIsMobileOnly !== true) {
                     _this.toggleAccordion(element);
-                });
-            }
+                }
+            });
         }
 
         /**
