@@ -325,7 +325,6 @@
 	}
 	
 	function refresh() {
-	    console.log('Refreshing...');
 	    activeModules.forEach(function (module) {
 	        if (module.hasOwnProperty('destroy')) {
 	            module.destroy();
@@ -336,7 +335,6 @@
 	}
 	
 	exports['default'] = function (modules) {
-	    // console.log('Arguments', arguments);
 	    var dataTag = arguments.length <= 1 || arguments[1] === undefined ? DATA_TAG : arguments[1];
 	
 	    domModules = modules;
@@ -345,8 +343,7 @@
 	};
 	
 	module.exports = exports['default'];
-
-
+		
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
