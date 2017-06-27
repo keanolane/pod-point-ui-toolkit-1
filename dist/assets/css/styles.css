@@ -750,34 +750,47 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
 .list--links li a {
   color: inherit; }
 
-.list--ticks li {
-  margin: 0;
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  padding-bottom: 0.5em;
-  position: relative;
-  padding-bottom: 10px;
-  padding-left: 30px; }
-  @media (min-width: 50em) {
-    .list--ticks li {
-      font-size: 1rem; } }
-  .list--ticks li:last-child {
-    padding-bottom: 0; }
-  @media (min-width: 50em) {
-    .list--ticks li {
-      padding-bottom: 20px; } }
-  .list--ticks li:last-child {
-    padding-bottom: 0; }
-  .list--ticks li:before {
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: 0;
-    background-image: url("../img/toolkit/css-bg/icons/tick-green.svg");
-    background-size: cover;
-    width: 18px;
-    height: 18px; }
+.list--ticks,
+.rich-text ul.list--ticks {
+  padding: 0;
+  margin: 0; }
+  .list--ticks li,
+  .rich-text ul.list--ticks li {
+    list-style: none; }
+  .list--ticks li,
+  .rich-text ul.list--ticks li {
+    margin: 0;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding-bottom: 0.5em;
+    position: relative;
+    padding-bottom: 10px;
+    padding-left: 30px; }
+    @media (min-width: 50em) {
+      .list--ticks li,
+      .rich-text ul.list--ticks li {
+        font-size: 1rem; } }
+    .list--ticks li:last-child,
+    .rich-text ul.list--ticks li:last-child {
+      padding-bottom: 0; }
+    @media (min-width: 50em) {
+      .list--ticks li,
+      .rich-text ul.list--ticks li {
+        padding-bottom: 20px; } }
+    .list--ticks li:last-child,
+    .rich-text ul.list--ticks li:last-child {
+      padding-bottom: 0; }
+    .list--ticks li:before,
+    .rich-text ul.list--ticks li:before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 0;
+      background-image: url("../img/toolkit/css-bg/icons/tick-green.svg");
+      background-size: cover;
+      width: 18px;
+      height: 18px; }
 
 .list--inline {
   margin-right: -0.9375rem;
@@ -2098,22 +2111,23 @@ img {
 
 .logo-main {
   width: 100px;
+  height: 27px;
   position: absolute;
   top: 17px;
   left: 0; }
+  .logo-main svg {
+    width: 100%;
+    height: 100%; }
   @media (min-width: 50em) {
     .logo-main {
       top: 30px;
-      width: 140px; }
-      .is-minified .logo-main {
-        top: 9px;
-        width: 120px; } }
+      width: 140px;
+      height: 38px; } }
   @media (min-width: 68em) {
     .logo-main {
       top: 22px;
-      width: 180px; }
-      .is-minified .logo-main {
-        width: 120px; } }
+      width: 180px;
+      height: 49px; } }
 
 .navicon {
   margin-top: 20px;
@@ -3183,7 +3197,12 @@ img {
     position: absolute;
     top: 0;
     width: 355px;
+    height: 304px;
     display: none; }
+    .hero--home .network-right svg,
+    .hero--home .network-left svg {
+      width: 100%;
+      height: 100%; }
     @media (min-width: 24em) {
       .hero--home .network-right,
       .hero--home .network-left {
@@ -3191,7 +3210,8 @@ img {
     @media (min-width: 50em) {
       .hero--home .network-right,
       .hero--home .network-left {
-        width: 500px; } }
+        width: 500px;
+        height: 421px; } }
   .hero--home .network-right {
     left: 85%; }
     @media (min-width: 40em) {
