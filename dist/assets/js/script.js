@@ -548,8 +548,8 @@
 	var defineSizeAndDevice = function defineSizeAndDevice() {
 	    window.isTouchDevice = 'ontouchstart' in document.documentElement;
 	    var winWidthMedium = 800;
-	    window.isMobileSize = winWidth < winWidthMedium;
 	    var winWidth = window.innerWidth;
+	    window.isMobileSize = winWidth < winWidthMedium;
 	
 	    window.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
 	    window.isIE10OrBelow = navigator.userAgent.indexOf('MSIE') >= 0;
@@ -1217,6 +1217,7 @@
 	exports.getRandomInt = getRandomInt;
 	exports.roundNumberTo = roundNumberTo;
 	exports.loadVideo = loadVideo;
+	exports.scrollTo = scrollTo;
 	
 	var _domOps = __webpack_require__(4);
 	
@@ -1416,6 +1417,31 @@
 	    } else {
 	        videoEl.setAttribute('src', '');
 	    }
+	}
+	
+	/**
+	 * Scroll to element
+	 * (default params are set so that it defaults to scrolling to top of page)
+	 *
+	 * @param {element} element to scroll to (default is document.body)
+	 * @param {integar} to (default is 0)
+	 * @param {integar} duration (default is 100)
+	 * @param {integar} timeout (default is 10)
+	 */
+	function scrollTo() {
+	    var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
+	    var to = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+	    var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 100;
+	    var timeout = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 10;
+	
+	    if (duration < 0) return;
+	    var difference = to - element.scrollTop;
+	    var perTick = difference / duration * 2;
+	
+	    setTimeout(function () {
+	        element.scrollTop = element.scrollTop + perTick;
+	        scrollTo(element, to, duration - 2);
+	    }, timeout);
 	}
 
 /***/ }),
@@ -3836,6 +3862,8 @@
 	
 	var _domDelegate = __webpack_require__(7);
 	
+	var _utilities = __webpack_require__(9);
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
@@ -3942,9 +3970,9 @@
 	            var subNavLi = (0, _domOps.closest)(clickedElement, 'li');
 	            var subNavIsOpen = (0, _domOps.closest)(clickedElement, '.has-sub-nav.sub-nav-open');
 	            if (subNavIsOpen == null) {
+	                this.showOverlay(true);
 	                this.closeSubNavs();
 	                (0, _domOps.addClass)(subNavLi, SUBNAV_OPEN);
-	                this.showOverlay(true);
 	            } else {
 	                (0, _domOps.removeClass)(subNavLi, SUBNAV_OPEN);
 	                this.showOverlay(false);
