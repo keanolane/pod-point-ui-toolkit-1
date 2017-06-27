@@ -343,7 +343,8 @@
 	};
 	
 	module.exports = exports['default'];
-		
+
+
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
@@ -10018,8 +10019,6 @@
 	            return;
 	        }
 	
-	        this.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
-	
 	        mapConfig = {
 	            mapID: '#gridmap',
 	            mapWidth: 330,
@@ -10036,6 +10035,7 @@
 	
 	        this.element = element;
 	        this.jsonPath = element.getAttribute('data-json-path');
+	        this.mapHolder = document.getElementById('gridmap');
 	        this.mapElement = document.getElementById(mapConfig.mapID);
 	        this.markerHolder = document.getElementById('markerHolder');
 	        this.markerText = document.getElementById('markerText');
@@ -10045,6 +10045,14 @@
 	        this.markerCircle = document.getElementById('markerCircle');
 	        this.kwText = document.getElementById('kw');
 	        this.lastHighlightedDot = [];
+	
+	        this.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
+	        this.isIE10OrBelow = navigator.userAgent.indexOf('MSIE') >= 0;
+	        if (this.isIE10OrBelow) {
+	            this.markerHolder.classList.add('hidden');
+	            this.mapHolder.classList.add('ev-map__static-map');
+	            return;
+	        }
 	
 	        mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s).translate(mapConfig.t).clipAngle(180).precision(1);
 	
