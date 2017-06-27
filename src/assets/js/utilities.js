@@ -189,3 +189,23 @@ export function loadVideo(videoEl, load) {
         videoEl.setAttribute('src', '');
     }
 }
+
+/**
+ * Scroll to element
+ * (default params are set so that it defaults to scrolling to top of page)
+ *
+ * @param {element} element to scroll to (default is document.body)
+ * @param {integar} to (default is 0)
+ * @param {integar} duration (default is 100)
+ * @param {integar} timeout (default is 10)
+ */
+export function scrollTo(element = document.body, to = 0, duration = 100, timeout = 10) {
+    if (duration < 0) return;
+    const difference = to - element.scrollTop;
+    const perTick = difference / duration * 2;
+
+    setTimeout(function() {
+        element.scrollTop = element.scrollTop + perTick;
+        scrollTo(element, to, duration - 2);
+    }, timeout);
+}

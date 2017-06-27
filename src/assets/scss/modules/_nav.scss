@@ -16,9 +16,6 @@
 		max-height: 100%;
 		display: block;
 		float: right;
-		.is-minified & {
-			height: 50px;
-		}
 	}
 	.checkout-flow & { display: none; }
 	.nav-open & {
@@ -51,9 +48,6 @@
 				display: block;
 				@include medium-and-up {
 					@include padding(39px 5px);
-					.is-minified & {
-						@include padding(15px null);
-					}
 				}
 			}
 			a.find-chargepoint {
@@ -123,30 +117,40 @@
 		@include medium-and-up {
 			opacity: 0;
 			@include position(absolute, 96px 0 null null);
-			.is-minified & {
-				top: 50px;
-			}
 		}
 		ul {
-			@include container;
 			background-color: rgba(255,255,255,0.3);
 			margin-bottom: 20px;
+			@include small-and-up {
+				@include container;
+			}
 			@include medium-and-up {
 				margin-bottom: 0;
 			}
 			li {
+				padding: 0;
 				border-bottom: none;
+				@include clearfix;
 				@include small-and-up {
+					@include padding(null 20px);
 					display: inline-block;
 				}
-				@include padding(null 20px);
 					a  {
 						text-align: center;
 						.nav-item-img {
 							@include margin(5px auto 20px auto);
 							display: block;
-							width: 80px;
-							height: 80px;
+							width: 40px;
+							height: 40px;
+							float: right;
+							+ span {
+								float: left;
+							}
+							@include small-and-up {
+								float: none;
+								width: 80px;
+								height: 80px;
+							}
 							@include medium-and-up {
 								width: 100px;
 								height: 100px;
@@ -158,31 +162,34 @@
 	}
 }
 
-.global-nav-overlay {
-	display: none;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0,0,0,0.5);
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 10;
-	transition: 0.1s ease-in-out;
-	&.nav-open {
-		display: block;
-		transition: 0.8s ease-in-out;
-		animation-duration: 0.3s;
-		animation-fill-mode: both;
-		animation-name: fadeIn;
-	}
-	&:before {
-		content: '';
+.is-desktop {
+	.global-nav-overlay {
+		display: none;
 		width: 100%;
-		height: 320px;
-		background-color: white;
+		height: 100%;
+		background-color: rgba(0,0,0,0.5);
 		position: fixed;
 		top: 0;
 		left: 0;
-		box-shadow: $bottom-shadow;
+		z-index: 10;
+		transition: 0.1s ease-in-out;
+		&.nav-open {
+			display: block;
+			transition: 0.8s ease-in-out;
+			animation-duration: 0.3s;
+			animation-fill-mode: both;
+			animation-name: fadeIn;
+		}
+		&:before {
+			content: '';
+			width: 100%;
+			height: 320px;
+			background-color: white;
+			position: fixed;
+			top: 0;
+			left: 0;
+			box-shadow: $bottom-shadow;
+		}
 	}
 }
+

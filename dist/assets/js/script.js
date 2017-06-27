@@ -778,8 +778,8 @@ var _moduleLoader = require('@pod-point/module-loader');
 =======
 	    window.isTouchDevice = 'ontouchstart' in document.documentElement;
 	    var winWidthMedium = 800;
-	    window.isMobileSize = winWidth < winWidthMedium;
 	    var winWidth = window.innerWidth;
+	    window.isMobileSize = winWidth < winWidthMedium;
 	
 <<<<<<< 1c52cfddd1f08540da1d0dd7f1dbde8f7c45e1f1
 >>>>>>> console log test
@@ -1472,6 +1472,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	exports.getRandomInt = getRandomInt;
 	exports.roundNumberTo = roundNumberTo;
 	exports.loadVideo = loadVideo;
+	exports.scrollTo = scrollTo;
 	
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
@@ -1721,6 +1722,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	        videoEl.setAttribute('src', '');
 	    }
 	}
+<<<<<<< 0eba3a0e0efb15bd1e7c72df30916f0d514c1ada
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Added responsive video to modal, which loads and destroys on modal open and close
 
@@ -1893,6 +1895,33 @@ var _toggle2 = _interopRequireDefault(_toggle);
 var _accordion2 = _interopRequireDefault(_accordion);
 =======
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+	
+	/**
+	 * Scroll to element
+	 * (default params are set so that it defaults to scrolling to top of page)
+	 *
+	 * @param {element} element to scroll to (default is document.body)
+	 * @param {integar} to (default is 0)
+	 * @param {integar} duration (default is 100)
+	 * @param {integar} timeout (default is 10)
+	 */
+	function scrollTo() {
+	    var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
+	    var to = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+	    var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 100;
+	    var timeout = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 10;
+	
+	    if (duration < 0) return;
+	    var difference = to - element.scrollTop;
+	    var perTick = difference / duration * 2;
+	
+	    setTimeout(function () {
+	        element.scrollTop = element.scrollTop + perTick;
+	        scrollTo(element, to, duration - 2);
+	    }, timeout);
+	}
+>>>>>>> Looking at header and nav on mobile - trying to make it work better
 
 /***/ }),
 /* 10 */
@@ -6660,6 +6689,8 @@ dom.whenReady(function () {
 	
 	var _domDelegate = __webpack_require__(7);
 	
+	var _utilities = __webpack_require__(9);
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
@@ -6766,9 +6797,9 @@ dom.whenReady(function () {
 	            var subNavLi = (0, _domOps.closest)(clickedElement, 'li');
 	            var subNavIsOpen = (0, _domOps.closest)(clickedElement, '.has-sub-nav.sub-nav-open');
 	            if (subNavIsOpen == null) {
+	                this.showOverlay(true);
 	                this.closeSubNavs();
 	                (0, _domOps.addClass)(subNavLi, SUBNAV_OPEN);
-	                this.showOverlay(true);
 	            } else {
 	                (0, _domOps.removeClass)(subNavLi, SUBNAV_OPEN);
 	                this.showOverlay(false);

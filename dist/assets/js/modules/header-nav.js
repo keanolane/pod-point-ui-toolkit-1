@@ -10,6 +10,8 @@ var _domOps = require('@pod-point/dom-ops');
 
 var _domDelegate = require('dom-delegate');
 
+var _utilities = require('./../utilities');
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instances = [];
@@ -116,9 +118,9 @@ var HeaderNav = function () {
             var subNavLi = (0, _domOps.closest)(clickedElement, 'li');
             var subNavIsOpen = (0, _domOps.closest)(clickedElement, '.has-sub-nav.sub-nav-open');
             if (subNavIsOpen == null) {
+                this.showOverlay(true);
                 this.closeSubNavs();
                 (0, _domOps.addClass)(subNavLi, SUBNAV_OPEN);
-                this.showOverlay(true);
             } else {
                 (0, _domOps.removeClass)(subNavLi, SUBNAV_OPEN);
                 this.showOverlay(false);

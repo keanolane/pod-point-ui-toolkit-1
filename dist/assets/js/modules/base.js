@@ -7,8 +7,8 @@ var defineSizeAndDevice = function defineSizeAndDevice() {
 =======
     window.isTouchDevice = 'ontouchstart' in document.documentElement;
     var winWidthMedium = 800;
-    window.isMobileSize = winWidth < winWidthMedium;
     var winWidth = window.innerWidth;
+    window.isMobileSize = winWidth < winWidthMedium;
 
 <<<<<<< 1c52cfddd1f08540da1d0dd7f1dbde8f7c45e1f1
 >>>>>>> console log test

@@ -18,6 +18,7 @@ exports.aRadioContains = aRadioContains;
 exports.getRandomInt = getRandomInt;
 exports.roundNumberTo = roundNumberTo;
 exports.loadVideo = loadVideo;
+exports.scrollTo = scrollTo;
 
 var _domOps = require('@pod-point/dom-ops');
 
@@ -217,4 +218,29 @@ function loadVideo(videoEl, load) {
     } else {
         videoEl.setAttribute('src', '');
     }
+}
+
+/**
+ * Scroll to element
+ * (default params are set so that it defaults to scrolling to top of page)
+ *
+ * @param {element} element to scroll to (default is document.body)
+ * @param {integar} to (default is 0)
+ * @param {integar} duration (default is 100)
+ * @param {integar} timeout (default is 10)
+ */
+function scrollTo() {
+    var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
+    var to = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 100;
+    var timeout = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 10;
+
+    if (duration < 0) return;
+    var difference = to - element.scrollTop;
+    var perTick = difference / duration * 2;
+
+    setTimeout(function () {
+        element.scrollTop = element.scrollTop + perTick;
+        scrollTo(element, to, duration - 2);
+    }, timeout);
 }
