@@ -2581,6 +2581,8 @@ img {
       .accordion--featured dd .accordion__item-content {
         margin-bottom: 40px;
         padding: 0; }
+      .accordion--featured dd:last-child {
+        border-bottom: none; }
 
 .card {
   display: block;
