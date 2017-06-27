@@ -551,6 +551,9 @@
 	    window.isMobileSize = winWidth < winWidthMedium;
 	    var winWidth = window.innerWidth;
 	
+	    window.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
+	    window.isIE10OrBelow = navigator.userAgent.indexOf('MSIE') >= 0;
+	
 	    window.onload = function () {
 	        if (window.isTouchDevice) {
 	            (0, _domOps.addClass)(document.body, 'is-touch');
@@ -10041,9 +10044,7 @@
 	        this.kwText = document.getElementById('kw');
 	        this.lastHighlightedDot = [];
 	
-	        this.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
-	        this.isIE10OrBelow = navigator.userAgent.indexOf('MSIE') >= 0;
-	        if (this.isIE10OrBelow) {
+	        if (window.isIE10OrBelow) {
 	            this.markerHolder.classList.add('hidden');
 	            this.mapHolder.classList.add('ev-map__static-map');
 	            return;
@@ -10103,7 +10104,7 @@
 	
 	                this.kwText.innerHTML = kw;
 	
-	                this.markerHolder.style.left = x - (this.isIE ? this.markerCircleWidth * 1.5 : this.markerCircleWidth * 0.5) + 'px';
+	                this.markerHolder.style.left = x - (window.isIE ? this.markerCircleWidth * 1.5 : this.markerCircleWidth * 0.5) + 'px';
 	                this.markerHolder.style.top = y - this.markerCircleHeight * 0.5 + 'px';
 	                this.markerHolder.classList.remove('hidden');
 	                this.markerHolder.classList.add('ev-map-wrap__fade-out');
