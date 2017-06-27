@@ -23,7 +23,6 @@ var defineSizeAndDevice = function defineSizeAndDevice() {
         } else {
             (0, _domOps.addClass)(document.body, 'is-desktop');
         }
-        console.log('I am updated');
     };
 };
 defineSizeAndDevice();
