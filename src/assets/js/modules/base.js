@@ -12,7 +12,6 @@ const defineSizeAndDevice = () => {
         } else {
             addClass(document.body, 'is-desktop');
         }
-        console.log('I am updated');
     };
 };
 defineSizeAndDevice();
