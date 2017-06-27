@@ -571,7 +571,8 @@ var _moduleLoader = require('@pod-point/module-loader');
 	};
 	
 	module.exports = exports['default'];
-		
+
+
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
@@ -58781,8 +58782,6 @@ window.addEventListener('resize', handleResize);
 	            return;
 	        }
 	
-	        this.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
-	
 	        mapConfig = {
 	            mapID: '#gridmap',
 	            mapWidth: 330,
@@ -58799,6 +58798,7 @@ window.addEventListener('resize', handleResize);
 	
 	        this.element = element;
 	        this.jsonPath = element.getAttribute('data-json-path');
+	        this.mapHolder = document.getElementById('gridmap');
 	        this.mapElement = document.getElementById(mapConfig.mapID);
 	        this.markerHolder = document.getElementById('markerHolder');
 	        this.markerText = document.getElementById('markerText');
@@ -58808,6 +58808,14 @@ window.addEventListener('resize', handleResize);
 	        this.markerCircle = document.getElementById('markerCircle');
 	        this.kwText = document.getElementById('kw');
 	        this.lastHighlightedDot = [];
+	
+	        this.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
+	        this.isIE10OrBelow = navigator.userAgent.indexOf('MSIE') >= 0;
+	        if (this.isIE10OrBelow) {
+	            this.markerHolder.classList.add('hidden');
+	            this.mapHolder.classList.add('ev-map__static-map');
+	            return;
+	        }
 	
 	        mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s).translate(mapConfig.t).clipAngle(180).precision(1);
 	
@@ -78401,6 +78409,7 @@ window.addEventListener('resize', handleResize);
 
 /***/ })
 /******/ ]);
+<<<<<<< 627ad1df7065829b2173f840316ec98474f4a284
 <<<<<<< 40f951c6fda49720b09790388718f70d8a9bad71
 <<<<<<< 054b51250fe455bfbe444f66174bd34a85a901fd
 <<<<<<< b89887641c492a4f96cf7d9ee5da31afae423c83
@@ -78430,3 +78439,6 @@ window.addEventListener('resize', handleResize);
 =======
 //# sourceMappingURL=script.js.map
 >>>>>>> Removed console logging
+=======
+//# sourceMappingURL=script.js.map
+>>>>>>> Replace map with static image for IE10 and below
