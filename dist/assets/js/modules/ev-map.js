@@ -47,6 +47,8 @@ var EvMap = function () {
             return;
         }
 
+        this.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
+
         mapConfig = {
             mapID: '#gridmap',
             mapWidth: 330,
@@ -67,6 +69,8 @@ var EvMap = function () {
         this.markerHolder = document.getElementById('markerHolder');
         this.markerText = document.getElementById('markerText');
         this.markerCircleHolder = document.getElementById('markerCircleHolder');
+        this.markerCircleWidth = this.markerCircleHolder.offsetWidth;
+        this.markerCircleHeight = this.markerCircleHolder.offsetHeight;
         this.markerCircle = document.getElementById('markerCircle');
         this.kwText = document.getElementById('kw');
         this.lastHighlightedDot = [];
@@ -125,8 +129,8 @@ var EvMap = function () {
 
                 this.kwText.innerHTML = kw;
 
-                this.markerHolder.style.left = x - 50 + 'px';
-                this.markerHolder.style.top = y - 50 + 'px';
+                this.markerHolder.style.left = x - (this.isIE ? this.markerCircleWidth * 1.5 : this.markerCircleWidth * 0.5) + 'px';
+                this.markerHolder.style.top = y - this.markerCircleHeight * 0.5 + 'px';
                 this.markerHolder.classList.remove('hidden');
                 this.markerHolder.classList.add('ev-map-wrap__fade-out');
 

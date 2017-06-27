@@ -553,6 +553,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	}
 	
 	function refresh() {
+	    console.log('Refreshing...');
 	    activeModules.forEach(function (module) {
 	        if (module.hasOwnProperty('destroy')) {
 	            module.destroy();
@@ -563,6 +564,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	}
 	
 	exports['default'] = function (modules) {
+	    // console.log('Arguments', arguments);
 	    var dataTag = arguments.length <= 1 || arguments[1] === undefined ? DATA_TAG : arguments[1];
 	
 	    domModules = modules;
@@ -571,6 +573,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	};
 	
 	module.exports = exports['default'];
+
 
 /***/ }),
 /* 4 */
@@ -773,13 +776,13 @@ var _moduleLoader = require('@pod-point/module-loader');
 	var _domOps = __webpack_require__(4);
 	
 	var defineSizeAndDevice = function defineSizeAndDevice() {
-	    window.isTouchDevice = 'ontouchstart' in document.documentElement;
-	    var winWidthMedium = 800;
-	    var winWidth = window.innerWidth;
-	    window.isMobileSize = winWidth < winWidthMedium;
-	    var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
-	    var isIE10 = document.body.style.msTouchAction != undefined;
 	    window.onload = function () {
+	        window.isTouchDevice = 'ontouchstart' in document.documentElement;
+	        var winWidthMedium = 800;
+	        window.isMobileSize = winWidth < winWidthMedium;
+	        var winWidth = window.innerWidth;
+	        var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+	        var isIE10 = document.body.style.msTouchAction != undefined;
 	        if (window.isTouchDevice) {
 	            (0, _domOps.addClass)(document.body, 'is-touch');
 	        } else {
@@ -6899,7 +6902,7 @@ dom.whenReady(function () {
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 =======
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.7
+	 * Flickity v2.0.8
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -54277,6 +54280,7 @@ window.addEventListener('resize', handleResize);
 	
 	        switch (event.data.action) {
 	
+<<<<<<< 9b1b77e05fbb2e7b3c2fb194662bcdc959b36b26
 <<<<<<< 4b5c473db9a6682380894155922cceb3cdc9f293
 	            case 'start':
 	                _.swipeStart(event);
@@ -54294,10 +54298,12 @@ window.addEventListener('resize', handleResize);
 	};
 	
 >>>>>>> Lots of IE fixes
+=======
+>>>>>>> Added change to width setting for IE
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
-	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
-	      focusNodes[ event.target.nodeName ] ) {
+	  var canPointerDown = getCanPointerDown( event );
+	  if ( !this.options.accessibility || canPointerDown ) {
 	    return;
 	  }
 	  var prevScrollY = window.pageYOffset;
@@ -54308,11 +54314,26 @@ window.addEventListener('resize', handleResize);
 	  }
 	};
 	
+	var touchStartEvents = {
+	  touchstart: true,
+	  pointerdown: true,
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true,
+	};
+	
+	function getCanPointerDown( event ) {
+	  var isTouchStart = touchStartEvents[ event.type ];
+	  var isFocusNode = focusNodes[ event.target.nodeName ];
+	  return isTouchStart || isFocusNode;
+	}
+	
 	proto.canPreventDefaultOnPointerDown = function( event ) {
-	  // prevent default, unless touchstart or <select>
-	  var isTouchstart = event.type == 'touchstart';
-	  var targetNodeName = event.target.nodeName;
-	  return !isTouchstart && targetNodeName != 'SELECT';
+	  // prevent default, unless touchstart or input
+	  var canPointerDown = getCanPointerDown( event );
+	  return !canPointerDown;
 	};
 >>>>>>> Removed saved bubble
 	
@@ -54461,6 +54482,7 @@ window.addEventListener('resize', handleResize);
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+<<<<<<< 9b1b77e05fbb2e7b3c2fb194662bcdc959b36b26
 <<<<<<< 4b5c473db9a6682380894155922cceb3cdc9f293
 	 * Unidragger v2.2.2
 	 * Draggable base class
@@ -54469,6 +54491,9 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Removed saved bubble
 =======
 	 * Unidragger v2.2.1
+=======
+	 * Unidragger v2.2.2
+>>>>>>> Added change to width setting for IE
 	 * Draggable base class
 	 * MIT license
 	 */
@@ -54544,6 +54569,11 @@ window.addEventListener('resize', handleResize);
 	    var handle = this.handles[i];
 	    this._bindStartEvent( handle, isBind );
 	    handle[ bindMethod ]( 'click', this );
+	    // touch-action: none to override browser touch gestures
+	    // metafizzy/flickity#540
+	    if ( window.PointerEvent ) {
+	      handle.style.touchAction = isBind ? 'none' : '';
+	    }
 	  }
 	};
 >>>>>>> Removed saved bubble
@@ -58750,6 +58780,8 @@ window.addEventListener('resize', handleResize);
 	            return;
 	        }
 	
+	        this.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
+	
 	        mapConfig = {
 	            mapID: '#gridmap',
 	            mapWidth: 330,
@@ -58770,6 +58802,8 @@ window.addEventListener('resize', handleResize);
 	        this.markerHolder = document.getElementById('markerHolder');
 	        this.markerText = document.getElementById('markerText');
 	        this.markerCircleHolder = document.getElementById('markerCircleHolder');
+	        this.markerCircleWidth = this.markerCircleHolder.offsetWidth;
+	        this.markerCircleHeight = this.markerCircleHolder.offsetHeight;
 	        this.markerCircle = document.getElementById('markerCircle');
 	        this.kwText = document.getElementById('kw');
 	        this.lastHighlightedDot = [];
@@ -58828,8 +58862,8 @@ window.addEventListener('resize', handleResize);
 	
 	                this.kwText.innerHTML = kw;
 	
-	                this.markerHolder.style.left = x - 50 + 'px';
-	                this.markerHolder.style.top = y - 50 + 'px';
+	                this.markerHolder.style.left = x - (this.isIE ? this.markerCircleWidth * 1.5 : this.markerCircleWidth * 0.5) + 'px';
+	                this.markerHolder.style.top = y - this.markerCircleHeight * 0.5 + 'px';
 	                this.markerHolder.classList.remove('hidden');
 	                this.markerHolder.classList.add('ev-map-wrap__fade-out');
 	

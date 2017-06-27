@@ -3030,9 +3030,7 @@ img {
 .ev-map-wrap {
   display: block; }
   .ev-map-wrap__markers {
-    position: absolute;
-    top: 50%;
-    left: 61%; }
+    position: absolute; }
   .ev-map-wrap__labels {
     float: left;
     text-align: left;
