@@ -553,7 +553,6 @@ var _moduleLoader = require('@pod-point/module-loader');
 	}
 	
 	function refresh() {
-	    console.log('Refreshing...');
 	    activeModules.forEach(function (module) {
 	        if (module.hasOwnProperty('destroy')) {
 	            module.destroy();
@@ -564,7 +563,6 @@ var _moduleLoader = require('@pod-point/module-loader');
 	}
 	
 	exports['default'] = function (modules) {
-	    // console.log('Arguments', arguments);
 	    var dataTag = arguments.length <= 1 || arguments[1] === undefined ? DATA_TAG : arguments[1];
 	
 	    domModules = modules;
@@ -573,8 +571,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	};
 	
 	module.exports = exports['default'];
-
-
+		
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
@@ -78400,6 +78397,7 @@ window.addEventListener('resize', handleResize);
 
 /***/ })
 /******/ ]);
+<<<<<<< 40f951c6fda49720b09790388718f70d8a9bad71
 <<<<<<< 054b51250fe455bfbe444f66174bd34a85a901fd
 <<<<<<< b89887641c492a4f96cf7d9ee5da31afae423c83
 <<<<<<< fab84818faf9162ba86750571974552018aca549
@@ -78425,3 +78423,6 @@ window.addEventListener('resize', handleResize);
 =======
 //# sourceMappingURL=script.js.map
 >>>>>>> Load map marker as soon as map is ready
+=======
+//# sourceMappingURL=script.js.map
+>>>>>>> Removed console logging
