@@ -3035,7 +3035,8 @@ img {
   .ev-map-wrap__labels {
     float: left;
     text-align: left;
-    margin-left: 10px;
+    margin-left: -45px;
+    margin-top: 10px;
     width: 250px; }
   .ev-map-wrap__rotate {
     animation-name: rotate;
