@@ -2199,6 +2199,8 @@ img {
       .global-footer__section-bottom p,
       .global-footer__section-bottom ul {
         font-size: 0.875rem; } }
+  .global-footer__section-bottom .grid-wrap {
+    margin-bottom: 0; }
   .global-footer__section-bottom .grid-row .grid-col-6 {
     margin-bottom: 0; }
   .global-footer__section-bottom .list--inline {
@@ -3026,13 +3028,12 @@ img {
 .ev-map-wrap {
   display: block; }
   .ev-map-wrap__markers {
-    position: absolute;
-    top: 50%;
-    left: 61%; }
+    position: absolute; }
   .ev-map-wrap__labels {
     float: left;
     text-align: left;
-    margin-left: 10px;
+    margin-left: -45px;
+    margin-top: 10px;
     width: 250px; }
   .ev-map-wrap__rotate {
     animation-name: rotate;
@@ -3087,6 +3088,11 @@ img {
     stroke: #8cc63f;
     stroke-width: 7;
     stroke-linecap: "round"; }
+  .ev-map__static-map {
+    background-image: url("../img/toolkit/css-bg/map_static.png");
+    width: 340px;
+    height: 395px;
+    margin-top: 100px; }
 
 .confirm-popup {
   z-index: 101;
