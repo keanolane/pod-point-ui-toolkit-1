@@ -25,11 +25,11 @@ class Accordion {
     bindEvents() {
         this.listener = new Delegate(this.element);
 
-        if ((this.accordionIsMobileOnly && window.isMobileSize) || this.accordionIsMobileOnly !== true) {
-            this.listener.on('click', 'dt', (event, element) => {
+        this.listener.on('click', 'dt', (event, element) => {
+            if ((this.accordionIsMobileOnly && window.isMobileSize) || this.accordionIsMobileOnly !== true) {
                 this.toggleAccordion(element);
-            });
-        }
+            }
+        });
     }
 
     /**

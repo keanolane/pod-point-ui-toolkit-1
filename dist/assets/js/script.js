@@ -363,6 +363,7 @@
 	//     loadModules();
 	// }, 100);
 	
+<<<<<<< ca893ef4b334fdf8ce246fbaa940d036ebb7644f
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< b6aa93057e48b31de63e5b068ed49b76bea2371f
 	window.addEventListener('resize', handleResize);
@@ -381,6 +382,21 @@ var _moduleLoader = require('@pod-point/module-loader');
 =======
 	// window.addEventListener('resize', handleResize)
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+	var resizeId = void 0;
+	var evMapElement = document.querySelector('[data-js-module="evMap"]');
+	
+	function doneResize() {
+	    _evMap2.default.init(evMapElement);
+	}
+	
+	function startResize() {
+	    clearTimeout(resizeId);
+	    resizeId = setTimeout(doneResize, 500);
+	}
+	
+	window.addEventListener('resize', startResize);
+>>>>>>> Deal with resize for map and accordion
 
 /***/ }),
 /* 1 */
@@ -773,11 +789,17 @@ var _moduleLoader = require('@pod-point/module-loader');
 	
 	var _domOps = __webpack_require__(4);
 	
+<<<<<<< ca893ef4b334fdf8ce246fbaa940d036ebb7644f
 	var defineSizeAndDevice = function defineSizeAndDevice() {
 <<<<<<< a42ee949ff2885a0c31c3a91b89b78b867d10927
 =======
+=======
+	window.defineSizeAndDevice = function () {
+>>>>>>> Deal with resize for map and accordion
 	    window.isTouchDevice = 'ontouchstart' in document.documentElement;
+	    var winWidth = window.innerWidth;
 	    var winWidthMedium = 800;
+<<<<<<< ca893ef4b334fdf8ce246fbaa940d036ebb7644f
 	    var winWidth = window.innerWidth;
 	    window.isMobileSize = winWidth < winWidthMedium;
 	
@@ -786,6 +808,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 =======
 	    window.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
 	    window.isIE10OrBelow = navigator.userAgent.indexOf('MSIE') >= 0;
+=======
+	    window.isMobileSize = winWidth < winWidthMedium;
+>>>>>>> Deal with resize for map and accordion
 	
 >>>>>>> Moved map image location, moved IE detection to base
 	    window.onload = function () {
@@ -802,7 +827,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	        }
 	    };
 	};
-	defineSizeAndDevice();
+	window.defineSizeAndDevice();
 
 /***/ }),
 /* 6 */
@@ -6135,11 +6160,11 @@ dom.whenReady(function () {
 	
 	            this.listener = new _domDelegate.Delegate(this.element);
 	
-	            if (this.accordionIsMobileOnly && window.isMobileSize || this.accordionIsMobileOnly !== true) {
-	                this.listener.on('click', 'dt', function (event, element) {
+	            this.listener.on('click', 'dt', function (event, element) {
+	                if (_this.accordionIsMobileOnly && window.isMobileSize || _this.accordionIsMobileOnly !== true) {
 	                    _this.toggleAccordion(element);
-	                });
-	            }
+	                }
+	            });
 	        }
 	
 	        /**
@@ -54319,6 +54344,7 @@ window.addEventListener('resize', handleResize);
 	
 	        switch (event.data.action) {
 	
+<<<<<<< ca893ef4b334fdf8ce246fbaa940d036ebb7644f
 <<<<<<< 9b1b77e05fbb2e7b3c2fb194662bcdc959b36b26
 <<<<<<< 4b5c473db9a6682380894155922cceb3cdc9f293
 	            case 'start':
@@ -54339,6 +54365,8 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Lots of IE fixes
 =======
 >>>>>>> Added change to width setting for IE
+=======
+>>>>>>> Deal with resize for map and accordion
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
 	  var canPointerDown = getCanPointerDown( event );
@@ -54356,6 +54384,26 @@ window.addEventListener('resize', handleResize);
 	var touchStartEvents = {
 	  touchstart: true,
 	  pointerdown: true,
+<<<<<<< ca893ef4b334fdf8ce246fbaa940d036ebb7644f
+=======
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true,
+	};
+	
+	function getCanPointerDown( event ) {
+	  var isTouchStart = touchStartEvents[ event.type ];
+	  var isFocusNode = focusNodes[ event.target.nodeName ];
+	  return isTouchStart || isFocusNode;
+	}
+	
+	proto.canPreventDefaultOnPointerDown = function( event ) {
+	  // prevent default, unless touchstart or input
+	  var canPointerDown = getCanPointerDown( event );
+	  return !canPointerDown;
+>>>>>>> Deal with resize for map and accordion
 	};
 	
 	var focusNodes = {
@@ -54521,6 +54569,7 @@ window.addEventListener('resize', handleResize);
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+<<<<<<< ca893ef4b334fdf8ce246fbaa940d036ebb7644f
 <<<<<<< 9b1b77e05fbb2e7b3c2fb194662bcdc959b36b26
 <<<<<<< 4b5c473db9a6682380894155922cceb3cdc9f293
 	 * Unidragger v2.2.2
@@ -54533,6 +54582,9 @@ window.addEventListener('resize', handleResize);
 =======
 	 * Unidragger v2.2.2
 >>>>>>> Added change to width setting for IE
+=======
+	 * Unidragger v2.2.2
+>>>>>>> Deal with resize for map and accordion
 	 * Draggable base class
 	 * MIT license
 	 */
@@ -58815,10 +58867,6 @@ window.addEventListener('resize', handleResize);
 	    function EvMap(element) {
 	        _classCallCheck(this, EvMap);
 	
-	        if (window.isTouchDevice || window.isMobileSize) {
-	            return;
-	        }
-	
 	        mapConfig = {
 	            mapID: '#gridmap',
 	            mapWidth: 330,
@@ -58997,7 +59045,10 @@ window.addEventListener('resize', handleResize);
 	
 	exports.default = {
 	    init: function init(element) {
-	        instances.push(new EvMap(element));
+	        window.defineSizeAndDevice();
+	        if (!window.isTouchDevice && !window.isMobileSize && !window.evMap) {
+	            instances.push(new EvMap(element));
+	        }
 	    }
 	};
 

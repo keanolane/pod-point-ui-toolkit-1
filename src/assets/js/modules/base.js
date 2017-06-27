@@ -1,9 +1,9 @@
 import { addClass } from '@pod-point/dom-ops';
 
-const defineSizeAndDevice = () => {
+window.defineSizeAndDevice = () => {
     window.isTouchDevice = 'ontouchstart' in document.documentElement;
-    const winWidthMedium = 800;
     const winWidth = window.innerWidth;
+    const winWidthMedium = 800;
     window.isMobileSize = (winWidth < winWidthMedium);
 
     window.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
@@ -17,4 +17,4 @@ const defineSizeAndDevice = () => {
         }
     };
 };
-defineSizeAndDevice();
+window.defineSizeAndDevice();
