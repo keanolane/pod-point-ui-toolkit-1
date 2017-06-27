@@ -10,7 +10,13 @@ var defineSizeAndDevice = function defineSizeAndDevice() {
     window.isMobileSize = winWidth < winWidthMedium;
     var winWidth = window.innerWidth;
 
+<<<<<<< 1c52cfddd1f08540da1d0dd7f1dbde8f7c45e1f1
 >>>>>>> console log test
+=======
+    window.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
+    window.isIE10OrBelow = navigator.userAgent.indexOf('MSIE') >= 0;
+
+>>>>>>> Moved map image location, moved IE detection to base
     window.onload = function () {
         window.isTouchDevice = 'ontouchstart' in document.documentElement;
         var winWidthMedium = 800;
