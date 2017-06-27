@@ -2081,14 +2081,14 @@ img {
   max-width: 1100px;
   padding-right: 25px;
   padding-left: 25px; }
-  @media (min-width: 50em) {
-    .global-header {
-      padding-right: 30px;
-      padding-left: 30px; } }
   .global-header:after {
     content: "";
     display: table;
     clear: both; }
+  @media (min-width: 50em) {
+    .global-header {
+      padding-right: 30px;
+      padding-left: 30px; } }
   @media (min-width: 50em) {
     .global-header {
       height: 96px; } }
@@ -2108,20 +2108,19 @@ img {
 .logo-main {
   width: 100px;
   height: 27px;
-  position: absolute;
-  top: 17px;
-  left: 0; }
+  float: left;
+  margin-top: 17px; }
   .logo-main svg {
     width: 100%;
     height: 100%; }
   @media (min-width: 50em) {
     .logo-main {
-      top: 30px;
+      margin-top: 30px;
       width: 140px;
       height: 38px; } }
   @media (min-width: 68em) {
     .logo-main {
-      top: 22px;
+      margin-top: 22px;
       width: 180px;
       height: 49px; } }
 
@@ -2306,9 +2305,9 @@ img {
     min-height: 43px; }
     .global-nav > ul > li.has-sub-nav.sub-nav-open .global-nav__sub-nav {
       height: auto;
-      max-height: 400px;
+      max-height: 340px;
       transition: 1s ease-in-out;
-      max-height: 610px;
+      max-height: 340px;
       transition: max-height 1s ease-in;
       overflow: hidden; }
       @media (min-width: 50em) {
@@ -2363,36 +2362,30 @@ img {
         .global-nav__sub-nav ul {
           margin-bottom: 0; } }
       .global-nav__sub-nav ul li {
-        padding: 0;
-        border-bottom: none; }
+        border-bottom: none;
+        padding-right: 20px;
+        padding-left: 20px;
+        display: inline-block;
+        width: 120px; }
         .global-nav__sub-nav ul li:after {
           content: "";
           display: table;
           clear: both; }
         @media (min-width: 40em) {
           .global-nav__sub-nav ul li {
-            padding-right: 20px;
-            padding-left: 20px;
-            display: inline-block; } }
+            width: auto; } }
         .global-nav__sub-nav ul li a {
           text-align: center; }
           .global-nav__sub-nav ul li a .nav-item-img {
-            margin: 5px auto 20px;
+            margin: 5px auto 10px;
             display: block;
-            width: 40px;
-            height: 40px;
-            float: right; }
-            .global-nav__sub-nav ul li a .nav-item-img + span {
-              float: left; }
+            width: 60px;
+            height: 60px; }
             @media (min-width: 40em) {
               .global-nav__sub-nav ul li a .nav-item-img {
-                float: none;
+                margin-bottom: 20px;
                 width: 80px;
                 height: 80px; } }
-            @media (min-width: 50em) {
-              .global-nav__sub-nav ul li a .nav-item-img {
-                width: 100px;
-                height: 100px; } }
 
 .is-desktop .global-nav-overlay {
   display: none;
@@ -4270,6 +4263,9 @@ http://flickity.metafizzy.co
 
 .max-width--xxxl {
   max-width: 700px; }
+
+.width-100 {
+  width: 100%; }
 
 .aspect-radio-10-7 {
   position: relative; }
