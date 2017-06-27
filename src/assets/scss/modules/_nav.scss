@@ -75,9 +75,9 @@
 				&.sub-nav-open {
 					.global-nav__sub-nav {
 						height: auto;
-						max-height: 400px;
+						max-height: 340px;
 						transition: 1s ease-in-out;
-						@include slideDownActive(1s, 610px);
+						@include slideDownActive(1s, 340px);
 						@include medium-and-up {
 							transition: none;
 							opacity: 1;
@@ -128,34 +128,27 @@
 				margin-bottom: 0;
 			}
 			li {
-				padding: 0;
 				border-bottom: none;
 				@include clearfix;
+				@include padding(null 20px);
+				display: inline-block;
+				width: 120px;
 				@include small-and-up {
-					@include padding(null 20px);
-					display: inline-block;
+					width: auto;
 				}
-					a  {
-						text-align: center;
-						.nav-item-img {
-							@include margin(5px auto 20px auto);
-							display: block;
-							width: 40px;
-							height: 40px;
-							float: right;
-							+ span {
-								float: left;
-							}
-							@include small-and-up {
-								float: none;
-								width: 80px;
-								height: 80px;
-							}
-							@include medium-and-up {
-								width: 100px;
-								height: 100px;
-							}
+				a  {
+					text-align: center;
+					.nav-item-img {
+						@include margin(5px auto 10px auto);
+						display: block;
+						width: 60px;
+						height: 60px;
+						@include small-and-up {
+							margin-bottom: 20px;
+							width: 80px;
+							height: 80px;
 						}
+					}
 				}
 			}
 		}

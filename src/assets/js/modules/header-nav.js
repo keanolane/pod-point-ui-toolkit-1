@@ -1,6 +1,5 @@
 import { select, addClass, removeClass, nodesToArray, closest } from '@pod-point/dom-ops';
 import { Delegate } from 'dom-delegate';
-import { scrollTo } from './../utilities';
 
 let instances = [];
 
@@ -89,9 +88,9 @@ class HeaderNav {
         const subNavLi = closest(clickedElement, 'li');
         const subNavIsOpen = closest(clickedElement, '.has-sub-nav.sub-nav-open');
         if (subNavIsOpen == null) {
-            this.showOverlay(true);
             this.closeSubNavs();
             addClass(subNavLi, SUBNAV_OPEN);
+            this.showOverlay(true);
         } else {
             removeClass(subNavLi, SUBNAV_OPEN);
             this.showOverlay(false);
