@@ -137,21 +137,6 @@
 	    });
 	});
 	
-	// function debounce(callback, wait, context = this) {
-	//     let timeout = null;
-	//     let callbackArgs = null;
-	//     const later = () => callback.apply(context, callbackArgs);
-	
-	//     return () => {
-	//         callbackArgs = arguments;
-	//         clearTimeout(timeout);
-	//         timeout = setTimeout(later, wait);
-	//     };
-	// }
-	// const handleResize = debounce((e) => {
-	//     loadModules();
-	// }, 100);
-	
 	var resizeId = void 0;
 	var evMapElement = document.querySelector('[data-js-module="evMap"]');
 	
@@ -562,6 +547,9 @@
 	    var winWidth = window.innerWidth;
 	    var winWidthMedium = 800;
 	    window.isMobileSize = winWidth < winWidthMedium;
+	
+	    window.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
+	    window.isIE10OrBelow = navigator.userAgent.indexOf('MSIE') >= 0;
 	
 	    window.onload = function () {
 	        if (window.isTouchDevice) {
@@ -1226,6 +1214,7 @@
 	exports.getRandomInt = getRandomInt;
 	exports.roundNumberTo = roundNumberTo;
 	exports.loadVideo = loadVideo;
+	exports.scrollTo = scrollTo;
 	
 	var _domOps = __webpack_require__(4);
 	
@@ -1425,6 +1414,31 @@
 	    } else {
 	        videoEl.setAttribute('src', '');
 	    }
+	}
+	
+	/**
+	 * Scroll to element
+	 * (default params are set so that it defaults to scrolling to top of page)
+	 *
+	 * @param {element} element to scroll to (default is document.body)
+	 * @param {integar} to (default is 0)
+	 * @param {integar} duration (default is 100)
+	 * @param {integar} timeout (default is 10)
+	 */
+	function scrollTo() {
+	    var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
+	    var to = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+	    var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 100;
+	    var timeout = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 10;
+	
+	    if (duration < 0) return;
+	    var difference = to - element.scrollTop;
+	    var perTick = difference / duration * 2;
+	
+	    setTimeout(function () {
+	        element.scrollTop = element.scrollTop + perTick;
+	        scrollTo(element, to, duration - 2);
+	    }, timeout);
 	}
 
 /***/ }),
@@ -3845,6 +3859,8 @@
 	
 	var _domDelegate = __webpack_require__(7);
 	
+	var _utilities = __webpack_require__(9);
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
@@ -3951,9 +3967,9 @@
 	            var subNavLi = (0, _domOps.closest)(clickedElement, 'li');
 	            var subNavIsOpen = (0, _domOps.closest)(clickedElement, '.has-sub-nav.sub-nav-open');
 	            if (subNavIsOpen == null) {
+	                this.showOverlay(true);
 	                this.closeSubNavs();
 	                (0, _domOps.addClass)(subNavLi, SUBNAV_OPEN);
-	                this.showOverlay(true);
 	            } else {
 	                (0, _domOps.removeClass)(subNavLi, SUBNAV_OPEN);
 	                this.showOverlay(false);
@@ -10038,13 +10054,22 @@
 	
 	        this.element = element;
 	        this.jsonPath = element.getAttribute('data-json-path');
+	        this.mapHolder = document.getElementById('gridmap');
 	        this.mapElement = document.getElementById(mapConfig.mapID);
 	        this.markerHolder = document.getElementById('markerHolder');
 	        this.markerText = document.getElementById('markerText');
 	        this.markerCircleHolder = document.getElementById('markerCircleHolder');
+	        this.markerCircleWidth = this.markerCircleHolder.offsetWidth;
+	        this.markerCircleHeight = this.markerCircleHolder.offsetHeight;
 	        this.markerCircle = document.getElementById('markerCircle');
 	        this.kwText = document.getElementById('kw');
 	        this.lastHighlightedDot = [];
+	
+	        if (window.isIE10OrBelow) {
+	            this.markerHolder.classList.add('hidden');
+	            this.mapHolder.classList.add('ev-map__static-map');
+	            return;
+	        }
 	
 	        mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s).translate(mapConfig.t).clipAngle(180).precision(1);
 	
@@ -10100,8 +10125,8 @@
 	
 	                this.kwText.innerHTML = kw;
 	
-	                this.markerHolder.style.left = x - 50 + 'px';
-	                this.markerHolder.style.top = y - 50 + 'px';
+	                this.markerHolder.style.left = x - (window.isIE ? this.markerCircleWidth * 1.5 : this.markerCircleWidth * 0.5) + 'px';
+	                this.markerHolder.style.top = y - this.markerCircleHeight * 0.5 + 'px';
 	                this.markerHolder.classList.remove('hidden');
 	                this.markerHolder.classList.add('ev-map-wrap__fade-out');
 	

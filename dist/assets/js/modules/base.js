@@ -8,6 +8,9 @@ window.defineSizeAndDevice = function () {
     var winWidthMedium = 800;
     window.isMobileSize = winWidth < winWidthMedium;
 
+    window.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
+    window.isIE10OrBelow = navigator.userAgent.indexOf('MSIE') >= 0;
+
     window.onload = function () {
         if (window.isTouchDevice) {
             (0, _domOps.addClass)(document.body, 'is-touch');

@@ -7,9 +7,6 @@
 	width: 100%;
 	background-color: white;
 	z-index: 100;
-	&.is-minified {
-		box-shadow: $bottom-shadow-subtle;
-	}
 }
 
 .global-header {
@@ -17,9 +14,6 @@
 	@include clearfix;
 	@include medium-and-up {
 		height: 96px;
-		.is-minified & {
-			height: 50px;
-		}
 	}
 	&.nav-open {
 		box-shadow: $bottom-shadow;
@@ -63,5 +57,4 @@
 	@include medium-and-up {
 		display: none;
 	}
-	.checkout-flow & { display: none; }
 }

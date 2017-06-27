@@ -34,13 +34,22 @@ class EvMap {
 
         this.element = element;
         this.jsonPath = element.getAttribute('data-json-path');
+        this.mapHolder = document.getElementById('gridmap');
         this.mapElement = document.getElementById(mapConfig.mapID);
         this.markerHolder = document.getElementById('markerHolder');
         this.markerText = document.getElementById('markerText');
         this.markerCircleHolder = document.getElementById('markerCircleHolder');
+        this.markerCircleWidth = this.markerCircleHolder.offsetWidth;
+        this.markerCircleHeight = this.markerCircleHolder.offsetHeight;
         this.markerCircle = document.getElementById('markerCircle');
         this.kwText = document.getElementById('kw');
         this.lastHighlightedDot = [];
+
+        if (window.isIE10OrBelow) {
+            this.markerHolder.classList.add('hidden');
+            this.mapHolder.classList.add('ev-map__static-map');
+            return;
+        }
 
         mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s)
             .translate(mapConfig.t).clipAngle(180)
@@ -101,8 +110,9 @@ class EvMap {
 
             this.kwText.innerHTML = kw;
 
-            this.markerHolder.style.left = `${(x - 50)}px`;
-            this.markerHolder.style.top = `${(y - 50)}px`;
+            this.markerHolder.style.left = `${(x - (window.isIE ? this.markerCircleWidth * 1.5
+                : this.markerCircleWidth * 0.5))}px`;
+            this.markerHolder.style.top = `${(y - (this.markerCircleHeight * 0.5))}px`;
             this.markerHolder.classList.remove('hidden');
             this.markerHolder.classList.add('ev-map-wrap__fade-out');
 
