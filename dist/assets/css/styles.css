@@ -2111,22 +2111,23 @@ img {
 
 .logo-main {
   width: 100px;
+  height: 27px;
   position: absolute;
   top: 17px;
   left: 0; }
+  .logo-main svg {
+    width: 100%;
+    height: 100%; }
   @media (min-width: 50em) {
     .logo-main {
       top: 30px;
-      width: 140px; }
-      .is-minified .logo-main {
-        top: 9px;
-        width: 120px; } }
+      width: 140px;
+      height: 38px; } }
   @media (min-width: 68em) {
     .logo-main {
       top: 22px;
-      width: 180px; }
-      .is-minified .logo-main {
-        width: 120px; } }
+      width: 180px;
+      height: 49px; } }
 
 .navicon {
   margin-top: 20px;
@@ -3191,7 +3192,12 @@ img {
     position: absolute;
     top: 0;
     width: 355px;
+    height: 304px;
     display: none; }
+    .hero--home .network-right svg,
+    .hero--home .network-left svg {
+      width: 100%;
+      height: 100%; }
     @media (min-width: 24em) {
       .hero--home .network-right,
       .hero--home .network-left {
@@ -3199,7 +3205,8 @@ img {
     @media (min-width: 50em) {
       .hero--home .network-right,
       .hero--home .network-left {
-        width: 500px; } }
+        width: 500px;
+        height: 421px; } }
   .hero--home .network-right {
     left: 85%; }
     @media (min-width: 40em) {
