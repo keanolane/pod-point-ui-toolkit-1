@@ -25,7 +25,9 @@
 	}
 }
 
-.list--ticks {
+.list--ticks,
+.rich-text ul.list--ticks {
+	@include remove-list-styles;
 	li {
 		@include font-style-base;
 		position: relative;
