@@ -40,7 +40,7 @@
 .ev-map-wrap {
 	display: block;
 	&__markers {
-		@include position(absolute, 50% null null 61%);
+		@include position(absolute);
 	}
 	&__labels {
 		float: left;
