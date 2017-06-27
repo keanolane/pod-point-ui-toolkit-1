@@ -344,6 +344,7 @@
 	
 	module.exports = exports['default'];
 
+
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
@@ -549,6 +550,9 @@
 	    var winWidthMedium = 800;
 	    var winWidth = window.innerWidth;
 	    window.isMobileSize = winWidth < winWidthMedium;
+	
+	    window.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
+	    window.isIE10OrBelow = navigator.userAgent.indexOf('MSIE') >= 0;
 	
 	    window.onload = function () {
 	        if (window.isTouchDevice) {
@@ -4104,7 +4108,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.7
+	 * Flickity v2.0.8
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -6203,20 +6207,10 @@
 	  this.dispatchEvent( 'pointerDown', event, [ pointer ] );
 	};
 	
-	var touchStartEvents = {
-	  touchstart: true,
-	  MSPointerDown: true
-	};
-	
-	var focusNodes = {
-	  INPUT: true,
-	  SELECT: true
-	};
-	
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
-	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
-	      focusNodes[ event.target.nodeName ] ) {
+	  var canPointerDown = getCanPointerDown( event );
+	  if ( !this.options.accessibility || canPointerDown ) {
 	    return;
 	  }
 	  var prevScrollY = window.pageYOffset;
@@ -6227,11 +6221,26 @@
 	  }
 	};
 	
+	var touchStartEvents = {
+	  touchstart: true,
+	  pointerdown: true,
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true,
+	};
+	
+	function getCanPointerDown( event ) {
+	  var isTouchStart = touchStartEvents[ event.type ];
+	  var isFocusNode = focusNodes[ event.target.nodeName ];
+	  return isTouchStart || isFocusNode;
+	}
+	
 	proto.canPreventDefaultOnPointerDown = function( event ) {
-	  // prevent default, unless touchstart or <select>
-	  var isTouchstart = event.type == 'touchstart';
-	  var targetNodeName = event.target.nodeName;
-	  return !isTouchstart && targetNodeName != 'SELECT';
+	  // prevent default, unless touchstart or input
+	  var canPointerDown = getCanPointerDown( event );
+	  return !canPointerDown;
 	};
 	
 	// ----- move ----- //
@@ -6445,7 +6454,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Unidragger v2.2.1
+	 * Unidragger v2.2.2
 	 * Draggable base class
 	 * MIT license
 	 */
@@ -6511,6 +6520,11 @@
 	    var handle = this.handles[i];
 	    this._bindStartEvent( handle, isBind );
 	    handle[ bindMethod ]( 'click', this );
+	    // touch-action: none to override browser touch gestures
+	    // metafizzy/flickity#540
+	    if ( window.PointerEvent ) {
+	      handle.style.touchAction = isBind ? 'none' : '';
+	    }
 	  }
 	};
 	
@@ -10047,13 +10061,22 @@
 	
 	        this.element = element;
 	        this.jsonPath = element.getAttribute('data-json-path');
+	        this.mapHolder = document.getElementById('gridmap');
 	        this.mapElement = document.getElementById(mapConfig.mapID);
 	        this.markerHolder = document.getElementById('markerHolder');
 	        this.markerText = document.getElementById('markerText');
 	        this.markerCircleHolder = document.getElementById('markerCircleHolder');
+	        this.markerCircleWidth = this.markerCircleHolder.offsetWidth;
+	        this.markerCircleHeight = this.markerCircleHolder.offsetHeight;
 	        this.markerCircle = document.getElementById('markerCircle');
 	        this.kwText = document.getElementById('kw');
 	        this.lastHighlightedDot = [];
+	
+	        if (window.isIE10OrBelow) {
+	            this.markerHolder.classList.add('hidden');
+	            this.mapHolder.classList.add('ev-map__static-map');
+	            return;
+	        }
 	
 	        mapConfig.projection = d3.geoAzimuthalEqualArea().scale(mapConfig.s).translate(mapConfig.t).clipAngle(180).precision(1);
 	
@@ -10109,8 +10132,8 @@
 	
 	                this.kwText.innerHTML = kw;
 	
-	                this.markerHolder.style.left = x - 50 + 'px';
-	                this.markerHolder.style.top = y - 50 + 'px';
+	                this.markerHolder.style.left = x - (window.isIE ? this.markerCircleWidth * 1.5 : this.markerCircleWidth * 0.5) + 'px';
+	                this.markerHolder.style.top = y - this.markerCircleHeight * 0.5 + 'px';
 	                this.markerHolder.classList.remove('hidden');
 	                this.markerHolder.classList.add('ev-map-wrap__fade-out');
 	
