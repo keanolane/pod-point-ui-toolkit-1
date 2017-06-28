@@ -20,7 +20,8 @@ $bottom-space: 4%;
 		@include grid($flex-wrap: wrap, $gutter: $sides-gutter);
 	}
 	&--flex {
-		@include grid($flex-wrap: flex, $gutter: $sides-gutter);
+		// @include grid($flex-wrap: flex, $gutter: $sides-gutter);
+		@include grid($flex-wrap: wrap, $gutter: $sides-gutter);
 	}
 	&--vertical-center {
 		align-items: center;
