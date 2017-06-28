@@ -54376,7 +54376,20 @@ window.addEventListener('resize', handleResize);
 	  SELECT: true
 	};
 	
+<<<<<<< a22f5d310ef77a33bd2d7620d73ec64cb068ef06
 >>>>>>> Made nav icons aligned in size
+=======
+	var touchStartEvents = {
+	  touchstart: true,
+	  MSPointerDown: true
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true
+	};
+	
+>>>>>>> Got rid of safari flexbox fix as it was breaking on mobile
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
 	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
@@ -54391,6 +54404,7 @@ window.addEventListener('resize', handleResize);
 	  }
 	};
 	
+<<<<<<< a22f5d310ef77a33bd2d7620d73ec64cb068ef06
 <<<<<<< cbc6cd1cfb9acfe865270d80e005dc2161090f9e
 	var touchStartEvents = {
 	  touchstart: true,
@@ -54417,11 +54431,17 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Deal with resize for map and accordion
 =======
 	proto.canPreventDefaultOnPointerDown = function( event ) {
+=======
+	proto.canPreventDefaultOnPointerDown = function( event ) {
+>>>>>>> Got rid of safari flexbox fix as it was breaking on mobile
 	  // prevent default, unless touchstart or <select>
 	  var isTouchstart = event.type == 'touchstart';
 	  var targetNodeName = event.target.nodeName;
 	  return !isTouchstart && targetNodeName != 'SELECT';
+<<<<<<< a22f5d310ef77a33bd2d7620d73ec64cb068ef06
 >>>>>>> Made nav icons aligned in size
+=======
+>>>>>>> Got rid of safari flexbox fix as it was breaking on mobile
 	};
 	
 	var focusNodes = {
@@ -54587,6 +54607,7 @@ window.addEventListener('resize', handleResize);
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+<<<<<<< a22f5d310ef77a33bd2d7620d73ec64cb068ef06
 <<<<<<< cbc6cd1cfb9acfe865270d80e005dc2161090f9e
 <<<<<<< ca893ef4b334fdf8ce246fbaa940d036ebb7644f
 <<<<<<< 9b1b77e05fbb2e7b3c2fb194662bcdc959b36b26
@@ -54607,6 +54628,9 @@ window.addEventListener('resize', handleResize);
 =======
 	 * Unidragger v2.2.1
 >>>>>>> Made nav icons aligned in size
+=======
+	 * Unidragger v2.2.1
+>>>>>>> Got rid of safari flexbox fix as it was breaking on mobile
 	 * Draggable base class
 	 * MIT license
 	 */
