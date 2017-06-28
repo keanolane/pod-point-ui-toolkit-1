@@ -43,10 +43,6 @@ var EvMap = function () {
     function EvMap(element) {
         _classCallCheck(this, EvMap);
 
-        if (window.isTouchDevice || window.isMobileSize) {
-            return;
-        }
-
         mapConfig = {
             mapID: '#gridmap',
             mapWidth: 330,
@@ -225,6 +221,9 @@ var EvMap = function () {
 
 exports.default = {
     init: function init(element) {
-        instances.push(new EvMap(element));
+        window.defineSizeAndDevice();
+        if (!window.isTouchDevice && !window.isMobileSize && !window.evMap) {
+            instances.push(new EvMap(element));
+        }
     }
 };

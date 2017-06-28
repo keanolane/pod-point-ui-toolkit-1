@@ -137,22 +137,19 @@
 	    });
 	});
 	
-	// function debounce(callback, wait, context = this) {
-	//     let timeout = null;
-	//     let callbackArgs = null;
-	//     const later = () => callback.apply(context, callbackArgs);
+	var resizeId = void 0;
+	var evMapElement = document.querySelector('[data-js-module="evMap"]');
 	
-	//     return () => {
-	//         callbackArgs = arguments;
-	//         clearTimeout(timeout);
-	//         timeout = setTimeout(later, wait);
-	//     };
-	// }
-	// const handleResize = debounce((e) => {
-	//     loadModules();
-	// }, 100);
+	function doneResize() {
+	    _evMap2.default.init(evMapElement);
+	}
 	
-	// window.addEventListener('resize', handleResize)
+	function startResize() {
+	    clearTimeout(resizeId);
+	    resizeId = setTimeout(doneResize, 500);
+	}
+	
+	window.addEventListener('resize', startResize);
 
 /***/ }),
 /* 1 */
@@ -343,6 +340,7 @@
 	};
 	
 	module.exports = exports['default'];
+
 
 /***/ }),
 /* 4 */
@@ -544,10 +542,10 @@
 	
 	var _domOps = __webpack_require__(4);
 	
-	var defineSizeAndDevice = function defineSizeAndDevice() {
+	window.defineSizeAndDevice = function () {
 	    window.isTouchDevice = 'ontouchstart' in document.documentElement;
-	    var winWidthMedium = 800;
 	    var winWidth = window.innerWidth;
+	    var winWidthMedium = 800;
 	    window.isMobileSize = winWidth < winWidthMedium;
 	
 	    window.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
@@ -561,7 +559,7 @@
 	        }
 	    };
 	};
-	defineSizeAndDevice();
+	window.defineSizeAndDevice();
 
 /***/ }),
 /* 6 */
@@ -3790,11 +3788,11 @@
 	
 	            this.listener = new _domDelegate.Delegate(this.element);
 	
-	            if (this.accordionIsMobileOnly && window.isMobileSize || this.accordionIsMobileOnly !== true) {
-	                this.listener.on('click', 'dt', function (event, element) {
+	            this.listener.on('click', 'dt', function (event, element) {
+	                if (_this.accordionIsMobileOnly && window.isMobileSize || _this.accordionIsMobileOnly !== true) {
 	                    _this.toggleAccordion(element);
-	                });
-	            }
+	                }
+	            });
 	        }
 	
 	        /**
@@ -4105,7 +4103,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.7
+	 * Flickity v2.0.8
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -6204,20 +6202,10 @@
 	  this.dispatchEvent( 'pointerDown', event, [ pointer ] );
 	};
 	
-	var touchStartEvents = {
-	  touchstart: true,
-	  MSPointerDown: true
-	};
-	
-	var focusNodes = {
-	  INPUT: true,
-	  SELECT: true
-	};
-	
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
-	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
-	      focusNodes[ event.target.nodeName ] ) {
+	  var canPointerDown = getCanPointerDown( event );
+	  if ( !this.options.accessibility || canPointerDown ) {
 	    return;
 	  }
 	  var prevScrollY = window.pageYOffset;
@@ -6228,11 +6216,26 @@
 	  }
 	};
 	
+	var touchStartEvents = {
+	  touchstart: true,
+	  pointerdown: true,
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true,
+	};
+	
+	function getCanPointerDown( event ) {
+	  var isTouchStart = touchStartEvents[ event.type ];
+	  var isFocusNode = focusNodes[ event.target.nodeName ];
+	  return isTouchStart || isFocusNode;
+	}
+	
 	proto.canPreventDefaultOnPointerDown = function( event ) {
-	  // prevent default, unless touchstart or <select>
-	  var isTouchstart = event.type == 'touchstart';
-	  var targetNodeName = event.target.nodeName;
-	  return !isTouchstart && targetNodeName != 'SELECT';
+	  // prevent default, unless touchstart or input
+	  var canPointerDown = getCanPointerDown( event );
+	  return !canPointerDown;
 	};
 	
 	// ----- move ----- //
@@ -6446,7 +6449,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Unidragger v2.2.1
+	 * Unidragger v2.2.2
 	 * Draggable base class
 	 * MIT license
 	 */
@@ -6512,6 +6515,11 @@
 	    var handle = this.handles[i];
 	    this._bindStartEvent( handle, isBind );
 	    handle[ bindMethod ]( 'click', this );
+	    // touch-action: none to override browser touch gestures
+	    // metafizzy/flickity#540
+	    if ( window.PointerEvent ) {
+	      handle.style.touchAction = isBind ? 'none' : '';
+	    }
 	  }
 	};
 	
@@ -10028,10 +10036,6 @@
 	    function EvMap(element) {
 	        _classCallCheck(this, EvMap);
 	
-	        if (window.isTouchDevice || window.isMobileSize) {
-	            return;
-	        }
-	
 	        mapConfig = {
 	            mapID: '#gridmap',
 	            mapWidth: 330,
@@ -10210,7 +10214,10 @@
 	
 	exports.default = {
 	    init: function init(element) {
-	        instances.push(new EvMap(element));
+	        window.defineSizeAndDevice();
+	        if (!window.isTouchDevice && !window.isMobileSize && !window.evMap) {
+	            instances.push(new EvMap(element));
+	        }
 	    }
 	};
 

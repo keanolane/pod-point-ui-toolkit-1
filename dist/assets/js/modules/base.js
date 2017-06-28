@@ -2,10 +2,10 @@
 
 var _domOps = require('@pod-point/dom-ops');
 
-var defineSizeAndDevice = function defineSizeAndDevice() {
+window.defineSizeAndDevice = function () {
     window.isTouchDevice = 'ontouchstart' in document.documentElement;
-    var winWidthMedium = 800;
     var winWidth = window.innerWidth;
+    var winWidthMedium = 800;
     window.isMobileSize = winWidth < winWidthMedium;
 
     window.isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
@@ -19,4 +19,4 @@ var defineSizeAndDevice = function defineSizeAndDevice() {
         }
     };
 };
-defineSizeAndDevice();
+window.defineSizeAndDevice();
