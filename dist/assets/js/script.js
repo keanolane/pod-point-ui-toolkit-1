@@ -588,7 +588,6 @@ var _moduleLoader = require('@pod-point/module-loader');
 	
 	module.exports = exports['default'];
 
-
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
@@ -6964,7 +6963,7 @@ dom.whenReady(function () {
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 =======
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.8
+	 * Flickity v2.0.7
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -54360,15 +54359,28 @@ window.addEventListener('resize', handleResize);
 	  SELECT: true
 	};
 	
+<<<<<<< cbc6cd1cfb9acfe865270d80e005dc2161090f9e
 >>>>>>> Lots of IE fixes
 =======
 >>>>>>> Added change to width setting for IE
 =======
 >>>>>>> Deal with resize for map and accordion
+=======
+	var touchStartEvents = {
+	  touchstart: true,
+	  MSPointerDown: true
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true
+	};
+	
+>>>>>>> Made nav icons aligned in size
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
-	  var canPointerDown = getCanPointerDown( event );
-	  if ( !this.options.accessibility || canPointerDown ) {
+	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
+	      focusNodes[ event.target.nodeName ] ) {
 	    return;
 	  }
 	  var prevScrollY = window.pageYOffset;
@@ -54379,6 +54391,7 @@ window.addEventListener('resize', handleResize);
 	  }
 	};
 	
+<<<<<<< cbc6cd1cfb9acfe865270d80e005dc2161090f9e
 	var touchStartEvents = {
 	  touchstart: true,
 	  pointerdown: true,
@@ -54402,6 +54415,13 @@ window.addEventListener('resize', handleResize);
 	  var canPointerDown = getCanPointerDown( event );
 	  return !canPointerDown;
 >>>>>>> Deal with resize for map and accordion
+=======
+	proto.canPreventDefaultOnPointerDown = function( event ) {
+	  // prevent default, unless touchstart or <select>
+	  var isTouchstart = event.type == 'touchstart';
+	  var targetNodeName = event.target.nodeName;
+	  return !isTouchstart && targetNodeName != 'SELECT';
+>>>>>>> Made nav icons aligned in size
 	};
 	
 	var focusNodes = {
@@ -54567,6 +54587,7 @@ window.addEventListener('resize', handleResize);
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+<<<<<<< cbc6cd1cfb9acfe865270d80e005dc2161090f9e
 <<<<<<< ca893ef4b334fdf8ce246fbaa940d036ebb7644f
 <<<<<<< 9b1b77e05fbb2e7b3c2fb194662bcdc959b36b26
 <<<<<<< 4b5c473db9a6682380894155922cceb3cdc9f293
@@ -54583,6 +54604,9 @@ window.addEventListener('resize', handleResize);
 =======
 	 * Unidragger v2.2.2
 >>>>>>> Deal with resize for map and accordion
+=======
+	 * Unidragger v2.2.1
+>>>>>>> Made nav icons aligned in size
 	 * Draggable base class
 	 * MIT license
 	 */
@@ -54658,11 +54682,6 @@ window.addEventListener('resize', handleResize);
 	    var handle = this.handles[i];
 	    this._bindStartEvent( handle, isBind );
 	    handle[ bindMethod ]( 'click', this );
-	    // touch-action: none to override browser touch gestures
-	    // metafizzy/flickity#540
-	    if ( window.PointerEvent ) {
-	      handle.style.touchAction = isBind ? 'none' : '';
-	    }
 	  }
 	};
 >>>>>>> Removed saved bubble
