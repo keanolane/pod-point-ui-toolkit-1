@@ -58886,8 +58886,8 @@ window.addEventListener('resize', handleResize);
 	
 	        mapConfig = {
 	            mapID: '#gridmap',
-	            mapWidth: 330,
-	            mapHeight: 450, // size of the map on the page in pixels
+	            mapWidth: 462,
+	            mapHeight: 630, // size of the map on the page in pixels
 	            mapDotStepSize: 10, // size of the map dots
 	            mapDotColour: '#CCCCCC', // fill colour of the dots
 	            mapLonLeft: -10.7, // enter the longitude in degrees on left edge of map, by comparing with Google Maps
@@ -58895,8 +58895,8 @@ window.addEventListener('resize', handleResize);
 	            mapLatBottom: 49.8, // enter the latitude in degrees on bottom edge of map
 	            timeDelay: 6000, // time in milliseconds between new charges appearing on the map
 	            // note that length of fade_out animation must be set to same duration
-	            s: 2250, // scale
-	            t: [270, 2350] };
+	            s: 2900, // scale
+	            t: [370, 2950] };
 	
 	        this.element = element;
 	        this.jsonPath = element.getAttribute('data-json-path');

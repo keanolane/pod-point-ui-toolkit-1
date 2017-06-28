@@ -3093,13 +3093,13 @@ img {
       display: none; } }
   @media (min-width: 50em) {
     .ev-map {
-      right: 10%; } }
+      right: 3%; } }
   @media (min-width: 68em) {
     .ev-map {
-      right: 15%; } }
+      right: 10%; } }
   .ev-map svg {
-    width: 330px;
-    height: 450px; }
+    width: 462px;
+    height: 630px; }
   .ev-map circle {
     -ms-transform-origin: 50% 50%;
         transform-origin: 50% 50%;
