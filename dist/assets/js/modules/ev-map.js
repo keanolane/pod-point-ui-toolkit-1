@@ -126,7 +126,12 @@ var EvMap = function () {
             this.mapPoint = document.querySelector('circle[cx="' + x + '"][cy="' + y + '"]');
 
             if (this.mapPoint) {
-                this.mapPoint.classList.add('gridmap-dot-selected');
+                if (this.mapPoint.classList) {
+                    this.mapPoint.classList.add('gridmap-dot-selected');
+                } else {
+                    // workaround for IE 11
+                    this.mapPoint.style.fill = '#8cc63f';
+                }
 
                 this.kwText.innerHTML = kw;
 
@@ -152,7 +157,12 @@ var EvMap = function () {
             if (this.lastHighlightedDot[0]) {
                 this.mapPoint = document.querySelector('circle[cx="' + this.lastHighlightedDot[0] + '"][cy="' + this.lastHighlightedDot[1] + '"]');
                 if (this.mapPoint) {
-                    this.mapPoint.classList.remove('gridmap-dot-selected');
+                    if (this.mapPoint.classList) {
+                        this.mapPoint.classList.remove('gridmap-dot-selected');
+                    } else {
+                        // workaround for IE 11
+                        this.mapPoint.style.fill = '#cccccc';
+                    }
                 }
             }
 
