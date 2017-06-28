@@ -73,6 +73,9 @@
 	&--xxl { max-width: $max-width-xxl; }
 	&--xxxl { max-width: $max-width-xxxl; }
 }
+.width-100 {
+	width: 100%;
+}
 
 .aspect-radio-10-7 {
 	@include aspect-ratio(10, 7);
