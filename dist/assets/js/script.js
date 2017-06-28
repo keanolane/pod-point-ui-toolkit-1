@@ -341,6 +341,7 @@
 	
 	module.exports = exports['default'];
 
+
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
@@ -4102,7 +4103,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.7
+	 * Flickity v2.0.8
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -6201,20 +6202,10 @@
 	  this.dispatchEvent( 'pointerDown', event, [ pointer ] );
 	};
 	
-	var touchStartEvents = {
-	  touchstart: true,
-	  MSPointerDown: true
-	};
-	
-	var focusNodes = {
-	  INPUT: true,
-	  SELECT: true
-	};
-	
 	proto.pointerDownFocus = function( event ) {
 	  // focus element, if not touch, and its not an input or select
-	  if ( !this.options.accessibility || touchStartEvents[ event.type ] ||
-	      focusNodes[ event.target.nodeName ] ) {
+	  var canPointerDown = getCanPointerDown( event );
+	  if ( !this.options.accessibility || canPointerDown ) {
 	    return;
 	  }
 	  var prevScrollY = window.pageYOffset;
@@ -6225,11 +6216,26 @@
 	  }
 	};
 	
+	var touchStartEvents = {
+	  touchstart: true,
+	  pointerdown: true,
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true,
+	};
+	
+	function getCanPointerDown( event ) {
+	  var isTouchStart = touchStartEvents[ event.type ];
+	  var isFocusNode = focusNodes[ event.target.nodeName ];
+	  return isTouchStart || isFocusNode;
+	}
+	
 	proto.canPreventDefaultOnPointerDown = function( event ) {
-	  // prevent default, unless touchstart or <select>
-	  var isTouchstart = event.type == 'touchstart';
-	  var targetNodeName = event.target.nodeName;
-	  return !isTouchstart && targetNodeName != 'SELECT';
+	  // prevent default, unless touchstart or input
+	  var canPointerDown = getCanPointerDown( event );
+	  return !canPointerDown;
 	};
 	
 	// ----- move ----- //
@@ -6443,7 +6449,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Unidragger v2.2.1
+	 * Unidragger v2.2.2
 	 * Draggable base class
 	 * MIT license
 	 */
@@ -6509,6 +6515,11 @@
 	    var handle = this.handles[i];
 	    this._bindStartEvent( handle, isBind );
 	    handle[ bindMethod ]( 'click', this );
+	    // touch-action: none to override browser touch gestures
+	    // metafizzy/flickity#540
+	    if ( window.PointerEvent ) {
+	      handle.style.touchAction = isBind ? 'none' : '';
+	    }
 	  }
 	};
 	
@@ -10027,8 +10038,8 @@
 	
 	        mapConfig = {
 	            mapID: '#gridmap',
-	            mapWidth: 330,
-	            mapHeight: 450, // size of the map on the page in pixels
+	            mapWidth: 462,
+	            mapHeight: 630, // size of the map on the page in pixels
 	            mapDotStepSize: 10, // size of the map dots
 	            mapDotColour: '#CCCCCC', // fill colour of the dots
 	            mapLonLeft: -10.7, // enter the longitude in degrees on left edge of map, by comparing with Google Maps
@@ -10036,8 +10047,8 @@
 	            mapLatBottom: 49.8, // enter the latitude in degrees on bottom edge of map
 	            timeDelay: 6000, // time in milliseconds between new charges appearing on the map
 	            // note that length of fade_out animation must be set to same duration
-	            s: 2250, // scale
-	            t: [270, 2350] };
+	            s: 2900, // scale
+	            t: [370, 2950] };
 	
 	        this.element = element;
 	        this.jsonPath = element.getAttribute('data-json-path');

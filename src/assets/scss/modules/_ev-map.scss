@@ -85,14 +85,14 @@
 		display: none;
 	}
 	@include medium-and-up {
-		right: 10%;
+		right: 3%;
 	}
 	@include large-and-up {
-		right: 15%;
+		right: 10%;
 	}
 	svg {
-		width: 330px;
-		height: 450px;
+		width: 462px;
+		height: 630px;
 	}
 	circle {
 		transform-origin: 50% 50%;
