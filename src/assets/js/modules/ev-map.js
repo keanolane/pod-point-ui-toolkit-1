@@ -201,7 +201,7 @@ class EvMap {
 export default {
     init: element => {
         window.defineSizeAndDevice();
-        if (!window.isTouchDevice && !window.isMobileSize && !window.evMap) {
+        if (!window.isMobileSize && !window.evMap) {
             instances.push(new EvMap(element));
         }
     },
