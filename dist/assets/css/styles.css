@@ -3891,6 +3891,7 @@ http://flickity.metafizzy.co
 
 .video-wrapper {
   position: relative;
+  z-index: 9999;
   padding-bottom: 56.25%;
   /* 16:9 */
   padding-top: 25px;
