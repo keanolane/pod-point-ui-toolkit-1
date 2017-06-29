@@ -10,11 +10,20 @@ var _domDelegate = require('dom-delegate');
 
 var _domOps = require('@pod-point/dom-ops');
 
+var _validationRules = require('./../validation-rules');
+
+var _utilities = require('./../utilities');
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var HAS_CONTENT = 'has-content';
 var HAS_ERROR = 'has-error';
 var HAS_FOCUS = 'has-focus';
+
+var errorMessages = {
+    required: "This is a required field",
+    email: "Please enter a valid email"
+};
 
 var FormFields = function () {
     function FormFields() {
@@ -29,11 +38,13 @@ var FormFields = function () {
     _createClass(FormFields, null, [{
         key: 'checkAllFieldsForContent',
         value: function checkAllFieldsForContent() {
-            var inputs = (0, _domOps.nodesToArray)((0, _domOps.select)('input'));
+            var wrapper = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
 
-            if (inputs.length) {
-                inputs.forEach(function (input) {
-                    return FormFields.checkForContent(input);
+            var fields = (0, _domOps.nodesToArray)(wrapper.querySelectorAll('input, select'));
+
+            if (fields.length) {
+                fields.forEach(function (field) {
+                    return FormFields.checkForContent(field);
                 });
             }
         }
@@ -46,19 +57,104 @@ var FormFields = function () {
             callback(container, HAS_CONTENT);
         }
     }, {
-        key: 'checkForErrors',
-        value: function checkForErrors(element) {
-            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_ERROR);
+        key: 'checkIfRequired',
+        value: function checkIfRequired(element) {
+            return element.getAttribute('required') !== null && (0, _utilities.isVisible)(element);
+        }
+    }, {
+        key: 'errorPlacement',
+        value: function errorPlacement(element, errorElWithMessage) {
+            if (element.tagName === 'SELECT') {
+                (0, _domOps.insertAfter)(element.parentNode, errorElWithMessage);
+            } else {
+                (0, _domOps.insertAfter)(element, errorElWithMessage);
+            }
+        }
+    }, {
+        key: 'addErrorMessage',
+        value: function addErrorMessage(element, errorMessage) {
+            var formFieldContainer = FormFields.getFieldContainer(element);
+            var errorEl = formFieldContainer.querySelector('.form__error');
+
+            if (errorEl === null) {
+                var errorElWithMessage = '<span class="form__error">' + errorMessage + '</span>';
+                FormFields.errorPlacement(element, errorElWithMessage);
+            } else {
+                errorEl.innerHTML = errorMessage;
+            }
+        }
+    }, {
+        key: 'checkFieldForError',
+        value: function checkFieldForError(element) {
+            if (FormFields.checkIfRequired(element)) {
+                var passedValidation = (0, _validationRules.required)(element);
+
+                if (passedValidation) {
+                    FormFields.checkSpecificValidation(element);
+                } else {
+                    FormFields.addError(element, errorMessages.required);
+                }
+            }
+        }
+    }, {
+        key: 'addError',
+        value: function addError(element, errorMessage) {
+            var formFieldContainer = FormFields.getFieldContainer(element);
+            (0, _domOps.addClass)(FormFields.getFieldContainer(element), HAS_ERROR);
+            FormFields.addErrorMessage(element, errorMessage);
+            (0, _utilities.show)(formFieldContainer.querySelector('.form__error'));
+        }
+    }, {
+        key: 'removeError',
+        value: function removeError(element) {
+            var formFieldContainer = FormFields.getFieldContainer(element);
+            (0, _domOps.removeClass)(FormFields.getFieldContainer(element), HAS_ERROR);
+            var errorEl = formFieldContainer.querySelector('.form__error');
+            if (errorEl) {
+                (0, _utilities.hide)(errorEl);
+            }
+        }
+    }, {
+        key: 'checkSpecificValidation',
+        value: function checkSpecificValidation(element) {
+            if (element.type === 'email') {
+                var passedValidation = (0, _validationRules.email)(element);
+                if (!passedValidation) {
+                    FormFields.addError(element, errorMessages.email);
+                } else {
+                    FormFields.removeError(element);
+                }
+            } else {
+                FormFields.removeError(element);
+            }
+        }
+    }, {
+        key: 'submitIfNoErrors',
+        value: function submitIfNoErrors(form) {
+            var fields = (0, _domOps.nodesToArray)(form.querySelectorAll('input, select'));
+
+            if (fields.length) {
+                fields.forEach(function (field) {
+                    return FormFields.checkFieldForError(field);
+                });
+            }
+
+            var errors = (0, _domOps.nodesToArray)(form.querySelectorAll('.has-error').length);
+            if (errors < 1) {
+                form.submit();
+            }
         }
     }, {
         key: 'bindEvents',
         value: function bindEvents(root) {
+            var _this = this;
+
             var listener = new _domDelegate.Delegate(root);
 
             // Listen to change because of password managers etc
-            listener.on('change', 'input, textarea', function (event, element) {
+            listener.on('change', 'input, textarea, select', function (event, element) {
                 FormFields.checkForContent(element);
-                FormFields.checkForErrors(element);
+                FormFields.checkFieldForError(element);
                 FormFields.giveFocus(element);
             });
 
@@ -68,9 +164,9 @@ var FormFields = function () {
             });
 
             // Text input focusout handler
-            listener.on('focusout', 'input, textarea', function (event, element) {
+            listener.on('focusout', 'input, textarea, select', function (event, element) {
                 FormFields.checkForContent(element);
-                FormFields.checkForErrors(element);
+                FormFields.checkFieldForError(element);
                 FormFields.removeFocus(element);
             });
 
@@ -82,6 +178,17 @@ var FormFields = function () {
                     formEl.style.height = scrollHeight + 'px';
                 }
             });
+
+            // On form submit
+            listener.on('submit', 'form', function (event, element) {
+                event.preventDefault();
+                _this.submitIfNoErrors(element);
+            });
+        }
+    }, {
+        key: 'getFieldContainer',
+        value: function getFieldContainer(element) {
+            return (0, _domOps.closest)(element, '.form__group');
         }
     }, {
         key: 'getInputContainer',

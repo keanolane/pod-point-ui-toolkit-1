@@ -89,6 +89,7 @@
 	
 	var _formFields2 = _interopRequireDefault(_formFields);
 	
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	var _collapse = __webpack_require__(19);
 	
@@ -232,39 +233,46 @@
 	var _addressLookup = __webpack_require__(53);
 =======
 	var _toggleAccordionPanel = __webpack_require__(19);
+=======
+	var _toggleAccordionPanel = __webpack_require__(20);
+>>>>>>> Implemented js validation - on submit and inline
 	
 	var _toggleAccordionPanel2 = _interopRequireDefault(_toggleAccordionPanel);
 	
-	var _toggleElement = __webpack_require__(20);
+	var _toggleElement = __webpack_require__(21);
 	
 	var _toggleElement2 = _interopRequireDefault(_toggleElement);
 	
-	var _gallerySimple = __webpack_require__(21);
+	var _gallerySimple = __webpack_require__(22);
 	
 	var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
 	
-	var _accordion = __webpack_require__(22);
+	var _accordion = __webpack_require__(23);
 	
 	var _accordion2 = _interopRequireDefault(_accordion);
 	
-	var _headerNav = __webpack_require__(23);
+	var _headerNav = __webpack_require__(24);
 	
 	var _headerNav2 = _interopRequireDefault(_headerNav);
 	
-	var _carousel = __webpack_require__(24);
+	var _carousel = __webpack_require__(25);
 	
 	var _carousel2 = _interopRequireDefault(_carousel);
 	
-	var _flipCounter = __webpack_require__(43);
+	var _flipCounter = __webpack_require__(44);
 	
 	var _flipCounter2 = _interopRequireDefault(_flipCounter);
 	
-	var _evMap = __webpack_require__(45);
+	var _evMap = __webpack_require__(46);
 	
 	var _evMap2 = _interopRequireDefault(_evMap);
 	
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 	var _addressLookup = __webpack_require__(50);
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+	var _addressLookup = __webpack_require__(51);
+>>>>>>> Implemented js validation - on submit and inline
 	
 	var addressLookup = _interopRequireWildcard(_addressLookup);
 	
@@ -272,6 +280,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
@@ -293,6 +302,9 @@
 =======
 	__webpack_require__(51);
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+	__webpack_require__(52);
+>>>>>>> Implemented js validation - on submit and inline
 	
 	window.initAutocomplete = addressLookup.initAutocomplete;
 	window.geolocate = addressLookup.geolocate;
@@ -4101,11 +4113,20 @@ dom.whenReady(function () {
 	
 	var _domOps = __webpack_require__(4);
 	
+	var _validationRules = __webpack_require__(19);
+	
+	var _utilities = __webpack_require__(9);
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var HAS_CONTENT = 'has-content';
 	var HAS_ERROR = 'has-error';
 	var HAS_FOCUS = 'has-focus';
+	
+	var errorMessages = {
+	    required: "This is a required field",
+	    email: "Please enter a valid email"
+	};
 	
 	var FormFields = function () {
 	    function FormFields() {
@@ -4120,11 +4141,13 @@ dom.whenReady(function () {
 	    _createClass(FormFields, null, [{
 	        key: 'checkAllFieldsForContent',
 	        value: function checkAllFieldsForContent() {
-	            var inputs = (0, _domOps.nodesToArray)((0, _domOps.select)('input'));
+	            var wrapper = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
 	
-	            if (inputs.length) {
-	                inputs.forEach(function (input) {
-	                    return FormFields.checkForContent(input);
+	            var fields = (0, _domOps.nodesToArray)(wrapper.querySelectorAll('input, select'));
+	
+	            if (fields.length) {
+	                fields.forEach(function (field) {
+	                    return FormFields.checkForContent(field);
 	                });
 	            }
 	        }
@@ -4137,19 +4160,104 @@ dom.whenReady(function () {
 	            callback(container, HAS_CONTENT);
 	        }
 	    }, {
-	        key: 'checkForErrors',
-	        value: function checkForErrors(element) {
-	            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_ERROR);
+	        key: 'checkIfRequired',
+	        value: function checkIfRequired(element) {
+	            return element.getAttribute('required') !== null && (0, _utilities.isVisible)(element);
+	        }
+	    }, {
+	        key: 'errorPlacement',
+	        value: function errorPlacement(element, errorElWithMessage) {
+	            if (element.tagName === 'SELECT') {
+	                (0, _domOps.insertAfter)(element.parentNode, errorElWithMessage);
+	            } else {
+	                (0, _domOps.insertAfter)(element, errorElWithMessage);
+	            }
+	        }
+	    }, {
+	        key: 'addErrorMessage',
+	        value: function addErrorMessage(element, errorMessage) {
+	            var formFieldContainer = FormFields.getFieldContainer(element);
+	            var errorEl = formFieldContainer.querySelector('.form__error');
+	
+	            if (errorEl === null) {
+	                var errorElWithMessage = '<span class="form__error">' + errorMessage + '</span>';
+	                FormFields.errorPlacement(element, errorElWithMessage);
+	            } else {
+	                errorEl.innerHTML = errorMessage;
+	            }
+	        }
+	    }, {
+	        key: 'checkFieldForError',
+	        value: function checkFieldForError(element) {
+	            if (FormFields.checkIfRequired(element)) {
+	                var passedValidation = (0, _validationRules.required)(element);
+	
+	                if (passedValidation) {
+	                    FormFields.checkSpecificValidation(element);
+	                } else {
+	                    FormFields.addError(element, errorMessages.required);
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'addError',
+	        value: function addError(element, errorMessage) {
+	            var formFieldContainer = FormFields.getFieldContainer(element);
+	            (0, _domOps.addClass)(FormFields.getFieldContainer(element), HAS_ERROR);
+	            FormFields.addErrorMessage(element, errorMessage);
+	            (0, _utilities.show)(formFieldContainer.querySelector('.form__error'));
+	        }
+	    }, {
+	        key: 'removeError',
+	        value: function removeError(element) {
+	            var formFieldContainer = FormFields.getFieldContainer(element);
+	            (0, _domOps.removeClass)(FormFields.getFieldContainer(element), HAS_ERROR);
+	            var errorEl = formFieldContainer.querySelector('.form__error');
+	            if (errorEl) {
+	                (0, _utilities.hide)(errorEl);
+	            }
+	        }
+	    }, {
+	        key: 'checkSpecificValidation',
+	        value: function checkSpecificValidation(element) {
+	            if (element.type === 'email') {
+	                var passedValidation = (0, _validationRules.email)(element);
+	                if (!passedValidation) {
+	                    FormFields.addError(element, errorMessages.email);
+	                } else {
+	                    FormFields.removeError(element);
+	                }
+	            } else {
+	                FormFields.removeError(element);
+	            }
+	        }
+	    }, {
+	        key: 'submitIfNoErrors',
+	        value: function submitIfNoErrors(form) {
+	            var fields = (0, _domOps.nodesToArray)(form.querySelectorAll('input, select'));
+	
+	            if (fields.length) {
+	                fields.forEach(function (field) {
+	                    return FormFields.checkFieldForError(field);
+	                });
+	            }
+	
+	            var errors = (0, _domOps.nodesToArray)(form.querySelectorAll('.has-error').length);
+	            if (errors < 1) {
+	                form.submit();
+	            }
 	        }
 	    }, {
 	        key: 'bindEvents',
 	        value: function bindEvents(root) {
+	            var _this = this;
+	
 	            var listener = new _domDelegate.Delegate(root);
 	
 	            // Listen to change because of password managers etc
-	            listener.on('change', 'input, textarea', function (event, element) {
+	            listener.on('change', 'input, textarea, select', function (event, element) {
 	                FormFields.checkForContent(element);
-	                FormFields.checkForErrors(element);
+	                FormFields.checkFieldForError(element);
 	                FormFields.giveFocus(element);
 	            });
 	
@@ -4159,9 +4267,9 @@ dom.whenReady(function () {
 	            });
 	
 	            // Text input focusout handler
-	            listener.on('focusout', 'input, textarea', function (event, element) {
+	            listener.on('focusout', 'input, textarea, select', function (event, element) {
 	                FormFields.checkForContent(element);
-	                FormFields.checkForErrors(element);
+	                FormFields.checkFieldForError(element);
 	                FormFields.removeFocus(element);
 	            });
 	
@@ -4174,6 +4282,17 @@ dom.whenReady(function () {
 	                    formEl.style.height = scrollHeight + 'px';
 	                }
 	            });
+	
+	            // On form submit
+	            listener.on('submit', 'form', function (event, element) {
+	                event.preventDefault();
+	                _this.submitIfNoErrors(element);
+	            });
+	        }
+	    }, {
+	        key: 'getFieldContainer',
+	        value: function getFieldContainer(element) {
+	            return (0, _domOps.closest)(element, '.form__group');
 	        }
 <<<<<<< 954f7a5f15b6dec841fcbe171a8074edcdacf812
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
@@ -4375,6 +4494,48 @@ dom.whenReady(function () {
 	
 	        this.element = element;
 =======
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.required = required;
+	exports.email = email;
+	
+	var _domDelegate = __webpack_require__(7);
+	
+	var _domOps = __webpack_require__(4);
+	
+	var errorMessages = {
+	    required: "This is a required field"
+	};
+	
+	/**
+	 * Rule for required fields
+	 *
+	 * @param {element}
+	 * @return {boolean} passes validation
+	 */
+	function required(element) {
+	    return element.value === '' ? false : true;
+	}
+	
+	/**
+	 * Rule for email fields
+	 *
+	 * @param {element}
+	 * @return {boolean} passes validation
+	 */
+	function email(element) {
+	    var re = /(\w+)\@(\w+)\.[a-zA-Z]/g;
+	    var emailValue = element.value;
+	    return re.test(emailValue);
+	}
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -4677,7 +4838,7 @@ dom.whenReady(function () {
 	};
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5265,7 +5426,7 @@ dom.whenReady(function () {
 	};
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5674,7 +5835,7 @@ dom.whenReady(function () {
 	};
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6216,6 +6377,7 @@ dom.whenReady(function () {
 	};
 
 /***/ }),
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6699,6 +6861,9 @@ dom.whenReady(function () {
 	            return instance.unbindEvents();
 =======
 /* 23 */
+=======
+/* 24 */
+>>>>>>> Implemented js validation - on submit and inline
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6877,7 +7042,7 @@ dom.whenReady(function () {
 	};
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6888,7 +7053,7 @@ dom.whenReady(function () {
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _flickity = __webpack_require__(25);
+	var _flickity = __webpack_require__(26);
 	
 	var _flickity2 = _interopRequireDefault(_flickity);
 	
@@ -6954,8 +7119,12 @@ dom.whenReady(function () {
 	};
 
 /***/ }),
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 24 */
+=======
+/* 26 */
+>>>>>>> Implemented js validation - on submit and inline
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< 86f236218690adf8753fddce97049a0869680f9c
@@ -6974,6 +7143,7 @@ dom.whenReady(function () {
 	 */
 >>>>>>> Removed saved bubble
 	
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 			"ATTR": function( name, operator, check ) {
 				return function( elem ) {
 					var result = Sizzle.attr( elem, name );
@@ -6984,6 +7154,75 @@ dom.whenReady(function () {
 					if ( !operator ) {
 						return true;
 					}
+=======
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(27),
+	      __webpack_require__(35),
+	      __webpack_require__(38),
+	      __webpack_require__(40),
+	      __webpack_require__(41),
+	      __webpack_require__(42),
+	      __webpack_require__(43)
+	    ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      require('./flickity'),
+	      require('./drag'),
+	      require('./prev-next-button'),
+	      require('./page-dots'),
+	      require('./player'),
+	      require('./add-remove-cell'),
+	      require('./lazyload')
+	    );
+	  }
+	
+	})( window, function factory( Flickity ) {
+	  /*jshint strict: false*/
+	  return Flickity;
+	});
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity main
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(28),
+	      __webpack_require__(29),
+	      __webpack_require__(30),
+	      __webpack_require__(32),
+	      __webpack_require__(33),
+	      __webpack_require__(34)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Cell, Slide, animatePrototype ) {
+	      return factory( window, EvEmitter, getSize, utils, Cell, Slide, animatePrototype );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('ev-emitter'),
+	      require('get-size'),
+	      require('fizzy-ui-utils'),
+	      require('./cell'),
+	      require('./slide'),
+	      require('./animate')
+	    );
+	  } else {
+	    // browser global
+	    var _Flickity = window.Flickity;
+>>>>>>> Implemented js validation - on submit and inline
 	
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 					result += "";
@@ -52996,7 +53235,11 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 /* 35 */
+=======
+/* 28 */
+>>>>>>> Implemented js validation - on submit and inline
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
@@ -53115,10 +53358,24 @@ window.addEventListener('resize', handleResize);
 	  this._bindHandles( false );
 	};
 	
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	/**
 	 * works as unbinder, as you can .bindHandles( false ) to unbind
 	 * @param {Boolean} isBind - will unbind if falsey
+=======
+	}));
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * getSize v2.0.2
+	 * measure size of elements
+	 * MIT license
+>>>>>>> Implemented js validation - on submit and inline
 	 */
 	proto._bindHandles = function( isBind ) {
 	  // munge isBind, default to true
@@ -53487,11 +53744,15 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 38 */
 =======
 /* 36 */
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+/* 30 */
+>>>>>>> Implemented js validation - on submit and inline
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -53520,6 +53781,7 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	      __webpack_require__(29)
 =======
@@ -53527,6 +53789,11 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter ) {
 	      return factory( window, EvEmitter );
+=======
+	      __webpack_require__(31)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( matchesSelector ) {
+	      return factory( window, matchesSelector );
+>>>>>>> Implemented js validation - on submit and inline
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
@@ -53654,6 +53921,7 @@ window.addEventListener('resize', handleResize);
 	
 	        var index = parseInt(targetElement.attr('data-slick-index'));
 	
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 	        if (!index) index = 0;
 	
 	        if (_.slideCount <= _.options.slidesToShow) {
@@ -53669,6 +53937,20 @@ window.addEventListener('resize', handleResize);
 	    };
 	
 	    Slick.prototype.slideHandler = function(index, sync, dontAnimate) {
+=======
+	}));
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * matchesSelector v2.0.2
+	 * matchesSelector( element, '.selector' )
+	 * MIT license
+	 */
+>>>>>>> Implemented js validation - on submit and inline
 	
 	        var targetSlide, animSlide, oldSlide, slideLeft, targetLeft = null,
 	            _ = this, navTarget;
@@ -53747,7 +54029,11 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 /* 39 */
+=======
+/* 32 */
+>>>>>>> Implemented js validation - on submit and inline
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// prev/next buttons
@@ -53757,11 +54043,17 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 	      __webpack_require__(28),
 	      __webpack_require__(40),
 	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
 	      return factory( window, Flickity, TapListener, utils );
+=======
+	      __webpack_require__(29)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( getSize ) {
+	      return factory( window, getSize );
+>>>>>>> Implemented js validation - on submit and inline
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
@@ -53829,7 +54121,32 @@ window.addEventListener('resize', handleResize);
 	            _.postSlide(animSlide);
 	        }
 	
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 	    };
+=======
+	}));
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;// slide
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory();
+	  } else {
+	    // browser global
+	    window.Flickity = window.Flickity || {};
+	    window.Flickity.Slide = factory();
+	  }
+>>>>>>> Implemented js validation - on submit and inline
 	
 	    Slick.prototype.startLoad = function() {
 	
@@ -53893,7 +54210,11 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 /* 40 */
+=======
+/* 34 */
+>>>>>>> Implemented js validation - on submit and inline
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -53919,9 +54240,15 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 	      __webpack_require__(38)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
 	      return factory( window, Unipointer );
+=======
+	      __webpack_require__(30)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( utils ) {
+	      return factory( window, utils );
+>>>>>>> Implemented js validation - on submit and inline
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
@@ -54245,8 +54572,12 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 41 */
+=======
+/* 35 */
+>>>>>>> Implemented js validation - on submit and inline
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
@@ -54262,6 +54593,7 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	      __webpack_require__(28),
 	      __webpack_require__(40),
@@ -54273,6 +54605,13 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
 	      return factory( window, Flickity, TapListener, utils );
+=======
+	      __webpack_require__(27),
+	      __webpack_require__(36),
+	      __webpack_require__(30)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, Unidragger, utils ) {
+	      return factory( window, Flickity, Unidragger, utils );
+>>>>>>> Implemented js validation - on submit and inline
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
@@ -54603,7 +54942,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -54644,7 +54983,7 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(36)
+	      __webpack_require__(37)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
 	      return factory( window, Unipointer );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -54920,6 +55259,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 43 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -54937,6 +55277,9 @@ window.addEventListener('resize', handleResize);
 	      return factory( window, Flickity, utils );
 =======
 /* 38 */
+=======
+/* 37 */
+>>>>>>> Implemented js validation - on submit and inline
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -54954,10 +55297,16 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 	      __webpack_require__(36)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
 	      return factory( window, Unipointer );
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+	      __webpack_require__(28)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter ) {
+	      return factory( window, EvEmitter );
+>>>>>>> Implemented js validation - on submit and inline
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
@@ -55129,8 +55478,12 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 44 */
+=======
+/* 38 */
+>>>>>>> Implemented js validation - on submit and inline
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
@@ -55146,6 +55499,7 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	      __webpack_require__(28),
 	      __webpack_require__(31)
@@ -55155,6 +55509,11 @@ window.addEventListener('resize', handleResize);
 	      __webpack_require__(26),
 	      __webpack_require__(38),
 	      __webpack_require__(29)
+=======
+	      __webpack_require__(27),
+	      __webpack_require__(39),
+	      __webpack_require__(30)
+>>>>>>> Implemented js validation - on submit and inline
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
 	      return factory( window, Flickity, TapListener, utils );
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
@@ -55842,6 +56201,7 @@ window.addEventListener('resize', handleResize);
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
 <<<<<<< 12044408a75184a0a5d4f562bcf7077f6fff2c15
 /***/ }),
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 /* 37 */
@@ -55860,9 +56220,50 @@ window.addEventListener('resize', handleResize);
 =======
 /***/ }),
 /* 52 */
+=======
+/* 39 */
+>>>>>>> Implemented js validation - on submit and inline
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixing header/nav issues
 
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
+=======
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Tap listener v2.0.0
+	 * listens to taps
+	 * MIT license
+	 */
+	
+	/*jshint browser: true, unused: true, undef: true, strict: true */
+	
+	( function( window, factory ) {
+	  // universal module definition
+	  /*jshint strict: false*/ /*globals define, module, require */
+	
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(37)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
+	      return factory( window, Unipointer );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('unipointer')
+	    );
+	  } else {
+	    // browser global
+	    window.TapListener = factory(
+	      window,
+	      window.Unipointer
+	    );
+	  }
+	
+	}( window, function factory( window, Unipointer ) {
+	
+>>>>>>> Implemented js validation - on submit and inline
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -55899,6 +56300,7 @@ window.addEventListener('resize', handleResize);
 	        this.claimButton = this.dealershipPanel.querySelector('#claimDealershipButton');
 	        this.confirmEligible = this.element.querySelector('#confirmDealershipEligible');
 	
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 	        this.eligibleText = this.element.querySelector('#dealerDiscountEligibleText');
 	        this.notEligibleText = this.element.querySelector('#dealerDiscountNotEligibleText');
 =======
@@ -55906,6 +56308,41 @@ window.addEventListener('resize', handleResize);
 	var proto = Flickity.prototype;
 >>>>>>> Removed all checkout flow specific code - templates and js
 =======
+=======
+	}));
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(27),
+	      __webpack_require__(39),
+	      __webpack_require__(30)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
+	      return factory( window, Flickity, TapListener, utils );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('./flickity'),
+	      require('tap-listener'),
+	      require('fizzy-ui-utils')
+	    );
+	  } else {
+	    // browser global
+	    factory(
+	      window,
+	      window.Flickity,
+>>>>>>> Implemented js validation - on submit and inline
 	      window.TapListener,
 	      window.fizzyUIUtils
 	    );
@@ -56061,7 +56498,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// player & autoPlay
@@ -56071,9 +56508,9 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(27),
-	      __webpack_require__(29),
-	      __webpack_require__(26)
+	      __webpack_require__(28),
+	      __webpack_require__(30),
+	      __webpack_require__(27)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, utils, Flickity ) {
 	      return factory( EvEmitter, utils, Flickity );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -56280,7 +56717,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// add, remove cell
@@ -56290,8 +56727,8 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(26),
-	      __webpack_require__(29)
+	      __webpack_require__(27),
+	      __webpack_require__(30)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
 	      return factory( window, Flickity, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -56468,7 +56905,7 @@ window.addEventListener('resize', handleResize);
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
@@ -56478,8 +56915,8 @@ window.addEventListener('resize', handleResize);
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(26),
-	      __webpack_require__(29)
+	      __webpack_require__(27),
+	      __webpack_require__(30)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
 	      return factory( window, Flickity, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -56748,7 +57185,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixing header/nav issues
 =======
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
@@ -56850,8 +57287,12 @@ window.addEventListener('resize', handleResize);
 	
 	var _domOps = __webpack_require__(4);
 	
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 	__webpack_require__(44);
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+	__webpack_require__(45);
+>>>>>>> Implemented js validation - on submit and inline
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -56950,7 +57391,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixing header/nav issues
 =======
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports) {
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
@@ -58802,7 +59243,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixing header/nav issues
 =======
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
@@ -58814,6 +59255,7 @@ window.addEventListener('resize', handleResize);
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint class-methods-use-this: ["error", { "exceptMethods": ["ready"] }] */
 	
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
@@ -58851,11 +59293,19 @@ window.addEventListener('resize', handleResize);
 	
 	var _topojson = __webpack_require__(47);
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+	var _d = __webpack_require__(47);
+	
+	var d3 = _interopRequireWildcard(_d);
+	
+	var _topojson = __webpack_require__(48);
+>>>>>>> Implemented js validation - on submit and inline
 	
 	var topojson = _interopRequireWildcard(_topojson);
 	
 	var _utilities = __webpack_require__(9);
 	
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
@@ -58893,6 +59343,13 @@ window.addEventListener('resize', handleResize);
 	
 	var _gridmap = __webpack_require__(49);
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+	var _chargeData = __webpack_require__(49);
+	
+	var _chargeData2 = _interopRequireDefault(_chargeData);
+	
+	var _gridmap = __webpack_require__(50);
+>>>>>>> Implemented js validation - on submit and inline
 	
 	var _gridmap2 = _interopRequireDefault(_gridmap);
 	
@@ -59132,7 +59589,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixing header/nav issues
 =======
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
@@ -76026,7 +76483,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixing header/nav issues
 =======
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
@@ -77836,7 +78293,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixing header/nav issues
 =======
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports) {
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
@@ -77868,7 +78325,7 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Fixing header/nav issues
 =======
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
@@ -77879,6 +78336,7 @@ window.addEventListener('resize', handleResize);
 	});
 	exports.default = gridmap;
 	
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
@@ -77896,6 +78354,9 @@ window.addEventListener('resize', handleResize);
 =======
 	var _d = __webpack_require__(46);
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+	var _d = __webpack_require__(47);
+>>>>>>> Implemented js validation - on submit and inline
 	
 	var d3 = _interopRequireWildcard(_d);
 	
@@ -78189,8 +78650,12 @@ window.addEventListener('resize', handleResize);
 /* 53 */
 =======
 /***/ }),
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 /* 50 */
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+/* 51 */
+>>>>>>> Implemented js validation - on submit and inline
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78326,12 +78791,16 @@ window.addEventListener('resize', handleResize);
 	exports.geolocate = geolocate;
 
 /***/ }),
+<<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 /* 54 */
 /***/ (function(module, exports) {
 >>>>>>> Fixing header/nav issues
 =======
 /* 51 */
+=======
+/* 52 */
+>>>>>>> Implemented js validation - on submit and inline
 /***/ (function(module, exports) {
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 

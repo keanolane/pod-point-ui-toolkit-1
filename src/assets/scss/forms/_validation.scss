@@ -54,32 +54,33 @@
 	}
 }
 
-.form {
-	&__group--error {
-		#{$inputs},
-		textarea[type="text"],
-		.select-wrapper select {
-			border-color: $error-red;
-		}
-	}
-	&__group--valid {
-		#{$inputs},
-		textarea[type="text"],
-		.select-wrapper select {
-			border-color: $primary-color;
-		}
-	}
-	&__error {
-		display: block;
-		@include font-style-small;
-		font-weight: $font-weight-bold;
-		color: $error-red;
-		margin-top: rem(5);
-		.checkbox-wrap & {
-			margin-top: 0;
-		}
+
+.form__group--error,
+.has-error {
+	#{$inputs},
+	textarea[type="text"],
+	.select-wrapper select {
+		border-color: $error-red;
 	}
 }
+.form__group--valid {
+	#{$inputs},
+	textarea[type="text"],
+	.select-wrapper select {
+		border-color: $primary-color;
+	}
+}
+.form__error {
+	display: block;
+	@include font-style-small;
+	font-weight: $font-weight-bold;
+	color: $error-red;
+	margin-top: rem(5);
+	.checkbox-wrap & {
+		margin-top: 0;
+	}
+}
+
 
 .checkbox-wrap {
 	.form__error {
