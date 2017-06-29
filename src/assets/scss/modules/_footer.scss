@@ -56,8 +56,7 @@
 		color: white;
 		background-color: $gray-dark;
 		@include padding(20px null);
-		p,
-		ul {
+		p {
 			@include font-small;
 			font-weight: $font-weight-bold;
 		}
@@ -67,6 +66,7 @@
 			}
 		}
 		.list--inline {
+			font-weight: $font-weight-bold;
 			text-align: center;
 			@include medium-and-up {
 				text-align: left;
