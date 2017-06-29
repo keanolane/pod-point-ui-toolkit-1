@@ -399,7 +399,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 	var evMapElement = document.querySelector('[data-js-module="evMap"]');
 	
 	function doneResize() {
-	    _evMap2.default.init(evMapElement);
+	    if (evMapElement) {
+	        _evMap2.default.init(evMapElement);
+	    }
 	}
 	
 	function startResize() {

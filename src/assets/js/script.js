@@ -45,7 +45,9 @@ let resizeId;
 const evMapElement = document.querySelector('[data-js-module="evMap"]');
 
 function doneResize() {
-    evMap.init(evMapElement);
+    if (evMapElement) {
+        evMap.init(evMapElement);
+    }
 }
 
 function startResize() {
