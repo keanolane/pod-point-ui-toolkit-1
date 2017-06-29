@@ -26,29 +26,36 @@ class FlipCounter {
         let stat = parseInt(element.getAttribute('data-stat'), 0);
         const flipCounterSections = nodesToArray(document.querySelectorAll('.flip-counter-section'));
 
-        const tick = Tick.DOM.create(element, {
-            value: stat,
-            view: {
-                children: [{
-                    root: 'div',
-                    layout: 'horizontal',
-                    repeat: true,
+        if (Tick.DOM) {
+            const tick = Tick.DOM.create(element, {
+                value: stat,
+                view: {
                     children: [{
-                        view: 'flip',
+                        root: 'div',
+                        layout: 'horizontal',
+                        repeat: true,
+                        children: [{
+                            view: 'flip',
+                        }],
                     }],
-                }],
-            },
-            didInit: () => {
-                setTimeout(() => {
-                    flipCounterSections.forEach(item => addClass(item, LOADED));
-                }, 1500);
-            },
-        });
+                },
+                didInit: () => {
+                    setTimeout(() => {
+                        flipCounterSections.forEach(item => addClass(item, LOADED));
+                    }, 1500);
+                },
+            });
 
-        Tick.helper.interval(() => {
-            stat += Math.round(Math.random());
-            tick.value = stat;
-        }, 2500);
+            Tick.helper.interval(() => {
+                stat += Math.round(Math.random());
+                tick.value = stat;
+            }, 2500);
+        } else { // hide Flip Counters for unsupported browsers including IE 10 and earlier
+            Array.prototype.forEach.call(document.getElementsByClassName('flip-counter-section'), flipSection => {
+                flipSection.classList.add('hidden');
+            });
+        }
+
     }
 }
 
