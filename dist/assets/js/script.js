@@ -600,6 +600,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	
 	module.exports = exports['default'];
 
+
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
@@ -7132,7 +7133,7 @@ dom.whenReady(function () {
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 =======
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.7
+	 * Flickity v2.0.8
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
@@ -55069,6 +55070,7 @@ window.addEventListener('resize', handleResize);
 	}( window, function factory( window, Flickity, TapListener, utils ) {
 	'use strict';
 	
+<<<<<<< 44d69a897308749d8083a2a97432e76bf664c1ea
 	var svgURI = 'http://www.w3.org/2000/svg';
 	
 	// -------------------------- PrevNextButton -------------------------- //
@@ -55080,6 +55082,43 @@ window.addEventListener('resize', handleResize);
 	}
 	
 	PrevNextButton.prototype = new TapListener();
+=======
+	proto.pointerDownFocus = function( event ) {
+	  // focus element, if not touch, and its not an input or select
+	  var canPointerDown = getCanPointerDown( event );
+	  if ( !this.options.accessibility || canPointerDown ) {
+	    return;
+	  }
+	  var prevScrollY = window.pageYOffset;
+	  this.element.focus();
+	  // hack to fix scroll jump after focus, #76
+	  if ( window.pageYOffset != prevScrollY ) {
+	    window.scrollTo( window.pageXOffset, prevScrollY );
+	  }
+	};
+	
+	var touchStartEvents = {
+	  touchstart: true,
+	  pointerdown: true,
+	};
+	
+	var focusNodes = {
+	  INPUT: true,
+	  SELECT: true,
+	};
+	
+	function getCanPointerDown( event ) {
+	  var isTouchStart = touchStartEvents[ event.type ];
+	  var isFocusNode = focusNodes[ event.target.nodeName ];
+	  return isTouchStart || isFocusNode;
+	}
+	
+	proto.canPreventDefaultOnPointerDown = function( event ) {
+	  // prevent default, unless touchstart or input
+	  var canPointerDown = getCanPointerDown( event );
+	  return !canPointerDown;
+	};
+>>>>>>> Remove logic preventing map appearing on touch devices
 	
 	PrevNextButton.prototype._create = function() {
 	  // properties
@@ -55283,8 +55322,13 @@ window.addEventListener('resize', handleResize);
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+<<<<<<< 44d69a897308749d8083a2a97432e76bf664c1ea
 	 * Tap listener v2.0.0
 	 * listens to taps
+=======
+	 * Unidragger v2.2.2
+	 * Draggable base class
+>>>>>>> Remove logic preventing map appearing on touch devices
 	 * MIT license
 	 */
 	
@@ -55345,7 +55389,30 @@ window.addEventListener('resize', handleResize);
 	
 	    };
 	
+<<<<<<< 44d69a897308749d8083a2a97432e76bf664c1ea
 	    Slick.prototype.updateArrows = function() {
+=======
+	/**
+	 * works as unbinder, as you can .bindHandles( false ) to unbind
+	 * @param {Boolean} isBind - will unbind if falsey
+	 */
+	proto._bindHandles = function( isBind ) {
+	  // munge isBind, default to true
+	  isBind = isBind === undefined ? true : !!isBind;
+	  // bind each handle
+	  var bindMethod = isBind ? 'addEventListener' : 'removeEventListener';
+	  for ( var i=0; i < this.handles.length; i++ ) {
+	    var handle = this.handles[i];
+	    this._bindStartEvent( handle, isBind );
+	    handle[ bindMethod ]( 'click', this );
+	    // touch-action: none to override browser touch gestures
+	    // metafizzy/flickity#540
+	    if ( window.PointerEvent ) {
+	      handle.style.touchAction = isBind ? 'none' : '';
+	    }
+	  }
+	};
+>>>>>>> Remove logic preventing map appearing on touch devices
 	
 	        var _ = this,
 	            centerOffset;
@@ -59561,7 +59628,7 @@ window.addEventListener('resize', handleResize);
 	exports.default = {
 	    init: function init(element) {
 	        window.defineSizeAndDevice();
-	        if (!window.isTouchDevice && !window.isMobileSize && !window.evMap) {
+	        if (!window.isMobileSize && !window.evMap) {
 	            instances.push(new EvMap(element));
 	        }
 	    }
