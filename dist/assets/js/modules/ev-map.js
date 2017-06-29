@@ -232,7 +232,7 @@ var EvMap = function () {
 exports.default = {
     init: function init(element) {
         window.defineSizeAndDevice();
-        if (!window.isTouchDevice && !window.isMobileSize && !window.evMap) {
+        if (!window.isMobileSize && !window.evMap) {
             instances.push(new EvMap(element));
         }
     }
