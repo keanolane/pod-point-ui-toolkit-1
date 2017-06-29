@@ -21,8 +21,8 @@ var HAS_ERROR = 'has-error';
 var HAS_FOCUS = 'has-focus';
 
 var errorMessages = {
-    required: "This is a required field",
-    email: "Please enter a valid email"
+    required: 'This is a required field',
+    email: 'Please enter a valid email'
 };
 
 var FormFields = function () {

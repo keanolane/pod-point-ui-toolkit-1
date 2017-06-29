@@ -3164,8 +3164,8 @@
 	var HAS_FOCUS = 'has-focus';
 	
 	var errorMessages = {
-	    required: "This is a required field",
-	    email: "Please enter a valid email"
+	    required: 'This is a required field',
+	    email: 'Please enter a valid email'
 	};
 	
 	var FormFields = function () {
@@ -3361,44 +3361,35 @@
 
 /***/ }),
 /* 19 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	exports.required = required;
 	exports.email = email;
-	
-	var _domDelegate = __webpack_require__(7);
-	
-	var _domOps = __webpack_require__(4);
-	
-	var errorMessages = {
-	    required: "This is a required field"
-	};
-	
 	/**
 	 * Rule for required fields
 	 *
 	 * @param {element}
-	 * @return {boolean} passes validation
+	 * @return {boolean} passed validation
 	 */
 	function required(element) {
-	    return element.value === '' ? false : true;
+	  return element.value === '' ? false : true;
 	}
 	
 	/**
 	 * Rule for email fields
 	 *
 	 * @param {element}
-	 * @return {boolean} passes validation
+	 * @return {boolean} passed validation
 	 */
 	function email(element) {
-	    var re = /(\w+)\@(\w+)\.[a-zA-Z]/g;
-	    var emailValue = element.value;
-	    return re.test(emailValue);
+	  var re = /(\w+)\@(\w+)\.[a-zA-Z]/g;
+	  var emailValue = element.value;
+	  return re.test(emailValue);
 	}
 
 /***/ }),
@@ -8266,31 +8257,38 @@
 	            var stat = parseInt(element.getAttribute('data-stat'), 0);
 	            var flipCounterSections = (0, _domOps.nodesToArray)(document.querySelectorAll('.flip-counter-section'));
 	
-	            var tick = Tick.DOM.create(element, {
-	                value: stat,
-	                view: {
-	                    children: [{
-	                        root: 'div',
-	                        layout: 'horizontal',
-	                        repeat: true,
+	            if (Tick.DOM) {
+	                var tick = Tick.DOM.create(element, {
+	                    value: stat,
+	                    view: {
 	                        children: [{
-	                            view: 'flip'
+	                            root: 'div',
+	                            layout: 'horizontal',
+	                            repeat: true,
+	                            children: [{
+	                                view: 'flip'
+	                            }]
 	                        }]
-	                    }]
-	                },
-	                didInit: function didInit() {
-	                    setTimeout(function () {
-	                        flipCounterSections.forEach(function (item) {
-	                            return (0, _domOps.addClass)(item, LOADED);
-	                        });
-	                    }, 1500);
-	                }
-	            });
+	                    },
+	                    didInit: function didInit() {
+	                        setTimeout(function () {
+	                            flipCounterSections.forEach(function (item) {
+	                                return (0, _domOps.addClass)(item, LOADED);
+	                            });
+	                        }, 1500);
+	                    }
+	                });
 	
-	            Tick.helper.interval(function () {
-	                stat += Math.round(Math.random());
-	                tick.value = stat;
-	            }, 2500);
+	                Tick.helper.interval(function () {
+	                    stat += Math.round(Math.random());
+	                    tick.value = stat;
+	                }, 2500);
+	            } else {
+	                // hide Flip Counters for unsupported browsers including IE 10 and earlier
+	                Array.prototype.forEach.call(document.getElementsByClassName('flip-counter-section'), function (flipSection) {
+	                    flipSection.classList.add('hidden');
+	                });
+	            }
 	        }
 	    }]);
 	
