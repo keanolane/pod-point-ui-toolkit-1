@@ -20,8 +20,12 @@ $bottom-space: 4%;
 		@include grid($flex-wrap: wrap, $gutter: $sides-gutter);
 	}
 	&--flex {
-		// @include grid($flex-wrap: flex, $gutter: $sides-gutter);
+	@include medium-and-down {
 		@include grid($flex-wrap: wrap, $gutter: $sides-gutter);
+	}
+	@include medium-and-up {
+		@include grid($flex-wrap: flex, $gutter: $sides-gutter);
+	}
 	}
 	&--vertical-center {
 		align-items: center;
@@ -86,7 +90,7 @@ $bottom-space: 4%;
 			@include grid-col($col: 4, $gutter: $sides-gutter);
 		}
 		.grid-col--sm-right {
-			order: 10; // The container needs to have the class grid-row--flex
+			order: 10;
 		}
 		.grid-col--sm-separator {
 			border: none;
@@ -114,7 +118,7 @@ $bottom-space: 4%;
 			@include grid-col($col: 4, $gutter: $sides-gutter);
 		}
 		.grid-col--md-right {
-			order: 10; // The container needs to have the class grid-row--flex
+			order: 10;
 		}
 		.grid-col--md-separator {
 			border: none;
@@ -141,7 +145,7 @@ $bottom-space: 4%;
 			@include grid-col($col: 4, $gutter: $sides-gutter);
 		}
 		.grid-col--lg-right {
-			order: 10; // The container needs to have the class grid-row--flex
+			order: 10;
 		}
 	}
 }
