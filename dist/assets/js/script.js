@@ -56884,31 +56884,38 @@ window.addEventListener('resize', handleResize);
 	            var stat = parseInt(element.getAttribute('data-stat'), 0);
 	            var flipCounterSections = (0, _domOps.nodesToArray)(document.querySelectorAll('.flip-counter-section'));
 	
-	            var tick = Tick.DOM.create(element, {
-	                value: stat,
-	                view: {
-	                    children: [{
-	                        root: 'div',
-	                        layout: 'horizontal',
-	                        repeat: true,
+	            if (Tick.DOM) {
+	                var tick = Tick.DOM.create(element, {
+	                    value: stat,
+	                    view: {
 	                        children: [{
-	                            view: 'flip'
+	                            root: 'div',
+	                            layout: 'horizontal',
+	                            repeat: true,
+	                            children: [{
+	                                view: 'flip'
+	                            }]
 	                        }]
-	                    }]
-	                },
-	                didInit: function didInit() {
-	                    setTimeout(function () {
-	                        flipCounterSections.forEach(function (item) {
-	                            return (0, _domOps.addClass)(item, LOADED);
-	                        });
-	                    }, 1500);
-	                }
-	            });
+	                    },
+	                    didInit: function didInit() {
+	                        setTimeout(function () {
+	                            flipCounterSections.forEach(function (item) {
+	                                return (0, _domOps.addClass)(item, LOADED);
+	                            });
+	                        }, 1500);
+	                    }
+	                });
 	
-	            Tick.helper.interval(function () {
-	                stat += Math.round(Math.random());
-	                tick.value = stat;
-	            }, 2500);
+	                Tick.helper.interval(function () {
+	                    stat += Math.round(Math.random());
+	                    tick.value = stat;
+	                }, 2500);
+	            } else {
+	                // hide Flip Counters for unsupported browsers including IE 10 and earlier
+	                Array.prototype.forEach.call(document.getElementsByClassName('flip-counter-section'), function (flipSection) {
+	                    flipSection.classList.add('hidden');
+	                });
+	            }
 	        }
 	    }]);
 	
