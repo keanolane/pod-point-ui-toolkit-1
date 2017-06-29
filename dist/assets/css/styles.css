@@ -1554,7 +1554,17 @@ input[type="checkbox"] {
 
 .form__group--error input[type="date"], .form__group--error input[type="email"], .form__group--error input[type="number"], .form__group--error input[type="password"], .form__group--error input[type="search"], .form__group--error input[type="tel"], .form__group--error input[type="text"], .form__group--error input[type="url"],
 .form__group--error textarea[type="text"],
-.form__group--error .select-wrapper select {
+.form__group--error .select-wrapper select,
+.has-error input[type="date"],
+.has-error input[type="email"],
+.has-error input[type="number"],
+.has-error input[type="password"],
+.has-error input[type="search"],
+.has-error input[type="tel"],
+.has-error input[type="text"],
+.has-error input[type="url"],
+.has-error textarea[type="text"],
+.has-error .select-wrapper select {
   border-color: #C1272D; }
 
 .form__group--valid input[type="date"], .form__group--valid input[type="email"], .form__group--valid input[type="number"], .form__group--valid input[type="password"], .form__group--valid input[type="search"], .form__group--valid input[type="tel"], .form__group--valid input[type="text"], .form__group--valid input[type="url"],

@@ -72,39 +72,39 @@
 	
 	var _formFields2 = _interopRequireDefault(_formFields);
 	
-	var _toggleAccordionPanel = __webpack_require__(19);
+	var _toggleAccordionPanel = __webpack_require__(20);
 	
 	var _toggleAccordionPanel2 = _interopRequireDefault(_toggleAccordionPanel);
 	
-	var _toggleElement = __webpack_require__(20);
+	var _toggleElement = __webpack_require__(21);
 	
 	var _toggleElement2 = _interopRequireDefault(_toggleElement);
 	
-	var _gallerySimple = __webpack_require__(21);
+	var _gallerySimple = __webpack_require__(22);
 	
 	var _gallerySimple2 = _interopRequireDefault(_gallerySimple);
 	
-	var _accordion = __webpack_require__(22);
+	var _accordion = __webpack_require__(23);
 	
 	var _accordion2 = _interopRequireDefault(_accordion);
 	
-	var _headerNav = __webpack_require__(23);
+	var _headerNav = __webpack_require__(24);
 	
 	var _headerNav2 = _interopRequireDefault(_headerNav);
 	
-	var _carousel = __webpack_require__(24);
+	var _carousel = __webpack_require__(25);
 	
 	var _carousel2 = _interopRequireDefault(_carousel);
 	
-	var _flipCounter = __webpack_require__(43);
+	var _flipCounter = __webpack_require__(44);
 	
 	var _flipCounter2 = _interopRequireDefault(_flipCounter);
 	
-	var _evMap = __webpack_require__(45);
+	var _evMap = __webpack_require__(46);
 	
 	var _evMap2 = _interopRequireDefault(_evMap);
 	
-	var _addressLookup = __webpack_require__(50);
+	var _addressLookup = __webpack_require__(51);
 	
 	var addressLookup = _interopRequireWildcard(_addressLookup);
 	
@@ -112,7 +112,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(51);
+	__webpack_require__(52);
 	
 	window.initAutocomplete = addressLookup.initAutocomplete;
 	window.geolocate = addressLookup.geolocate;
@@ -3153,11 +3153,20 @@
 	
 	var _domOps = __webpack_require__(4);
 	
+	var _validationRules = __webpack_require__(19);
+	
+	var _utilities = __webpack_require__(9);
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var HAS_CONTENT = 'has-content';
 	var HAS_ERROR = 'has-error';
 	var HAS_FOCUS = 'has-focus';
+	
+	var errorMessages = {
+	    required: "This is a required field",
+	    email: "Please enter a valid email"
+	};
 	
 	var FormFields = function () {
 	    function FormFields() {
@@ -3172,11 +3181,13 @@
 	    _createClass(FormFields, null, [{
 	        key: 'checkAllFieldsForContent',
 	        value: function checkAllFieldsForContent() {
-	            var inputs = (0, _domOps.nodesToArray)((0, _domOps.select)('input'));
+	            var wrapper = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
 	
-	            if (inputs.length) {
-	                inputs.forEach(function (input) {
-	                    return FormFields.checkForContent(input);
+	            var fields = (0, _domOps.nodesToArray)(wrapper.querySelectorAll('input, select'));
+	
+	            if (fields.length) {
+	                fields.forEach(function (field) {
+	                    return FormFields.checkForContent(field);
 	                });
 	            }
 	        }
@@ -3189,19 +3200,104 @@
 	            callback(container, HAS_CONTENT);
 	        }
 	    }, {
-	        key: 'checkForErrors',
-	        value: function checkForErrors(element) {
-	            (0, _domOps.removeClass)(FormFields.getInputContainer(element), HAS_ERROR);
+	        key: 'checkIfRequired',
+	        value: function checkIfRequired(element) {
+	            return element.getAttribute('required') !== null && (0, _utilities.isVisible)(element);
+	        }
+	    }, {
+	        key: 'errorPlacement',
+	        value: function errorPlacement(element, errorElWithMessage) {
+	            if (element.tagName === 'SELECT') {
+	                (0, _domOps.insertAfter)(element.parentNode, errorElWithMessage);
+	            } else {
+	                (0, _domOps.insertAfter)(element, errorElWithMessage);
+	            }
+	        }
+	    }, {
+	        key: 'addErrorMessage',
+	        value: function addErrorMessage(element, errorMessage) {
+	            var formFieldContainer = FormFields.getFieldContainer(element);
+	            var errorEl = formFieldContainer.querySelector('.form__error');
+	
+	            if (errorEl === null) {
+	                var errorElWithMessage = '<span class="form__error">' + errorMessage + '</span>';
+	                FormFields.errorPlacement(element, errorElWithMessage);
+	            } else {
+	                errorEl.innerHTML = errorMessage;
+	            }
+	        }
+	    }, {
+	        key: 'checkFieldForError',
+	        value: function checkFieldForError(element) {
+	            if (FormFields.checkIfRequired(element)) {
+	                var passedValidation = (0, _validationRules.required)(element);
+	
+	                if (passedValidation) {
+	                    FormFields.checkSpecificValidation(element);
+	                } else {
+	                    FormFields.addError(element, errorMessages.required);
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'addError',
+	        value: function addError(element, errorMessage) {
+	            var formFieldContainer = FormFields.getFieldContainer(element);
+	            (0, _domOps.addClass)(FormFields.getFieldContainer(element), HAS_ERROR);
+	            FormFields.addErrorMessage(element, errorMessage);
+	            (0, _utilities.show)(formFieldContainer.querySelector('.form__error'));
+	        }
+	    }, {
+	        key: 'removeError',
+	        value: function removeError(element) {
+	            var formFieldContainer = FormFields.getFieldContainer(element);
+	            (0, _domOps.removeClass)(FormFields.getFieldContainer(element), HAS_ERROR);
+	            var errorEl = formFieldContainer.querySelector('.form__error');
+	            if (errorEl) {
+	                (0, _utilities.hide)(errorEl);
+	            }
+	        }
+	    }, {
+	        key: 'checkSpecificValidation',
+	        value: function checkSpecificValidation(element) {
+	            if (element.type === 'email') {
+	                var passedValidation = (0, _validationRules.email)(element);
+	                if (!passedValidation) {
+	                    FormFields.addError(element, errorMessages.email);
+	                } else {
+	                    FormFields.removeError(element);
+	                }
+	            } else {
+	                FormFields.removeError(element);
+	            }
+	        }
+	    }, {
+	        key: 'submitIfNoErrors',
+	        value: function submitIfNoErrors(form) {
+	            var fields = (0, _domOps.nodesToArray)(form.querySelectorAll('input, select'));
+	
+	            if (fields.length) {
+	                fields.forEach(function (field) {
+	                    return FormFields.checkFieldForError(field);
+	                });
+	            }
+	
+	            var errors = (0, _domOps.nodesToArray)(form.querySelectorAll('.has-error').length);
+	            if (errors < 1) {
+	                form.submit();
+	            }
 	        }
 	    }, {
 	        key: 'bindEvents',
 	        value: function bindEvents(root) {
+	            var _this = this;
+	
 	            var listener = new _domDelegate.Delegate(root);
 	
 	            // Listen to change because of password managers etc
-	            listener.on('change', 'input, textarea', function (event, element) {
+	            listener.on('change', 'input, textarea, select', function (event, element) {
 	                FormFields.checkForContent(element);
-	                FormFields.checkForErrors(element);
+	                FormFields.checkFieldForError(element);
 	                FormFields.giveFocus(element);
 	            });
 	
@@ -3211,9 +3307,9 @@
 	            });
 	
 	            // Text input focusout handler
-	            listener.on('focusout', 'input, textarea', function (event, element) {
+	            listener.on('focusout', 'input, textarea, select', function (event, element) {
 	                FormFields.checkForContent(element);
-	                FormFields.checkForErrors(element);
+	                FormFields.checkFieldForError(element);
 	                FormFields.removeFocus(element);
 	            });
 	
@@ -3225,6 +3321,17 @@
 	                    formEl.style.height = scrollHeight + 'px';
 	                }
 	            });
+	
+	            // On form submit
+	            listener.on('submit', 'form', function (event, element) {
+	                event.preventDefault();
+	                _this.submitIfNoErrors(element);
+	            });
+	        }
+	    }, {
+	        key: 'getFieldContainer',
+	        value: function getFieldContainer(element) {
+	            return (0, _domOps.closest)(element, '.form__group');
 	        }
 	    }, {
 	        key: 'getInputContainer',
@@ -3254,6 +3361,48 @@
 
 /***/ }),
 /* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.required = required;
+	exports.email = email;
+	
+	var _domDelegate = __webpack_require__(7);
+	
+	var _domOps = __webpack_require__(4);
+	
+	var errorMessages = {
+	    required: "This is a required field"
+	};
+	
+	/**
+	 * Rule for required fields
+	 *
+	 * @param {element}
+	 * @return {boolean} passes validation
+	 */
+	function required(element) {
+	    return element.value === '' ? false : true;
+	}
+	
+	/**
+	 * Rule for email fields
+	 *
+	 * @param {element}
+	 * @return {boolean} passes validation
+	 */
+	function email(element) {
+	    var re = /(\w+)\@(\w+)\.[a-zA-Z]/g;
+	    var emailValue = element.value;
+	    return re.test(emailValue);
+	}
+
+/***/ }),
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3456,7 +3605,7 @@
 	};
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3635,7 +3784,7 @@
 	};
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3738,7 +3887,7 @@
 	};
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3843,7 +3992,7 @@
 	};
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4022,7 +4171,7 @@
 	};
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4033,7 +4182,7 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _flickity = __webpack_require__(25);
+	var _flickity = __webpack_require__(26);
 	
 	var _flickity2 = _interopRequireDefault(_flickity);
 	
@@ -4098,7 +4247,7 @@
 	};
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4118,13 +4267,13 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(26),
-	      __webpack_require__(34),
-	      __webpack_require__(37),
-	      __webpack_require__(39),
+	      __webpack_require__(27),
+	      __webpack_require__(35),
+	      __webpack_require__(38),
 	      __webpack_require__(40),
 	      __webpack_require__(41),
-	      __webpack_require__(42)
+	      __webpack_require__(42),
+	      __webpack_require__(43)
 	    ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
@@ -4146,7 +4295,7 @@
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity main
@@ -4156,12 +4305,12 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(27),
 	      __webpack_require__(28),
 	      __webpack_require__(29),
-	      __webpack_require__(31),
+	      __webpack_require__(30),
 	      __webpack_require__(32),
-	      __webpack_require__(33)
+	      __webpack_require__(33),
+	      __webpack_require__(34)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Cell, Slide, animatePrototype ) {
 	      return factory( window, EvEmitter, getSize, utils, Cell, Slide, animatePrototype );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -5007,7 +5156,7 @@
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -5128,7 +5277,7 @@
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -5343,7 +5492,7 @@
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -5360,7 +5509,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(30)
+	      __webpack_require__(31)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( matchesSelector ) {
 	      return factory( window, matchesSelector );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -5587,7 +5736,7 @@
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -5646,7 +5795,7 @@
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity.Cell
@@ -5656,7 +5805,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(28)
+	      __webpack_require__(29)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( getSize ) {
 	      return factory( window, getSize );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -5742,7 +5891,7 @@
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;// slide
@@ -5824,7 +5973,7 @@
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// animate
@@ -5834,7 +5983,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(29)
+	      __webpack_require__(30)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( utils ) {
 	      return factory( window, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -6049,7 +6198,7 @@
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
@@ -6059,9 +6208,9 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(26),
-	      __webpack_require__(35),
-	      __webpack_require__(29)
+	      __webpack_require__(27),
+	      __webpack_require__(36),
+	      __webpack_require__(30)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, Unidragger, utils ) {
 	      return factory( window, Flickity, Unidragger, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -6439,7 +6588,7 @@
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -6457,7 +6606,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(36)
+	      __webpack_require__(37)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
 	      return factory( window, Unipointer );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -6708,7 +6857,7 @@
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -6725,7 +6874,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(27)
+	      __webpack_require__(28)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter ) {
 	      return factory( window, EvEmitter );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -7009,7 +7158,7 @@
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// prev/next buttons
@@ -7019,9 +7168,9 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(26),
-	      __webpack_require__(38),
-	      __webpack_require__(29)
+	      __webpack_require__(27),
+	      __webpack_require__(39),
+	      __webpack_require__(30)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
 	      return factory( window, Flickity, TapListener, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -7235,7 +7384,7 @@
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -7253,7 +7402,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(36)
+	      __webpack_require__(37)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
 	      return factory( window, Unipointer );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -7354,7 +7503,7 @@
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
@@ -7364,9 +7513,9 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(26),
-	      __webpack_require__(38),
-	      __webpack_require__(29)
+	      __webpack_require__(27),
+	      __webpack_require__(39),
+	      __webpack_require__(30)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, TapListener, utils ) {
 	      return factory( window, Flickity, TapListener, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -7538,7 +7687,7 @@
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// player & autoPlay
@@ -7548,9 +7697,9 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(27),
-	      __webpack_require__(29),
-	      __webpack_require__(26)
+	      __webpack_require__(28),
+	      __webpack_require__(30),
+	      __webpack_require__(27)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, utils, Flickity ) {
 	      return factory( EvEmitter, utils, Flickity );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -7757,7 +7906,7 @@
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// add, remove cell
@@ -7767,8 +7916,8 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(26),
-	      __webpack_require__(29)
+	      __webpack_require__(27),
+	      __webpack_require__(30)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
 	      return factory( window, Flickity, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -7945,7 +8094,7 @@
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
@@ -7955,8 +8104,8 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(26),
-	      __webpack_require__(29)
+	      __webpack_require__(27),
+	      __webpack_require__(30)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, utils ) {
 	      return factory( window, Flickity, utils );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -8070,7 +8219,7 @@
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8084,7 +8233,7 @@
 	
 	var _domOps = __webpack_require__(4);
 	
-	__webpack_require__(44);
+	__webpack_require__(45);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -8155,7 +8304,7 @@
 	};
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -9977,7 +10126,7 @@
 	}(window, window.Tick || []);
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9988,21 +10137,21 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint class-methods-use-this: ["error", { "exceptMethods": ["ready"] }] */
 	
-	var _d = __webpack_require__(46);
+	var _d = __webpack_require__(47);
 	
 	var d3 = _interopRequireWildcard(_d);
 	
-	var _topojson = __webpack_require__(47);
+	var _topojson = __webpack_require__(48);
 	
 	var topojson = _interopRequireWildcard(_topojson);
 	
 	var _utilities = __webpack_require__(9);
 	
-	var _chargeData = __webpack_require__(48);
+	var _chargeData = __webpack_require__(49);
 	
 	var _chargeData2 = _interopRequireDefault(_chargeData);
 	
-	var _gridmap = __webpack_require__(49);
+	var _gridmap = __webpack_require__(50);
 	
 	var _gridmap2 = _interopRequireDefault(_gridmap);
 	
@@ -10221,7 +10370,7 @@
 	};
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// https://d3js.org Version 4.9.1. Copyright 2017 Mike Bostock.
@@ -27093,7 +27242,7 @@
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// https://github.com/topojson/topojson Version 3.0.0. Copyright 2017 Mike Bostock.
@@ -28881,7 +29030,7 @@
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -28891,7 +29040,7 @@
 	};
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28901,7 +29050,7 @@
 	});
 	exports.default = gridmap;
 	
-	var _d = __webpack_require__(46);
+	var _d = __webpack_require__(47);
 	
 	var d3 = _interopRequireWildcard(_d);
 	
@@ -29176,7 +29325,7 @@
 	}
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29257,7 +29406,7 @@
 	exports.geolocate = geolocate;
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports) {
 
 	"use strict";

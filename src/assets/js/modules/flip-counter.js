@@ -1,6 +1,5 @@
 /* global Tick */
-import { addClass } from '@pod-point/dom-ops';
-import { nodesToArray } from '@pod-point/dom-ops';
+import { addClass, nodesToArray } from '@pod-point/dom-ops';
 import '../../plugins/flip-counter/flip/tick';
 
 const instances = [];
