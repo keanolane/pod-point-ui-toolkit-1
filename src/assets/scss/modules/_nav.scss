@@ -155,7 +155,7 @@
 	}
 }
 
-.is-desktop {
+@include medium-and-up {
 	.global-nav-overlay {
 		display: none;
 		width: 100%;
@@ -185,4 +185,3 @@
 		}
 	}
 }
-
