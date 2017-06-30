@@ -724,7 +724,8 @@ strong,
 
 a {
   text-decoration: none;
-  transition: all 0.2s linear; }
+  transition: all 0.2s linear;
+  -webkit-tap-highlight-color: transparent; }
   a:active, a:focus, a:hover {
     opacity: 0.7; }
   a:active, a:focus {
@@ -2547,6 +2548,7 @@ img {
         border-radius: 5px; }
 
 .accordion {
+  -webkit-tap-highlight-color: transparent;
   margin: 0;
   font-weight: 400;
   font-size: 0.875rem;
