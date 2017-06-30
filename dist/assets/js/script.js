@@ -259,6 +259,7 @@
 	
 	var _carousel2 = _interopRequireDefault(_carousel);
 	
+<<<<<<< ccea5da6ca859261cbf50811a34e4fd34cdc1374
 	var _flipCounter = __webpack_require__(44);
 	
 	var _flipCounter2 = _interopRequireDefault(_flipCounter);
@@ -273,6 +274,9 @@
 =======
 	var _addressLookup = __webpack_require__(51);
 >>>>>>> Implemented js validation - on submit and inline
+=======
+	var _addressLookup = __webpack_require__(44);
+>>>>>>> Cleaned up toolkit massively - Moved all website specific js and scss module, plugins, images into the craft site itself. And got rid of prototype static pages
 	
 	var addressLookup = _interopRequireWildcard(_addressLookup);
 	
@@ -280,6 +284,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+<<<<<<< ccea5da6ca859261cbf50811a34e4fd34cdc1374
 <<<<<<< 0746dfcf9801b50f79d1124414def870248514d6
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 57926873c213ed9446ed66fdb6f075df9f989c86
@@ -305,6 +310,9 @@
 =======
 	__webpack_require__(52);
 >>>>>>> Implemented js validation - on submit and inline
+=======
+	__webpack_require__(45);
+>>>>>>> Cleaned up toolkit massively - Moved all website specific js and scss module, plugins, images into the craft site itself. And got rid of prototype static pages
 	
 	window.initAutocomplete = addressLookup.initAutocomplete;
 	window.geolocate = addressLookup.geolocate;
@@ -337,6 +345,7 @@
 	            headerNav: _headerNav2.default,
 	            accordion: _accordion2.default,
 	            carousel: _carousel2.default,
+<<<<<<< ccea5da6ca859261cbf50811a34e4fd34cdc1374
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< d3f929474068409ec49d745fce6673139937ae00
 =======
@@ -411,6 +420,12 @@ var _moduleLoader = require('@pod-point/module-loader');
 	
 	window.addEventListener('resize', startResize);
 >>>>>>> Deal with resize for map and accordion
+=======
+	            addressLookup: addressLookup
+	        })
+	    });
+	});
+>>>>>>> Cleaned up toolkit massively - Moved all website specific js and scss module, plugins, images into the craft site itself. And got rid of prototype static pages
 
 /***/ }),
 /* 1 */
@@ -601,7 +616,6 @@ var _moduleLoader = require('@pod-point/module-loader');
 	};
 	
 	module.exports = exports['default'];
-
 
 /***/ }),
 /* 4 */
@@ -1511,7 +1525,6 @@ var _moduleLoader = require('@pod-point/module-loader');
 	exports.getRandomInt = getRandomInt;
 	exports.roundNumberTo = roundNumberTo;
 	exports.loadVideo = loadVideo;
-	exports.scrollTo = scrollTo;
 	
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
@@ -1761,6 +1774,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	        videoEl.setAttribute('src', '');
 	    }
 	}
+<<<<<<< ccea5da6ca859261cbf50811a34e4fd34cdc1374
 <<<<<<< 0eba3a0e0efb15bd1e7c72df30916f0d514c1ada
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Added responsive video to modal, which loads and destroys on modal open and close
@@ -1961,6 +1975,8 @@ var _accordion2 = _interopRequireDefault(_accordion);
 	    }, timeout);
 	}
 >>>>>>> Looking at header and nav on mobile - trying to make it work better
+=======
+>>>>>>> Cleaned up toolkit massively - Moved all website specific js and scss module, plugins, images into the craft site itself. And got rid of prototype static pages
 
 /***/ }),
 /* 10 */
@@ -57260,6 +57276,7 @@ window.addEventListener('resize', handleResize);
 
 	'use strict';
 	
+<<<<<<< ccea5da6ca859261cbf50811a34e4fd34cdc1374
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
@@ -57364,79 +57381,82 @@ window.addEventListener('resize', handleResize);
 >>>>>>> Implemented js validation - on submit and inline
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+=======
+	var _utilities = __webpack_require__(9);
+>>>>>>> Cleaned up toolkit massively - Moved all website specific js and scss module, plugins, images into the craft site itself. And got rid of prototype static pages
 	
-	var instances = [];
-	var LOADED = 'loaded';
-	
-	var FlipCounter = function () {
-	
-	    /**
-	     * Creates a new flip counter element
-	     *
-	     * @param {element}
-	     */
-	    function FlipCounter(element) {
-	        _classCallCheck(this, FlipCounter);
-	
-	        this.element = element;
-	        this.createTickCounter();
-	    }
-	
-	    /**
-	     * Creates a new flip counter element with options
-	     */
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	}); /* global google */
 	
 	
-	    _createClass(FlipCounter, [{
-	        key: 'createTickCounter',
-	        value: function createTickCounter() {
-	            var element = this.element;
-	            var stat = parseInt(element.getAttribute('data-stat'), 0);
-	            var flipCounterSections = (0, _domOps.nodesToArray)(document.querySelectorAll('.flip-counter-section'));
+	var autocomplete = void 0;
+	var componentForm = {
+	    street_number: 'short_name',
+	    route: 'long_name',
+	    locality: 'long_name',
+	    administrative_area_level_1: 'short_name',
+	    country: 'long_name',
+	    postal_code: 'short_name'
+	};
 	
-	            if (Tick.DOM) {
-	                var tick = Tick.DOM.create(element, {
-	                    value: stat,
-	                    view: {
-	                        children: [{
-	                            root: 'div',
-	                            layout: 'horizontal',
-	                            repeat: true,
-	                            children: [{
-	                                view: 'flip'
-	                            }]
-	                        }]
-	                    },
-	                    didInit: function didInit() {
-	                        setTimeout(function () {
-	                            flipCounterSections.forEach(function (item) {
-	                                return (0, _domOps.addClass)(item, LOADED);
-	                            });
-	                        }, 1500);
-	                    }
-	                });
+	var fillInAddress = function fillInAddress() {
+	    // Get the place details from the autocomplete object.
+	    var placeAddressComponents = autocomplete.getPlace().address_components;
 	
-	                Tick.helper.interval(function () {
-	                    stat += Math.round(Math.random());
-	                    tick.value = stat;
-	                }, 2500);
-	            } else {
-	                // hide Flip Counters for unsupported browsers including IE 10 and earlier
-	                Array.prototype.forEach.call(document.getElementsByClassName('flip-counter-section'), function (flipSection) {
-	                    flipSection.classList.add('hidden');
-	                });
-	            }
+	    Object.entries(componentForm).map(function (key) {
+	        // eslint-disable-line array-callback-return
+	        var formFieldName = key[0];
+	        document.getElementById(formFieldName).value = '';
+	        document.getElementById(formFieldName).disabled = false;
+	    });
+	
+	    // Get each component of the address from the place details
+	    // and fill the corresponding field on the form.
+	    placeAddressComponents.map(function (key) {
+	        // eslint-disable-line array-callback-return
+	        var addressType = key.types[0];
+	        if (componentForm[addressType]) {
+	            var val = key[componentForm[addressType]];
+	            document.getElementById(addressType).value = val;
 	        }
-	    }]);
+	    });
 	
-	    return FlipCounter;
-	}();
+	    (0, _utilities.openPanel)(document.getElementById('address'));
+	};
 	
-	exports.default = {
-	    init: function init(element) {
-	        instances.push(new FlipCounter(element));
+	var initAutocomplete = function initAutocomplete() {
+	    // Create the autocomplete object, restricting the search to geographical
+	    // location types.
+	    autocomplete = new google.maps.places.Autocomplete(
+	    /** @type {!HTMLInputElement} */document.getElementById('autocomplete'), { types: ['geocode'] });
+	
+	    // When the user selects an address from the dropdown, populate the address
+	    // fields in the form.
+	    autocomplete.addListener('place_changed', fillInAddress);
+	};
+	
+	// Bias the autocomplete object to the user's geographical location,
+	// as supplied by the browser's 'navigator.geolocation' object.
+	var geolocate = function geolocate() {
+	    if (navigator.geolocation) {
+	        navigator.geolocation.getCurrentPosition(function (position) {
+	            var geolocation = {
+	                lat: position.coords.latitude,
+	                lng: position.coords.longitude
+	            };
+	            var circle = new google.maps.Circle({
+	                center: geolocation,
+	                radius: position.coords.accuracy
+	            });
+	            autocomplete.setBounds(circle.getBounds());
+	        });
 	    }
 	};
+	
+	exports.initAutocomplete = initAutocomplete;
+	exports.fillInAddress = fillInAddress;
+	exports.geolocate = geolocate;
 
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 11dab71325ebd54992ef8604a9b0718baaa6b9cc
@@ -57464,6 +57484,7 @@ window.addEventListener('resize', handleResize);
 /***/ (function(module, exports) {
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
+<<<<<<< ccea5da6ca859261cbf50811a34e4fd34cdc1374
 	'use strict';
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -78873,6 +78894,8 @@ window.addEventListener('resize', handleResize);
 /***/ (function(module, exports) {
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 
+=======
+>>>>>>> Cleaned up toolkit massively - Moved all website specific js and scss module, plugins, images into the craft site itself. And got rid of prototype static pages
 	"use strict";
 	
 	/*
