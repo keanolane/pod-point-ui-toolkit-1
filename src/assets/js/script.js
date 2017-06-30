@@ -12,8 +12,6 @@ import gallerySimple from './modules/gallery-simple';
 import accordion from './modules/accordion';
 import headerNav from './modules/header-nav';
 import carousel from './modules/carousel';
-import flipCounter from './modules/flip-counter';
-import evMap from './modules/ev-map';
 import * as addressLookup from './modules/address-lookup';
 
 require('./shims/classList.js');
@@ -35,25 +33,6 @@ dom.whenReady(() => {
             accordion,
             carousel,
             addressLookup,
-            flipCounter,
-            evMap,
         }),
     });
 });
-
-let resizeId;
-const evMapElement = document.querySelector('[data-js-module="evMap"]');
-
-function doneResize() {
-    if (evMapElement) {
-        evMap.init(evMapElement);
-    }
-}
-
-function startResize() {
-    clearTimeout(resizeId);
-    resizeId = setTimeout(doneResize, 500);
-}
-
-window.addEventListener('resize', startResize);
-

@@ -32,19 +32,11 @@ gulp.task('svg-sprite', () => {
         .pipe(gulp.dest(config.src.svgPartials));
 });
 
-// Minify svg images used for the toolkit.
-// Put svgs in dist/img and also create a hbs files and put in src/templates/partials
-gulp.task('toolkit-svgs', () => {
-    gulp.src(config.src.toolkitImgs + '**/*.svg')
+// Minify svg images used for the toolkit
+gulp.task('copy-svgs', () => {
+    gulp.src(config.src.img + '**/*.svg')
         .pipe(svgmin())
-        .pipe(gulp.dest(config.dist.toolkitImgs));
-
-    gulp.src(config.src.toolkitInlineSvgs + '**/*.svg')
-        .pipe(svgmin())
-        .pipe(rename(function (path) {
-                path.extname = ".hbs"
-            }))
-        .pipe(gulp.dest(config.src.svgPartials));
+        .pipe(gulp.dest(config.dist.img));
 });
 
-gulp.task('svgs', ['svg-sprite', 'toolkit-svgs']);
+gulp.task('svgs', ['svg-sprite', 'copy-svgs']);
