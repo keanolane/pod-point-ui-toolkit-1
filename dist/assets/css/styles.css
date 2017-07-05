@@ -734,12 +734,10 @@ p + hr, h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr {
       height: 18px; }
 
 .list--inline {
-  margin-right: -0.9375rem;
-  margin-left: -0.9375rem; }
+  margin: -0.3125rem -0.9375rem; }
   .list--inline li {
     display: inline-block;
-    margin-right: 0.9375rem;
-    margin-left: 0.9375rem; }
+    margin: 0.3125rem 0.9375rem; }
   .list--inline--sm-gutter {
     margin-right: -0.3125rem;
     margin-left: -0.3125rem; }
@@ -2069,6 +2067,7 @@ img {
     text-transform: uppercase; }
   .global-footer__section-bottom .copyright {
     margin-top: 10px;
+    margin-bottom: 0;
     text-align: center; }
     @media (min-width: 50em) {
       .global-footer__section-bottom .copyright {
