@@ -69,6 +69,7 @@
 			}
 		}
 		.list--inline {
+			@include font-small;
 			font-weight: $font-weight-bold;
 			text-align: center;
 			@include medium-and-up {
