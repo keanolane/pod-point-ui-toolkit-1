@@ -1598,9 +1598,9 @@ button {
     .plus-minus-toggle--green-in-circle span {
       position: relative;
       top: 12px;
-      right: 4px;
-      width: 18px;
-      height: 18px; }
+      right: 3px;
+      width: 19px;
+      height: 19px; }
       .plus-minus-toggle--green-in-circle span:before, .plus-minus-toggle--green-in-circle span:after {
         background-color: #8CC63F; }
 
