@@ -72,6 +72,7 @@
 	
 	var _modal2 = _interopRequireDefault(_modal);
 	
+<<<<<<< 4e105449ea6e25629ca01585f292feac56281767
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 522f1b5e251d4ff4edb15a3183940d403e1e8abe
 <<<<<<< f7b772919325515b62790ecf9eac371d7c9f0af0
@@ -82,6 +83,9 @@
 =======
 	var _ajaxForm = __webpack_require__(10);
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+=======
+	var _ajaxForm = __webpack_require__(8);
+>>>>>>> Replaced dom delegate with addeventlistener to the modal and the togg… (#26)
 	
 	var _ajaxForm2 = _interopRequireDefault(_ajaxForm);
 	
@@ -869,11 +873,9 @@ var _moduleLoader = require('@pod-point/module-loader');
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(7);
-	
 	var _domOps = __webpack_require__(4);
 	
-	var _utilities = __webpack_require__(9);
+	var _utilities = __webpack_require__(7);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -909,30 +911,22 @@ var _moduleLoader = require('@pod-point/module-loader');
 	        value: function bindEvents() {
 	            var _this = this;
 	
-	            this.openListener = new _domDelegate.Delegate(this.openButton);
-	
-	            this.openListener.on('click', function () {
+	            this.openButton.addEventListener('click', function () {
 	                _this.openModal();
 	            });
 	
-	            this.closeListener = new _domDelegate.Delegate(this.closeButton);
-	
-	            this.closeListener.on('click', function (event) {
+	            this.closeButton.addEventListener('click', function (event) {
 	                event.preventDefault();
 	                _this.closeModal();
 	            });
 	
-	            this.overlayListener = new _domDelegate.Delegate(this.modal);
-	
-	            this.overlayListener.on('click', function (event) {
+	            this.modal.addEventListener('click', function (event) {
 	                if (event.target === _this.modal) {
 	                    _this.closeModal();
 	                }
 	            });
 	
-	            this.windowListener = new _domDelegate.Delegate(document.body);
-	
-	            this.windowListener.on('keyup', function (event) {
+	            document.body.addEventListener('keyup', function (event) {
 	                if (event.keyCode === 27) {
 	                    _this.closeModal();
 	                }
@@ -1030,6 +1024,347 @@ var _moduleLoader = require('@pod-point/module-loader');
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.show = show;
+	exports.hide = hide;
+	exports.isHidden = isHidden;
+	exports.isVisible = isVisible;
+	exports.disableOrEnableButton = disableOrEnableButton;
+	exports.addItemToCookie = addItemToCookie;
+	exports.readItemFromCookie = readItemFromCookie;
+	exports.deleteItemFromCookie = deleteItemFromCookie;
+	exports.openPanel = openPanel;
+	exports.closePanel = closePanel;
+	exports.allRadiosSelected = allRadiosSelected;
+	exports.aRadioContains = aRadioContains;
+	exports.getRandomInt = getRandomInt;
+	exports.roundNumberTo = roundNumberTo;
+	exports.loadVideo = loadVideo;
+	
+	var _domOps = __webpack_require__(4);
+	
+	var IS_OPEN = 'is-open';
+	
+	/**
+	 * Remove hidden class from element, showing it via CSS
+	 *
+	 * @param {element}
+	 */
+	function show(element) {
+	    element.classList.remove('hidden');
+	}
+	
+	/**
+	 * Apply hidden class to element, hiding it via CSS
+	 *
+	 * @param {element}
+	 */
+	function hide(element) {
+	    element.classList.add('hidden');
+	}
+	
+	/**
+	 * Check if an element is hidden (by CSS)
+	 *
+	 * @param {element}
+	 * @returns {boolean} is hidden
+	 */
+	function isHidden(element) {
+	    return element.classList.contains('hidden');
+	}
+	
+	/**
+	 * Check if an element is visible (isn't hidden by CSS)
+	 *
+	 * @param {element}
+	 * @returns {boolean} is visible
+	 */
+	function isVisible(element) {
+	    return !isHidden(element);
+	}
+	
+	/**
+	 * Disable or enable button element
+	 *
+	 * @param {element} button
+	 * @param {boolean} disable
+	 */
+	function disableOrEnableButton(element, disable) {
+	    var button = element;
+	    if (disable) {
+	        button.disabled = true;
+	        button.classList.add('is-disabled');
+	    } else {
+	        button.disabled = false;
+	        button.classList.remove('is-disabled');
+	    }
+	}
+	
+	/**
+	 * Add item to cookie
+	 *
+	 * @param {string} name of cookie
+	 * @param {obj} value of cookie
+	 */
+	function addItemToCookie(name, value) {
+	    var cookie = [name + '=' + JSON.stringify(value)];
+	    document.cookie = cookie;
+	}
+	
+	/**
+	 * Read item from cookie
+	 *
+	 * @param {string} name of cookie
+	 * @returns {obj} result
+	 */
+	function readItemFromCookie(name) {
+	    var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+	    if (result) result = JSON.parse(result[1]);
+	    return result;
+	}
+	
+	/**
+	 * Delete item from cookie
+	 *
+	 * @param {string} name of cookie
+	 */
+	function deleteItemFromCookie(name) {
+	    var domain = window.location.host.toString();
+	    var expiry = '01-Jan-1970 00:00:01 GMT';
+	    document.cookie = name + '=; expires=' + expiry + '; path=/; domain=.' + domain;
+	}
+	
+	/**
+	 * Open panel
+	 *
+	 * @param {element} panel
+	 */
+	function openPanel(panel) {
+	    var panelId = panel.getAttribute('id');
+	    var toggleIcon = document.querySelector('[data-toggle-icon="' + panelId + '"]');
+	
+	    panel.classList.add(IS_OPEN);
+	    if (toggleIcon) {
+	        toggleIcon.classList.add('rotate');
+	    }
+	}
+	
+	/**
+	 * Close panel
+	 *
+	 * @param {element} panel
+	 */
+	function closePanel(panel) {
+	    var panelId = panel.getAttribute('id');
+	    var toggleIcon = document.querySelector('[data-toggle-icon="' + panelId + '"]');
+	
+	    panel.classList.remove(IS_OPEN);
+	    if (toggleIcon) {
+	        toggleIcon.classList.remove('rotate');
+	    }
+	}
+	
+	/**
+	 * All radios selected
+	 *
+	 * @param {nodeList} radio wrap elements
+	 * @return {boolean} all radios have been selected
+	 */
+	function allRadiosSelected(radiosWraps) {
+	    var numberOfRadioGroups = (0, _domOps.nodesToArray)(radiosWraps).length;
+	    var numberOfRadiosSelected = 0;
+	
+	    radiosWraps.forEach(function (radiosWrap) {
+	        var checkedRadios = (0, _domOps.nodesToArray)(radiosWrap.querySelectorAll('input[type="radio"]:checked'));
+	        if (checkedRadios.length === 1) {
+	            numberOfRadiosSelected += 1;
+	        }
+	    });
+	    return numberOfRadioGroups === numberOfRadiosSelected;
+	}
+	
+	/**
+	 * A radio contains a class
+	 *
+	 * @param {nodeList} radios
+	 * @param {string} the class
+	 * @return {boolean} a radio contains the specified class
+	 */
+	function aRadioContains(radios, specifiedClass) {
+	    var containsClass = false;
+	    radios.forEach(function (radio) {
+	        if (radio.checked) {
+	            if (radio.classList.contains(specifiedClass)) {
+	                containsClass = true;
+	            }
+	        }
+	    });
+	    return containsClass;
+	}
+	
+	/**
+	 * Get random integar
+	 *
+	 * @param {integar} min
+	 * @param {integar} max
+	 * @return {integar} a random integar between the specified min and max
+	 */
+	function getRandomInt(min, max) {
+	    return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	
+	/**
+	 * Round number to
+	 *
+	 * @param {integar} number
+	 * @param {integar} number to round to
+	 * @return {integar} a number rounded to the specified number
+	 */
+	function roundNumberTo(num, roundTo) {
+	    var resto = num % roundTo;
+	    return resto <= roundTo / 2 ? num - resto : num + roundTo - resto;
+	}
+	
+	/**
+	 * Load or destroy video by replacing the src from the data-src
+	 *
+	 * @param {element} video
+	 * @param {boolean} load video
+	 */
+	function loadVideo(videoEl, load) {
+	    var videoSrc = videoEl.getAttribute('data-src');
+	
+	    if (load) {
+	        videoEl.setAttribute('src', videoSrc);
+	    } else {
+	        videoEl.setAttribute('src', '');
+	    }
+	}
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(9);
+	
+	var _superagent = __webpack_require__(11);
+	
+	var _superagent2 = _interopRequireDefault(_superagent);
+	
+	var _progressButton = __webpack_require__(17);
+	
+	var _progressButton2 = _interopRequireDefault(_progressButton);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var instances = [];
+	
+	var AjaxForm = function () {
+	
+	    /**
+	     * Create a new AJAX form
+	     *
+	     * @param {element} form
+	     */
+	    function AjaxForm(form) {
+	        _classCallCheck(this, AjaxForm);
+	
+	        this.form = form;
+	        this.button = _progressButton2.default.create(form.querySelector('button[type="submit"]'));
+	        this.requestInProgress = false;
+	
+	        this.bindEvents();
+	    }
+	
+	    /**
+	     * Handle the form submission
+	     */
+	
+	
+	    _createClass(AjaxForm, [{
+	        key: 'submitForm',
+	        value: function submitForm() {
+	            var _this = this;
+	
+	            this.requestInProgress = true;
+	            this.button.handleLoading();
+	
+	            _superagent2.default.post(this.form.action).type('form').send(this.form).end(function (error, response) {
+	                _this.requestInProgress = false;
+	
+	                if (response && response.ok) {
+	                    _this.button.handleComplete(true);
+	                } else {
+	                    _this.button.handleComplete(false);
+	                }
+	            });
+	        }
+	
+	        /**
+	         * Bind any event listeners to the elements
+	         */
+	
+	    }, {
+	        key: 'bindEvents',
+	        value: function bindEvents() {
+	            var _this2 = this;
+	
+	            this.listener = new _domDelegate.Delegate(this.form);
+	
+	            this.listener.on('submit', function (event) {
+	                event.preventDefault();
+	
+	                if (!_this2.requestInProgress) {
+	                    _this2.submitForm();
+	                }
+	            });
+	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements
+	         */
+	
+	    }, {
+	        key: 'unbindEvents',
+	        value: function unbindEvents() {
+	            this.listener.destroy();
+	        }
+	    }]);
+	
+	    return AjaxForm;
+	}();
+	
+	exports.default = {
+	    init: function init(form) {
+	        instances.push(new AjaxForm(form));
+	    },
+	
+	    destroy: function destroy() {
+	        instances.forEach(function (instance) {
+	            return instance.unbindEvents();
+	        });
+	        instances = [];
+	    }
+	};
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	/*jshint browser:true, node:true*/
 	
 	'use strict';
@@ -1042,7 +1377,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	 * @copyright The Financial Times Limited [All Rights Reserved]
 	 * @license MIT License (see LICENSE.txt)
 	 */
-	var Delegate = __webpack_require__(8);
+	var Delegate = __webpack_require__(10);
 	
 	module.exports = function(root) {
 	  return new Delegate(root);
@@ -1052,7 +1387,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports) {
 
 	/*jshint browser:true, node:true*/
@@ -1396,6 +1731,7 @@ var _moduleLoader = require('@pod-point/module-loader');
 	    // delegation root has been reached
 	    if (target === root) {
 	      break;
+<<<<<<< 4e105449ea6e25629ca01585f292feac56281767
 	    }
 	
 	    l = listenerList.length;
@@ -1674,83 +2010,83 @@ var _moduleLoader = require('@pod-point/module-loader');
 	    panel.classList.add(IS_OPEN);
 	    if (toggleIcon) {
 	        toggleIcon.classList.add('rotate');
+=======
+>>>>>>> Replaced dom delegate with addeventlistener to the modal and the togg… (#26)
 	    }
+	
+	    l = listenerList.length;
+	    target = target.parentElement;
+	  }
+	};
+	
+	/**
+	 * Fire a listener on a target.
+	 *
+	 * @param {Event} event
+	 * @param {Node} target
+	 * @param {Object} listener
+	 * @returns {boolean}
+	 */
+	Delegate.prototype.fire = function(event, target, listener) {
+	  return listener.handler.call(target, event, target);
+	};
+	
+	/**
+	 * Check whether an element
+	 * matches a generic selector.
+	 *
+	 * @type function()
+	 * @param {string} selector A CSS selector
+	 */
+	var matches = (function(el) {
+	  if (!el) return;
+	  var p = el.prototype;
+	  return (p.matches || p.matchesSelector || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector || p.oMatchesSelector);
+	}(Element));
+	
+	/**
+	 * Check whether an element
+	 * matches a tag selector.
+	 *
+	 * Tags are NOT case-sensitive,
+	 * except in XML (and XML-based
+	 * languages such as XHTML).
+	 *
+	 * @param {string} tagName The tag name to test against
+	 * @param {Element} element The element to test with
+	 * @returns boolean
+	 */
+	function matchesTag(tagName, element) {
+	  return tagName.toLowerCase() === element.tagName.toLowerCase();
 	}
 	
 	/**
-	 * Close panel
+	 * Check whether an element
+	 * matches the root.
 	 *
-	 * @param {element} panel
+	 * @param {?String} selector In this case this is always passed through as null and not used
+	 * @param {Element} element The element to test with
+	 * @returns boolean
 	 */
-	function closePanel(panel) {
-	    var panelId = panel.getAttribute('id');
-	    var toggleIcon = document.querySelector('[data-toggle-icon="' + panelId + '"]');
-	
-	    panel.classList.remove(IS_OPEN);
-	    if (toggleIcon) {
-	        toggleIcon.classList.remove('rotate');
-	    }
+	function matchesRoot(selector, element) {
+	  /*jshint validthis:true*/
+	  if (this.rootElement === window) return element === document;
+	  return this.rootElement === element;
 	}
 	
 	/**
-	 * All radios selected
+	 * Check whether the ID of
+	 * the element in 'this'
+	 * matches the given ID.
 	 *
-	 * @param {nodeList} radio wrap elements
-	 * @return {boolean} all radios have been selected
-	 */
-	function allRadiosSelected(radiosWraps) {
-	    var numberOfRadioGroups = (0, _domOps.nodesToArray)(radiosWraps).length;
-	    var numberOfRadiosSelected = 0;
-	
-	    radiosWraps.forEach(function (radiosWrap) {
-	        var checkedRadios = (0, _domOps.nodesToArray)(radiosWrap.querySelectorAll('input[type="radio"]:checked'));
-	        if (checkedRadios.length === 1) {
-	            numberOfRadiosSelected += 1;
-	        }
-	    });
-	    return numberOfRadioGroups === numberOfRadiosSelected;
-	}
-	
-	/**
-	 * A radio contains a class
+	 * IDs are case-sensitive.
 	 *
-	 * @param {nodeList} radios
-	 * @param {string} the class
-	 * @return {boolean} a radio contains the specified class
+	 * @param {string} id The ID to test against
+	 * @param {Element} element The element to test with
+	 * @returns boolean
 	 */
-	function aRadioContains(radios, specifiedClass) {
-	    var containsClass = false;
-	    radios.forEach(function (radio) {
-	        if (radio.checked) {
-	            if (radio.classList.contains(specifiedClass)) {
-	                containsClass = true;
-	            }
-	        }
-	    });
-	    return containsClass;
-	}
-	
-	/**
-	 * Get random integar
-	 *
-	 * @param {integar} min
-	 * @param {integar} max
-	 * @return {integar} a random integar between the specified min and max
-	 */
-	function getRandomInt(min, max) {
-	    return Math.floor(Math.random() * (max - min + 1)) + min;
-	}
-	
-	/**
-	 * Round number to
-	 *
-	 * @param {integar} number
-	 * @param {integar} number to round to
-	 * @return {integar} a number rounded to the specified number
-	 */
-	function roundNumberTo(num, roundTo) {
-	    var resto = num % roundTo;
-	    return resto <= roundTo / 2 ? num - resto : num + roundTo - resto;
+	function matchesId(id, element) {
+	  return id === element.id;
 	}
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 <<<<<<< 0da66f174c10f9ab3e8fc4390591be2a710aba44
@@ -1760,11 +2096,13 @@ var _moduleLoader = require('@pod-point/module-loader');
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
 	
 	/**
-	 * Load or destroy video by replacing the src from the data-src
+	 * Short hand for off()
+	 * and root(), ie both
+	 * with no parameters
 	 *
-	 * @param {element} video
-	 * @param {boolean} load video
+	 * @return void
 	 */
+<<<<<<< 4e105449ea6e25629ca01585f292feac56281767
 	function loadVideo(videoEl, load) {
 	    var videoSrc = videoEl.getAttribute('data-src');
 	
@@ -2096,8 +2434,14 @@ var _headerNav2 = _interopRequireDefault(_headerNav);
 	        });
 	        instances = [];
 	    }
+=======
+	Delegate.prototype.destroy = function() {
+	  this.off();
+	  this.root();
+>>>>>>> Replaced dom delegate with addeventlistener to the modal and the togg… (#26)
 	};
 >>>>>>> Fixed eslint errors and added a couple eslint disable rules
+
 
 /***/ }),
 /* 11 */
@@ -4128,13 +4472,13 @@ dom.whenReady(function () {
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(7);
+	var _domDelegate = __webpack_require__(9);
 	
 	var _domOps = __webpack_require__(4);
 	
 	var _validationRules = __webpack_require__(19);
 	
-	var _utilities = __webpack_require__(9);
+	var _utilities = __webpack_require__(7);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -4562,11 +4906,11 @@ dom.whenReady(function () {
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(7);
+	var _domDelegate = __webpack_require__(9);
 	
 	var _domOps = __webpack_require__(4);
 	
-	var _utilities = __webpack_require__(9);
+	var _utilities = __webpack_require__(7);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -4917,8 +5261,6 @@ dom.whenReady(function () {
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(7);
-	
 	var _domOps = __webpack_require__(4);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5259,31 +5601,22 @@ dom.whenReady(function () {
 	        value: function bindEvents() {
 	            var _this = this;
 	
-	            this.toggleListeners = [];
 	            this.toggleButtons.forEach(function (toggleButton) {
-	                var toggleListener = new _domDelegate.Delegate(toggleButton);
-	                _this.toggleListeners.push(toggleListener);
-	                toggleListener.on('click', function (event) {
+	                toggleButton.addEventListener('click', function (event) {
 	                    event.preventDefault();
 	                    _this.toggleElement();
 	                });
 	            });
 	
-	            this.openListeners = [];
 	            this.openButtons.forEach(function (openButton) {
-	                var openListener = new _domDelegate.Delegate(openButton);
-	                _this.openListeners.push(openListener);
-	                openListener.on('click', function (event) {
+	                openButton.addEventListener('click', function (event) {
 	                    event.preventDefault();
 	                    _this.openElement();
 	                });
 	            });
 	
-	            this.closeListeners = [];
 	            this.closeButtons.forEach(function (closeButton) {
-	                var closeListener = new _domDelegate.Delegate(closeButton);
-	                _this.closeListeners.push(closeListener);
-	                closeListener.on('click', function (event) {
+	                closeButton.addEventListener('click', function (event) {
 	                    event.preventDefault();
 	                    _this.closeElement();
 	                });
@@ -5449,6 +5782,7 @@ dom.whenReady(function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
+<<<<<<< 4e105449ea6e25629ca01585f292feac56281767
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
 	
@@ -5472,6 +5806,16 @@ dom.whenReady(function () {
 =======
 	var _domDelegate = __webpack_require__(7);
 >>>>>>> Moved window width and touch detection into it's own module and out of the script.js
+=======
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(9);
+>>>>>>> Replaced dom delegate with addeventlistener to the modal and the togg… (#26)
 	
 						// Prefix every selector in the list
 						groups = tokenize( selector );
@@ -6059,7 +6403,7 @@ dom.whenReady(function () {
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _domDelegate = __webpack_require__(7);
+	var _domDelegate = __webpack_require__(9);
 	
 	var _domOps = __webpack_require__(4);
 	
@@ -6895,7 +7239,7 @@ dom.whenReady(function () {
 	
 	var _domOps = __webpack_require__(4);
 	
-	var _domDelegate = __webpack_require__(7);
+	var _domDelegate = __webpack_require__(9);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -78750,6 +79094,7 @@ window.addEventListener('resize', handleResize);
 
 	'use strict';
 	
+<<<<<<< 4e105449ea6e25629ca01585f292feac56281767
 <<<<<<< 788fc5fa724a1e1f9033aca967ee6a979b06da0b
 	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 	
@@ -78762,6 +79107,9 @@ window.addEventListener('resize', handleResize);
 	});
 =======
 	var _utilities = __webpack_require__(9);
+=======
+	var _utilities = __webpack_require__(7);
+>>>>>>> Replaced dom delegate with addeventlistener to the modal and the togg… (#26)
 	
 	Object.defineProperty(exports, '__esModule', {
 	    value: true
