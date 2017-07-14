@@ -71183,6 +71183,7 @@ window.addEventListener('resize', handleResize);
 	
 	  randomLogNormal.source = sourceRandomLogNormal;
 	
+<<<<<<< de8320b27cfca2fa8be7d348a52e82cc6f164716
 	  return randomLogNormal;
 	}))(defaultSource$1);
 	
@@ -71206,6 +71207,14 @@ window.addEventListener('resize', handleResize);
 	      return randomIrwinHall() / n;
 	    };
 	  }
+=======
+	    _createClass(GallerySimple, [{
+	        key: 'getFirstThumbnail',
+	        value: function getFirstThumbnail() {
+	            var firstThumbnail = this.element.querySelector('.gallery-simple__thumbnails li .thumbnail');
+	            this.displayThumbnailAsImage(firstThumbnail);
+	        }
+>>>>>>> Replaced any anchors that were not links and edited the styles and js to use classes instead. Added placeholder images for the gallery and nav items
 	
 	  randomBates.source = sourceRandomBates;
 	
@@ -71219,6 +71228,7 @@ window.addEventListener('resize', handleResize);
 	    };
 	  }
 	
+<<<<<<< de8320b27cfca2fa8be7d348a52e82cc6f164716
 	  randomExponential.source = sourceRandomExponential;
 	
 	  return randomExponential;
@@ -71256,6 +71266,12 @@ window.addEventListener('resize', handleResize);
 	        } catch (e) {
 	          event.call("error", request, e);
 	          return;
+=======
+	            this.listener.on('click', 'li .thumbnail', function (event, thumbnail) {
+	                event.preventDefault();
+	                _this.displayThumbnailAsImage(thumbnail);
+	            });
+>>>>>>> Replaced any anchors that were not links and edited the styles and js to use classes instead. Added placeholder images for the gallery and nav items
 	        }
 	      } else {
 	        result = xhr;
@@ -71539,6 +71555,7 @@ window.addEventListener('resize', handleResize);
 	    return arguments.length ? (align = Math.max(0, Math.min(1, _)), rescale()) : align;
 	  };
 	
+<<<<<<< de8320b27cfca2fa8be7d348a52e82cc6f164716
 	  scale.copy = function() {
 	    return band()
 	        .domain(domain())
@@ -71548,6 +71565,11 @@ window.addEventListener('resize', handleResize);
 	        .paddingOuter(paddingOuter)
 	        .align(align);
 	  };
+=======
+	            this.navListener.on('click', '.has-sub-nav > .nav-link', function (event, clickedElement) {
+	                _this.toggleSubNav(event, clickedElement);
+	            });
+>>>>>>> Replaced any anchors that were not links and edited the styles and js to use classes instead. Added placeholder images for the gallery and nav items
 	
 	  return rescale();
 	}

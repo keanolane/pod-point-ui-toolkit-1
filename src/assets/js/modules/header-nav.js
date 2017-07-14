@@ -36,7 +36,7 @@ class HeaderNav {
 
         this.navListener = new Delegate(this.nav);
 
-        this.navListener.on('click', '.has-sub-nav > a', (event, clickedElement) => {
+        this.navListener.on('click', '.has-sub-nav > .nav-link', (event, clickedElement) => {
             this.toggleSubNav(event, clickedElement);
         });
 

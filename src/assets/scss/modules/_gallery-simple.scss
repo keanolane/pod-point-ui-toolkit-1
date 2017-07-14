@@ -17,6 +17,9 @@
 			width: 40px;
 			display: inline-block;
 			@include margin(null 5px);
+			.thumbnail {
+				@extend %clickable;
+			}
 			img {
 				width: 100%;
 				border-radius: $border-radius-base;

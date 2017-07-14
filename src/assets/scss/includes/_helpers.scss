@@ -128,7 +128,14 @@
     }
 }
 
-
+%clickable {
+	cursor: pointer;
+	&:active,
+	&:focus,
+	&:hover {
+		opacity: 0.7;
+	}
+}
 
 //	BG Images
 %bg-cover {

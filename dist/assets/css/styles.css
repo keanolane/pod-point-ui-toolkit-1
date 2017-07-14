@@ -109,6 +109,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.gallery-simple__thumbnails li .thumbnail {
+  cursor: pointer; }
+  .gallery-simple__thumbnails li .thumbnail:active, .gallery-simple__thumbnails li .thumbnail:focus, .gallery-simple__thumbnails li .thumbnail:hover {
+    opacity: 0.7; }
+
 .hide {
   display: none !important; }
 
@@ -2134,19 +2139,20 @@ img {
         .global-nav ul li {
           padding-right: 20px;
           padding-left: 20px; } }
-      .global-nav ul li a:not(.plus-minus-toggle) {
+      .global-nav ul li .nav-link {
+        cursor: pointer;
         padding: 15px 0;
         color: #333;
         font-weight: 700;
         display: block; }
         @media (min-width: 50em) {
-          .global-nav ul li a:not(.plus-minus-toggle) {
+          .global-nav ul li .nav-link {
             padding: 39px 5px; } }
-      .global-nav ul li a.find-chargepoint {
+      .global-nav ul li .nav-link.find-chargepoint {
         color: #8CC63F;
         padding-left: 25px !important;
         position: relative; }
-        .global-nav ul li a.find-chargepoint svg {
+        .global-nav ul li .nav-link.find-chargepoint svg {
           position: absolute;
           top: 50%;
           left: 0;
@@ -2182,10 +2188,10 @@ img {
       @media (min-width: 50em) {
         .global-nav > ul > li.has-sub-nav .plus-minus-toggle {
           display: none; } }
-    .global-nav > ul > li > a {
+    .global-nav > ul > li > .nav-link {
       border-bottom: 2px solid transparent; }
     @media (min-width: 50em) {
-      .global-nav > ul > li.sub-nav-open > a, .global-nav > ul > li:hover > a {
+      .global-nav > ul > li.sub-nav-open > .nav-link, .global-nav > ul > li:hover > .nav-link {
         border-color: #8CC63F; } }
   .global-nav__sub-nav {
     width: 100%;
@@ -2231,15 +2237,15 @@ img {
         @media (min-width: 40em) {
           .global-nav__sub-nav ul li {
             width: auto; } }
-        .global-nav__sub-nav ul li a {
+        .global-nav__sub-nav ul li .nav-link {
           text-align: center; }
-          .global-nav__sub-nav ul li a .nav-item-img {
+          .global-nav__sub-nav ul li .nav-link .nav-item-img {
             margin: 5px auto 10px;
             display: block;
             width: 60px;
             height: 60px; }
             @media (min-width: 40em) {
-              .global-nav__sub-nav ul li a .nav-item-img {
+              .global-nav__sub-nav ul li .nav-link .nav-item-img {
                 margin-bottom: 20px;
                 width: 100px;
                 height: 100px; } }
