@@ -41,7 +41,8 @@
 			@include large-and-up {
 				@include padding(null 20px);
 			}
-			a:not(.plus-minus-toggle) {
+			.nav-link {
+				cursor: pointer;
 				@include padding(15px 0);
 				color: $font-color-base;
 				font-weight: $font-weight-bold;
@@ -50,7 +51,7 @@
 					@include padding(39px 5px);
 				}
 			}
-			a.find-chargepoint {
+			.nav-link.find-chargepoint {
 				color: $primary-color;
 				padding-left: 25px!important;
 				position: relative;
@@ -95,13 +96,13 @@
 					}
 				}
 			}
-			> a {
+			> .nav-link {
 				border-bottom: 2px solid transparent;
 			}
 			@include medium-and-up {
 				&.sub-nav-open,
 				&:hover {
-					> a {
+					> .nav-link {
 						border-color: $primary-color;
 					}
 				}
@@ -136,7 +137,7 @@
 				@include small-and-up {
 					width: auto;
 				}
-				a  {
+				.nav-link  {
 					text-align: center;
 					.nav-item-img {
 						@include margin(5px auto 10px auto);

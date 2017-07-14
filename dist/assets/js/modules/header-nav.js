@@ -55,7 +55,7 @@ var HeaderNav = function () {
 
             this.navListener = new _domDelegate.Delegate(this.nav);
 
-            this.navListener.on('click', '.has-sub-nav > a', function (event, clickedElement) {
+            this.navListener.on('click', '.has-sub-nav > .nav-link', function (event, clickedElement) {
                 _this.toggleSubNav(event, clickedElement);
             });
 

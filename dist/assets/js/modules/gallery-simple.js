@@ -35,7 +35,7 @@ var GallerySimple = function () {
     _createClass(GallerySimple, [{
         key: 'getFirstThumbnail',
         value: function getFirstThumbnail() {
-            var firstThumbnail = this.element.querySelector('.gallery-simple__thumbnails li a');
+            var firstThumbnail = this.element.querySelector('.gallery-simple__thumbnails li .thumbnail');
             this.displayThumbnailAsImage(firstThumbnail);
         }
 
@@ -50,7 +50,7 @@ var GallerySimple = function () {
 
             this.listener = new _domDelegate.Delegate(this.element);
 
-            this.listener.on('click', 'li a', function (event, thumbnail) {
+            this.listener.on('click', 'li .thumbnail', function (event, thumbnail) {
                 event.preventDefault();
                 _this.displayThumbnailAsImage(thumbnail);
             });
