@@ -109,9 +109,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.gallery-simple__thumbnails li .thumbnail {
+.gallery-simple__thumbnails li .thumbnail, .clickable {
   cursor: pointer; }
-  .gallery-simple__thumbnails li .thumbnail:active, .gallery-simple__thumbnails li .thumbnail:focus, .gallery-simple__thumbnails li .thumbnail:hover {
+  .gallery-simple__thumbnails li .thumbnail:active, .clickable:active, .gallery-simple__thumbnails li .thumbnail:focus, .clickable:focus, .gallery-simple__thumbnails li .thumbnail:hover, .clickable:hover {
     opacity: 0.7; }
 
 .hide {

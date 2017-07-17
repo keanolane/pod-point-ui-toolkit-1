@@ -134,3 +134,7 @@
 .v-align-content {
 	@include vertical-align;
 }
+
+.clickable {
+	@extend %clickable;
+}
