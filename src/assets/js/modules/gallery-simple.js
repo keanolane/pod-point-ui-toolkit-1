@@ -19,7 +19,7 @@ class GallerySimple {
      * Get first thumbnail and pass to function to display as the main image
      */
     getFirstThumbnail() {
-        const firstThumbnail = this.element.querySelector('.gallery-simple__thumbnails li a');
+        const firstThumbnail = this.element.querySelector('.gallery-simple__thumbnails li .thumbnail');
         this.displayThumbnailAsImage(firstThumbnail);
     }
 
@@ -29,7 +29,7 @@ class GallerySimple {
     bindEvents() {
         this.listener = new Delegate(this.element);
 
-        this.listener.on('click', 'li a', (event, thumbnail) => {
+        this.listener.on('click', 'li .thumbnail', (event, thumbnail) => {
             event.preventDefault();
             this.displayThumbnailAsImage(thumbnail);
         });
