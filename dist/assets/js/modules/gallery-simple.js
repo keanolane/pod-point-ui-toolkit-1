@@ -8,10 +8,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _domDelegate = require('dom-delegate');
 
-var _domOps = require('@pod-point/dom-ops');
-
-var _utilities = require('./../utilities');
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instances = [];
@@ -19,9 +15,9 @@ var instances = [];
 var GallerySimple = function () {
 
     /**
-     * Creates a gallery element.
+     * Creates a gallery element
      *
-     * @param element
+     * @param {element}
      */
     function GallerySimple(element) {
         _classCallCheck(this, GallerySimple);
@@ -32,14 +28,14 @@ var GallerySimple = function () {
     }
 
     /**
-     * Get first thumbnail and pass to function to display as the main image.
+     * Get first thumbnail and pass to function to display as the main image
      */
 
 
     _createClass(GallerySimple, [{
         key: 'getFirstThumbnail',
         value: function getFirstThumbnail() {
-            var firstThumbnail = this.element.querySelector('.gallery-simple__thumbnails li a');
+            var firstThumbnail = this.element.querySelector('.gallery-simple__thumbnails li .thumbnail');
             this.displayThumbnailAsImage(firstThumbnail);
         }
 
@@ -54,14 +50,14 @@ var GallerySimple = function () {
 
             this.listener = new _domDelegate.Delegate(this.element);
 
-            this.listener.on('click', 'li a', function (event, thumbnail) {
+            this.listener.on('click', 'li .thumbnail', function (event, thumbnail) {
                 event.preventDefault();
                 _this.displayThumbnailAsImage(thumbnail);
             });
         }
 
         /**
-         * Unbinds the event listeners from the elements.
+         * Unbinds the event listeners from the elements
          */
 
     }, {
@@ -71,7 +67,8 @@ var GallerySimple = function () {
         }
 
         /**
-         * Display thumbnail as main image.
+         * Display thumbnail as main image
+         * @param {element} thumbnail
          */
 
     }, {

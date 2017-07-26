@@ -4,6 +4,7 @@
 
 // Clearfix
 @mixin clearfix {
+
 	&:after {
 		content: "";
 		display: table;
@@ -17,9 +18,11 @@
 	align-items: center;
 }
 
+// Remove default list styling
 @mixin remove-list-styles {
 	padding: 0;
 	margin: 0;
+
 	li {
 		list-style: none;
 	}
@@ -27,25 +30,28 @@
 
 // Maintain aspect radio
 @mixin aspect-ratio($width, $height) {
-  position: relative;
-  &:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: ($height / $width) * 100%;
-  }
-  > .aspect-ratio-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
+	position: relative;
+
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+
+	> .aspect-ratio-content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
 }
 
 // Hide text not the pseudo
 @mixin hide-text-not-pseudo {
 	text-indent: -9999px;
+
 	&:before,
 	&:after {
 		text-indent: 0;
@@ -54,6 +60,15 @@
 		height: 100%;
 		margin: 0;
 	}
+}
+
+// Full width/height overlay.
+// If it is a pseudo element, it will meeds an empty content property and the wrapper to have a relative position
+@mixin full-overlay($bgColor: black) {
+	@include position(absolute, 0 0 0 0);
+	width: 100%;
+	height: 100%;
+	background-color: $bgColor;
 }
 
 // Iconfont icon in a circle with optional colours
@@ -65,13 +80,22 @@
 	background-color: #{$bgColor};
 	border-radius: 50%;
 	border: $border;
-	svg { fill: #{$color}; box-sizing: content-box;}
-	&:before { color: $color; }
+
+	svg {
+		fill: #{$color};
+		box-sizing: content-box;
+	}
+
+	&:before {
+		color: $color;
+	}
 }
+
 @mixin icon-in-circle--size($dimension: 40px) {
 	width: $dimension;
 	height: $dimension;
 	font-size: 10px;
+
 	svg {
 		width: $dimension / 2;
 		height: $dimension / 2;
@@ -79,10 +103,12 @@
 		margin-bottom: $dimension / 4;
 	}
 }
+
 @mixin icon-in-border-circle--size($dimension: 40px) {
 	width: $dimension;
 	height: $dimension;
 	font-size: 10px;
+
 	svg {
 		width: $dimension / 2;
 		height: $dimension / 2;
@@ -90,8 +116,10 @@
 		margin-bottom: $dimension / 6;
 	}
 }
+
 @mixin horizontal-spacing {
 	@include padding(null $horizontal-spacing-mobile);
+
 	@include medium-and-up {
 		@include padding(null $horizontal-spacing);
 	}
@@ -102,6 +130,34 @@
 	@include margin(null auto);
 	max-width: $max-width-content;
 	@include horizontal-spacing;
+}
+
+// Mixin for alert boxes/messages
+@mixin alert-variant($background, $border, $text-color) {
+    background-color: $background;
+    border-color: $border;
+    color: $text-color;
+    font-weight: $font-weight-bold;
+
+    hr {
+        border-top-color: darken($border, 5%);
+    }
+
+    .a {
+        color: darken($text-color, 10%);
+        text-decoration: underline;
+    }
+}
+
+// Clickable elements that are not an anchor
+%clickable {
+	cursor: pointer;
+
+	&:active,
+	&:focus,
+	&:hover {
+		opacity: 0.7;
+	}
 }
 
 //	BG Images
@@ -122,6 +178,7 @@
 }
 
 .tel-link {
+
 	&:hover {
 		opacity: 1;
 		cursor: default;

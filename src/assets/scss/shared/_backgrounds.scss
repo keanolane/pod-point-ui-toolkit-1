@@ -8,8 +8,13 @@
 		border-top: $border-thin;
 	}
 }
+.main > .bg--white:first-child,
 .global-header-wrap + .bg--white {
 	border-top: $border-thin;
+}
+.bg--dark-gray {
+	background-color: $gray-dark;
+	color: white;
 }
 .bg--very-dark-gray {
 	background-color: $gray-very-dark;
@@ -24,12 +29,6 @@
 .bg--sky-blue {
 	background-color: $sky-blue;
 }
-.bg--wall {
-	background-color: $gray-very-light;
-	background-image: url(../img/content/backgrounds/wall.png);
-	background-position: center center;
-	background-size: 1500px 1006px;
-}
 .bg--img-cover {
 	background-position: center center;
 	background-size: cover;
@@ -43,7 +42,7 @@
 		z-index: -1;
 		content: '';
 		@include position(absolute, 0 0 0 0);
-		background-color: $gray-very-dark;
+		background-color: $gray-dark;
 		opacity: 0.65;
 		width: 100%;
 		height: 100%;

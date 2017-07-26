@@ -61,23 +61,23 @@ button {
 		}
 	}
 	&.button--tertiary {
-		color: $gray-very-dark;
+		color: $gray-dark;
 		background-color: transparent;
-		border-color: $gray-very-dark;
+		border-color: $gray-dark;
 
 		&:hover:not(.is-disabled),
 		&:focus:not(.is-disabled),
 		&:active:not(.is-disabled) {
 			color: white;
-			background-color: $gray-very-dark;
-			border-color: $gray-very-dark;
+			background-color: $gray-dark;
+			border-color: $gray-dark;
 		}
 	}
 	&.button--selected {
 		@include hide-text-not-pseudo;
 		&:before {
 			content: '';
-			@include svg-bg-tick(white);
+			background-image: url($css-bg-path+'icons/tick-white.svg');
 			background-size: cover;
 			width: 20px;
 			height: 20px;
@@ -86,7 +86,7 @@ button {
 		&:focus:not(.is-disabled),
 		&:active:not(.is-disabled) {
 			&:before {
-				@include svg-bg-tick($primary-color);
+				background-image: url($css-bg-path+'icons/tick-green.svg');
 			}
 		}
 	}

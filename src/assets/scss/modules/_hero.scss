@@ -3,7 +3,12 @@
 // =============================================================================
 
 .hero {
+	position: relative;
 	overflow: hidden;
+	.container {
+		position: relative;
+		z-index: 3;
+	}
 	.content-block {
 		min-height: 300px;
 		@include medium-and-up {
@@ -11,57 +16,19 @@
 		}
 	}
 	&__content {
+		@include popUpFadeIn;
 		max-width: 300px;
 		@include medium-and-up {
 			max-width: 500px;
 		}
 	}
-	&--home {
-		.network-right,
-		.network-left {
-			display: none;
-			position: absolute;
-			top: 0;
-			width: 355px;
-			display: none;
-			@include xsmall-and-up {
-				display: block;
-			}
-			@include medium-and-up {
-				width: 500px;
-			}
-		}
-		.network-right {
-			left: 85%;
-			@include small-and-up {
-				left: 75%;
-			}
-			@include medium-and-up {
-				left: 80%;
-			}
-			@include large-and-up {
-				left: 75%;
-			}
-			@include xlarge-and-up {
-				right: 0;
-				left: auto;
-			}
-		}
-		.network-left {
-			right: 85%;
-			@include small-and-up {
-				right: 75%;
-			}
-			@include medium-and-up {
-				right: 80%;
-			}
-			@include large-and-up {
-				right: 75%;
-			}
-			@include xlarge-and-up {
-				right: auto;
-				left: 0;
-			}
-		}
+	&:before {
+		content: '';
+		@include full-overlay($gray-dark);
+		opacity: 1;
+		animation-duration: 1.5s;
+		animation-fill-mode: both;
+		animation-name: fadeOut;
+		animation-delay: 1s;
 	}
 }

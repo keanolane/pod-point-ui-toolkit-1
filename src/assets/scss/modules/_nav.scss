@@ -2,170 +2,230 @@
 //	NAV
 // =============================================================================
 
+.is-nav-open body {
+	overflow: hidden;
+}
+
 .global-nav {
-	display: none;
 	@include clearfix;
 	@include margin(null auto);
 	transition: 0.1s ease-in-out;
+	@include slideDownCollapsed(0.5s);
+
 	@include medium-and-up {
-		height: 95px;
+		height: 97px;
+		max-height: 100%;
 		display: block;
 		float: right;
-		.is-minified & {
-			height: 50px;
-		}
 	}
-	.checkout-flow & { display: none; }
+
+	.checkout-flow & {
+		display: none;
+	}
+
 	.nav-open & {
-		display: block;
-		transition: 0.5s ease-in-out;
-		animation-duration: 0.8s;
-		animation-fill-mode: both;
-		animation-name: fadeIn;
+		height: auto;
+		transition: 1s ease-in-out;
+		@include slideDownActive(1s, 800px);
 	}
+
 	ul {
 		@include remove-list-styles;
+
 		li {
 			position: relative;
 			@include font-small;
 			border-bottom: $border-thin;
+
 			&:last-child {
 				border-bottom: none;
 			}
+
 			@include medium-and-up {
 				position: static;
 				border-bottom: none;
 				display: inline-block;
 				@include padding(null 10px);
 			}
+
 			@include large-and-up {
 				@include padding(null 20px);
 			}
-			a:not(.plus-minus-toggle) {
+
+			.nav-link {
+				cursor: pointer;
 				@include padding(15px 0);
 				color: $font-color-base;
 				font-weight: $font-weight-bold;
 				display: block;
+				width: 100%;
+				text-align: left;
+
 				@include medium-and-up {
+					text-align: center;
 					@include padding(39px 5px);
-					.is-minified & {
-						@include padding(15px null);
-					}
 				}
-			}
-			a.find-chargepoint {
-				color: $primary-color;
-				padding-left: 25px!important;
-				position: relative;
-				svg {
-					@include position(absolute, 50% null null 0);
-					margin-top: -10px;
-					width: 20px;
-					height: 20px;
-					fill: $primary-color;
+
+				&.find-chargepoint {
+					color: $primary-color;
+					padding-left: 25px!important;
+					position: relative;
+
+					svg {
+						@include position(absolute, 50% null null 0);
+						margin-top: -10px;
+						width: 20px;
+						height: 20px;
+						fill: $primary-color;
+					}
 				}
 			}
 		}
 	}
+
 	> ul {
+
 		@include medium-and-up {
 			float: right;
-			margin-right: -20px;
+			margin-right: -10px;
 		}
+
 		> li {
 			min-height: 43px;
+
 			&.has-sub-nav {
-				.global-nav__sub-nav {
-					.is-desktop & {
-						@include medium-and-up {
-							display: none;
-							transition: 0.1s ease-in-out;
-						}
-					}
-				}
-				&:hover {
-					.global-nav__sub-nav {
-						.is-desktop & {
-							@include medium-and-up {
-								display: block;
-								transition: 0.8s ease-in-out;
-								height: auto;
-								max-height: 400px;
-								animation-duration: 0.3s;
-								animation-fill-mode: both;
-								animation-name: fadeIn;
-							}
-						}
-					}
-				}
+
 				&.sub-nav-open {
+
 					.global-nav__sub-nav {
 						height: auto;
-						max-height: 400px;
+						max-height: 340px;
 						transition: 1s ease-in-out;
-						@include slideDownActive(1s, 500px);
+						@include slideDownActive(1s, 340px);
+
 						@include medium-and-up {
+							transition: none;
 							opacity: 1;
+							animation-duration: 0.3s;
+							animation-fill-mode: both;
+							animation-name: fadeIn;
 						}
 					}
 				}
+
 				.plus-minus-toggle {
 					z-index: -1;
 					@include position(absolute, 4px 0 null null);
+
 					@include medium-and-up {
 						display: none;
 					}
 				}
 			}
+
+			> .nav-link {
+				border-bottom: 2px solid transparent;
+			}
+
 			@include medium-and-up {
-				&:hover,
-				&.is-active {
-					> a {
-						border-bottom: 2px solid $primary-color;
+
+				&.sub-nav-open,
+				&:hover {
+
+					> .nav-link {
+						border-color: $primary-color;
 					}
 				}
 			}
 		}
 	}
+
 	&__sub-nav {
 		width: 100%;
 		text-align: center;
 		transition: 0.3s ease-in-out;
 		@include slideDownCollapsed(0.5s);
 		background-color: white;
+
 		@include medium-and-up {
 			opacity: 0;
 			@include position(absolute, 96px 0 null null);
-			box-shadow: $bottom-shadow;
-			.is-minified & {
-				top: 50px;
-			}
 		}
+
 		ul {
-			@include container;
 			background-color: rgba(255,255,255,0.3);
 			margin-bottom: 20px;
+
+			@include small-and-up {
+				@include container;
+			}
+
 			@include medium-and-up {
 				margin-bottom: 0;
 			}
+
 			li {
 				border-bottom: none;
-				@include small-and-up {
-					display: inline-block;
-				}
+				@include clearfix;
 				@include padding(null 20px);
-					a  {
+				display: inline-block;
+				width: 120px;
+
+				@include small-and-up {
+					width: auto;
+				}
+
+				.nav-link  {
 					text-align: center;
-					img {
-						@include margin(5px auto 20px auto);
+
+					.nav-item-img {
+						@include margin(5px auto 10px auto);
 						display: block;
-						width: 80px;
-						@include medium-and-up {
+						width: 60px;
+						height: 60px;
+
+						@include small-and-up {
+							margin-bottom: 20px;
 							width: 100px;
+							height: 100px;
 						}
 					}
 				}
 			}
+		}
+	}
+}
+
+@include medium-and-up {
+
+	.global-nav-overlay {
+		display: none;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,0.5);
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		transition: 0.1s ease-in-out;
+
+		&.nav-open {
+			display: block;
+			transition: 0.8s ease-in-out;
+			animation-duration: 0.3s;
+			animation-fill-mode: both;
+			animation-name: fadeIn;
+		}
+
+		&:before {
+			content: '';
+			width: 100%;
+			height: 320px;
+			background-color: white;
+			position: fixed;
+			top: 0;
+			left: 0;
+			box-shadow: $bottom-shadow;
 		}
 	}
 }

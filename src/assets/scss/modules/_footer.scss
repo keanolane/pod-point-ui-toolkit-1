@@ -54,10 +54,9 @@
 	}
 	&__section-bottom {
 		color: white;
-		background-color: $gray-very-dark;
+		background-color: $gray-dark;
 		@include padding(20px null);
-		p,
-		ul {
+		p {
 			@include font-small;
 			font-weight: $font-weight-bold;
 		}
@@ -67,6 +66,8 @@
 			}
 		}
 		.list--inline {
+			@include font-small;
+			font-weight: $font-weight-bold;
 			text-align: center;
 			@include medium-and-up {
 				text-align: left;
@@ -77,6 +78,7 @@
 		}
 		.copyright {
 			margin-top: 10px;
+			margin-bottom: 0;
 			text-align: center;
 			@include medium-and-up {
 				margin-top: 0;
