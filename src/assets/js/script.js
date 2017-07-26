@@ -14,7 +14,7 @@ import headerNav from './modules/header-nav';
 import carousel from './modules/carousel';
 import * as addressLookup from './modules/address-lookup';
 
-require('./shims/classList.js');
+import 'classlist-polyfill';
 
 window.initAutocomplete = addressLookup.initAutocomplete;
 window.geolocate = addressLookup.geolocate;

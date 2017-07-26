@@ -42,7 +42,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -100,11 +100,11 @@
 	
 	var addressLookup = _interopRequireWildcard(_addressLookup);
 	
+	__webpack_require__(45);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	__webpack_require__(45);
 	
 	window.initAutocomplete = addressLookup.initAutocomplete;
 	window.geolocate = addressLookup.geolocate;
@@ -127,9 +127,9 @@
 	    });
 	});
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 	    Module system
@@ -184,9 +184,9 @@
 	
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -245,9 +245,9 @@
 	    };
 	}
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 	    DOM module handler, compatible with @pod-point/module-loader
@@ -317,9 +317,9 @@
 	
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -354,7 +354,7 @@
 	    ==============================================================
 	*/
 	function select(selector) {
-	    var root = arguments.length <= 1 || arguments[1] === undefined ? document : arguments[1];
+	    var root = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
 	
 	    var selection = root.querySelectorAll(selector);
 	
@@ -362,7 +362,7 @@
 	}
 	
 	function selectFirst(selector) {
-	    var root = arguments.length <= 1 || arguments[1] === undefined ? document : arguments[1];
+	    var root = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
 	
 	    return root.querySelector(selector);
 	}
@@ -414,7 +414,7 @@
 	    ==============================================================
 	*/
 	function create() {
-	    var tag = arguments.length <= 0 || arguments[0] === undefined ? 'div' : arguments[0];
+	    var tag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'div';
 	
 	    return document.createElement(tag);
 	}
@@ -502,16 +502,16 @@
 	}
 	
 	function whenReady(callback) {
-	    if (document.readyState != 'loading') {
+	    if (document.readyState != 'loading' && document.body != null) {
 	        callback();
 	    } else {
 	        document.addEventListener('DOMContentLoaded', callback);
 	    }
 	}
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -536,9 +536,9 @@
 	};
 	window.defineSizeAndDevice();
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -695,9 +695,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -920,9 +920,9 @@
 	    }
 	}
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1036,9 +1036,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*jshint browser:true, node:true*/
 	
@@ -1061,9 +1061,9 @@
 	module.exports.Delegate = Delegate;
 
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/*jshint browser:true, node:true*/
 	
@@ -1496,9 +1496,9 @@
 	};
 
 
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
@@ -2579,9 +2579,9 @@
 	};
 
 
-/***/ },
+/***/ }),
 /* 12 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	/**
@@ -2748,9 +2748,9 @@
 	};
 
 
-/***/ },
+/***/ }),
 /* 13 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	
 	/**
@@ -2777,9 +2777,9 @@
 	  return curr;
 	};
 
-/***/ },
+/***/ }),
 /* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module of mixed-in functions shared between node and client code
@@ -2949,9 +2949,9 @@
 	};
 
 
-/***/ },
+/***/ }),
 /* 15 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Check if `obj` is an object.
@@ -2968,9 +2968,9 @@
 	module.exports = isObject;
 
 
-/***/ },
+/***/ }),
 /* 16 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// The node and browser modules expose versions of this with the
 	// appropriate constructor function bound as first argument
@@ -3006,9 +3006,9 @@
 	module.exports = request;
 
 
-/***/ },
+/***/ }),
 /* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3077,9 +3077,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 18 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3299,9 +3299,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 19 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -3332,9 +3332,9 @@
 	  return re.test(emailValue);
 	}
 
-/***/ },
+/***/ }),
 /* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3535,9 +3535,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 21 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3703,9 +3703,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 22 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3806,9 +3806,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3911,9 +3911,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 24 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4090,9 +4090,9 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 25 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4166,19 +4166,19 @@
 	    }
 	};
 
-/***/ },
+/***/ }),
 /* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Flickity v2.0.8
+	 * Flickity v2.0.9
 	 * Touch, responsive, flickable carousels
 	 *
 	 * Licensed GPLv3 for open source use
 	 * or Flickity Commercial License for commercial use
 	 *
 	 * http://flickity.metafizzy.co
-	 * Copyright 2016 Metafizzy
+	 * Copyright 2017 Metafizzy
 	 */
 	
 	( function( window, factory ) {
@@ -4214,9 +4214,9 @@
 	});
 
 
-/***/ },
+/***/ }),
 /* 27 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity main
 	( function( window, factory ) {
@@ -5075,9 +5075,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 28 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 	 * EvEmitter v1.1.0
@@ -5160,13 +5160,14 @@
 	  if ( !listeners || !listeners.length ) {
 	    return;
 	  }
-	  var i = 0;
-	  var listener = listeners[i];
+	  // copy over to avoid interference if .off() in listener
+	  listeners = listeners.slice(0);
 	  args = args || [];
 	  // once stuff
 	  var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
 	
-	  while ( listener ) {
+	  for ( var i=0; i < listeners.length; i++ ) {
+	    var listener = listeners[i]
 	    var isOnce = onceListeners && onceListeners[ listener ];
 	    if ( isOnce ) {
 	      // remove listener
@@ -5177,16 +5178,12 @@
 	    }
 	    // trigger listener
 	    listener.apply( this, args );
-	    // get next listener
-	    i += isOnce ? 0 : 1;
-	    listener = listeners[i];
 	  }
 	
 	  return this;
 	};
 	
-	proto.allOff =
-	proto.removeAllListeners = function() {
+	proto.allOff = function() {
 	  delete this._events;
 	  delete this._onceEvents;
 	};
@@ -5196,9 +5193,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 29 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * getSize v2.0.2
@@ -5411,9 +5408,9 @@
 	});
 
 
-/***/ },
+/***/ }),
 /* 30 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 	 * Fizzy UI utils v2.0.5
@@ -5655,9 +5652,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 31 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 	 * matchesSelector v2.0.2
@@ -5714,9 +5711,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 32 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity.Cell
 	( function( window, factory ) {
@@ -5810,9 +5807,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 33 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;// slide
 	( function( window, factory ) {
@@ -5892,9 +5889,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 34 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// animate
 	( function( window, factory ) {
@@ -6117,9 +6114,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 35 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
 	( function( window, factory ) {
@@ -6171,6 +6168,7 @@
 	
 	var proto = Flickity.prototype;
 	utils.extend( proto, Unidragger.prototype );
+	proto._touchActionValue = 'pan-y';
 	
 	// --------------------------  -------------------------- //
 	
@@ -6512,12 +6510,12 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 36 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * Unidragger v2.2.2
+	 * Unidragger v2.2.3
 	 * Draggable base class
 	 * MIT license
 	 */
@@ -6586,10 +6584,13 @@
 	    // touch-action: none to override browser touch gestures
 	    // metafizzy/flickity#540
 	    if ( window.PointerEvent ) {
-	      handle.style.touchAction = isBind ? 'none' : '';
+	      handle.style.touchAction = isBind ? this._touchActionValue : '';
 	    }
 	  }
 	};
+	
+	// prototype so it can be overwriteable by Flickity
+	proto._touchActionValue = 'none';
 	
 	// ----- start event ----- //
 	
@@ -6786,9 +6787,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * Unipointer v2.2.0
@@ -7087,9 +7088,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 38 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// prev/next buttons
 	( function( window, factory ) {
@@ -7313,9 +7314,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 39 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * Tap listener v2.0.0
@@ -7432,9 +7433,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 40 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
 	( function( window, factory ) {
@@ -7616,9 +7617,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 41 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// player & autoPlay
 	( function( window, factory ) {
@@ -7835,9 +7836,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 42 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// add, remove cell
 	( function( window, factory ) {
@@ -8023,9 +8024,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 43 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
 	( function( window, factory ) {
@@ -8148,9 +8149,9 @@
 	}));
 
 
-/***/ },
+/***/ }),
 /* 44 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -8229,15 +8230,13 @@
 	exports.fillInAddress = fillInAddress;
 	exports.geolocate = geolocate;
 
-/***/ },
+/***/ }),
 /* 45 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
-	"use strict";
-	
 	/*
 	 * classList.js: Cross-browser full element.classList implementation.
-	 * 1.1.20150312
+	 * 1.1.20170427
 	 *
 	 * By Eli Grey, http://eligrey.com
 	 * License: Dedicated to the public domain.
@@ -8248,207 +8247,235 @@
 	
 	/*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
 	
-	if ("document" in self) {
+	if ("document" in window.self) {
 	
-		// Full polyfill for browsers with no classList support
-		// Including IE < Edge missing SVGElement.classList
-		if (!("classList" in document.createElement("_")) || document.createElementNS && !("classList" in document.createElementNS("http://www.w3.org/2000/svg", "g"))) {
+	// Full polyfill for browsers with no classList support
+	// Including IE < Edge missing SVGElement.classList
+	if (!("classList" in document.createElement("_")) 
+		|| document.createElementNS && !("classList" in document.createElementNS("http://www.w3.org/2000/svg","g"))) {
 	
-			(function (view) {
+	(function (view) {
 	
-				"use strict";
+	"use strict";
 	
-				if (!('Element' in view)) return;
+	if (!('Element' in view)) return;
 	
-				var classListProp = "classList",
-				    protoProp = "prototype",
-				    elemCtrProto = view.Element[protoProp],
-				    objCtr = Object,
-				    strTrim = String[protoProp].trim || function () {
-					return this.replace(/^\s+|\s+$/g, "");
-				},
-				    arrIndexOf = Array[protoProp].indexOf || function (item) {
-					var i = 0,
-					    len = this.length;
-					for (; i < len; i++) {
-						if (i in this && this[i] === item) {
-							return i;
-						}
-					}
-					return -1;
-				}
-				// Vendors: please allow content code to instantiate DOMExceptions
-				,
-				    DOMEx = function DOMEx(type, message) {
-					this.name = type;
-					this.code = DOMException[type];
-					this.message = message;
-				},
-				    checkTokenAndGetIndex = function checkTokenAndGetIndex(classList, token) {
-					if (token === "") {
-						throw new DOMEx("SYNTAX_ERR", "An invalid or illegal string was specified");
-					}
-					if (/\s/.test(token)) {
-						throw new DOMEx("INVALID_CHARACTER_ERR", "String contains an invalid character");
-					}
-					return arrIndexOf.call(classList, token);
-				},
-				    ClassList = function ClassList(elem) {
-					var trimmedClasses = strTrim.call(elem.getAttribute("class") || ""),
-					    classes = trimmedClasses ? trimmedClasses.split(/\s+/) : [],
-					    i = 0,
-					    len = classes.length;
-					for (; i < len; i++) {
-						this.push(classes[i]);
-					}
-					this._updateClassName = function () {
-						elem.setAttribute("class", this.toString());
-					};
-				},
-				    classListProto = ClassList[protoProp] = [],
-				    classListGetter = function classListGetter() {
-					return new ClassList(this);
-				};
-				// Most DOMException implementations don't allow calling DOMException's toString()
-				// on non-DOMExceptions. Error's toString() is sufficient here.
-				DOMEx[protoProp] = Error[protoProp];
-				classListProto.item = function (i) {
-					return this[i] || null;
-				};
-				classListProto.contains = function (token) {
-					token += "";
-					return checkTokenAndGetIndex(this, token) !== -1;
-				};
-				classListProto.add = function () {
-					var tokens = arguments,
-					    i = 0,
-					    l = tokens.length,
-					    token,
-					    updated = false;
-					do {
-						token = tokens[i] + "";
-						if (checkTokenAndGetIndex(this, token) === -1) {
-							this.push(token);
-							updated = true;
-						}
-					} while (++i < l);
-	
-					if (updated) {
-						this._updateClassName();
-					}
-				};
-				classListProto.remove = function () {
-					var tokens = arguments,
-					    i = 0,
-					    l = tokens.length,
-					    token,
-					    updated = false,
-					    index;
-					do {
-						token = tokens[i] + "";
-						index = checkTokenAndGetIndex(this, token);
-						while (index !== -1) {
-							this.splice(index, 1);
-							updated = true;
-							index = checkTokenAndGetIndex(this, token);
-						}
-					} while (++i < l);
-	
-					if (updated) {
-						this._updateClassName();
-					}
-				};
-				classListProto.toggle = function (token, force) {
-					token += "";
-	
-					var result = this.contains(token),
-					    method = result ? force !== true && "remove" : force !== false && "add";
-	
-					if (method) {
-						this[method](token);
-					}
-	
-					if (force === true || force === false) {
-						return force;
-					} else {
-						return !result;
-					}
-				};
-				classListProto.toString = function () {
-					return this.join(" ");
-				};
-	
-				if (objCtr.defineProperty) {
-					var classListPropDesc = {
-						get: classListGetter,
-						enumerable: true,
-						configurable: true
-					};
-					try {
-						objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
-					} catch (ex) {
-						// IE 8 doesn't support enumerable:true
-						if (ex.number === -0x7FF5EC54) {
-							classListPropDesc.enumerable = false;
-							objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
-						}
-					}
-				} else if (objCtr[protoProp].__defineGetter__) {
-					elemCtrProto.__defineGetter__(classListProp, classListGetter);
-				}
-			})(self);
-		} else {
-			// There is full or partial native classList support, so just check if we need
-			// to normalize the add/remove and toggle APIs.
-	
-			(function () {
-				"use strict";
-	
-				var testElement = document.createElement("_");
-	
-				testElement.classList.add("c1", "c2");
-	
-				// Polyfill for IE 10/11 and Firefox <26, where classList.add and
-				// classList.remove exist but support only one argument at a time.
-				if (!testElement.classList.contains("c2")) {
-					var createMethod = function createMethod(method) {
-						var original = DOMTokenList.prototype[method];
-	
-						DOMTokenList.prototype[method] = function (token) {
-							var i,
-							    len = arguments.length;
-	
-							for (i = 0; i < len; i++) {
-								token = arguments[i];
-								original.call(this, token);
-							}
-						};
-					};
-					createMethod('add');
-					createMethod('remove');
-				}
-	
-				testElement.classList.toggle("c3", false);
-	
-				// Polyfill for IE 10 and Firefox <24, where classList.toggle does not
-				// support the second argument.
-				if (testElement.classList.contains("c3")) {
-					var _toggle = DOMTokenList.prototype.toggle;
-	
-					DOMTokenList.prototype.toggle = function (token, force) {
-						if (1 in arguments && !this.contains(token) === !force) {
-							return force;
-						} else {
-							return _toggle.call(this, token);
-						}
-					};
-				}
-	
-				testElement = null;
-			})();
+	var
+		  classListProp = "classList"
+		, protoProp = "prototype"
+		, elemCtrProto = view.Element[protoProp]
+		, objCtr = Object
+		, strTrim = String[protoProp].trim || function () {
+			return this.replace(/^\s+|\s+$/g, "");
 		}
+		, arrIndexOf = Array[protoProp].indexOf || function (item) {
+			var
+				  i = 0
+				, len = this.length
+			;
+			for (; i < len; i++) {
+				if (i in this && this[i] === item) {
+					return i;
+				}
+			}
+			return -1;
+		}
+		// Vendors: please allow content code to instantiate DOMExceptions
+		, DOMEx = function (type, message) {
+			this.name = type;
+			this.code = DOMException[type];
+			this.message = message;
+		}
+		, checkTokenAndGetIndex = function (classList, token) {
+			if (token === "") {
+				throw new DOMEx(
+					  "SYNTAX_ERR"
+					, "An invalid or illegal string was specified"
+				);
+			}
+			if (/\s/.test(token)) {
+				throw new DOMEx(
+					  "INVALID_CHARACTER_ERR"
+					, "String contains an invalid character"
+				);
+			}
+			return arrIndexOf.call(classList, token);
+		}
+		, ClassList = function (elem) {
+			var
+				  trimmedClasses = strTrim.call(elem.getAttribute("class") || "")
+				, classes = trimmedClasses ? trimmedClasses.split(/\s+/) : []
+				, i = 0
+				, len = classes.length
+			;
+			for (; i < len; i++) {
+				this.push(classes[i]);
+			}
+			this._updateClassName = function () {
+				elem.setAttribute("class", this.toString());
+			};
+		}
+		, classListProto = ClassList[protoProp] = []
+		, classListGetter = function () {
+			return new ClassList(this);
+		}
+	;
+	// Most DOMException implementations don't allow calling DOMException's toString()
+	// on non-DOMExceptions. Error's toString() is sufficient here.
+	DOMEx[protoProp] = Error[protoProp];
+	classListProto.item = function (i) {
+		return this[i] || null;
+	};
+	classListProto.contains = function (token) {
+		token += "";
+		return checkTokenAndGetIndex(this, token) !== -1;
+	};
+	classListProto.add = function () {
+		var
+			  tokens = arguments
+			, i = 0
+			, l = tokens.length
+			, token
+			, updated = false
+		;
+		do {
+			token = tokens[i] + "";
+			if (checkTokenAndGetIndex(this, token) === -1) {
+				this.push(token);
+				updated = true;
+			}
+		}
+		while (++i < l);
+	
+		if (updated) {
+			this._updateClassName();
+		}
+	};
+	classListProto.remove = function () {
+		var
+			  tokens = arguments
+			, i = 0
+			, l = tokens.length
+			, token
+			, updated = false
+			, index
+		;
+		do {
+			token = tokens[i] + "";
+			index = checkTokenAndGetIndex(this, token);
+			while (index !== -1) {
+				this.splice(index, 1);
+				updated = true;
+				index = checkTokenAndGetIndex(this, token);
+			}
+		}
+		while (++i < l);
+	
+		if (updated) {
+			this._updateClassName();
+		}
+	};
+	classListProto.toggle = function (token, force) {
+		token += "";
+	
+		var
+			  result = this.contains(token)
+			, method = result ?
+				force !== true && "remove"
+			:
+				force !== false && "add"
+		;
+	
+		if (method) {
+			this[method](token);
+		}
+	
+		if (force === true || force === false) {
+			return force;
+		} else {
+			return !result;
+		}
+	};
+	classListProto.toString = function () {
+		return this.join(" ");
+	};
+	
+	if (objCtr.defineProperty) {
+		var classListPropDesc = {
+			  get: classListGetter
+			, enumerable: true
+			, configurable: true
+		};
+		try {
+			objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
+		} catch (ex) { // IE 8 doesn't support enumerable:true
+			// adding undefined to fight this issue https://github.com/eligrey/classList.js/issues/36
+			// modernie IE8-MSW7 machine has IE8 8.0.6001.18702 and is affected
+			if (ex.number === undefined || ex.number === -0x7FF5EC54) {
+				classListPropDesc.enumerable = false;
+				objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
+			}
+		}
+	} else if (objCtr[protoProp].__defineGetter__) {
+		elemCtrProto.__defineGetter__(classListProp, classListGetter);
+	}
+	
+	}(window.self));
+	
+	}
+	
+	// There is full or partial native classList support, so just check if we need
+	// to normalize the add/remove and toggle APIs.
+	
+	(function () {
+		"use strict";
+	
+		var testElement = document.createElement("_");
+	
+		testElement.classList.add("c1", "c2");
+	
+		// Polyfill for IE 10/11 and Firefox <26, where classList.add and
+		// classList.remove exist but support only one argument at a time.
+		if (!testElement.classList.contains("c2")) {
+			var createMethod = function(method) {
+				var original = DOMTokenList.prototype[method];
+	
+				DOMTokenList.prototype[method] = function(token) {
+					var i, len = arguments.length;
+	
+					for (i = 0; i < len; i++) {
+						token = arguments[i];
+						original.call(this, token);
+					}
+				};
+			};
+			createMethod('add');
+			createMethod('remove');
+		}
+	
+		testElement.classList.toggle("c3", false);
+	
+		// Polyfill for IE 10 and Firefox <24, where classList.toggle does not
+		// support the second argument.
+		if (testElement.classList.contains("c3")) {
+			var _toggle = DOMTokenList.prototype.toggle;
+	
+			DOMTokenList.prototype.toggle = function(token, force) {
+				if (1 in arguments && !this.contains(token) === !force) {
+					return force;
+				} else {
+					return _toggle.call(this, token);
+				}
+			};
+	
+		}
+	
+		testElement = null;
+	}());
+	
 	}
 
-/***/ }
+
+/***/ })
 /******/ ]);
 //# sourceMappingURL=script.js.map
