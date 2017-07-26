@@ -1,3 +1,4 @@
+import 'classlist-polyfill';
 import loadModules from '@pod-point/module-loader';
 import combineDomModules from '@pod-point/dom-module-loader';
 import * as dom from '@pod-point/dom-ops';
@@ -13,8 +14,6 @@ import accordion from './modules/accordion';
 import headerNav from './modules/header-nav';
 import carousel from './modules/carousel';
 import * as addressLookup from './modules/address-lookup';
-
-import 'classlist-polyfill';
 
 window.initAutocomplete = addressLookup.initAutocomplete;
 window.geolocate = addressLookup.geolocate;
