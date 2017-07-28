@@ -33,16 +33,6 @@
     top: 0px;
     opacity: 1; } }
 
-.hide {
-  display: none !important; }
-
-.tel-link:hover {
-  opacity: 1;
-  cursor: default; }
-
-.full-img {
-  width: 100%; }
-
 .demo-header {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem; }
