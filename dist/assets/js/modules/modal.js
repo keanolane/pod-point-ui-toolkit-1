@@ -28,7 +28,7 @@ var Modal = function () {
         this.openButton = element;
         var modalID = this.openButton.getAttribute('data-modal');
         this.modal = document.querySelector('#' + modalID);
-        this.closeButton = this.modal.querySelector('.modal-close');
+        this.closeButton = this.modal.querySelector('.modal__close');
         this.video = this.modal.querySelector('.video-wrapper iframe');
 
         this.bindEvents();
