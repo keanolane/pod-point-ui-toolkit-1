@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const config = require('./config');
+require('babel-polyfill');
 
 var isProd = (process.env.NODE_ENV === 'production');
 
