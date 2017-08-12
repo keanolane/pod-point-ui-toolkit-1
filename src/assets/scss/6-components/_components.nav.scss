@@ -1,0 +1,86 @@
+// =============================================================================
+//  COMPONENTS - NAV
+// =============================================================================
+
+.nav {
+    @extend %remove-list-styles;
+    @extend %remove-link-styles;
+    padding-bottom: 0;
+
+    .nav__item {
+        padding: 0;
+        position: relative;
+
+        .nav__link {
+            position: relative;
+            @include padding(5px null);
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .nav__subnav {
+        @extend %remove-list-styles;
+        padding-top: 0;
+
+        .nav__item {
+            &:last-child {
+                padding-bottom: 10px;
+            }
+        }
+    }
+
+    .nav__subnav-toggle {
+        @include position(absolute, 5px 0 null null);
+    }
+
+    &--h-separator {
+        & + & {
+            border-top: $border-thin;
+        }
+
+        .nav__item {
+            .nav__link {
+                @include padding(8px null);
+                border-bottom: $border-thin;
+            }
+
+            &:last-child {
+                .nav__link {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &--inline {
+        display: inline-block;
+
+        & + & {
+            padding-left: 40px;
+        }
+
+        .nav__item {
+            @include padding(null 20px);
+            display: inline-block;
+
+            .nav__link {
+                @include padding(20px 2px);
+                border-bottom: $border-transparent;
+                display: block;
+
+                &:hover {
+                    border-bottom: $border-primary;
+                }
+            }
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+}

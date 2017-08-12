@@ -33,7 +33,7 @@
         }
 
         &:nth-child(2) {
-            top: calc(50% - 2px);
+            top: calc(50% - 1px);
 
             .nav-open & {
                 left: -$navicon-width;

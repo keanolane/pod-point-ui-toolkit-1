@@ -57,8 +57,4 @@
 
 .remove-link-styles {
     @extend %remove-link-styles;
-
-    a {
-        @extend %remove-link-styles;
-    }
 }

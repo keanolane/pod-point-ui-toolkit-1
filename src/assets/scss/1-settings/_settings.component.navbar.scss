@@ -2,6 +2,21 @@
 //  SETTINGS - NAVBAR
 // =============================================================================
 
+// IE10 makes you explicitly define height and width of inline svgs
+// Since this toolkit is for POD Point, here are logo sizes for 2 breakpoints that can be edited accordingly
+$navbar-logo-width-sm: 100px;
+$navbar-logo-height-sm: 27px;
+$navbar-logo-width-md: 140px;
+$navbar-logo-height-md: 38px;
+$navbar-logo-width-lg: 180px;
+$navbar-logo-height-lg: 49px;
+
+$nav-items-separating-border-mobile: $border-thin;
+
 $navbar-desktop-height: 96px;
 $subnav-desktop-height: 232px;
 $underlay-desktop-height: $navbar-desktop-height + $subnav-desktop-height;
+
+$navbar-link-v-padding-mobile: 15px;
+$navbar-link-v-padding-desktop: 36px;
+$navbar-link-h-padding-desktop: 5px;
