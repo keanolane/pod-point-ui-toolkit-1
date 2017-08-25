@@ -1,4 +1,5 @@
 # pod-point-ui-toolkit
+[![npm](https://img.shields.io/npm/v/@pod-point/pod-point-ui-toolkit.svg)](https://www.npmjs.com/package/@pod-point/pod-point-ui-toolkit)
 
 The POD Point frontend framework is a library of base styles and components designed for rapid prototyping.
 
