@@ -42,6 +42,14 @@ And for the JavaScripts:
 import modal from '/path/to/node_modules/pod-point/pod-point-ui-toolkit/dist/js/modal';
 ```
 
+## Deploy
+To publish a new version to NPM run the following commands:
+```bash
+npm version [patch|minor|major]
+git push --tags
+```
+
+
 ## Development
 
 First, install all of the Node modules needed:
