@@ -4,3 +4,15 @@ node_js:
 sudo: false
 script:
   - npm run lint
+cache:
+  directories:
+    - node_modules
+deploy:
+  provider: npm
+  email: software@pod-point.com
+  api_key:
+    secure: idQ/byIMw2FiDoAhhNMCaQPlOyD13pz4QKwx0pq1hmPB+tM1Vbas0Me3F0kUwBjPUNUfaEEnary+nbFgazX5liat8Vj3p27cqN1uhMhSDgZTLcj7UQhD3taHtZMs2mPk2vuzxaQ6dkuZ2Cn5iqIvWtTTxdxpoR8bbxQJBxsVR5U4oWIfBV4WVz9FurOxjjb2Rr/Gd5iHxyNKDoio0XBqJd+rEFB34CfOgGQaI2uf8qLl6FNshm2rgpcdjr1F4dLiyqE7gUxBdHxuvdVAdbzyGNvDf8aWtPcGZ0L2w2oB5gXS2OnUzAe3+Z3bwlxVhKxZJQLP+g7wHNJfa4FUrNXBksBhPr4GCkVnMctx9+nYFWd1ae3yIOQP3tvSo8eAXogQgpPCO+mkgbTYnH3AbuUXbAt5/KAYX81+vWlMHiacSxlcIKBzA2ALFCX09XHpG072hvDcOEhjJSLwFzItlpQK50O7bF+LO6Iq430+Tx6n5XAgsWzE42WLM5BzQzemU9CGPeely3e0i6+PSdWWd6dQO87I9ZeGXRFruCIZDBgrSX5zo7sYR+qvUOvS5wy0UPdLhm7uFfmyjbxRkuZ3RB6OL2kN4yyTVCkowRjH5YfBdfoFDCo4bbHc0Kt84DAyoZxad72Ik3RYGLc/oSzPRYqZp2x28TqisAcdx1fQBuiBEJA=
+  on:
+    tags: true
+    branch: master
+    repo: Pod-Point/pod-point-ui-toolkit
