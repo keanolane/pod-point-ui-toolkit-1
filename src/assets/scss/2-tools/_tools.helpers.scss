@@ -17,6 +17,18 @@
     display: flex;
 }
 
+// Centre element that is absolutely positioned
+@mixin abs-centre {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// Reset an element that is absolutely positioned centred
+@mixin abs-cancel-centre {
+    left: auto;
+    transform: translateX(0);
+}
+
 // Remove default list styling
 %remove-list-styles {
     @include padding(null 0);

@@ -55,6 +55,9 @@
 
     &--highlight {
         border: $border-primary;
+        border-color: $primary-colour;
+        box-shadow: $box-shadow-subtle, $box-shadow-border-thin-primary;
+
     }
 
     &--informative {
@@ -62,6 +65,26 @@
 
         hr {
             opacity: 1;
+        }
+    }
+
+    &--recommended {
+        padding-top: 60px;
+        position: relative;
+
+        &::before {
+            @include position(absolute, 1px null null 1px);
+            background-color: $grey-keyline;
+            border: $border-thin-base;
+            border-radius: 3px 3px 0 0;
+            color: $white;
+            content: 'Recommended';
+            font-size: $font-size-sm-desktop;
+            font-weight: $font-weight-bold;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            width: calc(100% - 2px);
         }
     }
 }

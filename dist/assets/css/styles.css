@@ -294,6 +294,7 @@ button {
   background-color: transparent;
   border: 0;
   cursor: pointer;
+  padding: 0;
   text-decoration: none;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1054,11 +1055,31 @@ img {
       margin-right: 20%;
       margin-left: 20%; }
   .card--highlight {
-    border: 2px solid #8cc63f; }
+    border: 2px solid #8cc63f;
+    border-color: #8cc63f;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px #8cc63f; }
   .card--informative {
     border: 2px solid #ccc; }
     .card--informative hr {
       opacity: 1; }
+  .card--recommended {
+    padding-top: 60px;
+    position: relative; }
+    .card--recommended::before {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      background-color: #ccc;
+      border: 1px solid #ccc;
+      border-radius: 3px 3px 0 0;
+      color: #fff;
+      content: 'Recommended';
+      font-size: 0.875rem;
+      font-weight: 700;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      width: calc(100% - 2px); }
 
 .cards-same-height .card {
   min-height: 100%; }
